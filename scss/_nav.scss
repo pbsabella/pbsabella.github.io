@@ -1,0 +1,27 @@
+
+.Nav {
+  .Nav-list {
+    list-style: none;
+    margin: 0;
+  }
+
+  .Nav-item {
+    display: inline-block;
+    margin-left: 8px;
+    position: relative;
+
+    &.active::after,
+    &:active::after,
+    &:focus::after,
+    &:hover::after {
+      background: #222;
+      content: "";
+      height: 1px;
+      position: absolute;
+      // transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      // transform: scale3d(0, 1, 1);
+      // transform-origin: left center;
+      width: 100%;
+    }
+  }
+}

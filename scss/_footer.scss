@@ -1,6 +1,18 @@
 // Styling for the footer
+.Footer {
+  padding: 25px 0;
+  text-align: center;
+
+  .Footer-buttons-link {
+    font-size: 18px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
 footer {
-  background: #222;
   padding: 25px 0;
   text-align: center;
 
@@ -17,19 +29,6 @@ footer {
     margin-bottom: 0;
     text-transform: none;
     @include heading-font;
-  }
-
-  .social-buttons {
-
-    i {
-      color: #fff;
-
-      &:active,
-      &:focus,
-      &:hover {
-        color: $primary;
-      }
-    }
   }
 }
 
@@ -54,6 +53,14 @@ ul.social-buttons {
       &:hover {
         background-color: $primary;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Footer {
+    .Footer-buttons-link {
+      font-size: 20px;
     }
   }
 }

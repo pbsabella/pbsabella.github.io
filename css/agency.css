@@ -1,7 +1,9 @@
 body {
-  background-color: #222;
+  font-family: 'Heebo', Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
+  font-weight: 300;
   overflow-x: hidden;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 p {
@@ -9,15 +11,16 @@ p {
 }
 
 a {
-  color: #fed136;
+  color: #222;
 }
 
 a:hover {
-  color: #fec503;
+  color: initial;
+  text-decoration: none;
 }
 
 .text-primary {
-  color: #fed136 !important;
+  color: #f9821f !important;
 }
 
 h1,
@@ -27,11 +30,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-section {
-  padding: 100px 0;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 section h2.section-heading {
@@ -49,14 +48,8 @@ section h3.section-subheading {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-@media (min-width: 768px) {
-  section {
-    padding: 150px 0;
-  }
-}
-
 .btn {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
   font-weight: 700;
 }
 
@@ -66,13 +59,13 @@ section h3.section-subheading {
 }
 
 .btn-primary {
-  background-color: #fed136;
-  border-color: #fed136;
+  background-color: #f9821f;
+  border-color: #f9821f;
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #fec810 !important;
-  border-color: #fec810 !important;
+  background-color: #eb6e06 !important;
+  border-color: #eb6e06 !important;
   color: white;
 }
 
@@ -81,12 +74,12 @@ section h3.section-subheading {
 }
 
 ::-moz-selection {
-  background: #fed136;
+  background: #f9821f;
   text-shadow: none;
 }
 
 ::selection {
-  background: #fed136;
+  background: #f9821f;
   text-shadow: none;
 }
 
@@ -96,6 +89,46 @@ img::selection {
 
 img::-moz-selection {
   background: transparent;
+}
+
+.Header {
+  padding: 40px 20px;
+}
+
+.Header .Header-inner {
+  text-align: center;
+}
+
+.Header .Header-nav {
+  margin-left: auto;
+}
+
+.Header .Header-title {
+  font-family: 'Vollkorn', Arial, serif;
+  font-size: 16px;
+}
+
+.Header .Header-title:hover {
+  color: #f9821f;
+}
+
+.Nav .Nav-list {
+  list-style: none;
+  margin: 0;
+}
+
+.Nav .Nav-item {
+  display: inline-block;
+  margin-left: 8px;
+  position: relative;
+}
+
+.Nav .Nav-item.active::after, .Nav .Nav-item:active::after, .Nav .Nav-item:focus::after, .Nav .Nav-item:hover::after {
+  background: #222;
+  content: "";
+  height: 1px;
+  position: absolute;
+  width: 100%;
 }
 
 #mainNav {
@@ -109,17 +142,17 @@ img::-moz-selection {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #fed136;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f9821f;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 #mainNav .navbar-brand {
-  color: #fed136;
+  color: #f9821f;
   font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
 }
 
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #fec503;
+  color: #df6906;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -128,11 +161,11 @@ img::-moz-selection {
   padding: 0.75em 0;
   letter-spacing: 1px;
   color: white;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #fed136;
+  color: #f9821f;
 }
 
 @media (min-width: 992px) {
@@ -165,75 +198,60 @@ img::-moz-selection {
   }
 }
 
-header.masthead {
+.masthead {
   text-align: center;
-  color: #fff;
-  background: #222;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
-header.masthead .intro-text {
-  padding-top: 150px;
-  padding-bottom: 100px;
+.masthead .intro-text {
+  padding: 120px 0;
 }
 
-header.masthead .intro-text .intro-lead-in {
-  font-size: 28px;
-  font-style: italic;
+.masthead .intro-text .intro-lead-in {
+  font-size: 30px;
   line-height: 32px;
   margin-bottom: 26px;
-  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
-header.masthead .intro-text .intro-heading {
+.masthead .intro-text .intro-heading {
   font-size: 50px;
   font-weight: 700;
   line-height: 50px;
   margin-bottom: 25px;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
-header.masthead .intro-text .intro-divider {
-  background: #fff;
+.masthead .intro-text .intro-divider {
+  background: #222;
   height: 1.6px;
   margin: 0 auto 30px;
   width: 22px;
 }
 
-header.masthead .intro-text .intro-description {
-  font-size: 13px;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.masthead .intro-text .intro-description {
+  font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  header.masthead .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
-  header.masthead .intro-text .intro-lead-in {
+  .masthead .intro-text .intro-lead-in {
     font-size: 40px;
-    font-style: italic;
     line-height: 40px;
     margin-bottom: 32px;
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  header.masthead .intro-text .intro-divider {
+  .masthead .intro-text .intro-divider {
     height: 2px;
     width: 36px;
   }
-  header.masthead .intro-text .intro-heading {
+  .masthead .intro-text .intro-heading {
     font-size: 75px;
     font-weight: 700;
     line-height: 75px;
     margin-bottom: 50px;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Vollkorn', Arial, serif;
   }
-  header.masthead .intro-text .intro-description {
-    font-size: 15px;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  .masthead .intro-text .intro-description {
+    font-size: 16px;
   }
 }
 
@@ -263,7 +281,7 @@ header.masthead .intro-text .intro-description {
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(254, 209, 54, 0.9);
+  background: rgba(249, 130, 31, 0.9);
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
@@ -467,7 +485,7 @@ header.masthead .intro-text .intro-description {
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color: #f9821f;
 }
 
 .timeline > li .timeline-image h4 {
@@ -638,38 +656,50 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-  border-color: #fed136;
+  border-color: #f9821f;
   box-shadow: none;
 }
 
 section#contact ::-webkit-input-placeholder {
   font-weight: 700;
   color: #ced4da;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 section#contact :-moz-placeholder {
   font-weight: 700;
   color: #ced4da;
   /* Firefox 18- */
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 section#contact ::-moz-placeholder {
   font-weight: 700;
   color: #ced4da;
   /* Firefox 19+ */
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 section#contact :-ms-input-placeholder {
   font-weight: 700;
   color: #ced4da;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
+}
+
+.Footer {
+  padding: 25px 0;
+  text-align: center;
+}
+
+.Footer .Footer-buttons-link {
+  font-size: 18px;
+}
+
+.Footer .Footer-buttons-link:hover {
+  color: #f9821f;
 }
 
 footer {
-  background: #222;
   padding: 25px 0;
   text-align: center;
 }
@@ -678,7 +708,7 @@ footer span.copyright {
   font-size: 90%;
   line-height: 40px;
   text-transform: none;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 footer ul.quicklinks {
@@ -686,15 +716,7 @@ footer ul.quicklinks {
   line-height: 40px;
   margin-bottom: 0;
   text-transform: none;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-footer .social-buttons i {
-  color: #fff;
-}
-
-footer .social-buttons i:active, footer .social-buttons i:focus, footer .social-buttons i:hover {
-  color: #fed136;
+  font-family: 'Vollkorn', Arial, serif;
 }
 
 ul.social-buttons {
@@ -717,5 +739,11 @@ ul.social-buttons li a {
 }
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
-  background-color: #fed136;
+  background-color: #f9821f;
+}
+
+@media screen and (min-width: 768px) {
+  .Footer .Footer-buttons-link {
+    font-size: 20px;
+  }
 }

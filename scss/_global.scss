@@ -1,8 +1,10 @@
 // Global styling for this template
 body {
-  background-color: #222;
-  overflow-x: hidden;
   @include body-font;
+  background-color: #fafafa;
+  color: #222;
+  font-weight: 300;
+  overflow-x: hidden;
 }
 
 p {
@@ -10,9 +12,11 @@ p {
 }
 
 a {
-  color: $primary;
+  color: #222;
+
   &:hover {
-    color: darken($primary, 10%);
+    color: initial;
+    text-decoration: none;
   }
 }
 
@@ -31,12 +35,12 @@ h6 {
 }
 
 section {
-  padding: 100px 0;
   h2.section-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
   }
+
   h3.section-subheading {
     font-size: 16px;
     font-weight: 400;
@@ -46,11 +50,12 @@ section {
     @include serif-font;
   }
 }
-@media(min-width:768px) {
-  section {
-    padding: 150px 0;
-  }
-}
+
+// @media(min-width:768px) {
+//   section {
+//     padding: 150px 0;
+//   }
+// }
 
 // Button Styles
 .btn {
