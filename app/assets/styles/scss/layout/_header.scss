@@ -1,0 +1,17 @@
+.Header {
+  // border-bottom: 1px solid #eee;
+  height: $header-height;
+  position: fixed;
+  left: 0;
+  min-width: 250px;
+  right: 0;
+  top: 0;
+  z-index: 1;
+
+  &-inner {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 0 $spacing-medium;
+  }
+}

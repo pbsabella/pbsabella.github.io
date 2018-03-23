@@ -1,0 +1,45 @@
+.Introduction {
+  text-align: center;
+
+  &-description {
+    font-size: $font-size-detail;
+  }
+
+  &-divider {
+    background: $dark;
+    height: 1.6px;
+    margin: 0 auto $spacing-xlarge;
+    width: 26px;
+  }
+
+  &-inner {
+    padding: $spacing-xlarge $spacing-medium;
+  }
+
+  &-title {
+    @include heading-font;
+    font-size: $font-size-heading2;
+    margin-bottom: $spacing-small;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .Introduction {
+    &-description {
+      font-size: $font-size-ui;
+    }
+
+    &-divider {
+      height: 2.6px;
+      width: 46px;
+    }
+
+    &-inner {
+      padding: $spacing-xxlarge 0;
+    }
+
+    &-title {
+      font-size: $font-size-heading1;
+    }
+  }
+}

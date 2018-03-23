@@ -1,0 +1,47 @@
+.Card {
+  background: $white;
+  position: relative;
+  margin: 0;
+  width: 100%;
+  box-shadow: 0 1px 6px rgba(25, 25, 25, 0.2);
+
+  &-info {
+    &-content {
+      padding: $spacing-xsmall;
+    }
+  }
+
+  &-figure {
+    align-items: center;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    min-height: 200px;
+    width: 100%;
+  }
+
+  &-image {
+    // position: relative;
+    width: 100%;
+    // height: auto;
+    display: block;
+  }
+
+  &-placeholder {
+    &-image {
+      color: #ccc;
+      opacity: 0.6;
+    }
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .Card {
+    &-placeholder {
+      &-image {
+        font-size: 4rem !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+body {
+  background-color: $charcoal-xxxlight;
+  color: $dark;
+  font-size: $font-size-ui;
+  font-weight: $font-weight-light;
+  @include body-font;
+}
+
+header {
+  background-color: $charcoal-xxxlight;
+}
+
+nav {
+  background: inherit;
+  box-shadow: none;
+}
+
+nav ul a:hover {
+  background-color: rgba(0,0,0,0);
+}
+
+::selection {
+  background: $primary;
+}
+
+html,
+body {
+    height: 100%;
+}
