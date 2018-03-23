@@ -11,32 +11,32 @@ gulp.task('vendor', function () {
   gulp.src([
     './node_modules/materialize-css/dist/**/*',
   ])
-  .pipe(gulp.dest('app/vendor/materialize-css'))
+  .pipe(gulp.dest('./vendor/materialize-css'))
 });
 
 // Convert SASS to CSS
 gulp.task('css:compile', function () {
-  return gulp.src('app/assets/styles/scss/**/*.scss')
+  return gulp.src('./assets/styles/scss/**/*.scss')
     .pipe(
       sass.sync({
         outputStyle: 'expanded'
       })
       .on('error', sass.logError)
     )
-    .pipe(gulp.dest('app/assets/styles/css'))
+    .pipe(gulp.dest('./assets/styles/css'))
 });
 
 // Minify CSS
 gulp.task('css:minify', ['css:compile'], function () {
   return gulp.src([
-      'app/assets/styles/css/*.css',
-      '!app/assets/styles/css/*.min.css'
+      './assets/styles/css/*.css',
+      '!./assets/styles/css/*.min.css'
     ])
     .pipe(cleanCSS())
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('app/assets/styles/css'))
+    .pipe(gulp.dest('./assets/styles/css'))
     .pipe(browserSync.stream());
 });
 
@@ -47,7 +47,7 @@ gulp.task('css', ['css:compile', 'css:minify']);
 gulp.task('browserSync', function () {
   browserSync.init({
     server: {
-      baseDir: "app/"
+      baseDir: "./"
     }
   });
 });
@@ -65,6 +65,6 @@ gulp.task('watch', ['css', 'browserSync'], function () {
     }, 500);
   });
 
-  gulp.watch('app/assets/styles/scss/**/*.scss', ['css'], browserSync.reload);
-  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('./assets/styles/scss/**/*.scss', ['css'], browserSync.reload);
+  gulp.watch('./*.html', browserSync.reload);
 });
