@@ -1,0 +1,16 @@
+.Nav {
+  &-item {
+    color: $dark;
+  }
+
+  &-logo {
+    @include heading-font;
+    color: $dark;
+    padding: $spacing-small 0;
+  }
+
+  &-link {
+    @include body-font;
+    color: $dark;
+  }
+}

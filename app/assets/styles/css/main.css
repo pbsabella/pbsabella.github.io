@@ -1,0 +1,50 @@
+body {
+  background-color: #fafafa;
+  color: #222222;
+  font-size: 14px;
+  font-family: 'Heebo', Arial, sans-serif;
+}
+
+header {
+  background-color: #fafafa;
+}
+
+nav {
+  background: inherit;
+  box-shadow: none;
+}
+
+nav ul a:hover {
+  background-color: transparent;
+}
+
+.Header {
+  height: 66px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.Header-inner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.Nav-item {
+  color: #222222;
+}
+
+.Nav-logo {
+  font-family: 'Vollkorn', Arial, serif;
+  color: #222222;
+  padding: 16px 0;
+}
+
+.Nav-link {
+  font-family: 'Heebo', Arial, sans-serif;
+  color: #222222;
+}
