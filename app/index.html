@@ -10,6 +10,9 @@
 
     <title>pbsabella</title>
 
+    <!-- Import Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Import Google Icon Font -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -30,40 +33,213 @@
     <header class="Header">
       <div class="Header-inner">
         <nav class="Nav">
-          <div class="Nav-container">
-            <a href="/" class="Nav-logo">pbsabella</a>
+          <a href="/" class="Nav-logo">pbsabella</a>
 
-            <ul class="Nav-list right hide-on-med-and-up">
-              <li class="Nav-item">
-                <a class="Nav-link" href="#"><i class="material-icons medium">menu</i></a>
-              </li>
-            </ul>
+          <!-- <ul class="Nav-list right hide-on-medium">
+            <li class="Nav-item">
+              <a class="Nav-link sidenav-trigger" href="#" data-target="slide-out"><i class="material-icons medium">menu</i></a>
+            </li>
+          </ul> -->
 
-            <ul class="Nav-list right hide-on-small-only col s12 l6">
-              <li class="Nav-item">
-                <a class="Nav-link" href="#">About</a>
-                <a class="Nav-link" href="#">Portfolio</a>
-              </li>
-            </ul>
-          </div>
+          <ul class="Nav-list right hide-on-small">
+            <li class="Nav-item">
+              <a class="Nav-link" href="#about">About</a>
+            </li>
+            <li class="Nav-item">
+              <a class="Nav-link" href="#recent-works">Recent Works</a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
 
-    <!-- <div class="card small">
-      <div class="card-image">
-        <img src="assets/images/headphones.jpg">
-        <span class="card-title">Card Title</span>
+    <main class="Main">
+      <div class="Introduction">
+        <div class="Introduction-inner">
+          <div class="Introduction-title">
+            My portfolio is on its way
+          </div>
+          <div class="Introduction-divider"></div>
+          <div class="Introduction-description">
+            Web Development / Branding / Design
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-      <div class="card-action">
-        <a href="#">This is a link</a>
-      </div>
-    </div> -->
+    </main>
 
-    <footer></footer>
+    <section id="about" class="Section scrollspy">
+      <div class="Section-inner">
+        <div class="Section-content">
+          <div class="Section-title">
+            About
+          </div>
+          <div class="Section-subtitle">
+            <!-- Web Developer and Graphic Designer based in Metro Manila, Philippines -->
+            Marquee selectus non provisio incongruous feline nolo contendre
+          </div>
+          <p class="Section-description">
+            Eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium
+            fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus
+          </p>
+        </div>
+      </div>
+
+      <div class="Section-figure">
+        <div class="Section-skills">
+          <div class="Section-skills-category">
+            <div class="Section-skills-title">
+              Epsum factorial
+            </div>
+            <div class="Section-skills-description">
+              Sit amet consectetuer
+            </div>
+            <div class="Section-skills-description">
+              Elit sed
+            </div>
+            <div class="Section-skills-description">
+              Diam nonummy nibh
+            </div>
+            <div class="Section-skills-description">
+                Tincidunt ut
+            </div>
+          </div>
+
+          <div class="Section-skills-category">
+            <div class="Section-skills-title">
+              In vulputate
+            </div>
+            <div class="Section-skills-description">
+              Velit esse molestie
+            </div>
+            <div class="Section-skills-description">
+                Vel illum
+            </div>
+          </div>
+
+          <!-- <div class="Section-skills-category">
+            <div class="Section-skills-title">
+              Design
+            </div>
+            <div class="Section-skills-description">
+              Logo & Branding
+            </div>
+            <div class="Section-skills-description">
+              Brand Guidelines
+            </div>
+            <div class="Section-skills-description">
+              Business Card
+            </div>
+            <div class="Section-skills-description">
+              Presentation
+            </div>
+            <div class="Section-skills-description">
+              UI & UX
+            </div>
+          </div>
+
+          <div class="Section-skills-category">
+            <div class="Section-skills-title">
+              Development
+            </div>
+            <div class="Section-skills-description">
+              Front-end & back-end
+            </div>
+          </div> -->
+        </div>
+
+        <!-- <div class="Section-socials">
+          <span class="Section-socials-item">
+            <a href="https://www.linkedin.com/in/pbsabella/" target="_blank">
+              <i class="Section-socials-icon fa fa-linkedin"></i>
+            </a>
+          </span>
+        </div> -->
+      </div>
+    </section>
+
+    <section id="recent-works" class="Section scrollspy">
+      <div class="Section-inner">
+        <div class="Section-content Section-content--full">
+          <div class="Section-title">
+            Recent works
+          </div>
+
+          <div class="Section-grid">
+            <ul class="Section-grid-list">
+
+              <li class="Section-grid-item">
+                <div class="Card">
+                  <figure class="Card-figure">
+                    <i class="Card-placeholder-image material-icons large">image</i>
+                  </figure>
+                  <div class="Card-info">
+                    <div class="Card-info-content">
+                      Logo Design
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="Section-grid-item">
+                <div class="Card">
+                  <figure class="Card-figure">
+                    <i class="Card-placeholder-image material-icons large">image</i>
+                  </figure>
+                  <div class="Card-info">
+                    <div class="Card-info-content">
+                      Logo Design
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="Section-grid-item">
+                <div class="Card">
+                  <figure class="Card-figure">
+                    <i class="Card-placeholder-image material-icons large">image</i>
+                  </figure>
+                  <div class="Card-info">
+                    <div class="Card-info-content">
+                      Logo Design
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="Section-grid-item">
+                <div class="Card">
+                  <figure class="Card-figure">
+                    <i class="Card-placeholder-image material-icons large">image</i>
+                  </figure>
+                  <div class="Card-info">
+                    <div class="Card-info-content">
+                      Logo Design
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="Footer">
+      <!-- <a href="https://www.linkedin.com/in/pbsabella/" target="_blank">
+        <i class="Section-socials-icon fa fa-linkedin"></i>
+      </a> -->
+      <div class="Footer-inner">
+        <nav class="Footer-nav Nav">
+          <ul class="Nav-list">
+            <li class="Nav-item">
+              <a class="Nav-link" href="https://www.linkedin.com/in/pbsabella/" target="_blank">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

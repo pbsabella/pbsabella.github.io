@@ -56,7 +56,7 @@ gulp.task('browserSync', function () {
 gulp.task('default', ['css', 'vendor']);
 
 // Dev task
-gulp.task('dev', ['css', 'browserSync'], function () {
+gulp.task('watch', ['css', 'browserSync'], function () {
 
   process.on('SIGINT', function () {
     setTimeout(function () {
@@ -65,6 +65,6 @@ gulp.task('dev', ['css', 'browserSync'], function () {
     }, 500);
   });
 
-  gulp.watch('app/assets/styles/scss/*.scss', ['css'], browserSync.reload);
+  gulp.watch('app/assets/styles/scss/**/*.scss', ['css'], browserSync.reload);
   gulp.watch('app/*.html', browserSync.reload);
 });
