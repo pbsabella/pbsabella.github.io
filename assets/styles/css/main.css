@@ -204,24 +204,34 @@ nav ul a:hover {
 }
 
 .Hero-description {
+  background: #010101;
+  color: white;
   font-size: 14px;
   font-weight: 300;
+  padding: 24px;
   width: 70%;
   word-break: break-word;
 }
 
 .Hero-divider {
-  background: #010101;
   height: 2.4px;
-  margin-bottom: 44px;
-  width: 24px;
+  margin-bottom: 24px;
+  width: 32px;
+}
+
+.Hero-divider--dark {
+  background: #010101;
+}
+
+.Hero-divider--white {
+  background: white;
 }
 
 .Hero-figure {
-  background: #3dd99c;
+  border: 6px solid #3dd99c;
   bottom: 0;
   position: absolute;
-  right: 0;
+  right: 24px;
   top: 0;
   width: 70%;
   z-index: -1;
@@ -252,7 +262,6 @@ nav ul a:hover {
   }
   .Hero-divider {
     height: 3.4px;
-    margin-bottom: 64px;
     width: 46px;
   }
   .Hero-figure {

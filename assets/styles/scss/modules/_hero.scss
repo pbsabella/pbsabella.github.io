@@ -11,25 +11,35 @@
   }
 
   &-description {
+    background: $dark;
+    color: $white;
     font-size: $font-size-ui;
     font-weight: $font-weight-light;
+    padding: $spacing-medium;
     width: 70%;
     word-break: break-word;
   }
 
   &-divider {
-    background: $dark;
     height: 2.4px;
     // margin: 0 auto $spacing-xlarge;
-    margin-bottom: $spacing-large;
-    width: 24px;
+    margin-bottom: $spacing-medium;
+    width: 32px;
+
+    &--dark {
+      background: $dark;
+    }
+
+    &--white {
+      background: $white;
+    }
   }
 
   &-figure {
-    background: $primary;
+    border: 6px solid $primary;
     bottom: 0;
     position: absolute;
-    right: 0;
+    right: $spacing-medium;
     top: 0;
     width: 70%;
     z-index: -1;
@@ -64,7 +74,6 @@
 
     &-divider {
       height: 3.4px;
-      margin-bottom: $spacing-xlarge;
       width: 46px;
     }
 
