@@ -195,6 +195,7 @@ nav ul a:hover {
  * Default: Mobile
  */
 .Hero {
+  margin-top: 46px;
   width: 100%;
 }
 
