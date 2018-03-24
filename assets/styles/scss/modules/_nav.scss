@@ -37,6 +37,10 @@
     &:hover::after {
       transform: scale3d(1, 1, 1);
     }
+
+    &.is-active {
+      font-weight: $font-weight-regular;
+    }
   }
 
   &-menu {

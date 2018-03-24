@@ -258,6 +258,10 @@ nav ul a:hover {
   transform: scale3d(1, 1, 1);
 }
 
+.Nav-link.is-active {
+  font-weight: 400;
+}
+
 .Nav-menu-icon {
   color: #222222;
 }
