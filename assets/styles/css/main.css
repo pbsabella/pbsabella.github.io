@@ -148,6 +148,7 @@ nav ul a:hover {
 
 .Card-info-content {
   padding: 12px;
+  text-align: left;
 }
 
 .Card-figure {
@@ -220,6 +221,9 @@ nav ul a:hover {
 
 .Nav-item {
   color: #222222;
+}
+
+.Nav-item:not(:first-child) {
   padding-left: 24px;
 }
 

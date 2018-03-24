@@ -1,7 +1,10 @@
 .Nav {
   &-item {
     color: $dark;
-    padding-left: $spacing-medium;
+
+    &:not(:first-child) {
+      padding-left: $spacing-medium;
+    }
   }
 
   &-logo {
