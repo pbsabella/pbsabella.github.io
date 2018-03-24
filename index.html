@@ -33,7 +33,7 @@
           <a href="#hero" class="Nav-logo">pbsabella</a>
 
           <div class="Nav-menu right hide-on-medium">
-            <a class="Nav-menu-link" href="#">
+            <a class="Nav-menu-link sidenav-trigger" href="#" data-target="slide-out">
               <i class="Nav-menu-icon material-icons">menu</i>
             </a>
           </div>
@@ -49,6 +49,17 @@
         </nav>
       </div>
     </header>
+
+    <div class="SideMenu">
+      <ul id="slide-out" class="SideMenu-list sidenav">
+        <li class="SideMenu-item">
+          <a class="SideMenu-link sidenav-close waves-effect" href="#about">About</a>
+        </li>
+        <li class="SideMenu-item">
+          <a class="SideMenu-link sidenav-close waves-effect" href="#recent-works">Recent Works</a>
+        </li>
+      </ul>
+    </div>
 
     <main id="hero" class="Main">
       <div class="Hero">
@@ -223,9 +234,6 @@
     </section>
 
     <footer class="Footer">
-      <!-- <a href="https://www.linkedin.com/in/pbsabella/" target="_blank">
-        <i class="Section-socials-icon fa fa-linkedin"></i>
-      </a> -->
       <div class="Footer-inner">
         <nav class="Footer-nav Nav">
           <ul class="Nav-list">
@@ -238,5 +246,8 @@
         </nav>
       </div>
     </footer>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="assets/scripts/js/main.min.js"></script>
   </body>
 </html>

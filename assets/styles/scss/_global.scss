@@ -6,24 +6,29 @@ body {
   @include body-font;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 header {
   background-color: $charcoal-xxxlight;
-}
-
-nav {
-  background: inherit;
-  box-shadow: none;
-}
-
-nav ul a:hover {
-  background-color: rgba(0,0,0,0);
 }
 
 ::selection {
   background: $primary;
 }
 
-html,
-body {
-    height: 100%;
+// Override Material CSS
+nav {
+  background: inherit;
+  box-shadow: none;
+
+  .sidenav-trigger {
+    margin: 0;
+  }
+}
+
+nav ul a:hover {
+  background-color: rgba(0,0,0,0);
 }

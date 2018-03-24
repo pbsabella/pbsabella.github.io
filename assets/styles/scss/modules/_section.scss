@@ -10,7 +10,6 @@
   // }
 
   &-content {
-    padding: 0 $spacing-large;
     width: 100%;
   }
 
@@ -53,7 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     // padding: $spacing-large 0;
-    padding: $spacing-large $spacing-medium;
+    padding: $spacing-xxlarge $spacing-medium;
   }
 
   &-skills {
@@ -108,7 +107,6 @@
     text-align: left;
 
     &-content {
-      padding: 0 $spacing-small;
       width: 40%;
 
       &--full {
@@ -129,10 +127,6 @@
       font-size: $font-size-ui;
     }
 
-    &-inner {
-      padding: $spacing-xlarge $spacing-medium;
-    }
-
     &-title {
       font-size: $font-size-heading1;
       line-height: 48px;
@@ -143,17 +137,18 @@
       font-size: $font-size-heading3;
       font-weight: $font-weight-regular;
       line-height: 28px;
+
     }
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .Section {
-    &-content {
-      padding: 0 $spacing-xsmall;
-    }
-  }
-}
+// @media only screen and (max-width: 400px) {
+//   .Section {
+//     &-content {
+//       padding: 0 $spacing-xsmall;
+//     }
+//   }
+// }
 
 @media only screen and (max-width: 1400px) {
   .Section {

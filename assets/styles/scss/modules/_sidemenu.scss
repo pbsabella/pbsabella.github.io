@@ -1,0 +1,9 @@
+.SideMenu {
+  &-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  &-link {
+    padding: 0 $spacing-medium !important;
+  }
+}

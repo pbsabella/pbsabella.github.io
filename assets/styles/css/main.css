@@ -1,13 +1,22 @@
 body {
-  background-color: #fafafa;
+  background-color: #fcfcfc;
   color: #222222;
   font-size: 14px;
   font-weight: 300;
   font-family: 'Heebo', Arial, sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 header {
-  background-color: #fafafa;
+  background-color: #fcfcfc;
+}
+
+::selection {
+  background: #fed136;
 }
 
 nav {
@@ -15,17 +24,12 @@ nav {
   box-shadow: none;
 }
 
+nav .sidenav-trigger {
+  margin: 0;
+}
+
 nav ul a:hover {
   background-color: transparent;
-}
-
-::selection {
-  background: #fed136;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .Header {
@@ -138,7 +142,8 @@ body {
   position: relative;
   margin: 0;
   width: 100%;
-  box-shadow: 0 1px 6px rgba(25, 25, 25, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
 }
 
 .Card-info-content {
@@ -148,6 +153,7 @@ body {
 .Card-figure {
   align-items: center;
   background: #eee;
+  border-radius: 4px 4px 0 0;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -280,7 +286,6 @@ body {
 }
 
 .Section-content {
-  padding: 0 44px;
   width: 100%;
 }
 
@@ -310,7 +315,7 @@ body {
 .Section-inner {
   display: flex;
   flex-wrap: wrap;
-  padding: 44px 24px;
+  padding: 84px 24px;
 }
 
 .Section-skills {
@@ -362,7 +367,6 @@ body {
     text-align: left;
   }
   .Section-content {
-    padding: 0 16px;
     width: 40%;
   }
   .Section-content--full {
@@ -379,9 +383,6 @@ body {
   .Section-description {
     font-size: 14px;
   }
-  .Section-inner {
-    padding: 64px 24px;
-  }
   .Section-title {
     font-size: 48px;
     line-height: 48px;
@@ -391,12 +392,6 @@ body {
     font-size: 21px;
     font-weight: 400;
     line-height: 28px;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .Section-content {
-    padding: 0 12px;
   }
 }
 
@@ -422,4 +417,12 @@ body {
   .Section-grid-item {
     width: 100%;
   }
+}
+
+.SideMenu-item {
+  border-bottom: 1px solid #eee;
+}
+
+.SideMenu-link {
+  padding: 0 24px !important;
 }
