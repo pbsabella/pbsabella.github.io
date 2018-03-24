@@ -16,7 +16,7 @@ header {
 }
 
 ::selection {
-  background: #3dd99c;
+  background: #03a87c;
 }
 
 nav {
@@ -228,7 +228,7 @@ nav ul a:hover {
 }
 
 .Hero-figure {
-  border: 6px solid #3dd99c;
+  border: 6px solid #03a87c;
   bottom: 0;
   position: absolute;
   right: 24px;
@@ -366,7 +366,7 @@ nav ul a:hover {
 }
 
 .Section-figure {
-  background: #3dd99c;
+  background: #03a87c;
   color: #010101;
   width: 100%;
   text-align: left;
