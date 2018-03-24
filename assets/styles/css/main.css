@@ -1,8 +1,8 @@
 body {
-  background-color: #fcfcfc;
-  color: #222222;
+  background-color: #f2f2f2;
+  color: #010101;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: 'Heebo', Arial, sans-serif;
 }
 
@@ -12,11 +12,11 @@ body {
 }
 
 header {
-  background-color: #fcfcfc;
+  background-color: none;
 }
 
 ::selection {
-  background: #fed136;
+  background: #3dd99c;
 }
 
 nav {
@@ -32,11 +32,15 @@ nav ul a:hover {
   background-color: transparent;
 }
 
+/**
+ * Default: Mobile
+ */
 .Header {
+  background: rgba(242, 242, 242, 0.9);
   height: 46px;
-  position: fixed;
   left: 0;
   min-width: 250px;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 1;
@@ -47,6 +51,15 @@ nav ul a:hover {
   display: flex;
   height: 100%;
   padding: 0 24px;
+}
+
+/**
+ * Tablet
+ */
+@media only screen and (min-width: 768px) {
+  .Header-inner {
+    padding: 0 44px;
+  }
 }
 
 .Footer-nav {
@@ -138,7 +151,7 @@ nav ul a:hover {
 }
 
 .Card {
-  background: #ffffff;
+  background: white;
   position: relative;
   margin: 0;
   width: 100%;
@@ -178,49 +191,94 @@ nav ul a:hover {
   }
 }
 
+/**
+ * Default: Mobile
+ */
 .Hero {
-  text-align: center;
+  width: 100%;
+}
+
+.Hero-content {
+  width: 80%;
 }
 
 .Hero-description {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 300;
+  width: 70%;
+  word-break: break-word;
 }
 
 .Hero-divider {
-  background: #222222;
-  height: 1.6px;
-  margin: 0 auto 64px;
-  width: 26px;
+  background: #010101;
+  height: 2.4px;
+  margin-bottom: 44px;
+  width: 24px;
+}
+
+.Hero-figure {
+  background: #3dd99c;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70%;
+  z-index: -1;
 }
 
 .Hero-inner {
   padding: 64px 24px;
+  position: relative;
 }
 
 .Hero-title {
   font-family: 'Vollkorn', Arial, serif;
-  font-size: 32px;
-  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 48px;
+  margin-bottom: 44px;
 }
 
-@media only screen and (min-width: 801px) {
+/**
+ * Tablet
+ */
+@media only screen and (min-width: 768px) {
+  .Hero-content {
+    width: 70%;
+  }
   .Hero-description {
-    font-size: 14px;
+    font-size: 16px;
   }
   .Hero-divider {
-    height: 2.6px;
+    height: 3.4px;
+    margin-bottom: 64px;
     width: 46px;
   }
+  .Hero-figure {
+    right: 44px;
+    width: 60%;
+  }
   .Hero-inner {
-    padding: 84px 0;
+    padding: 64px 44px;
   }
   .Hero-title {
-    font-size: 48px;
+    font-size: 66px;
+    line-height: 68px;
+    margin-bottom: 64px;
+  }
+}
+
+/**
+ * Extra: Small device
+ */
+@media only screen and (max-width: 321px) {
+  .Hero-content {
+    width: 90%;
   }
 }
 
 .Nav-item {
-  color: #222222;
+  color: #010101;
 }
 
 .Nav-item:not(:first-child) {
@@ -228,7 +286,7 @@ nav ul a:hover {
 }
 
 .Nav-logo {
-  color: #222222;
+  color: #010101;
   font-size: 16px;
   font-weight: 600;
   padding: 16px 0;
@@ -237,7 +295,7 @@ nav ul a:hover {
 
 .Nav-link {
   font-family: 'Heebo', Arial, sans-serif;
-  color: #222222;
+  color: #010101;
   display: inline-block;
   line-height: initial;
   padding: 2px 0;
@@ -246,7 +304,7 @@ nav ul a:hover {
 }
 
 .Nav-link::after {
-  background: #222222;
+  background: #010101;
   bottom: 0;
   content: '';
   height: 1.6px;
@@ -263,11 +321,11 @@ nav ul a:hover {
 }
 
 .Nav-link.is-active {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .Nav-menu-icon {
-  color: #222222;
+  color: #010101;
 }
 
 .Nav-list {
@@ -298,8 +356,8 @@ nav ul a:hover {
 }
 
 .Section-figure {
-  background: #fecb1d;
-  color: #222222;
+  background: #3dd99c;
+  color: #010101;
   width: 100%;
   text-align: left;
   top: 0;
@@ -307,7 +365,7 @@ nav ul a:hover {
 }
 
 .Section-figure ::selection {
-  background: #ffffff;
+  background: white;
 }
 
 .Section-grid-list {
@@ -323,7 +381,7 @@ nav ul a:hover {
 .Section-inner {
   display: flex;
   flex-wrap: wrap;
-  padding: 84px 24px;
+  padding: 64px 24px;
 }
 
 .Section-skills {
@@ -349,7 +407,7 @@ nav ul a:hover {
 }
 
 .Section-socials-icon {
-  color: #222222;
+  color: #010101;
 }
 
 .Section-subtitle {
@@ -366,11 +424,11 @@ nav ul a:hover {
 }
 
 .Section--dark {
-  background: #222222;
-  color: #ffffff;
+  background: #010101;
+  color: white;
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 768px) {
   .Section {
     text-align: left;
   }
@@ -380,16 +438,19 @@ nav ul a:hover {
   .Section-content--full {
     width: 100%;
   }
+  .Section-description {
+    font-size: 14px;
+  }
   .Section-figure {
     bottom: 0;
     margin: 44px 0;
-    padding: 44px;
+    padding: 24px 44px;
     position: absolute;
     right: 0;
     width: 55%;
   }
-  .Section-description {
-    font-size: 14px;
+  .Section-inner {
+    padding: 64px 44px;
   }
   .Section-title {
     font-size: 48px;

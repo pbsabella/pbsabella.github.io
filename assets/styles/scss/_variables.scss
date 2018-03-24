@@ -1,13 +1,13 @@
 // Variables
 
 // Colors
-$white: #ffffff;
+$white: rgb(255, 255, 255);
+$charcoal-xxlight: #f2f2f2;
 
-$charcoal-xxxlight: #fcfcfc;
-
-$dark: #222222;
+$dark: #010101;
 // $primary: #f9821f !default;
-$primary: #fed136;
+// $primary: #f8ca24;
+$primary: #3dd99c;
 
 // Constants
 $header-height: 46px;
@@ -19,6 +19,7 @@ $font-size-landing: 16px;
 $font-size-heading3: 21px;
 $font-size-heading2: 32px;
 $font-size-heading1: 48px;
+$font-size-heading: 66px;
 
 // Font weight
 $font-weight-light: 300;

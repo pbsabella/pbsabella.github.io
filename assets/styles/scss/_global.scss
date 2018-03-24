@@ -1,8 +1,8 @@
 body {
-  background-color: $charcoal-xxxlight;
+  background-color: $charcoal-xxlight;
   color: $dark;
   font-size: $font-size-ui;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-regular;
   @include body-font;
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background-color: $charcoal-xxxlight;
+  background-color: none;
 }
 
 ::selection {

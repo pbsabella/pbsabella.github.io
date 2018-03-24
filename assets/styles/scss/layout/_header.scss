@@ -1,9 +1,13 @@
+/**
+ * Default: Mobile
+ */
 .Header {
   // border-bottom: 1px solid #eee;
+  background: rgba(242, 242, 242, 0.9);
   height: $header-height;
-  position: fixed;
   left: 0;
   min-width: 250px;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 1;
@@ -13,5 +17,16 @@
     display: flex;
     height: 100%;
     padding: 0 $spacing-medium;
+  }
+}
+
+/**
+ * Tablet
+ */
+@media only screen and (min-width: 768px) {
+  .Header {
+    &-inner {
+      padding: 0 $spacing-large;
+    }
   }
 }

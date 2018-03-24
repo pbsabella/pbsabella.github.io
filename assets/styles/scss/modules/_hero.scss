@@ -1,45 +1,96 @@
+/**
+ * Default: Mobile
+ */
 .Hero {
-  text-align: center;
+  // text-align: center;
+  width: 100%;
+
+  &-content {
+    width: 80%;
+  }
 
   &-description {
-    font-size: $font-size-detail;
+    font-size: $font-size-ui;
+    font-weight: $font-weight-light;
+    width: 70%;
+    word-break: break-word;
   }
 
   &-divider {
     background: $dark;
-    height: 1.6px;
-    margin: 0 auto $spacing-xlarge;
-    width: 26px;
+    height: 2.4px;
+    // margin: 0 auto $spacing-xlarge;
+    margin-bottom: $spacing-large;
+    width: 24px;
+  }
+
+  &-figure {
+    background: $primary;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    z-index: -1;
   }
 
   &-inner {
     padding: $spacing-xlarge $spacing-medium;
+    position: relative;
   }
 
   &-title {
     @include heading-font;
-    font-size: $font-size-heading2;
-    margin-bottom: $spacing-small;
+    font-size: $font-size-heading1;
+    font-weight: $font-weight-medium;
+    line-height: 48px;
+    margin-bottom: $spacing-large;
   }
 }
 
-@media only screen and (min-width: 801px) {
+/**
+ * Tablet
+ */
+@media only screen and (min-width: 768px) {
   .Hero {
+    &-content {
+      width: 70%;
+    }
+
     &-description {
-      font-size: $font-size-ui;
+      font-size: $font-size-landing;
     }
 
     &-divider {
-      height: 2.6px;
+      height: 3.4px;
+      margin-bottom: $spacing-xlarge;
       width: 46px;
     }
 
+    &-figure {
+      right: 44px;
+      width: 60%;
+    }
+
     &-inner {
-      padding: $spacing-xxlarge 0;
+      padding: $spacing-xlarge $spacing-large;
     }
 
     &-title {
-      font-size: $font-size-heading1;
+      font-size: $font-size-heading;
+      line-height: 68px;
+      margin-bottom: $spacing-xlarge;
+    }
+  }
+}
+
+/**
+ * Extra: Small device
+ */
+@media only screen and (max-width: 321px) {
+  .Hero {
+    &-content {
+      width: 90%;
     }
   }
 }

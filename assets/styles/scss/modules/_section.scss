@@ -4,17 +4,12 @@
   text-align: center;
   margin-bottom: $spacing-large;
 
-  // Additional padding top to account for header
-  // &:first-child {
-  //   padding: ($header-height * 2) $spacing-medium $header-height;
-  // }
-
   &-content {
     width: 100%;
   }
 
   &-figure {
-    background: darken($primary, 5%);
+    background: $primary;
     color: $dark;
     // height: 300px;
     width: 100%;
@@ -52,7 +47,7 @@
     display: flex;
     flex-wrap: wrap;
     // padding: $spacing-large 0;
-    padding: $spacing-xxlarge $spacing-medium;
+    padding: $spacing-xlarge $spacing-medium;
   }
 
   &-skills {
@@ -102,7 +97,7 @@
   }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 768px) {
   .Section {
     text-align: left;
 
@@ -114,17 +109,21 @@
       }
     }
 
+    &-description {
+      font-size: $font-size-ui;
+    }
+
     &-figure {
       bottom: 0;
       margin: $spacing-large 0;
-      padding: $spacing-large;
+      padding: $spacing-medium $spacing-large;
       position: absolute;
       right: 0;
       width: 55%;
     }
 
-    &-description {
-      font-size: $font-size-ui;
+    &-inner {
+      padding: $spacing-xlarge $spacing-large;
     }
 
     &-title {
