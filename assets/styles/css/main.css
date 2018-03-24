@@ -171,50 +171,50 @@ body {
   }
 }
 
-.Introduction {
+.Hero {
   text-align: center;
 }
 
-.Introduction-description {
+.Hero-description {
   font-size: 13px;
 }
 
-.Introduction-divider {
+.Hero-divider {
   background: #222222;
   height: 1.6px;
   margin: 0 auto 64px;
   width: 26px;
 }
 
-.Introduction-inner {
+.Hero-inner {
   padding: 64px 24px;
 }
 
-.Introduction-title {
+.Hero-title {
   font-family: 'Vollkorn', Arial, serif;
   font-size: 32px;
   margin-bottom: 16px;
 }
 
 @media only screen and (min-width: 801px) {
-  .Introduction-description {
+  .Hero-description {
     font-size: 14px;
   }
-  .Introduction-divider {
+  .Hero-divider {
     height: 2.6px;
     width: 46px;
   }
-  .Introduction-inner {
+  .Hero-inner {
     padding: 84px 0;
   }
-  .Introduction-title {
+  .Hero-title {
     font-size: 48px;
   }
 }
 
 .Nav-item {
   color: #222222;
-  padding: 0 15px;
+  padding-left: 24px;
 }
 
 .Nav-logo {
@@ -239,19 +239,21 @@ body {
   background: #222;
   bottom: 0;
   content: '';
-  height: 1.4px;
+  height: 1.6px;
   left: 0;
   position: absolute;
-  right: 0;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
+  transform: scale3d(0, 1, 1);
+  transition: all 0.3s ease-out;
   transform-origin: left;
-  visibility: hidden;
+  width: 100%;
 }
 
 .Nav-link:hover::after {
-  visibility: visible;
-  transform: scaleX(1);
+  transform: scale3d(1, 1, 1);
+}
+
+.Nav-menu-icon {
+  color: #222222;
 }
 
 .Nav-list {
@@ -262,9 +264,6 @@ body {
 @media only screen and (max-width: 400px) {
   .hide-on-small {
     display: none;
-  }
-  .Nav {
-    text-align: center;
   }
 }
 

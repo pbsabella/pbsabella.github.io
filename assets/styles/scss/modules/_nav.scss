@@ -1,7 +1,7 @@
 .Nav {
   &-item {
     color: $dark;
-    padding: 0 15px;
+    padding-left: $spacing-medium;
   }
 
   &-logo {
@@ -25,19 +25,23 @@
       background: #222;
       bottom: 0;
       content: '';
-      height: 1.4px;
+      height: 1.6px;
       left: 0;
       position: absolute;
-      right: 0;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out 0s;
+      transform: scale3d(0, 1, 1);
+      transition: all 0.3s ease-out;
       transform-origin: left;
-      visibility: hidden;
+      width: 100%;
     }
 
     &:hover::after {
-      visibility: visible;
-      transform: scaleX(1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  &-menu {
+    &-icon {
+      color: $dark;
     }
   }
 
@@ -52,9 +56,9 @@
     display: none;
   }
 
-  .Nav {
-    text-align: center;
-  }
+  // .Nav {
+  //   text-align: center;
+  // }
 }
 
 @media only screen and (min-width: 401px) {
