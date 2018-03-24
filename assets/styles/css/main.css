@@ -242,7 +242,7 @@ nav ul a:hover {
 }
 
 .Nav-link::after {
-  background: #222;
+  background: #222222;
   bottom: 0;
   content: '';
   height: 1.6px;

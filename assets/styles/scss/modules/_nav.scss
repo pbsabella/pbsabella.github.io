@@ -22,7 +22,7 @@
     text-transform: lowercase;
 
     &::after {
-      background: #222;
+      background: $dark;
       bottom: 0;
       content: '';
       height: 1.6px;
