@@ -2,9 +2,11 @@
  * Default: Mobile
  */
 .Hero {
-  // text-align: center;
-  margin-top: $header-height;
-  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: center;
 
   &-content {
     width: 80%;
@@ -22,7 +24,6 @@
 
   &-divider {
     height: 2.4px;
-    // margin: 0 auto $spacing-xlarge;
     margin-bottom: $spacing-medium;
     width: 32px;
 
@@ -38,6 +39,7 @@
   &-figure {
     border: 6px solid $primary;
     bottom: 0;
+    margin: $spacing-medium 0;
     position: absolute;
     right: $spacing-medium;
     top: 0;
@@ -47,7 +49,7 @@
 
   &-inner {
     padding: $spacing-xlarge $spacing-medium;
-    position: relative;
+    width: 100%;
   }
 
   &-title {
@@ -78,7 +80,8 @@
     }
 
     &-figure {
-      right: 44px;
+      margin: $spacing-large 0;
+      right: $spacing-large;
       width: 60%;
     }
 
