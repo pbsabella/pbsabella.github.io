@@ -17,7 +17,7 @@
     color: $white;
     font-size: $font-size-ui;
     font-weight: $font-weight-light;
-    padding: $spacing-medium;
+    padding: $spacing-small;
     width: 70%;
     word-break: break-word;
   }
@@ -72,10 +72,11 @@
 
     &-description {
       font-size: $font-size-landing;
+      padding: $spacing-medium;
     }
 
     &-divider {
-      height: 3.4px;
+      height: 3px;
       width: 46px;
     }
 

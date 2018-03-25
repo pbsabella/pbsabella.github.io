@@ -1,6 +1,6 @@
 body {
   background-color: #fcfcfc;
-  color: #010101;
+  color: #292929;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Heebo', Arial, sans-serif;
@@ -11,7 +11,7 @@ header {
 }
 
 ::selection {
-  background: #03a87c;
+  background: #03b787;
 }
 
 nav {
@@ -204,11 +204,11 @@ nav ul a:hover {
 }
 
 .Hero-description {
-  background: #010101;
+  background: #292929;
   color: white;
   font-size: 14px;
   font-weight: 300;
-  padding: 24px;
+  padding: 16px;
   width: 70%;
   word-break: break-word;
 }
@@ -220,7 +220,7 @@ nav ul a:hover {
 }
 
 .Hero-divider--dark {
-  background: #010101;
+  background: #292929;
 }
 
 .Hero-divider--white {
@@ -228,7 +228,7 @@ nav ul a:hover {
 }
 
 .Hero-figure {
-  border: 6px solid #03a87c;
+  border: 6px solid #03b787;
   bottom: 0;
   margin: 24px 0;
   position: absolute;
@@ -260,9 +260,10 @@ nav ul a:hover {
   }
   .Hero-description {
     font-size: 16px;
+    padding: 24px;
   }
   .Hero-divider {
-    height: 3.4px;
+    height: 3px;
     width: 46px;
   }
   .Hero-figure {
@@ -290,7 +291,7 @@ nav ul a:hover {
 }
 
 .Nav-item {
-  color: #010101;
+  color: #292929;
 }
 
 .Nav-item:not(:first-child) {
@@ -298,7 +299,7 @@ nav ul a:hover {
 }
 
 .Nav-logo {
-  color: #010101;
+  color: #292929;
   font-size: 16px;
   font-weight: 600;
   padding: 16px 0;
@@ -307,7 +308,7 @@ nav ul a:hover {
 
 .Nav-link {
   font-family: 'Heebo', Arial, sans-serif;
-  color: #010101;
+  color: #292929;
   display: inline-block;
   line-height: initial;
   padding: 2px 0;
@@ -316,7 +317,7 @@ nav ul a:hover {
 }
 
 .Nav-link::after {
-  background: #010101;
+  background: #292929;
   bottom: 0;
   content: '';
   height: 1.6px;
@@ -337,7 +338,7 @@ nav ul a:hover {
 }
 
 .Nav-menu-icon {
-  color: #010101;
+  color: #292929;
 }
 
 .Nav-list {
@@ -368,8 +369,8 @@ nav ul a:hover {
 }
 
 .Section-figure {
-  background: #03a87c;
-  color: #010101;
+  background: #03b787;
+  color: #292929;
   width: 100%;
   text-align: left;
   top: 0;
@@ -419,7 +420,7 @@ nav ul a:hover {
 }
 
 .Section-socials-icon {
-  color: #010101;
+  color: #292929;
 }
 
 .Section-subtitle {
@@ -436,7 +437,7 @@ nav ul a:hover {
 }
 
 .Section--dark {
-  background: #010101;
+  background: #292929;
   color: white;
 }
 
