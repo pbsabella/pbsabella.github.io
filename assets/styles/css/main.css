@@ -401,6 +401,7 @@ nav ul a:hover {
 }
 
 .Section-figure-image {
+  background: #eee;
   margin-left: 30%;
   max-height: 280px;
   position: absolute;
@@ -486,7 +487,7 @@ nav ul a:hover {
     width: 52%;
   }
   .Section-figure-image {
-    max-height: 360px;
+    max-height: 90%;
   }
   .Section-inner {
     padding: 64px 44px;
