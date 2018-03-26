@@ -31,14 +31,14 @@ nav ul a:hover {
  * Default: Mobile
  */
 .Header {
-  border-bottom: 1px solid #eee;
-  background: #fcfcfc;
-  height: 46px;
+  background: rgba(252, 252, 252, 0.9);
+  height: 56px;
   left: 0;
   min-width: 320px;
   position: fixed;
   right: 0;
   top: 0;
+  transition: background 0.3s ease-out;
   z-index: 1;
 }
 
@@ -47,6 +47,10 @@ nav ul a:hover {
   display: flex;
   height: 100%;
   padding: 0 24px;
+}
+
+.Header.is-transparent {
+  background: none;
 }
 
 /**
@@ -70,7 +74,7 @@ nav ul a:hover {
   min-width: 320px;
   position: absolute;
   right: 0;
-  top: 46px;
+  top: 56px;
 }
 
 .About {
@@ -157,7 +161,8 @@ nav ul a:hover {
 }
 
 .Card-info-content {
-  padding: 12px;
+  font-size: 13px;
+  padding: 8px;
   text-align: left;
 }
 
@@ -252,7 +257,7 @@ nav ul a:hover {
 }
 
 /**
- * Tablet
+ * Tablet and Desktop
  */
 @media only screen and (min-width: 768px) {
   .Hero-content {
@@ -358,27 +363,48 @@ nav ul a:hover {
   }
 }
 
+/**
+ * Default: Mobile
+ */
 .Section {
   position: relative;
   text-align: center;
   margin-bottom: 44px;
 }
 
+.Section:last-of-type {
+  margin-bottom: 24px;
+}
+
 .Section-content {
+  margin-bottom: 24px;
   width: 100%;
 }
 
 .Section-figure {
-  background: #03b787;
-  color: #292929;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  padding: 24px 0;
   width: 100%;
-  text-align: left;
-  top: 0;
-  padding: 24px;
 }
 
-.Section-figure ::selection {
-  background: white;
+.Section-figure-description {
+  border: solid 4px #292929;
+  margin-right: 50%;
+  min-width: 180px;
+  padding: 16px;
+  text-align: left;
+  width: 60%;
+  word-break: break-all;
+}
+
+.Section-figure-image {
+  margin-left: 30%;
+  max-height: 280px;
+  position: absolute;
+  z-index: -1;
 }
 
 .Section-grid-list {
@@ -397,19 +423,13 @@ nav ul a:hover {
   padding: 64px 24px;
 }
 
-.Section-skills {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .Section-skills-description {
   font-size: 13px;
   line-height: 21px;
 }
 
-.Section-skills-category {
-  margin-bottom: 24px;
-  margin-right: 64px;
+.Section-skills-category:not(:first-child) {
+  margin-top: 24px;
 }
 
 .Section-skills-title {
@@ -441,9 +461,13 @@ nav ul a:hover {
   color: white;
 }
 
+/**
+ * Tablet and Desktop
+ */
 @media only screen and (min-width: 768px) {
   .Section {
     text-align: left;
+    margin-bottom: 84px;
   }
   .Section-content {
     width: 40%;
@@ -455,12 +479,14 @@ nav ul a:hover {
     font-size: 14px;
   }
   .Section-figure {
-    bottom: 0;
-    margin: 44px 0;
-    padding: 24px 44px;
+    height: 100%;
+    margin-left: auto;
     position: absolute;
     right: 0;
-    width: 55%;
+    width: 52%;
+  }
+  .Section-figure-image {
+    max-height: 360px;
   }
   .Section-inner {
     padding: 64px 44px;

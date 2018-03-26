@@ -1,34 +1,44 @@
+/**
+ * Default: Mobile
+ */
 .Section {
-  // border-bottom: 1px solid #eee;
   position: relative;
   text-align: center;
   margin-bottom: $spacing-large;
 
+  &:last-of-type {
+    margin-bottom: $spacing-medium;
+  }
+
   &-content {
+    margin-bottom: $spacing-medium;
     width: 100%;
   }
 
   &-figure {
-    background: $primary;
-    color: $dark;
-    // height: 300px;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    padding: $spacing-medium 0;
     width: 100%;
-    // margin-left: -$spacing-medium;
-    // margin-right: -$spacing-medium;
-    // margin-top: $spacing-medium;
-    text-align: left;
-    top: 0;
-    padding: $spacing-medium;
 
-    ::selection {
-      background: $white;
+    &-description {
+      border: solid 4px $dark;
+      margin-right: 50%;
+      min-width: 180px;
+      padding: $spacing-small;
+      text-align: left;
+      width: 60%;
+      word-break: break-all;
     }
 
-    // &-image {
-    //   display: block;
-    //   min-width: 250px;
-    //   width: 100%;
-    // }
+    &-image {
+      margin-left: 30%;
+      max-height: 280px;
+      position: absolute;
+      z-index: -1;
+    }
   }
 
   &-grid {
@@ -46,22 +56,19 @@
   &-inner {
     display: flex;
     flex-wrap: wrap;
-    // padding: $spacing-large 0;
     padding: $spacing-xlarge $spacing-medium;
   }
 
   &-skills {
-    display: flex;
-    flex-wrap: wrap;
-
     &-description {
       font-size: $font-size-detail;
       line-height: 21px;
     }
 
     &-category {
-      margin-bottom: $spacing-medium;
-      margin-right: $spacing-xlarge;
+      &:not(:first-child) {
+        margin-top: $spacing-medium;
+      }
     }
 
     &-title {
@@ -97,9 +104,13 @@
   }
 }
 
+/**
+ * Tablet and Desktop
+ */
 @media only screen and (min-width: 768px) {
   .Section {
     text-align: left;
+    margin-bottom: $spacing-xxlarge;
 
     &-content {
       width: 40%;
@@ -114,12 +125,15 @@
     }
 
     &-figure {
-      bottom: 0;
-      margin: $spacing-large 0;
-      padding: $spacing-medium $spacing-large;
+      height: 100%;
+      margin-left: auto;
       position: absolute;
       right: 0;
-      width: 55%;
+      width: 52%;
+
+      &-image {
+        max-height: 90%;
+      }
     }
 
     &-inner {

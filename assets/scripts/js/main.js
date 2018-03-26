@@ -1,14 +1,37 @@
-// Initialize SideNav
-var sidenavOptions = {
-  preventScrolling: true
-};
+// Elements
+var headerElem = document.querySelector('.Header');
 var sidenavElem = document.querySelector('.sidenav');
-var sidenavInstance = M.Sidenav.init(sidenavElem, sidenavOptions);
-
-// Initialize ScrollSpy
-var scrollspyOptions = {
-  activeClass: 'is-active',
-  scrollOffset: 10
-};
 var scrollspyElem = document.querySelectorAll('.scrollspy');
-var scrollspyInstance = M.ScrollSpy.init(scrollspyElem, scrollspyOptions);
+
+function initializeMaterialComponents() {
+  // Initialize SideNav
+  var sidenavOptions = {
+    preventScrolling: true
+  };
+
+  // Initialize ScrollSpy
+  var scrollspyOptions = {
+    activeClass: 'is-active',
+    scrollOffset: 10
+  };
+
+  M.Sidenav.init(sidenavElem, sidenavOptions);
+  M.ScrollSpy.init(scrollspyElem, scrollspyOptions);
+}
+
+function toggleTransparentHeader() {
+  var scrollTop = document.documentElement.scrollTop;;
+
+  if (scrollTop === 0) {
+    headerElem.classList.add('is-transparent');
+  } else {
+    headerElem.classList.remove('is-transparent');
+  }
+}
+
+document.addEventListener('scroll', function () {
+  toggleTransparentHeader();
+});
+
+initializeMaterialComponents();
+toggleTransparentHeader();

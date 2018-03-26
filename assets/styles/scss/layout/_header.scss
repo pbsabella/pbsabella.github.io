@@ -1,15 +1,16 @@
 /**
  * Default: Mobile
  */
+
 .Header {
-  border-bottom: 1px solid #eee;
-  background: $charcoal-xxlight;
+  background: rgba(252, 252, 252, 0.9);
   height: $header-height;
   left: 0;
   min-width: 320px;
   position: fixed;
   right: 0;
   top: 0;
+  transition: background 0.3s ease-out;
   z-index: 1;
 
   &-inner {
@@ -17,6 +18,10 @@
     display: flex;
     height: 100%;
     padding: 0 $spacing-medium;
+  }
+
+  &.is-transparent {
+    background: none;
   }
 }
 
