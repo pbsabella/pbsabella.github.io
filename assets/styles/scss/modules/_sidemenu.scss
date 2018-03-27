@@ -1,9 +1,20 @@
 .SideMenu {
   &-item {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $secondary-xlight;
+    margin-left: $spacing-medium;
   }
 
   &-link {
+    // Override Material
+    font-weight: $font-weight-regular !important;
     padding: 0 $spacing-medium !important;
+
+    &.is-active {
+      font-weight: 500 !important;
+    }
+  }
+
+  &-list {
+    width: 80vw;
   }
 }

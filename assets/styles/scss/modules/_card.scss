@@ -1,5 +1,5 @@
 .Card {
-  background: $white;
+  background: $secondary-xxxlight;
   position: relative;
   margin: 0;
   width: 100%;
@@ -16,7 +16,7 @@
 
   &-figure {
     align-items: center;
-    background: #eee;
+    background:$secondary-light;
     border-radius: 4px 4px 0 0;
     display: flex;
     justify-content: center;

@@ -7,7 +7,7 @@
   }
 
   &-figure {
-    background: #eee;
+    background: $secondary-xlight;
     position: relative;
     margin: 0;
 
@@ -52,10 +52,6 @@
 
     &-description {
       font-size: $font-size-ui;
-    }
-
-    &-inner {
-      padding: $spacing-xlarge 0;
     }
 
     &-title {

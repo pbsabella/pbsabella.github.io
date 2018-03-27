@@ -6,7 +6,7 @@
   background: rgba(252, 252, 252, 0.9);
   height: $header-height;
   left: 0;
-  min-width: 320px;
+  min-width: 300px;
   position: fixed;
   right: 0;
   top: 0;
@@ -17,21 +17,10 @@
     align-items: center;
     display: flex;
     height: 100%;
-    padding: 0 $spacing-medium;
+    padding: 0 5vw;
   }
 
   &.is-transparent {
     background: none;
-  }
-}
-
-/**
- * Tablet
- */
-@media only screen and (min-width: 768px) {
-  .Header {
-    &-inner {
-      padding: 0 $spacing-large;
-    }
   }
 }

@@ -13,8 +13,8 @@
   }
 
   &-description {
-    background: $dark;
-    color: $white;
+    background: $secondary-xxxdark;
+    color: $secondary-xxxlight;
     font-size: $font-size-ui;
     font-weight: $font-weight-light;
     padding: $spacing-small;
@@ -28,11 +28,11 @@
     width: 32px;
 
     &--dark {
-      background: $dark;
+      background: $secondary-xxxdark;
     }
 
     &--white {
-      background: $white;
+      background: $secondary-xxxlight;
     }
   }
 
@@ -48,7 +48,7 @@
   }
 
   &-inner {
-    padding: $spacing-xlarge $spacing-medium;
+    padding: $spacing-xlarge 5vw;
     width: 100%;
   }
 
@@ -84,10 +84,6 @@
       margin: $spacing-large 0;
       right: $spacing-large;
       width: 60%;
-    }
-
-    &-inner {
-      padding: $spacing-xlarge $spacing-large;
     }
 
     &-title {

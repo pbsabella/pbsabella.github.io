@@ -6,6 +6,7 @@ var scrollspyElem = document.querySelectorAll('.scrollspy');
 function initializeMaterialComponents() {
   // Initialize SideNav
   var sidenavOptions = {
+    edge: 'right',
     preventScrolling: true
   };
 

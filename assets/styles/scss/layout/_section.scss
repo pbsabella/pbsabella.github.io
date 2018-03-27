@@ -24,21 +24,28 @@
     width: 100%;
 
     &-description {
-      border: solid 4px $dark;
+      border: solid 4px $secondary-xxxdark;
       margin-right: 50%;
       min-width: 180px;
       padding: $spacing-small;
+      // position: relative;
       text-align: left;
       width: 60%;
       word-break: break-all;
     }
 
     &-image {
-      background: #eee;
-      margin-left: 30%;
-      max-height: 280px;
+      // margin-left: 30%;
+      // max-height: 280px;
       position: absolute;
-      z-index: -1;
+      top: 0;
+      bottom: 0;
+
+      // TODO: Use class
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
     }
   }
 
@@ -57,7 +64,8 @@
   &-inner {
     display: flex;
     flex-wrap: wrap;
-    padding: $spacing-xlarge $spacing-medium;
+    padding: $spacing-xlarge 5vw;
+    position: relative;
   }
 
   &-skills {
@@ -82,7 +90,7 @@
 
   &-socials {
     &-icon {
-      color: $dark;
+      color: $secondary-xxxdark;
     }
   }
 
@@ -100,8 +108,8 @@
   }
 
   &--dark {
-    background: $dark;
-    color: $white;
+    background: $secondary-xxxdark;
+    color: $secondary-xxxlight;
   }
 }
 
@@ -126,19 +134,20 @@
     }
 
     &-figure {
-      height: 100%;
-      margin-left: auto;
+      // height: 100%;
+      // margin-left: auto;
+      bottom: 0;
       position: absolute;
       right: 0;
       width: 52%;
 
       &-image {
-        max-height: 90%;
+        // max-height: 90%;
+        bottom: 0;
+        right: auto;
+        margin-left: auto;
+        top: 0;
       }
-    }
-
-    &-inner {
-      padding: $spacing-xlarge $spacing-large;
     }
 
     &-title {
