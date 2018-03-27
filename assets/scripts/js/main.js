@@ -21,7 +21,7 @@ function initializeMaterialComponents() {
 }
 
 function toggleTransparentHeader() {
-  var scrollTop = document.documentElement.scrollTop;;
+  var scrollTop = document.documentElement.scrollTop;
 
   if (scrollTop === 0) {
     headerElem.classList.add('is-transparent');
@@ -31,6 +31,10 @@ function toggleTransparentHeader() {
 }
 
 document.addEventListener('scroll', function () {
+  toggleTransparentHeader();
+});
+
+document.addEventListener('touchmove', function () {
   toggleTransparentHeader();
 });
 
