@@ -89,6 +89,7 @@ nav ul a:hover {
 .Section-figure {
   align-items: center;
   display: flex;
+  min-height: 200px;
   overflow: hidden;
   position: relative;
   padding: 24px 0;
