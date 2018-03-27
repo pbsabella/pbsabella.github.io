@@ -6,8 +6,7 @@ var scrollspyElem = document.querySelectorAll('.scrollspy');
 function initializeMaterialComponents() {
   // Initialize SideNav
   var sidenavOptions = {
-    edge: 'right',
-    preventScrolling: true
+    edge: 'right'
   };
 
   // Initialize ScrollSpy
@@ -34,7 +33,7 @@ document.addEventListener('scroll', function () {
   toggleTransparentHeader();
 });
 
-document.addEventListener('touchmove', function () {
+document.addEventListener('touchstart', function () {
   toggleTransparentHeader();
 });
 
