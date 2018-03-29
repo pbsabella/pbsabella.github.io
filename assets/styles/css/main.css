@@ -103,6 +103,7 @@ nav ul a:hover {
 }
 
 .Section-subcontent-figure {
+  max-width: 500px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -111,7 +112,6 @@ nav ul a:hover {
 .Section-subcontent-figure-image {
   display: block;
   height: auto;
-  max-width: 500px;
   width: 100%;
 }
 
