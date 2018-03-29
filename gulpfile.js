@@ -1,9 +1,10 @@
-var browserSync = require('browser-sync').create();
-var cleanCSS    = require('gulp-clean-css');
-var gulp        = require('gulp');
-var rename      = require('gulp-rename');
-var sass        = require('gulp-sass');
-var uglify      = require('gulp-uglify');
+const autoprefixer = require('gulp-autoprefixer');
+var browserSync    = require('browser-sync').create();
+var cleanCSS       = require('gulp-clean-css');
+var gulp           = require('gulp');
+var rename         = require('gulp-rename');
+var sass           = require('gulp-sass');
+var uglify         = require('gulp-uglify');
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function () {
@@ -14,7 +15,7 @@ gulp.task('vendor', function () {
   .pipe(gulp.dest('./vendor/materialize-css'))
 });
 
-// Convert SASS to CSS
+// Convert SASS to CSS and autoprefix
 gulp.task('css:compile', function () {
   return gulp.src('./assets/styles/scss/**/*.scss')
     .pipe(
@@ -23,6 +24,10 @@ gulp.task('css:compile', function () {
       })
       .on('error', sass.logError)
     )
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(gulp.dest('./assets/styles/css'))
 });
 

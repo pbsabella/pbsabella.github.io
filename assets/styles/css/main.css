@@ -10,12 +10,17 @@ header {
   background-color: none;
 }
 
+::-moz-selection {
+  background: #03b787;
+}
+
 ::selection {
   background: #03b787;
 }
 
 nav {
   background: inherit;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -38,12 +43,17 @@ nav ul a:hover {
   position: fixed;
   right: 0;
   top: 0;
+  -webkit-transition: background 0.3s ease-out;
   transition: background 0.3s ease-out;
   z-index: 999;
 }
 
 .Header-inner {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
   padding: 0 8vw;
@@ -54,8 +64,14 @@ nav ul a:hover {
 }
 
 .Footer-nav {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -69,9 +85,16 @@ nav ul a:hover {
 }
 
 .PortfolioList {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -82,6 +105,8 @@ nav ul a:hover {
 
 @media only screen and (min-width: 768px) {
   .PortfolioList {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
   }
   .PortfolioList-item {
@@ -103,17 +128,22 @@ nav ul a:hover {
 }
 
 .Section-content {
+  -ms-flex-preferred-size: 45%;
   flex-basis: 45%;
   margin-bottom: 24px;
   text-align: center;
 }
 
 .Section-content--full {
+  -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
 }
 
 .Section-subcontent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
   margin: 44px 0 24px 0;
   position: relative;
@@ -121,7 +151,10 @@ nav ul a:hover {
 
 .Section-subcontent-description {
   background: #eee;
+  -ms-flex-preferred-size: 60%;
   flex-basis: 60%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
   min-width: max-content;
   padding: 16px;
   text-align: left;
@@ -143,7 +176,10 @@ nav ul a:hover {
 }
 
 .Section-grid-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
@@ -196,7 +232,11 @@ nav ul a:hover {
     font-size: 14px;
   }
   .Section-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
   .Section-title {
@@ -256,7 +296,10 @@ nav ul a:hover {
 }
 
 .About-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   padding: 44px 0;
 }
@@ -308,6 +351,7 @@ nav ul a:hover {
 
 .Card {
   border-radius: 4px;
+  -webkit-box-shadow: 0 18px 26px rgba(50, 50, 93, 0.2);
   box-shadow: 0 18px 26px rgba(50, 50, 93, 0.2);
   height: 200px;
   margin: 0;
@@ -322,9 +366,16 @@ nav ul a:hover {
 }
 
 .Card-figure {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin: 0;
   width: 100%;
@@ -332,6 +383,7 @@ nav ul a:hover {
 
 .Card-figure-image {
   border-radius: 4px !important;
+  height: 100%;
   width: 100%;
 }
 
@@ -345,6 +397,7 @@ nav ul a:hover {
 
 .Card-overlay {
   background: rgba(41, 41, 41, 0.3) !important;
+  border-radius: 0 0 4px 4px;
   height: 28% !important;
   overflow: hidden;
   padding: 0 !important;
@@ -369,10 +422,17 @@ nav ul a:hover {
  * Default: Mobile
  */
 .Hero {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   height: 100vh;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -513,13 +573,17 @@ nav ul a:hover {
   height: 1.6px;
   left: 0;
   position: absolute;
+  -webkit-transform: scale3d(0, 1, 1);
   transform: scale3d(0, 1, 1);
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  -webkit-transform-origin: left;
   transform-origin: left;
   width: 100%;
 }
 
 .Nav-link:hover::after {
+  -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
 }
 

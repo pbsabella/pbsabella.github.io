@@ -16,6 +16,7 @@
 
   &-figure {
     align-items: center;
+    border-radius: 4px;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -24,6 +25,7 @@
 
     &-image {
       border-radius: 4px !important;
+      height: 100%;
       width: 100%;
     }
 
