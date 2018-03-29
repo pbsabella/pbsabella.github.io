@@ -3,7 +3,6 @@
  */
 .Section {
   position: relative;
-  text-align: center;
   margin-bottom: $spacing-large;
 
   &:last-of-type {
@@ -11,41 +10,35 @@
   }
 
   &-content {
+    flex-basis: 45%;
     margin-bottom: $spacing-medium;
-    width: 100%;
+    text-align: center;
   }
 
-  &-figure {
-    align-items: center;
+  &-subcontent {
     display: flex;
-    min-height: 200px;
-    overflow: hidden;
+    flex-basis: 50%;
+    margin: $spacing-large 0 $spacing-medium 0;
     position: relative;
-    padding: $spacing-medium 0;
-    width: 100%;
 
     &-description {
-      border: solid 4px $secondary-xxxdark;
-      // margin-right: 50%;
-      min-width: 180px;
+      // border: solid 4px $secondary-xxxdark;
+      background: $secondary-xlight;
+      flex-basis: 60%;
+      min-width: max-content;
       padding: $spacing-small;
-      // position: relative;
       text-align: left;
-      width: 60%;
       word-break: break-all;
     }
 
-    &-image {
-      // margin-left: 30%;
-      // max-height: 280px;
+    &-figure {
       position: absolute;
       top: 0;
-      bottom: 0;
 
-      // TODO: Use class
-      img {
-        max-height: 100%;
-        max-width: 100%;
+      &-image {
+        height: auto;
+        max-width: 500px;
+        width: 100%;
       }
     }
   }
@@ -63,30 +56,7 @@
   }
 
   &-inner {
-    display: flex;
-    flex-wrap: wrap;
     padding: $spacing-xlarge 5vw;
-    position: relative;
-  }
-
-  &-skills {
-    &-description {
-      font-size: $font-size-detail;
-      line-height: 21px;
-    }
-
-    &-category {
-      &:not(:first-child) {
-        margin-top: $spacing-medium;
-      }
-    }
-
-    &-title {
-      @include heading-font;
-      font-size: $font-size-landing;
-      font-weight: $font-weight-medium;
-      margin-bottom: $spacing-xxsmall;
-    }
   }
 
   &-socials {
@@ -119,14 +89,13 @@
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    text-align: left;
     margin-bottom: $spacing-xxlarge;
 
     &-content {
-      width: 40%;
+      text-align: left;
 
       &--full {
-        width: 100%;
+        flex-basis: 100%;
       }
     }
 
@@ -134,21 +103,9 @@
       font-size: $font-size-ui;
     }
 
-    &-figure {
-      // height: 100%;
-      // margin-left: auto;
-      bottom: 0;
-      position: absolute;
-      right: 0;
-      width: 52%;
-
-      &-image {
-        // max-height: 90%;
-        bottom: 0;
-        right: auto;
-        margin-left: auto;
-        top: 0;
-      }
+    &-inner {
+      display: flex;
+      justify-content: space-between;
     }
 
     &-title {
@@ -165,14 +122,6 @@
     }
   }
 }
-
-// @media only screen and (max-width: 400px) {
-//   .Section {
-//     &-content {
-//       padding: 0 $spacing-xsmall;
-//     }
-//   }
-// }
 
 @media only screen and (max-width: 1400px) {
   .Section {

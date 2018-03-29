@@ -1,0 +1,19 @@
+.List {
+  &-category {
+    &:not(:last-child) {
+      margin-bottom: $spacing-medium;
+    }
+  }
+
+  &-item {
+    font-size: $font-size-detail;
+    line-height: 21px;
+  }
+
+  &-title {
+    @include heading-font;
+    font-size: $font-size-landing;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xxsmall;
+  }
+}

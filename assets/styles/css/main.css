@@ -73,7 +73,6 @@ nav ul a:hover {
  */
 .Section {
   position: relative;
-  text-align: center;
   margin-bottom: 44px;
 }
 
@@ -82,38 +81,36 @@ nav ul a:hover {
 }
 
 .Section-content {
+  flex-basis: 45%;
   margin-bottom: 24px;
-  width: 100%;
+  text-align: center;
 }
 
-.Section-figure {
-  align-items: center;
+.Section-subcontent {
   display: flex;
-  min-height: 200px;
-  overflow: hidden;
+  flex-basis: 50%;
+  margin: 44px 0 24px 0;
   position: relative;
-  padding: 24px 0;
-  width: 100%;
 }
 
-.Section-figure-description {
-  border: solid 4px #292929;
-  min-width: 180px;
+.Section-subcontent-description {
+  background: #eee;
+  flex-basis: 60%;
+  min-width: max-content;
   padding: 16px;
   text-align: left;
-  width: 60%;
   word-break: break-all;
 }
 
-.Section-figure-image {
+.Section-subcontent-figure {
   position: absolute;
   top: 0;
-  bottom: 0;
 }
 
-.Section-figure-image img {
-  max-height: 100%;
-  max-width: 100%;
+.Section-subcontent-figure-image {
+  height: auto;
+  max-width: 500px;
+  width: 100%;
 }
 
 .Section-grid-list {
@@ -127,26 +124,7 @@ nav ul a:hover {
 }
 
 .Section-inner {
-  display: flex;
-  flex-wrap: wrap;
   padding: 64px 5vw;
-  position: relative;
-}
-
-.Section-skills-description {
-  font-size: 13px;
-  line-height: 21px;
-}
-
-.Section-skills-category:not(:first-child) {
-  margin-top: 24px;
-}
-
-.Section-skills-title {
-  font-family: 'Vollkorn', Arial, serif;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
 }
 
 .Section-socials-icon {
@@ -176,29 +154,20 @@ nav ul a:hover {
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    text-align: left;
     margin-bottom: 84px;
   }
   .Section-content {
-    width: 40%;
+    text-align: left;
   }
   .Section-content--full {
-    width: 100%;
+    flex-basis: 100%;
   }
   .Section-description {
     font-size: 14px;
   }
-  .Section-figure {
-    bottom: 0;
-    position: absolute;
-    right: 0;
-    width: 52%;
-  }
-  .Section-figure-image {
-    bottom: 0;
-    right: auto;
-    margin-left: auto;
-    top: 0;
+  .Section-inner {
+    display: flex;
+    justify-content: space-between;
   }
   .Section-title {
     font-size: 48px;
@@ -453,6 +422,22 @@ nav ul a:hover {
   .Hero-content {
     width: 90%;
   }
+}
+
+.List-category:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.List-item {
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.List-title {
+  font-family: 'Vollkorn', Arial, serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .Nav-item {
