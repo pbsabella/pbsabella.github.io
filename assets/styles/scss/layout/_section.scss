@@ -13,6 +13,10 @@
     flex-basis: 45%;
     margin-bottom: $spacing-medium;
     text-align: center;
+
+    &--full {
+      flex-basis: 100%;
+    }
   }
 
   &-subcontent {
@@ -59,7 +63,11 @@
   }
 
   &-inner {
-    padding: $spacing-xlarge 10vw;
+    padding: $spacing-xlarge 8vw;
+
+    &.wide {
+      padding: $spacing-xlarge 6vw;
+    }
   }
 
   &-socials {
@@ -96,10 +104,6 @@
 
     &-content {
       text-align: left;
-
-      &--full {
-        flex-basis: 100%;
-      }
     }
 
     &-description {

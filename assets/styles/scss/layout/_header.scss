@@ -11,13 +11,13 @@
   right: 0;
   top: 0;
   transition: background 0.3s ease-out;
-  z-index: 1;
+  z-index: 999;
 
   &-inner {
     align-items: center;
     display: flex;
     height: 100%;
-    padding: 0 10vw;
+    padding: 0 8vw;
   }
 
   &.is-transparent {

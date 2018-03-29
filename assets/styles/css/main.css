@@ -39,14 +39,14 @@ nav ul a:hover {
   right: 0;
   top: 0;
   transition: background 0.3s ease-out;
-  z-index: 1;
+  z-index: 999;
 }
 
 .Header-inner {
   align-items: center;
   display: flex;
   height: 100%;
-  padding: 0 10vw;
+  padding: 0 8vw;
 }
 
 .Header.is-transparent {
@@ -108,6 +108,10 @@ nav ul a:hover {
   text-align: center;
 }
 
+.Section-content--full {
+  flex-basis: 100%;
+}
+
 .Section-subcontent {
   display: flex;
   flex-basis: 50%;
@@ -149,7 +153,11 @@ nav ul a:hover {
 }
 
 .Section-inner {
-  padding: 64px 10vw;
+  padding: 64px 8vw;
+}
+
+.Section-inner.wide {
+  padding: 64px 6vw;
 }
 
 .Section-socials-icon {
@@ -183,9 +191,6 @@ nav ul a:hover {
   }
   .Section-content {
     text-align: left;
-  }
-  .Section-content--full {
-    flex-basis: 100%;
   }
   .Section-description {
     font-size: 14px;
@@ -411,7 +416,7 @@ nav ul a:hover {
 }
 
 .Hero-inner {
-  padding: 64px 10vw;
+  padding: 64px 8vw;
   width: 100%;
 }
 
