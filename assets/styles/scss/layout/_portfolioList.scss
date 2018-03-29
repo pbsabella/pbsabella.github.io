@@ -1,0 +1,22 @@
+.PortfolioList {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &-item {
+    padding-right: $spacing-xsmall;
+    margin: 0 auto $spacing-large auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .PortfolioList {
+    justify-content: flex-start;
+
+    &-item {
+      padding-right: $spacing-xsmall;
+      margin: 0 0 $spacing-large 0;
+    }
+  }
+}
