@@ -25,5 +25,9 @@ nav {
 }
 
 nav ul a:hover {
-  background-color: rgba(0,0,0,0);
+  background-color: transparent;
+}
+
+.sidenav li > a:hover {
+  background-color: transparent;
 }

@@ -32,6 +32,10 @@ nav ul a:hover {
   background-color: transparent;
 }
 
+.sidenav li > a:hover {
+  background-color: transparent;
+}
+
 /**
  * Default: Mobile
  */
@@ -99,7 +103,6 @@ nav ul a:hover {
 }
 
 .PortfolioList-item {
-  padding-right: 12px;
   margin: 0 auto 44px auto;
 }
 
@@ -110,7 +113,6 @@ nav ul a:hover {
     justify-content: flex-start;
   }
   .PortfolioList-item {
-    padding-right: 12px;
     margin: 0 0 44px 0;
   }
 }
@@ -399,7 +401,7 @@ nav ul a:hover {
   background: rgba(41, 41, 41, 0.3) !important;
   border-radius: 0 0 4px 4px;
   height: 28% !important;
-  overflow: hidden;
+  overflow: hidden !important;
   padding: 0 !important;
 }
 
