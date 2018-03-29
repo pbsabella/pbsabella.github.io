@@ -105,6 +105,7 @@ nav ul a:hover {
 .Section-subcontent-figure {
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
 .Section-subcontent-figure-image {
