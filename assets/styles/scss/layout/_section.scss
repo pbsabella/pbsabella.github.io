@@ -53,6 +53,7 @@
     &::after {
       background: $secondary-xlight;
       content: '';
+      left: 0;
       min-width: 170px;
       height: 0%;
       position: absolute;

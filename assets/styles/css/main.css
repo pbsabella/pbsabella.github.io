@@ -197,6 +197,7 @@ nav ul a:hover {
 .Section-subcontent::after {
   background: #eee;
   content: '';
+  left: 0;
   min-width: 170px;
   height: 0%;
   position: absolute;
