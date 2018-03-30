@@ -167,15 +167,16 @@ nav ul a:hover {
 }
 
 .Section-subcontent-description {
-  background: #eee;
   -ms-flex-preferred-size: 60%;
   flex-basis: 60%;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   padding: 16px;
+  position: relative;
   text-align: left;
   word-break: break-all;
+  z-index: 2;
 }
 
 .Section-subcontent-figure {
@@ -184,12 +185,30 @@ nav ul a:hover {
   right: 0;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .Section-subcontent-figure-image {
   display: block;
   height: auto;
   width: 100%;
+}
+
+.Section-subcontent::after {
+  background: #eee;
+  content: '';
+  min-width: 170px;
+  height: 0%;
+  position: absolute;
+  top: 0;
+  -webkit-transition: height 0.7s ease-out;
+  transition: height 0.7s ease-out;
+  width: 60%;
+  z-index: 0;
+}
+
+.Section-subcontent.is-visible::after {
+  height: 100%;
 }
 
 .Section-grid-list {

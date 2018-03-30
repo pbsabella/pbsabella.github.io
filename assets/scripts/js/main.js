@@ -2,6 +2,7 @@
 var headerElem = document.querySelector('.Header');
 var sidenavElem = document.querySelector('.sidenav');
 var scrollspyElem = document.querySelectorAll('.scrollspy');
+var animateBackgroundElem = document.querySelector('.animate-background');
 
 function initializeMaterialComponents() {
   // Initialize SideNav
@@ -19,6 +20,15 @@ function initializeMaterialComponents() {
   M.ScrollSpy.init(scrollspyElem, scrollspyOptions);
 }
 
+function isElementSeen (el) {
+  var rect = el.getBoundingClientRect();
+  var offset = rect.height / 2;
+
+  return (
+      (rect.bottom - offset) <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
 function toggleTransparentHeader() {
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -31,6 +41,12 @@ function toggleTransparentHeader() {
 
 document.addEventListener('scroll', function () {
   toggleTransparentHeader();
+
+  if (isElementSeen(animateBackgroundElem)) {
+    animateBackgroundElem.classList.add('is-visible');
+  } else {
+    animateBackgroundElem.classList.remove('is-visible');
+  }
 });
 
 initializeMaterialComponents();

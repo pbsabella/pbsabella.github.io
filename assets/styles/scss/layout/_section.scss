@@ -26,13 +26,13 @@
     position: relative;
 
     &-description {
-      // border: solid 4px $secondary-xxxdark;
-      background: $secondary-xlight;
       flex-basis: 60%;
       min-width: max-content;
       padding: $spacing-small;
+      position: relative;
       text-align: left;
       word-break: break-all;
+      z-index: 2;
     }
 
     &-figure {
@@ -41,12 +41,29 @@
       right: 0;
       top: 0;
       width: 100%;
+      z-index: 1;
 
       &-image {
         display: block;
         height: auto;
         width: 100%;
       }
+    }
+
+    &::after {
+      background: $secondary-xlight;
+      content: '';
+      min-width: 170px;
+      height: 0%;
+      position: absolute;
+      top: 0;
+      transition: height 0.7s ease-out;
+      width: 60%;
+      z-index: 0;
+    }
+
+    &.is-visible::after {
+      height: 100%;
     }
   }
 
