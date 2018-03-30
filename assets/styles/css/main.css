@@ -279,30 +279,6 @@ nav ul a:hover {
   }
 }
 
-@media only screen and (max-width: 1400px) {
-  .Section-grid-item {
-    width: 33.33333%;
-  }
-}
-
-@media only screen and (min-width: 1401px) {
-  .Section-grid-item {
-    width: 25%;
-  }
-}
-
-@media only screen and (max-width: 860px) {
-  .Section-grid-item {
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .Section-grid-item {
-    width: 100%;
-  }
-}
-
 .About {
   text-align: center;
 }
