@@ -37,7 +37,8 @@
   }
 
   &-figure {
-    border: 6px solid $primary;
+    // border: 6px solid $primary;
+    background: $secondary-xlight;
     bottom: 0;
     margin: $spacing-medium 0;
     position: absolute;

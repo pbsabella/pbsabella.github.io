@@ -1,57 +1,50 @@
 .Card {
-  border-radius: 4px;
-  box-shadow: 0 18px 26px rgba(50, 50, 93, .2);
-  height: 200px;
+  box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
   margin: 0;
   position: relative;
-  width: 280px;
-
-  &-info {
-    &-title {
-      font-size: $font-size-detail;
-      padding: $spacing-xxsmall;
-      text-align: left;
-    }
-  }
 
   &-figure {
-    align-items: center;
-    border-radius: 4px;
-    display: flex;
-    height: 100%;
-    justify-content: center;
+    height: 160px;
     margin: 0;
-    width: 100%;
+    width: 240px;
 
     &-image {
-      border-radius: 4px !important;
       height: 100%;
+      object-fit: cover;
       width: 100%;
     }
 
     &.is-placeholder {
       background: $secondary-xlight;
     }
-
-    &-icon {
-      color: $secondary-light;
-    }
   }
 
-  &-overlay {
-    background: rgba(41, 41, 41, 0.3) !important;
-    border-radius: 0 0 4px 4px;
-    height: 28% !important;
-    overflow: hidden !important;
-    padding: 0 !important;
+  &-info {
+    background: $secondary-xxxlight;
+    color: $secondary-xxxdark;
+    padding: $spacing-xsmall;
+    text-align: left;
+
+    &-title {
+      font-size: $font-size-detail;
+      font-weight: 500;
+      margin-bottom: $spacing-xxsmall;
+    }
 
     &-description {
-      color: $secondary-xxxlight;
-      font-size: $font-size-detail !important;
-      height: 100%;
-      padding: $spacing-small !important;
-      text-align: left;
-      width: 100%;
+      font-size: .8em;
+      margin-bottom: $spacing-xsmall;
+    }
+
+    &-service {
+      border-top: 1px solid $secondary-light;
+      color: $secondary;
+      font-size: .7em;
+      padding-top: $spacing-xxsmall;
+
+      &::selection {
+        color: $secondary-xxxdark;
+      }
     }
   }
 }
