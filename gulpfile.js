@@ -8,11 +8,21 @@ var uglify         = require('gulp-uglify');
 
 // Copy third party libraries from /node_modules into /vendor
 gulp.task('vendor', function () {
+  // Font Awesome
+  gulp.src([
+    './node_modules/font-awesome/**/*',
+    '!./node_modules/font-awesome/{less,less/*}',
+    '!./node_modules/font-awesome/{scss,scss/*}',
+    '!./node_modules/font-awesome/.*',
+    '!./node_modules/font-awesome/*.{txt,json,md}'
+  ])
+  .pipe(gulp.dest('./vendor/font-awesome'));
+
   // Materialize CSS
   gulp.src([
     './node_modules/materialize-css/dist/**/*',
   ])
-  .pipe(gulp.dest('./vendor/materialize-css'))
+  .pipe(gulp.dest('./vendor/materialize-css'));
 });
 
 // Convert SASS to CSS and autoprefix
@@ -28,7 +38,7 @@ gulp.task('css:compile', function () {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp.dest('./assets/styles/css'))
+    .pipe(gulp.dest('./assets/styles/css'));
 });
 
 // Minify CSS

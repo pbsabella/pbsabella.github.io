@@ -1,7 +1,19 @@
 .Footer {
-  &-nav {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  border-top: 1px solid $secondary-xlight;
+
+  &-copyright {
+    color: lighten($secondary-xxxdark, 20%);
+    font-size: 12px;
+    padding: $spacing-xxsmall 0;
+    text-align: center;
+    width: 100%;
+
+    &-link {
+      font-weight: 500;
+    }
+  }
+
+  &-inner {
+    padding: $spacing-xsmall 8vw;
   }
 }

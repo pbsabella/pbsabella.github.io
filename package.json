@@ -31,6 +31,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "materialize-css": "^1.0.0-beta"
   }
 }

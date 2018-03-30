@@ -1,0 +1,29 @@
+.Social {
+  &-list {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+
+  &-link {
+    padding: $spacing-small;
+
+    &-icon {
+      transition: color 0.2s ease-out;
+    }
+
+    &:hover &-icon {
+      color: $primary;
+    }
+
+    &--small {
+      padding: $spacing-small $spacing-xsmall;
+    }
+  }
+}

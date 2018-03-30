@@ -6,7 +6,7 @@
   margin-bottom: $spacing-large;
 
   &:last-of-type {
-    margin-bottom: $spacing-medium;
+    margin-bottom: 0;
   }
 
   &-content {
@@ -67,6 +67,10 @@
 
     &.wide {
       padding: $spacing-xlarge 6vw;
+    }
+
+    &:last-of-type {
+      padding-bottom: $spacing-small !important;
     }
   }
 

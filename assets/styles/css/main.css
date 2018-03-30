@@ -67,16 +67,24 @@ nav ul a:hover {
   background: none;
 }
 
-.Footer-nav {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+.Footer {
+  border-top: 1px solid #eee;
+}
+
+.Footer-copyright {
+  color: #5c5c5c;
+  font-size: 12px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.Footer-copyright-link {
+  font-weight: 500;
+}
+
+.Footer-inner {
+  padding: 12px 8vw;
 }
 
 .Main {
@@ -103,6 +111,7 @@ nav ul a:hover {
 }
 
 .PortfolioList-item {
+  padding: 0 12px;
   margin: 0 auto 44px auto;
 }
 
@@ -117,6 +126,12 @@ nav ul a:hover {
   }
 }
 
+@media only screen and (max-width: 360px) {
+  .PortfolioList-item {
+    padding: 0;
+  }
+}
+
 /**
  * Default: Mobile
  */
@@ -126,7 +141,7 @@ nav ul a:hover {
 }
 
 .Section:last-of-type {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .Section-content {
@@ -196,6 +211,10 @@ nav ul a:hover {
 
 .Section-inner.wide {
   padding: 64px 6vw;
+}
+
+.Section-inner:last-of-type {
+  padding-bottom: 16px !important;
 }
 
 .Section-socials-icon {
@@ -526,6 +545,15 @@ nav ul a:hover {
   }
 }
 
+.Icon {
+  color: #292929;
+  display: block;
+}
+
+.Icon-mail {
+  font-size: 1.20em;
+}
+
 .List-category:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -614,6 +642,18 @@ nav ul a:hover {
   }
 }
 
+.SideMenu-footer {
+  bottom: 0;
+  padding: 24px 16px;
+  position: absolute;
+  width: 100%;
+}
+
+.SideMenu-inner {
+  height: 100%;
+  position: relative;
+}
+
 .SideMenu-item {
   border-bottom: 1px solid #eee;
   margin-left: 24px;
@@ -630,4 +670,41 @@ nav ul a:hover {
 
 .SideMenu-list {
   width: 80vw;
+}
+
+.Social-list {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.Social-list--right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.Social-link {
+  padding: 16px;
+}
+
+.Social-link-icon {
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
+.Social-link:hover .Social-link-icon {
+  color: #03b787;
+}
+
+.Social-link--small {
+  padding: 16px 12px;
 }

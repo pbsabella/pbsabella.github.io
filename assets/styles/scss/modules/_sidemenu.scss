@@ -1,4 +1,16 @@
 .SideMenu {
+  &-footer {
+    bottom: 0;
+    padding: $spacing-medium $spacing-small;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-inner {
+    height: 100%;
+    position: relative;
+  }
+
   &-item {
     border-bottom: 1px solid $secondary-xlight;
     margin-left: $spacing-medium;

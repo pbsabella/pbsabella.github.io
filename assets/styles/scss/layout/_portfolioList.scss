@@ -5,6 +5,7 @@
   justify-content: space-between;
 
   &-item {
+    padding: 0 $spacing-xsmall;
     margin: 0 auto $spacing-large auto;
   }
 }
@@ -15,6 +16,14 @@
 
     &-item {
       margin: 0 0 $spacing-large 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .PortfolioList {
+    &-item {
+      padding: 0;
     }
   }
 }
