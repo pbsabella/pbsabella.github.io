@@ -180,7 +180,7 @@ nav ul a:hover {
 }
 
 .Section-subcontent-figure {
-  max-width: 500px;
+  max-width: 400px;
   position: absolute;
   right: 0;
   top: 0;
@@ -210,19 +210,6 @@ nav ul a:hover {
 
 .Section-subcontent.is-visible::after {
   height: 100%;
-}
-
-.Section-grid-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.Section-grid-item {
-  padding: 16px;
-  width: 100%;
 }
 
 .Section-inner {
