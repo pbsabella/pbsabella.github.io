@@ -23,7 +23,7 @@
     }
 
     &--small {
-      padding: $spacing-small $spacing-xsmall;
+      padding: $spacing-xsmall + 2;
     }
   }
 }
