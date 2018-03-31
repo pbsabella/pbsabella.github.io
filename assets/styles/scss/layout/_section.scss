@@ -3,7 +3,7 @@
  */
 .Section {
   position: relative;
-  margin-bottom: $spacing-large;
+  margin-bottom: $spacing-medium;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -143,7 +143,7 @@
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    margin-bottom: $spacing-xlarge;
+    margin-bottom: $spacing-large;
 
     &-column {
       &:not(:last-child) {
