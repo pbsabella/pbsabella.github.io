@@ -1,0 +1,53 @@
+.Form {
+  width: 100%;
+
+  &-action {
+    background: none;
+    border: 1px solid $secondary-xxxdark;
+    color: $secondary-xxxdark;
+    display: block;
+    font-size: $font-size-ui;
+    padding: $spacing-xsmall $spacing-xlarge;
+    text-align: center;
+  }
+
+  &-group {
+    margin-bottom: $spacing-medium;
+  }
+
+  &-input,
+  &-textarea {
+    border-bottom: 1px solid $secondary !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    font-size: $font-size-ui !important;
+    height: 2.5rem !important;
+    outline: none;
+    resize: vertical;
+
+    &:focus,
+    &:active {
+      border-bottom: 1px solid $primary !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &-label {
+    color: lighten($secondary-xxxdark, 30%);
+    display: block;
+    font-size: 11px;
+    margin-bottom: $spacing-xxxsmall;
+    text-transform: uppercase;
+  }
+
+  &-row {
+    margin-bottom: $spacing-medium;
+  }
+
+  &-textarea {
+    height: 120px !important;
+    resize: none;
+    overflow: hidden;
+  }
+}

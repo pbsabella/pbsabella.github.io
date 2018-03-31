@@ -1,0 +1,21 @@
+.Button {
+  display: block;
+  font-size: $font-size-detail;
+  padding: $spacing-xsmall;
+  text-align: center;
+  width: fit-content;
+
+  &-primary {
+    background: $primary;
+    border-radius: 2px;
+    box-shadow: 0 2px 16x rgba(50, 50, 93, .3);
+    color: $secondary-xxxlight;
+
+    &--hollow {
+      background: none;
+      border: 1px solid $primary;
+      box-shadow: none;
+      color: $primary;
+    }
+  }
+}

@@ -72,7 +72,6 @@ nav ul a:hover {
 }
 
 .Footer-copyright {
-  color: #5c5c5c;
   font-size: 12px;
   padding: 8px 0;
   text-align: center;
@@ -108,6 +107,7 @@ nav ul a:hover {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  margin: 0;
 }
 
 .PortfolioList-item {
@@ -144,14 +144,17 @@ nav ul a:hover {
   margin-bottom: 0;
 }
 
+.Section-action {
+  margin: 24px 0 44px 0;
+}
+
 .Section-column {
-  margin-right: 24px;
+  margin-right: 0;
 }
 
 .Section-content {
   -ms-flex-preferred-size: 45%;
   flex-basis: 45%;
-  margin-bottom: 24px;
 }
 
 .Section-content--full {
@@ -164,6 +167,12 @@ nav ul a:hover {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 44px;
+  -webkit-transform: translateX(-8vw);
+  transform: translateX(-8vw);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
 
 .Section-intro-divider {
@@ -175,6 +184,11 @@ nav ul a:hover {
 
 .Section-intro-text {
   font-size: 12px;
+}
+
+.Section-intro.is-visible {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
 
 .Section-subcontent {
@@ -241,10 +255,6 @@ nav ul a:hover {
   padding: 44px 5vw;
 }
 
-.Section-inner:last-of-type {
-  padding-bottom: 16px !important;
-}
-
 .Section-list {
   margin-top: 44px;
 }
@@ -267,6 +277,10 @@ nav ul a:hover {
   margin-bottom: 24px;
 }
 
+.Section-title--small {
+  font-size: 21px;
+}
+
 .Section--dark {
   background: #292929;
   color: #ffffff;
@@ -277,7 +291,10 @@ nav ul a:hover {
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    margin-bottom: 84px;
+    margin-bottom: 64px;
+  }
+  .Section-column:not(:last-child) {
+    margin-right: 24px;
   }
   .Section-content {
     margin-top: 44px;
@@ -287,6 +304,9 @@ nav ul a:hover {
     max-width: 50vw;
   }
   .Section-inner {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -373,6 +393,32 @@ nav ul a:hover {
   }
 }
 
+.Button {
+  display: block;
+  font-size: 13px;
+  padding: 12px;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.Button-primary {
+  background: #03b787;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 16x rgba(50, 50, 93, 0.3);
+  box-shadow: 0 2px 16x rgba(50, 50, 93, 0.3);
+  color: #ffffff;
+}
+
+.Button-primary--hollow {
+  background: none;
+  border: 1px solid #03b787;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #03b787;
+}
+
 .Card {
   -webkit-box-shadow: 0 1px 8px rgba(50, 50, 93, 0.1);
   box-shadow: 0 1px 8px rgba(50, 50, 93, 0.1);
@@ -434,6 +480,59 @@ nav ul a:hover {
   .Card-placeholder-image {
     font-size: 4rem !important;
   }
+}
+
+.Form {
+  width: 100%;
+}
+
+.Form-action {
+  background: none;
+  border: 1px solid #292929;
+  color: #292929;
+  display: block;
+  font-size: 14px;
+  padding: 12px 64px;
+  text-align: center;
+}
+
+.Form-group {
+  margin-bottom: 24px;
+}
+
+.Form-input, .Form-textarea {
+  border-bottom: 1px solid #a7a9ab !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  font-size: 14px !important;
+  height: 2.5rem !important;
+  outline: none;
+  resize: vertical;
+}
+
+.Form-input:focus, .Form-input:active, .Form-textarea:focus, .Form-textarea:active {
+  border-bottom: 1px solid #03b787 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.Form-label {
+  color: #767676;
+  display: block;
+  font-size: 11px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.Form-row {
+  margin-bottom: 24px;
+}
+
+.Form-textarea {
+  height: 120px !important;
+  resize: none;
+  overflow: hidden;
 }
 
 /**
@@ -681,6 +780,13 @@ nav ul a:hover {
   justify-content: center;
   margin: 0;
   padding: 0;
+}
+
+.Social-list--left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-left: -16px;
 }
 
 .Social-list--right {

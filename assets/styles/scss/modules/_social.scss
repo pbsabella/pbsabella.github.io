@@ -6,6 +6,11 @@
     margin: 0;
     padding: 0;
 
+    &--left {
+      justify-content: flex-start;
+      margin-left: -$spacing-small;
+    }
+
     &--right {
       justify-content: flex-end;
     }

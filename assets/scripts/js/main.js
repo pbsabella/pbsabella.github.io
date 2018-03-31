@@ -2,7 +2,7 @@
 var headerElem = document.querySelector('.Header');
 var sidenavElem = document.querySelector('.sidenav');
 var scrollspyElem = document.querySelectorAll('.scrollspy');
-var animateBackgroundElem = document.querySelector('.animate-background');
+var animateElem = document.querySelectorAll('.animate');
 
 function initializeMaterialComponents() {
   // Initialize SideNav
@@ -13,7 +13,7 @@ function initializeMaterialComponents() {
   // Initialize ScrollSpy
   var scrollspyOptions = {
     activeClass: 'is-active',
-    scrollOffset: 10
+    scrollOffset: 40
   };
 
   M.Sidenav.init(sidenavElem, sidenavOptions);
@@ -29,6 +29,16 @@ function isElementSeen (el) {
   );
 }
 
+function animateElements() {
+  animateElem.forEach(function (elem) {
+    if (isElementSeen(elem)) {
+      elem.classList.add('is-visible');
+    } else {
+      elem.classList.remove('is-visible');
+    }
+  });
+}
+
 function toggleTransparentHeader() {
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -41,13 +51,9 @@ function toggleTransparentHeader() {
 
 document.addEventListener('scroll', function () {
   toggleTransparentHeader();
-
-  if (isElementSeen(animateBackgroundElem)) {
-    animateBackgroundElem.classList.add('is-visible');
-  } else {
-    animateBackgroundElem.classList.remove('is-visible');
-  }
+  animateElements();
 });
 
 initializeMaterialComponents();
 toggleTransparentHeader();
+animateElements();
