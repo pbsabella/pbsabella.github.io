@@ -60,7 +60,7 @@ nav ul a:hover {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  padding: 0 8vw;
+  padding: 0 6vw;
 }
 
 .Header.is-transparent {
@@ -144,16 +144,37 @@ nav ul a:hover {
   margin-bottom: 0;
 }
 
+.Section-column {
+  margin-right: 24px;
+}
+
 .Section-content {
   -ms-flex-preferred-size: 45%;
   flex-basis: 45%;
   margin-bottom: 24px;
-  text-align: center;
 }
 
 .Section-content--full {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
+}
+
+.Section-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 44px;
+}
+
+.Section-intro-divider {
+  background: #292929;
+  height: 1px;
+  margin: 8px 8px 0 0;
+  width: 44px;
+}
+
+.Section-intro-text {
+  font-size: 12px;
 }
 
 .Section-subcontent {
@@ -213,15 +234,19 @@ nav ul a:hover {
 }
 
 .Section-inner {
-  padding: 64px 8vw;
+  padding: 44px 8vw;
 }
 
-.Section-inner.wide {
-  padding: 64px 6vw;
+.Section-inner--wide {
+  padding: 44px 5vw;
 }
 
 .Section-inner:last-of-type {
   padding-bottom: 16px !important;
+}
+
+.Section-list {
+  margin-top: 44px;
 }
 
 .Section-socials-icon {
@@ -231,14 +256,15 @@ nav ul a:hover {
 .Section-subtitle {
   font-size: 16px;
   font-weight: 400;
+  line-height: 22px;
 }
 
 .Section-title {
   font-family: 'Vollkorn', Arial, serif;
   font-size: 32px;
   font-weight: 600;
-  line-height: 36px;
-  margin-bottom: 16px;
+  line-height: 34px;
+  margin-bottom: 24px;
 }
 
 .Section--dark {
@@ -254,10 +280,11 @@ nav ul a:hover {
     margin-bottom: 84px;
   }
   .Section-content {
+    margin-top: 44px;
     text-align: left;
   }
-  .Section-description {
-    font-size: 14px;
+  .Section-description--narrow {
+    max-width: 50vw;
   }
   .Section-inner {
     display: -webkit-box;
@@ -267,15 +294,8 @@ nav ul a:hover {
     -ms-flex-pack: justify;
     justify-content: space-between;
   }
-  .Section-title {
-    font-size: 48px;
-    line-height: 48px;
-    margin-bottom: 24px;
-  }
-  .Section-subtitle {
-    font-size: 21px;
-    font-weight: 400;
-    line-height: 28px;
+  .Section-subcontent {
+    margin-top: 88px;
   }
 }
 

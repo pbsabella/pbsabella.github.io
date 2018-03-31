@@ -9,13 +9,32 @@
     margin-bottom: 0;
   }
 
+  &-column {
+    margin-right: $spacing-medium;
+  }
+
   &-content {
     flex-basis: 45%;
     margin-bottom: $spacing-medium;
-    text-align: center;
 
     &--full {
       flex-basis: 100%;
+    }
+  }
+
+  &-intro {
+    display: flex;
+    margin-bottom: $spacing-large;
+
+    &-divider {
+      background: $secondary-xxxdark;
+      height: 1px;
+      margin: 8px 8px 0 0;
+      width: 44px;
+    }
+
+    &-text {
+      font-size: 12px;
     }
   }
 
@@ -69,15 +88,19 @@
   }
 
   &-inner {
-    padding: $spacing-xlarge 8vw;
+    padding: $spacing-large 8vw;
 
-    &.wide {
-      padding: $spacing-xlarge 6vw;
+    &--wide {
+      padding: $spacing-large 5vw;
     }
 
     &:last-of-type {
       padding-bottom: $spacing-small !important;
     }
+  }
+
+  &-list {
+    margin-top: $spacing-large;
   }
 
   &-socials {
@@ -89,14 +112,15 @@
   &-subtitle {
     font-size: $font-size-landing;
     font-weight: $font-weight-regular;
+    line-height: 22px;
   }
 
   &-title {
     @include heading-font;
     font-size: $font-size-heading2;
     font-weight: $font-weight-medium;
-    line-height: 36px;
-    margin-bottom: $spacing-small;
+    line-height: 34px;
+    margin-bottom: $spacing-medium;
   }
 
   &--dark {
@@ -113,11 +137,15 @@
     margin-bottom: $spacing-xxlarge;
 
     &-content {
+      margin-top: $spacing-large;
       text-align: left;
     }
 
     &-description {
-      font-size: $font-size-ui;
+      // font-size: $font-size-ui;
+      &--narrow {
+        max-width: 50vw;
+      }
     }
 
     &-inner {
@@ -125,17 +153,20 @@
       justify-content: space-between;
     }
 
+    &-subcontent {
+      margin-top: $spacing-large * 2;
+    }
+
     &-title {
-      font-size: $font-size-heading1;
-      line-height: 48px;
-      margin-bottom: $spacing-medium;
+      // font-size: $font-size-heading1;
+      // line-height: 48px;
+      // margin-bottom: $spacing-medium;
     }
 
     &-subtitle {
-      font-size: $font-size-heading3;
-      font-weight: $font-weight-regular;
-      line-height: 28px;
-
+      // font-size: $font-size-heading3;
+      // font-weight: $font-weight-regular;
+      // line-height: 28px;
     }
   }
 }
