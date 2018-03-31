@@ -169,10 +169,10 @@ nav ul a:hover {
   margin-bottom: 44px;
   -webkit-transform: translateX(-8vw);
   transform: translateX(-8vw);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.1s ease-out;
+  transition: -webkit-transform 0.1s ease-out;
+  transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out, -webkit-transform 0.1s ease-out;
 }
 
 .Section-intro-divider {
@@ -237,8 +237,8 @@ nav ul a:hover {
   height: 0%;
   position: absolute;
   top: 0;
-  -webkit-transition: height 0.7s ease-out;
-  transition: height 0.7s ease-out;
+  -webkit-transition: height 0.6s ease-out;
+  transition: height 0.6s ease-out;
   width: 60%;
   z-index: 0;
 }
@@ -291,7 +291,7 @@ nav ul a:hover {
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    margin-bottom: 64px;
+    margin-bottom: 44px;
   }
   .Section-column:not(:last-child) {
     margin-right: 24px;

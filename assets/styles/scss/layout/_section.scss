@@ -29,7 +29,7 @@
     display: flex;
     margin-bottom: $spacing-large;
     transform: translateX(-8vw);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.1s ease-out;
 
     &-divider {
       background: $secondary-xxxdark;
@@ -86,7 +86,7 @@
       height: 0%;
       position: absolute;
       top: 0;
-      transition: height 0.7s ease-out;
+      transition: height 0.6s ease-out;
       width: 60%;
       z-index: 0;
     }
