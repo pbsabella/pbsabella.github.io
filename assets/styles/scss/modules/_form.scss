@@ -6,7 +6,7 @@
     border: 1px solid $secondary-xxxdark;
     color: $secondary-xxxdark;
     display: block;
-    font-size: $font-size-ui;
+    // font-size: $font-size-ui;
     padding: $spacing-xsmall $spacing-xlarge;
     text-align: center;
   }
@@ -21,7 +21,7 @@
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
-    font-size: $font-size-ui !important;
+    // font-size: $font-size-ui !important;
     height: 2.5rem !important;
     outline: none;
     resize: vertical;
@@ -36,7 +36,7 @@
   &-label {
     color: lighten($secondary-xxxdark, 30%);
     display: block;
-    font-size: 11px;
+    font-size: $font-size-detail;
     margin-bottom: $spacing-xxxsmall;
     text-transform: uppercase;
   }

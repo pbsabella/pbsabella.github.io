@@ -15,7 +15,6 @@
   &-description {
     background: $secondary-xxxdark;
     color: $secondary-xxxlight;
-    font-size: $font-size-ui;
     font-weight: $font-weight-light;
     padding: $spacing-small;
     width: 70%;
@@ -55,9 +54,7 @@
 
   &-title {
     @include heading-font;
-    font-size: $font-size-heading1;
     font-weight: $font-weight-medium;
-    line-height: 48px;
     margin-bottom: $spacing-large;
   }
 }
@@ -72,7 +69,6 @@
     }
 
     &-description {
-      font-size: $font-size-landing;
       padding: $spacing-medium;
     }
 
@@ -88,8 +84,6 @@
     }
 
     &-title {
-      font-size: $font-size-heading;
-      line-height: 68px;
       margin-bottom: $spacing-xlarge;
     }
   }

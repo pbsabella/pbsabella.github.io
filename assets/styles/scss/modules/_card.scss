@@ -26,20 +26,19 @@
     text-align: left;
 
     &-title {
-      font-size: $font-size-detail;
       font-weight: 500;
-      margin-bottom: $spacing-xxsmall;
+      margin-bottom: $spacing-xsmall;
     }
 
     &-description {
-      font-size: .8em;
+      font-size: $font-size-detail;
       margin-bottom: $spacing-xsmall;
     }
 
     &-service {
       border-top: 1px solid $secondary-light;
       color: $secondary;
-      font-size: .7em;
+      font-size: $font-size-footnote;
       padding-top: $spacing-xxsmall;
 
       &::selection {

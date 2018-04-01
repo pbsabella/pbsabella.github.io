@@ -1,6 +1,7 @@
 // Core variables and mixins
-@import "variables.scss";
 @import "mixins.scss";
+@import "typography.scss";
+@import "variables.scss";
 
 // Global CSS
 @import "global.scss";
@@ -13,7 +14,6 @@
 @import "layout/section.scss";
 
 // Modules
-@import "modules/about.scss";
 @import "modules/button.scss";
 @import "modules/card.scss";
 @import "modules/form.scss";

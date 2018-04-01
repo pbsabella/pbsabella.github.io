@@ -1,7 +1,7 @@
 body {
   background-color: $secondary-xxlight;
   color: $secondary-xxxdark;
-  font-size: $font-size-ui;
+  font-size: $font-size-main;
   font-weight: $font-weight-regular;
   @include body-font;
 }
@@ -24,8 +24,12 @@ nav {
   }
 }
 
-nav ul a:hover {
-  background-color: transparent;
+nav ul a {
+  font-size: 1em;
+
+  &:hover {
+    background-color: transparent;
+  }
 }
 
 .sidenav li > a:hover {
