@@ -3,8 +3,8 @@
 
   &-action {
     background: none;
-    border: 1px solid $secondary-xxxdark;
-    color: $secondary-xxxdark;
+    border: 1px solid $secondary-xxdark;
+    color: $secondary-xxdark;
     display: block;
     // font-size: $font-size-ui;
     padding: $spacing-xsmall $spacing-xlarge;
@@ -17,7 +17,7 @@
 
   &-input,
   &-textarea {
-    border-bottom: 1px solid $secondary !important;
+    border-bottom: 1px solid $secondary-dark !important;
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
@@ -34,7 +34,7 @@
   }
 
   &-label {
-    color: lighten($secondary-xxxdark, 30%);
+    color: lighten($secondary-xxdark, 30%);
     display: block;
     font-size: $font-size-detail;
     margin-bottom: $spacing-xxxsmall;

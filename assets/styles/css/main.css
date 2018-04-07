@@ -74,7 +74,7 @@ h4 {
 
 body {
   background-color: #fcfcfc;
-  color: #292929;
+  color: #1d1d1e;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Heebo', Arial, sans-serif;
@@ -146,7 +146,7 @@ nav ul a:hover {
 }
 
 .Footer {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ebebed;
 }
 
 .Footer-copyright {
@@ -218,10 +218,6 @@ nav ul a:hover {
   margin-bottom: 24px;
 }
 
-.Section:last-of-type {
-  margin-bottom: 0;
-}
-
 .Section-action {
   margin: 24px 0 44px 0;
 }
@@ -262,7 +258,7 @@ nav ul a:hover {
 }
 
 .Section-intro-divider {
-  background: #292929;
+  background: #1d1d1e;
   height: 1px;
   margin: 8px 8px 0 0;
   width: 44px;
@@ -320,7 +316,7 @@ nav ul a:hover {
 }
 
 .Section-subcontent::after {
-  background: #eee;
+  background: #ebebed;
   content: '';
   left: 0;
   min-width: 170px;
@@ -348,7 +344,7 @@ nav ul a:hover {
 }
 
 .Section--dark {
-  background: #292929;
+  background: #1d1d1e;
   color: #ffffff;
 }
 
@@ -431,12 +427,12 @@ nav ul a:hover {
 }
 
 .Card-figure.is-placeholder {
-  background: #eee;
+  background: #ebebed;
 }
 
 .Card-info {
   background: #ffffff;
-  color: #292929;
+  color: #1d1d1e;
   padding: 12px;
   text-align: left;
 }
@@ -452,18 +448,18 @@ nav ul a:hover {
 }
 
 .Card-info-service {
-  border-top: 1px solid #dfdfe2;
-  color: #a7a9ab;
+  border-top: 1px solid #d0d0d6;
+  color: #9b9ba3;
   font-size: 0.75em;
   padding-top: 8px;
 }
 
 .Card-info-service::-moz-selection {
-  color: #292929;
+  color: #1d1d1e;
 }
 
 .Card-info-service::selection {
-  color: #292929;
+  color: #1d1d1e;
 }
 
 @media only screen and (max-width: 340px) {
@@ -478,8 +474,8 @@ nav ul a:hover {
 
 .Form-action {
   background: none;
-  border: 1px solid #292929;
-  color: #292929;
+  border: 1px solid #1d1d1e;
+  color: #1d1d1e;
   display: block;
   padding: 12px 64px;
   text-align: center;
@@ -490,7 +486,7 @@ nav ul a:hover {
 }
 
 .Form-input, .Form-textarea {
-  border-bottom: 1px solid #a7a9ab !important;
+  border-bottom: 1px solid #9b9ba3 !important;
   border-left: none !important;
   border-right: none !important;
   border-top: none !important;
@@ -506,7 +502,7 @@ nav ul a:hover {
 }
 
 .Form-label {
-  color: #767676;
+  color: #68686c;
   display: block;
   font-size: 0.875em;
   margin-bottom: 4px;
@@ -546,7 +542,7 @@ nav ul a:hover {
 }
 
 .Hero-description {
-  background: #292929;
+  background: #1d1d1e;
   color: #ffffff;
   font-weight: 300;
   padding: 16px;
@@ -561,7 +557,7 @@ nav ul a:hover {
 }
 
 .Hero-divider--dark {
-  background: #292929;
+  background: #1d1d1e;
 }
 
 .Hero-divider--white {
@@ -569,7 +565,7 @@ nav ul a:hover {
 }
 
 .Hero-figure {
-  background: #eee;
+  background: #ebebed;
   bottom: 0;
   margin: 24px 0;
   position: absolute;
@@ -624,7 +620,7 @@ nav ul a:hover {
 }
 
 .Icon {
-  color: #292929;
+  color: #1d1d1e;
   display: block;
 }
 
@@ -636,6 +632,10 @@ nav ul a:hover {
   margin-bottom: 24px;
 }
 
+.List-item {
+  font-size: 0.875em;
+}
+
 .List-title {
   font-family: 'Vollkorn', Arial, serif;
   font-weight: 600;
@@ -644,7 +644,7 @@ nav ul a:hover {
 }
 
 .Nav-item {
-  color: #292929;
+  color: #1d1d1e;
 }
 
 .Nav-item:not(:first-child) {
@@ -652,7 +652,7 @@ nav ul a:hover {
 }
 
 .Nav-logo {
-  color: #292929;
+  color: #1d1d1e;
   font-weight: 600;
   padding: 16px 0;
   font-family: 'Vollkorn', Arial, serif;
@@ -660,7 +660,7 @@ nav ul a:hover {
 
 .Nav-link {
   font-family: 'Heebo', Arial, sans-serif;
-  color: #292929;
+  color: #1d1d1e;
   display: inline-block;
   line-height: initial;
   padding: 2px 0;
@@ -669,7 +669,7 @@ nav ul a:hover {
 }
 
 .Nav-link::after {
-  background: #292929;
+  background: #1d1d1e;
   bottom: 0;
   content: '';
   height: 1.6px;
@@ -694,7 +694,7 @@ nav ul a:hover {
 }
 
 .Nav-menu-icon {
-  color: #292929;
+  color: #1d1d1e;
 }
 
 .Nav-list {
@@ -727,7 +727,7 @@ nav ul a:hover {
 }
 
 .SideMenu-item {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ebebed;
   margin-left: 24px;
 }
 

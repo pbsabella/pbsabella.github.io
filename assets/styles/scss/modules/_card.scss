@@ -15,13 +15,13 @@
     }
 
     &.is-placeholder {
-      background: $secondary-xlight;
+      background: $secondary-light;
     }
   }
 
   &-info {
-    background: $secondary-xxxlight;
-    color: $secondary-xxxdark;
+    background: $secondary-xxlight;
+    color: $secondary-xxdark;
     padding: $spacing-xsmall;
     text-align: left;
 
@@ -36,13 +36,13 @@
     }
 
     &-service {
-      border-top: 1px solid $secondary-light;
-      color: $secondary;
+      border-top: 1px solid $secondary;
+      color: $secondary-dark;
       font-size: $font-size-footnote;
       padding-top: $spacing-xxsmall;
 
       &::selection {
-        color: $secondary-xxxdark;
+        color: $secondary-xxdark;
       }
     }
   }

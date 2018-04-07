@@ -5,6 +5,10 @@
     }
   }
 
+  &-item {
+    font-size: $font-size-detail;
+  }
+
   &-title {
     @include heading-font;
     font-weight: $font-weight-medium;

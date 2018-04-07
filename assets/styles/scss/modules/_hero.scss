@@ -13,8 +13,8 @@
   }
 
   &-description {
-    background: $secondary-xxxdark;
-    color: $secondary-xxxlight;
+    background: $secondary-xxdark;
+    color: $secondary-xxlight;
     font-weight: $font-weight-light;
     padding: $spacing-small;
     width: 70%;
@@ -27,17 +27,17 @@
     width: 32px;
 
     &--dark {
-      background: $secondary-xxxdark;
+      background: $secondary-xxdark;
     }
 
     &--white {
-      background: $secondary-xxxlight;
+      background: $secondary-xxlight;
     }
   }
 
   &-figure {
     // border: 6px solid $primary;
-    background: $secondary-xlight;
+    background: $secondary-light;
     bottom: 0;
     margin: $spacing-medium 0;
     position: absolute;

@@ -1,6 +1,6 @@
 .Nav {
   &-item {
-    color: $secondary-xxxdark;
+    color: $secondary-xxdark;
 
     &:not(:first-child) {
       padding-left: $spacing-medium;
@@ -8,7 +8,7 @@
   }
 
   &-logo {
-    color: $secondary-xxxdark;
+    color: $secondary-xxdark;
     font-weight: $font-weight-medium;
     padding: $spacing-small 0;
     @include heading-font;
@@ -16,7 +16,7 @@
 
   &-link {
     @include body-font;
-    color: $secondary-xxxdark;
+    color: $secondary-xxdark;
     display: inline-block;
     line-height: initial;
     padding: 2px 0;
@@ -24,7 +24,7 @@
     text-transform: lowercase;
 
     &::after {
-      background: $secondary-xxxdark;
+      background: $secondary-xxdark;
       bottom: 0;
       content: '';
       height: 1.6px;
@@ -47,7 +47,7 @@
 
   &-menu {
     &-icon {
-      color: $secondary-xxxdark;
+      color: $secondary-xxdark;
     }
   }
 

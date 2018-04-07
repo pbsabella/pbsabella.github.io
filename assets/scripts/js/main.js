@@ -13,7 +13,7 @@ function initializeMaterialComponents() {
   // Initialize ScrollSpy
   var scrollspyOptions = {
     activeClass: 'is-active',
-    scrollOffset: 40
+    scrollOffset: 80
   };
 
   M.Sidenav.init(sidenavElem, sidenavOptions);
