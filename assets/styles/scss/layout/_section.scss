@@ -32,7 +32,7 @@
   &-intro {
     display: flex;
     margin-bottom: $spacing-large;
-    transform: translateX(-8vw);
+    transform: translateX(-10vw);
     transition: transform 0.2s ease-out;
 
     &-divider {
@@ -58,11 +58,12 @@
   &-subcontent {
     display: flex;
     flex-basis: 50%;
+    flex-wrap: wrap;
     margin: $spacing-large 0 $spacing-medium 0;
     position: relative;
 
     &-description {
-      flex-basis: 60%;
+      flex: 1;
       min-width: max-content;
       padding: $spacing-small;
       position: relative;
@@ -95,7 +96,7 @@
       position: absolute;
       top: 0;
       transition: height 0.6s ease-out;
-      width: 60%;
+      width: 100%;
       z-index: 0;
     }
 
@@ -111,7 +112,7 @@
   &-title {
     @include heading-font;
     font-weight: $font-weight-medium;
-    margin-bottom: $spacing-medium;
+    margin: $spacing-large 0 $spacing-medium 0;
   }
 
   &--dark {

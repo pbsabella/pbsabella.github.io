@@ -61,10 +61,10 @@ function toggleTransparentHeader() {
 }
 
 document.addEventListener('scroll', function () {
-  toggleTransparentHeader();
   animateElements();
+  toggleTransparentHeader();
 });
 
+animateElements();
 initializeMaterialComponents();
 toggleTransparentHeader();
-animateElements();

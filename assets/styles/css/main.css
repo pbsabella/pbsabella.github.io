@@ -92,6 +92,10 @@ header {
   background: #03b787;
 }
 
+body, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 nav {
   background: inherit;
   -webkit-box-shadow: none;
@@ -138,7 +142,7 @@ nav ul a:hover {
   display: -ms-flexbox;
   display: flex;
   height: 100%;
-  padding: 0 6vw;
+  padding: 0 8vw;
 }
 
 .Header.is-transparent {
@@ -165,12 +169,7 @@ nav ul a:hover {
 }
 
 .Main {
-  bottom: 0;
-  left: 0;
   min-width: 300px;
-  position: absolute;
-  right: 0;
-  top: 56px;
 }
 
 .PortfolioList {
@@ -249,8 +248,8 @@ nav ul a:hover {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 44px;
-  -webkit-transform: translateX(-8vw);
-  transform: translateX(-8vw);
+  -webkit-transform: translateX(-10vw);
+  transform: translateX(-10vw);
   -webkit-transition: -webkit-transform 0.2s ease-out;
   transition: -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
@@ -283,13 +282,16 @@ nav ul a:hover {
   display: flex;
   -ms-flex-preferred-size: 50%;
   flex-basis: 50%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 44px 0 24px 0;
   position: relative;
 }
 
 .Section-subcontent-description {
-  -ms-flex-preferred-size: 60%;
-  flex-basis: 60%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
@@ -325,7 +327,7 @@ nav ul a:hover {
   top: 0;
   -webkit-transition: height 0.6s ease-out;
   transition: height 0.6s ease-out;
-  width: 60%;
+  width: 100%;
   z-index: 0;
 }
 
@@ -340,7 +342,7 @@ nav ul a:hover {
 .Section-title {
   font-family: 'Vollkorn', Arial, serif;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin: 44px 0 24px 0;
 }
 
 .Section--dark {
@@ -393,8 +395,6 @@ nav ul a:hover {
 .Button-primary {
   background: #03b787;
   border-radius: 2px;
-  -webkit-box-shadow: 0 2px 16x rgba(50, 50, 93, 0.3);
-  box-shadow: 0 2px 16x rgba(50, 50, 93, 0.3);
   color: #ffffff;
 }
 
@@ -523,35 +523,27 @@ nav ul a:hover {
  * Default: Mobile
  */
 .Hero {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   height: 100vh;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  margin-bottom: 24px;
 }
 
 .Hero-content {
-  width: 80%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  z-index: 2;
 }
 
 .Hero-description {
-  background: #1d1d1e;
-  color: #ffffff;
-  font-weight: 300;
-  padding: 16px;
-  width: 70%;
   word-break: break-word;
+  width: 80%;
 }
 
 .Hero-divider {
-  height: 2.4px;
+  height: 1.6px;
   margin-bottom: 24px;
   width: 32px;
 }
@@ -565,17 +557,42 @@ nav ul a:hover {
 }
 
 .Hero-figure {
-  background: #ebebed;
-  bottom: 0;
-  margin: 24px 0;
-  position: absolute;
-  right: 24px;
-  top: 0;
-  width: 70%;
-  z-index: -1;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: url("/assets/images/ferns.jpg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1.5;
+  -ms-flex: 1.5;
+  flex: 1.5;
+  margin-bottom: 24px;
+  -webkit-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0;
+  position: relative;
+  z-index: 1;
+  -webkit-animation: 0.7s ease-out 0s 1 slideInFromLeft;
+  animation: 0.7s ease-out 0s 1 slideInFromLeft;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .Hero-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: 100%;
   padding: 64px 8vw;
   width: 100%;
 }
@@ -583,39 +600,63 @@ nav ul a:hover {
 .Hero-title {
   font-family: 'Vollkorn', Arial, serif;
   font-weight: 600;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
 }
 
 /**
  * Tablet and Desktop
  */
 @media only screen and (min-width: 768px) {
+  .Hero {
+    margin-bottom: 44px;
+  }
   .Hero-content {
-    width: 70%;
+    margin-top: 84px;
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
   }
   .Hero-description {
-    padding: 24px;
+    width: 50%;
   }
   .Hero-divider {
-    height: 3px;
     width: 46px;
   }
   .Hero-figure {
-    margin: 44px 0;
-    right: 44px;
-    width: 60%;
+    height: 100%;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .Hero-inner {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 64px 0 64px 8vw;
   }
   .Hero-title {
     margin-bottom: 64px;
   }
 }
 
-/**
- * Extra: Small device
- */
-@media only screen and (max-width: 321px) {
-  .Hero-content {
-    width: 90%;
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 

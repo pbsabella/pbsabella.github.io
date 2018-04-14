@@ -2,27 +2,26 @@
  * Default: Mobile
  */
 .Hero {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  // align-items: center;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
   height: 100vh;
-  justify-content: center;
+  margin-bottom: $spacing-medium;
 
   &-content {
-    width: 80%;
+    flex: 1;
+    order: 1;
+    z-index: 2;
   }
 
   &-description {
-    background: $secondary-xxdark;
-    color: $secondary-xxlight;
-    font-weight: $font-weight-light;
-    padding: $spacing-small;
-    width: 70%;
     word-break: break-word;
+    width: 80%;
   }
 
   &-divider {
-    height: 2.4px;
+    height: 1.6px;
     margin-bottom: $spacing-medium;
     width: 32px;
 
@@ -36,18 +35,37 @@
   }
 
   &-figure {
-    // border: 6px solid $primary;
-    background: $secondary-light;
-    bottom: 0;
-    margin: $spacing-medium 0;
-    position: absolute;
-    right: $spacing-medium;
-    top: 0;
-    width: 70%;
-    z-index: -1;
+    align-items: center;
+    background: url('/assets/images/ferns.jpg');
+    display: flex;
+    flex: 1.5;
+    margin-bottom: $spacing-medium;
+    order: 0;
+    position: relative;
+    // width: 100%;
+    z-index: 1;
+    animation: 0.7s ease-out 0s 1 slideInFromLeft;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // &-image {
+    //   display: block;
+    //   height: 100%;
+    //   object-fit: cover;
+    //   position: absolute;
+    //   width: 100%;
+    // }
   }
 
   &-inner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
     padding: $spacing-xlarge 8vw;
     width: 100%;
   }
@@ -55,7 +73,7 @@
   &-title {
     @include heading-font;
     font-weight: $font-weight-medium;
-    margin-bottom: $spacing-large;
+    margin-bottom: $spacing-medium;
   }
 }
 
@@ -64,23 +82,31 @@
  */
 @media only screen and (min-width: 768px) {
   .Hero {
+    margin-bottom: $spacing-large;
+
     &-content {
-      width: 70%;
+      margin-top: $spacing-xxlarge;
+      order: 0;
     }
 
     &-description {
-      padding: $spacing-medium;
+      width: 50%;
     }
 
     &-divider {
-      height: 3px;
       width: 46px;
     }
 
     &-figure {
-      margin: $spacing-large 0;
-      right: $spacing-large;
-      width: 60%;
+      height: 100%;
+      margin-bottom: 0;
+      overflow: hidden;
+    }
+
+    &-inner {
+      align-items: center;
+      flex-direction: row;
+      padding: $spacing-xlarge 0 $spacing-xlarge 8vw;
     }
 
     &-title {
@@ -89,13 +115,11 @@
   }
 }
 
-/**
- * Extra: Small device
- */
-@media only screen and (max-width: 321px) {
-  .Hero {
-    &-content {
-      width: 90%;
-    }
+@keyframes slideInFromLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
