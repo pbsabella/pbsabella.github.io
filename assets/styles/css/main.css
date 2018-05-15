@@ -527,16 +527,6 @@ nav ul a:hover {
   margin-bottom: 24px;
 }
 
-.Hero-content {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -webkit-box-ordinal-group: 2;
-  -ms-flex-order: 1;
-  order: 1;
-  z-index: 2;
-}
-
 .Hero-description {
   word-break: break-word;
   width: 80%;
@@ -557,42 +547,48 @@ nav ul a:hover {
 }
 
 .Hero-figure {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: url("/assets/images/ferns.jpg");
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1.5;
-  -ms-flex: 1.5;
-  flex: 1.5;
-  margin-bottom: 24px;
-  -webkit-box-ordinal-group: 1;
-  -ms-flex-order: 0;
-  order: 0;
+  height: 60%;
   position: relative;
-  z-index: 1;
-  -webkit-animation: 0.7s ease-out 0s 1 slideInFromLeft;
-  animation: 0.7s ease-out 0s 1 slideInFromLeft;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 100%;
+}
+
+.Hero-figure-background {
+  background: #ebebed;
+  height: 40%;
+  margin-bottom: 44px;
+  width: 100%;
+}
+
+.Hero-figure-foreground {
+  bottom: 0;
+  height: 100%;
+  max-width: 800px;
+  position: absolute;
+  right: -16vw;
+}
+
+.Hero-figure-image {
+  height: auto;
+  width: 100%;
 }
 
 .Hero-inner {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   height: 100%;
+  overflow: hidden;
   padding: 64px 8vw;
   width: 100%;
 }
@@ -611,31 +607,25 @@ nav ul a:hover {
     margin-bottom: 44px;
   }
   .Hero-content {
-    margin-top: 84px;
-    -webkit-box-ordinal-group: 1;
-    -ms-flex-order: 0;
-    order: 0;
-  }
-  .Hero-description {
-    width: 50%;
+    padding: 24px;
+    position: absolute;
   }
   .Hero-divider {
     width: 46px;
   }
   .Hero-figure {
     height: 100%;
-    margin-bottom: 0;
-    overflow: hidden;
+  }
+  .Hero-figure-background {
+    margin-bottom: 84px;
+  }
+  .Hero-figure-foreground {
+    width: 100%;
   }
   .Hero-inner {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    padding: 64px 0 64px 8vw;
   }
   .Hero-title {
     margin-bottom: 64px;

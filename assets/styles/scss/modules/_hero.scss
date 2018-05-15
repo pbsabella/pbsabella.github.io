@@ -2,18 +2,8 @@
  * Default: Mobile
  */
 .Hero {
-  // align-items: center;
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: center;
   height: 100vh;
   margin-bottom: $spacing-medium;
-
-  &-content {
-    flex: 1;
-    order: 1;
-    z-index: 2;
-  }
 
   &-description {
     word-break: break-word;
@@ -35,37 +25,39 @@
   }
 
   &-figure {
-    align-items: center;
-    background: url('/assets/images/ferns.jpg');
+    align-items: flex-end;
     display: flex;
-    flex: 1.5;
-    margin-bottom: $spacing-medium;
-    order: 0;
+    height: 60%;
     position: relative;
-    // width: 100%;
-    z-index: 1;
-    animation: 0.7s ease-out 0s 1 slideInFromLeft;
+    width: 100%;
 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    &-background {
+      background: $secondary-light;
+      height: 40%;
+      margin-bottom: $spacing-large;
+      width: 100%;
+    }
 
-    // &-image {
-    //   display: block;
-    //   height: 100%;
-    //   object-fit: cover;
-    //   position: absolute;
-    //   width: 100%;
-    // }
+    &-foreground {
+      bottom: 0;
+      height: 100%;
+      max-width: 800px;
+      position: absolute;
+      right: -16vw;
+    }
+
+    &-image {
+      height: auto;
+      width: 100%;
+    }
   }
 
   &-inner {
+    align-items: center;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     height: 100%;
+    overflow: hidden;
     padding: $spacing-xlarge 8vw;
     width: 100%;
   }
@@ -85,12 +77,8 @@
     margin-bottom: $spacing-large;
 
     &-content {
-      margin-top: $spacing-xxlarge;
-      order: 0;
-    }
-
-    &-description {
-      width: 50%;
+      padding: $spacing-medium;
+      position: absolute;
     }
 
     &-divider {
@@ -99,14 +87,18 @@
 
     &-figure {
       height: 100%;
-      margin-bottom: 0;
-      overflow: hidden;
+
+      &-background {
+        margin-bottom: $spacing-xxlarge;
+      }
+
+      &-foreground {
+        width: 100%;
+      }
     }
 
     &-inner {
       align-items: center;
-      flex-direction: row;
-      padding: $spacing-xlarge 0 $spacing-xlarge 8vw;
     }
 
     &-title {
