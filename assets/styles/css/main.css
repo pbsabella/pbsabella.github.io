@@ -212,6 +212,103 @@ nav ul a:hover {
 /**
  * Default: Mobile
  */
+.Resume {
+  line-height: 22px;
+  margin-top: 56px;
+}
+
+.Resume-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.Resume-details {
+  color: #37373a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Resume-inner {
+  padding: 44px 8vw;
+}
+
+.Resume-item {
+  margin-bottom: 24px;
+}
+
+.Resume-list {
+  margin: 8px 24px 24px 0;
+  padding-left: 16px !important;
+}
+
+.Resume-list-item {
+  list-style-type: disc !important;
+}
+
+.Resume-main {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+
+.Resume-note {
+  color: #37373a;
+  font-size: 0.875em;
+  margin-bottom: 16px;
+}
+
+.Resume-side {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
+
+.Resume-social-item {
+  margin-bottom: 16px;
+}
+
+.Resume-social-link {
+  font-size: 0.875em;
+}
+
+.Resume-social-title {
+  font-weight: 500;
+}
+
+.Resume-subtitle {
+  font-weight: 500;
+}
+
+.Resume-title {
+  font-family: 'Vollkorn', Arial, serif;
+  border-bottom: 1.2px solid #37373a;
+  font-weight: 600;
+  line-height: 34px;
+  margin-bottom: 16px;
+}
+
+/**
+ * Tablet and Desktop
+ */
+@media only screen and (min-width: 768px) {
+  .Resume-main {
+    -ms-flex-preferred-size: 63%;
+    flex-basis: 63%;
+  }
+  .Resume-side {
+    -ms-flex-preferred-size: 30%;
+    flex-basis: 30%;
+  }
+}
+
+/**
+ * Default: Mobile
+ */
 .Section {
   position: relative;
   margin-bottom: 24px;
@@ -817,4 +914,60 @@ nav ul a:hover {
 
 .Social-link--small {
   padding: 14px;
+}
+
+/**
+ * Default: Mobile
+ */
+.Timeline {
+  position: relative;
+}
+
+.Timeline-date {
+  font-size: 0.875em;
+  margin-left: auto;
+}
+
+.Timeline-header {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.Timeline-item {
+  margin: 0 0 24px 24px;
+}
+
+.Timeline-item::before {
+  background-color: #37373a;
+  border-radius: 50%;
+  content: '';
+  height: 8px;
+  left: 4px;
+  margin-top: 4px;
+  position: absolute;
+  width: 8px;
+  z-index: 1;
+}
+
+.Timeline-subtitle {
+  margin-bottom: 8px;
+}
+
+.Timeline-title {
+  font-weight: 500;
+}
+
+.Timeline::after {
+  content: '';
+  background-color: #9b9ba3;
+  bottom: 16px;
+  margin-left: 8px;
+  position: absolute;
+  top: 4px;
+  width: 0.8px;
 }
