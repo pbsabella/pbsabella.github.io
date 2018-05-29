@@ -255,6 +255,9 @@ nav ul a:hover {
 .Resume-main {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
 }
 
 .Resume-note {
@@ -266,6 +269,9 @@ nav ul a:hover {
 .Resume-side {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
 }
 
 .Resume-social-item {
@@ -299,10 +305,16 @@ nav ul a:hover {
   .Resume-main {
     -ms-flex-preferred-size: 63%;
     flex-basis: 63%;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
   }
   .Resume-side {
     -ms-flex-preferred-size: 30%;
     flex-basis: 30%;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
   }
 }
 
