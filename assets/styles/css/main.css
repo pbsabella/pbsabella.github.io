@@ -213,7 +213,7 @@ nav ul a:hover {
  * Default: Mobile
  */
 .Resume {
-  line-height: 22px;
+  line-height: 1.85em;
   margin-top: 56px;
 }
 
@@ -343,6 +343,10 @@ nav ul a:hover {
 .Section-content--full {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
+}
+
+.Section-description {
+  line-height: 1.5em;
 }
 
 .Section-inner {
@@ -775,6 +779,7 @@ nav ul a:hover {
 
 .List-item {
   font-size: 0.875em;
+  line-height: 1.75em;
 }
 
 .List-title {
