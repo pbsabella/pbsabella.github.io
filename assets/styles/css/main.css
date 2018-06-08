@@ -181,32 +181,11 @@ nav ul a:hover {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 0;
+  margin: -12px;
 }
 
 .PortfolioList-item {
-  padding: 0 8px;
-  margin: 0 auto 44px auto;
-}
-
-@media only screen and (min-width: 768px) {
-  .PortfolioList {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-  .PortfolioList-item {
-    margin: 0 0 44px 0;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .PortfolioList-item {
-    padding: 0;
-  }
+  margin: 12px;
 }
 
 /**
