@@ -6,11 +6,6 @@
     width: 100%;
   }
 
-  &-inner {
-    height: 100%;
-    position: relative;
-  }
-
   &-item {
     border-bottom: 1px solid $secondary-light;
     margin-left: $spacing-medium;
@@ -27,6 +22,8 @@
   }
 
   &-list {
+    height: 100%;
+    padding-top: $spacing-medium;
     width: 80vw;
   }
 }

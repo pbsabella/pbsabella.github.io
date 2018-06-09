@@ -486,7 +486,7 @@ nav ul a:hover {
 }
 
 .Button-primary {
-  background: #03b787;
+  background: #1d1d1e;
   border-radius: 2px;
   color: #ffffff;
 }
@@ -542,7 +542,7 @@ nav ul a:hover {
 
 .Card-info-service {
   border-top: 1px solid #d0d0d6;
-  color: #9b9ba3;
+  color: #37373a;
   font-size: 0.75em;
   padding-top: 8px;
 }
@@ -846,11 +846,6 @@ nav ul a:hover {
   width: 100%;
 }
 
-.SideMenu-inner {
-  height: 100%;
-  position: relative;
-}
-
 .SideMenu-item {
   border-bottom: 1px solid #ebebed;
   margin-left: 24px;
@@ -866,6 +861,8 @@ nav ul a:hover {
 }
 
 .SideMenu-list {
+  height: 100%;
+  padding-top: 24px;
   width: 80vw;
 }
 
