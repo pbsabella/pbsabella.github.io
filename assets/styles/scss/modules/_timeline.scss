@@ -6,13 +6,14 @@
 
   &-date {
     font-size: $font-size-detail;
-    margin-left: auto;
   }
 
   &-header {
     align-items: center;
     display: flex;
+    justify-content: space-between;
     margin-bottom: $spacing-small;
+    flex-wrap: wrap;
   }
 
   &-item {
