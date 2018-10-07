@@ -14,10 +14,12 @@
     @include heading-font;
   }
 
-  &-link {
+  & &-link {
     @include body-font;
     color: $secondary-xxdark;
     display: inline-block;
+    float: none;
+    height: auto;
     line-height: initial;
     padding: 2px 0;
     position: relative;

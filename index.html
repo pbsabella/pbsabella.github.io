@@ -12,13 +12,6 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Import Custom Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Import Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500|Vollkorn:400,600" rel="stylesheet">
-
     <!-- Import materialize.css -->
     <link type="text/css" rel="stylesheet" href="vendor/materialize-css/css/materialize.min.css"  media="screen, projection"/>
 
@@ -26,7 +19,7 @@
     <script type="text/javascript" src="vendor/materialize-css/js/materialize.min.js"></script>
 
     <!-- Custom styles -->
-    <link href="assets/styles/css/main.min.css" rel="stylesheet">
+    <link href="dist/main.css" rel="stylesheet">
   </head>
 
   <body>
@@ -76,18 +69,19 @@
           <a class="SideMenu-link sidenav-close waves-effect" href="resume.html">resume</a>
         </li>
         <li class="SideMenu-footer">
-          <div class="Social">
-            <div class="Social-list Social-list--right">
-              <a class="Social-link Social-link--small" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
-                <i class="Social-link-icon Icon fa fa-linkedin"></i>
-              </a>
-              <a class="Social-link Social-link--small" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
-                <i class="Social-link-icon Icon fa fa-behance"></i>
-              </a>
-              <a class="Social-link Social-link--small" href="mailto:pau.abella@gmail.com" target="_blank" title="Mail">
-                <i class="Social-link-icon Icon Icon-mail fa fa-envelope"></i>
-              </a>
-            </div>
+          <div class="Nav Social">
+            <ul class="Nav-list Social-list Social-list--right">
+              <li class="Nav-item">
+                <a class="Nav-link" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
+                  LinkedIn
+                </a>
+              </li>
+              <li class="Nav-item">
+                <a class="Nav-link" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
+                  Behance
+                </a>
+              </li>
+            </ul>
           </div>
         </li>
       </ul>
@@ -98,7 +92,7 @@
         <div class="Hero-inner">
           <div class="Hero-figure">
             <div class="Hero-figure-foreground">
-              <img class="Hero-figure-image" src="assets/images/devices.png" alt="Web Design Hero Image">
+              <img class="Hero-figure-image" src="src/images/devices.png" alt="Web Design Hero Image">
             </div>
             <div class="Hero-figure-background"></div>
           </div>
@@ -132,7 +126,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-08.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-08.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -150,7 +144,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-09.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-09.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -168,7 +162,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-05.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-05.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -186,7 +180,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-03.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-03.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -204,7 +198,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-06.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-06.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -222,7 +216,7 @@
                 <li class="PortfolioList-item">
                   <div class="Card">
                     <div class="Card-figure">
-                      <img class="Card-figure-image" src="assets/images/portfolio-02.jpg" alt="Portfolio Logo">
+                      <img class="Card-figure-image" src="src/images/portfolio-02.jpg" alt="Portfolio Logo">
                     </div>
                     <div class="Card-info">
                       <div class="Card-info-title">
@@ -341,15 +335,19 @@
 
             <a class="Section-action Button Button-primary waves-effect waves-light" href="mailto:pau.abella@gmail.com">Drop me a message</a>
 
-            <div class="Social">
-              <div class="Social-list Social-list--right">
-                <a class="Social-link" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
-                  <i class="Social-link-icon Icon fa fa-linkedin fa-lg"></i>
-                </a>
-                <a class="Social-link" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
-                  <i class="Social-link-icon Icon fa fa-behance fa-lg"></i>
-                </a>
-              </div>
+            <div class="Nav Social">
+              <ul class="Nav-list Social-list Social-list--right">
+                <li class="Nav-item">
+                  <a class="Nav-link" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
+                    LinkedIn
+                  </a>
+                </li>
+                <li class="Nav-item">
+                  <a class="Nav-link" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
+                    Behance
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -365,6 +363,6 @@
     </div>
 
     <!-- Custom JavaScript -->
-    <script src="assets/scripts/js/main.min.js"></script>
+    <script src="dist/main.js"></script>
   </body>
 </html>

@@ -20,11 +20,11 @@
     padding: $spacing-small;
 
     &-icon {
-      transition: color 0.2s ease-out;
+      transition: fill 0.2s ease-out;
     }
 
     &:hover &-icon {
-      color: $primary;
+      fill: $primary;
     }
 
     &--small {
