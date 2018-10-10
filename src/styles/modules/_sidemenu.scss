@@ -5,8 +5,9 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition: width .3s ease-out;
+  transition: all .3s ease-out;
   width: 0;
+  visibility: hidden;
   z-index: 9;
 
   &-footer {
@@ -31,7 +32,7 @@
     @include body-font;
 
     &.is-active {
-      font-weight: 500 !important;
+      font-weight: 500;
     }
   }
 
@@ -43,6 +44,7 @@
   }
 
   &.is-active {
+    visibility: visible;
     width: 80vw;
   }
 }

@@ -45,6 +45,7 @@
       width: 100%;
     }
 
+    &:focus::after,
     &:hover::after {
       transform: scale3d(1, 1, 1);
     }
@@ -57,15 +58,16 @@
   &-menu {
     cursor: pointer;
     display: block;
-    padding: $spacing-small 0;
+    margin-right: -$spacing-small;
+    padding: $spacing-small;
 
     &-icon {
       background-color: $secondary-xxdark;
-      height: 3px;
+      height: 2px;
       width: 24px;
 
       &:not(:last-child) {
-        margin-bottom: 5px;
+        margin-bottom: 6px;
       }
     }
   }
