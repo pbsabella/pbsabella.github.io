@@ -1,5 +1,3 @@
-'use strict';
-
 import './styles/main.scss';
 
 // Elements
@@ -15,17 +13,7 @@ const sidenavElem = document.getElementById('side-nav');
 const KEYCODE_TAB = 9;
 const focusableSideNavElements = sidenavElem.querySelectorAll('a');
 
-function animateElements() {
-  animateElem.forEach(elem => {
-    if (isElementSeen(elem)) {
-      elem.classList.add('is-visible');
-    } else {
-      elem.classList.remove('is-visible');
-    }
-  });
-}
-
-function isElementSeen (el) {
+function isElementSeen(el) {
   const rect = el.getBoundingClientRect();
   let offset = 0;
 
@@ -43,6 +31,16 @@ function isElementSeen (el) {
   return (
     (rect.bottom - offset) <= (window.innerHeight || document.documentElement.clientHeight)
   );
+}
+
+function animateElements() {
+  animateElem.forEach((elem) => {
+    if (isElementSeen(elem)) {
+      elem.classList.add('is-visible');
+    } else {
+      elem.classList.remove('is-visible');
+    }
+  });
 }
 
 function scrollToSmoothly(pos) {
@@ -93,16 +91,15 @@ function toggleTransparentHeader() {
 
 function trapFocus(event) {
   if (event.key === 'Tab' || event.keyCode === KEYCODE_TAB) {
-    if ( event.shiftKey ) {
+    if (event.shiftKey) {
       if (document.activeElement === focusableSideNavElements[0]) {
         focusableSideNavElements[focusableSideNavElements.length - 1].focus();
         event.preventDefault();
       }
-    } else {
-      if (document.activeElement === focusableSideNavElements[focusableSideNavElements.length - 1]) {
-        focusableSideNavElements[0].focus();
-        event.preventDefault();
-      }
+    } else if (document.activeElement
+      === focusableSideNavElements[focusableSideNavElements.length - 1]) {
+      focusableSideNavElements[0].focus();
+      event.preventDefault();
     }
   }
 }
@@ -112,16 +109,16 @@ document.addEventListener('scroll', () => {
   toggleTransparentHeader();
 });
 
-menuToggleElem.addEventListener('click', (event) => toggleSideMenu(event));
-overlayElem.addEventListener('click', (event) => toggleSideMenu(event));
+menuToggleElem.addEventListener('click', event => toggleSideMenu(event));
+overlayElem.addEventListener('click', event => toggleSideMenu(event));
 sidenavElem.addEventListener('keydown', event => trapFocus(event));
 
-focusableSideNavElements.forEach(elem => {
-  elem.addEventListener('click', (event) => toggleSideMenu(event));
+focusableSideNavElements.forEach((elem) => {
+  elem.addEventListener('click', event => toggleSideMenu(event));
 });
 
-scrollspyElem.forEach(elem => {
-  elem.addEventListener('click', event => {
+scrollspyElem.forEach((elem) => {
+  elem.addEventListener('click', (event) => {
     const scrollToId = event.target.hash.split('#')[1];
     const scrollToElem = document.getElementById(scrollToId);
     const offset = 80;

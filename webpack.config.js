@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
 
   optimization: {
@@ -15,10 +15,10 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true, // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
 
   module: {
@@ -29,9 +29,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.scss$/,
@@ -39,8 +39,8 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
@@ -49,19 +49,19 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: 'fonts/',
-          }
-        }]
+          },
+        }],
       },
-    ]
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: './main.css'
-    })
+      filename: './main.css',
+    }),
   ],
 
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
   },
 };
