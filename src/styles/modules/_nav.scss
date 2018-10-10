@@ -55,13 +55,17 @@
   }
 
   &-menu {
+    cursor: pointer;
+    display: block;
+    padding: $spacing-small 0;
+
     &-icon {
       background-color: $secondary-xxdark;
       height: 3px;
-      width: 26px;
+      width: 24px;
 
       &:not(:last-child) {
-        margin-bottom: 4px;
+        margin-bottom: 5px;
       }
     }
   }
