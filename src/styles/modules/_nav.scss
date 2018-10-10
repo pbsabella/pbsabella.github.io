@@ -1,4 +1,9 @@
 .Nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
   &-item {
     color: $secondary-xxdark;
 
@@ -11,6 +16,7 @@
     color: $secondary-xxdark;
     font-weight: $font-weight-medium;
     padding: $spacing-small 0;
+    text-decoration: none;
     @include heading-font;
   }
 
@@ -23,6 +29,7 @@
     line-height: initial;
     padding: 2px 0;
     position: relative;
+    text-decoration: none;
     text-transform: lowercase;
 
     &::after {
@@ -49,13 +56,25 @@
 
   &-menu {
     &-icon {
-      color: $secondary-xxdark;
+      background-color: $secondary-xxdark;
+      height: 3px;
+      width: 26px;
+
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
     }
   }
 
   &-list {
+    align-items: center;
+    display: flex;
     list-style: none;
     margin: 0;
+  }
+
+  &--right {
+    justify-content: flex-end;
   }
 }
 
@@ -63,10 +82,6 @@
   .hide-on-small {
     display: none;
   }
-
-  // .Nav {
-  //   text-align: center;
-  // }
 }
 
 @media only screen and (min-width: 401px) {

@@ -5,6 +5,10 @@
   height: 100vh;
   margin-bottom: $spacing-medium;
 
+  &-content {
+    z-index: 1;
+  }
+
   &-description {
     word-break: break-word;
     width: 80%;
@@ -28,7 +32,7 @@
     align-items: flex-end;
     display: flex;
     height: 60%;
-    position: relative;
+    position: absolute;
     width: 100%;
 
     &-background {
@@ -59,7 +63,7 @@
     height: 100%;
     overflow: hidden;
     padding: $spacing-xlarge 8vw;
-    width: 100%;
+    position: relative;
   }
 
   &-title {
@@ -86,8 +90,6 @@
     }
 
     &-figure {
-      height: 100%;
-
       &-background {
         margin-bottom: $spacing-xxlarge;
       }

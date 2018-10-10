@@ -1,4 +1,14 @@
 .SideMenu {
+  background-color: $secondary-xlight;
+  height: 100%;
+  margin-left: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: width .3s ease-out;
+  width: 0;
+  z-index: 9;
+
   &-footer {
     bottom: 0;
     padding: $spacing-medium $spacing-small;
@@ -8,13 +18,17 @@
 
   &-item {
     border-bottom: 1px solid $secondary-light;
+    height: 44px;;
     margin-left: $spacing-medium;
   }
 
   &-link {
-    // Override Material
-    font-weight: $font-weight-regular !important;
-    padding: 0 $spacing-medium !important;
+    align-items: center;
+    color: $secondary-xxdark;
+    display: flex;
+    height: 100%;
+    text-decoration: none;
+    @include body-font;
 
     &.is-active {
       font-weight: 500 !important;
@@ -23,7 +37,12 @@
 
   &-list {
     height: 100%;
-    padding-top: $spacing-medium;
+    list-style: none;
+    margin: 0;
+    padding: $spacing-medium 0 0 0;
+  }
+
+  &.is-active {
     width: 80vw;
   }
 }

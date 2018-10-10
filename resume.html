@@ -10,29 +10,27 @@
 
     <title>pbsabella</title>
 
-    <!-- Import materialize.css -->
-    <link type="text/css" rel="stylesheet" href="vendor/materialize-css/css/materialize.min.css"  media="screen, projection"/>
-
-    <!-- Import materialize.js -->
-    <script type="text/javascript" src="vendor/materialize-css/js/materialize.min.js"></script>
-
-    <!-- Custom styles -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="dist/main.css" rel="stylesheet">
   </head>
 
-  <body>
-    <div id="top" class="scrollspy"></div>
+  <body id="content">
+    <div id="overlay"></div>
 
-    <header class="Header">
+    <header class="Header header">
       <div class="Header-inner">
         <nav class="Nav">
           <a class="Nav-logo" href="/">pbsabella</a>
 
-          <div class="Nav-menu right hide-on-medium">
-            <a class="Nav-menu-link sidenav-trigger" href="#" data-target="slide-out">
-              <i class="Nav-menu-icon material-icons">menu</i>
-            </a>
-          </div>
+          <ul class="Nav-list hide-on-medium">
+            <li class="Nav-item">
+              <a id="menu-toggle" class="Nav-menu">
+                <div class="Nav-menu-icon"></div>
+                <div class="Nav-menu-icon"></div>
+                <div class="Nav-menu-icon"></div>
+              </a>
+            </li>
+          </ul>
 
           <ul class="Nav-list right hide-on-small">
             <li class="Nav-item">
@@ -52,40 +50,40 @@
       </div>
     </header>
 
-    <div class="SideMenu">
-      <ul id="slide-out" class="SideMenu-list sidenav">
+    <div id="side-nav" class="SideMenu">
+      <ul class="SideMenu-list">
         <li class="SideMenu-item">
-          <a class="SideMenu-link sidenav-close waves-effect" href="index.html#work">work</a>
+          <a class="SideMenu-link scrollspy" href="index.html#work">work</a>
         </li>
         <li class="SideMenu-item">
-          <a class="SideMenu-link sidenav-close waves-effect" href="index.html#about">about</a>
+          <a class="SideMenu-link scrollspy" href="index.html#about">about</a>
         </li>
         <li class="SideMenu-item">
-          <a class="SideMenu-link sidenav-close waves-effect" href="index.html#contact">contact</a>
+          <a class="SideMenu-link scrollspy" href="index.html#contact">contact</a>
         </li>
         <li class="SideMenu-item">
-          <a class="SideMenu-link sidenav-close waves-effect is-active" href="resume.html">resume</a>
+          <a class="SideMenu-link" href="resume.html">resume</a>
         </li>
-        <li class="SideMenu-footer">
-          <div class="Social">
-            <div class="Social-list Social-list--right">
-              <a class="Social-link Social-link--small" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
-                <i class="Social-link-icon Icon fa fa-linkedin"></i>
-              </a>
-              <a class="Social-link Social-link--small" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
-                <i class="Social-link-icon Icon fa fa-behance"></i>
-              </a>
-              <a class="Social-link Social-link--small" href="mailto:pau.abella@gmail.com" target="_blank" title="Main">
-                <i class="Social-link-icon Icon Icon-mail fa fa-envelope"></i>
-              </a>
-            </div>
+        <!-- <li class="SideMenu-footer">
+          <div class="Nav Social">
+            <ul class="Nav-list Social-list Social-list--right">
+              <li class="Nav-item">
+                <a class="Nav-link" href="https://www.linkedin.com/in/pbsabella/" target="_blank" title="LinkedIn">
+                  LinkedIn
+                </a>
+              </li>
+              <li class="Nav-item">
+                <a class="Nav-link" href="https://www.behance.net/pbsabella/" target="_blank" title="Behance">
+                  Behance
+                </a>
+              </li>
+            </ul>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
 
     <div class="Main">
-
       <section id="resume" class="Resume">
         <div class="Resume-inner">
           <div class="Resume-note">
@@ -249,7 +247,7 @@
                       </div>
                       <div class="Timeline-details">
                         Designed and developed this responsive portfolio.
-                        Used JavaScript, SASS, HTML, MaterializeCSS, NPM, Webpack.
+                        Used JavaScript, SASS, HTML, NPM, Webpack.
                       </div>
                     </div>
                   </div>

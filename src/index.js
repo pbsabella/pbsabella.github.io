@@ -3,30 +3,31 @@
 import './styles/main.scss';
 
 // Elements
-var headerElem = document.querySelector('.Header');
-var sidenavElem = document.querySelector('.sidenav');
-var scrollspyElem = document.querySelectorAll('.scrollspy');
-var animateElem = document.querySelectorAll('.animate');
+const animateElem = document.querySelectorAll('.animate');
+const headerElem = document.querySelector('header');
+const scrollspyElem = document.querySelectorAll('.scrollspy');
 
-function initializeMaterialComponents() {
-  // Initialize SideNav
-  var sidenavOptions = {
-    edge: 'right'
-  };
+const contentElem = document.getElementById('content');
+const menuToggleElem = document.getElementById('menu-toggle');
+const overlayElem = document.getElementById('overlay');
+const sidenavElem = document.getElementById('side-nav');
 
-  // Initialize ScrollSpy
-  var scrollspyOptions = {
-    activeClass: 'is-active',
-    scrollOffset: 80
-  };
+const KEYCODE_TAB = 9;
+const focusableSideNavElements = sidenavElem.querySelectorAll('a');
 
-  M.Sidenav.init(sidenavElem, sidenavOptions);
-  M.ScrollSpy.init(scrollspyElem, scrollspyOptions);
+function animateElements() {
+  animateElem.forEach(elem => {
+    if (isElementSeen(elem)) {
+      elem.classList.add('is-visible');
+    } else {
+      elem.classList.remove('is-visible');
+    }
+  });
 }
 
 function isElementSeen (el) {
-  var rect = el.getBoundingClientRect();
-  var offset = 0;
+  const rect = el.getBoundingClientRect();
+  let offset = 0;
 
   if (rect.height > 100) {
     // Element is seen when half of the content is visible.
@@ -40,22 +41,48 @@ function isElementSeen (el) {
   }
 
   return (
-      (rect.bottom - offset) <= (window.innerHeight || document.documentElement.clientHeight)
+    (rect.bottom - offset) <= (window.innerHeight || document.documentElement.clientHeight)
   );
 }
 
-function animateElements() {
-  animateElem.forEach(function (elem) {
-    if (isElementSeen(elem)) {
-      elem.classList.add('is-visible');
-    } else {
-      elem.classList.remove('is-visible');
+function scrollToSmoothly(pos) {
+  const currentPos = window.scrollY || window.screenTop || 0;
+  const speed = 20;
+
+  if (currentPos < pos) {
+    let t = speed;
+
+    for (let i = currentPos; i <= pos; i += speed) {
+      t += speed;
+
+      setTimeout(() => {
+        window.scrollTo(0, i);
+      }, t / 2);
     }
-  });
+  } else {
+    const time = 2;
+    let i = currentPos;
+
+    const handler = setInterval(() => {
+      window.scrollTo(0, i);
+      i -= speed;
+
+      if (i <= pos) {
+        clearInterval(handler);
+      }
+    }, time);
+  }
+}
+
+function toggleSideMenu(event) {
+  sidenavElem.classList.toggle('is-active');
+  contentElem.classList.toggle('is-disabled');
+  overlayElem.classList.toggle('is-active');
+  event.stopPropagation();
 }
 
 function toggleTransparentHeader() {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   if (scrollTop === 0) {
     headerElem.classList.add('is-transparent');
@@ -64,11 +91,46 @@ function toggleTransparentHeader() {
   }
 }
 
-document.addEventListener('scroll', function () {
+function trapFocus(event) {
+  if (event.key === 'Tab' || event.keyCode === KEYCODE_TAB) {
+    if ( event.shiftKey ) {
+      if (document.activeElement === focusableSideNavElements[0]) {
+        focusableSideNavElements[focusableSideNavElements.length - 1].focus();
+        event.preventDefault();
+      }
+    } else {
+      if (document.activeElement === focusableSideNavElements[focusableSideNavElements.length - 1]) {
+        focusableSideNavElements[0].focus();
+        event.preventDefault();
+      }
+    }
+  }
+}
+
+document.addEventListener('scroll', () => {
   animateElements();
   toggleTransparentHeader();
 });
 
+menuToggleElem.addEventListener('click', (event) => toggleSideMenu(event));
+overlayElem.addEventListener('click', (event) => toggleSideMenu(event));
+sidenavElem.addEventListener('keydown', event => trapFocus(event));
+
+focusableSideNavElements.forEach(elem => {
+  elem.addEventListener('click', (event) => toggleSideMenu(event));
+});
+
+scrollspyElem.forEach(elem => {
+  elem.addEventListener('click', event => {
+    const scrollToId = event.target.hash.split('#')[1];
+    const scrollToElem = document.getElementById(scrollToId);
+    const offset = 80;
+
+    if (scrollToElem) {
+      scrollToSmoothly(scrollToElem.offsetTop - offset);
+    }
+  });
+});
+
 animateElements();
-initializeMaterialComponents();
 toggleTransparentHeader();

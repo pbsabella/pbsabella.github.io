@@ -1,4 +1,6 @@
 .Button {
+  border: none;
+  cursor: pointer;
   display: block;
   font-size: $font-size-detail;
   padding: $spacing-xsmall;
