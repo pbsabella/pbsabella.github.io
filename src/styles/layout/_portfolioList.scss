@@ -1,19 +1,22 @@
 .PortfolioList {
   display: flex;
   list-style: none;
-
   margin: 0 -8vw 0 -8vw;
   padding: 0 0 0 8vw;
-  scroll-snap-type: x mandatory;
   overflow-x: auto;
   overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* iOS support */
 
   &-item {
     flex-shrink: 0;
     margin-bottom: $spacing-medium;
     padding-right: $spacing-medium;
-    scroll-snap-align: center;
     width: 80vw;
+
+    scroll-snap-align: center;
+    scroll-snap-coordinate: 0% 0%; /* older (Firefox/IE) */
   }
 }
 
