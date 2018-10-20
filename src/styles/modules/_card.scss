@@ -1,14 +1,13 @@
 .Card {
-  box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
   margin: 0;
   position: relative;
 
   &-figure {
-    height: 160px;
-    margin: 0;
-    width: 240px;
+    margin: 0 0 $spacing-small 0;
 
     &-image {
+      border-radius: 8px;
+      box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
       height: 100%;
       object-fit: cover;
       width: 100%;
@@ -19,31 +18,28 @@
     }
   }
 
-  &-info {
-    background: $secondary-xxlight;
+  &-footer {
     color: $secondary-xxdark;
-    padding: $spacing-xsmall;
     text-align: left;
-
-    &-title {
-      font-weight: 500;
-      margin-bottom: $spacing-xsmall;
-    }
 
     &-description {
       font-size: $font-size-detail;
-      margin-bottom: $spacing-xsmall;
+      margin-bottom: $spacing-xxxsmall;
     }
 
     &-service {
-      border-top: 1px solid $secondary;
-      color: $secondary-xdark;
+      color: $secondary-dark;
       font-size: $font-size-footnote;
-      padding-top: $spacing-xxsmall;
+      font-weight: $font-weight-light;
 
       &::selection {
         color: $secondary-xxdark;
       }
+    }
+
+    &-title {
+      font-weight: 500;
+      margin-bottom: $spacing-xxsmall;
     }
   }
 }
