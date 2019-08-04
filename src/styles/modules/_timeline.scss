@@ -30,11 +30,11 @@
 
     &::before {
       background-color: $secondary-xlight;
-      border: 1.2px solid $secondary-xdark;
+      border: 1px solid $secondary-xdark;
       border-radius: 50%;
       content: '';
       height: 6px;
-      left: 4.2px;
+      left: 4.3px;
       margin-top: 9px;
       position: absolute;
       width: 6px;
@@ -58,6 +58,6 @@
     margin-left: 8px;
     position: absolute;
     top: 10px;
-    width: 1.2px;
+    width: 1px;
   }
 }
