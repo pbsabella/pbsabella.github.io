@@ -5,7 +5,7 @@
   width: 100%;
 
   &-item {
-    color: $secondary-xxdark;
+    color: $secondary-xdark;
 
     &:not(:first-child) {
       padding-left: $spacing-medium;
@@ -13,7 +13,7 @@
   }
 
   &-logo {
-    color: $secondary-xxdark;
+    color: $secondary-xdark;
     font-weight: $font-weight-medium;
     padding: $spacing-small 0;
     text-decoration: none;
@@ -22,7 +22,7 @@
 
   & &-link {
     @include body-font;
-    color: $secondary-xxdark;
+    color: $secondary-xdark;
     display: inline-block;
     float: none;
     height: auto;
@@ -33,7 +33,7 @@
     text-transform: lowercase;
 
     &::after {
-      background: $secondary-xxdark;
+      background: $secondary-xdark;
       bottom: 0;
       content: '';
       height: 1.6px;
@@ -62,7 +62,7 @@
     padding: $spacing-small;
 
     &-icon {
-      background-color: $secondary-xxdark;
+      background-color: $secondary-xdark;
       height: 2px;
       width: 24px;
 

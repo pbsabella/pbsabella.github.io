@@ -3,7 +3,6 @@
  */
 .Resume {
   line-height: 1.85em;
-  margin-top: $header-height;
 
   &-content {
     display: flex;
@@ -14,6 +13,11 @@
   &-details {
     color: $secondary-xdark;
     display: flex;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      margin-bottom: $spacing-small;
+    }
   }
 
   &-inner {
@@ -21,32 +25,28 @@
   }
 
   &-item {
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-large;
   }
 
   &-list {
-    margin: 0 $spacing-medium $spacing-medium 0;
-    padding-left: $spacing-small !important;
+    margin: 0 ;
+    padding-left: $spacing-medium !important;
 
     &-item {
       list-style-type: disc !important;
+    }
+
+    &:not(:last-child) {
+      margin-right: $spacing-xsmall;
     }
   }
 
   &-main {
     flex-basis: 100%;
-    order: 1;
-  }
-
-  &-note {
-    color: $secondary-xdark;
-    font-size: $font-size-detail;
-    margin-bottom: $spacing-small;
   }
 
   &-side {
     flex-basis: 100%;
-    order: 2;
   }
 
   &-social {
@@ -70,10 +70,10 @@
 
   &-title {
     @include heading-font;
-    border-bottom: 1.2px solid $secondary-xdark;
+    // border-bottom: 1.2px solid $secondary-xdark;
     font-weight: $font-weight-medium;
     line-height: 34px;
-    margin-bottom: $spacing-medium;
+    margin-bottom: $spacing-small;
   }
 }
 
@@ -84,12 +84,10 @@
   .Resume {
     &-main {
       flex-basis: 63%;
-      order: 2;
     }
 
     &-side {
       flex-basis: 30%;
-      order: 1;
     }
   }
 }

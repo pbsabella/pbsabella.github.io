@@ -2,6 +2,8 @@
  * Default: Mobile
  */
 .Hero {
+  $this: &;
+
   min-height: 100vh;
   margin-bottom: $spacing-medium;
 
@@ -33,13 +35,15 @@
   }
 
   &-figure {
+    display: flex;
     box-sizing: border-box;
     flex: 0 0 100%;
+    justify-content: flex-end;
     max-width: 100%;
 
     &-image {
       height: auto;
-      width: 100%;
+      max-width: 100%;
     }
   }
 
@@ -50,11 +54,27 @@
     padding-top: 56px;
   }
 
+  &-note {
+    color: $secondary-xdark;
+    font-size: $font-size-detail;
+    margin-bottom: $spacing-small;
+  }
+
   &-title {
     @include heading-font;
     font-weight: $font-weight-medium;
     margin-bottom: $spacing-medium;
     white-space: nowrap;
+  }
+
+  &--compact {
+    min-height: auto;
+
+    #{$this}-figure {
+      &-image {
+        max-height: 460px;
+      }
+    }
   }
 }
 
@@ -66,8 +86,8 @@
     margin-bottom: $spacing-large;
 
     &-content {
-      flex: 0 0 30%;
-      max-width: 30%;
+      flex: 0 0 33%;
+      max-width: 33%;
     }
 
     &-divider {
@@ -75,8 +95,8 @@
     }
 
     &-figure {
-      flex: 0 0 70%;
-      max-width: 70%;
+      flex: 0 0 67%;
+      max-width: 67%;
     }
 
     &-inner {

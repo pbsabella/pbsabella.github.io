@@ -10,7 +10,6 @@
   &-primary {
     background: $secondary-xxdark;
     border-radius: 2px;
-    // box-shadow: 0 2px 16px rgba(50, 50, 93, .3);
     color: $secondary-xxlight;
 
     &--hollow {
@@ -18,6 +17,11 @@
       border: 1px solid $primary;
       box-shadow: none;
       color: $primary;
+    }
+
+    &:hover {
+      background: $secondary-xdark;
+      transition: 0.1s background ease-out;
     }
   }
 }

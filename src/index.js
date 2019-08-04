@@ -121,7 +121,7 @@ scrollspyElem.forEach((elem) => {
   elem.addEventListener('click', (event) => {
     const scrollToId = event.target.hash.split('#')[1];
     const scrollToElem = document.getElementById(scrollToId);
-    const offset = 80;
+    const offset = 60;
 
     if (scrollToElem) {
       scrollToSmoothly(scrollToElem.offsetTop - offset);
