@@ -10,6 +10,7 @@
   -webkit-overflow-scrolling: touch; /* iOS support */
 
   &-item {
+    box-sizing: border-box;
     flex-shrink: 0;
     margin-bottom: $spacing-medium;
     padding-right: $spacing-medium;
@@ -23,27 +24,17 @@
 /**
  * Tablet and Desktop
  */
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 768px) {
   .PortfolioList {
     flex-wrap: wrap;
     margin: 0 -$spacing-small;
     padding: 0;
-    overflow-x: hidden;
 
     &-item {
-      flex: 1 1 100%;
-      margin: $spacing-small $spacing-small $spacing-medium $spacing-small;
+      flex: 0 0 33%;
+      padding: 0 $spacing-small;
       min-width: 280px;
-      padding-right: 0;
       width: auto;
-    }
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .PortfolioList {
-    &-item {
-      flex: 1 1 28%;
     }
   }
 }
