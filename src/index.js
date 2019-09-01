@@ -109,12 +109,12 @@ document.addEventListener('scroll', () => {
   toggleTransparentHeader();
 });
 
-menuToggleElem.addEventListener('click', event => toggleSideMenu(event));
-overlayElem.addEventListener('click', event => toggleSideMenu(event));
-sidenavElem.addEventListener('keydown', event => trapFocus(event));
+menuToggleElem.addEventListener('click', (event) => toggleSideMenu(event));
+overlayElem.addEventListener('click', (event) => toggleSideMenu(event));
+sidenavElem.addEventListener('keydown', (event) => trapFocus(event));
 
 focusableSideNavElements.forEach((elem) => {
-  elem.addEventListener('click', event => toggleSideMenu(event));
+  elem.addEventListener('click', (event) => toggleSideMenu(event));
 });
 
 scrollspyElem.forEach((elem) => {
