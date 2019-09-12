@@ -54,10 +54,6 @@
       margin-bottom: $spacing-small;
     }
 
-    &-link {
-      font-size: $font-size-detail;
-    }
-
     &-title {
       font-weight: 500;
     }
@@ -70,8 +66,8 @@
 
   &-title {
     @include heading-font;
-    // border-bottom: 1.2px solid $secondary-xdark;
-    font-weight: $font-weight-medium;
+    color: $secondary-xdark;
+    font-size: 1.5em;
     line-height: 34px;
     margin-bottom: $spacing-small;
   }

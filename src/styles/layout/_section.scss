@@ -22,7 +22,7 @@
   }
 
   &-description {
-    line-height: 1.85em;
+    line-height: 2em;
   }
 
   &-inner {
@@ -91,7 +91,7 @@
     }
 
     &::after {
-      background: $secondary-light;
+      background: $tertiary;
       content: '';
       left: 0;
       min-width: 170px;
@@ -114,6 +114,7 @@
 
   &-title {
     @include heading-font;
+    color: $secondary-xdark;
     font-weight: $font-weight-medium;
     margin: $spacing-large 0 $spacing-medium 0;
   }

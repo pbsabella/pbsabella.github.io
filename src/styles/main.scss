@@ -1,5 +1,5 @@
 // Third party
-@import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|Vollkorn:400,600');
+@import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display');
 
 // Core variables and mixins
 @import "mixins.scss";
@@ -23,6 +23,7 @@
 @import "modules/form.scss";
 @import "modules/hero.scss";
 @import "modules/icon.scss";
+@import "modules/link.scss";
 @import "modules/list.scss";
 @import "modules/nav.scss";
 @import "modules/sidemenu.scss";

@@ -1,7 +1,7 @@
 .Nav {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
 
   &-item {
@@ -10,49 +10,17 @@
     &:not(:first-child) {
       padding-left: $spacing-medium;
     }
-  }
-
-  &-logo {
-    color: $secondary-xdark;
-    font-weight: $font-weight-medium;
-    padding: $spacing-small 0;
-    text-decoration: none;
-    @include heading-font;
-  }
-
-  & &-link {
-    @include body-font;
-    color: $secondary-xdark;
-    display: inline-block;
-    float: none;
-    height: auto;
-    line-height: initial;
-    padding: 2px 0;
-    position: relative;
-    text-decoration: none;
-    text-transform: lowercase;
-
-    &::after {
-      background: $secondary-xdark;
-      bottom: 0;
-      content: '';
-      height: 1.6px;
-      left: 0;
-      position: absolute;
-      transform: scale3d(0, 1, 1);
-      transition: all 0.3s ease-out;
-      transform-origin: left;
-      width: 100%;
-    }
-
-    &:focus::after,
-    &:hover::after {
-      transform: scale3d(1, 1, 1);
-    }
 
     &.is-active {
       font-weight: 500;
     }
+  }
+
+  &-logo {
+    color: $secondary-xdark;
+    padding: $spacing-small 0;
+    text-decoration: none;
+    @include heading-font;
   }
 
   &-menu {
@@ -84,14 +52,26 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 767px) {
   .hide-on-small {
     display: none;
   }
 }
 
-@media only screen and (min-width: 401px) {
+@media only screen and (min-width: 768px) {
   .hide-on-medium {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .Nav {
+    &-item {
+      color: $secondary-xdark;
+
+      &:not(:first-child) {
+        padding-left: $spacing-xlarge;
+      }
+    }
   }
 }

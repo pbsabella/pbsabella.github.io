@@ -10,7 +10,6 @@
   -webkit-overflow-scrolling: touch; /* iOS support */
 
   &-item {
-    box-sizing: border-box;
     flex-shrink: 0;
     margin-bottom: $spacing-medium;
     padding-right: $spacing-medium;

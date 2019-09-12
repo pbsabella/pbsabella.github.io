@@ -1,0 +1,29 @@
+.Link {
+  color: $secondary-xdark;
+  display: inline-block;
+  float: none;
+  height: auto;
+  line-height: initial;
+  padding: 2px 0;
+  position: relative;
+  text-decoration: none;
+  text-transform: lowercase;
+
+  &::after {
+    background: $secondary-xdark;
+    bottom: 0;
+    content: '';
+    height: 1.6px;
+    left: 0;
+    position: absolute;
+    transform: scale3d(0, 1, 1);
+    transition: all 0.3s ease-out;
+    transform-origin: left;
+    width: 100%;
+  }
+
+  &:focus::after,
+  &:hover::after {
+    transform: scale3d(1, 1, 1);
+  }
+}

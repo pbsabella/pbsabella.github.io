@@ -5,18 +5,19 @@
 .Header {
   background: rgba(252, 252, 252, 0.9);
   height: $header-height;
-  left: 0;
-  min-width: 300px;
   position: fixed;
-  right: 0;
   top: 0;
   transition: background 0.3s ease-out;
+  width: 100%;
   z-index: 7;
 
   &-inner {
     align-items: center;
     display: flex;
     height: 100%;
+    margin: 0 auto;
+    max-width: 1440px;
+    min-width: 300px;
     padding: 0 8vw;
   }
 

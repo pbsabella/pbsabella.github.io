@@ -33,21 +33,23 @@
       border: 1px solid $secondary-xdark;
       border-radius: 50%;
       content: '';
-      height: 6px;
+      height: 8px;
       left: 4.3px;
       margin-top: 9px;
       position: absolute;
-      width: 6px;
+      width: 8px;
       z-index: 1;
     }
   }
 
   &-subtitle {
+    color: $secondary-dark;
     font-weight: 500;
     margin-bottom: $spacing-xxxsmall;
   }
 
   &-title {
+    color: $secondary-xdark;
     font-weight: 500;
   }
 

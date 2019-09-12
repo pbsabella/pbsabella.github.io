@@ -3,16 +3,11 @@
  */
 .Hero {
   $this: &;
-
-  min-height: 100vh;
   margin-bottom: $spacing-medium;
 
-  &-content {
-    box-sizing: border-box;
-    padding-left: 8vw;
-    padding-right: 16px;
-    padding-top: 32px;
-    z-index: 1;
+  &-action {
+    padding-left: 16vw;
+    white-space: nowrap;
   }
 
   &-description {
@@ -21,23 +16,15 @@
   }
 
   &-divider {
-    height: 1.6px;
-    margin-bottom: $spacing-medium;
-    width: 32px;
-
-    &--dark {
-      background: $secondary-xxdark;
-    }
-
-    &--white {
-      background: $secondary-xxlight;
-    }
+    background: $secondary-xdark;
+    height: 1px;
+    margin-left: $spacing-small;
+    width: 80px;
   }
 
   &-figure {
     align-items: flex-start;
     display: flex;
-    box-sizing: border-box;
     flex: 0 0 100%;
     justify-content: flex-end;
     max-width: 100%;
@@ -49,10 +36,55 @@
   }
 
   &-inner {
-    align-items: center;
     display: flex;
-    flex-wrap: wrap;
-    padding-top: 56px;
+    flex-direction: column;
+    height: 600px;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+    &::after,
+    &::before {
+      bottom: 0;
+      content: '';
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    &::after {
+      background-color: $tertiary;
+      z-index: -2;
+    }
+
+    &::before {
+      background-image: url('/src/images/patterns.svg');
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      background-size: 70%;
+      z-index: -1;
+    }
+
+    &--resume {
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+      min-height: auto;
+      padding-top: $spacing-xlarge;
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &-link {
+    align-items: center;
+    color: $secondary-xdark;
+    display: flex;
+    text-decoration: none;
   }
 
   &-note {
@@ -61,11 +93,27 @@
     margin-bottom: $spacing-small;
   }
 
+  &-subtitle {
+    @include heading-font;
+    color: $secondary-xdark;
+    padding-left: 8vw;
+    white-space: nowrap;
+  }
+
   &-title {
     @include heading-font;
-    font-weight: $font-weight-medium;
-    margin-bottom: $spacing-medium;
+    color: $secondary-xdark;
+    font-size: 3em;
+    font-weight: normal;
+    line-height: 0.9em;
+    margin-bottom: $spacing-large;
+    padding-left: 16vw;
+    padding-top: 36vw;
     white-space: nowrap;
+
+    .IsIndented {
+      padding-left: $spacing-medium;
+    }
   }
 
   &--compact {
@@ -86,13 +134,19 @@
   .Hero {
     margin-bottom: $spacing-large;
 
+    &-action {
+      bottom: 10vh;
+      position: absolute;
+    }
+
     &-content {
       flex: 0 0 33%;
       max-width: 33%;
+      padding-top: 0;
     }
 
     &-divider {
-      width: 46px;
+      width: 240px;
     }
 
     &-figure {
@@ -101,11 +155,24 @@
     }
 
     &-inner {
-      align-items: center;
+      justify-content: center;
+
+      &::after {
+        right: 13%;
+        width: 67%;
+      }
+
+      &::before {
+        background-position: top right;
+        background-size: contain;
+        right: 7%;
+      }
     }
 
     &-title {
-      margin-bottom: $spacing-xlarge;
+      font-size: 6em;
+      margin-bottom: $spacing-xxlarge;
+      padding-top: 0;
     }
   }
 }

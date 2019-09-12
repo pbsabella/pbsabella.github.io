@@ -12,6 +12,7 @@
 
   &-title {
     @include heading-font;
+    color: $secondary-xdark;
     font-weight: $font-weight-medium;
     margin-bottom: $spacing-xxsmall;
     margin-top: 0;
