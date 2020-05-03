@@ -1,281 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <meta name="description" content="Paula Bianca Abella - Resume">
-    <meta name="author" content="pbsabella">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>pbsabella</title>
+  <meta name="description" content="Paula Bianca Abella - Resume">
+  <meta name="author" content="pbsabella">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link href="dist/main.css" rel="stylesheet">
-  </head>
+  <title>pbsabella</title>
 
-  <body id="content">
-    <div id="overlay"></div>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preload" href="dist/main.css" as="style">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="dist/main.css" rel="stylesheet">
+</head>
 
-    <header class="Header header">
-      <div class="Header-inner">
-        <nav class="Nav">
-          <!-- <a class="Nav-logo" href="/">pbsabella</a> -->
+<body id="content">
+  <div id="overlay"></div>
 
-          <ul class="Nav-list hide-on-medium">
-            <li class="Nav-item">
-              <div id="menu-toggle" class="Nav-menu" tabindex="0">
-                <div class="Nav-menu-icon"></div>
-                <div class="Nav-menu-icon"></div>
-                <div class="Nav-menu-icon"></div>
-              </div>
-            </li>
-          </ul>
+  <header class="Header header">
+    <div class="Header-inner">
+      <nav class="Nav">
+        <!-- <a class="Nav-logo" href="/">pbsabella</a> -->
 
-          <ul class="Nav-list right hide-on-small">
-            <li class="Nav-item">
-              <a class="Link" href="index.html#work">Work</a>
-            </li>
-            <li class="Nav-item">
-              <a class="Link" href="index.html#about">About</a>
-            </li>
-            <li class="Nav-item">
-              <a class="Link" href="index.html#contact">Contact</a>
-            </li>
-            <li class="Nav-item is-active">
-              <a class="Link" href="resume.html">Resume</a>
-            </li>
-          </ul>
-        </nav>
+        <ul class="Nav-list hide-on-medium">
+          <li class="Nav-item">
+            <div id="menu-toggle" class="Nav-menu" tabindex="0">
+              <div class="Nav-menu-icon"></div>
+              <div class="Nav-menu-icon"></div>
+              <div class="Nav-menu-icon"></div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="Nav-list right hide-on-small">
+          <li class="Nav-item">
+            <a class="Link" href="index.html#work">Work</a>
+          </li>
+          <li class="Nav-item">
+            <a class="Link" href="index.html#about">About</a>
+          </li>
+          <li class="Nav-item">
+            <a class="Link" href="index.html#contact">Contact</a>
+          </li>
+          <li class="Nav-item is-active">
+            <a class="Link" href="resume.html">Resume</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div id="side-nav" class="SideMenu">
+    <ul class="SideMenu-list">
+      <li class="SideMenu-item">
+        <a class="SideMenu-link scrollspy" href="index.html#work">work</a>
+      </li>
+      <li class="SideMenu-item">
+        <a class="SideMenu-link scrollspy" href="index.html#about">about</a>
+      </li>
+      <li class="SideMenu-item">
+        <a class="SideMenu-link scrollspy" href="index.html#contact">contact</a>
+      </li>
+      <li class="SideMenu-item">
+        <a class="SideMenu-link" href="resume.html">resume</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="Main">
+    <section class="Hero Hero--compact">
+      <div class="Hero-inner Hero-inner--resume">
+        <div class="Hero-content">
+          <h2 class="Hero-subtitle">
+            Frontend Engineer<br>
+            Web Developer
+          </h2>
+        </div>
+        <div class="Hero-figure">
+          <img class="Hero-figure-image" src="src/images/resume-hero.svg" alt="Portfolio Hero">
+        </div>
       </div>
-    </header>
-
-    <div id="side-nav" class="SideMenu">
-      <ul class="SideMenu-list">
-        <li class="SideMenu-item">
-          <a class="SideMenu-link scrollspy" href="index.html#work">work</a>
-        </li>
-        <li class="SideMenu-item">
-          <a class="SideMenu-link scrollspy" href="index.html#about">about</a>
-        </li>
-        <li class="SideMenu-item">
-          <a class="SideMenu-link scrollspy" href="index.html#contact">contact</a>
-        </li>
-        <li class="SideMenu-item">
-          <a class="SideMenu-link" href="resume.html">resume</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="Main">
-      <section class="Hero Hero--compact">
-        <div class="Hero-inner Hero-inner--resume">
-          <div class="Hero-content">
-            <h2 class="Hero-subtitle">
-              Frontend Engineer<br>
-              Web Developer
-            </h2>
-          </div>
-          <div class="Hero-figure">
-            <img class="Hero-figure-image" src="src/images/resume-hero.svg" alt="Portfolio Hero">
-          </div>
-        </div>
-      </section>
-      <section id="resume" class="Resume">
-        <div class="Resume-inner">
-          <div class="Resume-content">
-            <div class="Resume-main">
-              <div class="Resume-item">
-                <h3 class="Resume-title">
-                  Work Experience
-                </h3>
-                <div class="Resume-details">
-                  <div class="Timeline">
-                    <div class="Timeline-item">
-                      <div class="Timeline-header">
-                        <h4 class="Timeline-title">
-                          Freelancer Limited
-                        </h4>
-                        <time class="Timeline-date">
-                          <i>July 2015 - Present</i>
-                        </time>
-                      </div>
-                      <div class="Timeline-subtitle">
-                        Frontend / User Interface Engineer
-                      </div>
-                      <p class="Timeline-description">
-                        Develops and maintains Freelancer's design language system to empower product teams to build
-                        beautiful, scalable and consistent web applications efficiently.
-                      </p>
-                      <div class="Timeline-subtitle">
-                        Web Developer
-                      </div>
-                      <p class="Timeline-description">
-                        Worked with other engineers and product managers to build new features and improve existing
-                        products within Freelancer’s desktop and mobile web platforms.
-                      </p>
-                    </div>
-
-                    <div class="Timeline-item">
-                      <div class="Timeline-header">
-                        <h4 class="Timeline-title">
-                          FactSet Research Systems Inc.
-                        </h4>
-                        <time class="Timeline-date">
-                          <i>May 2012 - July 2015</i>
-                        </time>
-                      </div>
-                      <div class="Timeline-subtitle">
-                        Software Engineer Team Lead
-                      </div>
-                      <p class="Timeline-description">
-                        Designed databases and created automated data acquisition and delivery processes to provide
-                        daily updates to the equity market information on tens of thousands of companies worldwide
-                        using Perl, Bash and various proprietary technologies.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="Resume-item">
-                <h3 class="Resume-title">
-                  Projects & Accomplishments
-                </h3>
-                <div class="Resume-details">
-                  <div class="Timeline">
-                    <div class="Timeline-item">
-                      <div class="Timeline-header">
-                        <h4 class="Timeline-title">
-                          Wireframing Tool
-                        </h4>
-                        <time class="Timeline-date">
-                          <i>2019</i>
-                        </time>
-                      </div>
-                      <div class="Timeline-subtitle">
+    </section>
+    <section id="resume" class="Resume">
+      <div class="Resume-inner">
+        <div class="Resume-content">
+          <div class="Resume-main">
+            <div class="Resume-item">
+              <h3 class="Resume-title">
+                Work Experience
+              </h3>
+              <div class="Resume-details">
+                <div class="Timeline">
+                  <div class="Timeline-item">
+                    <div class="Timeline-header">
+                      <h4 class="Timeline-title">
                         Freelancer Limited
-                      </div>
-                      <p class="Timeline-description">
-                        Created a high fidelity wireframing tool to help Product
-                        Managers, Designers and Developers create interactive web
-                        application mockups. The tool uses actual web components
-                        to ensure that the mockups follow Freelancer’s design
-                        language system.
-                        Used Angular, TypeScript, RxJS, HTML, SCSS, etc.
-                      </p>
+                      </h4>
+                      <time class="Timeline-date">
+                        <i>July 2015 - Present</i>
+                      </time>
                     </div>
-                    <div class="Timeline-item">
-                      <div class="Timeline-header">
-                        <h4 class="Timeline-title">
-                          Angular migration
-                        </h4>
-                        <time class="Timeline-date">
-                          <i>2018 - 2019</i>
-                        </time>
-                      </div>
-                      <div class="Timeline-subtitle">
-                        Freelancer Limited
-                      </div>
-                      <p class="Timeline-description">
-                        Migrated and refactored application modules, components,
-                        services and unit tests from AngularJS to Angular.
-                        Used AngularJS, Angular, TypeScript, RxJS, Redux, HTML,
-                        SCSS, Yarn, Webpack, etc.
-                      </p>
+                    <div class="Timeline-subtitle">
+                      Frontend / User Interface Engineer
                     </div>
+                    <p class="Timeline-description">
+                      Develops and maintains Freelancer's design language system to empower product teams to build
+                      beautiful, scalable and consistent web applications efficiently.
+                    </p>
+                    <div class="Timeline-subtitle">
+                      Web Developer
+                    </div>
+                    <p class="Timeline-description">
+                      Worked with other engineers and product managers to build new features and improve existing
+                      products within Freelancer’s desktop and mobile web platforms.
+                    </p>
                   </div>
-                </div>
-              </div>
 
-              <div class="Resume-item">
-                <h3 class="Resume-title">
-                  Social Profile
-                </h3>
-                <div class="Resume-details">
-                  <div class="Resume-social">
-                    <div class="Resume-social-item">
-                      <div class="Resume-social-title">
-                        LinkedIn
-                      </div>
-                      <a class="Link" href="https://www.linkedin.com/in/pbsabella" rel="noopener" target="_blank">
-                        https://www.linkedin.com/in/pbsabella
-                      </a>
+                  <div class="Timeline-item">
+                    <div class="Timeline-header">
+                      <h4 class="Timeline-title">
+                        FactSet Research Systems Inc.
+                      </h4>
+                      <time class="Timeline-date">
+                        <i>May 2012 - July 2015</i>
+                      </time>
                     </div>
+                    <div class="Timeline-subtitle">
+                      Software Engineer Team Lead
+                    </div>
+                    <p class="Timeline-description">
+                      Designed databases and created automated data acquisition and delivery processes to provide
+                      daily updates to the equity market information on tens of thousands of companies worldwide
+                      using Perl, Bash and various proprietary technologies.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="Resume-side">
-              <div class="Resume-item">
-                <h3 class="Resume-title">
-                  Expertise
-                </h3>
-                <div class="Resume-details">
-                  <ul class="Resume-list">
-                    <li class="Resume-list-item">Web development</li>
-                    <li class="Resume-list-item">Responsive web design</li>
-                    <li class="Resume-list-item">Mobile first development</li>
-                    <li class="Resume-list-item">Cross browser & device compatibility</li>
-                    <li class="Resume-list-item">Testing, debugging and documentation</li>
-                    <li class="Resume-list-item">Project management</li>
-                    <li class="Resume-list-item">A/B Testing</li>
-                    <li class="Resume-list-item">Agile development</li>
-                  </ul>
+            <div class="Resume-item">
+              <h3 class="Resume-title">
+                Projects & Accomplishments
+              </h3>
+              <div class="Resume-details">
+                <div class="Timeline">
+                  <div class="Timeline-item">
+                    <div class="Timeline-header">
+                      <h4 class="Timeline-title">
+                        Wireframing Tool
+                      </h4>
+                      <time class="Timeline-date">
+                        <i>2019</i>
+                      </time>
+                    </div>
+                    <div class="Timeline-subtitle">
+                      Freelancer Limited
+                    </div>
+                    <p class="Timeline-description">
+                      Created a high fidelity wireframing tool to help Product
+                      Managers, Designers and Developers create interactive web
+                      application mockups. The tool uses actual web components
+                      to ensure that the mockups follow Freelancer’s design
+                      language system.
+                      Used Angular, TypeScript, RxJS, HTML, SCSS, etc.
+                    </p>
+                  </div>
+                  <div class="Timeline-item">
+                    <div class="Timeline-header">
+                      <h4 class="Timeline-title">
+                        Angular migration
+                      </h4>
+                      <time class="Timeline-date">
+                        <i>2018 - 2019</i>
+                      </time>
+                    </div>
+                    <div class="Timeline-subtitle">
+                      Freelancer Limited
+                    </div>
+                    <p class="Timeline-description">
+                      Migrated and refactored application modules, components,
+                      services and unit tests from AngularJS to Angular.
+                      Used AngularJS, Angular, TypeScript, RxJS, Redux, HTML,
+                      SCSS, Yarn, Webpack, etc.
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="Resume-item">
-                <h3 class="Resume-title">
-                  Skills
-                </h3>
-                <h4 class="Resume-subtitle">
-                  Tools & Technologies
-                </h4>
-                <div class="Resume-details">
-                  <ul class="Resume-list">
-                    <li class="Resume-list-item">JavaScript</li>
-                    <li class="Resume-list-item">Angular, AngularJS</li>
-                    <li class="Resume-list-item">TypeScript</li>
-                    <li class="Resume-list-item">RxJS, Redux</li>
-                    <li class="Resume-list-item">Jasmine</li>
-                    <li class="Resume-list-item">HTML5</li>
-                    <li class="Resume-list-item">CSS / SCSS</li>
-                    <li class="Resume-list-item">NPM / Yarn</li>
-                    <li class="Resume-list-item">PHP</li>
-                    <li class="Resume-list-item">MySQL</li>
-                  </ul>
-                </div>
-
-                <h4 class="Resume-subtitle">
-                  Others
-                </h4>
-                <div class="Resume-details">
-                  <ul class="Resume-list">
-                    <li class="Resume-list-item">Version control, Git</li>
-                    <li class="Resume-list-item">Visual Studio Code</li>
-                    <li class="Resume-list-item">InVision</li>
-                    <li class="Resume-list-item">Adobe Illustrator</li>
-                    <li class="Resume-list-item">Adobe Photoshop</li>
-                  </ul>
+            <div class="Resume-item">
+              <h3 class="Resume-title">
+                Social Profile
+              </h3>
+              <div class="Resume-details">
+                <div class="Resume-social">
+                  <div class="Resume-social-item">
+                    <div class="Resume-social-title">
+                      LinkedIn
+                    </div>
+                    <a class="Link" href="https://www.linkedin.com/in/pbsabella" rel="noopener" target="_blank">
+                      https://www.linkedin.com/in/pbsabella
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <footer class="Footer">
-        <div class="Footer-inner">
-          <div class="Footer-copyright">
-            © 2019 <span class="Footer-copyright-link">pbsabella</span>. All rights reserved.
+          <div class="Resume-side">
+            <div class="Resume-item">
+              <h3 class="Resume-title">
+                Expertise
+              </h3>
+              <div class="Resume-details">
+                <ul class="Resume-list">
+                  <li class="Resume-list-item">Web development</li>
+                  <li class="Resume-list-item">Responsive web design</li>
+                  <li class="Resume-list-item">Mobile first development</li>
+                  <li class="Resume-list-item">Cross browser & device compatibility</li>
+                  <li class="Resume-list-item">Testing, debugging and documentation</li>
+                  <li class="Resume-list-item">Project management</li>
+                  <li class="Resume-list-item">A/B Testing</li>
+                  <li class="Resume-list-item">Agile development</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="Resume-item">
+              <h3 class="Resume-title">
+                Skills
+              </h3>
+              <h4 class="Resume-subtitle">
+                Tools & Technologies
+              </h4>
+              <div class="Resume-details">
+                <ul class="Resume-list">
+                  <li class="Resume-list-item">JavaScript</li>
+                  <li class="Resume-list-item">Angular, AngularJS</li>
+                  <li class="Resume-list-item">TypeScript</li>
+                  <li class="Resume-list-item">RxJS, Redux</li>
+                  <li class="Resume-list-item">Jasmine</li>
+                  <li class="Resume-list-item">HTML5</li>
+                  <li class="Resume-list-item">CSS / SCSS</li>
+                  <li class="Resume-list-item">NPM / Yarn</li>
+                  <li class="Resume-list-item">PHP</li>
+                  <li class="Resume-list-item">MySQL</li>
+                </ul>
+              </div>
+
+              <h4 class="Resume-subtitle">
+                Others
+              </h4>
+              <div class="Resume-details">
+                <ul class="Resume-list">
+                  <li class="Resume-list-item">Version control, Git</li>
+                  <li class="Resume-list-item">Visual Studio Code</li>
+                  <li class="Resume-list-item">InVision</li>
+                  <li class="Resume-list-item">Adobe Illustrator</li>
+                  <li class="Resume-list-item">Adobe Photoshop</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="dist/main.js"></script>
-  </body>
+    <footer class="Footer">
+      <div class="Footer-inner">
+        <div class="Footer-copyright">
+          © 2019 <span class="Footer-copyright-link">pbsabella</span>. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script type="module" src="dist/main.js"></script>
+</body>
+
 </html>

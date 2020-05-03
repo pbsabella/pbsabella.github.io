@@ -25,11 +25,12 @@ function isElementSeen(el) {
   } else {
     // Element is seen when it is over the content height
     // Used for smaller elements so it will delay visibility
-    offset = (rect.height * 2) * -1;
+    offset = rect.height * 2 * -1;
   }
 
   return (
-    (rect.bottom - offset) <= (window.innerHeight || document.documentElement.clientHeight)
+    rect.bottom - offset
+    <= (window.innerHeight || document.documentElement.clientHeight)
   );
 }
 
@@ -96,8 +97,10 @@ function trapFocus(event) {
         focusableSideNavElements[focusableSideNavElements.length - 1].focus();
         event.preventDefault();
       }
-    } else if (document.activeElement
-      === focusableSideNavElements[focusableSideNavElements.length - 1]) {
+    } else if (
+      document.activeElement
+      === focusableSideNavElements[focusableSideNavElements.length - 1]
+    ) {
       focusableSideNavElements[0].focus();
       event.preventDefault();
     }
