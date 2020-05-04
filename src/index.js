@@ -134,3 +134,6 @@ scrollspyElem.forEach((elem) => {
 
 animateElements();
 toggleTransparentHeader();
+
+/* eslint-disable no-console */
+console.log('%cYeet', 'color: red; font-size: x-large');
