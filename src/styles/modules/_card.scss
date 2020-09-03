@@ -4,12 +4,22 @@
 
   &-figure {
     margin: 0 0 $spacing-small 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 72%;
+    }
 
     &-image {
       border-radius: 8px;
       box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
       height: 100%;
+      left: 0;
       object-fit: cover;
+      position: absolute;
+      top: 0;
       width: 100%;
     }
 
