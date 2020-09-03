@@ -17,11 +17,10 @@ jobs:
 #       run: |
 #         docker run \
 #         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-#         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
-        
-        
-  run-linters:
-    name: Run linters
+#         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"      
+
+  build-production:
+    name: Build Production
     runs-on: ubuntu-latest
 
     steps:
@@ -33,15 +32,15 @@ jobs:
         with:
           node-version: 12
 
-      # ESLint and Prettier must be in `package.json`
       - name: Install Node.js dependencies
         run: npm install
+      
+      - name: Build production
+        run: npm run build:prod
 
       - name: Run linters
         uses: samuelmeuli/lint-action@v1
         with:
           github_token: ${{ secrets.github_token }}
-          # Enable linters
           eslint: true
           prettier: false
-
