@@ -20,7 +20,7 @@
   <div id="overlay"></div>
 
   <header class="Header header">
-    <div class="Header-inner">
+    <div class="Header-inner container-space">
       <nav class="Nav">
         <!-- <a class="Nav-logo" href="/">pbsabella</a> -->
 
@@ -55,13 +55,13 @@
   <div id="side-nav" class="SideMenu">
     <ul class="SideMenu-list">
       <li class="SideMenu-item">
-        <a class="SideMenu-link scrollspy" href="#work">work</a>
+        <a class="SideMenu-link" href="#work">work</a>
       </li>
       <li class="SideMenu-item">
-        <a class="SideMenu-link scrollspy" href="#about">about</a>
+        <a class="SideMenu-link" href="#about">about</a>
       </li>
       <li class="SideMenu-item">
-        <a class="SideMenu-link scrollspy" href="#contact">contact</a>
+        <a class="SideMenu-link" href="#contact">contact</a>
       </li>
       <li class="SideMenu-item">
         <a class="SideMenu-link" href="resume.html">resume</a>
@@ -69,7 +69,7 @@
     </ul>
   </div>
 
-  <div class="Main">
+  <main>
     <section id="hero" class="Hero">
       <div class="Hero-inner">
         <h1 class="Hero-title">
@@ -86,67 +86,66 @@
     </section>
 
     <section id="work" class="Section">
-      <div class="Section-inner">
-        <div class="Section-column Section-intro animate">
-          <span class="Section-intro-divider"></span>
-          <h2 class="Section-intro-text">work</h2>
-        </div>
-
+      <div class="Section-inner Section-inner--fullBleed">
         <div class="Section-content Section-content--full">
-          <h3 class="Section-title">
+          <div class="Section-intro container-space">
+            <span class="Section-intro-divider"></span>
+            <h2 class="Section-intro-text">work</h2>
+          </div>
+          <h3 class="Section-title container-space">
             Showcase and <br>
-            Experiments
+            experiments
           </h3>
 
+          <p class="Section-description container-space">
+            I'm a full-time web developer and I occasionally do design work.
+          </p>
+
           <div class="Section-list">
-            <ul class="PortfolioList">
-              <li class="PortfolioList-item">
-                <div class="Card">
-                  <div class="Card-figure">
-                    <img class="Card-figure-image" src="src/images/portfolio-11.png" alt="Portfolio Logo"
-                      importance="low">
+            <div class="Section-article container-space">
+              <div class="Section-article-figure">
+                <img class="Section-image" src="src/images/design-system-frame-wide.png" alt="Design System"
+                  importance="low" loading="lazy">
+              </div>
+              <h4 class="Card-footer-title">
+                Design System
+              </h4>
+              <div class="Card-footer-details">
+                <div class="Card-footer-description">
+                  Freelancer Limited
+                </div>
+                <div class="Card-footer-service">
+                  Web Development
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-accent-yellow">
+              <div class="Section-article container-space">
+                <div class="Section-article-figure">
+                  <img class=" Section-image" src="src/images/wireframing-tool-frame.png"
+                    alt="Design System Prototyping" importance="low" loading="lazy">
+                </div>
+                <h4 class="Card-footer-title">
+                  Prototyping Tool
+                </h4>
+                <div class="Card-footer-details">
+                  <div class="Card-footer-description">
+                    Freelancer Limited
                   </div>
-                  <div class="Card-footer">
-                    <h4 class="Card-footer-title">
-                      Wireframing Tool
-                    </h4>
-                    <div class="Card-footer-details">
-                      <div class="Card-footer-description">
-                        Freelancer Limited
-                      </div>
-                      <div class="Card-footer-service">
-                        Web Development
-                      </div>
-                    </div>
+                  <div class="Card-footer-service">
+                    Web Development
                   </div>
                 </div>
-              </li>
-              <li class="PortfolioList-item">
-                <div class="Card">
-                  <div class="Card-figure">
-                    <img class="Card-figure-image" src="src/images/portfolio-10.png" alt="Portfolio Logo"
-                      importance="low">
-                  </div>
-                  <div class="Card-footer">
-                    <h4 class="Card-footer-title">
-                      Design Language System
-                    </h4>
-                    <div class="Card-footer-details">
-                      <div class="Card-footer-description">
-                        Freelancer Limited
-                      </div>
-                      <div class="Card-footer-service">
-                        Web Development
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+            </div>
+
+            <ul class="PortfolioList container-space">
               <li class="PortfolioList-item">
                 <div class="Card">
                   <div class="Card-figure">
                     <img class="Card-figure-image" src="src/images/portfolio-08.jpg" alt="Portfolio Logo"
-                      importance="low">
+                      importance="low" loading="lazy">
                   </div>
                   <div class="Card-footer">
                     <h4 class="Card-footer-title">
@@ -167,7 +166,7 @@
                 <div class="Card">
                   <div class="Card-figure">
                     <img class="Card-figure-image" src="src/images/portfolio-09.jpg" alt="Portfolio Logo"
-                      importance="low">
+                      importance="low" loading="lazy">
                   </div>
                   <div class="Card-footer">
                     <h4 class="Card-footer-title">
@@ -188,7 +187,7 @@
                 <div class="Card">
                   <div class="Card-figure">
                     <img class="Card-figure-image" src="src/images/portfolio-05.jpg" alt="Portfolio Logo"
-                      importance="low">
+                      importance="low" loading="lazy">
                   </div>
                   <div class="Card-footer">
                     <h4 class="Card-footer-title">
@@ -209,7 +208,7 @@
                 <div class="Card">
                   <div class="Card-figure">
                     <img class="Card-figure-image" src="src/images/portfolio-03.jpg" alt="Portfolio Logo"
-                      importance="low">
+                      importance="low" loading="lazy">
                   </div>
                   <div class="Card-footer">
                     <h4 class="Card-footer-title">
@@ -230,7 +229,7 @@
                 <div class="Card">
                   <div class="Card-figure">
                     <img class="Card-figure-image" src="src/images/portfolio-06.jpg" alt="Portfolio Logo"
-                      importance="low">
+                      importance="low" loading="lazy">
                   </div>
                   <div class="Card-footer">
                     <h4 class="Card-footer-title">
@@ -247,139 +246,37 @@
                   </div>
                 </div>
               </li>
-              <!-- <li class="PortfolioList-item">
-                <div class="Card">
-                  <div class="Card-figure">
-                    <img class="Card-figure-image" src="src/images/portfolio-02.jpg" alt="Portfolio Logo"
-                      importance="low">
-                  </div>
-                  <div class="Card-footer">
-                    <h4 class="Card-footer-title">
-                      Flock Life
-                    </h4>
-                    <div class="Card-footer-details">
-                      <div class="Card-footer-description">
-                        Social gamification application
-                      </div>
-                      <div class="Card-footer-service">
-                        Logo Design
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li> -->
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="Section">
-      <div class="Section-inner">
-        <div class="Section-column Section-intro animate">
-          <span class="Section-intro-divider"></span>
-          <h2 class="Section-intro-text">about</h2>
-        </div>
-
+    <section id="about" class="Section bg-accent-neutral">
+      <div class="Section-inner container-space">
         <div class="Section-column Section-content">
+          <div class="Section-intro">
+            <span class="Section-intro-divider"></span>
+            <h2 class="Section-intro-text">about</h2>
+          </div>
           <h3 class="Section-title">
-            Hi, I'm Paula.
+            A little overview
           </h3>
           <p class="Section-description">
             <strong>Web developer & designer</strong> based in Manila, Philippines with technical
             expertise in planning, developing and implementing web applications.
           </p>
-        </div>
 
-        <div class="Section-column Section-subcontent animate">
-          <div class="Section-subcontent-description">
-            <div class="List">
-              <div class="List-category">
-                <h4 class="List-title">
-                  Skills
-                </h4>
-                <div class="List-item">
-                  Web development
-                </div>
-                <div class="List-item">
-                  Responsive web design
-                </div>
-                <div class="List-item">
-                  Cross browser & device compatibility
-                </div>
-                <div class="List-item">
-                  Logo & branding
-                </div>
-                <div class="List-item">
-                  Project management
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="Section-subcontent-description">
-            <div class="List">
-              <div class="List-category">
-                <h4 class="List-title">
-                  Tools & Technologies
-                </h4>
-                <div class="List-item">
-                  JavaScript
-                </div>
-                <div class="List-item">
-                  TypeScript
-                </div>
-                <div class="List-item">
-                  Angular, AngularJS
-                </div>
-                <div class="List-item">
-                  HTML5
-                </div>
-                <div class="List-item">
-                  CSS / SCSS
-                </div>
-                <div class="List-item">
-                  Version Control, Git
-                </div>
-                <div class="List-item">
-                  Adobe Illustrator
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="Section">
-      <div class="Section-inner">
-        <div class="Section-column Section-intro animate">
-          <span class="Section-intro-divider"></span>
-          <h2 class="Section-intro-text">contact</h2>
-        </div>
-
-        <div class="Section-content Section-content--full">
-          <h3 class="Section-title">
-            Get in touch
-          </h3>
-          <p class="Section-description">
-            Got a project you would like to discuss?
-          </p>
-
-          <button type="button" class="Section-action Button Button-primary"
-            onclick="location.href='mailto:pau.abella@gmail.com'">
-            Drop me a message
-          </button>
-
-          <div class="Nav Nav--right">
-            <ul class="Nav-list">
-              <li class="Nav-item">
-                <a class="Link" href="https://www.linkedin.com/in/pbsabella/" rel="noopener" target="_blank"
-                  title="LinkedIn">
+          <div class="Social">
+            <ul class="Social-list">
+              <li class="Social-link">
+                <a class="Link Link--external" href="https://www.linkedin.com/in/pbsabella/" rel="noopener"
+                  target="_blank" title="LinkedIn">
                   LinkedIn
                 </a>
               </li>
-              <li class="Nav-item">
-                <a class="Link" href="https://www.behance.net/pbsabella/" rel="noopener" target="_blank"
+              <li class="Social-link">
+                <a class="Link Link--external" href="https://www.behance.net/pbsabella/" rel="noopener" target="_blank"
                   title="Behance">
                   Behance
                 </a>
@@ -387,14 +284,93 @@
             </ul>
           </div>
         </div>
+
+        <div class="Section-column Section-subcontent ListCardContainer">
+          <div class="List ListCard ListCard--primary">
+            <h4 class="List-title">
+              Tools & Technologies
+            </h4>
+            <ul class="List-category">
+              <li class="List-item">
+                JavaScript
+              </li>
+              <li class="List-item">
+                TypeScript
+              </li>
+              <li class="List-item">
+                Angular, AngularJS
+              </li>
+              <li class="List-item">
+                HTML5
+              </li>
+              <li class="List-item">
+                CSS / SCSS
+              </li>
+              <li class="List-item">
+                Version Control, Git
+              </li>
+              <li class="List-item">
+                InVision, Figma, Adobe
+              </li>
+            </ul>
+          </div>
+
+          <div class="List ListCard ListCard--secondary">
+            <h4 class="List-title">
+              Skills
+            </h4>
+            <ul class="List-category">
+              <li class="List-item">
+                Web development
+              </li>
+              <li class="List-item">
+                Responsive web design
+              </li>
+              <li class="List-item">
+                Cross browser & device compatibility
+              </li>
+              <li class="List-item">
+                Agile development
+              </li>
+              <li class="List-item">
+                Project management
+              </li>
+              <li class="List-item">
+                Logo & branding
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
-  </div>
+
+    <section id="contact" class="Section">
+      <div class="Section-inner container-space">
+        <div class="Section-content Section-content--full">
+          <div class="Section-intro">
+            <span class="Section-intro-divider"></span>
+            <h2 class="Section-intro-text">contact</h2>
+          </div>
+          <h3 class="Section-title">
+            Get in touch
+          </h3>
+          <p class="Section-description">
+            Got a project or position you would like to discuss?
+          </p>
+
+          <button type="button" class="Section-action Button Button-primary"
+            onclick="location.href='mailto:pau.abella@gmail.com'">
+            Drop me a message
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="Footer">
     <div class="Footer-inner">
       <div class="Footer-copyright">
-        © 2020 <span class="Footer-copyright-link">pbsabella</span>. All rights reserved.
+        © 2021 <span class="Footer-copyright-link">pbsabella</span>. All rights reserved.
       </div>
     </div>
   </footer>

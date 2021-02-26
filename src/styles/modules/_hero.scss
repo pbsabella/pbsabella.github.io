@@ -3,7 +3,8 @@
  */
 .Hero {
   $this: &;
-  margin-bottom: $spacing-medium;
+  margin: 0 auto $spacing-medium;
+  max-width: 1440px;
 
   &-action {
     padding-left: 16vw;

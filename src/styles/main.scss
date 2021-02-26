@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display&display=swap');
 
 // Core variables and mixins
+@import "utilities.scss";
 @import "mixins.scss";
 @import "typography.scss";
 @import "variables.scss";
@@ -12,7 +13,6 @@
 // Layouts
 @import "layout/header.scss";
 @import "layout/footer.scss";
-@import "layout/main.scss";
 @import "layout/portfolioList.scss";
 @import "layout/resume.scss";
 @import "layout/section.scss";

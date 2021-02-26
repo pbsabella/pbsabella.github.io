@@ -9,6 +9,10 @@
   text-decoration: none;
   text-transform: lowercase;
 
+  &--external {
+    text-transform: none;
+  }
+
   &::after {
     background: $secondary-xdark;
     bottom: 0;

@@ -1,13 +1,22 @@
 .List {
   &-category {
+    margin: 0;
+    padding: 0;
+
     &:not(:last-child) {
       margin-bottom: $spacing-medium;
     }
   }
 
   &-item {
+    display: block;
     font-size: $font-size-detail;
-    line-height: 1.75em;
+    padding-bottom: $spacing-xxsmall;
+    padding-top: $spacing-xxsmall;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 
   &-title {
@@ -16,5 +25,51 @@
     font-weight: $font-weight-medium;
     margin-bottom: $spacing-xxsmall;
     margin-top: 0;
+  }
+}
+
+.ListCard {
+  padding: $spacing-medium;
+}
+
+.ListCardContainer {
+  padding-bottom: $spacing-medium;
+  max-width: 500px;
+}
+
+/**
+ * Tablet and Desktop
+ */
+@media only screen and (min-width: 768px) {
+  .ListCardContainer {
+    background-color: $secondary-xxlight;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
+  }
+}
+
+/**
+ * Desktop Small
+ */
+@media only screen and (min-width: 1080px) {
+  .ListCardContainer {
+    background-color: unset;
+    box-shadow: none;
+  }
+
+  .ListCard {
+    background-color: $secondary-xxlight;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(50, 50, 93, .1);
+
+    &--primary {
+      padding-right: $spacing-xxlarge;
+    }
+
+    &--secondary {
+      position: absolute;
+      top: 142px;
+      right: 0;
+    }
   }
 }

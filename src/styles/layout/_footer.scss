@@ -14,8 +14,7 @@
   }
 
   &-inner {
-    margin: 0 auto;
-    max-width: 1440px;
-    padding: $spacing-xsmall 8vw;
+    padding-bottom: $spacing-xsmall;
+    padding-top: $spacing-xsmall;
   }
 }

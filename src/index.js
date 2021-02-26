@@ -44,35 +44,6 @@ function animateElements() {
   });
 }
 
-function scrollToSmoothly(pos) {
-  const currentPos = window.scrollY || window.screenTop || 0;
-  const speed = 20;
-
-  if (currentPos < pos) {
-    let t = speed;
-
-    for (let i = currentPos; i <= pos; i += speed) {
-      t += speed;
-
-      setTimeout(() => {
-        window.scrollTo(0, i);
-      }, t / 2);
-    }
-  } else {
-    const time = 2;
-    let i = currentPos;
-
-    const handler = setInterval(() => {
-      window.scrollTo(0, i);
-      i -= speed;
-
-      if (i <= pos) {
-        clearInterval(handler);
-      }
-    }, time);
-  }
-}
-
 function toggleSideMenu(event) {
   sidenavElem.classList.toggle('is-active');
   contentElem.classList.toggle('is-disabled');
@@ -123,11 +94,14 @@ focusableSideNavElements.forEach((elem) => {
 scrollspyElem.forEach((elem) => {
   elem.addEventListener('click', (event) => {
     const scrollToId = event.target.hash.split('#')[1];
+    event.preventDefault(); // Don't jump to page
     const scrollToElem = document.getElementById(scrollToId);
-    const offset = 60;
 
     if (scrollToElem) {
-      scrollToSmoothly(scrollToElem.offsetTop - offset);
+      scrollToElem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     }
   });
 });

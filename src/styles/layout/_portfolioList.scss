@@ -1,10 +1,9 @@
 .PortfolioList {
   display: flex;
-  list-style: none;
-  margin: 0 -8vw 0 -8vw;
-  padding: 0 0 0 8vw;
   overflow-x: auto;
   overflow-y: hidden;
+  padding-bottom: $spacing-large;
+  padding-top: $spacing-large;
 
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch; /* iOS support */
@@ -26,8 +25,8 @@
 @media only screen and (min-width: 768px) {
   .PortfolioList {
     flex-wrap: wrap;
-    margin: 0 -$spacing-small;
-    padding: 0;
+    // margin-left: -$spacing-small;
+    // margin-right: -$spacing-small;
 
     &-item {
       flex: 0 0 33%;

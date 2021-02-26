@@ -1,0 +1,25 @@
+@import "variables.scss";
+
+.container-space {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+}
+
+.bg-accent-yellow {
+  background-color: $accent-yellow;
+}
+
+.bg-accent-cyan-light {
+  background-color: $accent-cyan-light;
+}
+
+.bg-accent-neutral {
+  background-color: $accent-neutral;
+}

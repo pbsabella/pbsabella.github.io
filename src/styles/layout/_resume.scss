@@ -21,7 +21,8 @@
   }
 
   &-inner {
-    padding: $spacing-large 8vw;
+    padding-bottom: $spacing-large;
+    padding-top: $spacing-large;
   }
 
   &-item {
@@ -29,11 +30,10 @@
   }
 
   &-list {
-    margin: 0 ;
-    padding-left: $spacing-medium !important;
+    padding-left: $spacing-medium;
 
     &-item {
-      list-style-type: disc !important;
+      list-style-type: disc;
     }
 
     &:not(:last-child) {

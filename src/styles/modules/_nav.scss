@@ -43,12 +43,10 @@
   &-list {
     align-items: center;
     display: flex;
-    list-style: none;
-    margin: 0;
   }
 
-  &--right {
-    justify-content: flex-end;
+  &--left {
+    justify-content: flex-start;
   }
 }
 
