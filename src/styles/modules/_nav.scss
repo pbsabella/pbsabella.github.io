@@ -1,7 +1,7 @@
 .Nav {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 
   &-item {
@@ -17,6 +17,7 @@
   }
 
   &-logo {
+    justify-self: start;
     color: $secondary-xdark;
     padding: $spacing-small 0;
     text-decoration: none;
