@@ -13,8 +13,8 @@
   }
 
   &-article {
-    padding-bottom: $spacing-large;
-    padding-top: $spacing-large;
+    padding-bottom: $spacing-xlarge;
+    padding-top: $spacing-xlarge;
   }
 
   &-column {
@@ -36,6 +36,10 @@
   &-image {
     margin-bottom: $spacing-small;
     width: 100%;
+
+    &--mid {
+      max-width: 720px;
+    }
   }
 
   &-intro {
@@ -62,6 +66,11 @@
     &.is-visible {
       transform: translateX(0);
     }
+  }
+
+  &-note {
+    color: $secondary-xdark;
+    font-size: $font-size-detail;
   }
 
   &-subcontent {
@@ -141,17 +150,19 @@
       &:not(:last-child) {
         margin-right: $spacing-medium;
       }
+
+      &--narrow {
+        flex: 1 1 40%;
+      }
+
+      &--wide {
+        flex: 1 1 60%;
+      }
     }
 
     &-content {
       // margin-top: $spacing-large;
       text-align: left;
-    }
-
-    &-description {
-      &--narrow {
-        max-width: 60vw;
-      }
     }
 
     &-inner {
