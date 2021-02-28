@@ -4,10 +4,10 @@
   "description": "Personal Website",
   "scripts": {
     "build": "webpack --mode development",
+    "build:watch": "webpack --mode development --watch",
     "build:prod": "webpack --mode production",
     "lint": "eslint .",
     "preversion": "npm run build:prod && npm run lint",
-    "watch": "webpack --mode development --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
