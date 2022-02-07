@@ -13,6 +13,8 @@ const sidenavElem = document.getElementById('side-nav');
 const KEYCODE_TAB = 9;
 const focusableSideNavElements = sidenavElem.querySelectorAll('a');
 
+document.getElementById('current-year').innerHTML = new Date().getFullYear();
+
 function isElementSeen(el) {
   const rect = el.getBoundingClientRect();
   let offset = 0;
