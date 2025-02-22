@@ -1,20 +1,23 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
 /**
  * Default: Mobile
  */
 .Section {
-  margin-bottom: $spacing-large;
+  margin-bottom: variables.$spacing-large;
   position: relative;
 
   /* Header offset when scrolling to fragments */
   scroll-margin-top: 70px;
 
   &-action {
-    margin: $spacing-medium 0 $spacing-large 0;
+    margin: variables.$spacing-medium 0 variables.$spacing-large 0;
   }
 
   &-article {
-    padding-bottom: $spacing-xlarge;
-    padding-top: $spacing-xlarge;
+    padding-bottom: variables.$spacing-xlarge;
+    padding-top: variables.$spacing-xlarge;
   }
 
   &-column {
@@ -34,7 +37,7 @@
   }
 
   &-image {
-    margin-bottom: $spacing-medium;
+    margin-bottom: variables.$spacing-medium;
     width: 100%;
 
     &--mid {
@@ -44,17 +47,17 @@
 
   &-intro {
     display: flex;
-    padding-top: $spacing-xlarge;
+    padding-top: variables.$spacing-xlarge;
 
     &-divider {
-      background: $secondary-xxdark;
+      background: variables.$secondary-xxdark;
       height: 1px;
       margin: 8px 8px 0 0;
       width: 44px;
     }
 
     &-text {
-      font-size: $font-size-detail;
+      font-size: variables.$font-size-detail;
       font-weight: 400;
     }
 
@@ -69,8 +72,8 @@
   }
 
   &-note {
-    color: $secondary-xdark;
-    font-size: $font-size-detail;
+    color: variables.$secondary-xdark;
+    font-size: variables.$font-size-detail;
   }
 
   &-subcontent {
@@ -81,7 +84,7 @@
 
     &-description {
       flex: 1 1 auto;
-      padding: $spacing-small;
+      padding: variables.$spacing-small;
       position: relative;
       text-align: left;
       word-break: break-word;
@@ -104,7 +107,7 @@
     }
 
     &::after {
-      background: $tertiary;
+      background: variables.$tertiary;
       content: '';
       left: 0;
       min-width: 170px;
@@ -126,16 +129,16 @@
   }
 
   &-title {
-    @include heading-font;
-    color: $secondary-xdark;
-    font-weight: $font-weight-medium;
-    padding-bottom: $spacing-medium;
-    padding-top: $spacing-large;
+    @include mixins.heading-font;
+    color: variables.$secondary-xdark;
+    font-weight: variables.$font-weight-medium;
+    padding-bottom: variables.$spacing-medium;
+    padding-top: variables.$spacing-large;
   }
 
   &--dark {
-    background: $secondary-xxdark;
-    color: $secondary-xxlight;
+    background: variables.$secondary-xxdark;
+    color: variables.$secondary-xxlight;
   }
 }
 
@@ -144,11 +147,11 @@
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    margin-bottom: $spacing-xlarge;
+    margin-bottom: variables.$spacing-xlarge;
 
     &-column {
       &:not(:last-child) {
-        margin-right: $spacing-medium;
+        margin-right: variables.$spacing-medium;
       }
 
       &--narrow {
@@ -161,7 +164,7 @@
     }
 
     &-content {
-      // margin-top: $spacing-large;
+      // margin-top: variables.$spacing-large;
       text-align: left;
     }
 
@@ -172,7 +175,7 @@
     }
 
     &-subcontent {
-      margin: ($spacing-large * 2) 0 $spacing-medium 0;
+      margin: (variables.$spacing-large * 2) 0 variables.$spacing-medium 0;
     }
   }
 }

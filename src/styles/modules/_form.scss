@@ -1,48 +1,51 @@
+@use "sass:color";
+@use "../variables.scss";
+
 .Form {
   width: 100%;
 
   &-action {
     background: none;
-    border: 1px solid $secondary-xxdark;
-    color: $secondary-xxdark;
+    border: 1px solid variables.$secondary-xxdark;
+    color: variables.$secondary-xxdark;
     display: block;
-    // font-size: $font-size-ui;
-    padding: $spacing-xsmall $spacing-xlarge;
+    // font-size: variables.$font-size-ui;
+    padding: variables.$spacing-xsmall variables.$spacing-xlarge;
     text-align: center;
   }
 
   &-group {
-    margin-bottom: $spacing-medium;
+    margin-bottom: variables.$spacing-medium;
   }
 
   &-input,
   &-textarea {
-    border-bottom: 1px solid $secondary-dark !important;
+    border-bottom: 1px solid variables.$secondary-dark !important;
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
-    // font-size: $font-size-ui !important;
+    // font-size: variables.$font-size-ui !important;
     height: 2.5rem !important;
     outline: none;
     resize: vertical;
 
     &:focus,
     &:active {
-      border-bottom: 1px solid $primary !important;
+      border-bottom: 1px solid variables.$primary !important;
       box-shadow: none !important;
     }
   }
 
   &-label {
-    color: lighten($secondary-xxdark, 30%);
+    color: color.adjust(variables.$secondary-xxdark, variables.$lightness: 30%);
     display: block;
-    font-size: $font-size-detail;
-    margin-bottom: $spacing-xxxsmall;
+    font-size: variables.$font-size-detail;
+    margin-bottom: variables.$spacing-xxxsmall;
     text-transform: uppercase;
   }
 
   &-row {
-    margin-bottom: $spacing-medium;
+    margin-bottom: variables.$spacing-medium;
   }
 
   &-textarea {

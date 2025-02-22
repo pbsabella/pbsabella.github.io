@@ -1,3 +1,5 @@
+@use "../variables.scss";
+
 /**
  * Default: Mobile
  */
@@ -5,32 +7,32 @@
   position: relative;
 
   &-date {
-    font-size: $font-size-detail;
+    font-size: variables.$font-size-detail;
   }
 
   &-description {
     margin-top: 0;
-    margin-bottom: $spacing-small;
+    margin-bottom: variables.$spacing-small;
   }
 
   &-header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: $spacing-xsmall;
+    margin-bottom: variables.$spacing-xsmall;
     flex-wrap: wrap;
   }
 
   &-item {
-    margin: 0 0 $spacing-large $spacing-medium;
+    margin: 0 0 variables.$spacing-large variables.$spacing-medium;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     &::before {
-      background-color: $secondary-xlight;
-      border: 1px solid $secondary-xdark;
+      background-color: variables.$secondary-xlight;
+      border: 1px solid variables.$secondary-xdark;
       border-radius: 50%;
       content: '';
       height: 8px;
@@ -43,20 +45,20 @@
   }
 
   &-subtitle {
-    color: $secondary-xdark;
-    font-size: $font-size-detail;
+    color: variables.$secondary-xdark;
+    font-size: variables.$font-size-detail;
     font-weight: 500;
-    margin-bottom: $spacing-xxxsmall;
+    margin-bottom: variables.$spacing-xxxsmall;
   }
 
   &-title {
-    color: $secondary-xdark;
+    color: variables.$secondary-xdark;
     font-weight: 500;
   }
 
   &::after {
     content: '';
-    background-color: $secondary-xdark;
+    background-color: variables.$secondary-xdark;
     bottom: 16px;
     margin-left: 8px;
     position: absolute;

@@ -1,3 +1,6 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
 /**
  * Default: Mobile
  */
@@ -11,33 +14,33 @@
   }
 
   &-details {
-    color: $secondary-xdark;
+    color: variables.$secondary-xdark;
     display: flex;
     flex-wrap: wrap;
 
     &:not(:last-child) {
-      margin-bottom: $spacing-small;
+      margin-bottom: variables.$spacing-small;
     }
   }
 
   &-inner {
-    padding-bottom: $spacing-large;
-    padding-top: $spacing-large;
+    padding-bottom: variables.$spacing-large;
+    padding-top: variables.$spacing-large;
   }
 
   &-item {
-    margin-bottom: $spacing-large;
+    margin-bottom: variables.$spacing-large;
   }
 
   &-list {
-    padding-left: $spacing-medium;
+    padding-left: variables.$spacing-medium;
 
     &-item {
       list-style-type: disc;
     }
 
     &:not(:last-child) {
-      margin-right: $spacing-xsmall;
+      margin-right: variables.$spacing-xsmall;
     }
   }
 
@@ -51,7 +54,7 @@
 
   &-social {
     &-item {
-      margin-bottom: $spacing-small;
+      margin-bottom: variables.$spacing-small;
     }
 
     &-title {
@@ -61,15 +64,15 @@
 
   &-subtitle {
     font-weight: 500;
-    margin-bottom: $spacing-xxsmall;
+    margin-bottom: variables.$spacing-xxsmall;
   }
 
   &-title {
-    @include heading-font;
-    color: $secondary-xdark;
+    @include mixins.heading-font;
+    color: variables.$secondary-xdark;
     font-size: 1.5em;
     line-height: 34px;
-    margin-bottom: $spacing-small;
+    margin-bottom: variables.$spacing-small;
   }
 }
 

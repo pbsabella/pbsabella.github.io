@@ -1,19 +1,23 @@
+@use "../variables.scss";
+
 .PortfolioList {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
 
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* iOS support */
+  -webkit-overflow-scrolling: touch;
+  /* iOS support */
 
   &-item {
     flex-shrink: 0;
-    margin-bottom: $spacing-medium;
-    padding-right: $spacing-medium;
+    margin-bottom: variables.$spacing-medium;
+    padding-right: variables.$spacing-medium;
     width: 80vw;
 
     scroll-snap-align: center;
-    scroll-snap-coordinate: 0% 0%; /* older (Firefox/IE) */
+    scroll-snap-coordinate: 0% 0%;
+    /* older (Firefox/IE) */
   }
 }
 
@@ -23,12 +27,12 @@
 @media only screen and (min-width: 768px) {
   .PortfolioList {
     flex-wrap: wrap;
-    margin-left: -$spacing-small;
-    margin-right: -$spacing-small;
+    margin-left: -(variables.$spacing-small);
+    margin-right: -(variables.$spacing-small);
 
     &-item {
       flex: 0 0 33%;
-      padding: 0 $spacing-small;
+      padding: 0 variables.$spacing-small;
       min-width: 280px;
       width: auto;
     }

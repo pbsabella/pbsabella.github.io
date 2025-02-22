@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables.scss";
 
 // Responsive typography scale
 // http://typecast.com/blog/a-more-modern-scale-for-web-typography
@@ -7,12 +7,23 @@ html {
   font-size: 100%;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size-adjust: 0.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $secondary-xxdark;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: variables.$secondary-xxdark;
 }
 
 /* Body Content */
@@ -73,7 +84,8 @@ h4 {
     font-size: 3em;
     /* keep to a multiple of the 20px line height
     and something more appropriate for display headings */
-    line-height: 1.05; /* 14.7px */
+    line-height: 1.05;
+    /* 14.7px */
   }
 
   h2 {

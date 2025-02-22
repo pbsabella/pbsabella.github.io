@@ -1,10 +1,12 @@
+@use "../variables.scss";
+
 .Footer {
-  background-color: $secondary-xlight;
-  border-top: 1px solid $secondary-light;
+  background-color: variables.$secondary-xlight;
+  border-top: 1px solid variables.$secondary-light;
 
   &-copyright {
-    font-size: $font-size-detail;
-    padding: $spacing-xxsmall 0;
+    font-size: variables.$font-size-detail;
+    padding: variables.$spacing-xxsmall 0;
     text-align: center;
     width: 100%;
 
@@ -14,7 +16,7 @@
   }
 
   &-inner {
-    padding-bottom: $spacing-xsmall;
-    padding-top: $spacing-xsmall;
+    padding-bottom: variables.$spacing-xsmall;
+    padding-top: variables.$spacing-xsmall;
   }
 }

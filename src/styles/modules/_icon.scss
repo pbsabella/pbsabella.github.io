@@ -1,6 +1,8 @@
+@use "../variables.scss";
+
 .Icon {
   display: block;
-  fill: $secondary-xxdark;
+  fill: variables.$secondary-xxdark;
   height: 24px;
   stroke: none;
   width: 24px;

@@ -1,9 +1,12 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
 /**
  * Default: Mobile
  */
 .Hero {
   $this: &;
-  margin: 0 auto $spacing-medium;
+  margin: 0 auto variables.$spacing-medium;
   max-width: 1440px;
 
   &-action {
@@ -17,9 +20,9 @@
   }
 
   &-divider {
-    background: $secondary-xdark;
+    background: variables.$secondary-xdark;
     height: 1px;
-    margin-left: $spacing-small;
+    margin-left: variables.$spacing-small;
     width: 80px;
   }
 
@@ -54,7 +57,7 @@
     }
 
     &::after {
-      background-color: $tertiary;
+      background-color: variables.$tertiary;
       z-index: -2;
     }
 
@@ -72,7 +75,7 @@
       flex-wrap: wrap;
       height: auto;
       min-height: auto;
-      padding-top: $spacing-xlarge;
+      padding-top: variables.$spacing-xlarge;
 
       &::after,
       &::before {
@@ -83,37 +86,37 @@
 
   &-link {
     align-items: center;
-    color: $secondary-xdark;
+    color: variables.$secondary-xdark;
     display: flex;
     text-decoration: none;
   }
 
   &-note {
-    color: $secondary-xdark;
-    font-size: $font-size-detail;
-    margin-bottom: $spacing-small;
+    color: variables.$secondary-xdark;
+    font-size: variables.$font-size-detail;
+    margin-bottom: variables.$spacing-small;
   }
 
   &-subtitle {
-    @include heading-font;
-    color: $secondary-xdark;
+    @include mixins.heading-font;
+    color: variables.$secondary-xdark;
     padding-left: 16vw;
     white-space: nowrap;
   }
 
   &-title {
-    @include heading-font;
-    color: $secondary-xdark;
+    @include mixins.heading-font;
+    color: variables.$secondary-xdark;
     font-size: 3em;
     font-weight: normal;
     line-height: 0.9em;
-    margin-bottom: $spacing-large;
+    margin-bottom: variables.$spacing-large;
     padding-left: 16vw;
     padding-top: 36vw;
     white-space: nowrap;
 
     .IsIndented {
-      padding-left: $spacing-large;
+      padding-left: variables.$spacing-large;
     }
   }
 
@@ -133,7 +136,7 @@
  */
 @media only screen and (min-width: 768px) {
   .Hero {
-    margin-bottom: $spacing-large;
+    margin-bottom: variables.$spacing-large;
 
     &-action {
       bottom: 10vh;
@@ -172,7 +175,7 @@
 
     &-title {
       font-size: 6em;
-      margin-bottom: $spacing-xxlarge;
+      margin-bottom: variables.$spacing-xxlarge;
       padding-top: 0;
     }
   }
@@ -182,6 +185,7 @@
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }

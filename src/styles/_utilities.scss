@@ -1,4 +1,4 @@
-@import "variables.scss";
+@use "variables.scss";
 
 .container-narrow {
   max-width: 100%;
@@ -30,13 +30,13 @@
 }
 
 .bg-accent-yellow {
-  background-color: $accent-yellow;
+  background-color: variables.$accent-yellow;
 }
 
 .bg-accent-cyan-light {
-  background-color: $accent-cyan-light;
+  background-color: variables.$accent-cyan-light;
 }
 
 .bg-accent-neutral {
-  background-color: $accent-neutral;
+  background-color: variables.$accent-neutral;
 }

@@ -1,31 +1,32 @@
+@use "sass:meta";
 // Third party
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display&display=swap');
 
 // Core variables and mixins
-@import "utilities.scss";
-@import "mixins.scss";
-@import "typography.scss";
-@import "variables.scss";
+@include meta.load-css("utilities.scss");
+@include meta.load-css("mixins.scss");
+@include meta.load-css("typography.scss");
+@include meta.load-css("variables.scss");
 
 // Global CSS
-@import "global.scss";
+@include meta.load-css("global.scss");
 
 // Layouts
-@import "layout/header.scss";
-@import "layout/footer.scss";
-@import "layout/portfolioList.scss";
-@import "layout/resume.scss";
-@import "layout/section.scss";
+@include meta.load-css("layout/header.scss");
+@include meta.load-css("layout/footer.scss");
+@include meta.load-css("layout/portfolioList.scss");
+@include meta.load-css("layout/resume.scss");
+@include meta.load-css("layout/section.scss");
 
 // Modules
-@import "modules/button.scss";
-@import "modules/card.scss";
-@import "modules/form.scss";
-@import "modules/hero.scss";
-@import "modules/icon.scss";
-@import "modules/link.scss";
-@import "modules/list.scss";
-@import "modules/nav.scss";
-@import "modules/sidemenu.scss";
-@import "modules/social.scss";
-@import "modules/timeline.scss";
+@include meta.load-css("modules/button.scss");
+@include meta.load-css("modules/card.scss");
+@include meta.load-css("modules/form.scss");
+@include meta.load-css("modules/hero.scss");
+@include meta.load-css("modules/icon.scss");
+@include meta.load-css("modules/link.scss");
+@include meta.load-css("modules/list.scss");
+@include meta.load-css("modules/nav.scss");
+@include meta.load-css("modules/sidemenu.scss");
+@include meta.load-css("modules/social.scss");
+@include meta.load-css("modules/timeline.scss");

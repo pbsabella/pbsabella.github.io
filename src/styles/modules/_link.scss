@@ -1,5 +1,7 @@
+@use "../variables.scss";
+
 .Link {
-  color: $secondary-xdark;
+  color: variables.$secondary-xdark;
   display: inline-block;
   float: none;
   height: auto;
@@ -14,7 +16,7 @@
   }
 
   &::after {
-    background: $secondary-xdark;
+    background: variables.$secondary-xdark;
     bottom: 0;
     content: '';
     height: 1.6px;

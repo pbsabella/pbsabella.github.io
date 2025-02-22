@@ -1,26 +1,28 @@
+@use "../variables.scss";
+
 .Button {
   border: none;
   cursor: pointer;
   display: block;
-  font-size: $font-size-detail;
-  padding: $spacing-xsmall;
+  font-size: variables.$font-size-detail;
+  padding: variables.$spacing-xsmall;
   text-align: center;
   width: fit-content;
 
   &-primary {
-    background: $secondary-xxdark;
+    background: variables.$secondary-xxdark;
     border-radius: 2px;
-    color: $secondary-xxlight;
+    color: variables.$secondary-xxlight;
 
     &--hollow {
       background: none;
-      border: 1px solid $primary;
+      border: 1px solid variables.$primary;
       box-shadow: none;
-      color: $primary;
+      color: variables.$primary;
     }
 
     &:hover {
-      background: $secondary-xdark;
+      background: variables.$secondary-xdark;
       transition: 0.1s background ease-out;
     }
   }

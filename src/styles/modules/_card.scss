@@ -1,9 +1,11 @@
+@use "../variables.scss";
+
 .Card {
   margin: 0;
   position: relative;
 
   &-figure {
-    margin: 0 0 $spacing-small 0;
+    margin: 0 0 variables.$spacing-small 0;
     position: relative;
 
     &::before {
@@ -24,32 +26,32 @@
     }
 
     &.is-placeholder {
-      background: $secondary-light;
+      background: variables.$secondary-light;
     }
   }
 
   &-footer {
-    color: $secondary-xxdark;
+    color: variables.$secondary-xxdark;
     text-align: left;
 
     &-description {
-      font-size: $font-size-detail;
-      margin-bottom: $spacing-xxxsmall;
+      font-size: variables.$font-size-detail;
+      margin-bottom: variables.$spacing-xxxsmall;
     }
 
     &-service {
-      color: $secondary-xdark;
-      font-size: $font-size-footnote;
-      font-weight: $font-weight-light;
+      color: variables.$secondary-xdark;
+      font-size: variables.$font-size-footnote;
+      font-weight: variables.$font-weight-light;
 
       &::selection {
-        color: $secondary-xxdark;
+        color: variables.$secondary-xxdark;
       }
     }
 
     &-title {
       font-weight: 500;
-      margin-bottom: $spacing-xxsmall;
+      margin-bottom: variables.$spacing-xxsmall;
     }
   }
 }

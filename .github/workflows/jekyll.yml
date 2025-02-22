@@ -17,7 +17,7 @@ jobs:
 #       run: |
 #         docker run \
 #         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-#         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"      
+#         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
 
   build-production:
     name: Build Production
@@ -30,11 +30,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 22
 
       - name: Install Node.js dependencies
         run: npm install
-      
+
       - name: Build production
         run: npm run build:prod
 

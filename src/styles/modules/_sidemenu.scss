@@ -1,5 +1,8 @@
+@use "../variables.scss";
+@use "../mixins.scss";
+
 .SideMenu {
-  background-color: $secondary-xlight;
+  background-color: variables.$secondary-xlight;
   height: 100%;
   margin-left: auto;
   position: fixed;
@@ -12,24 +15,25 @@
 
   &-footer {
     bottom: 0;
-    padding: $spacing-medium $spacing-small;
+    padding: variables.$spacing-medium variables.$spacing-small;
     position: absolute;
     width: 100%;
   }
 
   &-item {
-    border-bottom: 1px solid $secondary-light;
-    height: 44px;;
-    margin-left: $spacing-medium;
+    border-bottom: 1px solid variables.$secondary-light;
+    height: 44px;
+    ;
+    margin-left: variables.$spacing-medium;
   }
 
   &-link {
     align-items: center;
-    color: $secondary-xdark;
+    color: variables.$secondary-xdark;
     display: flex;
     height: 100%;
     text-decoration: none;
-    @include body-font;
+    @include mixins.body-font;
 
     &.is-active {
       font-weight: 500;
@@ -38,7 +42,7 @@
 
   &-list {
     height: 100%;
-    padding-top: $spacing-medium;
+    padding-top: variables.$spacing-medium;
   }
 
   &.is-active {

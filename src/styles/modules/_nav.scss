@@ -1,3 +1,6 @@
+@use "../variables";
+@use "../mixins";
+
 .Nav {
   align-items: center;
   display: flex;
@@ -5,10 +8,10 @@
   width: 100%;
 
   &-item {
-    color: $secondary-xdark;
+    color: variables.$secondary-xdark;
 
     &:not(:first-child) {
-      padding-left: $spacing-medium;
+      padding-left: variables.$spacing-medium;
     }
 
     &.is-active {
@@ -18,20 +21,20 @@
 
   &-logo {
     justify-self: start;
-    color: $secondary-xdark;
-    padding: $spacing-small 0;
+    color: variables.$secondary-xdark;
+    padding: variables.$spacing-small 0;
     text-decoration: none;
-    @include heading-font;
+    @include mixins.heading-font;
   }
 
   &-menu {
     cursor: pointer;
     display: block;
-    margin-right: -$spacing-small;
-    padding: $spacing-small;
+    margin-right: -(variables.$spacing-small);
+    padding: variables.$spacing-small;
 
     &-icon {
-      background-color: $secondary-xdark;
+      background-color: variables.$secondary-xdark;
       height: 2px;
       width: 24px;
 
@@ -66,10 +69,10 @@
 @media only screen and (min-width: 768px) {
   .Nav {
     &-item {
-      color: $secondary-xdark;
+      color: variables.$secondary-xdark;
 
       &:not(:first-child) {
-        padding-left: $spacing-xlarge;
+        padding-left: variables.$spacing-xlarge;
       }
     }
   }
