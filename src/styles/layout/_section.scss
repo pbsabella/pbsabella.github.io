@@ -5,7 +5,7 @@
  * Default: Mobile
  */
 .Section {
-  margin-bottom: variables.$spacing-large;
+  // margin-bottom: variables.$spacing-large;
   position: relative;
 
   /* Header offset when scrolling to fragments */
@@ -147,7 +147,7 @@
  */
 @media only screen and (min-width: 768px) {
   .Section {
-    margin-bottom: variables.$spacing-xlarge;
+    // margin-bottom: variables.$spacing-xlarge;
 
     &-column {
       &:not(:last-child) {

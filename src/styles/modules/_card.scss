@@ -44,9 +44,9 @@
       font-size: variables.$font-size-footnote;
       font-weight: variables.$font-weight-light;
 
-      &::selection {
-        color: variables.$secondary-xxdark;
-      }
+      // &::selection {
+      //   color: variables.$secondary-xxdark;
+      // }
     }
 
     &-title {
