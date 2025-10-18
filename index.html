@@ -27,11 +27,11 @@
 
         <ul class="Nav-list hide-on-medium">
           <li class="Nav-item">
-            <div id="menu-toggle" class="Nav-menu" tabindex="0">
+            <button id="menu-toggle" class="Nav-menu" aria-controls="side-nav" aria-label="Open main menu">
               <div class="Nav-menu-icon"></div>
               <div class="Nav-menu-icon"></div>
               <div class="Nav-menu-icon"></div>
-            </div>
+            </button>
           </li>
         </ul>
 
@@ -103,7 +103,7 @@
               <img class="Section-image" src="src/images/sm-ds-wide.png" alt="SiteMinder Design System" loading="lazy">
             </div>
             <h4 class="Card-footer-title">
-              Design System
+              Design System & Patterns
             </h4>
             <div class="Card-footer-details">
               <div class="Card-footer-description">
@@ -114,46 +114,75 @@
               </div>
             </div>
             <p class="Section-description container-narrow">
-              Develops and maintains SiteMinder's design system to empower product teams to build efficiently and
-              deliver rich experiences across any platform.
+              Leads the development and maintenance of SiteMinder's Design System and product patterns, enabling teams
+              to build consistent, accessible, and scalable interfaces across the platform.
             </p>
             <p class="Section-description container-narrow">
-              A design system consists of design tokens, UI components, patterns, and services. It is guided by
-              principles, best practices (usability, information architecture, etc.), and both functional and technical
-              documentation.
+              The work covers design tokens, UI components, and interaction patterns, including reusable solutions such
+              as the media management pattern, ensuring cohesion between foundational elements and
+              product-level experiences. Collaborates closely with design, product, and engineering teams to uphold best
+              practices in usability, performance, and accessibility.
             </p>
             <span class="Section-note container-narrow">
-              Vue.js, TypeScript, JavaScript, HTML, SCSS/CSS, and various front-end tools
+              Vue.js, TypeScript, HTML, SCSS/CSS, GraphQL, Component Architecture, Accessibility, Frontend Tooling
             </span>
           </div>
 
-          <div class="bg-accent-yellow">
-            <div class="Section-article container-space">
-              <div class="Section-article-figure">
-                <img class="Section-image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System"
-                  loading="lazy">
-              </div>
-              <h4 class="Card-footer-title">
-                Design System
-              </h4>
-              <div class="Card-footer-details">
-                <div class="Card-footer-description">
-                  Freelancer.com (July 2015 - May 2021)
-                </div>
-                <div class="Card-footer-service">
-                  Software Engineer
-                </div>
-              </div>
-              <p class="Section-description container-narrow">
-                Developed and maintained Freelancer's design system.
-              </p>
-              <span class="Section-note container-narrow">
-                Angular, TypeScript, JavaScript, HTML, SCSS/CSS, Node.js, and various front-end tools
-              </span>
+          <div class="Section-article container-space bg-accent-primary-light">
+            <div class="Section-article-figure">
+              <img class="Section-image" src="src/images/sm-notifications.png" alt="SiteMinder Notifications"
+                loading="lazy">
             </div>
+            <h4 class="Card-footer-title">
+              Notifications Platform
+            </h4>
+            <div class="Card-footer-details">
+              <div class="Card-footer-description">
+                SiteMinder (May 2021 - Present)
+              </div>
+              <div class="Card-footer-service">
+                Senior Frontend Engineer
+              </div>
+            </div>
+            <p class="Section-description container-narrow">
+              Led the frontend development of SiteMinder's Notifications experience, creating a centralized interface
+              for system alerts, product updates, and customer messages across the platform.
+            </p>
+            <p class="Section-description container-narrow">
+              Focused on delivering clarity, responsiveness, and accessibility through reusable components, consistent
+              interaction patterns, and seamless GraphQL data integration. Partnered closely with design and backend
+              teams to ensure scalability and performance across product surfaces.
+            </p>
+            <span class="Section-note container-narrow">
+              Vue.js, TypeScript, GraphQL, Accessibility, Performance Optimization
+            </span>
           </div>
 
           <div class="Section-article container-space">
+            <div class="Section-article-figure">
+              <img class="Section-image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System" loading="lazy">
+            </div>
+            <h4 class="Card-footer-title">
+              Design System
+            </h4>
+            <div class="Card-footer-details">
+              <div class="Card-footer-description">
+                Freelancer.com (July 2015 - May 2021)
+              </div>
+              <div class="Card-footer-service">
+                Software Engineer
+              </div>
+            </div>
+            <p class="Section-description container-narrow">
+              Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across
+              the platform.
+            </p>
+            <span class="Section-note container-narrow">
+              Angular, TypeScript, HTML, SCSS/CSS, Node.js, Frontend Tooling
+            </span>
+          </div>
+
+          <div class="Section-article container-space bg-accent-cyan-light">
             <div class="Section-article-figure">
               <img class="Section-image" src="src/images/wireframing-tool-frame.png" alt="Design System Wireframing"
                 loading="lazy">
@@ -183,58 +212,34 @@
             </span>
           </div>
 
-          <div class="bg-accent-cyan-light">
-            <div class="Section-article container-space container-space--narrow">
-              <div class="Section-inner">
-                <div class="Section-column Section-column--wide Section-article-figure">
-                  <img class="Section-image Section-image--mid" src="src/images/animation-knobs.png"
-                    alt="Animation demo" loading="lazy">
-                </div>
-                <div class="Section-column Section-column--narrow container-narrow">
-                  <h4 class="Card-footer-title">
-                    Motion System
-                  </h4>
-                  <div class="Card-footer-details">
-                    <div class="Card-footer-description">
-                      Freelancer.com (July 2015 - May 2021)
-                    </div>
-                    <div class="Card-footer-service">
-                      Software Engineer
-                    </div>
+          <div class="Section-article container-space container-space--narrow">
+            <div class="Section-inner">
+              <div class="Section-column Section-column--wide Section-article-figure">
+                <img class="Section-image Section-image--mid" src="src/images/animation-knobs.png" alt="Animation demo"
+                  loading="lazy">
+              </div>
+              <div class="Section-column Section-column--narrow container-narrow">
+                <h4 class="Card-footer-title">
+                  Motion System
+                </h4>
+                <div class="Card-footer-details">
+                  <div class="Card-footer-description">
+                    Freelancer.com (July 2015 - May 2021)
                   </div>
-                  <p class="Section-description">
-                    Built the infrastructure to attach animations into templates that can be invoked programmatically or
-                    declaratively with ease. With a collection of exportable animations, creating delightful experiences
-                    can be done in as little as a single line of code.
-                  </p>
-                  <span class="Section-note">
-                    Angular, Angular Animations, TypeScript, RxJS, HTML, SCSS/CSS, Node.js, etc.
-                  </span>
+                  <div class="Card-footer-service">
+                    Software Engineer
+                  </div>
                 </div>
+                <p class="Section-description">
+                  Built the infrastructure to attach animations into templates that can be invoked programmatically or
+                  declaratively with ease. With a collection of exportable animations, creating delightful experiences
+                  can be done in as little as a single line of code.
+                </p>
+                <span class="Section-note">
+                  Angular, Angular Animations, TypeScript, RxJS, HTML, SCSS/CSS, Node.js, etc.
+                </span>
               </div>
             </div>
-          </div>
-
-          <div class="Section-article container-space">
-            <h4 class="Card-footer-title">
-              Core Web Vitals
-            </h4>
-            <div class="Card-footer-details">
-              <div class="Card-footer-description">
-                Freelancer.com (July 2015 - May 2021)
-              </div>
-              <div class="Card-footer-service">
-                Software Engineer
-              </div>
-            </div>
-            <p class="Section-description container-narrow">
-              Implemented infrastructure to fetch <a href="https://web.dev/vitals/">Web Vitals</a> in the background
-              whenever a page loads. The metrics are sent to analytics to monitor the health and
-              perceived performance of every page.
-            </p>
-            <span class="Section-note container-narrow">
-              Angular, TypeScript, JavaScript
-            </span>
           </div>
         </div>
       </div>
@@ -251,9 +256,9 @@
             A little overview
           </h3>
           <p class="Section-description">
-            Experienced web developer with strong technical expertise in planning, developing, and implementing
-            user-centric web applications. Passionate about design systems and building efficient, scalable solutions
-            across platforms.
+            Frontend engineer with over a decade of experience building scalable, accessible web interfaces. Currently
+            focused on design systems, frontend architecture, and bridging design and engineering to deliver cohesive
+            product experiences.
           </p>
 
           <div class="Social">
