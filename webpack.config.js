@@ -34,12 +34,11 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          MiniCssExtractPlugin.loader, // extracts CSS into separate file
+          'css-loader',                // handles CSS imports
+          'postcss-loader',            // autoprefixer
         ],
       },
       {

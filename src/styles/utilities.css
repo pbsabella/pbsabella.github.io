@@ -1,0 +1,52 @@
+/* Layout Utilities */
+.container-narrow {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container-narrow {
+    max-width: 80%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container-narrow {
+    max-width: 70%;
+  }
+}
+
+.container-space {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .container-space {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  .container-space--narrow {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
+
+/* Background color utilities */
+.bg-accent-yellow {
+  background-color: var(--accent-yellow);
+}
+
+.bg-accent-cyan-light {
+  background-color: var(--accent-cyan-light);
+}
+
+.bg-accent-neutral {
+  background-color: var(--accent-neutral);
+}
+
+.bg-accent-primary-light {
+  background-color: var(--primary-xxlight);
+}

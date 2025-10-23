@@ -1,8 +1,4 @@
-@use "variables.scss";
-
-// Responsive typography scale
-// http://typecast.com/blog/a-more-modern-scale-for-web-typography
-
+/* Base font sizing */
 html {
   font-size: 100%;
 }
@@ -23,12 +19,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: variables.$secondary-xxdark;
+  color: var(--secondary-xxdark);
 }
 
-/* Body Content */
-
 body {
+  font-family: 'Heebo', Arial, sans-serif;
   font-size: 1em;
   line-height: 1.25;
 }
@@ -53,6 +48,7 @@ h4 {
   line-height: 1.11111111;
 }
 
+/* Medium breakpoint (700px / 43.75em) */
 @media (min-width: 43.75em) {
   body {
     font-size: 1em;
@@ -79,13 +75,12 @@ h4 {
   }
 }
 
+/* Large breakpoint (900px / 56.25em) */
 @media (min-width: 56.25em) {
   h1 {
     font-size: 3em;
-    /* keep to a multiple of the 20px line height
-    and something more appropriate for display headings */
     line-height: 1.05;
-    /* 14.7px */
+    /* around ~14.7px based on 20px baseline */
   }
 
   h2 {

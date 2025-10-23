@@ -1,0 +1,27 @@
+.Button {
+  border: none;
+  cursor: pointer;
+  display: block;
+  font-size: var(--font-size-detail);
+  padding: var(--spacing-xsmall);
+  text-align: center;
+  width: fit-content;
+}
+
+.Button-primary {
+  background-color: var(--secondary-xxdark);
+  border-radius: 2px;
+  color: var(--secondary-xxlight);
+}
+
+.Button-primary--hollow {
+  background-color: none;
+  border: 1px solid var(--primary);
+  box-shadow: none;
+  color: var(--primary);
+}
+
+.Button-primary:hover {
+  background-color: var(--secondary-xdark);
+  transition: background-color 0.1s ease-out;
+}

@@ -1,0 +1,34 @@
+.Link {
+  color: var(--secondary-xdark);
+  cursor: pointer;
+  display: inline-block;
+  float: none;
+  height: auto;
+  line-height: initial;
+  padding: 2px 0;
+  position: relative;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.Link--external {
+  text-transform: none;
+}
+
+.Link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.6px;
+  background: var(--secondary-xdark);
+  transform: scale3d(0, 1, 1);
+  transform-origin: left;
+  transition: all 0.3s ease-out;
+}
+
+.Link:hover::after,
+.Link:focus::after {
+  transform: scale3d(1, 1, 1);
+}

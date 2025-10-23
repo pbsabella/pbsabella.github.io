@@ -1,0 +1,12 @@
+.Icon {
+  display: block;
+  fill: var(--secondary-xxdark);
+  stroke: none;
+  width: 24px;
+  height: 24px;
+}
+
+.Icon-behance {
+  width: 24px;
+  height: 26px;
+}

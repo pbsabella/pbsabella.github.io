@@ -1,0 +1,22 @@
+.Header {
+  background: rgba(252, 252, 252, 0.9);
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 7;
+  transition: background 0.3s ease-out;
+}
+
+/* Header Inner */
+.Header-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 300px;
+}
+
+/* Transparent variant */
+.Header.is-transparent {
+  background: none;
+}
