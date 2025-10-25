@@ -1,0 +1,85 @@
+/* Default - light theme variables */
+:root {
+  /* Scale colors */
+  --color-primary-xxlight: #cdf1e7;
+  --color-primary-light: #88d4b7;
+  --color-primary: #03b787;
+  --color-secondary-xxlight: #fff;
+  --color-secondary-xlight: #fcfcfc;
+  --color-secondary-light: #ebebed;
+  --color-secondary: #d0d0d6;
+  --color-secondary-dark: #7F7D80;
+  --color-secondary-xdark: #37373a;
+  --color-secondary-xxdark: #1d1d1e;
+  --color-tertiary: #ececf4;
+  --color-accent-orange: #ff5e32;
+  --color-accent-yellow: #ffc541;
+  --color-accent-neutral: #ececf3;
+  --color-accent-cyan-light: #d3f2f5;
+
+  /* Semantic colors */
+  --color-bg: var(--color-secondary-xlight);
+  --color-border: var(--color-secondary-light);
+  --color-divider: var(--color-secondary-xxdark);
+  --color-text: var(--color-secondary-xdark);
+  --color-text-dark: var(--color-secondary-xxdark);
+  --color-text-primary: var(--color-secondary-xdark);
+  --color-text-primary-light: var(--color-secondary-xdark);
+  --color-text-secondary: #7F7D80;
+  --color-header-overlay: rgb(252 252 252 / 90%);
+  --card-bg-color: var(--color-secondary-xxlight);
+  --card-text-color: var(--color-secondary-xxdark);
+  --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
+
+  /* Font size */
+  --font-size-main: 16px;
+  --font-size-footnote: 0.75em;
+  --font-size-detail: 0.875em;
+
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+
+  /* Spacing */
+  --spacing-xxxsmall: 4px;
+  --spacing-xxsmall: 8px;
+  --spacing-xsmall: 12px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 44px;
+  --spacing-xlarge: 64px;
+  --spacing-xxlarge: 84px;
+
+  /* Miscellaneous */
+  --header-height: 52px;
+  --pattern-opacity: 1;
+}
+
+[data-theme="dark"] {
+  /* Scale colors */
+  --color-primary-xxlight: #1e1e20;
+  --color-tertiary: #1e1e20;
+  --color-accent-orange: #1e1e20;
+  --color-accent-yellow: #1e1e20;
+  --color-accent-neutral: #1e1e20;
+  --color-accent-cyan-light: #1e1e20;
+
+
+  /* Semantic colors */
+  --color-bg: #121214;
+  --color-divider: #e8e8ea;
+  --color-border: var(--color-secondary-dark);
+  --color-header-overlay: rgb(20 20 20 / 94%);
+  --color-text: #e8e8ea;
+  --color-text-dark: #e8e8ea;
+  --color-text-primary: var(--color-primary);
+  --color-text-primary-light: var(--color-primary-light);
+  --color-text-secondary: #bfbfc1;    /* less prominent text */
+  --card-bg-color: var(--color-primary-light);
+  --card-text-color: var(--color-secondary-xxdark);
+  --card-shadow: 0 1px 8px rgb(0 0 0 / 60%);
+
+  /* Miscellaneous */
+  --pattern-opacity: 0.85;
+}
