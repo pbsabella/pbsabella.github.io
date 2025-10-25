@@ -1,24 +1,31 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+import eslintJsPkg from "@eslint/js";
 
+const { configs: pluginJsConfigs } = eslintJsPkg;
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,ts}"]
+    ignores: ["dist/**", "*.config.js"], // <- top-level ignore
   },
+
   {
+    // All JS files in your source
+    files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
-      globals: globals.browser
-    }
+      globals: globals.browser,
+    },
   },
+
   {
-    ignores: [
-      "*.config.js",
-      "dist/*"
-    ]
+    // Node-specific config for config files
+    files: ["*.config.js", "webpack.config.js"],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: "script",
+    },
   },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
+
+  // Recommended JS rules
+  pluginJsConfigs.recommended,
 ];
