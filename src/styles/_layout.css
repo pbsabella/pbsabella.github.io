@@ -44,6 +44,7 @@
 .hero__inner {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 600px;
   min-height: 100vh;
   overflow: hidden;
@@ -85,9 +86,8 @@
   font-size: 3em;
   font-weight: normal;
   line-height: 0.9em;
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-xxlarge);
   padding-left: 16vw;
-  padding-top: 36vw;
   overflow-wrap: break-word;
 }
 
@@ -122,8 +122,6 @@
 
   .hero__title {
     font-size: 6em;
-    margin-bottom: var(--spacing-xxlarge);
-    padding-top: 0;
   }
 }
 
