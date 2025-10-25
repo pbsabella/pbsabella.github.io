@@ -18,7 +18,7 @@
 }
 
 .button--primary:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-text);
   transition: background-color 0.1s ease-out;
 }
 
@@ -41,17 +41,17 @@
 /* Sun default color, moon hidden initially */
 .toggle-icon {
   position: absolute;
-  width: 24px;
-  height: 24px;
-  fill: var(--color-text-primary);
-  stroke: var(--color-text-primary);
+  width: 28px;
+  height: 28px;
+  fill: var(--color-text);
+  stroke: var(--color-text);
   opacity: 0;
   transform: scale(0.3) rotate(-90deg);
   transition: opacity 0.5s, transform 0.5s;
 }
 
 .toggle-icon.moon {
-  top: 17px;
+  top: 14px;
 }
 
 /* Show sun in light mode */
@@ -80,7 +80,7 @@
   align-items: center;
   background-color: transparent;
   border: 0;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   cursor: pointer;
   display: flex;
   height: 40px;
@@ -90,7 +90,7 @@
 }
 
 .nav__item {
-  color: var(--color-text-primary);
+  color: var(--color-text);
 }
 
 .nav__item:not(:first-child) {
@@ -112,7 +112,7 @@
 
 .nav__logo {
   justify-self: start;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   padding: var(--spacing-small) 0;
   text-decoration: none;
   font-family: 'DM Serif Display', Arial, serif;
@@ -121,30 +121,16 @@
 .nav__menu {
   background-color: transparent;
   border: 0;
+  color: var(--color-text);
   cursor: pointer;
   display: block;
   margin-right: calc(-1 * var(--spacing-small));
   padding: var(--spacing-small);
 }
 
-.nav__menu-icon {
-  display: block;
-  background-color: var(--color-text-primary);
-  width: 20px;
-  height: 2px;
-}
-
-.nav__menu-icon:not(:last-child) {
-  margin-bottom: var(--spacing-xxxsmall);
-}
-
 .nav__list {
   display: flex;
   align-items: center;
-}
-
-.nav--left {
-  justify-content: flex-start;
 }
 
 @media only screen and (max-width: 767px) {
@@ -172,11 +158,28 @@
   position: fixed;
   top: 0;
   right: 0;
-  margin-left: auto;
-  width: 0;
+  width: 80vw;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
   visibility: hidden;
-  transition: all 0.3s ease-out;
+  overflow-y: scroll;
   z-index: 9;
+}
+
+.side-menu.is-active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.side-menu__close {
+  background-color: transparent;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  display: block;
+  padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+  text-align: right;
+  margin-left: auto;
 }
 
 .side-menu__item {
@@ -190,7 +193,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  color: var(--color-text-primary);
+  color: var(--color-text);
   text-decoration: none;
   font-family: 'Heebo', Arial, sans-serif;
 }
@@ -204,26 +207,23 @@
   padding-top: var(--spacing-medium);
 }
 
-.side-menu.is-active {
-  visibility: visible;
-  width: 80vw;
-}
-
 /* ---------------------------------
    Skills card styles
 ---------------------------------- */
 .skills-card {
   padding: var(--spacing-medium);
   background-color: var(--card-bg-color);
+  color: var(--card-text-color);
   border-radius: 5px;
   box-shadow: var(--card-shadow);
-  min-width: 260px;
+  min-width: min(260px, 100%);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .skills-card__title {
   font-family: 'DM Serif Display', Arial, serif;
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-xxsmall);
+  color: var(--card-text-color);
+  margin-bottom: var(--spacing-xsmall);
 }
 
 .skills-card__item {
@@ -276,6 +276,7 @@
 }
 
 .work-item__title {
+  color: var(--color-text-primary);
   font-weight: 500;
   margin-bottom: var(--spacing-xxsmall);
 }
@@ -286,7 +287,6 @@
 }
 
 .work-item__position {
-  color: var(--color-text-primary);
   font-size: var(--font-size-footnote);
   font-weight: var(--font-weight-light);
 }
@@ -296,6 +296,6 @@
 }
 
 .work-item__note {
-  color: var(--color-text-primary);
+  color: var(--color-text-primary-light);
   font-size: var(--font-size-detail);
 }
