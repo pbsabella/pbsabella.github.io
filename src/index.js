@@ -75,7 +75,9 @@ function setTheme(theme) {
 
 // --- Initialize Theme on First Load ---
 const savedTheme = localStorage.getItem('theme');
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+// Set it later
+// window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersDark = false;
 
 if (savedTheme) {
   body.setAttribute('data-theme', savedTheme);
