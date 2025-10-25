@@ -1,0 +1,85 @@
+/* Default - light theme variables */
+:root {
+  /* Scale colors */
+  --color-primary-xxlight: #cdf1e7;
+  --color-primary: #03b787;
+
+  --color-secondary-xxlight: #ffffff;
+  --color-secondary-xlight: #fcfcfc;
+  --color-secondary-light: #ebebed;
+  --color-secondary: #d0d0d6;
+  --color-secondary-dark: #7F7D80;
+  --color-secondary-xdark: #37373a;
+  --color-secondary-xxdark: #1d1d1e;
+
+  --color-tertiary: #ececf4;
+
+  --color-accent-orange: #ff5e32;
+  --color-accent-yellow: #ffc541;
+  --color-accent-neutral: #ececf3;
+  --color-accent-cyan-light: #d3f2f5;
+
+  /* Semantic colors */
+  --color-bg: var(--color-secondary-xlight);
+  --color-border: var(--color-secondary-light);
+  --color-divider: var(--color-secondary-xxdark);
+  --color-text-primary: var(--color-secondary-xdark);
+  --color-text-primary-dark: var(--color-secondary-xxdark);
+  --color-text-secondary: #7F7D80;
+  --color-header-overlay: rgba(252, 252, 252, 0.9);
+
+  --card-bg-color: var(--color-secondary-xxlight);
+  --card-shadow: 0 1px 8px rgba(50, 50, 93, 0.1);
+
+  /* Font size */
+  --font-size-main: 16px;
+  --font-size-footnote: 0.75em;
+  --font-size-detail: 0.875em;
+
+  /* Font weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+
+  /* Spacing */
+  --spacing-xxxsmall: 4px;
+  --spacing-xxsmall: 8px;
+  --spacing-xsmall: 12px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 44px;
+  --spacing-xlarge: 64px;
+  --spacing-xxlarge: 84px;
+
+  /* Miscellaneous */
+  --header-height: 52px;
+  --pattern-opacity: 1;
+}
+
+[data-theme="dark"] {
+  /* Scale colors */
+  --color-primary-xxlight: #1e1e20;
+
+  --color-tertiary: #1e1e20;
+
+  --color-accent-orange: #1e1e20;
+  --color-accent-yellow: #1e1e20;
+  --color-accent-neutral: #1e1e20;
+  --color-accent-cyan-light: #1e1e20;
+
+
+  /* Semantic colors */
+  --color-bg: #121214;
+  --color-divider: #e8e8ea;
+  --color-border: var(--color-secondary-dark);
+  --color-header-overlay: rgba(20, 20, 20, 0.94);
+  --color-text-primary: #e8e8ea;
+  --color-text-primary-dark: #e8e8ea;
+  --color-text-secondary: #bfbfc1;    /* less prominent text */
+
+  --card-bg-color: #121214;
+  --card-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+
+  /* Miscellaneous */
+  --pattern-opacity: 0.85;
+}

@@ -1,0 +1,301 @@
+/* ---------------------------------
+   Button styles
+---------------------------------- */
+.button {
+  border: none;
+  cursor: pointer;
+  display: block;
+  font-size: var(--font-size-detail);
+  padding: var(--spacing-xsmall);
+  text-align: center;
+  width: fit-content;
+}
+
+.button--primary {
+  background-color: var(--color-secondary-xxdark);
+  border-radius: 2px;
+  color: var(--color-secondary-xxlight);
+}
+
+.button--primary:hover {
+  background-color: var(--color-text-primary);
+  transition: background-color 0.1s ease-out;
+}
+
+/* ---------------------------------
+   Icon styles
+---------------------------------- */
+.icon {
+  display: block;
+  fill: var(--color-secondary-xxdark);
+  stroke: none;
+  width: 24px;
+  height: 24px;
+}
+
+.icon--behance {
+  width: 24px;
+  height: 26px;
+}
+
+/* Sun default color, moon hidden initially */
+.toggle-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  fill: var(--color-text-primary);
+  stroke: var(--color-text-primary);
+  opacity: 0;
+  transform: scale(0.3) rotate(-90deg);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.toggle-icon.moon {
+  top: 17px;
+}
+
+/* Show sun in light mode */
+[data-theme="light"] .sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Show moon in dark mode */
+[data-theme="dark"] .moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* ---------------------------------
+   Navigation styles
+---------------------------------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav__toggle-button {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  padding: var(--spacing-xxsmall);
+  width: 40px;
+}
+
+.nav__item {
+  color: var(--color-text-primary);
+}
+
+.nav__item:not(:first-child) {
+  padding-left: var(--spacing-medium);
+}
+
+.nav__item.nav__item--mobile {
+  padding-left: var(--spacing-xxxsmall);
+}
+
+
+.nav__item.is-active {
+  font-weight: var(--font-weight-medium);
+}
+
+.nav__link {
+  text-transform: lowercase;
+}
+
+.nav__logo {
+  justify-self: start;
+  color: var(--color-text-primary);
+  padding: var(--spacing-small) 0;
+  text-decoration: none;
+  font-family: 'DM Serif Display', Arial, serif;
+}
+
+.nav__menu {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  margin-right: calc(-1 * var(--spacing-small));
+  padding: var(--spacing-small);
+}
+
+.nav__menu-icon {
+  display: block;
+  background-color: var(--color-text-primary);
+  width: 20px;
+  height: 2px;
+}
+
+.nav__menu-icon:not(:last-child) {
+  margin-bottom: var(--spacing-xxxsmall);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.nav--left {
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 767px) {
+  .hide-on-small {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hide-on-medium {
+    display: none;
+  }
+
+  .nav__item:not(:first-child) {
+    padding-left: var(--spacing-xlarge);
+  }
+}
+
+/* ---------------------------------
+   Side-menu styles
+---------------------------------- */
+.side-menu {
+  background-color: var(--color-bg);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+  width: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out;
+  z-index: 9;
+}
+
+.side-menu__item {
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  height: 44px;
+  margin-left: var(--spacing-medium);
+}
+
+.side-menu__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-family: 'Heebo', Arial, sans-serif;
+}
+
+.side-menu__link.is-active {
+  font-weight: 500;
+}
+
+.side-menu__list {
+  height: 100%;
+  padding-top: var(--spacing-medium);
+}
+
+.side-menu.is-active {
+  visibility: visible;
+  width: 80vw;
+}
+
+/* ---------------------------------
+   Skills card styles
+---------------------------------- */
+.skills-card {
+  padding: var(--spacing-medium);
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+  box-shadow: var(--card-shadow);
+  min-width: 260px;
+}
+
+.skills-card__title {
+  font-family: 'DM Serif Display', Arial, serif;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+.skills-card__item {
+  font-size: var(--font-size-detail);
+  padding-top: var(--spacing-xxxsmall);
+  padding-bottom: var(--spacing-xxxsmall);
+}
+
+.skills-card__item:last-child {
+  padding-bottom: 0;
+}
+
+/* ---------------------------------
+   Social styles
+---------------------------------- */
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.socials__item {
+  padding: var(--spacing-small);
+}
+
+.socials__item:first-child {
+  padding-left: 0;
+}
+
+.socials__item-copy {
+  display: flex;
+  align-items: center;
+  column-gap: var(--spacing-xxxsmall);
+}
+
+/* ---------------------------------
+   Work item styles
+---------------------------------- */
+.work-item {
+  padding-top: var(--spacing-xlarge);
+  padding-bottom: var(--spacing-xlarge);
+}
+
+.work-item__image {
+  margin-bottom: var(--spacing-medium);
+  width: 100%;
+}
+
+.work-item__image--mid {
+  max-width: 720px;
+}
+
+.work-item__title {
+  font-weight: 500;
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+.work-item__subtitle {
+  font-size: var(--font-size-detail);
+  margin-bottom: var(--spacing-xxxsmall);
+}
+
+.work-item__position {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-footnote);
+  font-weight: var(--font-weight-light);
+}
+
+.work-item__description {
+  line-height: 2em;
+}
+
+.work-item__note {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-detail);
+}

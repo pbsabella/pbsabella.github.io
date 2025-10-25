@@ -1,38 +1,32 @@
-/* Resume Base */
 .Resume {
   line-height: 1.85em;
 }
 
-/* Content */
-.Resume-content {
+.Resume__content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-/* Details */
-.Resume-details {
-  color: var(--secondary-xdark);
+.Resume__details {
+  color: var(--color-text-primary);
   display: flex;
   flex-wrap: wrap;
 }
 
-.Resume-details:not(:last-child) {
+.Resume__details:not(:last-child) {
   margin-bottom: var(--spacing-small);
 }
 
-/* Inner padding */
-.Resume-inner {
+.Resume__inner {
   padding-top: var(--spacing-large);
   padding-bottom: var(--spacing-large);
 }
 
-/* Item spacing */
 .Resume-item {
   margin-bottom: var(--spacing-large);
 }
 
-/* Lists */
 .Resume-list {
   padding-left: var(--spacing-medium);
 }
@@ -45,7 +39,6 @@
   margin-right: var(--spacing-xsmall);
 }
 
-/* Main & Side */
 .Resume-main {
   flex-basis: 100%;
 }
@@ -54,7 +47,6 @@
   flex-basis: 100%;
 }
 
-/* Social */
 .Resume-social-item {
   margin-bottom: var(--spacing-small);
 }
@@ -63,22 +55,19 @@
   font-weight: 500;
 }
 
-/* Subtitle */
 .Resume-subtitle {
   font-weight: 500;
   margin-bottom: var(--spacing-xxsmall);
 }
 
-/* Title */
 .Resume-title {
   font-family: 'DM Serif Display', Arial, serif;
-  color: var(--secondary-xdark);
+  color: var(--color-text-primary);
   font-size: 1.5em;
   line-height: 34px;
   margin-bottom: var(--spacing-small);
 }
 
-/* Tablet and Desktop */
 @media only screen and (min-width: 768px) {
   .Resume-main {
     flex-basis: 63%;

@@ -19,32 +19,32 @@
 <body id="content">
   <div id="overlay"></div>
 
-  <header class="Header header">
-    <div class="Header-inner container-space">
-      <nav class="Nav">
-        <a class="Nav-logo" href="/">pbsabella</a>
+  <header class="header header">
+    <div class="header__inner container-space">
+      <nav class="nav">
+        <a class="nav__logo" href="/">pbsabella</a>
 
-        <ul class="Nav-list hide-on-medium">
-          <li class="Nav-item">
-            <div id="menu-toggle" class="Nav-menu" tabindex="0">
-              <div class="Nav-menu-icon"></div>
-              <div class="Nav-menu-icon"></div>
-              <div class="Nav-menu-icon"></div>
+        <ul class="nav__list hide-on-medium">
+          <li class="nav__item">
+            <div id="menu-toggle" class="nav__menu" tabindex="0">
+              <div class="nav__menu-icon"></div>
+              <div class="nav__menu-icon"></div>
+              <div class="nav__menu-icon"></div>
             </div>
           </li>
         </ul>
 
-        <ul class="Nav-list right hide-on-small">
-          <li class="Nav-item">
+        <ul class="nav__list right hide-on-small">
+          <li class="nav__item">
             <a class="Link" href="index.html#work">Work</a>
           </li>
-          <li class="Nav-item">
+          <li class="nav__item">
             <a class="Link" href="index.html#about">About</a>
           </li>
-          <li class="Nav-item">
+          <li class="nav__item">
             <a class="Link" href="index.html#contact">Contact</a>
           </li>
-          <li class="Nav-item is-active">
+          <li class="nav__item is-active">
             <a class="Link" href="resume.html">Resume</a>
           </li>
         </ul>
@@ -52,46 +52,47 @@
     </div>
   </header>
 
-  <div id="side-nav" class="SideMenu">
-    <ul class="SideMenu-list">
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="index.html#work">work</a>
+  <div id="side-nav" class="side-menu">
+    <ul class="side-menu__list">
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="index.html#work">work</a>
       </li>
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="index.html#about">about</a>
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="index.html#about">about</a>
       </li>
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="index.html#contact">contact</a>
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="index.html#contact">contact</a>
       </li>
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="resume.html">resume</a>
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="resume.html">resume</a>
       </li>
     </ul>
   </div>
 
   <div class="Main">
-    <section class="Hero Hero--compact">
-      <div class="Hero-inner Hero-inner--resume">
-        <div class="Hero-content">
-          <h2 class="Hero-subtitle">
+    <section class="hero hero--compact">
+      <div class="hero__inner hero__inner--resume">
+        <div class="hero__content">
+          <h2 class="hero__subtitle">
             Frontend Engineer<br>
             Web Developer
           </h2>
         </div>
-        <div class="Hero-figure">
-          <img class="Hero-figure-image" src="src/images/resume-hero.svg" alt="Portfolio Hero">
+        <div class="hero__figure">
+          <img class="hero__figure-image" src="src/images/resume-hero.svg" alt="Portfolio hero">
         </div>
       </div>
     </section>
+
     <section id="resume" class="Resume">
-      <div class="Resume-inner container-space">
-        <div class="Resume-content">
+      <div class="Resume__inner container-space">
+        <div class="Resume__content">
           <div class="Resume-main">
             <div class="Resume-item">
               <h3 class="Resume-title">
                 Work Experience
               </h3>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <div class="Timeline">
                   <div class="Timeline-item">
                     <div class="Timeline-header">
@@ -144,7 +145,7 @@
               <h3 class="Resume-title">
                 Projects & Accomplishments
               </h3>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <div class="Timeline">
                   <div class="Timeline-item">
                     <div class="Timeline-header">
@@ -217,7 +218,7 @@
               <h3 class="Resume-title">
                 Social Profile
               </h3>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <div class="Resume-social">
                   <div class="Resume-social-item">
                     <div class="Resume-social-title">
@@ -237,7 +238,7 @@
               <h3 class="Resume-title">
                 Expertise
               </h3>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <ul class="Resume-list">
                   <li class="Resume-list-item">Web development</li>
                   <li class="Resume-list-item">Responsive web design</li>
@@ -258,7 +259,7 @@
               <h4 class="Resume-subtitle">
                 Tools & Technologies
               </h4>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <ul class="Resume-list">
                   <li class="Resume-list-item">TypeScript</li>
                   <li class="Resume-list-item">JavaScript</li>
@@ -279,7 +280,7 @@
               <h4 class="Resume-subtitle">
                 Others
               </h4>
-              <div class="Resume-details">
+              <div class="Resume__details">
                 <ul class="Resume-list">
                   <li class="Resume-list-item">Version control, Git</li>
                   <li class="Resume-list-item">Visual Studio Code</li>
@@ -292,10 +293,10 @@
       </div>
     </section>
 
-    <footer class="Footer">
-      <div class="Footer-inner">
-        <div class="Footer-copyright">
-          &copy; <span id="current-year"></span> <span class="Footer-copyright-link">pbsabella</span>. All rights
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__copyright">
+          &copy; <span id="current-year"></span> <span class="footer__copyright-link">pbsabella</span>. All rights
           reserved.
         </div>
       </div>

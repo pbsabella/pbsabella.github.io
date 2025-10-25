@@ -17,362 +17,341 @@
   <link href="dist/main.css" rel="stylesheet">
 </head>
 
-<body id="content">
+<body id="content" data-theme="light">
   <div id="overlay"></div>
 
-  <header class="Header header">
-    <div class="Header-inner container-space">
-      <nav class="Nav">
-        <a class="Nav-logo" href="/">pbsabella</a>
+  <header class="header header">
+    <div class="header__inner container-space">
+      <nav class="nav">
+        <a class="nav__logo" href="/">pbsabella</a>
 
-        <ul class="Nav-list hide-on-medium">
-          <li class="Nav-item">
-            <button id="menu-toggle" class="Nav-menu" aria-controls="side-nav" aria-label="Open main menu">
-              <span class="Nav-menu-icon"></span>
-              <span class="Nav-menu-icon"></span>
-              <span class="Nav-menu-icon"></span>
+        <ul class="nav__list hide-on-medium">
+          <li class="nav__item nav__item--mobile">
+            <button class="nav__toggle-button" id="theme-toggle-mobile" aria-label="Toggle theme">
+              <svg class="toggle-icon sun" viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="5" />
+                <g stroke-linecap="round">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+              <svg class="toggle-icon moon" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
+              </svg>
+            </button>
+          </li>
+          <li class="nav__item nav__item--mobile">
+            <button id="menu-toggle" class="nav__menu" aria-controls="side-nav" aria-label="Open main menu">
+              <span class="nav__menu-icon"></span>
+              <span class="nav__menu-icon"></span>
+              <span class="nav__menu-icon"></span>
             </button>
           </li>
         </ul>
 
-        <ul class="Nav-list hide-on-small">
-          <li class="Nav-item">
-            <a class="Link scrollspy" href="#work">Work</a>
+        <ul class="nav__list hide-on-small">
+          <li class="nav__item">
+            <a class="nav__link link scrollspy" href="#work">Work</a>
           </li>
-          <li class="Nav-item">
-            <a class="Link scrollspy" href="#about">About</a>
+          <li class="nav__item">
+            <a class="nav__link link scrollspy" href="#about">About</a>
           </li>
-          <li class="Nav-item">
-            <a class="Link scrollspy" href="#contact">Contact</a>
+          <li class="nav__item">
+            <a class="nav__link link scrollspy" href="#contact">Contact</a>
           </li>
-          <!-- <li class="Nav-item">
-            <a class="Link" href="resume.html">Resume</a>
-          </li> -->
+          <li class="nav__item">
+            <button class="nav__toggle-button" id="theme-toggle" aria-label="Toggle theme">
+              <svg class="toggle-icon sun" viewBox="0 0 24 24" width="24" height="24">
+                <circle cx="12" cy="12" r="5" />
+                <g stroke-linecap="round">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+              <svg class="toggle-icon moon" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
+              </svg>
+            </button>
+          </li>
+          <!-- <li class="nav__item">
+              <a class="Link" href="resume.html">Resume</a>
+            </li> -->
         </ul>
       </nav>
     </div>
   </header>
 
-  <div id="side-nav" class="SideMenu">
-    <ul class="SideMenu-list">
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="#work">work</a>
+  <div id="side-nav" class="side-menu">
+    <ul class="side-menu__list">
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="#work">work</a>
       </li>
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="#about">about</a>
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="#about">about</a>
       </li>
-      <li class="SideMenu-item">
-        <a class="SideMenu-link" href="#contact">contact</a>
+      <li class="side-menu__item">
+        <a class="side-menu__link" href="#contact">contact</a>
       </li>
-      <!-- <li class="SideMenu-item">
-        <a class="SideMenu-link" href="resume.html">resume</a>
-      </li> -->
+      <!-- <li class="side-menu__item">
+          <a class="side-menu__link" href="resume.html">resume</a>
+        </li> -->
     </ul>
   </div>
 
   <main>
-    <div id="hero" class="Hero">
-      <div class="Hero-inner">
-        <h1 class="Hero-title">
+    <div id="hero" class="hero">
+      <div class="hero__inner">
+        <h1 class="hero__title">
           A portfolio<br>
           <span class="IsIndented">of sorts.</span>
         </h1>
-        <div class="Hero-action">
-          <a class="Hero-link scrollspy" href="#work">
-            Learn more
-            <span class="Hero-divider"></span>
+        <div class="hero__action">
+          <a class="hero__link" href="#work">
+            Curious attempts
+            <span class="hero__divider"></span>
           </a>
         </div>
       </div>
     </div>
 
-    <section id="work" class="Section">
-      <div class="Section-inner">
-        <div class="Section-content Section-content--full">
-          <div class="Section-intro container-space">
-            <span class="Section-intro-divider"></span>
-            <h2 class="Section-intro-text">work</h2>
-          </div>
-          <h3 class="Section-title container-space">
-            Showcase and <br>
-            experiments
-          </h3>
+    <section id="work" class="section">
+      <div class="section__inner">
+        <div class="section__intro container-space">
+          <span class="section__intro-divider"></span>
+          <h2 class="section__intro-text">work</h2>
+        </div>
+        <h3 class="section__title container-space">
+          Showcase and <br>
+          experiments
+        </h3>
 
-          <div class="Section-article container-space">
-            <div class="Section-article-figure">
-              <img class="Section-image" src="src/images/sm-ds-wide.png" alt="SiteMinder Design System" loading="lazy">
-            </div>
-            <h4 class="Card-footer-title">
-              Design System & Patterns
+        <div class="work-item container-space">
+          <img class="work-item__image" src="src/images/sm-ds-wide.png" alt="SiteMinder Design System" loading="lazy">
+          <h4 class="work-item__title">
+            Design System & Patterns
+          </h4>
+          <div class="work-item__subtitle">
+            SiteMinder (May 2021 - Present)
+          </div>
+          <div class="work-item__position">
+            Senior Frontend Engineer
+          </div>
+          <p class="work-item__description">
+            Leads the development and maintenance of SiteMinder's Design System and product patterns, enabling teams
+            to build consistent, accessible, and scalable interfaces across the platform.
+          </p>
+          <p class="work-item__description">
+            The work covers design tokens, UI components, and interaction patterns, including reusable solutions such
+            as the media management pattern, ensuring cohesion between foundational elements and
+            product-level experiences. Collaborates closely with design, product, and engineering teams to uphold best
+            practices in usability, performance, and accessibility.
+          </p>
+          <span class="work-item__note ">
+            Vue.js, TypeScript, HTML, SCSS/CSS, GraphQL, Component Architecture, Accessibility, Frontend Tooling
+          </span>
+        </div>
+
+        <div class="bg-accent-primary-light">
+          <div class="work-item container-space">
+            <img class="work-item__image" src="src/images/sm-notifications.png" alt="SiteMinder Notifications"
+              loading="lazy">
+            <h4 class="work-item__title">
+              Notifications Platform
             </h4>
-            <div class="Card-footer-details">
-              <div class="Card-footer-description">
-                SiteMinder (May 2021 - Present)
-              </div>
-              <div class="Card-footer-service">
-                Senior Frontend Engineer
-              </div>
+            <div class="work-item__subtitle">
+              SiteMinder (May 2021 - Present)
             </div>
-            <p class="Section-description container-narrow">
-              Leads the development and maintenance of SiteMinder's Design System and product patterns, enabling teams
-              to build consistent, accessible, and scalable interfaces across the platform.
+            <div class="work-item__position">
+              Senior Frontend Engineer
+            </div>
+            <p class="work-item__description">
+              Led the frontend development of SiteMinder's Notifications experience, creating a centralized interface
+              for system alerts, product updates, and customer messages across the platform.
             </p>
-            <p class="Section-description container-narrow">
-              The work covers design tokens, UI components, and interaction patterns, including reusable solutions such
-              as the media management pattern, ensuring cohesion between foundational elements and
-              product-level experiences. Collaborates closely with design, product, and engineering teams to uphold best
-              practices in usability, performance, and accessibility.
+            <p class="work-item__description">
+              Focused on delivering clarity, responsiveness, and accessibility through reusable components, consistent
+              interaction patterns, and seamless GraphQL data integration. Partnered closely with design and backend
+              teams to ensure scalability and performance across product surfaces.
             </p>
-            <span class="Section-note container-narrow">
-              Vue.js, TypeScript, HTML, SCSS/CSS, GraphQL, Component Architecture, Accessibility, Frontend Tooling
+            <span class="work-item__note">
+              Vue.js, TypeScript, GraphQL, Accessibility, Performance Optimization
             </span>
           </div>
+        </div>
 
-          <div class="bg-accent-primary-light">
-            <div class="Section-article container-space">
-              <div class="Section-article-figure">
-                <img class="Section-image" src="src/images/sm-notifications.png" alt="SiteMinder Notifications"
-                  loading="lazy">
-              </div>
-              <h4 class="Card-footer-title">
-                Notifications Platform
-              </h4>
-              <div class="Card-footer-details">
-                <div class="Card-footer-description">
-                  SiteMinder (May 2021 - Present)
-                </div>
-                <div class="Card-footer-service">
-                  Senior Frontend Engineer
-                </div>
-              </div>
-              <p class="Section-description container-narrow">
-                Led the frontend development of SiteMinder's Notifications experience, creating a centralized interface
-                for system alerts, product updates, and customer messages across the platform.
-              </p>
-              <p class="Section-description container-narrow">
-                Focused on delivering clarity, responsiveness, and accessibility through reusable components, consistent
-                interaction patterns, and seamless GraphQL data integration. Partnered closely with design and backend
-                teams to ensure scalability and performance across product surfaces.
-              </p>
-              <span class="Section-note container-narrow">
-                Vue.js, TypeScript, GraphQL, Accessibility, Performance Optimization
-              </span>
-            </div>
+        <div class="work-item container-space">
+          <img class="work-item__image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System" loading="lazy">
+
+          <h4 class="work-item__title">
+            Design System
+          </h4>
+          <div class="work-item__subtitle">
+            Freelancer.com (July 2015 - May 2021)
           </div>
+          <div class="work-item__position">
+            Software Engineer
+          </div>
+          <p class="work-item__description">
+            Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across
+            the platform.
+          </p>
+          <span class="work-item__note">
+            Angular, TypeScript, HTML, SCSS/CSS, Node.js, Frontend Tooling
+          </span>
+        </div>
 
-          <div class="Section-article container-space">
-            <div class="Section-article-figure">
-              <img class="Section-image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System" loading="lazy">
-            </div>
-            <h4 class="Card-footer-title">
-              Design System
+        <div class="bg-accent-cyan-light">
+          <div class="work-item container-space">
+            <img class="work-item__image" src="src/images/wireframing-tool-frame.png" alt="Design System Wireframing"
+              loading="lazy">
+            <h4 class="work-item__title">
+              Wireframing Application
             </h4>
-            <div class="Card-footer-details">
-              <div class="Card-footer-description">
-                Freelancer.com (July 2015 - May 2021)
-              </div>
-              <div class="Card-footer-service">
-                Software Engineer
-              </div>
+            <div class="work-item__subtitle">
+              Freelancer.com (July 2015 - May 2021)
             </div>
-            <p class="Section-description container-narrow">
-              Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across
-              the platform.
+            <div class="work-item__position">
+              Software Engineer
+            </div>
+            <p class="work-item__description">
+              Built a high fidelity wireframing tool to help Product Managers, Designers and Developers create
+              interactive web application mockups. The application allows anyone to rapidly test their ideas and
+              interact with the webpage as if the feature were already built.
             </p>
-            <span class="Section-note container-narrow">
-              Angular, TypeScript, HTML, SCSS/CSS, Node.js, Frontend Tooling
+            <p class="work-item__description">
+              The application pulls and renders actual web components from Freelancer's design system and is easily
+              customizable using form controls.
+            </p>
+            <span class="work-item__note">
+              Angular, TypeScript, RxJS, HTML, SCSS/CSS, Node.js.
             </span>
           </div>
+        </div>
 
-          <div class="bg-accent-cyan-light">
-            <div class="Section-article container-space">
-              <div class="Section-article-figure">
-                <img class="Section-image" src="src/images/wireframing-tool-frame.png" alt="Design System Wireframing"
-                  loading="lazy">
-              </div>
-              <h4 class="Card-footer-title">
-                Wireframing Application
-              </h4>
-              <div class="Card-footer-details">
-                <div class="Card-footer-description">
-                  Freelancer.com (July 2015 - May 2021)
-                </div>
-                <div class="Card-footer-service">
-                  Software Engineer
-                </div>
-              </div>
-              <p class="Section-description container-narrow">
-                Built a high fidelity wireframing tool to help Product Managers, Designers and Developers create
-                interactive web application mockups. The application allows anyone to rapidly test their ideas and
-                interact with the webpage as if the feature were already built.
-              </p>
-              <p class="Section-description container-narrow">
-                The application pulls and renders actual web components from Freelancer's design system and is easily
-                customizable using form controls.
-              </p>
-              <span class="Section-note container-narrow">
-                Angular, TypeScript, RxJS, HTML, SCSS/CSS, Node.js.
-              </span>
-            </div>
+        <div class="work-item container-space">
+          <img class="work-item__image work-item__image--mid" src="src/images/animation-knobs.png" alt="Animation demo"
+            loading="lazy">
+          <h4 class="work-item__title">
+            Motion System
+          </h4>
+          <div class="work-item__subtitle">
+            Freelancer.com (July 2015 - May 2021)
           </div>
-
-          <div class="Section-article container-space container-space--narrow">
-            <div class="Section-inner">
-              <div class="Section-column Section-column--wide Section-article-figure">
-                <img class="Section-image Section-image--mid" src="src/images/animation-knobs.png" alt="Animation demo"
-                  loading="lazy">
-              </div>
-              <div class="Section-column Section-column--narrow container-narrow">
-                <h4 class="Card-footer-title">
-                  Motion System
-                </h4>
-                <div class="Card-footer-details">
-                  <div class="Card-footer-description">
-                    Freelancer.com (July 2015 - May 2021)
-                  </div>
-                  <div class="Card-footer-service">
-                    Software Engineer
-                  </div>
-                </div>
-                <p class="Section-description">
-                  Built the infrastructure to attach animations into templates that can be invoked programmatically or
-                  declaratively with ease. With a collection of exportable animations, creating delightful experiences
-                  can be done in as little as a single line of code.
-                </p>
-                <span class="Section-note">
-                  Angular, Angular Animations, TypeScript, RxJS, HTML, SCSS/CSS, Node.js, etc.
-                </span>
-              </div>
-            </div>
+          <div class="work-item__position">
+            Software Engineer
           </div>
+          <p class="work-item__description">
+            Built the infrastructure to attach animations into templates that can be invoked programmatically or
+            declaratively with ease. With a collection of exportable animations, creating delightful experiences
+            can be done in as little as a single line of code.
+          </p>
+          <span class="work-item__note">
+            Angular, Angular Animations, TypeScript, RxJS, HTML, SCSS/CSS, Node.js, etc.
+          </span>
         </div>
       </div>
     </section>
 
-    <section id="about" class="Section bg-accent-neutral">
-      <div class="Section-inner container-space">
-        <div class="Section-column Section-content">
-          <div class="Section-intro">
-            <span class="Section-intro-divider"></span>
-            <h2 class="Section-intro-text">about</h2>
-          </div>
-          <h3 class="Section-title">
-            A little overview
-          </h3>
-          <p class="Section-description">
+    <section id="about" class="section bg-accent-neutral">
+      <div class="container-space">
+        <div class="section__intro">
+          <span class="section__intro-divider"></span>
+          <h2 class="section__intro-text">about</h2>
+        </div>
+        <h3 class="section__title">
+          A little overview
+        </h3>
+
+        <div class="flex">
+          <p class="flex--2 section__description">
             Frontend engineer with over a decade of experience building scalable, accessible web interfaces. Currently
             focused on design systems, frontend architecture, and bridging design and engineering to deliver cohesive
             product experiences.
           </p>
 
-          <div class="Social">
-            <ul class="Social-list">
-              <li class="Social-link">
-                <a class="Link Link--external" href="https://www.linkedin.com/in/pbsabella/" rel="noopener"
-                  target="_blank" title="LinkedIn">
-                  <span class="Social-link-copy">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      viewBox="0 0 16 16">
-                      <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                    </svg>
-                    pbsabella
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <div class="flex">
+            <div class="skills-card flex--1">
+              <h4 class="skills-card__title">Tools & Technologies</h4>
+              <ul class="skills-card__list">
+                <li class="skills-card__item">TypeScript, JavaScript</li>
+                <li class="skills-card__item">Vue.js</li>
+                <li class="skills-card__item">Angular, AngularJS</li>
+                <li class="skills-card__item">HTML, CSS</li>
+                <li class="skills-card__item">Cypress</li>
+                <li class="skills-card__item">Version Control, Git</li>
+                <li class="skills-card__item">Figma, Adobe</li>
+              </ul>
+            </div>
 
-        <div class="Section-column Section-subcontent ListCardContainer">
-          <div class="List ListCard ListCard--primary">
-            <h4 class="List-title">
-              Tools & Technologies
-            </h4>
-            <ul class="List-category">
-              <li class="List-item">
-                TypeScript, JavaScript
-              </li>
-              <li class="List-item">
-                Vue.js
-              </li>
-              <li class="List-item">
-                Angular, AngularJS
-              </li>
-              <li class="List-item">
-                HTML, CSS
-              </li>
-              <li class="List-item">
-                Cypress
-              </li>
-              <li class="List-item">
-                Version Control, Git
-              </li>
-              <li class="List-item">
-                Figma, Adobe
-              </li>
-            </ul>
-          </div>
-
-          <div class="List ListCard ListCard--secondary">
-            <h4 class="List-title">
-              Expertise
-            </h4>
-            <ul class="List-category">
-              <li class="List-item">
-                Design Systems
-              </li>
-              <li class="List-item">
-                Web Development
-              </li>
-              <li class="List-item">
-                Responsive Web Design
-              </li>
-              <li class="List-item">
-                Accessibility
-              </li>
-              <li class="List-item">
-                Cross-Browser & Device Compatibility
-              </li>
-              <li class="List-item">
-                Unit, Component, End-to-End, & Visual Testing
-              </li>
-              <li class="List-item">
-                Agile Development
-              </li>
-            </ul>
+            <div class="skills-card flex--1">
+              <h4 class="skills-card__title">Expertise</h4>
+              <ul class="skills-card__list">
+                <li class="skills-card__item">Design Systems</li>
+                <li class="skills-card__item">Web Development</li>
+                <li class="skills-card__item">Responsive Web Design</li>
+                <li class="skills-card__item">Accessibility</li>
+                <li class="skills-card__item">Cross-Browser & Device Compatibility</li>
+                <li class="skills-card__item">Unit, Component, End-to-End, & Visual Testing</li>
+                <li class="skills-card__item">Agile Development</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="Section">
-      <div class="Section-inner container-space">
-        <div class="Section-content Section-content--full">
-          <div class="Section-intro">
-            <span class="Section-intro-divider"></span>
-            <h2 class="Section-intro-text">contact</h2>
-          </div>
-          <h3 class="Section-title">
-            Get in touch
-          </h3>
-          <p class="Section-description">
-            Got a project or position you would like to discuss?
-          </p>
-
-          <button type="button" class="Section-action Button Button-primary"
-            onclick="location.href='mailto:pau.abella@gmail.com'">
-            Drop me a message
-          </button>
+    <section id="contact" class="section">
+      <div class="container-space">
+        <div class="section__intro">
+          <span class="section__intro-divider"></span>
+          <h2 class="section__intro-text">contact</h2>
         </div>
+        <h3 class="section__title">
+          Get in touch
+        </h3>
+        <p class="section__description">
+          Got a project or opportunity you'd like to discuss? I'd love to hear from you.
+        </p>
+
+        <ul class="socials">
+          <li class="socials__item">
+            <a class="link" href="https://www.linkedin.com/in/pbsabella/" rel="noopener" target="_blank"
+              title="LinkedIn">
+              <span class="socials__item-copy">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                </svg>
+                pbsabella
+              </span>
+            </a>
+          </li>
+          <!-- <li class="socials__item">
+              <button type="button" class="button button--primary" onclick="location.href='mailto:pau.abella@gmail.com'">
+                Drop me a message
+              </button>
+            </li> -->
+        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="Footer">
-    <div class="Footer-inner">
-      <div class="Footer-copyright">
-        &copy; <span id="current-year"></span> <span class="Footer-copyright-link">pbsabella</span>. All rights
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__copyright">
+        &copy; <span id="current-year"></span> <span class="text-bold">pbsabella</span>. All rights
         reserved.
       </div>
     </div>

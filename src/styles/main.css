@@ -1,25 +1,35 @@
-/* 1. Fonts */
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display&display=swap');
 
-/* 2. Core variables & helpers */
-@import './variables.css';
-@import './utilities.css';
-@import './typography.css';
-@import './global.css';
+/* color scales, semantic tokens, theme overrides */
+@import '_variables.css';
 
-/* 3. Layouts */
-@import './layout/header.css';
+/* normalize/reset + base typography */
+@import '_base.css';
+
+/* global layout: header, hero, main, footer */
+@import '_layout.css';
+
+/* buttons, cards, forms, nav, project items */
+@import '_components.css';
+
+/* small helpers: visually-hidden, mt/md, grid helpers */
+@import '_utilities.css';
+
+/* Core helpers */
+/* @import './_variables.css';
+@import './_utilities.css';
+@import './_typography.css';
+@import './_global.css'; */
+
+/* Sections / pages */
+/* @import './layout/header.css';
 @import './layout/section.css';
-/* general sections first */
-@import './layout/portfolio-list.css';
-/* content-specific layout */
 @import './layout/resume.css';
-/* content-specific layout */
-@import './layout/footer.css';
-/* footer last to avoid accidental overrides */
+@import './layout/footer.css'; */
 
-/* 4. Modules / Components */
-@import './modules/button.css';
+/* Components */
+/* @import './modules/button.css';
 @import './modules/card.css';
 @import './modules/hero.css';
 @import './modules/icon.css';
@@ -28,4 +38,4 @@
 @import './modules/nav.css';
 @import './modules/sidemenu.css';
 @import './modules/social.css';
-@import './modules/timeline.css';
+@import './modules/timeline.css'; */
