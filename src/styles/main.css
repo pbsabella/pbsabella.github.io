@@ -2,40 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display&display=swap');
 
 /* color scales, semantic tokens, theme overrides */
-@import '_variables.css';
+@import url('_variables.css');
 
 /* normalize/reset + base typography */
-@import '_base.css';
+@import url('_base.css');
 
 /* global layout: header, hero, main, footer */
-@import '_layout.css';
+@import url('_layout.css');
 
 /* buttons, cards, forms, nav, project items */
-@import '_components.css';
+@import url('_components.css');
 
 /* small helpers: visually-hidden, mt/md, grid helpers */
-@import '_utilities.css';
-
-/* Core helpers */
-/* @import './_variables.css';
-@import './_utilities.css';
-@import './_typography.css';
-@import './_global.css'; */
-
-/* Sections / pages */
-/* @import './layout/header.css';
-@import './layout/section.css';
-@import './layout/resume.css';
-@import './layout/footer.css'; */
-
-/* Components */
-/* @import './modules/button.css';
-@import './modules/card.css';
-@import './modules/hero.css';
-@import './modules/icon.css';
-@import './modules/link.css';
-@import './modules/list.css';
-@import './modules/nav.css';
-@import './modules/sidemenu.css';
-@import './modules/social.css';
-@import './modules/timeline.css'; */
+@import url('_utilities.css');
