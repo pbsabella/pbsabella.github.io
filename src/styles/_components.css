@@ -47,6 +47,10 @@
   stroke: var(--color-text);
   opacity: 0;
   transform: scale(0.3) rotate(-90deg);
+  transition: none;
+}
+
+.toggle-icon--animate {
   transition: opacity 0.5s, transform 0.5s;
 }
 
@@ -64,6 +68,15 @@
 [data-theme="dark"] .moon {
   opacity: 1;
   transform: scale(1) rotate(0deg);
+}
+
+/* Reduce motion: disable all animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-icon,
+  .toggle-icon--animate {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 /* ---------------------------------
