@@ -15,6 +15,10 @@ const toggleButtonMobile = document.getElementById('theme-toggle-mobile');
 const KEYCODE_TAB = 9;
 const KEYCODE_ESC = 27;
 
+let lastScrollY = window.scrollY;
+let ticking = false;
+let themeToggleAnimated = false;
+
 // focusable elements inside side nav
 const focusableSideNavElements = sidenavElem ? sidenavElem.querySelectorAll('a, button') : [];
 
@@ -60,14 +64,42 @@ function trapFocus(event) {
   }
 }
 
-// --- Header transparency ---
-function toggleTransparentHeader() {
+// --- Header transparency & visibility ---
+function toggleHeader() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  headerElem?.classList.toggle('header--transparent', scrollTop === 0);
+
+  // Transparent at top
+  headerElem.classList.toggle('header--transparent', scrollTop === 0);
+
+  // Only hide when scrolling down significantly
+  if (scrollTop > lastScrollY && scrollTop > 100) {
+    // Scrolling down
+    headerElem.classList.add('header--hidden');
+  } else if (scrollTop < lastScrollY) {
+    // Scrolling up
+    headerElem.classList.remove('header--hidden');
+  }
+
+  lastScrollY = scrollTop;
+  ticking = false;
 }
 
 // --- Theme Functions ---
+function activateThemeToggleAnimation() {
+  if (!themeToggleAnimated) {
+    toggleButton?.querySelectorAll('.toggle-icon').forEach((icon) => {
+      icon.classList.add('toggle-icon--animate');
+    });
+    toggleButtonMobile?.querySelectorAll('.toggle-icon').forEach((icon) => {
+      icon.classList.add('toggle-icon--animate');
+    });
+    themeToggleAnimated = true;
+  }
+}
+
 function setTheme(theme) {
+  activateThemeToggleAnimation();
+
   const newTheme = theme || (body.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
   body.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
@@ -104,9 +136,13 @@ scrollspyElems.forEach((elem) => {
   });
 });
 
-// Header transparency on scroll
-document.addEventListener('scroll', toggleTransparentHeader);
-toggleTransparentHeader();
+// Header styles on scroll
+document.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(toggleHeader);
+    ticking = true;
+  }
+});
 
 // Theme toggles
 toggleButton?.addEventListener('click', () => setTheme());

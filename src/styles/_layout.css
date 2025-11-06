@@ -8,7 +8,8 @@
   top: 0;
   width: 100%;
   z-index: 7;
-  transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out,
+    transform 0.3s ease;
 }
 
 .header__inner {
@@ -18,8 +19,18 @@
   min-width: min(300px, 100%);
 }
 
+.header--hidden {
+  transform: translateY(-100%);
+}
+
 .header--transparent {
   background-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none !important;
+  }
 }
 
 /* ---------------------------------
