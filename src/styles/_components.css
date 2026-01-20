@@ -146,13 +146,13 @@
   align-items: center;
 }
 
-@media only screen and (width <=767px) {
+@media only screen and (width <= 767px) {
   .hide-on-small {
     display: none;
   }
 }
 
-@media only screen and (width >=768px) {
+@media only screen and (width >= 768px) {
   .hide-on-medium {
     display: none;
   }
@@ -230,7 +230,7 @@
   color: var(--card-text-color);
   border-radius: 5px;
   box-shadow: var(--card-shadow);
-  min-width: min(216px, 100%);
+  min-width: min(260px, 100%);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -283,6 +283,7 @@
 .work-item__image {
   margin-bottom: var(--spacing-medium);
   width: 100%;
+  height: auto;
 }
 
 .work-item__image--mid {

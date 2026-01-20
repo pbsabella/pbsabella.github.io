@@ -3,7 +3,7 @@
 ---------------------------------- */
 
 .sg-main {
-    padding-top: 100px;
+    padding-top: var(--spacing-xxlarge);
 }
 
 .sg-wip-badge {
@@ -14,7 +14,7 @@
     font-size: 0.75rem;
     font-weight: bold;
     margin-bottom: var(--spacing-small);
-    padding: 4px 12px;
+    padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
     border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -55,7 +55,7 @@
 .sg-swatch-box {
     background-color: var(--color-surface-base);
     border-radius: 8px;
-    height: 100px;
+    height: var(--spacing-xlarge);
 }
 
 .sg-swatch-box--border {
@@ -107,4 +107,61 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-medium);
+}
+
+/* Color swatch utilities */
+.sg-swatch-box--primary {
+    background: var(--color-primary);
+}
+
+.sg-swatch-box--primary-light {
+    background: var(--color-primary-light);
+}
+
+.sg-swatch-box--primary-xxlight {
+    background: var(--color-primary-xxlight);
+}
+
+.sg-swatch-box--secondary-xxlight {
+    background: var(--color-secondary-xxlight);
+}
+
+.sg-swatch-box--secondary-xlight {
+    background: var(--color-secondary-xlight);
+}
+
+.sg-swatch-box--secondary-light {
+    background: var(--color-secondary-light);
+}
+
+.sg-swatch-box--secondary {
+    background: var(--color-secondary);
+}
+
+.sg-swatch-box--secondary-dark {
+    background: var(--color-secondary-dark);
+}
+
+.sg-swatch-box--secondary-xdark {
+    background: var(--color-secondary-xdark);
+}
+
+.sg-swatch-box--secondary-xxdark {
+    background: var(--color-secondary-xxdark);
+}
+
+.sg-swatch-box--accent-yellow {
+    background: var(--color-accent-yellow);
+}
+
+.sg-swatch-box--accent-orange {
+    background: var(--color-accent-orange);
+}
+
+.sg-swatch-box--accent-cyan-light {
+    background: var(--color-accent-cyan-light);
+}
+
+.sg-swatch-box--accent-neutral {
+    background: var(--color-accent-neutral);
 }

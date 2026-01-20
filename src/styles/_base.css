@@ -83,6 +83,13 @@ button:focus-visible {
   border-radius: 2px;
 }
 
+/* Image optimization for CLS */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ---------------------------------
    Typography styles
 ---------------------------------- */
@@ -118,7 +125,7 @@ h4 {
 }
 
 /* Medium breakpoint (700px / 43.75em) */
-@media (width >=43.75em) {
+@media (width >= 43.75em) {
   body {
     font-size: 1em;
     line-height: 1.375;
@@ -145,7 +152,7 @@ h4 {
 }
 
 /* Large breakpoint (900px / 56.25em) */
-@media (width >=56.25em) {
+@media (width >= 56.25em) {
   h1 {
     font-size: 3em;
     line-height: 1.05;

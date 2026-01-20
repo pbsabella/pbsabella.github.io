@@ -41,13 +41,10 @@
   max-width: 1440px;
 }
 
-.hero__action {
-  padding-left: 16vw;
-}
-
 .hero__divider {
   background-color: var(--color-text);
   height: 1px;
+  margin-bottom: var(--spacing-xxsmall);
   margin-left: var(--spacing-small);
   width: 80px;
 }
@@ -86,7 +83,7 @@
 
 .hero__link {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   color: var(--color-text);
   text-decoration: none;
 }
