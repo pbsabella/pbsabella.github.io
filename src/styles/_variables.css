@@ -3,6 +3,7 @@
   /* Scale colors */
   --color-primary-xxlight: #cdf1e7;
   --color-primary-light: #88d4b7;
+  --color-primary-dark: #017e5b;
   --color-primary: #03b787;
   --color-secondary-xxlight: #fff;
   --color-secondary-xlight: #fcfcfc;
@@ -23,13 +24,16 @@
   --color-divider: var(--color-secondary-xxdark);
   --color-text: var(--color-secondary-xdark);
   --color-text-dark: var(--color-secondary-xxdark);
-  --color-text-primary: var(--color-secondary-xdark);
-  --color-text-primary-light: var(--color-secondary-xdark);
-  --color-text-secondary: #7F7D80;
+  --color-text-primary: var(--color-primary);
+  --color-text-primary-dark: var(--color-primary-dark);
+  --color-text-primary-light: var(--color-primary-light);
+  --color-text-secondary: var(--color-secondary-dark);
   --color-header-overlay: rgb(252 252 252 / 90%);
   --card-bg-color: var(--color-secondary-xxlight);
-  --card-text-color: var(--color-secondary-xxdark);
+  --card-text-color: var(--color-secondary-xdark);
   --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
+  --tag-bg-color: var(--color-secondary-xlight);
+  --tag-text-color: var(--color-primary-dark);
 
   /* Font size */
   --font-size-main: 16px;
@@ -70,7 +74,6 @@
   --color-accent-neutral: #1e1e20;
   --color-accent-cyan-light: #1e1e20;
 
-
   /* Semantic colors */
   --color-bg: #121214;
   --color-divider: #e8e8ea;
@@ -86,6 +89,8 @@
   --card-bg-color: var(--color-primary-light);
   --card-text-color: var(--color-secondary-xxdark);
   --card-shadow: 0 1px 8px rgb(0 0 0 / 60%);
+  --tag-bg-color: var(--color-primary-light);
+  --tag-text-color: var(--color-secondary-xxdark);
 
   /* Miscellaneous */
   --pattern-opacity: 0.85;

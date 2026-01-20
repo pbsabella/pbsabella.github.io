@@ -235,7 +235,6 @@
 }
 
 .skills-card__title {
-  font-family: var(--font-family-display);
   color: var(--card-text-color);
   margin-bottom: var(--spacing-xsmall);
 }
@@ -281,7 +280,7 @@
 }
 
 .work-item__image {
-  margin-bottom: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
   width: 100%;
   height: auto;
 }
@@ -291,26 +290,52 @@
 }
 
 .work-item__title {
-  color: var(--color-text-primary);
-  font-weight: 500;
+  color: var(--color-text-dark);
+  font-size: 1.75rem;
+  font-weight: 600;
   margin-bottom: var(--spacing-xxsmall);
 }
 
 .work-item__subtitle {
-  font-size: var(--font-size-detail);
-  margin-bottom: var(--spacing-xxxsmall);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
+}
+
+.work-item__company {
+  font-weight: 500;
 }
 
 .work-item__position {
-  font-size: var(--font-size-footnote);
-  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-detail);
+  font-style: italic;
+  margin-bottom: var(--spacing-xxsmall);
 }
 
 .work-item__description {
   line-height: 2em;
 }
 
+.work-item__tags {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxsmall);
+}
+
 .work-item__note {
   color: var(--color-text-primary-light);
   font-size: var(--font-size-detail);
+}
+
+/* ---------------------------------
+   Tag styles
+---------------------------------- */
+.tag {
+  color: var(--tag-text-color);
+  background-color: var(--tag-bg-color);
+  border-radius: 32px;
+  border: 1px solid var(--color-text-primary-light);
+  padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
 }

@@ -165,3 +165,8 @@
 .sg-swatch-box--accent-neutral {
     background: var(--color-accent-neutral);
 }
+
+.sg-tags-row {
+    display: flex;
+    gap: var(--spacing-medium);
+}
