@@ -53,7 +53,7 @@
 }
 
 .sg-swatch-box {
-    background-color: var(--color-surface-base);
+    background-color: var(--color-bg);
     border-radius: 8px;
     height: var(--spacing-xlarge);
 }
