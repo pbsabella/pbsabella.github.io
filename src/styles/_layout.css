@@ -44,7 +44,7 @@
 .hero__divider {
   background-color: var(--color-text);
   height: 1px;
-  margin-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--spacing-xsmall);
   margin-left: var(--spacing-small);
   width: 80px;
 }
@@ -86,6 +86,10 @@
   align-items: flex-end;
   color: var(--color-text);
   text-decoration: none;
+}
+
+[data-theme="dark"] .hero__link {
+  mix-blend-mode: difference;
 }
 
 .hero__title {
