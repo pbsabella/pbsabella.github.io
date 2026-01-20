@@ -41,13 +41,10 @@
   max-width: 1440px;
 }
 
-.hero__action {
-  padding-left: 16vw;
-}
-
 .hero__divider {
   background-color: var(--color-text);
   height: 1px;
+  margin-bottom: var(--spacing-xxsmall);
   margin-left: var(--spacing-small);
   width: 80px;
 }
@@ -86,23 +83,27 @@
 
 .hero__link {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   color: var(--color-text);
   text-decoration: none;
 }
 
 .hero__title {
-  font-family: 'DM Serif Display', Arial, serif;
+  font-family: var(--font-family-display);
   color: var(--color-text);
   font-size: 3em;
   font-weight: normal;
   line-height: 0.9em;
   margin-bottom: var(--spacing-xxlarge);
-  padding-left: 16vw;
   overflow-wrap: break-word;
 }
 
-@media only screen and (width >= 768px) {
+/* Layout utility for hero title indentation */
+.hero__indent {
+  padding-left: 16vw;
+}
+
+@media only screen and (width >=768px) {
   .hero {
     margin-bottom: var(--spacing-large);
   }
@@ -176,7 +177,7 @@
 }
 
 .section__title {
-  font-family: 'DM Serif Display', Arial, serif;
+  font-family: var(--font-family-display);
   padding-top: var(--spacing-large);
   padding-bottom: var(--spacing-medium);
 }

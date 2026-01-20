@@ -128,7 +128,7 @@
   color: var(--color-text);
   padding: var(--spacing-small) 0;
   text-decoration: none;
-  font-family: 'DM Serif Display', Arial, serif;
+  font-family: var(--font-family-display);
 }
 
 .nav__menu {
@@ -209,7 +209,7 @@
   height: 100%;
   color: var(--color-text);
   text-decoration: none;
-  font-family: Heebo, Arial, sans-serif;
+  font-family: var(--font-family-body);
 }
 
 .side-menu__link.is-active {
@@ -235,7 +235,7 @@
 }
 
 .skills-card__title {
-  font-family: 'DM Serif Display', Arial, serif;
+  font-family: var(--font-family-display);
   color: var(--card-text-color);
   margin-bottom: var(--spacing-xsmall);
 }
@@ -283,6 +283,7 @@
 .work-item__image {
   margin-bottom: var(--spacing-medium);
   width: 100%;
+  height: auto;
 }
 
 .work-item__image--mid {

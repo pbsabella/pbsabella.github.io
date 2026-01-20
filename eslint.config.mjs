@@ -26,6 +26,18 @@ export default [
     },
   },
 
+  {
+    // Cypress test files
+    files: ["cypress/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...globals.mocha,
+        cy: "readonly",
+        Cypress: "readonly",
+      },
+    },
+  },
+
   // Recommended JS rules
   pluginJsConfigs.recommended,
 ];

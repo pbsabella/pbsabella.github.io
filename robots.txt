@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pbsabella.github.io/sitemap.xml

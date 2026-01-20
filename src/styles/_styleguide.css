@@ -1,0 +1,167 @@
+/* ---------------------------------
+   Styleguide Specific Styles
+---------------------------------- */
+
+.sg-main {
+    padding-top: var(--spacing-xxlarge);
+}
+
+.sg-wip-badge {
+    background-color: var(--color-accent-orange);
+    color: var(--color-secondary-xxlight);
+    display: inline-block;
+    font-family: var(--font-family-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-small);
+    padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sg-divider {
+    border: 0;
+    border-top: 1px solid var(--color-divider);
+    margin: var(--spacing-xlarge) 0;
+}
+
+.sg-section-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-small);
+    margin-top: var(--spacing-xlarge);
+}
+
+.sg-section-desc {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-large);
+    max-width: 600px;
+}
+
+.sg-subsection-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-medium);
+    margin-top: var(--spacing-large);
+}
+
+.sg-grid {
+    display: grid;
+    gap: var(--spacing-medium);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    margin-bottom: var(--spacing-large);
+}
+
+.sg-swatch-box {
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    height: var(--spacing-xlarge);
+}
+
+.sg-swatch-box--border {
+    border: 1px solid var(--color-border);
+}
+
+.sg-swatch-box--shadow {
+    box-shadow: var(--card-shadow);
+}
+
+.sg-type-examples {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.sg-h1-example {
+    margin-bottom: 0;
+}
+
+.sg-h2-example {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.sg-h3-example {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.sg-card-wrapper {
+    margin-bottom: var(--spacing-large);
+    max-width: 400px;
+}
+
+.sg-card-title {
+    font-weight: 500;
+    margin-bottom: var(--spacing-xxsmall);
+    margin-top: 0;
+}
+
+.sg-card-text {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.sg-buttons-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-medium);
+}
+
+/* Color swatch utilities */
+.sg-swatch-box--primary {
+    background: var(--color-primary);
+}
+
+.sg-swatch-box--primary-light {
+    background: var(--color-primary-light);
+}
+
+.sg-swatch-box--primary-xxlight {
+    background: var(--color-primary-xxlight);
+}
+
+.sg-swatch-box--secondary-xxlight {
+    background: var(--color-secondary-xxlight);
+}
+
+.sg-swatch-box--secondary-xlight {
+    background: var(--color-secondary-xlight);
+}
+
+.sg-swatch-box--secondary-light {
+    background: var(--color-secondary-light);
+}
+
+.sg-swatch-box--secondary {
+    background: var(--color-secondary);
+}
+
+.sg-swatch-box--secondary-dark {
+    background: var(--color-secondary-dark);
+}
+
+.sg-swatch-box--secondary-xdark {
+    background: var(--color-secondary-xdark);
+}
+
+.sg-swatch-box--secondary-xxdark {
+    background: var(--color-secondary-xxdark);
+}
+
+.sg-swatch-box--accent-yellow {
+    background: var(--color-accent-yellow);
+}
+
+.sg-swatch-box--accent-orange {
+    background: var(--color-accent-orange);
+}
+
+.sg-swatch-box--accent-cyan-light {
+    background: var(--color-accent-cyan-light);
+}
+
+.sg-swatch-box--accent-neutral {
+    background: var(--color-accent-neutral);
+}

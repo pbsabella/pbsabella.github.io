@@ -66,6 +66,8 @@ function trapFocus(event) {
 
 // --- Header transparency & visibility ---
 function toggleHeader() {
+  if (!headerElem) return;
+
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   // Transparent at top

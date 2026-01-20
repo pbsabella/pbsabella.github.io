@@ -11,10 +11,13 @@
 
   <title>Paula Abella | Frontend & Design Systems</title>
 
+  <!-- Font optimization for CLS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="preload" href="dist/main.css" as="style">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link href="dist/main.css" rel="stylesheet">
+  <script type="module" src="/src/index.js"></script>
 </head>
 
 <body id="content">
@@ -60,6 +63,9 @@
 
         <ul class="nav__list hide-on-small">
           <li class="nav__item">
+            <a class="nav__link link" href="styleguide.html">Styleguide</a>
+          </li>
+          <li class="nav__item">
             <a class="nav__link link scrollspy" href="#work">Work</a>
           </li>
           <li class="nav__item">
@@ -104,6 +110,9 @@
 
     <ul class="side-menu__list">
       <li class="side-menu__item">
+        <a class="side-menu__link" href="styleguide.html">styleguide</a>
+      </li>
+      <li class="side-menu__item">
         <a class="side-menu__link" href="#work">work</a>
       </li>
       <li class="side-menu__item">
@@ -118,13 +127,14 @@
   <main>
     <div id="hero" class="hero">
       <div class="hero__inner">
-        <h1 class="hero__title">
+        <h1 class="hero__title hero__indent">
           A portfolio<br>
           <span class="pl-large">of sorts.</span>
         </h1>
-        <div class="hero__action">
-          <a class="hero__link" href="#work">
-            Curious attempts
+        <div class="hero__action hero__indent">
+          <a class="hero__link" href="#about">
+            Senior Frontend Engineer & <br>
+            Design Systems Specialist
             <span class="hero__divider"></span>
           </a>
         </div>
@@ -138,62 +148,64 @@
           <h2 class="section__intro-text">work</h2>
         </div>
         <h3 class="section__title container-space">
-          Showcase and <br>
-          experiments
+          Selected Projects<br>
         </h3>
 
         <div class="work-item container-space">
-          <img class="work-item__image" src="src/images/sm-ds-wide.png" alt="SiteMinder Design System" loading="lazy">
+          <img class="work-item__image" src="src/images/sm-ds-wide.png" alt="SiteMinder Design System" width="1440" height="810" loading="lazy">
           <h4 class="work-item__title">
             Design System & Patterns
           </h4>
           <div class="work-item__subtitle">
-            SiteMinder (May 2021 - Present)
+            SiteMinder (May 2021 - Jan 2026)
           </div>
           <div class="work-item__position">
             Senior Frontend Engineer
           </div>
           <p class="work-item__description">
-            Leads the development and maintenance of SiteMinder's Design System and product patterns, enabling teams
-            to build consistent, accessible, and scalable interfaces across the platform.
+            Led the development and maintenance of SiteMinder's Design System and product patterns, enabling teams to
+            build consistent, accessible, and scalable interfaces across the platform.
           </p>
           <p class="work-item__description">
-            Work includes defining and managing design tokens, UI components, and interaction patterns. This also covers
-            reusable solutions like the media management pattern, ensuring a clear connection between foundational
-            elements and real product experiences.
+            Defined and managed design tokens, UI components, and interaction patterns to streamline the development
+            lifecycle.
           </p>
           <p class="work-item__description">
-            Collaborates closely with design, product, and engineering teams to uphold best practices in usability,
+            Developed reusable solutions, such as the media management pattern, ensuring a clear connection between
+            foundational elements and real product experiences.
+          </p>
+          <p class="work-item__description">
+            Collaborated closely with design, product, and engineering teams to uphold best practices in usability,
             performance, and accessibility.
           </p>
           <span class="work-item__note ">
-            Vue.js, TypeScript, HTML, SCSS/CSS, GraphQL, Component Architecture, Accessibility, Frontend Tooling
+            Vue.js, TypeScript, HTML, CSS, Component Architecture, Accessibility, Frontend Tooling
           </span>
         </div>
 
         <div class="bg-accent-primary-light">
           <div class="work-item container-space">
             <img class="work-item__image" src="src/images/sm-notifications.png" alt="SiteMinder Notifications"
-              loading="lazy">
+              width="1440" height="810" loading="lazy">
             <h4 class="work-item__title">
               Notifications Platform
             </h4>
             <div class="work-item__subtitle">
-              SiteMinder (May 2021 - Present)
+              SiteMinder (May 2021 - Jan 2026)
             </div>
             <div class="work-item__position">
               Senior Frontend Engineer / Feature Lead
             </div>
             <p class="work-item__description">
-              Led the frontend development of SiteMinder's Notifications platform in the hotel industry. Delivered a
-              centralized interface for system alerts and customer-facing updates.
+              Led the frontend development of SiteMinder's Notifications platform, leveraging the Design System to
+              deliver a seamless and consistent user experience.
             </p>
             <p class="work-item__description">
               Served as feature lead, writing technical and product specifications, defining implementation strategies,
               and coordinating with design, backend, and product teams to ensure alignment with business goals.
             </p>
             <p class="work-item__description">
-              Built responsive, accessible, and reusable UI components with consistent interaction patterns and seamless
+              Built responsive, accessible UI components with consistent interaction patterns and seamless
               GraphQL integration.
             </p>
             <span class="work-item__note">
@@ -203,7 +215,7 @@
         </div>
 
         <div class="work-item container-space">
-          <img class="work-item__image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System" loading="lazy">
+          <img class="work-item__image" src="src/images/fl-ds-wide.png" alt="Freelancer Design System" width="1440" height="810" loading="lazy">
 
           <h4 class="work-item__title">
             Design System
@@ -215,18 +227,18 @@
             Software Engineer
           </div>
           <p class="work-item__description">
-            Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across
-            the platform.
+            Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across the
+            platform.
           </p>
           <span class="work-item__note">
-            Angular, TypeScript, HTML, SCSS/CSS, Node.js, Frontend Tooling
+            Angular, TypeScript, HTML, CSS, Node.js, Frontend Tooling
           </span>
         </div>
 
         <div class="bg-accent-cyan-light">
           <div class="work-item container-space">
             <img class="work-item__image" src="src/images/wireframing-tool-frame.png" alt="Design System Wireframing"
-              loading="lazy">
+              width="1440" height="810" loading="lazy">
             <h4 class="work-item__title">
               Wireframing Application
             </h4>
@@ -237,22 +249,22 @@
               Software Engineer
             </div>
             <p class="work-item__description">
-              Developed a high-fidelity wireframing tool that enabled Product Managers, Designers, and Developers to
-              create interactive web application mockups and rapidly test ideas as if the feature were already built.
+              Developed a high-fidelity wireframing tool consuming the Design System directly. Allowed Product Managers
+              to prototype using <strong>real code components</strong>, bridging the gap between design and dev.
             </p>
             <p class="work-item__description">
               The tool rendered real components from Freelancer's design system and allowed easy customization through
-              form-based controls, ensuring accurate, consistent, and reusable prototypes across teams.
+              form-based controls.
             </p>
             <span class="work-item__note">
-              Angular, TypeScript, RxJS, HTML, SCSS/CSS, Node.js.
+              Angular, TypeScript, RxJS, HTML, CSS, Node.js.
             </span>
           </div>
         </div>
 
         <div class="work-item container-space">
           <img class="work-item__image work-item__image--mid" src="src/images/animation-knobs.png" alt="Animation demo"
-            loading="lazy">
+            width="720" height="720" loading="lazy">
           <h4 class="work-item__title">
             Motion System
           </h4>
@@ -263,12 +275,11 @@
             Software Engineer
           </div>
           <p class="work-item__description">
-            Built the infrastructure to attach animations into templates that can be invoked programmatically or
-            declaratively with ease. With a collection of exportable animations, creating delightful experiences
-            can be done in as little as a single line of code.
+            Built the animation infrastructure. Created a library of exportable animation tokens and keyframes,
+            standardizing motion across the platform.
           </p>
           <span class="work-item__note">
-            Angular, Angular Animations, TypeScript, RxJS, HTML, SCSS/CSS, Node.js, etc.
+            Angular, Angular Animations, TypeScript, RxJS, HTML, CSS, Node.js, etc.
           </span>
         </div>
       </div>
@@ -286,35 +297,34 @@
 
         <div class="flex">
           <p class="flex--2 section__description">
-            Frontend engineer with over a decade of experience building scalable, accessible web interfaces. Currently
-            focused on design systems, frontend architecture, and bridging design and engineering to deliver cohesive
-            product experiences.
+            Senior Frontend Engineer with deep expertise in <strong>Design Systems</strong> and scalable architecture.
+            I bridge the gap between design and engineering, translating visual language into robust, accessible code.
+            <br><br>
+            I am passionate about developer experience, tooling, and creating inclusive products.
           </p>
 
           <div class="flex">
             <div class="skills-card flex--1">
-              <h4 class="skills-card__title">Tools & Technologies</h4>
+              <h4 class="skills-card__title">Core Competencies</h4>
               <ul class="skills-card__list">
-                <li class="skills-card__item">TypeScript, JavaScript</li>
-                <li class="skills-card__item">Vue.js</li>
-                <li class="skills-card__item">Angular, AngularJS</li>
-                <li class="skills-card__item">HTML5, CSS, SCSS</li>
-                <li class="skills-card__item">Cypress</li>
-                <li class="skills-card__item">Version Control, Git</li>
-                <li class="skills-card__item">Figma, Adobe</li>
+                <li class="skills-card__item">Design Systems</li>
+                <li class="skills-card__item">Design Tokens</li>
+                <li class="skills-card__item">Component Lifecycle Management</li>
+                <li class="skills-card__item">Accessibility (WCAG)</li>
+                <li class="skills-card__item">Frontend Architecture</li>
+                <li class="skills-card__item">Mentoring & Leadership</li>
               </ul>
             </div>
 
             <div class="skills-card flex--1">
-              <h4 class="skills-card__title">Expertise</h4>
+              <h4 class="skills-card__title">Tech Stack</h4>
               <ul class="skills-card__list">
-                <li class="skills-card__item">Design Systems</li>
-                <li class="skills-card__item">Web Development</li>
-                <li class="skills-card__item">Responsive Web Design</li>
-                <li class="skills-card__item">Accessibility</li>
-                <li class="skills-card__item">Cross-Browser & Device Compatibility</li>
-                <li class="skills-card__item">Unit, Component, End-to-End, & Visual Testing</li>
-                <li class="skills-card__item">Agile Development</li>
+                <li class="skills-card__item">TypeScript, JavaScript</li>
+                <li class="skills-card__item">Vue.js, Angular</li>
+                <li class="skills-card__item">HTML, CSS, Tailwind</li>
+                <li class="skills-card__item">Vite, Webpack</li>
+                <li class="skills-card__item">Figma</li>
+                <li class="skills-card__item">Unit, Component, End-to-End, & Visual Testing (Jest, Cypress, Percy)</li>
               </ul>
             </div>
           </div>
@@ -332,7 +342,7 @@
           Get in touch
         </h3>
         <p class="section__description">
-          Got a project or opportunity you'd like to discuss? I'd love to hear from you.
+          Open to Senior Design System and Frontend Engineering roles.
         </p>
 
         <ul class="socials">
@@ -348,11 +358,6 @@
               </span>
             </a>
           </li>
-          <!-- <li class="socials__item">
-              <button type="button" class="button button--primary" onclick="location.href='mailto:pau.abella@gmail.com'">
-                Drop me a message
-              </button>
-            </li> -->
         </ul>
       </div>
     </section>
@@ -361,14 +366,11 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__copyright">
-        &copy; <span id="current-year"></span> <span class="text-bold">pbsabella</span>. All rights
-        reserved.
+        &copy; <span id="current-year"></span> <span class="text-bold">pbsabella</span>.
       </div>
     </div>
   </footer>
 
-  <!-- Custom JavaScript -->
-  <script type="module" src="dist/main.js"></script>
 </body>
 
 </html>

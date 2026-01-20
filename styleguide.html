@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design System Styleguide - A living reference of design tokens and components">
+    <title>Design System Styleguide | pbsabella</title>
+    <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico">
+    <script type="module" src="./src/index.js"></script>
+</head>
+
+<body>
+    <div id="overlay"></div>
+
+    <header class="header header--transparent">
+        <div class="header__inner container-space">
+            <nav class="nav">
+                <a class="nav__logo link" href="./index.html">← Back to Portfolio</a>
+
+                <ul class="nav__list hide-on-small">
+                    <li class="nav__item">
+                        <button class="nav__toggle-button" id="theme-toggle" aria-label="Toggle theme">
+                            <svg class="toggle-icon sun" viewBox="0 0 24 24" width="24" height="24">
+                                <circle cx="12" cy="12" r="5" />
+                                <g stroke-linecap="round">
+                                    <line x1="12" y1="1" x2="12" y2="3" />
+                                    <line x1="12" y1="21" x2="12" y2="23" />
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                    <line x1="1" y1="12" x2="3" y2="12" />
+                                    <line x1="21" y1="12" x2="23" y2="12" />
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                </g>
+                            </svg>
+                            <svg class="toggle-icon moon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+
+                <ul class="nav__list hide-on-medium">
+                    <li class="nav__item nav__item--mobile">
+                        <button class="nav__toggle-button" id="theme-toggle-mobile" aria-label="Toggle theme">
+                            <svg class="toggle-icon sun" viewBox="0 0 24 24" width="24" height="24">
+                                <circle cx="12" cy="12" r="5" />
+                                <g stroke-linecap="round">
+                                    <line x1="12" y1="1" x2="12" y2="3" />
+                                    <line x1="12" y1="21" x2="12" y2="23" />
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                    <line x1="1" y1="12" x2="3" y2="12" />
+                                    <line x1="21" y1="12" x2="23" y2="12" />
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                                </g>
+                            </svg>
+                            <svg class="toggle-icon moon" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="currentColor" d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="nav__item nav__item--mobile">
+                        <button id="menu-toggle" class="nav__menu" aria-controls="side-nav" aria-label="Open main menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12" />
+                                <line x1="3" y1="6" x2="21" y2="6" />
+                                <line x1="3" y1="18" x2="21" y2="18" />
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="side-nav" class="side-menu">
+        <button id="side-menu-close" class="side-menu__close" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <ul class="side-menu__list">
+            <li class="side-menu__item">
+                <a class="side-menu__link" href="./index.html">Back to Portfolio</a>
+            </li>
+        </ul>
+    </div>
+
+    <main class="container-space sg-main">
+        <section class="section">
+            <div class="section__inner">
+                <span class="sg-wip-badge">Work in Progress</span>
+                <h1>Styleguide</h1>
+                <p class="section__description">
+                    A living reference of the design tokens, primitives, and components used in this portfolio.
+                    This system demonstrates a tiered token architecture for scalable, maintainable design.
+                </p>
+
+                <hr class="sg-divider">
+
+                <!-- Colors -->
+                <h2 class="sg-section-title">Color System</h2>
+                <p class="sg-section-desc">Colors are organized by priority and semantic meaning.</p>
+
+                <h3 class="sg-subsection-title">Primary Colors</h3>
+                <div class="sg-grid">
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--primary" aria-label="Primary color">
+                        </div>
+                        <p>Primary</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--primary-light"
+                            aria-label="Primary light"></div>
+                        <p>Primary Light</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--primary-xxlight"
+                            aria-label="Primary extra light"></div>
+                        <p>Primary XXLight</p>
+                    </div>
+                </div>
+
+                <h3 class="sg-subsection-title">Neutral Colors</h3>
+                <div class="sg-grid">
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xxlight"
+                            aria-label="Neutral extra extra light">
+                        </div>
+                        <p>Neutral XXLight</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xlight" aria-label="Neutral extra light"></div>
+                        <p>Neutral XLight</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--secondary-light"
+                            aria-label="Neutral light"></div>
+                        <p>Neutral Light</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--secondary" aria-label="Neutral">
+                        </div>
+                        <p>Neutral</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--secondary-dark"
+                            aria-label="Neutral dark"></div>
+                        <p>Neutral Dark</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--secondary-xdark"
+                            aria-label="Neutral extra dark"></div>
+                        <p>Neutral XDark</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--secondary-xxdark"
+                            aria-label="Neutral extra extra dark"></div>
+                        <p>Neutral XXDark</p>
+                    </div>
+                </div>
+
+                <h3 class="sg-subsection-title">Accent Colors</h3>
+                <div class="sg-grid">
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--accent-yellow"
+                            aria-label="Accent yellow"></div>
+                        <p>Yellow</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--accent-orange"
+                            aria-label="Accent orange"></div>
+                        <p>Orange</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--accent-cyan-light"
+                            aria-label="Accent cyan light"></div>
+                        <p>Cyan Light</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--accent-neutral" aria-label="Accent neutral"></div>
+                        <p>Neutral Accent</p>
+                    </div>
+                </div>
+
+                <hr class="sg-divider">
+
+                <!-- Typography -->
+                <h2 class="sg-section-title">Typography</h2>
+                <p class="sg-section-desc">Type scale and hierarchy for content structure.</p>
+
+                <div class="sg-type-examples">
+                    <h1 class="sg-h1-example" data-component="Heading Level 1"
+                        data-tokens="font: 3em DM Serif Display | weight: 400 | line-height: 0.9">Heading Level 1</h1>
+                    <h2 class="sg-h2-example" data-component="Heading Level 2"
+                        data-tokens="font: 2em Heebo | weight: 400">Heading Level 2</h2>
+                    <h3 class="sg-h3-example" data-component="Heading Level 3"
+                        data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3</h3>
+                    <p data-component="Body Text" data-tokens="font: 1em Heebo | line-height: 1.375">
+                        This is body text. It defines the rhythm of the page.
+                        Frontend engineer with deep expertise in <strong>Design Systems</strong>.
+                    </p>
+                </div>
+
+                <hr class="sg-divider">
+
+                <!-- Components -->
+                <h2 class="sg-section-title">Components</h2>
+                <p class="sg-section-desc">Reusable UI patterns built with the design system.</p>
+
+                <h3 class="sg-subsection-title">Cards</h3>
+                <div class="skills-card sg-card-wrapper" data-component="Skills Card"
+                    data-tokens="bg: --color-bg | shadow: --card-shadow | radius: 5px">
+                    <h4 class="skills-card__title">Skills Card</h4>
+                    <p class="sg-card-text">
+                        This is a reusable surface component. It abstracts background, border-radius, and shadow tokens.
+                    </p>
+                </div>
+
+                <h3 class="sg-subsection-title">Buttons & Links</h3>
+                <div class="sg-buttons-row">
+                    <a class="hero__link" href="#" data-component="Hero Link" data-tokens="border: 2px solid">
+                        Hero Link/Button
+                        <span class="hero__divider"></span>
+                    </a>
+                    <a class="link" href="#" data-component="Text Link"
+                        data-tokens="color: --color-text-primary | motion: 0.2s">Standard Text Link</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./src/scripts/styleguide-helpers.js"></script>
+    <script type="module" src="./src/scripts/debug-mode.js"></script>
+</body>
+
+</html>
