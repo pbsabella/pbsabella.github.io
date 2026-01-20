@@ -37,17 +37,6 @@ function parseRgb(colorStr) {
 function createBadge(ratio, label) {
     const badge = document.createElement('div');
     badge.className = 'sg-badge';
-    badge.style.cssText = `
-        font-size: 10px;
-        padding: 2px 6px;
-        border-radius: 4px;
-        background: rgba(0,0,0,0.1);
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        margin-top: 4px;
-        font-family: monospace;
-    `;
 
     let grade = 'Fail';
     if (ratio >= 7) grade = 'AAA';

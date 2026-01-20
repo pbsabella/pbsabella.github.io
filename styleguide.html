@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Design System Styleguide - A living reference of design tokens and components">
-    <title>Design System Styleguide | pbsabella</title>
+    <meta name="description" content="Portfolio Styleguide - A living reference of design tokens and components">
+    <title>Portfolio Styleguide | pbsabella</title>
     <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico">
     <script type="module" src="./src/index.js"></script>
 </head>
@@ -106,24 +106,21 @@
                 <hr class="sg-divider">
 
                 <!-- Colors -->
-                <h2 class="sg-section-title">Color System</h2>
+                <h2>Color System</h2>
                 <p class="sg-section-desc">Colors are organized by priority and semantic meaning.</p>
 
                 <h3 class="sg-subsection-title">Primary Colors</h3>
                 <div class="sg-grid">
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--primary" aria-label="Primary color">
-                        </div>
+                        <div class="sg-swatch-box sg-swatch-box--primary"></div>
                         <p>Primary</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--primary-light"
-                            aria-label="Primary light"></div>
+                        <div class="sg-swatch-box sg-swatch-box--primary-light"></div>
                         <p>Primary Light</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--primary-xxlight"
-                            aria-label="Primary extra light"></div>
+                        <div class="sg-swatch-box sg-swatch-box--primary-xxlight"></div>
                         <p>Primary XXLight</p>
                     </div>
                 </div>
@@ -131,38 +128,33 @@
                 <h3 class="sg-subsection-title">Neutral Colors</h3>
                 <div class="sg-grid">
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xxlight"
-                            aria-label="Neutral extra extra light">
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xxlight">
                         </div>
                         <p>Neutral XXLight</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xlight" aria-label="Neutral extra light"></div>
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xlight"></div>
                         <p>Neutral XLight</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--secondary-light"
-                            aria-label="Neutral light"></div>
+                        <div class="sg-swatch-box sg-swatch-box--secondary-light"></div>
                         <p>Neutral Light</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--secondary" aria-label="Neutral">
+                        <div class="sg-swatch-box sg-swatch-box--secondary">
                         </div>
                         <p>Neutral</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--secondary-dark"
-                            aria-label="Neutral dark"></div>
+                        <div class="sg-swatch-box sg-swatch-box--secondary-dark"></div>
                         <p>Neutral Dark</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--secondary-xdark"
-                            aria-label="Neutral extra dark"></div>
+                        <div class="sg-swatch-box sg-swatch-box--secondary-xdark"></div>
                         <p>Neutral XDark</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--secondary-xxdark"
-                            aria-label="Neutral extra extra dark"></div>
+                        <div class="sg-swatch-box sg-swatch-box--secondary-xxdark"></div>
                         <p>Neutral XXDark</p>
                     </div>
                 </div>
@@ -170,22 +162,19 @@
                 <h3 class="sg-subsection-title">Accent Colors</h3>
                 <div class="sg-grid">
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--accent-yellow"
-                            aria-label="Accent yellow"></div>
+                        <div class="sg-swatch-box sg-swatch-box--accent-yellow"></div>
                         <p>Yellow</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--accent-orange"
-                            aria-label="Accent orange"></div>
+                        <div class="sg-swatch-box sg-swatch-box--accent-orange"></div>
                         <p>Orange</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--accent-cyan-light"
-                            aria-label="Accent cyan light"></div>
+                        <div class="sg-swatch-box sg-swatch-box--accent-cyan-light"></div>
                         <p>Cyan Light</p>
                     </div>
                     <div class="swatch">
-                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--accent-neutral" aria-label="Accent neutral"></div>
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--accent-neutral"></div>
                         <p>Neutral Accent</p>
                     </div>
                 </div>
@@ -193,35 +182,44 @@
                 <hr class="sg-divider">
 
                 <!-- Typography -->
-                <h2 class="sg-section-title">Typography</h2>
+                <h2>Typography</h2>
                 <p class="sg-section-desc">Type scale and hierarchy for content structure.</p>
 
                 <div class="sg-type-examples">
-                    <h1 class="sg-h1-example" data-component="Heading Level 1"
+                    <h1 data-component="Heading Level 1"
                         data-tokens="font: 3em DM Serif Display | weight: 400 | line-height: 0.9">Heading Level 1</h1>
-                    <h2 class="sg-h2-example" data-component="Heading Level 2"
-                        data-tokens="font: 2em Heebo | weight: 400">Heading Level 2</h2>
-                    <h3 class="sg-h3-example" data-component="Heading Level 3"
-                        data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3</h3>
+                    <h2 data-component="Heading Level 2" data-tokens="font: 2em Heebo | weight: 400">Heading Level 2
+                    </h2>
+                    <h3 data-component="Heading Level 3" data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3
+                    </h3>
                     <p data-component="Body Text" data-tokens="font: 1em Heebo | line-height: 1.375">
                         This is body text. It defines the rhythm of the page.
-                        Frontend engineer with deep expertise in <strong>Design Systems</strong>.
+                        It is used for <strong>paragraphs and general content</strong> and should be easy to read.
                     </p>
                 </div>
 
                 <hr class="sg-divider">
 
                 <!-- Components -->
-                <h2 class="sg-section-title">Components</h2>
-                <p class="sg-section-desc">Reusable UI patterns built with the design system.</p>
+                <h2>Components</h2>
+                <p class="sg-section-desc">Reusable UI patterns built with the portfolio.</p>
 
                 <h3 class="sg-subsection-title">Cards</h3>
                 <div class="skills-card sg-card-wrapper" data-component="Skills Card"
                     data-tokens="bg: --color-bg | shadow: --card-shadow | radius: 5px">
                     <h4 class="skills-card__title">Skills Card</h4>
-                    <p class="sg-card-text">
-                        This is a reusable surface component. It abstracts background, border-radius, and shadow tokens.
-                    </p>
+                    <ul class="skills-card__list">
+                        <li class="skills-card__item">Item 1</li>
+                        <li class="skills-card__item">Item 2</li>
+                        <li class="skills-card__item">Item 3</li>
+                    </ul>
+                </div>
+
+                <h3 class="sg-subsection-title">Tags</h3>
+                <div class="sg-tags-row">
+                    <span class="tag" data-component="Tag" data-tokens="bg: --tag-bg-color | color: --tag-text-color">
+                        Example Tag
+                    </span>
                 </div>
 
                 <h3 class="sg-subsection-title">Buttons & Links</h3>
