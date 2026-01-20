@@ -15,7 +15,7 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: Heebo, Arial, sans-serif;
+  font-family: var(--font-family-body);
   font-size: var(--font-size-main);
   font-size-adjust: 0.5;
   font-weight: var(--font-weight-regular);
@@ -118,7 +118,7 @@ h4 {
 }
 
 /* Medium breakpoint (700px / 43.75em) */
-@media (width >= 43.75em) {
+@media (width >=43.75em) {
   body {
     font-size: 1em;
     line-height: 1.375;
@@ -145,7 +145,7 @@ h4 {
 }
 
 /* Large breakpoint (900px / 56.25em) */
-@media (width >= 56.25em) {
+@media (width >=56.25em) {
   h1 {
     font-size: 3em;
     line-height: 1.05;

@@ -41,6 +41,11 @@
   --font-weight-regular: 400;
   --font-weight-medium: 600;
 
+  /* Font families - Semantic */
+  --font-family-display: 'DM Serif Display', arial, serif;
+  --font-family-body: heebo, arial, sans-serif;
+  --font-family-mono: 'SF Mono', monaco, monospace;
+
   /* Spacing */
   --spacing-xxxsmall: 4px;
   --spacing-xxsmall: 8px;
@@ -75,7 +80,9 @@
   --color-text-dark: #e8e8ea;
   --color-text-primary: var(--color-primary);
   --color-text-primary-light: var(--color-primary-light);
-  --color-text-secondary: #bfbfc1;    /* less prominent text */
+  --color-text-secondary: #bfbfc1;
+
+  /* less prominent text */
   --card-bg-color: var(--color-primary-light);
   --card-text-color: var(--color-secondary-xxdark);
   --card-shadow: 0 1px 8px rgb(0 0 0 / 60%);
