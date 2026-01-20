@@ -26,12 +26,6 @@
     margin: var(--spacing-xlarge) 0;
 }
 
-.sg-section-title {
-    font-size: 1.75rem;
-    margin-bottom: var(--spacing-small);
-    margin-top: var(--spacing-xlarge);
-}
-
 .sg-section-desc {
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-large);
@@ -39,10 +33,7 @@
 }
 
 .sg-subsection-title {
-    font-size: 1.125rem;
-    font-weight: 500;
     margin-bottom: var(--spacing-medium);
-    margin-top: var(--spacing-large);
 }
 
 .sg-grid {
@@ -72,34 +63,20 @@
     gap: var(--spacing-medium);
 }
 
-.sg-h1-example {
-    margin-bottom: 0;
-}
-
-.sg-h2-example {
-    font-size: 2rem;
-    margin-bottom: 0;
-}
-
-.sg-h3-example {
-    font-size: 1.5rem;
-    margin-bottom: 0;
+.sg-badge {
+    font-size: var(--font-size-footnote);
+    padding: var(--spacing-xxxsmall);
+    border-radius: 4px;
+    background: var(--color-bg-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xxxsmall);
+    font-family: var(--font-family-mono);
 }
 
 .sg-card-wrapper {
     margin-bottom: var(--spacing-large);
     max-width: 400px;
-}
-
-.sg-card-title {
-    font-weight: 500;
-    margin-bottom: var(--spacing-xxsmall);
-    margin-top: 0;
-}
-
-.sg-card-text {
-    font-size: 0.875rem;
-    margin-bottom: 0;
 }
 
 .sg-buttons-row {
@@ -169,4 +146,5 @@
 .sg-tags-row {
     display: flex;
     gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
 }

@@ -44,7 +44,7 @@
 .hero__divider {
   background-color: var(--color-text);
   height: 1px;
-  margin-bottom: var(--spacing-xsmall);
+  margin-bottom: 0.65em;
   margin-left: var(--spacing-small);
   width: 80px;
 }

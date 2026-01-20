@@ -114,7 +114,8 @@ h2 {
   line-height: 1.1538;
 }
 
-h3 {
+h3,
+.h3 {
   font-size: 1.375em;
   line-height: 1.1364;
 }
@@ -141,7 +142,8 @@ h4 {
     line-height: 1.25;
   }
 
-  h3 {
+  h3,
+  .h3 {
     font-size: 1.5em;
     line-height: 1.25;
   }
@@ -165,7 +167,8 @@ h4 {
     line-height: 1.25;
   }
 
-  h3 {
+  h3,
+  .h3 {
     font-size: 1.75em;
     line-height: 1.25;
   }

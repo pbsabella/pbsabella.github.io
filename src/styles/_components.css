@@ -291,7 +291,6 @@
 
 .work-item__title {
   color: var(--color-text-dark);
-  font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: var(--spacing-xxsmall);
 }

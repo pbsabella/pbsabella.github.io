@@ -20,6 +20,7 @@
 
   /* Semantic colors */
   --color-bg: var(--color-secondary-xlight);
+  --color-bg-dark: var(--color-secondary-light);
   --color-border: var(--color-secondary-light);
   --color-border-dark: var(--color-secondary-dark);
   --color-divider: var(--color-secondary-xxdark);
@@ -33,7 +34,7 @@
   --card-bg-color: var(--color-secondary-xxlight);
   --card-text-color: var(--color-secondary-xdark);
   --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
-  --tag-text-color: var(--color-text-dark);
+  --tag-text-color: var(--color-text);
 
   /* Font size */
   --font-size-main: 16px;
@@ -76,6 +77,7 @@
 
   /* Semantic colors */
   --color-bg: #121214;
+  --color-bg-dark: var(--color-secondary-xxdark);
   --color-divider: #e8e8ea;
   --color-border: var(--color-secondary-dark);
   --color-border-dark: var(--color-secondary-dark);

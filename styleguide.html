@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Design System Styleguide - A living reference of design tokens and components">
-    <title>Design System Styleguide | pbsabella</title>
+    <meta name="description" content="Portfolio Styleguide - A living reference of design tokens and components">
+    <title>Portfolio Styleguide | pbsabella</title>
     <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico">
     <script type="module" src="./src/index.js"></script>
 </head>
@@ -193,15 +193,15 @@
                 <p class="sg-section-desc">Type scale and hierarchy for content structure.</p>
 
                 <div class="sg-type-examples">
-                    <h1 class="sg-h1-example" data-component="Heading Level 1"
+                    <h1 data-component="Heading Level 1"
                         data-tokens="font: 3em DM Serif Display | weight: 400 | line-height: 0.9">Heading Level 1</h1>
-                    <h2 class="sg-h2-example" data-component="Heading Level 2"
-                        data-tokens="font: 2em Heebo | weight: 400">Heading Level 2</h2>
-                    <h3 class="sg-h3-example" data-component="Heading Level 3"
-                        data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3</h3>
+                    <h2 data-component="Heading Level 2" data-tokens="font: 2em Heebo | weight: 400">Heading Level 2
+                    </h2>
+                    <h3 data-component="Heading Level 3" data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3
+                    </h3>
                     <p data-component="Body Text" data-tokens="font: 1em Heebo | line-height: 1.375">
                         This is body text. It defines the rhythm of the page.
-                        Frontend engineer with deep expertise in <strong>Design Systems</strong>.
+                        It is used for <strong>paragraphs and general content</strong> and should be easy to read.
                     </p>
                 </div>
 
@@ -209,15 +209,17 @@
 
                 <!-- Components -->
                 <h2 class="sg-section-title">Components</h2>
-                <p class="sg-section-desc">Reusable UI patterns built with the design system.</p>
+                <p class="sg-section-desc">Reusable UI patterns built with the portfolio.</p>
 
                 <h3 class="sg-subsection-title">Cards</h3>
                 <div class="skills-card sg-card-wrapper" data-component="Skills Card"
                     data-tokens="bg: --color-bg | shadow: --card-shadow | radius: 5px">
                     <h4 class="skills-card__title">Skills Card</h4>
-                    <p class="sg-card-text">
-                        This is a reusable surface component. It abstracts background, border-radius, and shadow tokens.
-                    </p>
+                    <ul class="skills-card__list">
+                        <li class="skills-card__item">Item 1</li>
+                        <li class="skills-card__item">Item 2</li>
+                        <li class="skills-card__item">Item 3</li>
+                    </ul>
                 </div>
 
                 <h3 class="sg-subsection-title">Tags</h3>
