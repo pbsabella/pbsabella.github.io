@@ -14,4 +14,26 @@ describe('Portfolio Visual Regression Tests', () => {
       cy.percySnapshot('Styleguide', { widths });
     });
   });
+
+  describe('Dark Mode', () => {
+    it('should capture homepage in dark mode', () => {
+      cy.visit('/');
+      cy.get('body').then($body => {
+        if (!$body.hasClass('dark-mode')) {
+          cy.findByRole('button', { name: 'Toggle theme' }).click();
+        }
+      });
+      cy.percySnapshot('Homepage - Dark Mode', { widths: [1280] });
+    });
+
+    it('should capture styleguide in dark mode', () => {
+      cy.visit('/styleguide.html');
+      cy.get('body').then($body => {
+        if (!$body.hasClass('dark-mode')) {
+          cy.findByRole('button', { name: 'Toggle theme' }).click();
+        }
+      });
+      cy.percySnapshot('Styleguide - Dark Mode', { widths: [1280] });
+    });
+  });
 });
