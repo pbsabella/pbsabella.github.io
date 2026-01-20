@@ -72,7 +72,6 @@
 
 /* Reduce motion: disable all animations/transitions */
 @media (prefers-reduced-motion: reduce) {
-
   .toggle-icon,
   .toggle-icon--animate {
     transition: none !important;
