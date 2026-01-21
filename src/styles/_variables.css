@@ -31,7 +31,7 @@
   --color-text-primary-light: var(--color-primary-light);
   --color-text-secondary: var(--color-secondary-dark);
   --color-header-overlay: rgb(252 252 252 / 90%);
-  --card-bg-color: var(--color-secondary-xxlight);
+  --card-bg-color: red;
   --card-text-color: var(--color-secondary-xdark);
   --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
   --tag-text-color: var(--color-text);
