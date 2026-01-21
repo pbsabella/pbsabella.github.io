@@ -5,7 +5,7 @@
   border: none;
   cursor: pointer;
   display: block;
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   padding: var(--spacing-xsmall);
   text-align: center;
   width: fit-content;
@@ -240,7 +240,7 @@
 }
 
 .skills-card__item {
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   padding-top: var(--spacing-xxxsmall);
   padding-bottom: var(--spacing-xxxsmall);
 }
@@ -307,7 +307,7 @@
 }
 
 .work-item__position {
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   font-style: italic;
   margin-bottom: var(--spacing-xxsmall);
 }
@@ -328,7 +328,7 @@
 ---------------------------------- */
 .tag {
   color: var(--tag-text-color);
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   border-radius: 32px;
   border: 1px solid var(--color-border-dark);
   padding: var(--spacing-xxxsmall) var(--spacing-xsmall);

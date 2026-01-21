@@ -1,175 +1,130 @@
 /* ---------------------------------
    Normalize and base styles
 ---------------------------------- */
-html {
-  box-sizing: border-box;
-  font-size: 100%;
-}
-
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family-body);
-  font-size: var(--font-size-main);
+  font-size: var(--text-body);
   font-size-adjust: 0.5;
   font-weight: var(--font-weight-regular);
-  line-height: 1.25;
-  overflow-y: scroll;
+  line-height: var(--leading-body);
+
+  /* modern replacement for overflow-y: scroll */
+  scrollbar-gutter: stable;
 }
 
 body.is-disabled {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 #overlay {
-  background-color: transparent;
   position: fixed;
   inset: 0;
+  background-color: rgb(0 0 0 / 0%);
   opacity: 0;
   pointer-events: none;
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out, opacity 0.3s ease-out;
   z-index: 8;
 }
 
 #overlay.is-active {
   background-color: rgb(0 0 0 / 80%);
-  pointer-events: all;
   opacity: 1;
+  pointer-events: auto;
 }
 
 header {
   background-color: transparent;
 }
 
-body,
-header,
-footer {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+:where(body, header, footer) {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
+/* ---------------------------------
+   Resets
+---------------------------------- */
 
 ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 a {
   color: var(--color-text);
-  cursor: pointer;
-  display: inline-block;
   text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
-a:focus-visible,
-button:focus-visible {
+:where(a, button):focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 1px;
   border-radius: 2px;
 }
 
-/* Image optimization for CLS */
+/* CLS-safe images */
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 /* ---------------------------------
-   Typography styles
+   Typography
 ---------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
   color: var(--color-text);
+  font-weight: var(--font-weight-medium);
   font-size-adjust: 0.5;
-  font-weight: var(--font-weight-medium)
 }
 
 h1 {
-  font-size: 2em;
-  line-height: 1.25;
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
 }
 
 h2 {
-  font-size: 1.625em;
-  line-height: 1.1538;
+  font-size: var(--text-h2);
+  line-height: var(--leading-normal);
 }
 
 h3,
 .h3 {
-  font-size: 1.375em;
-  line-height: 1.1364;
+  font-size: var(--text-h3);
+  line-height: var(--leading-normal);
 }
 
 h4 {
-  font-size: 1.25em;
-  line-height: 1.1111;
+  font-size: var(--text-h4);
+  line-height: clamp(1.11, 1.18, 1.2222);
 }
 
-/* Medium breakpoint (700px / 43.75em) */
+/* ---------------------------------
+   Body typography breakpoint
+---------------------------------- */
+
 @media (width >= 43.75em) {
   body {
-    font-size: 1em;
-    line-height: 1.375;
-  }
-
-  h1 {
-    font-size: 2.5em;
-    line-height: 1.125;
-  }
-
-  h2 {
-    font-size: 2em;
-    line-height: 1.25;
-  }
-
-  h3,
-  .h3 {
-    font-size: 1.5em;
-    line-height: 1.25;
-  }
-
-  h4 {
-    line-height: 1.2222;
-  }
-}
-
-/* Large breakpoint (900px / 56.25em) */
-@media (width >= 56.25em) {
-  h1 {
-    font-size: 3em;
-    line-height: 1.05;
-
-    /* around ~14.7px based on 20px baseline */
-  }
-
-  h2 {
-    font-size: 2.25em;
-    line-height: 1.25;
-  }
-
-  h3,
-  .h3 {
-    font-size: 1.75em;
-    line-height: 1.25;
+    line-height: var(--leading-body-wide);
   }
 }

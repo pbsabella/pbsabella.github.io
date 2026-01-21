@@ -38,7 +38,7 @@
 
 .sg-grid {
     display: grid;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-large);
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     margin-bottom: var(--spacing-large);
 }
@@ -57,6 +57,10 @@
     box-shadow: var(--card-shadow);
 }
 
+.sg-swatch-box + p {
+    margin: var(--spacing-xxsmall) 0;
+}
+
 .sg-type-examples {
     display: flex;
     flex-direction: column;
@@ -64,7 +68,7 @@
 }
 
 .sg-badge {
-    font-size: var(--font-size-footnote);
+    font-size: var(--text-footnote);
     padding: var(--spacing-xxxsmall);
     border-radius: 4px;
     background: var(--color-bg-dark);

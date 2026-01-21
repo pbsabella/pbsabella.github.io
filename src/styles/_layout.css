@@ -176,7 +176,7 @@
 }
 
 .section__intro-text {
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   font-weight: 400;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .footer__copyright {
-  font-size: var(--font-size-detail);
+  font-size: var(--text-detail);
   padding: var(--spacing-xxsmall) 0;
   text-align: center;
   width: 100%;
