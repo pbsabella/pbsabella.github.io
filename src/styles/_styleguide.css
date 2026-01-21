@@ -147,6 +147,23 @@
     background: var(--color-accent-neutral);
 }
 
+/* Semantic swatch utilities */
+.sg-swatch-box--bg {
+    background: var(--color-bg);
+}
+
+.sg-swatch-box--card-bg {
+    background: var(--card-bg-color);
+}
+
+.sg-swatch-box--text {
+    background: var(--color-text);
+}
+
+.sg-swatch-box--border-token {
+    background: var(--color-border);
+}
+
 .sg-tags-row {
     display: flex;
     gap: var(--spacing-medium);

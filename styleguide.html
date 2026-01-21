@@ -179,6 +179,27 @@
                     </div>
                 </div>
 
+                <h3 class="sg-subsection-title">Semantic Tokens</h3>
+                <p class="sg-section-desc">These tokens adapt automatically based on the active theme.</p>
+                <div class="sg-grid">
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--border sg-swatch-box--bg" data-component="Background" data-tokens="color: --color-bg"></div>
+                        <p>Background</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--card-bg" data-component="Card BG" data-tokens="color: --card-bg-color"></div>
+                        <p>Card BG</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--text" data-component="Text" data-tokens="color: --color-text"></div>
+                        <p>Text</p>
+                    </div>
+                    <div class="swatch">
+                        <div class="sg-swatch-box sg-swatch-box--border-token" data-component="Border" data-tokens="color: --color-border"></div>
+                        <p>Border</p>
+                    </div>
+                </div>
+
                 <hr class="sg-divider">
 
                 <!-- Typography -->
@@ -187,12 +208,12 @@
 
                 <div class="sg-type-examples">
                     <h1 data-component="Heading Level 1"
-                        data-tokens="font: 3em DM Serif Display | weight: 400 | line-height: 0.9">Heading Level 1</h1>
-                    <h2 data-component="Heading Level 2" data-tokens="font: 2em Heebo | weight: 400">Heading Level 2
+                        data-tokens="size: --text-h1 | leading: --leading-tight">Heading Level 1</h1>
+                    <h2 data-component="Heading Level 2" data-tokens="size: --text-h2 | leading: --leading-normal">Heading Level 2
                     </h2>
-                    <h3 data-component="Heading Level 3" data-tokens="font: 1.5em Heebo | weight: 400">Heading Level 3
+                    <h3 data-component="Heading Level 3" data-tokens="size: --text-h3 | leading: --leading-normal">Heading Level 3
                     </h3>
-                    <p data-component="Body Text" data-tokens="font: 1em Heebo | line-height: 1.375">
+                    <p data-component="Body Text" data-tokens="size: --text-body | leading: --leading-body-wide">
                         This is body text. It defines the rhythm of the page.
                         It is used for <strong>paragraphs and general content</strong> and should be easy to read.
                     </p>
@@ -202,7 +223,7 @@
 
                 <!-- Components -->
                 <h2>Components</h2>
-                <p class="sg-section-desc">Reusable UI patterns built with the portfolio.</p>
+                <p class="sg-section-desc">Reusable UI patterns showcased in this portfolio.</p>
 
                 <h3 class="sg-subsection-title">Cards</h3>
                 <div class="skills-card sg-card-wrapper" data-component="Skills Card"
@@ -224,12 +245,12 @@
 
                 <h3 class="sg-subsection-title">Buttons & Links</h3>
                 <div class="sg-buttons-row">
-                    <a class="hero__link" href="#" data-component="Hero Link" data-tokens="border: 2px solid">
+                    <a class="hero__link" href="#" data-component="Hero Link" data-tokens="color: --color-text">
                         Hero Link/Button
                         <span class="hero__divider"></span>
                     </a>
                     <a class="link" href="#" data-component="Text Link"
-                        data-tokens="color: --color-text-primary | motion: 0.2s">Standard Text Link</a>
+                        data-tokens="color: --color-text-primary">Standard Text Link</a>
                 </div>
             </div>
         </section>

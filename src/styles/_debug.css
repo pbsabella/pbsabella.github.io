@@ -10,7 +10,6 @@ body.is-xray-active [data-component] {
 
 body.is-xray-active [data-component]:hover {
     outline: 2px solid var(--color-primary) !important;
-    background-color: rgb(3 183 135 / 5%);
 }
 
 body.is-xray-active [data-component]::before {
@@ -37,14 +36,20 @@ body.is-xray-active [data-component]::before {
     color: var(--color-primary-light);
     font-family: var(--font-family-mono);
     font-size: 10px;
-    padding: 6px 10px;
+    padding: var(--spacing-xxsmall) var(--spacing-xsmall);
     border-radius: 4px;
     z-index: 10001;
     pointer-events: none;
-    white-space: pre;
+    white-space: normal;
     box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
-    border: 1px solid var(--color-primary);
-    max-width: 300px;
+    max-width: 320px;
+    line-height: 1.4;
+}
+
+.xray-tooltip__value {
+    color: var(--color-secondary-xxlight);
+    opacity: 0.7;
+    font-size: 0.9em;
 }
 
 #xray-toggle {
