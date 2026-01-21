@@ -26,7 +26,26 @@ function initDebugMode() {
 
         const target = e.target.closest('[data-tokens]');
         if (target) {
-            tooltip.textContent = target.dataset.tokens.replace(/ \| /g, '\n');
+            const tokenString = target.dataset.tokens;
+            const tokens = tokenString.split(' | ');
+
+            const resolvedTokens = tokens.map(token => {
+                const parts = token.split(': ');
+                if (parts.length < 2) return token;
+
+                const prop = parts[0];
+                const value = parts[1];
+
+                // If value starts with --, it's a CSS variable
+                if (value.startsWith('--')) {
+                    const computedValue = window.getComputedStyle(target).getPropertyValue(value).trim();
+                    return `${prop}: ${value} <span class="xray-tooltip__value">(${computedValue})</span>`;
+                }
+
+                return token;
+            });
+
+            tooltip.innerHTML = resolvedTokens.join('<br>');
             tooltip.style.display = 'block';
 
             // Position tooltip near the element, but fixed viewport
