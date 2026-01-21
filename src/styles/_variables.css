@@ -93,6 +93,7 @@
   --color-text-dark: #e8e8ea;
   --color-text-primary: var(--color-primary);
   --color-text-primary-light: var(--color-primary-light);
+  --color-text-primary-dark: var(--color-primary);
   --color-text-secondary: #bfbfc1;
 
   /* less prominent text */
