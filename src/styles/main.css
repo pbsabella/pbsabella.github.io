@@ -10,6 +10,9 @@
 /* global layout: header, hero, main, footer */
 @import url('./_layout.css');
 
+/* hero section styles */
+@import url('./_hero.css');
+
 /* buttons, cards, forms, nav, project items */
 @import url('./_components.css');
 

@@ -36,6 +36,15 @@
   --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
   --tag-text-color: var(--color-text);
 
+  /* Hero shapes colors */
+  --shape-opacity: 0.85;
+  --shape-teal: rgb(6 129 142 / var(--shape-opacity));
+  --shape-aqua: rgb(22 163 178 / var(--shape-opacity));
+  --shape-yellow: rgb(255 198 65 / calc(var(--shape-opacity) + 0.05));
+  --shape-orange: rgb(254 94 51 / var(--shape-opacity));
+  --shape-pink: rgb(255 135 162 / var(--shape-opacity));
+  --shape-navy: rgb(17 23 71 / calc(var(--shape-opacity) - 0.1));
+
   /* Font size */
   --text-body: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
   --text-detail: 0.875em;
@@ -72,7 +81,6 @@
 
   /* Miscellaneous */
   --header-height: 52px;
-  --pattern-opacity: 1;
 }
 
 [data-theme="dark"] {
@@ -101,7 +109,4 @@
   --card-text-color: var(--color-secondary-xxdark);
   --card-shadow: 0 1px 8px rgb(0 0 0 / 60%);
   --tag-text-color: var(--color-text-dark);
-
-  /* Miscellaneous */
-  --pattern-opacity: 0.85;
 }
