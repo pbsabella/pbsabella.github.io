@@ -297,6 +297,7 @@
 
 .work-item__subtitle {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-small);
   margin-bottom: var(--spacing-small);
