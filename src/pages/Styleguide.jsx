@@ -148,7 +148,7 @@ const Styleguide = () => {
                     <div className={styles.buttonsRow}>
                         <a
                             className="hero__link"
-                            href="/labs/styleguide"
+                            href="#/labs/styleguide"
                             data-component="Hero Link"
                             data-tokens="color: --color-text"
                         >
@@ -157,7 +157,7 @@ const Styleguide = () => {
                         </a>
                         <a
                             className="link"
-                            href="/labs/styleguide"
+                            href="#/labs/styleguide"
                             data-component="Text Link"
                             data-tokens="color: --color-text-primary"
                         >Standard Text Link</a>
