@@ -1,7 +1,7 @@
 .aboutDescription {
-    line-height: 2em;
-    min-width: min(300px, 100%);
-    max-width: 560px;
+  line-height: 2em;
+  min-width: min(300px, 100%);
+  max-width: 560px;
 }
 
 .flex {

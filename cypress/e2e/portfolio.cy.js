@@ -23,7 +23,7 @@ describe('Portfolio Visual Regression Tests', () => {
     it('should capture homepage in dark mode', () => {
       cy.visit('/');
 
-      cy.get('body').then($body => {
+      cy.get('body').then(($body) => {
         if (!$body.hasClass('dark-mode')) {
           cy.findByRole('button', { name: 'Toggle theme' }).click();
         }
@@ -34,7 +34,7 @@ describe('Portfolio Visual Regression Tests', () => {
     it('should capture styleguide in dark mode', () => {
       cy.visit('#/labs/styleguide');
 
-      cy.get('body').then($body => {
+      cy.get('body').then(($body) => {
         if (!$body.hasClass('dark-mode')) {
           cy.findByRole('button', { name: 'Toggle theme' }).click();
         }

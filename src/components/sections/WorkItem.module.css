@@ -1,48 +1,48 @@
 .workItem {
-    padding-top: var(--spacing-xlarge);
-    padding-bottom: var(--spacing-xlarge);
+  padding-top: var(--spacing-xlarge);
+  padding-bottom: var(--spacing-xlarge);
 }
 
 .workItemImage {
-    margin-bottom: var(--spacing-large);
-    width: 100%;
-    height: auto;
+  margin-bottom: var(--spacing-large);
+  width: 100%;
+  height: auto;
 }
 
 .workItemImageMid {
-    max-width: 720px;
+  max-width: 720px;
 }
 
 .workItemTitle {
-    color: var(--color-text-dark);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: var(--spacing-xxsmall);
+  color: var(--color-text-dark);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xxsmall);
 }
 
 .workItemSubtitle {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-small);
-    margin-bottom: var(--spacing-small);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-small);
 }
 
 .workItemCompany {
-    font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
 }
 
 .workItemPosition {
-    font-size: var(--text-detail);
-    font-style: italic;
-    margin-bottom: var(--spacing-xxsmall);
+  font-size: var(--text-detail);
+  font-style: italic;
+  margin-bottom: var(--spacing-xxsmall);
 }
 
 .workItemDescription {
-    line-height: 2em;
+  line-height: 2em;
 }
 
 .workItemTags {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: var(--spacing-xxsmall);
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxsmall);
 }

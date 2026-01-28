@@ -1,168 +1,167 @@
 .main {
-    padding-top: var(--spacing-xxlarge);
+  padding-top: var(--spacing-xxlarge);
 }
 
 .wipBadge {
-    background-color: var(--color-accent-yellow);
-    color: var(--color-secondary-xxdark);
-    display: inline-block;
-    font-family: var(--font-family-mono);
-    font-size: 0.75rem;
-    font-weight: bold;
-    margin-bottom: var(--spacing-small);
-    padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  background-color: var(--color-accent-yellow);
+  color: var(--color-secondary-xxdark);
+  display: inline-block;
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-small);
+  padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .divider {
-    border: 0;
-    border-top: 1px solid var(--color-divider);
-    margin: var(--spacing-xlarge) 0;
+  border: 0;
+  border-top: 1px solid var(--color-divider);
+  margin: var(--spacing-xlarge) 0;
 }
 
 .section {
-    padding-bottom: var(--spacing-xlarge);
-    padding-top: var(--spacing-xlarge);
+  padding-bottom: var(--spacing-xlarge);
+  padding-top: var(--spacing-xlarge);
 }
 
 .sectionDesc {
-    color: var(--color-text);
-    margin-bottom: var(--spacing-large);
-    max-width: 600px;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-large);
+  max-width: 600px;
 }
 
 .subsectionTitle {
-    margin-bottom: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
 }
 
 .description {
-    line-height: 2em;
-    min-width: min(300px, 100%);
-    max-width: 560px;
+  line-height: 2em;
+  min-width: min(300px, 100%);
+  max-width: 560px;
 }
 
 .grid {
-    display: grid;
-    gap: var(--spacing-large);
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    margin-bottom: var(--spacing-large);
+  display: grid;
+  gap: var(--spacing-large);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-bottom: var(--spacing-large);
 }
 
 .swatchBox {
-    background-color: var(--color-bg);
-    border-radius: 8px;
-    height: var(--spacing-xlarge);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  height: var(--spacing-xlarge);
 }
 
 .swatchBoxBorder {
-    border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
 }
 
 .swatchBoxShadow {
-    box-shadow: var(--card-shadow);
+  box-shadow: var(--card-shadow);
 }
 
-
 .swatch p {
-    margin: var(--spacing-xxsmall) 0;
+  margin: var(--spacing-xxsmall) 0;
 }
 
 .typeExamples {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-medium);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
 }
 
 .cardWrapper {
-    margin-bottom: var(--spacing-large);
-    max-width: 400px;
+  margin-bottom: var(--spacing-large);
+  max-width: 400px;
 }
 
 .buttonsRow {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-medium);
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
 }
 
 .tagsRow {
-    display: flex;
-    gap: var(--spacing-medium);
-    margin-bottom: var(--spacing-large);
+  display: flex;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
 }
 
 /* Color swatch utilities */
 .swatchPrimary {
-    background: var(--color-primary);
+  background: var(--color-primary);
 }
 
 .swatchPrimaryLight {
-    background: var(--color-primary-light);
+  background: var(--color-primary-light);
 }
 
 .swatchPrimaryXXLight {
-    background: var(--color-primary-xxlight);
+  background: var(--color-primary-xxlight);
 }
 
 .swatchSecondaryXXLight {
-    background: var(--color-secondary-xxlight);
+  background: var(--color-secondary-xxlight);
 }
 
 .swatchSecondaryXLight {
-    background: var(--color-secondary-xlight);
+  background: var(--color-secondary-xlight);
 }
 
 .swatchSecondaryLight {
-    background: var(--color-secondary-light);
+  background: var(--color-secondary-light);
 }
 
 .swatchSecondary {
-    background: var(--color-secondary);
+  background: var(--color-secondary);
 }
 
 .swatchSecondaryDark {
-    background: var(--color-secondary-dark);
+  background: var(--color-secondary-dark);
 }
 
 .swatchSecondaryXDark {
-    background: var(--color-secondary-xdark);
+  background: var(--color-secondary-xdark);
 }
 
 .swatchSecondaryXXDark {
-    background: var(--color-secondary-xxdark);
+  background: var(--color-secondary-xxdark);
 }
 
 .swatchAccentYellow {
-    background: var(--color-accent-yellow);
+  background: var(--color-accent-yellow);
 }
 
 .swatchAccentOrange {
-    background: var(--color-accent-orange);
+  background: var(--color-accent-orange);
 }
 
 .swatchAccentCyanLight {
-    background: var(--color-accent-cyan-light);
+  background: var(--color-accent-cyan-light);
 }
 
 .swatchAccentNeutral {
-    background: var(--color-accent-neutral);
+  background: var(--color-accent-neutral);
 }
 
 /* Semantic swatch utilities */
 .swatchBg {
-    background: var(--color-bg);
+  background: var(--color-bg);
 }
 
 .swatchCardBg {
-    background: var(--card-bg-color);
+  background: var(--card-bg-color);
 }
 
 .swatchText {
-    background: var(--color-text);
+  background: var(--color-text);
 }
 
 .swatchBorder {
-    background: var(--color-border);
+  background: var(--color-border);
 }

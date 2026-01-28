@@ -1,86 +1,87 @@
 .header {
-    background-color: var(--color-header-overlay);
-    height: var(--header-height);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: var(--z-index-header);
-    transition: background-color 0.2s ease-out,
-        transform 0.3s ease;
+  background-color: var(--color-header-overlay);
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index-header);
+  transition:
+    background-color 0.2s ease-out,
+    transform 0.3s ease;
 }
 
 .headerInner {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .headerHidden {
-    transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 
 .headerTransparent {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .navLogo {
-    justify-self: start;
-    color: var(--color-text);
-    padding: var(--spacing-small) 0;
-    text-decoration: none;
-    font-family: var(--font-family-display);
+  justify-self: start;
+  color: var(--color-text);
+  padding: var(--spacing-small) 0;
+  text-decoration: none;
+  font-family: var(--font-family-display);
 }
 
 .navList {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xxxsmall);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxxsmall);
 }
 
 .navItem {
-    color: var(--color-text);
+  color: var(--color-text);
 }
 
 .navLink {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .navMenu {
-    background-color: transparent;
-    border: 0;
-    color: var(--color-text);
-    cursor: pointer;
-    display: block;
-    margin-right: calc(-1 * var(--spacing-small));
-    padding: var(--spacing-small);
+  background-color: transparent;
+  border: 0;
+  color: var(--color-text);
+  cursor: pointer;
+  display: block;
+  margin-right: calc(-1 * var(--spacing-small));
+  padding: var(--spacing-small);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .header {
-        transition: none !important;
-    }
+  .header {
+    transition: none !important;
+  }
 }
 
 @media only screen and (width <=767px) {
-    .hideOnSmall {
-        display: none;
-    }
+  .hideOnSmall {
+    display: none;
+  }
 }
 
 @media only screen and (width >=768px) {
-    .hideOnMedium {
-        display: none;
-    }
+  .hideOnMedium {
+    display: none;
+  }
 
-    .navList {
-        gap: var(--spacing-xlarge);
-    }
+  .navList {
+    gap: var(--spacing-xlarge);
+  }
 }

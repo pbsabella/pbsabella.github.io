@@ -3,8 +3,7 @@
   "static": {
     "cleanUrls": true,
     "include": [
-      "index.html",
-      "styleguide.html"
+      "index.html"
     ],
     "exclude": []
   },

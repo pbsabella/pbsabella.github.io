@@ -81,7 +81,7 @@
   --z-index-side-nav: 11;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   /* Scale colors */
   --color-primary-xxlight: #1e1e20;
   --color-tertiary: #1e1e20;
