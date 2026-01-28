@@ -34,7 +34,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
-
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

@@ -111,5 +111,4 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   );
 };
 
-
 export default Header;

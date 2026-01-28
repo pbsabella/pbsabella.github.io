@@ -1,6 +1,69 @@
 /* Default - light theme variables */
 :root {
-  /* Scale colors */
+  /* --------------------------------
+     1. Typography
+  -------------------------------- */
+
+  /* Font Family */
+  --font-family-display: 'DM Serif Display', arial, serif;
+  --font-family-body: heebo, arial, sans-serif;
+  --font-family-mono: 'SF Mono', monaco, monospace;
+
+  /* Font Size - Fluid Scale */
+  --text-h1: clamp(2.25em, 4vw + 1em, 3em);
+  --text-h2: clamp(1.625em, 3vw + 1em, 2.25em);
+  --text-h3: clamp(1.375em, 2vw + 1em, 1.75em);
+  --text-h4: clamp(1.25em, 1.5vw + 1em, 1.375em);
+  --text-body: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
+  --text-detail: 0.875em;
+  --text-footnote: 0.75em;
+
+  /* Font Weight */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Line Height */
+  --leading-tight: 1.05;
+  --leading-snug: 1.15;
+  --leading-normal: 1.25;
+  --leading-body: 1.25;
+  --leading-body-wide: 1.375;
+
+  /* --------------------------------
+     2. Spacing
+  -------------------------------- */
+  --spacing-xxxsmall: 4px;
+  --spacing-xxsmall: 8px;
+  --spacing-xsmall: 12px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 44px;
+  --spacing-xlarge: 64px;
+  --spacing-xxlarge: 84px;
+
+  /* --------------------------------
+     3. Borders
+  -------------------------------- */
+  --border-width-thin: 1px;
+  --border-width-thick: 3px;
+  --border-accent: var(--border-width-thick) solid var(--color-primary);
+  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-light);
+
+  /* --------------------------------
+     4. Elevation (Shadows)
+  -------------------------------- */
+  --elevation-low: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
+  --elevation-medium: 0 4px 16px rgb(50 50 93 / 20%);
+  --elevation-high: 0 10px 40px rgb(0 0 0 / 20%);
+  --card-shadow: var(--elevation-low);
+  --card-shadow-hover: var(--elevation-medium);
+
+  /* --------------------------------
+     5. Color System
+  -------------------------------- */
+
+  /* Scale Colors (Primitives) */
   --color-primary-xxlight: #cdf1e7;
   --color-primary-light: #88d4b7;
   --color-primary-dark: #017e5b;
@@ -18,7 +81,7 @@
   --color-accent-neutral: #ececf3;
   --color-accent-cyan-light: #d3f2f5;
 
-  /* Semantic colors */
+  /* Semantic Colors (Theme Aware) */
   --color-bg: var(--color-secondary-xlight);
   --color-bg-dark: var(--color-secondary-light);
   --color-border: var(--color-secondary-light);
@@ -30,84 +93,53 @@
   --color-text-primary-dark: var(--color-primary-dark);
   --color-text-primary-light: var(--color-primary-light);
   --color-text-secondary: var(--color-secondary-dark);
-  --color-header-overlay: rgb(252 252 252 / 90%);
-  --color-body-overlay: rgb(0 0 0 / 80%);
   --card-bg-color: var(--color-secondary-xxlight);
   --card-text-color: var(--color-secondary-xdark);
-  --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
   --tag-text-color: var(--color-text);
+  --color-header-overlay: rgb(252 252 252 / 90%);
+  --color-body-overlay: rgb(0 0 0 / 80%);
 
-  /* Font size */
-  --text-body: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
-  --text-detail: 0.875em;
-  --text-footnote: 0.75em;
-  --text-h1: clamp(2.25em, 4vw + 1em, 3em);
-  --text-h2: clamp(1.625em, 3vw + 1em, 2.25em);
-  --text-h3: clamp(1.375em, 2vw + 1em, 1.75em);
-  --text-h4: clamp(1.25em, 1.5vw + 1em, 1.375em);
-  --leading-body: 1.25;
-  --leading-body-wide: 1.375;
-  --leading-tight: 1.05;
-  --leading-snug: 1.15;
-  --leading-normal: 1.25;
-
-  /* Font weight */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-
-  /* Font families - Semantic */
-  --font-family-display: 'DM Serif Display', arial, serif;
-  --font-family-body: heebo, arial, sans-serif;
-  --font-family-mono: 'SF Mono', monaco, monospace;
-
-  /* Spacing */
-  --spacing-xxxsmall: 4px;
-  --spacing-xxsmall: 8px;
-  --spacing-xsmall: 12px;
-  --spacing-small: 16px;
-  --spacing-medium: 24px;
-  --spacing-large: 44px;
-  --spacing-xlarge: 64px;
-  --spacing-xxlarge: 84px;
-
-  /* Miscellaneous */
-  --header-height: 52px;
-  --pattern-opacity: 1;
-
-  /* Z-index */
+  /* --------------------------------
+     6. Z-Index
+  -------------------------------- */
   --z-index-header: 7;
   --z-index-overlay: 10;
   --z-index-side-nav: 11;
+
+  /* --------------------------------
+     7. Miscellaneous
+  -------------------------------- */
+  --header-height: 52px;
+  --pattern-opacity: 1;
 }
 
 [data-theme='dark'] {
-  /* Scale colors */
+  /* Scale Overrides */
   --color-primary-xxlight: #1e1e20;
   --color-tertiary: #1e1e20;
   --color-accent-neutral: #1e1e20;
   --color-accent-cyan-light: #1e1e20;
 
-  /* Semantic colors */
+  /* Semantic Overrides */
   --color-bg: #121214;
   --color-bg-dark: var(--color-secondary-xxdark);
   --color-divider: #e8e8ea;
   --color-border: var(--color-secondary-dark);
   --color-border-dark: var(--color-secondary-dark);
-  --color-header-overlay: rgb(20 20 20 / 94%);
   --color-text: #e8e8ea;
   --color-text-dark: #e8e8ea;
   --color-text-primary: var(--color-primary);
   --color-text-primary-light: var(--color-primary-light);
   --color-text-primary-dark: var(--color-primary);
   --color-text-secondary: #bfbfc1;
+  --color-header-overlay: rgb(20 20 20 / 94%);
 
-  /* less prominent text */
-  --card-bg-color: var(--color-primary-light);
-  --card-text-color: var(--color-secondary-xxdark);
-  --card-shadow: 0 1px 8px rgb(0 0 0 / 60%);
+  /* Component Overrides */
+  --card-bg-color: #1a1f1e;
+  --card-text-color: var(--color-text);
+  --card-shadow: var(--elevation-low);
   --tag-text-color: var(--color-text-dark);
 
-  /* Miscellaneous */
+  /* Misc Overrides */
   --pattern-opacity: 0.85;
 }

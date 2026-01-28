@@ -1,13 +1,22 @@
 .skillsCard {
-  padding: var(--spacing-medium);
   background-color: var(--card-bg-color);
-  color: var(--card-text-color);
   border-radius: 5px;
   box-shadow: var(--card-shadow);
+  color: var(--card-text-color);
+  padding: var(--spacing-medium);
   min-width: min(260px, 100%);
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+[data-theme='dark'] .skillsCard {
+  border-left: var(--border-accent);
+}
+
+.skillsCard:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
 }
 
 .skillsCardTitle {

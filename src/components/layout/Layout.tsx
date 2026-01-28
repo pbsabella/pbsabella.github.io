@@ -11,10 +11,6 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
-  // TODO: Add back x-ray for styleguide
-  // const location = useLocation();
-  // const isStyleguide = location.pathname === '/labs/styleguide';
-
   const toggleSideNav = () => {
     setIsSideNavOpen((prev) => !prev);
   };
@@ -45,10 +41,8 @@ const Layout = ({ children }: LayoutProps) => {
       <main className={isSideNavOpen ? styles.isDisabled : ''}>{children}</main>
 
       <Footer />
-      {/* {isStyleguide && <XRay />} */}
     </>
   );
 };
-
 
 export default Layout;

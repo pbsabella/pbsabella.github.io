@@ -109,5 +109,4 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   return createPortal(navContent, document.body);
 };
 
-
 export default SideNav;

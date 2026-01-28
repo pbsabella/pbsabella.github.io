@@ -44,6 +44,10 @@ jobs:
       - name: Build production
         run: npm run build
 
+      - name: Run Lighthouse CI
+        run: lhci autorun --collect.staticDistDir=dist || echo "Lighthouse CI failed but continuing"
+        continue-on-error: true
+
       - name: Upload artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3

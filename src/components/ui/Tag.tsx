@@ -9,5 +9,4 @@ const Tag = ({ children }: TagProps) => {
   return <span className={styles.tag}>{children}</span>;
 };
 
-
 export default Tag;

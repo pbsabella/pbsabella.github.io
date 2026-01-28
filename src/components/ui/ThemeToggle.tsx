@@ -54,5 +54,4 @@ const ThemeToggle = ({ id }: ThemeToggleProps) => {
   );
 };
 
-
 export default ThemeToggle;

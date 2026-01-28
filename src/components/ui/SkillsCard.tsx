@@ -21,5 +21,4 @@ const SkillsCard = ({ title, skills, className = '' }: SkillsCardProps) => {
   );
 };
 
-
 export default SkillsCard;

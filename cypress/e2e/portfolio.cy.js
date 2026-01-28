@@ -19,15 +19,17 @@ describe('Portfolio E2E Tests', () => {
 
   describe('Theme Management', () => {
     it('should toggle theme and persist on reload', () => {
-      cy.get('body').invoke('attr', 'data-theme').then((initialTheme) => {
-        cy.findByRole('button', { name: /toggle theme/i }).click();
-        const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
-        cy.get('body').should('have.attr', 'data-theme', expectedTheme);
+      cy.get('body')
+        .invoke('attr', 'data-theme')
+        .then((initialTheme) => {
+          cy.findByRole('button', { name: /toggle theme/i }).click();
+          const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
+          cy.get('body').should('have.attr', 'data-theme', expectedTheme);
 
-        // Persist on reload
-        cy.reload();
-        cy.get('body').should('have.attr', 'data-theme', expectedTheme);
-      });
+          // Persist on reload
+          cy.reload();
+          cy.get('body').should('have.attr', 'data-theme', expectedTheme);
+        });
     });
   });
 
@@ -51,16 +53,4 @@ describe('Portfolio E2E Tests', () => {
       cy.get('#side-nav').should('not.be.visible');
     });
   });
-
-  describe.skip('X-Ray Mode', () => {
-    it('should activate x-ray mode and show tooltips', () => {
-      cy.findByRole('button', { name: /toggle x-ray mode/i }).click();
-      cy.get('body').should('have.class', 'is-xray-active');
-
-      // Find an element with tokens and hover
-      cy.get('[data-tokens]').first().trigger('mouseover');
-      cy.get('[class*="xrayTooltip"]').should('be.visible');
-    });
-  });
 });
-
