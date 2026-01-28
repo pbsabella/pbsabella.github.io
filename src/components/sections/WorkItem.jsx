@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tag from '@components/ui/Tag';
+import styles from './WorkItem.module.css';
 
 const WorkItem = ({
     image,
@@ -11,36 +13,38 @@ const WorkItem = ({
     tags,
     bgClass = ''
 }) => {
+    const isMidImage = image.includes('sm-notifications') || image.includes('animation-knobs');
+
     return (
         <div className={bgClass}>
-            <div className="work-item container-space">
+            <div className={`${styles.workItem} container-space`}>
                 <img
-                    className="work-item__image"
+                    className={`${styles.workItemImage} ${isMidImage ? styles.workItemImageMid : ''}`}
                     src={image}
                     alt={title}
                     width="1440"
                     height="810"
                     loading="lazy"
                 />
-                <div className="work-item__subtitle">
-                    <span className="work-item__company">{company}</span>
+                <div className={styles.workItemSubtitle}>
+                    <span className={styles.workItemCompany}>{company}</span>
                     <span>{period}</span>
                 </div>
-                <div className="work-item__position">
+                <div className={styles.workItemPosition}>
                     {position}
                 </div>
-                <h4 className="h3 work-item__title">
+                <h4 className={`h3 ${styles.workItemTitle}`}>
                     {title}
                 </h4>
                 {description.map((desc, index) => (
-                    <p key={index} className="work-item__description">
+                    <p key={index} className={styles.workItemDescription}>
                         {desc}
                     </p>
                 ))}
 
-                <div className="work-item__tags">
+                <div className={styles.workItemTags}>
                     {tags.map((tag, index) => (
-                        <span key={index} className="tag">{tag}</span>
+                        <Tag key={index}>{tag}</Tag>
                     ))}
                 </div>
             </div>

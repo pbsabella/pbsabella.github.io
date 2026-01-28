@@ -1,12 +1,8 @@
-/* ---------------------------------
-   Styleguide Specific Styles
----------------------------------- */
-
-.sg-main {
+.main {
     padding-top: var(--spacing-xxlarge);
 }
 
-.sg-wip-badge {
+.wipBadge {
     background-color: var(--color-accent-yellow);
     color: var(--color-secondary-xxdark);
     display: inline-block;
@@ -20,152 +16,142 @@
     letter-spacing: 0.05em;
 }
 
-.sg-divider {
+.divider {
     border: 0;
     border-top: 1px solid var(--color-divider);
     margin: var(--spacing-xlarge) 0;
 }
 
-.sg-section-desc {
+.sectionDesc {
     color: var(--color-text);
     margin-bottom: var(--spacing-large);
     max-width: 600px;
 }
 
-.sg-subsection-title {
+.subsectionTitle {
     margin-bottom: var(--spacing-medium);
 }
 
-.sg-grid {
+.grid {
     display: grid;
     gap: var(--spacing-large);
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     margin-bottom: var(--spacing-large);
 }
 
-.sg-swatch-box {
+.swatchBox {
     background-color: var(--color-bg);
     border-radius: 8px;
     height: var(--spacing-xlarge);
 }
 
-.sg-swatch-box--border {
+.swatchBoxBorder {
     border: 1px solid var(--color-border);
 }
 
-.sg-swatch-box--shadow {
+.swatchBoxShadow {
     box-shadow: var(--card-shadow);
 }
 
-.sg-swatch-box + p {
+
+.swatch p {
     margin: var(--spacing-xxsmall) 0;
 }
 
-.sg-type-examples {
+.typeExamples {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-medium);
 }
 
-.sg-badge {
-    font-size: var(--text-footnote);
-    padding: var(--spacing-xxxsmall);
-    border-radius: 4px;
-    background: var(--color-bg-dark);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xxxsmall);
-    font-family: var(--font-family-mono);
-}
-
-.sg-card-wrapper {
+.cardWrapper {
     margin-bottom: var(--spacing-large);
     max-width: 400px;
 }
 
-.sg-buttons-row {
+.buttonsRow {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-medium);
 }
 
+.tagsRow {
+    display: flex;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+}
+
 /* Color swatch utilities */
-.sg-swatch-box--primary {
+.swatchPrimary {
     background: var(--color-primary);
 }
 
-.sg-swatch-box--primary-light {
+.swatchPrimaryLight {
     background: var(--color-primary-light);
 }
 
-.sg-swatch-box--primary-xxlight {
+.swatchPrimaryXXLight {
     background: var(--color-primary-xxlight);
 }
 
-.sg-swatch-box--secondary-xxlight {
+.swatchSecondaryXXLight {
     background: var(--color-secondary-xxlight);
 }
 
-.sg-swatch-box--secondary-xlight {
+.swatchSecondaryXLight {
     background: var(--color-secondary-xlight);
 }
 
-.sg-swatch-box--secondary-light {
+.swatchSecondaryLight {
     background: var(--color-secondary-light);
 }
 
-.sg-swatch-box--secondary {
+.swatchSecondary {
     background: var(--color-secondary);
 }
 
-.sg-swatch-box--secondary-dark {
+.swatchSecondaryDark {
     background: var(--color-secondary-dark);
 }
 
-.sg-swatch-box--secondary-xdark {
+.swatchSecondaryXDark {
     background: var(--color-secondary-xdark);
 }
 
-.sg-swatch-box--secondary-xxdark {
+.swatchSecondaryXXDark {
     background: var(--color-secondary-xxdark);
 }
 
-.sg-swatch-box--accent-yellow {
+.swatchAccentYellow {
     background: var(--color-accent-yellow);
 }
 
-.sg-swatch-box--accent-orange {
+.swatchAccentOrange {
     background: var(--color-accent-orange);
 }
 
-.sg-swatch-box--accent-cyan-light {
+.swatchAccentCyanLight {
     background: var(--color-accent-cyan-light);
 }
 
-.sg-swatch-box--accent-neutral {
+.swatchAccentNeutral {
     background: var(--color-accent-neutral);
 }
 
 /* Semantic swatch utilities */
-.sg-swatch-box--bg {
+.swatchBg {
     background: var(--color-bg);
 }
 
-.sg-swatch-box--card-bg {
+.swatchCardBg {
     background: var(--card-bg-color);
 }
 
-.sg-swatch-box--text {
+.swatchText {
     background: var(--color-text);
 }
 
-.sg-swatch-box--border-token {
+.swatchBorder {
     background: var(--color-border);
-}
-
-.sg-tags-row {
-    display: flex;
-    gap: var(--spacing-medium);
-    margin-bottom: var(--spacing-large);
 }

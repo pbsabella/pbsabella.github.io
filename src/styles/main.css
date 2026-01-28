@@ -1,23 +1,11 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500|DM+Serif+Display&display=swap');
 
-/* color scales, semantic tokens, theme overrides */
-@import url('./_variables.css');
+/* design tokens */
+@import url('./tokens.css');
 
-/* normalize/reset + base typography */
-@import url('./_base.css');
+/* base reset and typography */
+@import url('./base.css');
 
-/* global layout: header, hero, main, footer */
-@import url('./_layout.css');
-
-/* buttons, cards, forms, nav, project items */
-@import url('./_components.css');
-
-/* small helpers: visually-hidden, mt/md, grid helpers */
-@import url('./_utilities.css');
-
-/* styleguide specific styles */
-@import url('./_styleguide.css');
-
-/* system debug tool styles */
-@import url('./_debug.css');
+/* global layout utilities */
+@import url('./utilities.css');

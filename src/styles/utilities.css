@@ -79,8 +79,7 @@
   transition: transform 0.3s ease-out;
 }
 
-.link:hover::after,
-.link:focus::after {
+.link:hover::after {
   transform: scale3d(1, 1, 1);
 }
 

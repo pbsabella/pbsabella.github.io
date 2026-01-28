@@ -1,32 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import { useScrollManager } from '../../hooks/useScrollManager';
-import ThemeToggle from '../ui/ThemeToggle';
+import { useScrollManager } from '@hooks/useScrollManager';
+import ThemeToggle from '@components/ui/ThemeToggle';
+import styles from './Header.module.css';
 
 const Header = ({ toggleSideNav }) => {
     const { headerClass } = useScrollManager();
     const location = useLocation();
     const isStyleguide = location.pathname === '/labs/styleguide';
 
+    // Map headerClass strings to module styles
+    const classes = headerClass.split(' ').map(cls => {
+        if (cls === 'header--transparent') return styles.headerTransparent;
+        if (cls === 'header--hidden') return styles.headerHidden;
+        return '';
+    }).join(' ');
+
     return (
-        <header className={`header ${headerClass}`}>
-            <div className="header__inner container-space">
-                <nav className="nav">
+        <header className={`${styles.header} ${classes}`}>
+            <div className={styles.headerInner}>
+                <nav className={styles.nav}>
                     {isStyleguide ? (
-                        <Link className="nav__logo link" to="/">← Back to Portfolio</Link>
+                        <Link className={`${styles.navLogo} link`} to="/">← Back to Portfolio</Link>
                     ) : (
-                        <Link className="nav__logo" to="/">pbsabella</Link>
+                        <Link className={styles.navLogo} to="/">pbsabella</Link>
                     )}
 
-                    <ul className="nav__list hide-on-medium">
-                        <li className="nav__item nav__item--mobile">
+                    <ul className={`${styles.navList} ${styles.hideOnMedium}`}>
+                        <li className={`${styles.navItem} ${styles.navItemMobile}`}>
                             <ThemeToggle id="theme-toggle-mobile" />
                         </li>
-                        <li className="nav__item nav__item--mobile">
+                        <li className={`${styles.navItem} ${styles.navItemMobile}`}>
                             <button
-                                id="menu-toggle"
-                                className="nav__menu"
+                                className={styles.navMenu}
                                 aria-controls="side-nav"
                                 aria-label="Open main menu"
                                 onClick={toggleSideNav}
@@ -42,28 +49,28 @@ const Header = ({ toggleSideNav }) => {
                     </ul>
 
                     {!isStyleguide && (
-                        <ul className="nav__list hide-on-small">
-                            <li className="nav__item">
-                                <Link className="nav__link link" to="/labs/styleguide">Styleguide</Link>
+                        <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
+                            <li className={styles.navItem}>
+                                <Link className={`${styles.navLink} link`} to="/labs/styleguide">Styleguide</Link>
                             </li>
-                            <li className="nav__item">
-                                <a className="nav__link link scrollspy" href="#work">Work</a>
+                            <li className={styles.navItem}>
+                                <a className={`${styles.navLink} link`} href="#work">Work</a>
                             </li>
-                            <li className="nav__item">
-                                <a className="nav__link link scrollspy" href="#about">About</a>
+                            <li className={styles.navItem}>
+                                <a className={`${styles.navLink} link`} href="#about">About</a>
                             </li>
-                            <li className="nav__item">
-                                <a className="nav__link link scrollspy" href="#contact">Contact</a>
+                            <li className={styles.navItem}>
+                                <a className={`${styles.navLink} link`} href="#contact">Contact</a>
                             </li>
-                            <li className="nav__item">
+                            <li className={styles.navItem}>
                                 <ThemeToggle id="theme-toggle" />
                             </li>
                         </ul>
                     )}
 
                     {isStyleguide && (
-                        <ul className="nav__list hide-on-small">
-                            <li className="nav__item">
+                        <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
+                            <li className={styles.navItem}>
                                 <ThemeToggle id="theme-toggle" />
                             </li>
                         </ul>

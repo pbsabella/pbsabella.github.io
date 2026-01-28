@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import SideNav from './SideNav';
-import XRay from '../ui/XRay';
+import Header from '@components/layout/Header';
+import Footer from '@components/layout/Footer';
+import SideNav from '@components/layout/SideNav';
+import XRay from '@components/ui/XRay';
+import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
     const [isSideNavOpen, setIsSideNavOpen] = useState(false);
@@ -22,8 +23,7 @@ const Layout = ({ children }) => {
     return (
         <>
             <div
-                id="overlay"
-                className={isSideNavOpen ? 'is-active' : ''}
+                className={`${styles.overlay} ${isSideNavOpen ? styles.overlayActive : ''}`}
                 onClick={closeSideNav}
                 role="presentation"
             ></div>
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
                 onClose={closeSideNav}
             />
 
-            <main className={isSideNavOpen ? 'is-disabled' : ''}>
+            <main className={isSideNavOpen ? styles.isDisabled : ''}>
                 {children}
             </main>
 

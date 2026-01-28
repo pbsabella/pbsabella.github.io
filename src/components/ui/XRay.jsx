@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './XRay.module.css';
 
 const XRay = () => {
     const [isActive, setIsActive] = useState(false);
@@ -36,7 +37,7 @@ const XRay = () => {
 
                     if (value.startsWith('--')) {
                         const computedValue = window.getComputedStyle(target).getPropertyValue(value).trim();
-                        return `${prop}: ${value} <span class="xray-tooltip__value">(${computedValue})</span>`;
+                        return `${prop}: ${value} <span class="${styles.tooltipValue}">(${computedValue})</span>`;
                     }
 
                     return token;
@@ -79,22 +80,20 @@ const XRay = () => {
         <>
             <button
                 id="xray-toggle"
-                className={isActive ? 'is-active' : ''}
+                className={`${styles.xrayToggle} ${isActive ? styles.isActive : ''}`}
                 onClick={toggleXRay}
                 aria-label="Toggle X-Ray Mode"
             >
-                <span id="xray-indicator"></span>
+                <span className={styles.xrayIndicator}></span>
                 System X-Ray
             </button>
 
             {tooltip.display && (
                 <div
-                    className="xray-tooltip"
+                    className={styles.xrayTooltip}
                     style={{
-                        display: 'block',
-                        top: tooltip.top,
-                        left: tooltip.left,
-                        position: 'absolute'
+                        '--tooltip-top': `${tooltip.top}px`,
+                        '--tooltip-left': `${tooltip.left}px`
                     }}
                     dangerouslySetInnerHTML={{ __html: tooltip.content }}
                     ref={tooltipRef}

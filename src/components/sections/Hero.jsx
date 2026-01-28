@@ -1,20 +1,21 @@
 import React from 'react';
+import styles from './Hero.module.css';
 
 const Hero = () => {
     return (
-        <div id="hero" className="hero">
-            <div className="hero__inner">
-                <h1 className="hero__title hero__indent">
+        <div id="hero" className={styles.hero}>
+            <div className={styles.heroInner}>
+                <h1 className={`${styles.heroTitle} ${styles.heroIndent}`}>
                     A portfolio<br />
-                    <span className="pl-large">of sorts.</span>
+                    <span className={styles.plLarge}>of sorts.</span>
                 </h1>
-                <div className="hero__action hero__indent">
-                    <a className="hero__link" href="#about">
+                <div className={`${styles.heroAction} ${styles.heroIndent}`}>
+                    <a className={styles.heroLink} href="#about">
                         <span>
                             Senior Frontend Engineer & <br />
                             Design Systems Specialist
                         </span>
-                        <span className="hero__divider"></span>
+                        <span className={styles.heroDivider}></span>
                     </a>
                 </div>
             </div>

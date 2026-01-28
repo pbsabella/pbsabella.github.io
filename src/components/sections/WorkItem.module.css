@@ -1,0 +1,48 @@
+.workItem {
+    padding-top: var(--spacing-xlarge);
+    padding-bottom: var(--spacing-xlarge);
+}
+
+.workItemImage {
+    margin-bottom: var(--spacing-large);
+    width: 100%;
+    height: auto;
+}
+
+.workItemImageMid {
+    max-width: 720px;
+}
+
+.workItemTitle {
+    color: var(--color-text-dark);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xxsmall);
+}
+
+.workItemSubtitle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+}
+
+.workItemCompany {
+    font-weight: 500;
+}
+
+.workItemPosition {
+    font-size: var(--text-detail);
+    font-style: italic;
+    margin-bottom: var(--spacing-xxsmall);
+}
+
+.workItemDescription {
+    line-height: 2em;
+}
+
+.workItemTags {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-xxsmall);
+}

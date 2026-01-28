@@ -1,0 +1,12 @@
+.icon {
+    display: block;
+    fill: var(--color-secondary-xxdark);
+    stroke: none;
+    width: 24px;
+    height: 24px;
+}
+
+.iconBehance {
+    width: 24px;
+    height: 26px;
+}

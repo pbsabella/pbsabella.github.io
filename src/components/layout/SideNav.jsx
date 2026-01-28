@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './SideNav.module.css';
 
 const SideNav = ({ isOpen, onClose }) => {
     const navRef = useRef(null);
@@ -38,10 +39,14 @@ const SideNav = ({ isOpen, onClose }) => {
     }, [isOpen, onClose]);
 
     return (
-        <div id="side-nav" className={`side-menu ${isOpen ? 'is-active' : ''}`} ref={navRef}>
+        <div
+            id="side-nav"
+            className={`${styles.sideMenu} ${isOpen ? styles.isActive : ''}`}
+            ref={navRef}
+        >
             <button
                 id="side-menu-close"
-                className="side-menu__close"
+                className={styles.sideMenuClose}
                 aria-label="Close menu"
                 onClick={onClose}
             >
@@ -52,18 +57,18 @@ const SideNav = ({ isOpen, onClose }) => {
                 </svg>
             </button>
 
-            <ul className="side-menu__list">
-                <li className="side-menu__item">
-                    <Link className="side-menu__link" to="/labs/styleguide" onClick={onClose}>styleguide</Link>
+            <ul className={styles.sideMenuList}>
+                <li className={styles.sideMenuItem}>
+                    <Link className={styles.sideMenuLink} to="/labs/styleguide" onClick={onClose}>styleguide</Link>
                 </li>
-                <li className="side-menu__item">
-                    <a className="side-menu__link" href="#work" onClick={onClose}>work</a>
+                <li className={styles.sideMenuItem}>
+                    <a className={styles.sideMenuLink} href="#work" onClick={onClose}>work</a>
                 </li>
-                <li className="side-menu__item">
-                    <a className="side-menu__link" href="#about" onClick={onClose}>about</a>
+                <li className={styles.sideMenuItem}>
+                    <a className={styles.sideMenuLink} href="#about" onClick={onClose}>about</a>
                 </li>
-                <li className="side-menu__item">
-                    <a className="side-menu__link" href="#contact" onClick={onClose}>contact</a>
+                <li className={styles.sideMenuItem}>
+                    <a className={styles.sideMenuLink} href="#contact" onClick={onClose}>contact</a>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,37 @@
+.section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    scroll-margin-top: 70px;
+    padding-top: var(--spacing-xlarge);
+    padding-bottom: var(--spacing-xlarge);
+}
+
+.sectionIntro {
+    display: flex;
+}
+
+.sectionIntroDivider {
+    background-color: var(--color-divider);
+    height: 1px;
+    margin: 8px 8px 0 0;
+    width: 44px;
+}
+
+.sectionIntroText {
+    font-size: var(--text-detail);
+    font-weight: 400;
+}
+
+.sectionTitle {
+    font-family: var(--font-family-display);
+    padding-top: var(--spacing-large);
+    padding-bottom: var(--spacing-medium);
+}
+
+.sectionDescription {
+    line-height: 2em;
+    min-width: min(300px, 100%);
+    max-width: 560px;
+}

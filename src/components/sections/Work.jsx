@@ -1,10 +1,11 @@
 import React from 'react';
+import Section from '@components/layout/Section';
 import WorkItem from './WorkItem';
-import smDsWide from '../../images/sm-ds-wide.png';
-import smNotifications from '../../images/sm-notifications.png';
-import flDsWide from '../../images/fl-ds-wide.png';
-import wireframingTool from '../../images/wireframing-tool-frame.png';
-import animationKnobs from '../../images/animation-knobs.png';
+import smDsWide from '@assets/sm-ds-wide.png';
+import smNotifications from '@assets/sm-notifications.png';
+import flDsWide from '@assets/fl-ds-wide.png';
+import wireframingTool from '@assets/wireframing-tool-frame.png';
+import animationKnobs from '@assets/animation-knobs.png';
 
 const Work = () => {
     const projects = [
@@ -74,21 +75,16 @@ const Work = () => {
     ];
 
     return (
-        <section id="work" className="section">
-            <div className="section__inner">
-                <div className="section__intro container-space">
-                    <span className="section__intro-divider"></span>
-                    <h2 className="section__intro-text">work</h2>
-                </div>
-                <h3 className="section__title container-space">
-                    Selected Projects<br />
-                </h3>
-
-                {projects.map((project, index) => (
-                    <WorkItem key={index} {...project} />
-                ))}
-            </div>
-        </section>
+        <Section
+            id="work"
+            introText="work"
+            title="Selected Projects"
+            noContainer
+        >
+            {projects.map((project, index) => (
+                <WorkItem key={index} {...project} />
+            ))}
+        </Section>
     );
 };
 

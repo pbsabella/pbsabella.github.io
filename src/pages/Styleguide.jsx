@@ -1,44 +1,47 @@
 import React from 'react';
+import SkillsCard from '@components/ui/SkillsCard';
+import Tag from '@components/ui/Tag';
+import styles from './Styleguide.module.css';
 
 const Styleguide = () => {
     return (
-        <div className="container-space sg-main">
-            <section className="section">
-                <div className="section__inner">
-                    <span className="sg-wip-badge">Work in Progress</span>
+        <div className={`${styles.main} container-space`}>
+            <section className={styles.section}>
+                <div className={styles.sectionInner}>
+                    <span className={styles.wipBadge}>Work in Progress</span>
                     <h1>Styleguide</h1>
-                    <p className="section__description">
+                    <p className={styles.sectionDesc}>
                         A living reference of the design tokens, primitives, and components used in this portfolio.
                         This system demonstrates a tiered token architecture for scalable, maintainable design.
                     </p>
 
-                    <hr className="sg-divider" />
+                    <hr className={styles.divider} />
 
                     {/* Color System */}
-                    <h2>Color System</h2>
-                    <p className="sg-section-desc">Colors are organized by priority and semantic meaning.</p>
+                    <h2 className={styles.subsectionTitle}>Color System</h2>
+                    <p className={styles.sectionDesc}>Colors are organized by priority and semantic meaning.</p>
 
-                    <h3 className="sg-subsection-title">Primary Colors</h3>
-                    <div className="sg-grid">
-                        <div className="swatch">
+                    <h3 className={styles.subsectionTitle}>Primary Colors</h3>
+                    <div className={styles.grid}>
+                        <div className={styles.swatch}>
                             <div
-                                className="sg-swatch-box sg-swatch-box--primary"
+                                className={`${styles.swatchBox} ${styles.swatchPrimary}`}
                                 data-component="Primary Color"
                                 data-tokens="bg: --color-primary"
                             ></div>
                             <p>Primary</p>
                         </div>
-                        <div className="swatch">
+                        <div className={styles.swatch}>
                             <div
-                                className="sg-swatch-box sg-swatch-box--primary-light"
+                                className={`${styles.swatchBox} ${styles.swatchPrimaryLight}`}
                                 data-component="Primary Light"
                                 data-tokens="bg: --color-primary-light"
                             ></div>
                             <p>Primary Light</p>
                         </div>
-                        <div className="swatch">
+                        <div className={styles.swatch}>
                             <div
-                                className="sg-swatch-box sg-swatch-box--primary-xxlight"
+                                className={`${styles.swatchBox} ${styles.swatchPrimaryXXLight}`}
                                 data-component="Primary XXLight"
                                 data-tokens="bg: --color-primary-xxlight"
                             ></div>
@@ -46,182 +49,103 @@ const Styleguide = () => {
                         </div>
                     </div>
 
-                    <h3 className="sg-subsection-title">Neutral Colors</h3>
-                    <div className="sg-grid">
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xxlight"
-                                data-component="Neutral XXLight"
-                                data-tokens="bg: --color-secondary-xxlight"
-                            ></div>
-                            <p>Neutral XXLight</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--border sg-swatch-box--secondary-xlight"
-                                data-component="Neutral XLight"
-                                data-tokens="bg: --color-secondary-xlight"
-                            ></div>
-                            <p>Neutral XLight</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--secondary-light"
-                                data-component="Neutral Light"
-                                data-tokens="bg: --color-secondary-light"
-                            ></div>
-                            <p>Neutral Light</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--secondary"
-                                data-component="Neutral"
-                                data-tokens="bg: --color-secondary"
-                            ></div>
-                            <p>Neutral</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--secondary-dark"
-                                data-component="Neutral Dark"
-                                data-tokens="bg: --color-secondary-dark"
-                            ></div>
-                            <p>Neutral Dark</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--secondary-xdark"
-                                data-component="Neutral XDark"
-                                data-tokens="bg: --color-secondary-xdark"
-                            ></div>
-                            <p>Neutral XDark</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--secondary-xxdark"
-                                data-component="Neutral XXDark"
-                                data-tokens="bg: --color-secondary-xxdark"
-                            ></div>
-                            <p>Neutral XXDark</p>
-                        </div>
+                    <h3 className={styles.subsectionTitle}>Neutral Colors</h3>
+                    <div className={styles.grid}>
+                        {[
+                            { name: 'Neutral XXLight', class: styles.swatchSecondaryXXLight, token: '--color-secondary-xxlight', border: true },
+                            { name: 'Neutral XLight', class: styles.swatchSecondaryXLight, token: '--color-secondary-xlight', border: true },
+                            { name: 'Neutral Light', class: styles.swatchSecondaryLight, token: '--color-secondary-light' },
+                            { name: 'Neutral', class: styles.swatchSecondary, token: '--color-secondary' },
+                            { name: 'Neutral Dark', class: styles.swatchSecondaryDark, token: '--color-secondary-dark' },
+                            { name: 'Neutral XDark', class: styles.swatchSecondaryXDark, token: '--color-secondary-xdark' },
+                            { name: 'Neutral XXDark', class: styles.swatchSecondaryXXDark, token: '--color-secondary-xxdark' },
+                        ].map((item, idx) => (
+                            <div className={styles.swatch} key={idx}>
+                                <div
+                                    className={`${styles.swatchBox} ${item.class} ${item.border ? styles.swatchBoxBorder : ''}`}
+                                    data-component={item.name}
+                                    data-tokens={`bg: ${item.token}`}
+                                ></div>
+                                <p>{item.name}</p>
+                            </div>
+                        ))}
                     </div>
 
-                    <h3 className="sg-subsection-title">Accent Colors</h3>
-                    <div className="sg-grid">
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--accent-yellow"
-                                data-component="Yellow Accent"
-                                data-tokens="bg: --color-accent-yellow"
-                            ></div>
-                            <p>Yellow</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--accent-orange"
-                                data-component="Orange Accent"
-                                data-tokens="bg: --color-accent-orange"
-                            ></div>
-                            <p>Orange</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--accent-cyan-light"
-                                data-component="Cyan Light"
-                                data-tokens="bg: --color-accent-cyan-light"
-                            ></div>
-                            <p>Cyan Light</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--border sg-swatch-box--accent-neutral"
-                                data-component="Neutral Accent"
-                                data-tokens="bg: --color-accent-neutral"
-                            ></div>
-                            <p>Neutral Accent</p>
-                        </div>
+                    <h3 className={styles.subsectionTitle}>Accent Colors</h3>
+                    <div className={styles.grid}>
+                        {[
+                            { name: 'Yellow', class: styles.swatchAccentYellow, token: '--color-accent-yellow' },
+                            { name: 'Orange', class: styles.swatchAccentOrange, token: '--color-accent-orange' },
+                            { name: 'Cyan Light', class: styles.swatchAccentCyanLight, token: '--color-accent-cyan-light' },
+                            { name: 'Neutral Accent', class: styles.swatchAccentNeutral, token: '--color-accent-neutral', border: true },
+                        ].map((item, idx) => (
+                            <div className={styles.swatch} key={idx}>
+                                <div
+                                    className={`${styles.swatchBox} ${item.class} ${item.border ? styles.swatchBoxBorder : ''}`}
+                                    data-component={item.name}
+                                    data-tokens={`bg: ${item.token}`}
+                                ></div>
+                                <p>{item.name}</p>
+                            </div>
+                        ))}
                     </div>
 
-                    <h3 className="sg-subsection-title">Semantic Tokens</h3>
-                    <p className="sg-section-desc">These tokens adapt automatically based on the active theme.</p>
-                    <div className="sg-grid">
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--border sg-swatch-box--bg"
-                                data-component="Background"
-                                data-tokens="color: --color-bg"
-                            ></div>
-                            <p>Background</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--card-bg"
-                                data-component="Card BG"
-                                data-tokens="color: --card-bg-color"
-                            ></div>
-                            <p>Card BG</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--text"
-                                data-component="Text"
-                                data-tokens="color: --color-text"
-                            ></div>
-                            <p>Text</p>
-                        </div>
-                        <div className="swatch">
-                            <div
-                                className="sg-swatch-box sg-swatch-box--border-token"
-                                data-component="Border"
-                                data-tokens="color: --color-border"
-                            ></div>
-                            <p>Border</p>
-                        </div>
+                    <h3 className={styles.subsectionTitle}>Semantic Tokens</h3>
+                    <div className={styles.grid}>
+                        {[
+                            { name: 'Background', class: styles.swatchBg, token: '--color-bg', border: true },
+                            { name: 'Card BG', class: styles.swatchCardBg, token: '--card-bg-color' },
+                            { name: 'Text', class: styles.swatchText, token: '--color-text' },
+                            { name: 'Border', class: styles.swatchBorder, token: '--color-border' },
+                        ].map((item, idx) => (
+                            <div className={styles.swatch} key={idx}>
+                                <div
+                                    className={`${styles.swatchBox} ${item.class} ${item.border ? styles.swatchBoxBorder : ''}`}
+                                    data-component={item.name}
+                                    data-tokens={`color: ${item.token}`}
+                                ></div>
+                                <p>{item.name}</p>
+                            </div>
+                        ))}
                     </div>
 
-                    <hr className="sg-divider" />
+                    <hr className={styles.divider} />
 
                     {/* Typography */}
-                    <h2>Typography</h2>
-                    <p className="sg-section-desc">Type scale and hierarchy for content structure.</p>
-
-                    <div className="sg-type-examples">
+                    <h2 className={styles.subsectionTitle}>Typography</h2>
+                    <div className={styles.typeExamples}>
                         <h1 data-component="Heading Level 1" data-tokens="size: --text-h1 | leading: --leading-tight">Heading Level 1</h1>
                         <h2 data-component="Heading Level 2" data-tokens="size: --text-h2 | leading: --leading-normal">Heading Level 2</h2>
                         <h3 data-component="Heading Level 3" data-tokens="size: --text-h3 | leading: --leading-normal">Heading Level 3</h3>
                         <p data-component="Body Text" data-tokens="size: --text-body | leading: --leading-body-wide">
                             This is body text. It defines the rhythm of the page.
-                            It is used for <strong>paragraphs and general content</strong> and should be easy to read.
                         </p>
                     </div>
 
-                    <hr className="sg-divider" />
+                    <hr className={styles.divider} />
 
                     {/* Components */}
-                    <h2>Components</h2>
-                    <p className="sg-section-desc">Reusable UI patterns showcased in this portfolio.</p>
+                    <h2 className={styles.subsectionTitle}>Components</h2>
 
-                    <h3 className="sg-subsection-title">Cards</h3>
-                    <div
-                        className="skills-card sg-card-wrapper"
-                        data-component="Skills Card"
-                        data-tokens="bg: --color-bg | shadow: --card-shadow | radius: 5px"
-                    >
-                        <h4 className="skills-card__title">Skills Card</h4>
-                        <ul className="skills-card__list">
-                            <li className="skills-card__item">Item 1</li>
-                            <li className="skills-card__item">Item 2</li>
-                            <li className="skills-card__item">Item 3</li>
-                        </ul>
+                    <h3 className={styles.subsectionTitle}>Cards</h3>
+                    <div className={styles.cardWrapper}>
+                        <SkillsCard
+                            title="Skills Card"
+                            skills={['Modular Architecture', 'Atomic Design', 'Industry Standards']}
+                            data-component="Skills Card"
+                            data-tokens="bg: --color-bg | shadow: --card-shadow | radius: 5px"
+                        />
                     </div>
 
-                    <h3 className="sg-subsection-title">Tags</h3>
-                    <div className="sg-tags-row">
-                        <span className="tag" data-component="Tag" data-tokens="bg: --tag-bg-color | color: --tag-text-color">Example Tag</span>
+                    <h3 className={styles.subsectionTitle}>Tags</h3>
+                    <div className={styles.tagsRow}>
+                        <Tag data-component="Tag" data-tokens="bg: --tag-bg-color | color: --tag-text-color">React</Tag>
+                        <Tag>CSS Modules</Tag>
+                        <Tag>Vite</Tag>
                     </div>
 
-                    <h3 className="sg-subsection-title">Buttons & Links</h3>
-                    <div className="sg-buttons-row">
+                    <h3 className={styles.subsectionTitle}>Buttons & Links</h3>
+                    <div className={styles.buttonsRow}>
                         <a
                             className="hero__link"
                             href="/labs/styleguide"
