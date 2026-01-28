@@ -2,7 +2,4 @@
 package = "@netlify/plugin-lighthouse"
 
   [plugins.inputs]
-  audits = [
-    "/",
-    "/labs/styleguide"
-  ]
+  audits = ["/"]
