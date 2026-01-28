@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@components/layout/Container';
 import Tag from '@components/ui/Tag';
 import styles from './WorkItem.module.css';
 
@@ -17,7 +18,7 @@ const WorkItem = ({
 
     return (
         <div className={bgClass}>
-            <div className={`${styles.workItem} container-space`}>
+            <Container className={styles.workItem}>
                 <img
                     className={`${styles.workItemImage} ${isMidImage ? styles.workItemImageMid : ''}`}
                     src={image}
@@ -47,7 +48,7 @@ const WorkItem = ({
                         <Tag key={index}>{tag}</Tag>
                     ))}
                 </div>
-            </div>
+            </Container>
         </div>
     );
 };

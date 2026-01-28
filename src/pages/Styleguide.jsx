@@ -1,24 +1,24 @@
 import React from 'react';
 import SkillsCard from '@components/ui/SkillsCard';
+import Container from '@components/layout/Container';
 import Tag from '@components/ui/Tag';
 import styles from './Styleguide.module.css';
 
 const Styleguide = () => {
     return (
-        <div className={`${styles.main} container-space`}>
+        <Container className={styles.main}>
             <section className={styles.section}>
                 <div className={styles.sectionInner}>
                     <span className={styles.wipBadge}>Work in Progress</span>
                     <h1>Styleguide</h1>
-                    <p className={styles.sectionDesc}>
+                    <p className={styles.description}>
                         A living reference of the design tokens, primitives, and components used in this portfolio.
                         This system demonstrates a tiered token architecture for scalable, maintainable design.
                     </p>
 
                     <hr className={styles.divider} />
 
-                    {/* Color System */}
-                    <h2 className={styles.subsectionTitle}>Color System</h2>
+                    <h2>Color System</h2>
                     <p className={styles.sectionDesc}>Colors are organized by priority and semantic meaning.</p>
 
                     <h3 className={styles.subsectionTitle}>Primary Colors</h3>
@@ -91,6 +91,7 @@ const Styleguide = () => {
                     </div>
 
                     <h3 className={styles.subsectionTitle}>Semantic Tokens</h3>
+                    <p className={styles.sectionDesc}>These tokens adapt automatically based on the active theme.</p>
                     <div className={styles.grid}>
                         {[
                             { name: 'Background', class: styles.swatchBg, token: '--color-bg', border: true },
@@ -111,8 +112,8 @@ const Styleguide = () => {
 
                     <hr className={styles.divider} />
 
-                    {/* Typography */}
-                    <h2 className={styles.subsectionTitle}>Typography</h2>
+                    <h2>Typography</h2>
+                    <p className={styles.sectionDesc}>Type scale and hierarchy for content structure.</p>
                     <div className={styles.typeExamples}>
                         <h1 data-component="Heading Level 1" data-tokens="size: --text-h1 | leading: --leading-tight">Heading Level 1</h1>
                         <h2 data-component="Heading Level 2" data-tokens="size: --text-h2 | leading: --leading-normal">Heading Level 2</h2>
@@ -124,9 +125,8 @@ const Styleguide = () => {
 
                     <hr className={styles.divider} />
 
-                    {/* Components */}
-                    <h2 className={styles.subsectionTitle}>Components</h2>
-
+                    <h2>Components</h2>
+                    <p className={styles.sectionDesc}>Reusable UI patterns showcased in this portfolio.</p>
                     <h3 className={styles.subsectionTitle}>Cards</h3>
                     <div className={styles.cardWrapper}>
                         <SkillsCard
@@ -164,7 +164,7 @@ const Styleguide = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </Container>
     );
 };
 

@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const useScrollManager = () => {
     const [headerClass, setHeaderClass] = useState('header--transparent');
-    const [lastScrollY, setLastScrollY] = useState(0);
+
+    // Create a "persistent box" for the scroll value
+    const lastScrollY = useRef(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,22 +14,19 @@ export const useScrollManager = () => {
             // Transparent at top
             if (scrollTop === 0) {
                 newClass = 'header--transparent';
-            } else {
-                newClass = '';
             }
 
-            // Hide when scrolling down significantly
-            if (scrollTop > lastScrollY && scrollTop > 100) {
+            if (scrollTop > lastScrollY.current && scrollTop > 100) {
                 newClass += ' header--hidden';
             }
 
             setHeaderClass(newClass);
-            setLastScrollY(scrollTop);
+            lastScrollY.current = scrollTop;
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
+    }, []);
 
     return { headerClass };
 };

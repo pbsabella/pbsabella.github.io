@@ -20,13 +20,5 @@ export default {
         "ignoreProperties": ["composes"]
       }
     ]
-  },
-  "overrides": [
-    {
-      "files": ["src/styles/*.css"],
-      "rules": {
-        "selector-class-pattern": null
-      }
-    }
-  ]
+  }
 };

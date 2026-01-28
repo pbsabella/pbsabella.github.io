@@ -7,7 +7,7 @@ const Hero = () => {
             <div className={styles.heroInner}>
                 <h1 className={`${styles.heroTitle} ${styles.heroIndent}`}>
                     A portfolio<br />
-                    <span className={styles.plLarge}>of sorts.</span>
+                    <span className={styles.heroIndentInner}>of sorts.</span>
                 </h1>
                 <div className={`${styles.heroAction} ${styles.heroIndent}`}>
                     <a className={styles.heroLink} href="#about">

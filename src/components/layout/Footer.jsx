@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className={styles.footerInner}>
                 <div className={styles.footerCopyright}>
-                    &copy; {new Date().getFullYear()} <span className="text-bold">pbsabella</span>.
+                    &copy; {new Date().getFullYear()} <span className={styles.textBold}>pbsabella</span>.
                 </div>
             </div>
         </footer>

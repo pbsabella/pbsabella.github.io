@@ -10,7 +10,7 @@ const Contact = () => {
             introText="contact"
             title="Get in touch"
         >
-            <p className={styles.sectionDescription}>
+            <p className={styles.contactDescription}>
                 Open to Senior Design System and Frontend Engineering roles.
             </p>
 

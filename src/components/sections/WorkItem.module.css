@@ -15,7 +15,7 @@
 
 .workItemTitle {
     color: var(--color-text-dark);
-    font-weight: 600;
+    font-weight: var(--font-weight-medium);
     margin-bottom: var(--spacing-xxsmall);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .workItemCompany {
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 .workItemPosition {

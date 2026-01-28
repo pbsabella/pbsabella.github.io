@@ -1,66 +1,25 @@
 /* ---------------------------------
-   Layout utilities
----------------------------------- */
-.container-space {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding-left: 16px;
-  padding-right: 16px;
-  width: 100%;
-}
-
-@media screen and (width >=768px) {
-  .container-space {
-    padding-left: 8vw;
-    padding-right: 8vw;
-  }
-
-  .container-space--narrow {
-    padding-left: 4vw;
-    padding-right: 4vw;
-  }
-}
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-medium);
-}
-
-.flex--1 {
-  flex: 1;
-}
-
-.flex--2 {
-  flex: 2;
-}
-
-/* ---------------------------------
    Background utilities
 ---------------------------------- */
-.bg-accent-yellow {
+.bgAccentYellow {
   background-color: var(--color-accent-yellow);
 }
 
-.bg-accent-cyan-light {
+.bgAccentCyanLight {
   background-color: var(--color-accent-cyan-light);
 }
 
-.bg-accent-neutral {
+.bgAccentNeutral {
   background-color: var(--color-accent-neutral);
 }
 
-.bg-accent-primary-light {
+.bgAccentPrimaryLight {
   background-color: var(--color-primary-xxlight);
 }
 
 /* ---------------------------------
    Text utilities
 ---------------------------------- */
-.text-bold {
-  font-weight: 500;
-}
-
 .link {
   padding: 2px 0;
   position: relative;
@@ -81,8 +40,4 @@
 
 .link:hover::after {
   transform: scale3d(1, 1, 1);
-}
-
-.pl-large {
-  padding-left: var(--spacing-large);
 }

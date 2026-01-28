@@ -35,7 +35,7 @@ const Work = () => {
                 "Built responsive, accessible UI components with consistent interaction patterns and seamless GraphQL integration.",
             ],
             tags: ['Vue.js', 'TypeScript', 'GraphQL', 'Accessibility', 'Performance Optimization'],
-            bgClass: 'bg-accent-primary-light',
+            bgClass: 'bgAccentPrimaryLight',
         },
         {
             image: flDsWide,
@@ -59,7 +59,7 @@ const Work = () => {
                 "The tool rendered real components from Freelancer's design system and allowed easy customization through form-based controls.",
             ],
             tags: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Node.js'],
-            bgClass: 'bg-accent-cyan-light',
+            bgClass: 'bgAccentCyanLight',
         },
         {
             image: animationKnobs,

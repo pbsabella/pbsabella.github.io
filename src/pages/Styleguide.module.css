@@ -22,6 +22,11 @@
     margin: var(--spacing-xlarge) 0;
 }
 
+.section {
+    padding-bottom: var(--spacing-xlarge);
+    padding-top: var(--spacing-xlarge);
+}
+
 .sectionDesc {
     color: var(--color-text);
     margin-bottom: var(--spacing-large);
@@ -30,6 +35,12 @@
 
 .subsectionTitle {
     margin-bottom: var(--spacing-medium);
+}
+
+.description {
+    line-height: 2em;
+    min-width: min(300px, 100%);
+    max-width: 560px;
 }
 
 .grid {

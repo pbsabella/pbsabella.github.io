@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-left: var(--spacing-small);
+  padding-right: var(--spacing-small);
+  width: 100%;
+}
+
+@media screen and (width >=768px) {
+  .container {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+}

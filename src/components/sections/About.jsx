@@ -27,26 +27,26 @@ const About = () => {
             id="about"
             introText="about"
             title="A little overview"
-            bgClass="bg-accent-neutral"
+            bgClass="bgAccentNeutral"
         >
-            <div className="flex">
-                <p className={`${styles.sectionDescription} flex--2`}>
+            <div className={`${styles.aboutContent} ${styles.flex}`}>
+                <p className={`${styles.aboutDescription} ${styles.flexItem2}`}>
                     Senior Frontend Engineer with deep expertise in <strong>Design Systems</strong> and scalable architecture.
                     I bridge the gap between design and engineering, translating visual language into robust, accessible code.
                     <br /><br />
                     I am passionate about developer experience, tooling, and creating inclusive products.
                 </p>
 
-                <div className="flex">
+                <div className={styles.flex}>
                     <SkillsCard
                         title="Core Competencies"
                         skills={competencies}
-                        className="flex--1"
+                        className={styles.flexItem}
                     />
                     <SkillsCard
                         title="Tech Stack"
                         skills={techStack}
-                        className="flex--1"
+                        className={styles.flexItem}
                     />
                 </div>
             </div>

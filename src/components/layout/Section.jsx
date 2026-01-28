@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Section.module.css';
+import Container from './Container';
 
 const Section = ({
     id,
@@ -28,20 +29,20 @@ const Section = ({
         <section id={id} className={`${styles.section} ${bgClass} ${className}`}>
             {noContainer ? (
                 <>
-                    <div className="container-space">
+                    <Container>
                         {renderHeader()}
-                    </div>
+                    </Container>
                     <div className={styles.sectionContent}>
                         {children}
                     </div>
                 </>
             ) : (
-                <div className="container-space">
+                <Container>
                     {renderHeader()}
                     <div className={styles.sectionContent}>
                         {children}
                     </div>
-                </div>
+                </Container>
             )}
         </section>
     );
