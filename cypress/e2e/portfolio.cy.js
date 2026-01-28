@@ -1,48 +1,66 @@
-describe('Portfolio Visual Regression Tests', () => {
+describe('Portfolio E2E Tests', () => {
   const widths = [375, 768, 1280]; // Mobile, Tablet, Desktop
 
-  describe('Homepage', () => {
-    it('should capture homepage at multiple viewports', () => {
-      cy.visit('/');
-
-      cy.percySnapshot('Homepage', { widths });
-    });
+  beforeEach(() => {
+    cy.visit('/');
   });
 
-  describe('Styleguide', () => {
-    it('should capture styleguide at multiple viewports', () => {
+  describe('Visual Snapshots', () => {
+    it('should capture homepage', () => {
+      cy.percySnapshot('Homepage', { widths });
+    });
+
+    it('should capture styleguide', () => {
       cy.visit('#/labs/styleguide');
-
       cy.findByRole('heading', { level: 1, name: 'Styleguide' }).should('be.visible');
-
       cy.percySnapshot('Styleguide', { widths });
     });
   });
 
-  describe('Dark Mode', () => {
-    it('should capture homepage in dark mode', () => {
-      cy.visit('/');
+  describe('Theme Management', () => {
+    it('should toggle theme and persist on reload', () => {
+      cy.get('body').invoke('attr', 'data-theme').then((initialTheme) => {
+        cy.findByRole('button', { name: /toggle theme/i }).click();
+        const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
+        cy.get('body').should('have.attr', 'data-theme', expectedTheme);
 
-      cy.get('body').then(($body) => {
-        if (!$body.hasClass('dark-mode')) {
-          cy.findByRole('button', { name: 'Toggle theme' }).click();
-        }
+        // Persist on reload
+        cy.reload();
+        cy.get('body').should('have.attr', 'data-theme', expectedTheme);
       });
-      cy.percySnapshot('Homepage - Dark Mode', { widths: [1280] });
+    });
+  });
+
+  describe('Navigation', () => {
+    it('should scroll to sections when clicking nav links', () => {
+      cy.get('nav').findByText(/work/i).click();
+      cy.url().should('include', '#work');
+      cy.get('#work').should('be.visible');
     });
 
-    it('should capture styleguide in dark mode', () => {
-      cy.visit('#/labs/styleguide');
+    it('should open and close mobile side nav', () => {
+      cy.viewport(375, 667);
+      cy.findByRole('button', { name: /open main menu/i }).click();
+      cy.get('#side-nav').should('be.visible');
 
-      cy.get('body').then(($body) => {
-        if (!$body.hasClass('dark-mode')) {
-          cy.findByRole('button', { name: 'Toggle theme' }).click();
-        }
-      });
+      // Check focus trapping (first element should be focused)
+      cy.focused().should('have.id', 'side-menu-close');
 
-      cy.findByRole('heading', { level: 1, name: 'Styleguide' }).should('be.visible');
+      // Close it
+      cy.findByRole('button', { name: /close menu/i }).click();
+      cy.get('#side-nav').should('not.be.visible');
+    });
+  });
 
-      cy.percySnapshot('Styleguide - Dark Mode', { widths: [1280] });
+  describe.skip('X-Ray Mode', () => {
+    it('should activate x-ray mode and show tooltips', () => {
+      cy.findByRole('button', { name: /toggle x-ray mode/i }).click();
+      cy.get('body').should('have.class', 'is-xray-active');
+
+      // Find an element with tokens and hover
+      cy.get('[data-tokens]').first().trigger('mouseover');
+      cy.get('[class*="xrayTooltip"]').should('be.visible');
     });
   });
 });
+

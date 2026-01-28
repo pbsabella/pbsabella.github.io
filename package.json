@@ -16,7 +16,7 @@
     "prepare": "husky",
     "cypress:open": "cypress open",
     "cypress:e2e": "cypress run --browser chrome",
-    "test:local": "start-server-and-test dev http://localhost:5173 cypress:run",
+    "test:local": "start-server-and-test dev http://localhost:5173 cypress:e2e",
     "percy:test": "npm run build && start-server-and-test preview http://localhost:4173 'percy exec -- cypress run'",
     "percy:baseline": "PERCY_BRANCH=master percy exec -- cypress run --config baseUrl=https://pbsabella.github.io/"
   },
@@ -27,7 +27,8 @@
   "keywords": [
     "html",
     "css",
-    "responsive"
+    "responsive",
+    "react"
   ],
   "author": "Paula Bianca Abella",
   "license": "MIT",
