@@ -1,0 +1,68 @@
+.xrayToggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-primary-dark);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.xrayToggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.isActive {
+    background-color: var(--color-primary);
+    color: var(--color-secondary-xxlight);
+    border-color: var(--color-primary);
+}
+
+.xrayIndicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+}
+
+.isActive .xrayIndicator {
+    background-color: var(--color-secondary-xxlight);
+}
+
+.xrayTooltip {
+    position: absolute;
+    background-color: var(--color-secondary-xxdark);
+    color: var(--color-primary-light);
+    font-family: var(--font-family-mono);
+    font-size: 10px;
+    padding: var(--spacing-xxsmall) var(--spacing-xsmall);
+    border-radius: 4px;
+    z-index: 10001;
+    pointer-events: none;
+    white-space: normal;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+    max-width: 320px;
+    line-height: 1.4;
+
+    /* Dynamic values passed via CSS Variables */
+    top: var(--tooltip-top, 0);
+    left: var(--tooltip-left, 0);
+}
+
+/* Scoped class for labels injected via dangerouslySetInnerHTML */
+.tooltipValue {
+    color: var(--color-secondary-xxlight);
+    opacity: 0.7;
+    font-size: 0.9em;
+}

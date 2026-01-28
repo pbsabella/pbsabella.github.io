@@ -31,6 +31,7 @@
   --color-text-primary-light: var(--color-primary-light);
   --color-text-secondary: var(--color-secondary-dark);
   --color-header-overlay: rgb(252 252 252 / 90%);
+  --color-body-overlay: rgb(0 0 0 / 80%);
   --card-bg-color: var(--color-secondary-xxlight);
   --card-text-color: var(--color-secondary-xdark);
   --card-shadow: 0 1px 8px rgb(50 50 93 / 10%);
@@ -53,7 +54,7 @@
   /* Font weight */
   --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-medium: 600;
+  --font-weight-medium: 500;
 
   /* Font families - Semantic */
   --font-family-display: 'DM Serif Display', arial, serif;
@@ -73,6 +74,11 @@
   /* Miscellaneous */
   --header-height: 52px;
   --pattern-opacity: 1;
+
+  /* Z-index */
+  --z-index-header: 7;
+  --z-index-overlay: 10;
+  --z-index-side-nav: 11;
 }
 
 [data-theme="dark"] {

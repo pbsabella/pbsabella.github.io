@@ -1,0 +1,43 @@
+/* ---------------------------------
+   Background utilities
+---------------------------------- */
+.bgAccentYellow {
+  background-color: var(--color-accent-yellow);
+}
+
+.bgAccentCyanLight {
+  background-color: var(--color-accent-cyan-light);
+}
+
+.bgAccentNeutral {
+  background-color: var(--color-accent-neutral);
+}
+
+.bgAccentPrimaryLight {
+  background-color: var(--color-primary-xxlight);
+}
+
+/* ---------------------------------
+   Text utilities
+---------------------------------- */
+.link {
+  padding: 2px 0;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.6px;
+  background-color: var(--color-text);
+  transform: scale3d(0, 1, 1);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.link:hover::after {
+  transform: scale3d(1, 1, 1);
+}

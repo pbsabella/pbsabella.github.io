@@ -1,33 +1,50 @@
 import globals from "globals";
 import eslintJsPkg from "@eslint/js";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 
 const { configs: pluginJsConfigs } = eslintJsPkg;
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    ignores: ["dist/**", "*.config.js"], // <- top-level ignore
+    ignores: ["dist/**", "*.config.js"],
   },
 
   {
-    // All JS files in your source
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ["**/*.{js,mjs,cjs,jsx}"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    plugins: {
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
+      "jsx-a11y": jsxA11yPlugin,
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    rules: {
+      ...reactPlugin.configs.recommended.rules,
+      ...reactHooksPlugin.configs.recommended.rules,
+      ...jsxA11yPlugin.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off", // Vite handles this
+      "react/prop-types": "warn",
     },
   },
 
   {
-    // Node-specific config for config files
-    files: ["*.config.js", "webpack.config.js"],
-    languageOptions: {
-      globals: globals.node,
-      sourceType: "script",
-    },
-  },
-
-  {
-    // Cypress test files
     files: ["cypress/**/*.js"],
     languageOptions: {
       globals: {
@@ -38,6 +55,5 @@ export default [
     },
   },
 
-  // Recommended JS rules
   pluginJsConfigs.recommended,
 ];

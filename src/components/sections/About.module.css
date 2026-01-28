@@ -1,0 +1,19 @@
+.aboutDescription {
+    line-height: 2em;
+    min-width: min(300px, 100%);
+    max-width: 560px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+}
+
+.flexItem {
+  flex: 1;
+}
+
+.flexItem2 {
+  flex: 2;
+}
