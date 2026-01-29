@@ -1,24 +1,24 @@
 /** @type {import("stylelint").Config} */
 export default {
-  "extends": ["stylelint-config-standard"],
-  "rules": {
-    "selector-class-pattern": [
-      "^[a-z][a-zA-Z0-9]*$",
+  extends: ['stylelint-config-standard'],
+  rules: {
+    'selector-class-pattern': [
+      '^[a-z][a-zA-Z0-9]*$',
       {
-        "message": "Class name must be camelCase as per CSS Modules standard"
-      }
+        message: 'Class name must be camelCase as per CSS Modules standard',
+      },
     ],
-    "selector-pseudo-class-no-unknown": [
+    'selector-pseudo-class-no-unknown': [
       true,
       {
-        "ignorePseudoClasses": ["global"]
-      }
+        ignorePseudoClasses: ['global'],
+      },
     ],
-    "property-no-unknown": [
+    'property-no-unknown': [
       true,
       {
-        "ignoreProperties": ["composes"]
-      }
-    ]
-  }
+        ignoreProperties: ['composes'],
+      },
+    ],
+  },
 };

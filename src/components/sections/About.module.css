@@ -1,7 +1,28 @@
 .aboutDescription {
-    line-height: 2em;
-    min-width: min(300px, 100%);
-    max-width: 560px;
+  line-height: 2em;
+  min-width: min(300px, 100%);
+  max-width: 560px;
+}
+
+.skillsTitle {
+  color: var(--card-text-color);
+  margin-bottom: var(--spacing-xsmall);
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillsList li {
+  font-size: var(--text-detail);
+  padding-top: var(--spacing-xxxsmall);
+  padding-bottom: var(--spacing-xxxsmall);
+}
+
+.skillsList li:last-child {
+  padding-bottom: 0;
 }
 
 .flex {

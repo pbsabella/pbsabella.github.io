@@ -1,8 +1,8 @@
 .isDisabled {
-    pointer-events: none;
-    overflow: hidden;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .noScroll {
-    overflow: hidden;
+  overflow: hidden;
 }

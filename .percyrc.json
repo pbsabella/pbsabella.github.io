@@ -2,17 +2,11 @@
   "version": 2,
   "static": {
     "cleanUrls": true,
-    "include": [
-      "index.html",
-      "styleguide.html"
-    ],
+    "include": ["index.html"],
     "exclude": []
   },
   "discovery": {
-    "allowed-hosts": [
-      "localhost",
-      "pbsabella.github.io"
-    ],
+    "allowed-hosts": ["localhost", "pbsabella.github.io"],
     "network-idle-timeout": 750
   },
   "percy": {

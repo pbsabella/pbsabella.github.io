@@ -5,16 +5,16 @@ permissions:
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
     paths:
       - '**/*.html'
-      - '**/*.js'
+      - '**/*.{js,ts}'
       - '**/*.css'
   pull_request:
-    branches: [ master ]
+    branches: [master]
     paths:
       - '**/*.html'
-      - '**/*.js'
+      - '**/*.{js,ts}'
       - '**/*.css'
   workflow_dispatch:
     inputs:

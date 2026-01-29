@@ -6,6 +6,3 @@
 
 /* base reset and typography */
 @import url('./base.css');
-
-/* global layout utilities */
-@import url('./utilities.css');
