@@ -1,4 +1,4 @@
-import SkillsCard from '@components/ui/SkillsCard';
+import Card from '@components/ui/Card';
 import Container from '@components/layout/Container';
 import Tag from '@components/ui/Tag';
 import styles from './Styleguide.module.css';
@@ -241,10 +241,12 @@ const Styleguide = () => {
 
           <h3 className={styles.subsectionTitle}>Cards</h3>
           <div className={styles.cardWrapper}>
-            <SkillsCard
-              title="Skills Card"
-              skills={['Modular Architecture', 'Atomic Design', 'Industry Standards']}
-            />
+            <Card>
+              <h4>Card Component</h4>
+              <p>
+                Reusable card wrapper with consistent styling, hover effects, and theme support.
+              </p>
+            </Card>
           </div>
 
           <h3 className={styles.subsectionTitle}>Tags</h3>

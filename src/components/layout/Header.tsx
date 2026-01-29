@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useScrollManager } from '@hooks/useScrollManager';
 import ThemeToggle from '@components/ui/ThemeToggle';
+import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
 import Container from './Container';
 
@@ -11,7 +12,7 @@ interface HeaderProps {
 const Header = ({ toggleSideNav }: HeaderProps) => {
   const { headerClass } = useScrollManager();
   const location = useLocation();
-  const isStyleguide = location.pathname === '/labs/styleguide';
+  const isStyleguide = location.pathname === ROUTES.STYLEGUIDE;
 
   // Map headerClass strings to module styles
   const classes = headerClass
@@ -26,13 +27,13 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   return (
     <header className={`${styles.header} ${classes}`}>
       <Container className={`${styles.headerInner}`}>
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Main menu">
           {isStyleguide ? (
-            <Link className={`${styles.navLogo} link`} to="/">
+            <Link className={`${styles.navLogo} link`} to={ROUTES.HOME}>
               ← Back to Portfolio
             </Link>
           ) : (
-            <Link className={styles.navLogo} to="/">
+            <Link className={styles.navLogo} to={ROUTES.HOME}>
               pbsabella
             </Link>
           )}
@@ -47,7 +48,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 <button
                   className={styles.navMenu}
                   aria-controls="side-nav"
-                  aria-label="Open main menu"
+                  aria-label="Open mobile menu"
                   onClick={toggleSideNav}
                 >
                   <svg
@@ -73,22 +74,22 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
           {!isStyleguide && (
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
               <li className={styles.navItem}>
-                <Link className={`${styles.navLink} link`} to="/labs/styleguide">
+                <Link className={`${styles.navLink} link`} to={ROUTES.STYLEGUIDE}>
                   Styleguide
                 </Link>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href="#work">
+                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.WORK}`}>
                   Work
                 </a>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href="#about">
+                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.ABOUT}`}>
                   About
                 </a>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href="#contact">
+                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.CONTACT}`}>
                   Contact
                 </a>
               </li>

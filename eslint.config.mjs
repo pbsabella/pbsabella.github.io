@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import cypressPlugin from 'eslint-plugin-cypress/flat';
 
 const { configs: pluginJsConfigs } = eslintJsPkg;
 
@@ -49,14 +50,8 @@ export default [
   },
 
   {
-    files: ['cypress/**/*.js'],
-    languageOptions: {
-      globals: {
-        ...globals.mocha,
-        cy: 'readonly',
-        Cypress: 'readonly',
-      },
-    },
+    files: ['cypress/**/*.{js,ts}'],
+    ...cypressPlugin.configs.recommended,
   },
 
   pluginJsConfigs.recommended,

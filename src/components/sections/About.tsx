@@ -1,5 +1,5 @@
+import Card from '@components/ui/Card';
 import Section from '@components/layout/Section';
-import SkillsCard from '@components/ui/SkillsCard';
 import styles from './About.module.css';
 
 const About = () => {
@@ -34,8 +34,23 @@ const About = () => {
         </p>
 
         <div className={styles.flex}>
-          <SkillsCard title="Core Competencies" skills={competencies} className={styles.flexItem} />
-          <SkillsCard title="Tech Stack" skills={techStack} className={styles.flexItem} />
+          <Card className={styles.flexItem}>
+            <h4 className={styles.skillsTitle}>Core Competencies</h4>
+            <ul className={styles.skillsList}>
+              {competencies.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </Card>
+
+          <Card className={styles.flexItem}>
+            <h4 className={styles.skillsTitle}>Tech Stack</h4>
+            <ul className={styles.skillsList}>
+              {techStack.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </Card>
         </div>
       </div>
     </Section>

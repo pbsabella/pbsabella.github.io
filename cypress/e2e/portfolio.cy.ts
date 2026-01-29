@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Portfolio E2E Tests', () => {
   const widths = [375, 768, 1280]; // Mobile, Tablet, Desktop
 
@@ -11,7 +13,7 @@ describe('Portfolio E2E Tests', () => {
     });
 
     it('should capture styleguide', () => {
-      cy.visit('#/labs/styleguide');
+      cy.visit('/#/labs/styleguide');
       cy.findByRole('heading', { level: 1, name: 'Styleguide' }).should('be.visible');
       cy.percySnapshot('Styleguide', { widths });
     });
@@ -33,24 +35,35 @@ describe('Portfolio E2E Tests', () => {
     });
   });
 
-  describe('Navigation', () => {
+  describe('Keyboard Navigation & Focus Management', () => {
     it('should scroll to sections when clicking nav links', () => {
-      cy.get('nav').findByText(/work/i).click();
+      cy.findByRole('navigation', { name: /main menu/i })
+        .findByText('Work')
+        .click();
       cy.url().should('include', '#work');
-      cy.get('#work').should('be.visible');
+      cy.get('[id="work"]').should('be.visible');
     });
 
-    it('should open and close mobile side nav', () => {
+    it('should trap focus in mobile side nav', () => {
       cy.viewport(375, 667);
-      cy.findByRole('button', { name: /open main menu/i }).click();
-      cy.get('#side-nav').should('be.visible');
+      cy.findByRole('button', { name: /open mobile menu/i }).click();
+      cy.findByRole('navigation', { name: /mobile menu/i }).should('be.visible');
 
-      // Check focus trapping (first element should be focused)
-      cy.focused().should('have.id', 'side-menu-close');
+      // Verify focus is trapped (first element focused)
+      cy.focused()
+        .should('have.attr', 'aria-label')
+        .and('match', /close mobile menu/i);
 
       // Close it
-      cy.findByRole('button', { name: /close menu/i }).click();
-      cy.get('#side-nav').should('not.be.visible');
+      cy.findByRole('button', { name: /close mobile menu/i }).click();
+      cy.findByRole('navigation', { name: /mobile menu/i }).should('not.exist');
+    });
+
+    it('should navigate to styleguide', () => {
+      cy.findByRole('navigation')
+        .findByText(/styleguide/i)
+        .click();
+      cy.url().should('include', '#/labs/styleguide');
     });
   });
 });
