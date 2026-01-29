@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('Portfolio E2E Tests', () => {
   const widths = [375, 768, 1280]; // Mobile, Tablet, Desktop
 
@@ -7,15 +5,53 @@ describe('Portfolio E2E Tests', () => {
     cy.visit('/');
   });
 
-  describe('Visual Snapshots', () => {
-    it('should capture homepage', () => {
-      cy.percySnapshot('Homepage', { widths });
+  describe('Visual Regression Tests', () => {
+    describe('Homepage', () => {
+      it('should capture homepage at multiple viewports', () => {
+        cy.visit('/');
+
+        // Ensure the main navigation landmark is present before snapping
+        cy.findByRole('navigation', { name: /main menu/i }).should('be.visible');
+        cy.percySnapshot('Homepage', { widths });
+      });
     });
 
-    it('should capture styleguide', () => {
-      cy.visit('/#/labs/styleguide');
-      cy.findByRole('heading', { level: 1, name: 'Styleguide' }).should('be.visible');
-      cy.percySnapshot('Styleguide', { widths });
+    describe('Styleguide', () => {
+      it('should capture styleguide at multiple viewports', () => {
+        cy.visit('/#/labs/styleguide');
+
+        cy.findByRole('heading', { level: 1, name: /styleguide/i }).should('be.visible');
+        cy.percySnapshot('Styleguide', { widths });
+      });
+    });
+
+    describe('Dark Mode', () => {
+      // Helper function to ensure dark mode is active
+      const enableDarkMode = () => {
+        cy.get('body').then(($body) => {
+          const theme = $body.attr('data-theme');
+          if (theme !== 'dark') {
+            cy.findByRole('button', { name: /toggle theme/i }).click();
+          }
+        });
+        // Verify data-attribute is applied to ensure transition has started/finished
+        cy.get('body').should('have.attr', 'data-theme', 'dark');
+      };
+
+      it('should capture homepage in dark mode', () => {
+        cy.visit('/');
+        enableDarkMode();
+
+        cy.percySnapshot('Homepage - Dark Mode', { widths: [1280] });
+      });
+
+      it('should capture styleguide in dark mode', () => {
+        cy.visit('#/labs/styleguide');
+        enableDarkMode();
+
+        cy.findByRole('heading', { level: 1, name: /styleguide/i }).should('be.visible');
+        cy.percySnapshot('Styleguide - Dark Mode', { widths: [1280] });
+      });
     });
   });
 

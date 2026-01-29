@@ -1,13 +1,13 @@
 .card {
   background-color: var(--card-bg-color);
-  border-radius: 5px;
+  border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
   color: var(--card-text-color);
   padding: var(--spacing-medium);
-  min-width: min(260px, 100%);
+  min-width: min(var(--size-min-card), 100%);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--transition-fast) var(--easing-out),
+    box-shadow var(--transition-fast) var(--easing-out);
 }
 
 [data-theme='dark'] .card {
@@ -16,5 +16,5 @@
 
 .card:hover {
   box-shadow: var(--card-shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(var(--card-hover-offset));
 }

@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 320px;
   transform: translateX(100%);
-  transition: transform 0.3s ease-out;
+  transition: transform var(--transition-base) var(--easing-in-out);
   visibility: hidden;
   overflow-y: scroll;
   z-index: var(--z-index-side-nav);
@@ -37,9 +37,9 @@
 }
 
 .sideMenuItem {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--size-line-thin) solid var(--color-border);
   cursor: pointer;
-  height: 44px;
+  height: var(--size-min-touch);
   margin-left: var(--spacing-medium);
 }
 
@@ -57,15 +57,15 @@
 }
 
 .overlay {
-  background-color: var(--color-body-overlay);
+  background-color: var(--color-bg-overlay);
   height: 100%;
   left: 0;
   opacity: 0;
   position: fixed;
   top: 0;
   transition:
-    opacity 0.3s ease-out,
-    visibility 0.3s ease-out;
+    opacity var(--transition-base) var(--easing-in-out),
+    visibility var(--transition-base) var(--easing-in-out);
   visibility: hidden;
   width: 100%;
   z-index: var(--z-index-overlay);

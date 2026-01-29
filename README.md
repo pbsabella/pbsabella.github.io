@@ -1,14 +1,68 @@
-# Paula Bianca Abella - Personal Portfolio
+# Paula Abella - Personal Portfolio
 
-A modern, fully-typed React portfolio website.
+A modern, fully-typed React portfolio showcasing **Design Systems expertise**—demonstrating component architecture, token-driven design, and scalable CSS practices.
 
 **Live:** https://pbsabella.github.io
+
+## 🎨 Design Systems Focus
+
+This portfolio is a **Design System in practice**:
+- **Tiered Token Architecture:** Primitive → Semantic tokens for maintainable, theme-aware styling
+- **Component Patterns:** Reusable, typed components with consistent interfaces
+- **CSS Scalability:** CSS Modules + design tokens instead of utility-first approaches
+- **Theme Support:** Full dark mode via CSS variable overrides
+- **Accessibility First:** WCAG 2.1 AA compliance, keyboard navigation, semantic HTML
+
+**View the Design System:** [Styleguide](https://pbsabella.github.io/#/labs/styleguide)
 
 ## Status
 
 [![Deploy to GitHub Pages](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml)
 [![Percy Visual Tests](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/percy.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/percy.yml)
 [![CodeQL](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml)
+
+## Architecture
+
+### Token-Driven Design
+
+Design decisions are encoded as CSS variables, enabling:
+- **Theme switching** without recompiling CSS
+- **Consistent spacing** via 8px base scale
+- **Responsive typography** using CSS clamp()
+- **Semantic color tokens** that adapt to light/dark themes
+
+```css
+/* Primitive (scale) → Semantic (usage) */
+--color-primary: #03b787;           /* primitive */
+--color-text-primary: var(--color-primary);  /* semantic */
+```
+
+See: [src/styles/tokens.css](src/styles/tokens.css)
+
+### Component Hierarchy
+
+```
+src/components/
+├── layout/       # Page structure (Header, Footer, Layout)
+├── sections/     # Feature sections (Hero, About, Work)
+└── ui/           # Atomic components (Card, Tag, ThemeToggle)
+```
+
+Each component:
+- Has a TypeScript interface for props
+- Uses CSS Modules for scoped styles
+- Exports from barrel file for clean imports
+- Includes unit tests
+
+### Page Structure
+
+```
+src/pages/
+├── Home.tsx       # Portfolio landing
+└── Styleguide.tsx # Design system showcase
+```
+
+---
 
 ## Tech Stack
 
@@ -72,14 +126,14 @@ npm run format       # Prettier format
 | `npm run test:local`     | Dev server + Cypress tests     |
 | `npm run percy:test`     | Visual regression tests        |
 | `npm run percy:baseline` | Update Percy baseline          |
-| `npm run lighthouse:ci`  | Lighthouse performance audit   |
+| `npm run lighthouse`  | Lighthouse performance audit   |
 
 **→ See [TESTING_STRATEGY.md](TESTING_STRATEGY.md) for detailed testing philosophy, what to test, and examples.**
 
 **Performance** - Lighthouse audits:
 
 ```bash
-npm run lighthouse:ci    # CI Lighthouse check (requires built dist/)
+npm run lighthouse    # CI Lighthouse check (requires built dist/)
 ```
 
 ## Testing Strategy
@@ -105,7 +159,7 @@ npm run lighthouse:ci    # CI Lighthouse check (requires built dist/)
 - **Run:** Before deploying
 - **Baseline:** Update with `percy:baseline` on production changes
 
-### Performance Tests (`npm run lighthouse:ci`)
+### Performance Tests (`npm run lighthouse`)
 
 - **Tool:** Lighthouse CI
 - **Metrics:** Performance, Accessibility, Best Practices, SEO
@@ -115,7 +169,7 @@ npm run lighthouse:ci    # CI Lighthouse check (requires built dist/)
 ## Local Development
 
 ```bash
-npm run dev              # Start dev server
+npm run dev             # Start dev server
 npm run test:watch      # Watch tests in parallel
 npm run lint            # Check before commit (auto-fixed by Husky)
 ```
@@ -134,30 +188,45 @@ npm run percy:test      # Visual regression check
 ```
 src/
 ├── components/
-│   ├── layout/        # Page layout (Header, Footer, Layout)
-│   ├── sections/      # Content sections (Hero, About, Work)
-│   └── ui/            # Reusable UI components (Tag, Button, Card)
+│   ├── layout/
+│   │   ├── Header.tsx              # Top navigation
+│   │   ├── Footer.tsx              # Page footer
+│   │   ├── Layout.tsx              # Page wrapper
+│   │   ├── Container.tsx           # Responsive content container
+│   │   └── Section.tsx             # Vertical spacing section
+│   ├── sections/
+│   │   ├── Hero.tsx                # Hero section
+│   │   ├── About.tsx               # Bio section
+│   │   ├── Work.tsx                # Portfolio work grid
+│   │   └── Contact.tsx             # Contact section
+│   └── ui/
+│       ├── Card.tsx                # Content card component
+│       ├── Tag.tsx                 # Skill/tech badge
+│       ├── ThemeToggle.tsx         # Light/dark toggle
+│       └── Socials.tsx             # Social links bar
 ├── constants/
-│   └── routes.ts      # Centralized route & nav definitions
+│   └── routes.ts                   # Nav & route definitions
 ├── context/
-│   └── ThemeContext.tsx  # Dark/light theme management
+│   └── ThemeContext.tsx            # Theme provider & hook
 ├── hooks/
-│   └── useScrollManager.ts  # Scroll-based header behavior
+│   └── useScrollManager.ts         # Header scroll behavior
 ├── pages/
-│   ├── Home.tsx       # Main portfolio page
-│   └── Styleguide.tsx # Design system showcase
+│   ├── Home.tsx                    # Landing page
+│   └── Styleguide.tsx              # Design system playground
 ├── styles/
-│   ├── tokens.css     # Design system (colors, spacing, typography)
-│   └── base.css       # Global styles
+│   ├── tokens.css                  # Design tokens (primitives + semantic)
+│   ├── base.css                    # Global resets & base styles
+│   └── main.css                    # Import orchestration
+├── images/                         # Image assets
 └── test/
-    └── setup.ts       # Test configuration & matchers
+    └── setup.ts                    # Vitest config & matchers
 
 cypress/
 ├── e2e/
-│   └── portfolio.cy.ts  # E2E test specs
+│   └── portfolio.cy.ts             # E2E test specs
 └── support/
-    ├── e2e.ts         # Cypress command setup
-    └── cypress.d.ts   # Custom command types
+    ├── e2e.ts                      # Cypress command setup
+    └── cypress.d.ts                # Custom command types
 ```
 
 ## Configuration Files
@@ -189,7 +258,7 @@ View design tokens: `src/styles/tokens.css`
 ### Local Development
 
 ```bash
-npm run dev              # Start dev server
+npm run dev             # Start dev server
 npm run test:watch      # Watch tests in parallel
 npm run lint            # Check before commit (auto-fixed by Husky)
 ```

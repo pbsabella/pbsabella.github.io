@@ -5,7 +5,7 @@
 
 .heroDivider {
   background-color: var(--color-text);
-  height: 1px;
+  height: var(--size-line-thin);
   margin-bottom: 0.65em;
   margin-left: var(--spacing-small);
   width: 80px;
@@ -31,9 +31,9 @@
 }
 
 .heroInner::after {
-  background-color: var(--color-tertiary);
+  background-color: var(--color-accent-ice);
   z-index: -2;
-  transition: background-color 0.3s ease;
+  transition: background-color var(--transition-base) var(--easing-in-out);
 }
 
 .heroInner::before {

@@ -27,9 +27,10 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/images/*"]
-    }
+    },
+    "types": ["cypress", "@percy/cypress", "@testing-library/cypress"],
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "cypress/**/*.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

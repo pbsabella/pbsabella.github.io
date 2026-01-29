@@ -16,7 +16,7 @@
 
 .sectionIntroDivider {
   background-color: var(--color-divider);
-  height: 1px;
+  height: var(--size-line-thin);
   margin: var(--spacing-xxsmall) var(--spacing-xxsmall) 0 0;
   width: 44px;
 }

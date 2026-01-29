@@ -59,41 +59,59 @@ const Styleguide = () => {
             {[
               {
                 name: 'Neutral XXLight',
-                class: styles.swatchSecondaryXXLight,
-                token: '--color-secondary-xxlight',
+                class: styles.swatchNeutralXXLight,
+                token: '--color-neutral-xxlight',
                 border: true,
               },
               {
                 name: 'Neutral XLight',
-                class: styles.swatchSecondaryXLight,
-                token: '--color-secondary-xlight',
+                class: styles.swatchNeutralXLight,
+                token: '--color-neutral-xlight',
                 border: true,
               },
               {
                 name: 'Neutral Light',
-                class: styles.swatchSecondaryLight,
-                token: '--color-secondary-light',
+                class: styles.swatchNeutralLight,
+                token: '--color-neutral-light',
               },
-              { name: 'Neutral', class: styles.swatchSecondary, token: '--color-secondary' },
+              { name: 'Neutral', class: styles.swatchNeutral, token: '--color-neutral' },
               {
                 name: 'Neutral Dark',
-                class: styles.swatchSecondaryDark,
-                token: '--color-secondary-dark',
+                class: styles.swatchNeutralDark,
+                token: '--color-neutral-dark',
               },
               {
                 name: 'Neutral XDark',
-                class: styles.swatchSecondaryXDark,
-                token: '--color-secondary-xdark',
+                class: styles.swatchNeutralXDark,
+                token: '--color-neutral-xdark',
               },
               {
                 name: 'Neutral XXDark',
-                class: styles.swatchSecondaryXXDark,
-                token: '--color-secondary-xxdark',
+                class: styles.swatchNeutralXXDark,
+                token: '--color-neutral-xxdark',
               },
             ].map((item, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
                   className={`${styles.swatchBox} ${item.class} ${item.border ? styles.swatchBoxBorder : ''}`}
+                ></div>
+                <p>{item.name}</p>
+                <code>{item.token}</code>
+              </div>
+            ))}
+          </div>
+
+          <h3 className={styles.subsectionTitle}>Accent Colors</h3>
+          <div className={styles.grid}>
+            {[
+              { name: 'Yellow', class: styles.swatchAccentYellow, token: '--color-accent-yellow' },
+              { name: 'Orange', class: styles.swatchAccentOrange, token: '--color-accent-orange' },
+              { name: 'Cyan Light', class: styles.swatchAccentCyanLight, token: '--color-accent-cyan-light' },
+              { name: 'Ice', class: styles.swatchAccentIce, token: '--color-accent-ice' },
+            ].map((item, idx) => (
+              <div className={styles.swatch} key={idx}>
+                <div
+                  className={`${styles.swatchBox} ${item.class}`}
                 ></div>
                 <p>{item.name}</p>
                 <code>{item.token}</code>
@@ -189,15 +207,65 @@ const Styleguide = () => {
 
           <hr className={styles.divider} />
 
-          {/* ELEVATION */}
+          {/* ELEVATION (SHADOWS) */}
           <h2>Elevation</h2>
           <p className={styles.sectionDesc}>
-            Shadows create depth and hierarchy. Currently using a single elevation level for cards.
+            Shadows create depth and hierarchy, defining how elements <em>float</em> above the background.
           </p>
+
           <div className={styles.elevationGrid}>
-            <div className={styles.elevationCard}>
-              <p>Card Elevation</p>
-              <code>--card-shadow</code>
+            <div className={`${styles.elevationCard} ${styles.elevationLow}`}>
+              <p>Low Elevation</p>
+              <code>--elevation-low</code>
+              <small>Best for: Cards, small buttons</small>
+            </div>
+
+            <div className={`${styles.elevationCard} ${styles.elevationMedium}`}>
+              <p>Medium Elevation</p>
+              <code>--elevation-medium</code>
+              <small>Best for: Hover states, dropdowns</small>
+            </div>
+
+            <div className={`${styles.elevationCard} ${styles.elevationHigh}`}>
+              <p>High Elevation</p>
+              <code>--elevation-high</code>
+              <small>Best for: Modals, fixed tooltips</small>
+            </div>
+          </div>
+
+          <hr className={styles.divider} />
+
+          {/* TRANSITIONS & EASING */}
+          <h2>Transitions & Motion</h2>
+          <p className={styles.sectionDesc}>
+            Animation timing is intentional: fast easing for UI feedback, smooth easing for interactive navigation.
+          </p>
+
+          <h3 className={styles.subsectionTitle}>Duration Scale</h3>
+          <div className={styles.transitionExamples}>
+            <div className={styles.transitionItem}>
+              <p><code>--transition-fast: 0.2s</code></p>
+              <span className={styles.description}>Quick feedback (hover, button states)</span>
+            </div>
+            <div className={styles.transitionItem}>
+              <p><code>--transition-base: 0.3s</code></p>
+              <span className={styles.description}>Standard interactions (slides, fades)</span>
+            </div>
+            <div className={styles.transitionItem}>
+              <p><code>--transition-slow: 0.4s</code></p>
+              <span className={styles.description}>Deliberate animations (theme toggle)</span>
+            </div>
+          </div>
+
+          <h3 className={styles.subsectionTitle}>Easing Functions</h3>
+          <div className={styles.easingExamples}>
+            <div className={styles.easingItem}>
+              <p><code>--easing-out: ease-out</code></p>
+              <span className={styles.description}>UI reactions (instant start, smooth finish) — appears, responds, closes</span>
+            </div>
+            <div className={styles.easingItem}>
+              <p><code>--easing-in-out: ease-in-out</code></p>
+              <span className={styles.description}>User navigation (smooth acceleration/deceleration) — drawers, overlays, sliding</span>
             </div>
           </div>
 

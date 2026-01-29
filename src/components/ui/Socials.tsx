@@ -1,5 +1,20 @@
 import styles from './Socials.module.css';
 
+/**
+ * Socials Component
+ *
+ * Displays a list of social media links with icons. Links open in new
+ * tabs and include proper accessibility labels. Styles adapt to theme.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <Socials />
+ * ```
+ *
+ * @returns {React.ReactElement} The rendered social links list
+ */
+
 const Socials = () => {
   return (
     <ul className={styles.socials}>

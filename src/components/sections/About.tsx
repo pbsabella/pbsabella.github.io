@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <Section id="about" introText="about" title="A little overview" bgClass="bgAccentNeutral">
+    <Section id="about" introText="about" title="A little overview" bgClass="bgAccentIce">
       <div className={`${styles.aboutContent} ${styles.flex}`}>
         <p className={`${styles.aboutDescription} ${styles.flexItem2}`}>
           Senior Frontend Engineer with deep expertise in <strong>Design Systems</strong> and

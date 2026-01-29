@@ -150,8 +150,8 @@ h4 {
   background-color: var(--color-accent-cyan-light);
 }
 
-.bgAccentNeutral {
-  background-color: var(--color-accent-neutral);
+.bgAccentIce {
+  background-color: var(--color-accent-ice);
 }
 
 .bgAccentPrimaryLight {

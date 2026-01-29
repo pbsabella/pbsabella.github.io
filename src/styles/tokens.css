@@ -1,15 +1,32 @@
-/* Default - light theme variables */
-:root {
-  /* --------------------------------
-     1. Typography
-  -------------------------------- */
+/**
+ * Design System Tokens
+ *
+ * Token Structure:
+ * 1. PRIMITIVES (Brand scale - raw values)
+ * 2. SEMANTIC (Usage-based tokens - reference primitives)
+ * 3. COMPONENT (Component-specific overrides)
+ *
+ * Theme Variants: Light (default :root), Dark ([data-theme="dark"])
+ * Maintenance: Update primitives → semantic tokens cascade automatically
+ */
 
-  /* Font Family */
+/* ============================================================================
+   LIGHT THEME (DEFAULT)
+   ========================================================================== */
+
+:root {
+  /* ============================
+     1. PRIMITIVES
+     Raw design values used as a scale
+     ============================
+  */
+
+  /* --- 1.1 Typography --- */
   --font-family-display: 'DM Serif Display', arial, serif;
   --font-family-body: heebo, arial, sans-serif;
   --font-family-mono: 'SF Mono', monaco, monospace;
 
-  /* Font Size - Fluid Scale */
+  /* Fluid Type Scale (clamp for responsive typography) */
   --text-h1: clamp(2.25em, 4vw + 1em, 3em);
   --text-h2: clamp(1.625em, 3vw + 1em, 2.25em);
   --text-h3: clamp(1.375em, 2vw + 1em, 1.75em);
@@ -18,21 +35,20 @@
   --text-detail: 0.875em;
   --text-footnote: 0.75em;
 
-  /* Font Weight */
+  /* Font Weights */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
 
-  /* Line Height */
+  /* Line Height Scale */
   --leading-tight: 1.05;
-  --leading-snug: 1.15;
   --leading-normal: 1.25;
   --leading-body: 1.25;
   --leading-body-wide: 1.375;
 
-  /* --------------------------------
-     2. Spacing
-  -------------------------------- */
+  /* --- 1.2 Spacing --- */
+
+  /* 8px base scale (with 4px for micro-adjustments) */
   --spacing-xxxsmall: 4px;
   --spacing-xxsmall: 8px;
   --spacing-xsmall: 12px;
@@ -42,104 +58,153 @@
   --spacing-xlarge: 64px;
   --spacing-xxlarge: 84px;
 
-  /* --------------------------------
-     3. Borders
-  -------------------------------- */
+  /* --- 1.3 Borders --- */
   --border-width-thin: 1px;
   --border-width-thick: 3px;
-  --border-accent: var(--border-width-thick) solid var(--color-primary);
-  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-light);
 
-  /* --------------------------------
-     4. Elevation (Shadows)
-  -------------------------------- */
+  /* Border Radius Scale */
+  --border-radius-sm: 3px;
+  --border-radius-md: 4px;
+  --border-radius-base: 5px;
+  --border-radius-lg: 8px;
+  --border-radius-pill: 32px;
+
+  /* --- 1.4 Shadows (Elevation) --- */
   --elevation-low: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
   --elevation-medium: 0 4px 16px rgb(50 50 93 / 20%);
   --elevation-high: 0 10px 40px rgb(0 0 0 / 20%);
-  --card-shadow: var(--elevation-low);
-  --card-shadow-hover: var(--elevation-medium);
 
-  /* --------------------------------
-     5. Color System
-  -------------------------------- */
+  /* --- 1.5 Transitions --- */
+  --transition-fast: 0.2s;
+  --transition-base: 0.3s;
+  --transition-slow: 0.4s;
+  --easing-out: ease-out;
+  --easing-in-out: ease-in-out;
 
-  /* Scale Colors (Primitives) */
+  /* --- 1.5 Primitives: Color Scale --- */
+
+  /* Primary Palette */
   --color-primary-xxlight: #cdf1e7;
   --color-primary-light: #88d4b7;
-  --color-primary-dark: #017e5b;
   --color-primary: #03b787;
-  --color-secondary-xxlight: #fff;
-  --color-secondary-xlight: #fcfcfc;
-  --color-secondary-light: #ebebed;
-  --color-secondary: #d0d0d6;
-  --color-secondary-dark: #7f7d80;
-  --color-secondary-xdark: #37373a;
-  --color-secondary-xxdark: #1d1d1e;
-  --color-tertiary: #ececf4;
+  --color-primary-dark: #017e5b;
+
+  /* Neutral Palette (Grays) */
+  --color-neutral-xxlight: #fff;
+  --color-neutral-xlight: #fcfcfc;
+  --color-neutral-light: #ebebed;
+  --color-neutral: #d0d0d6;
+  --color-neutral-dark: #7f7d80;
+  --color-neutral-xdark: #37373a;
+  --color-neutral-xxdark: #1d1d1e;
+
+  /* Accent Palette (for highlights, tags, etc.) */
   --color-accent-orange: #ff5e32;
   --color-accent-yellow: #ffc541;
-  --color-accent-neutral: #ececf3;
   --color-accent-cyan-light: #d3f2f5;
+  --color-accent-ice: #ececf4;
 
-  /* Semantic Colors (Theme Aware) */
-  --color-bg: var(--color-secondary-xlight);
-  --color-bg-dark: var(--color-secondary-light);
-  --color-border: var(--color-secondary-light);
-  --color-border-dark: var(--color-secondary-dark);
-  --color-divider: var(--color-secondary-xxdark);
-  --color-text: var(--color-secondary-xdark);
-  --color-text-dark: var(--color-secondary-xxdark);
-  --color-text-primary: var(--color-primary);
-  --color-text-primary-dark: var(--color-primary-dark);
-  --color-text-primary-light: var(--color-primary-light);
-  --color-text-secondary: var(--color-secondary-dark);
-  --card-bg-color: var(--color-secondary-xxlight);
-  --card-text-color: var(--color-secondary-xdark);
-  --tag-text-color: var(--color-text);
-  --color-header-overlay: rgb(252 252 252 / 90%);
-  --color-body-overlay: rgb(0 0 0 / 80%);
-
-  /* --------------------------------
-     6. Z-Index
-  -------------------------------- */
+  /* --- 1.6 Layout --- */
+  --header-height: 52px;
   --z-index-header: 7;
   --z-index-overlay: 10;
   --z-index-side-nav: 11;
 
-  /* --------------------------------
-     7. Miscellaneous
-  -------------------------------- */
-  --header-height: 52px;
+  /* --- 1.7 Component Sizes --- */
+  --size-line-thin: 1px;
+  --size-bar-height: 8px;
+  --size-min-touch: 44px;
+  --size-min-card: 260px;
+  --size-min-component-grid: 200px;
+
+  /* ============================
+     2. SEMANTIC TOKENS
+     Usage-based tokens that reference primitives
+     These adapt to theme changes
+     ============================
+  */
+
+  /* --- 2.1 Background Colors --- */
+  --color-bg: var(--color-neutral-xlight);
+  --color-bg-dark: var(--color-neutral-light);
+  --color-bg-overlay: rgb(0 0 0 / 80%);
+
+  /* --- 2.2 Text Colors --- */
+  --color-text: var(--color-neutral-xdark);
+  --color-text-dark: var(--color-neutral-xxdark);
+  --color-text-secondary: var(--color-neutral-dark);
+  --color-text-muted: var(--color-neutral-dark);
+
+  /* --- 2.3 Text Brand Colors --- */
+  --color-text-primary: var(--color-primary);
+  --color-text-primary-light: var(--color-primary-light);
+  --color-text-primary-dark: var(--color-primary-dark);
+
+  /* --- 2.4 Border & Divider Colors --- */
+  --color-border: var(--color-neutral-light);
+  --color-border-dark: var(--color-neutral-dark);
+  --color-divider: var(--color-neutral-xxdark);
+
+  /* --- 2.5 Border Compounds --- */
+  --border-accent: var(--border-width-thick) solid var(--color-primary);
+  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-light);
+
+  /* --- 2.6 Component Tokens --- */
+  --card-bg-color: var(--color-neutral-xxlight);
+  --card-text-color: var(--color-neutral-xdark);
+  --card-shadow: var(--elevation-low);
+  --card-shadow-hover: var(--elevation-medium);
+  --card-border-radius: var(--border-radius-base);
+  --card-hover-offset: -2px;
+  --tag-text-color: var(--color-text);
+  --tag-border-radius: var(--border-radius-pill);
+  --header-overlay: rgb(252 252 252 / 90%);
+  --header-color: var(--header-overlay);
+
+  /* --- 2.7 Misc --- */
   --pattern-opacity: 1;
 }
 
-[data-theme='dark'] {
-  /* Scale Overrides */
-  --color-primary-xxlight: #1e1e20;
-  --color-tertiary: #1e1e20;
-  --color-accent-neutral: #1e1e20;
-  --color-accent-cyan-light: #1e1e20;
+/* ============================================================================
+   DARK THEME
+   ========================================================================== */
 
-  /* Semantic Overrides */
+[data-theme='dark'] {
+  /* --- Primitive Overrides (limited) --- */
+
+  /* Only override if the primitive value needs adjusting for dark mode */
+
+  /* --- Semantic Color Overrides --- */
   --color-bg: #121214;
-  --color-bg-dark: var(--color-secondary-xxdark);
-  --color-divider: #e8e8ea;
-  --color-border: var(--color-secondary-dark);
-  --color-border-dark: var(--color-secondary-dark);
+  --color-bg-dark: var(--color-neutral-xxdark);
+  --color-bg-overlay: rgb(0 0 0 / 80%);
   --color-text: #e8e8ea;
   --color-text-dark: #e8e8ea;
+  --color-text-secondary: #bfbfc1;
+  --color-text-muted: #9a9a9c;
   --color-text-primary: var(--color-primary);
   --color-text-primary-light: var(--color-primary-light);
   --color-text-primary-dark: var(--color-primary);
-  --color-text-secondary: #bfbfc1;
-  --color-header-overlay: rgb(20 20 20 / 94%);
+  --color-border: var(--color-neutral-dark);
+  --color-border-dark: var(--color-neutral-dark);
+  --color-divider: #e8e8ea;
 
-  /* Component Overrides */
+  /* --- Component Token Overrides --- */
   --card-bg-color: #1a1f1e;
   --card-text-color: var(--color-text);
   --card-shadow: var(--elevation-low);
+  --card-border-radius: var(--border-radius-base);
   --tag-text-color: var(--color-text-dark);
+  --tag-border-radius: var(--border-radius-pill);
+  --header-overlay: rgb(20 20 20 / 94%);
+  --header-color: var(--header-overlay);
 
-  /* Misc Overrides */
+  /* --- Primitive Scale Overrides (background colors in dark mode) --- */
+  --color-primary-xxlight: #1e1e20;
+  --color-neutral-xxlight: #1e1e20;
+  --color-accent-cyan-light: #1e1e20;
+  --color-accent-ice: #1e1e20;
+
+  /* --- Misc --- */
   --pattern-opacity: 0.85;
 }

@@ -1,13 +1,13 @@
 .header {
-  background-color: var(--color-header-overlay);
+  background-color: var(--header-color);
   height: var(--header-height);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: var(--z-index-header);
   transition:
-    background-color 0.2s ease-out,
-    transform 0.3s ease;
+    background-color var(--transition-fast) var(--easing-out),
+    transform var(--transition-base) var(--easing-in-out);
 }
 
 .headerInner {

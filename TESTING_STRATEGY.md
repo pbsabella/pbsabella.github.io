@@ -54,7 +54,7 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Goal:** Track and enforce performance, accessibility, SEO scores
 - **Tools:** Lighthouse CI (axe-core for a11y)
 - **Thresholds:** Performance ≥0.85, Accessibility/Best Practices/SEO ≥0.90
-- **Command:** `npm run lighthouse:ci` (CI only, requires built dist/)
+- **Command:** `npm run lighthouse` (requires built dist/)
 
 ---
 
@@ -199,4 +199,4 @@ A: Use `cypress:open` for interactive debugging. Use `test:local` for final veri
 A: Only after intentional design changes. Use `npm run percy:baseline` and commit on master.
 
 **Q: What if Lighthouse CI fails?**
-A: Check `lighthouserc.json` thresholds. May indicate performance regression. Run `npm run lighthouse:ci` locally to debug.
+A: Check `lighthouserc.json` thresholds. May indicate performance regression. Run `npm run lighthouse` locally to debug.
