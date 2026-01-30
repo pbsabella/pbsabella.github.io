@@ -1,4 +1,4 @@
-import { useEffect, useRef, KeyboardEvent } from 'react';
+import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
@@ -12,38 +12,65 @@ interface SideNavProps {
 const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Trap focus when side nav is open
+  // Trap focus when side nav is open and restore focus when it closes.
   useEffect(() => {
     if (!isOpen || !navRef.current) return;
 
-    const focusableElements = navRef.current.querySelectorAll('a, button');
-    const firstElement = focusableElements[0] as HTMLElement;
-    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
 
-    const handleKeyDown = (e: KeyboardEvent | Event): void => {
-      const keyEvent = e as KeyboardEvent;
-      if (keyEvent.key === 'Tab') {
-        if (keyEvent.shiftKey) {
-          if (document.activeElement === firstElement) {
-            keyEvent.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          if (document.activeElement === lastElement) {
-            keyEvent.preventDefault();
-            firstElement.focus();
-          }
-        }
-      } else if (keyEvent.key === 'Escape') {
+    const getFocusable = () =>
+      navRef.current?.querySelectorAll<HTMLElement>(
+        [
+          'a[href]',
+          'button:not([disabled])',
+          'input:not([disabled])',
+          'select:not([disabled])',
+          'textarea:not([disabled])',
+          '[tabindex]:not([tabindex="-1"])',
+        ].join(', ')
+      ) ?? [];
+
+    const focusCloseButton = () => {
+      const closeButton = navRef.current?.querySelector<HTMLElement>('#side-menu-close');
+      closeButton?.focus();
+    };
+
+    const handleDocumentKeyDown = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
         onClose();
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      const focusable = Array.from(getFocusable());
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (e.shiftKey) {
+        if (active === first || active === navRef.current) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
 
-    const handleDocumentKeyDown = (e: Event): void => handleKeyDown(e);
     document.addEventListener('keydown', handleDocumentKeyDown);
-    firstElement?.focus();
+    focusCloseButton();
 
-    return () => document.removeEventListener('keydown', handleDocumentKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleDocumentKeyDown);
+      previouslyFocused?.focus?.();
+    };
   }, [isOpen, onClose]);
 
   const navContent = (
@@ -54,9 +81,11 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
         aria-hidden="true"
       ></div>
 
-      <nav
+      <aside
         id="side-nav"
         aria-label="Mobile menu"
+        role="dialog"
+        aria-modal="true"
         className={`${styles.sideMenu} ${isOpen ? styles.isActive : ''}`}
         ref={navRef}
       >
@@ -82,33 +111,43 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
           </svg>
         </button>
 
-        <ul className={styles.sideMenuList}>
-          <li className={styles.sideMenuItem}>
-            <Link className={styles.sideMenuLink} to={ROUTES.STYLEGUIDE} onClick={onClose}>
-              styleguide
-            </Link>
-          </li>
-          <li className={styles.sideMenuItem}>
-            <a className={styles.sideMenuLink} href={`#${SECTION_ANCHORS.WORK}`} onClick={onClose}>
-              work
-            </a>
-          </li>
-          <li className={styles.sideMenuItem}>
-            <a className={styles.sideMenuLink} href={`#${SECTION_ANCHORS.ABOUT}`} onClick={onClose}>
-              about
-            </a>
-          </li>
-          <li className={styles.sideMenuItem}>
-            <a
-              className={styles.sideMenuLink}
-              href={`#${SECTION_ANCHORS.CONTACT}`}
-              onClick={onClose}
-            >
-              contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <nav>
+          <ul className={styles.sideMenuList}>
+            <li className={styles.sideMenuItem}>
+              <Link className={styles.sideMenuLink} to={ROUTES.STYLEGUIDE} onClick={onClose}>
+                styleguide
+              </Link>
+            </li>
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={styles.sideMenuLink}
+                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
+                onClick={onClose}
+              >
+                work
+              </Link>
+            </li>
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={styles.sideMenuLink}
+                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
+                onClick={onClose}
+              >
+                about
+              </Link>
+            </li>
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={styles.sideMenuLink}
+                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
+                onClick={onClose}
+              >
+                contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </aside>
     </>
   );
 

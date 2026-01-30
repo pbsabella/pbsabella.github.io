@@ -1,26 +1,31 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export const useScrollManager = () => {
-  const [headerClass, setHeaderClass] = useState('header--transparent');
+interface ScrollManagerState {
+  isTransparent: boolean;
+  isHidden: boolean;
+}
 
-  // Create a "persistent box" for the scroll value
+/**
+ * Header scroll behavior
+ */
+export const useScrollManager = (): ScrollManagerState => {
+  const [state, setState] = useState<ScrollManagerState>({
+    isTransparent: true,
+    isHidden: false,
+  });
+
+  // Persist previous scroll position without re-rendering.
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      let newClass = '';
 
-      // Transparent at top
-      if (scrollTop === 0) {
-        newClass = 'header--transparent';
-      }
+      setState({
+        isTransparent: scrollTop === 0,
+        isHidden: scrollTop > lastScrollY.current && scrollTop > 100,
+      });
 
-      if (scrollTop > lastScrollY.current && scrollTop > 100) {
-        newClass += ' header--hidden';
-      }
-
-      setHeaderClass(newClass);
       lastScrollY.current = scrollTop;
     };
 
@@ -28,5 +33,5 @@ export const useScrollManager = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { headerClass };
+  return state;
 };

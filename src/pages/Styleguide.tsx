@@ -1,20 +1,10 @@
 import Card from '@components/ui/Card';
 import Container from '@components/layout/Container';
 import Tag from '@components/ui/Tag';
+import { SPACING_TOKENS } from '@/content/styleguide';
 import styles from './Styleguide.module.css';
 
 const Styleguide = () => {
-  const spacingTokens = [
-    { name: 'XXXSmall', value: '4px', token: '--spacing-xxxsmall' },
-    { name: 'XXSmall', value: '8px', token: '--spacing-xxsmall' },
-    { name: 'XSmall', value: '12px', token: '--spacing-xsmall' },
-    { name: 'Small', value: '16px', token: '--spacing-small' },
-    { name: 'Medium', value: '24px', token: '--spacing-medium' },
-    { name: 'Large', value: '44px', token: '--spacing-large' },
-    { name: 'XLarge', value: '64px', token: '--spacing-xlarge' },
-    { name: 'XXLarge', value: '84px', token: '--spacing-xxlarge' },
-  ];
-
   return (
     <Container className={styles.main}>
       <section className={styles.section}>
@@ -150,8 +140,8 @@ const Styleguide = () => {
             grid (with 4px for micro-adjustments).
           </p>
           <div className={styles.spacingScale}>
-            {spacingTokens.map((item, idx) => (
-              <div className={styles.spacingItem} key={idx}>
+            {SPACING_TOKENS.map((item) => (
+              <div className={styles.spacingItem} key={item.token}>
                 <div className={styles.spacingLabel}>
                   <code className={styles.spacingToken}>{item.token}</code>
                   <span className={styles.spacingValue}>{item.value}</span>

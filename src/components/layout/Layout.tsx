@@ -1,7 +1,9 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useRef, ReactNode } from 'react';
 import Header from '@components/layout/Header';
 import Footer from '@components/layout/Footer';
 import SideNav from '@components/layout/SideNav';
+import { useBodyScrollLock } from '@hooks/useBodyScrollLock';
+import { useInert } from '@hooks/useInert';
 import styles from './Layout.module.css';
 
 interface LayoutProps {
@@ -10,6 +12,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
 
   const toggleSideNav = () => {
     setIsSideNavOpen((prev) => !prev);
@@ -19,18 +22,8 @@ const Layout = ({ children }: LayoutProps) => {
     setIsSideNavOpen(false);
   };
 
-  useEffect(() => {
-    if (isSideNavOpen) {
-      document.body.classList.add(styles.noScroll);
-    } else {
-      document.body.classList.remove(styles.noScroll);
-    }
-
-    // Cleanup function when component unmounts
-    return () => {
-      document.body.classList.remove(styles.noScroll);
-    };
-  }, [isSideNavOpen]);
+  useBodyScrollLock(isSideNavOpen, { className: styles.noScroll });
+  useInert(mainRef, isSideNavOpen);
 
   return (
     <>
@@ -38,7 +31,12 @@ const Layout = ({ children }: LayoutProps) => {
 
       <SideNav isOpen={isSideNavOpen} onClose={closeSideNav} />
 
-      <main className={isSideNavOpen ? styles.isDisabled : ''}>{children}</main>
+      <main
+        ref={mainRef}
+        className={isSideNavOpen ? styles.isDisabled : ''}
+      >
+        {children}
+      </main>
 
       <Footer />
     </>

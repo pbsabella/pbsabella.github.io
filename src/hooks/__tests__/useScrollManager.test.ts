@@ -9,12 +9,13 @@ describe('useScrollManager Hook', () => {
     document.documentElement.scrollTop = 0;
   });
 
-  it('initializes with transparent class', () => {
+  it('initializes as transparent and not hidden', () => {
     const { result } = renderHook(() => useScrollManager());
-    expect(result.current.headerClass).toBe('header--transparent');
+    expect(result.current.isTransparent).toBe(true);
+    expect(result.current.isHidden).toBe(false);
   });
 
-  it('removes transparent class when scrolling down', () => {
+  it('becomes non-transparent when scrolling down', () => {
     const { result } = renderHook(() => useScrollManager());
 
     act(() => {
@@ -23,10 +24,11 @@ describe('useScrollManager Hook', () => {
       window.dispatchEvent(new Event('scroll'));
     });
 
-    expect(result.current.headerClass).toBe('');
+    expect(result.current.isTransparent).toBe(false);
+    expect(result.current.isHidden).toBe(false);
   });
 
-  it('adds hidden class when scrolling down past 100px', () => {
+  it('becomes hidden when scrolling down past 100px', () => {
     const { result } = renderHook(() => useScrollManager());
 
     act(() => {
@@ -41,6 +43,6 @@ describe('useScrollManager Hook', () => {
       window.dispatchEvent(new Event('scroll'));
     });
 
-    expect(result.current.headerClass).toContain('header--hidden');
+    expect(result.current.isHidden).toBe(true);
   });
 });

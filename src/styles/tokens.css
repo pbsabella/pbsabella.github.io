@@ -117,6 +117,25 @@
   --size-min-card: 260px;
   --size-min-component-grid: 200px;
 
+  /* --- 1.8 Layout & Component Constants --- */
+  --size-container-max: 1200px;
+  --size-page-max: 1440px;
+  --size-side-nav-max: 320px;
+  --size-section-scroll-margin-top: 70px;
+  --size-section-intro-divider: 44px;
+  --size-hero-height: 600px;
+  --size-hero-divider-sm: 80px;
+  --size-hero-divider-lg: 240px;
+  --size-toggle-button: 40px;
+  --size-toggle-icon: 28px;
+  --offset-toggle-icon: 6px;
+  --offset-toggle-moon: 8px;
+  --size-focus-outline: 2px;
+  --size-focus-outline-offset: 1px;
+  --border-radius-focus: 2px;
+  --size-link-padding-y: 2px;
+  --size-link-underline: 1.6px;
+
   /* ============================
      2. SEMANTIC TOKENS
      Usage-based tokens that reference primitives

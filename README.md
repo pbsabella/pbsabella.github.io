@@ -51,7 +51,6 @@ src/components/
 Each component:
 - Has a TypeScript interface for props
 - Uses CSS Modules for scoped styles
-- Exports from barrel file for clean imports
 - Includes unit tests
 
 ### Page Structure
