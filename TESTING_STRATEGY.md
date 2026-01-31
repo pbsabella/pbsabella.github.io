@@ -154,9 +154,9 @@ Accessibility is verified at multiple layers:
 ### Unit Test (Hook)
 
 ```typescript
-// src/hooks/__tests__/useScrollManager.test.ts
+// src/hooks/__tests__/useHeaderScroll.test.ts
 it('should return header classes based on scroll position', () => {
-  const { result } = renderHook(() => useScrollManager());
+  const { result } = renderHook(() => useHeaderScroll());
   expect(result.current.headerClass).toBe('');
 });
 ```

@@ -47,11 +47,3 @@
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .toggleIcon,
-  .toggleIconAnimate {
-    transition: none !important;
-    transform: none !important;
-  }
-}

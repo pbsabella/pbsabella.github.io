@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
+import { useScrollToSection } from '@hooks/useScrollToSection';
 import styles from './SideNav.module.css';
 
 interface SideNavProps {
@@ -11,8 +12,9 @@ interface SideNavProps {
 
 const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
+  const scrollToSection = useScrollToSection();
 
-  // Trap focus when side nav is open and restore focus when it closes.
+  // Trap focus when side nav is open and restore focus when it closes
   useEffect(() => {
     if (!isOpen || !navRef.current) return;
 
@@ -122,7 +124,10 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
               <Link
                 className={styles.sideMenuLink}
                 to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
-                onClick={onClose}
+                onClick={() => {
+                  scrollToSection(SECTION_ANCHORS.WORK);
+                  onClose();
+                }}
               >
                 work
               </Link>
@@ -131,7 +136,10 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
               <Link
                 className={styles.sideMenuLink}
                 to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
-                onClick={onClose}
+                onClick={() => {
+                  scrollToSection(SECTION_ANCHORS.ABOUT);
+                  onClose();
+                }}
               >
                 about
               </Link>
@@ -140,7 +148,10 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
               <Link
                 className={styles.sideMenuLink}
                 to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
-                onClick={onClose}
+                onClick={() => {
+                  scrollToSection(SECTION_ANCHORS.CONTACT);
+                  onClose();
+                }}
               >
                 contact
               </Link>

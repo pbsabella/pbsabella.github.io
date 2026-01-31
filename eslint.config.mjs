@@ -10,6 +10,8 @@ const { configs: pluginJsConfigs } = eslintJsPkg;
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
+  pluginJsConfigs.recommended,
+
   {
     ignores: ['dist/**', '*.config.js'],
   },
@@ -53,6 +55,4 @@ export default [
     files: ['cypress/**/*.{js,ts}'],
     ...cypressPlugin.configs.recommended,
   },
-
-  pluginJsConfigs.recommended,
 ];

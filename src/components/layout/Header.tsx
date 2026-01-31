@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useScrollManager } from '@hooks/useScrollManager';
+import { useHeaderScroll } from '@hooks/useHeaderScroll';
+import { useScrollToSection } from '@hooks/useScrollToSection';
 import ThemeToggle from '@components/ui/ThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
@@ -10,8 +11,9 @@ interface HeaderProps {
 }
 
 const Header = ({ toggleSideNav }: HeaderProps) => {
-  const { isHidden, isTransparent } = useScrollManager();
+  const { isHidden, isTransparent } = useHeaderScroll();
   const location = useLocation();
+  const scrollToSection = useScrollToSection();
   const isStyleguide = location.pathname === ROUTES.STYLEGUIDE;
 
   return (
@@ -74,6 +76,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 <Link
                   className={`${styles.navLink} link`}
                   to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.WORK)}
                 >
                   Work
                 </Link>
@@ -82,6 +85,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 <Link
                   className={`${styles.navLink} link`}
                   to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.ABOUT)}
                 >
                   About
                 </Link>
@@ -90,6 +94,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 <Link
                   className={`${styles.navLink} link`}
                   to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.CONTACT)}
                 >
                   Contact
                 </Link>
