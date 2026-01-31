@@ -64,12 +64,6 @@
   padding: var(--spacing-small);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .header {
-    transition: none !important;
-  }
-}
-
 @media only screen and (width <=767px) {
   .hideOnSmall {
     display: none;

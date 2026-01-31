@@ -1,7 +1,7 @@
 .section {
   display: block;
   position: relative;
-  scroll-margin-top: 70px;
+  scroll-margin-top: var(--size-section-scroll-margin-top);
   padding-top: var(--spacing-xlarge);
   padding-bottom: var(--spacing-xlarge);
 }
@@ -18,7 +18,7 @@
   background-color: var(--color-divider);
   height: var(--size-line-thin);
   margin: var(--spacing-xxsmall) var(--spacing-xxsmall) 0 0;
-  width: 44px;
+  width: var(--size-section-intro-divider);
 }
 
 .sectionIntroText {

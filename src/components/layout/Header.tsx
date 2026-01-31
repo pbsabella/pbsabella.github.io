@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useScrollManager } from '@hooks/useScrollManager';
+import { useHeaderScroll } from '@hooks/useHeaderScroll';
+import { useScrollToSection } from '@hooks/useScrollToSection';
 import ThemeToggle from '@components/ui/ThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
@@ -10,22 +11,15 @@ interface HeaderProps {
 }
 
 const Header = ({ toggleSideNav }: HeaderProps) => {
-  const { headerClass } = useScrollManager();
+  const { isHidden, isTransparent } = useHeaderScroll();
   const location = useLocation();
+  const scrollToSection = useScrollToSection();
   const isStyleguide = location.pathname === ROUTES.STYLEGUIDE;
 
-  // Map headerClass strings to module styles
-  const classes = headerClass
-    .split(' ')
-    .map((cls) => {
-      if (cls === 'header--transparent') return styles.headerTransparent;
-      if (cls === 'header--hidden') return styles.headerHidden;
-      return '';
-    })
-    .join(' ');
-
   return (
-    <header className={`${styles.header} ${classes}`}>
+    <header
+      className={`${styles.header} ${isTransparent ? styles.headerTransparent : ''} ${isHidden ? styles.headerHidden : ''}`}
+    >
       <Container className={`${styles.headerInner}`}>
         <nav className={styles.nav} aria-label="Main menu">
           {isStyleguide ? (
@@ -79,19 +73,31 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 </Link>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.WORK}`}>
+                <Link
+                  className={`${styles.navLink} link`}
+                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.WORK)}
+                >
                   Work
-                </a>
+                </Link>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.ABOUT}`}>
+                <Link
+                  className={`${styles.navLink} link`}
+                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.ABOUT)}
+                >
                   About
-                </a>
+                </Link>
               </li>
               <li className={styles.navItem}>
-                <a className={`${styles.navLink} link`} href={`#${SECTION_ANCHORS.CONTACT}`}>
+                <Link
+                  className={`${styles.navLink} link`}
+                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
+                  onClick={() => scrollToSection(SECTION_ANCHORS.CONTACT)}
+                >
                   Contact
-                </a>
+                </Link>
               </li>
               <li className={styles.navItem}>
                 <ThemeToggle id="theme-toggle" />

@@ -51,7 +51,6 @@ src/components/
 Each component:
 - Has a TypeScript interface for props
 - Uses CSS Modules for scoped styles
-- Exports from barrel file for clean imports
 - Includes unit tests
 
 ### Page Structure
@@ -183,50 +182,6 @@ npm run test
 npm run build
 npm run preview         # Verify production build
 npm run percy:test      # Visual regression check
-```
-
-```
-src/
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx              # Top navigation
-│   │   ├── Footer.tsx              # Page footer
-│   │   ├── Layout.tsx              # Page wrapper
-│   │   ├── Container.tsx           # Responsive content container
-│   │   └── Section.tsx             # Vertical spacing section
-│   ├── sections/
-│   │   ├── Hero.tsx                # Hero section
-│   │   ├── About.tsx               # Bio section
-│   │   ├── Work.tsx                # Portfolio work grid
-│   │   └── Contact.tsx             # Contact section
-│   └── ui/
-│       ├── Card.tsx                # Content card component
-│       ├── Tag.tsx                 # Skill/tech badge
-│       ├── ThemeToggle.tsx         # Light/dark toggle
-│       └── Socials.tsx             # Social links bar
-├── constants/
-│   └── routes.ts                   # Nav & route definitions
-├── context/
-│   └── ThemeContext.tsx            # Theme provider & hook
-├── hooks/
-│   └── useScrollManager.ts         # Header scroll behavior
-├── pages/
-│   ├── Home.tsx                    # Landing page
-│   └── Styleguide.tsx              # Design system playground
-├── styles/
-│   ├── tokens.css                  # Design tokens (primitives + semantic)
-│   ├── base.css                    # Global resets & base styles
-│   └── main.css                    # Import orchestration
-├── images/                         # Image assets
-└── test/
-    └── setup.ts                    # Vitest config & matchers
-
-cypress/
-├── e2e/
-│   └── portfolio.cy.ts             # E2E test specs
-└── support/
-    ├── e2e.ts                      # Cypress command setup
-    └── cypress.d.ts                # Custom command types
 ```
 
 ## Configuration Files

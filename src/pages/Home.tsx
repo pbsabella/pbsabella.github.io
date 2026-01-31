@@ -1,30 +1,23 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useScrollToSection } from '@hooks/useScrollToSection';
 import Hero from '../components/sections/Hero';
 import Work from '../components/sections/Work';
 import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
 
 const Home = () => {
-  // Handle smooth scroll for anchor links
+  const location = useLocation();
+  const scrollToSection = useScrollToSection();
+
+  // HashRouter-safe deep links:
+  // Use `/#/?section=about` instead of `/#about` so refresh/share works with routing
   useEffect(() => {
-    const handleScrollLinkClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('a');
-      if (target && target.hash && target.origin === window.location.origin) {
-        const targetId = target.hash.slice(1);
-        const targetElem = document.getElementById(targetId);
+    const sectionId = new URLSearchParams(location.search).get('section');
+    if (!sectionId) return;
 
-        if (targetElem) {
-          e.preventDefault();
-          targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Update URL without jump
-          window.history.pushState(null, '', target.hash);
-        }
-      }
-    };
-
-    document.addEventListener('click', handleScrollLinkClick);
-    return () => document.removeEventListener('click', handleScrollLinkClick);
-  }, []);
+    scrollToSection(sectionId);
+  }, [location.search, scrollToSection]);
 
   return (
     <>

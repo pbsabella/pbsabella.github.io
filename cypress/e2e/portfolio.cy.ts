@@ -76,14 +76,14 @@ describe('Portfolio E2E Tests', () => {
       cy.findByRole('navigation', { name: /main menu/i })
         .findByText('Work')
         .click();
-      cy.url().should('include', '#work');
+      cy.url().should('include', 'section=work');
       cy.get('[id="work"]').should('be.visible');
     });
 
     it('should trap focus in mobile side nav', () => {
       cy.viewport(375, 667);
       cy.findByRole('button', { name: /open mobile menu/i }).click();
-      cy.findByRole('navigation', { name: /mobile menu/i }).should('be.visible');
+      cy.findByRole('dialog', { name: /mobile menu/i }).should('be.visible');
 
       // Verify focus is trapped (first element focused)
       cy.focused()
@@ -92,7 +92,7 @@ describe('Portfolio E2E Tests', () => {
 
       // Close it
       cy.findByRole('button', { name: /close mobile menu/i }).click();
-      cy.findByRole('navigation', { name: /mobile menu/i }).should('not.exist');
+      cy.findByRole('dialog', { name: /mobile menu/i }).should('not.exist');
     });
 
     it('should navigate to styleguide', () => {

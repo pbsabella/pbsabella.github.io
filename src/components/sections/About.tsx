@@ -1,26 +1,9 @@
 import Card from '@components/ui/Card';
 import Section from '@components/layout/Section';
+import { COMPETENCIES, TECH_STACK } from '@/content/about';
 import styles from './About.module.css';
 
 const About = () => {
-  const competencies = [
-    'Design Systems',
-    'Design Tokens',
-    'Component Lifecycle Management',
-    'Accessibility (WCAG)',
-    'Frontend Architecture',
-    'Mentoring & Leadership',
-  ];
-
-  const techStack = [
-    'TypeScript, JavaScript',
-    'Vue.js, Angular',
-    'HTML, CSS, Tailwind',
-    'Vite, Webpack',
-    'Figma',
-    'Unit, Component, End-to-End, & Visual Testing (Jest, Cypress, Percy)',
-  ];
-
   return (
     <Section id="about" introText="about" title="A little overview" bgClass="bgAccentIce">
       <div className={`${styles.aboutContent} ${styles.flex}`}>
@@ -37,8 +20,8 @@ const About = () => {
           <Card className={styles.flexItem}>
             <h4 className={styles.skillsTitle}>Core Competencies</h4>
             <ul className={styles.skillsList}>
-              {competencies.map((skill, index) => (
-                <li key={index}>{skill}</li>
+              {COMPETENCIES.map((skill) => (
+                <li key={skill}>{skill}</li>
               ))}
             </ul>
           </Card>
@@ -46,8 +29,8 @@ const About = () => {
           <Card className={styles.flexItem}>
             <h4 className={styles.skillsTitle}>Tech Stack</h4>
             <ul className={styles.skillsList}>
-              {techStack.map((skill, index) => (
-                <li key={index}>{skill}</li>
+              {TECH_STACK.map((skill) => (
+                <li key={skill}>{skill}</li>
               ))}
             </ul>
           </Card>

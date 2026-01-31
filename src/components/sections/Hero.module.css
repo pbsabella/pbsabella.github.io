@@ -1,6 +1,6 @@
 .hero {
   margin: 0 auto var(--spacing-medium);
-  max-width: 1440px;
+  max-width: var(--size-page-max);
 }
 
 .heroDivider {
@@ -8,14 +8,14 @@
   height: var(--size-line-thin);
   margin-bottom: 0.65em;
   margin-left: var(--spacing-small);
-  width: 80px;
+  width: var(--size-hero-divider-sm);
 }
 
 .heroInner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 600px;
+  height: var(--size-hero-height);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -37,7 +37,7 @@
 }
 
 .heroInner::before {
-  background-image: url('/src/images/patterns.svg');
+  background-image: url('../../images/patterns.svg');
   background-repeat: no-repeat;
   opacity: var(--pattern-opacity);
   z-index: -1;
@@ -83,7 +83,7 @@
   }
 
   .heroDivider {
-    width: 240px;
+    width: var(--size-hero-divider-lg);
   }
 
   .heroInner {

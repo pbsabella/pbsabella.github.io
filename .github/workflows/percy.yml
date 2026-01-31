@@ -7,15 +7,14 @@ on:
   push:
     branches: [master]
     paths:
-      - '**/*.html'
-      - '**/*.{js,ts}'
-      - '**/*.css'
+      - 'src/**/*.{js,ts,jsx,tsx,css}'
+      - 'public/**/*'
+      - 'package-lock.json'
   pull_request:
     branches: [master]
     paths:
-      - '**/*.html'
-      - '**/*.{js,ts}'
-      - '**/*.css'
+      - 'src/**/*.{js,ts,jsx,tsx,css}'
+      - 'public/**/*'
   workflow_dispatch:
     inputs:
       skip_percy:
@@ -42,16 +41,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Build project
-        run: npm run build
-
-      - name: Start preview server
-        run: npx vite preview --port 5173 &
-        shell: bash
-
-      - name: Wait for server to start
-        run: sleep 2
 
       - name: Run Percy tests
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.skip_percy != 'true' }}
