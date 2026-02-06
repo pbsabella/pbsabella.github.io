@@ -8,12 +8,7 @@ const About = () => {
     <Section id="about" introText="about" title="A little overview" bgClass="bgAccentIce">
       <div className={`${styles.aboutContent} ${styles.flex}`}>
         <p className={`${styles.aboutDescription} ${styles.flexItem2}`}>
-          Senior Frontend Engineer with deep expertise in <strong>Design Systems</strong> and
-          scalable architecture. I bridge the gap between design and engineering, translating visual
-          language into robust, accessible code.
-          <br />
-          <br />I am passionate about developer experience, tooling, and creating inclusive
-          products.
+          I am a Senior Frontend Engineer with over a decade of experience in <strong>Frontend Architecture</strong>, <strong>Design System governance</strong>, and <strong>product engineering</strong>. My focus is on building scalable, high-performance systems and component libraries that drive platform-wide consistency and maximize developer velocity. I thrive on bridging the gap between design vision and technical implementation.
         </p>
 
         <div className={styles.flex}>
