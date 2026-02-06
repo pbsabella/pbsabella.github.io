@@ -7,14 +7,15 @@ on:
   push:
     branches: [master]
     paths:
-      - 'src/**/*.{js,ts,jsx,tsx,css}'
-      - 'public/**/*'
+      - 'src/**'
+      - 'public/**'
       - 'package-lock.json'
   pull_request:
     branches: [master]
     paths:
-      - 'src/**/*.{js,ts,jsx,tsx,css}'
-      - 'public/**/*'
+      - 'src/**'
+      - 'public/**'
+      - 'package-lock.json'
   workflow_dispatch:
     inputs:
       skip_percy:
