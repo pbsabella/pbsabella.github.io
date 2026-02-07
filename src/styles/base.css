@@ -21,7 +21,7 @@ body {
   font-size: var(--text-body);
   font-size-adjust: 0.5;
   font-weight: var(--font-weight-regular);
-  line-height: var(--leading-body);
+  line-height: var(--leading-normal);
 
   /* modern replacement for overflow-y: scroll */
   scrollbar-gutter: stable;
@@ -72,6 +72,26 @@ img {
   height: auto;
 }
 
+hr {
+  border: 0;
+  border-top: var(--size-line-thin) solid var(--color-divider);
+  margin: var(--spacing-large) 0 var(--spacing-xlarge);
+}
+
+section {
+  padding-bottom: var(--spacing-xlarge);
+  padding-top: var(--spacing-xlarge);
+}
+
+b,
+strong {
+  font-weight: var(--font-weight-medium);
+}
+
+small {
+  font-size: var(--text-detail);
+}
+
 /* ---------------------------------
    Typography
 ---------------------------------- */
@@ -99,20 +119,15 @@ h3,
   line-height: var(--leading-normal);
 }
 
-h4 {
+h4,
+.h4 {
   font-size: var(--text-h4);
-  line-height: clamp(1.11, 1.18, 1.2222);
+  line-height: var(--leading-normal);
 }
 
 /* ---------------------------------
    Body typography breakpoint
 ---------------------------------- */
-
-@media (width >=43.75em) {
-  body {
-    line-height: var(--leading-body-wide);
-  }
-}
 
 /* Dark mode accent */
 [data-theme='dark'] body {

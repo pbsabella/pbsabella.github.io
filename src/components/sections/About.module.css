@@ -1,5 +1,5 @@
 .aboutDescription {
-  line-height: 2em;
+  line-height: var(--leading-loose);
   min-width: min(300px, 100%);
   max-width: 560px;
 }

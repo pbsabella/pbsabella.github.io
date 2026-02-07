@@ -36,10 +36,6 @@
   margin-bottom: var(--spacing-xxsmall);
 }
 
-.workItemDescription {
-  line-height: 2em;
-}
-
 .workItemTags {
   display: flex;
   align-items: flex-start;

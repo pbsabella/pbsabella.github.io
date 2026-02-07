@@ -1,0 +1,21 @@
+.main {
+  padding-top: var(--spacing-xxlarge);
+}
+
+.description {
+  line-height: var(--leading-loose);
+  min-width: min(300px, 100%);
+  max-width: 560px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--spacing-medium);
+  width: 100%;
+  align-items: stretch;
+}
+
+.grid a {
+  display: block;
+}

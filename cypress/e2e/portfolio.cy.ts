@@ -16,12 +16,12 @@ describe('Portfolio E2E Tests', () => {
       });
     });
 
-    describe('Styleguide', () => {
-      it('should capture styleguide at multiple viewports', () => {
-        cy.visit('/#/labs/styleguide');
+    describe('SystemCore', () => {
+      it('should capture system core at multiple viewports', () => {
+        cy.visit('/#/labs/core');
 
-        cy.findByRole('heading', { level: 1, name: /styleguide/i }).should('be.visible');
-        cy.percySnapshot('Styleguide', { widths });
+        cy.findByRole('heading', { level: 1, name: /system core/i }).should('be.visible');
+        cy.percySnapshot('System Core', { widths });
       });
     });
 
@@ -45,12 +45,12 @@ describe('Portfolio E2E Tests', () => {
         cy.percySnapshot('Homepage - Dark Mode', { widths: [1280] });
       });
 
-      it('should capture styleguide in dark mode', () => {
-        cy.visit('#/labs/styleguide');
+      it('should capture system core in dark mode', () => {
+        cy.visit('#/labs/core');
         enableDarkMode();
 
-        cy.findByRole('heading', { level: 1, name: /styleguide/i }).should('be.visible');
-        cy.percySnapshot('Styleguide - Dark Mode', { widths: [1280] });
+        cy.findByRole('heading', { level: 1, name: /system core/i }).should('be.visible');
+        cy.percySnapshot('System Core - Dark Mode', { widths: [1280] });
       });
     });
   });
@@ -95,11 +95,11 @@ describe('Portfolio E2E Tests', () => {
       cy.findByRole('dialog', { name: /mobile menu/i }).should('not.exist');
     });
 
-    it('should navigate to styleguide', () => {
+    it('should navigate to labs', () => {
       cy.findByRole('navigation')
-        .findByText(/styleguide/i)
+        .findByText(/labs/i)
         .click();
-      cy.url().should('include', '#/labs/styleguide');
+      cy.url().should('include', '#/labs');
     });
   });
 });

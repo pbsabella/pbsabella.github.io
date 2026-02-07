@@ -1,16 +1,15 @@
-import Section from '@components/layout/Section';
+import FeaturedSection from '@components/sections/FeaturedSection';
 import Socials from '@components/ui/Socials';
-import styles from './Contact.module.css';
 
 const Contact = () => {
   return (
-    <Section id="contact" introText="contact" title="Get in touch">
-      <p className={styles.contactDescription}>
+    <FeaturedSection id="contact" introText="contact" title="Get in touch">
+      <p>
         Open to Senior Design System and Frontend Engineering roles.
       </p>
 
       <Socials />
-    </Section>
+    </FeaturedSection>
   );
 };
 

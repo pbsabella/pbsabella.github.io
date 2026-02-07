@@ -116,8 +116,8 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
         <nav>
           <ul className={styles.sideMenuList}>
             <li className={styles.sideMenuItem}>
-              <Link className={styles.sideMenuLink} to={ROUTES.STYLEGUIDE} onClick={onClose}>
-                styleguide
+              <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose}>
+                labs
               </Link>
             </li>
             <li className={styles.sideMenuItem}>

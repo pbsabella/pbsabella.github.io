@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import styles from './Section.module.css';
-import Container from './Container';
+import Container from '@components/layout/Container';
+import styles from './FeaturedSection.module.css';
 
-interface SectionProps {
+interface FeaturedSectionProps {
   id?: string;
   title?: ReactNode;
   introText?: string;
@@ -12,7 +12,7 @@ interface SectionProps {
   noContainer?: boolean;
 }
 
-const Section = ({
+const FeaturedSection = ({
   id,
   title,
   introText,
@@ -20,7 +20,7 @@ const Section = ({
   className = '',
   bgClass = '',
   noContainer = false,
-}: SectionProps) => {
+}: FeaturedSectionProps) => {
   // Common header logic
   const renderHeader = () =>
     (introText || title) && (
@@ -52,4 +52,4 @@ const Section = ({
   );
 };
 
-export default Section;
+export default FeaturedSection;

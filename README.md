@@ -13,7 +13,7 @@ This portfolio is a **Design System in practice**:
 - **Theme Support:** Full dark mode via CSS variable overrides
 - **Accessibility First:** WCAG 2.1 AA compliance, keyboard navigation, semantic HTML
 
-**View the Design System:** [Styleguide](https://pbsabella.github.io/#/labs/styleguide)
+**View the Design System:** [SystemCore](https://pbsabella.github.io/#/labs/core)
 
 ## Status
 
@@ -58,7 +58,7 @@ Each component:
 ```
 src/pages/
 ├── Home.tsx       # Portfolio landing
-└── Styleguide.tsx # Design system showcase
+└── SystemCore.tsx # Design system showcase
 ```
 
 ---
