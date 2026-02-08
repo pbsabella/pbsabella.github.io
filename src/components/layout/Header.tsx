@@ -35,12 +35,12 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
           )}
 
           <ul className={`${styles.navList} ${styles.hideOnMedium}`}>
-            <li className={`${styles.navItem} ${styles.navItemMobile}`}>
+            <li className={`${styles.navItem}`}>
               <ThemeToggle id="theme-toggle-mobile" />
             </li>
 
             {!isLabEnvironment && (
-              <li className={`${styles.navItem} ${styles.navItemMobile}`}>
+              <li className={`${styles.navItem}`}>
                 <button
                   className={styles.navMenu}
                   aria-controls="side-nav"

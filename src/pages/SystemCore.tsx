@@ -6,11 +6,11 @@ import styles from './SystemCore.module.css';
 
 const SystemCore = () => {
   return (
-    <Container className={styles.main}>
-      <section>
-        <div className={styles.sectionInner}>
+    <section>
+      <Container className={styles.page}>
+        <div>
           <h1>System Core</h1>
-          <p className={styles.description}>
+          <p className={styles.pageDesc}>
             A living reference of the design tokens, primitives, and components that <b>power this portfolio</b>. This system demonstrates a tiered token architecture (primitive → semantic) with a focus on type-safety, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.
           </p>
 
@@ -370,8 +370,8 @@ const SystemCore = () => {
             </Card>
           </div>
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

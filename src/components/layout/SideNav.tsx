@@ -78,7 +78,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navContent = (
     <>
       <div
-        className={`${styles.overlay} ${isOpen ? styles.overlayActive : ''}`}
+        className={`${styles.overlay} ${isOpen ? styles.overlayVisible : ''}`}
         onClick={onClose}
         aria-hidden="true"
       ></div>
@@ -88,12 +88,12 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
         aria-label="Mobile menu"
         role="dialog"
         aria-modal="true"
-        className={`${styles.sideMenu} ${isOpen ? styles.isActive : ''}`}
+        className={`${styles.sideMenu} ${isOpen ? styles.sideMenuOpen : ''}`}
         ref={navRef}
       >
         <button
           id="side-menu-close"
-          className={styles.sideMenuClose}
+          className={styles.sideMenuCloseButton}
           aria-label="Close mobile menu"
           onClick={onClose}
         >
@@ -117,7 +117,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
           <ul className={styles.sideMenuList}>
             <li className={styles.sideMenuItem}>
               <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose}>
-                labs
+                Labs
               </Link>
             </li>
             <li className={styles.sideMenuItem}>
@@ -129,7 +129,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                   onClose();
                 }}
               >
-                work
+                Work
               </Link>
             </li>
             <li className={styles.sideMenuItem}>
@@ -141,7 +141,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                   onClose();
                 }}
               >
-                about
+                About
               </Link>
             </li>
             <li className={styles.sideMenuItem}>
@@ -153,7 +153,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                   onClose();
                 }}
               >
-                contact
+                Contact
               </Link>
             </li>
           </ul>

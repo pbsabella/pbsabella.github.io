@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       <main
         ref={mainRef}
-        className={`${styles.mainContent} ${isSideNavOpen ? styles.isDisabled : ''}`}
+        className={`${styles.mainContent} ${isSideNavOpen ? styles.mainContentDisabled : ''}`}
       >
         {children}
       </main>

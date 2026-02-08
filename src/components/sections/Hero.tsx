@@ -22,7 +22,7 @@ const Hero = () => {
           >
             <span>
               Senior Frontend Engineer & <br />
-              Design Systems Specialist
+              Design Systems Engineer
             </span>
             <span className={styles.heroDivider}></span>
           </Link>

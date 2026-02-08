@@ -1,11 +1,8 @@
 .footer {
   background-color: var(--color-bg);
   border-top: var(--size-line-thin) solid var(--color-border);
-}
-
-.footerInner {
-  padding-top: var(--spacing-xsmall);
-  padding-bottom: var(--spacing-xsmall);
+  padding: var(--spacing-xsmall);
+  text-align: center;
 }
 
 .footerCopyright {
@@ -13,8 +10,4 @@
   padding: var(--spacing-xxsmall) 0;
   text-align: center;
   width: 100%;
-}
-
-.textBold {
-  font-weight: var(--font-weight-medium);
 }

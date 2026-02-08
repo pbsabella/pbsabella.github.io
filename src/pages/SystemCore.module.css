@@ -1,14 +1,14 @@
-.main {
+.page {
   padding-top: var(--spacing-xxlarge);
 }
 
-.description {
+.pageDesc {
   line-height: var(--leading-loose);
-  max-width: 600px;
+  max-width: var(--size-content-max);
 }
 
 .sectionDesc {
-  max-width: 600px;
+  max-width: var(--size-content-max);
 }
 
 .subsectionTitle {

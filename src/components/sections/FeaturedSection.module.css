@@ -1,32 +1,32 @@
-.section {
+.featuredSection {
   display: block;
   position: relative;
   scroll-margin-top: var(--size-section-scroll-margin-top);
 }
 
-.sectionInner {
+.featuredSectionInner {
   width: 100%;
 }
 
-.sectionIntro {
+.featuredSectionIntro {
   display: flex;
 }
 
-.sectionIntroDivider {
+.featuredSectionIntroDivider {
   background-color: var(--color-divider-dark);
   height: var(--size-line-thin);
   margin: var(--spacing-xxsmall) var(--spacing-xxsmall) 0 0;
   width: var(--size-section-intro-divider);
 }
 
-.sectionIntroText {
+.featuredSectionIntroText {
   font-size: var(--text-detail);
   font-weight: var(--font-weight-regular);
   text-transform: lowercase;
   line-height: var(--leading-tight);
 }
 
-.sectionTitle {
+.featuredSectionTitle {
   font-family: var(--font-family-display);
   padding-top: var(--spacing-large);
   padding-bottom: var(--spacing-medium);

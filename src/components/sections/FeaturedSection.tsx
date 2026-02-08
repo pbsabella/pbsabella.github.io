@@ -24,28 +24,28 @@ const FeaturedSection = ({
   // Common header logic
   const renderHeader = () =>
     (introText || title) && (
-      <div className={styles.sectionInner}>
+      <div className={styles.featuredSectionInner}>
         {introText && (
-          <div className={styles.sectionIntro}>
-            <span className={styles.sectionIntroDivider}></span>
-            <h2 className={styles.sectionIntroText}>{introText}</h2>
+          <div className={styles.featuredSectionIntro}>
+            <span className={styles.featuredSectionIntroDivider}></span>
+            <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
           </div>
         )}
-        {title && <h3 className={styles.sectionTitle}>{title}</h3>}
+        {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
       </div>
     );
 
   return (
-    <section id={id} className={`${styles.section} ${bgClass} ${className}`}>
+    <section id={id} className={`${styles.featuredSection} ${bgClass} ${className}`}>
       {noContainer ? (
         <>
           <Container>{renderHeader()}</Container>
-          <div className={styles.sectionContent}>{children}</div>
+          <div>{children}</div>
         </>
       ) : (
         <Container>
           {renderHeader()}
-          <div className={styles.sectionContent}>{children}</div>
+          <div>{children}</div>
         </Container>
       )}
     </section>

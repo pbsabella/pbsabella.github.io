@@ -9,22 +9,22 @@
     box-shadow var(--transition-fast) var(--easing-out);
 }
 
-.elevated {
+.cardElevated {
   background-color: var(--card-bg-color);
   box-shadow: var(--card-shadow);
 }
 
-.flat {
+.cardFlat {
   border: var(--size-line-thin) solid var(--color-border);
 }
 
-.ghost {
+.cardGhost {
   pointer-events: none;
   background-color: var(--card-bg-ghost);
   border: var(--border-width-thin) dashed var(--color-border);
 }
 
-.interactive:hover {
+.cardInteractive:hover {
   box-shadow: var(--card-shadow-hover);
   transform: translateY(var(--card-hover-offset));
 }

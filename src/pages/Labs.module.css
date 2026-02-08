@@ -1,14 +1,14 @@
-.main {
+.labs {
   padding-top: var(--spacing-xxlarge);
 }
 
-.description {
+.labsDescription {
   line-height: var(--leading-loose);
   min-width: min(300px, 100%);
-  max-width: 560px;
+  max-width: var(--size-content-max);
 }
 
-.grid {
+.labsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--spacing-medium);
@@ -16,6 +16,6 @@
   align-items: stretch;
 }
 
-.grid a {
+.labsGrid a {
   display: block;
 }

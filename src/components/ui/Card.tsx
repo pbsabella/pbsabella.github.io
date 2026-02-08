@@ -43,8 +43,8 @@ const Card = ({
 }: CardProps) => {
   const classes = [
     styles.card,
-    styles[variant],
-    isInteractive && styles.interactive,
+    styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`],
+    isInteractive && styles.cardInteractive,
     className
   ].filter(Boolean).join(' ');
 
