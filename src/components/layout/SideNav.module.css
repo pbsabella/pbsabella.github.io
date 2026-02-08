@@ -1,16 +1,16 @@
 .sideMenu {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-base);
   height: 100%;
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
-  max-width: var(--size-side-nav-max);
+  max-width: var(--sidenav-max-width);
   transform: translateX(100%);
-  transition: transform var(--transition-base) var(--easing-in-out);
+  transition: transform var(--duration-base) var(--easing-in-out);
   visibility: hidden;
   overflow-y: scroll;
-  z-index: var(--z-index-side-nav);
+  z-index: var(--sidenav-z-index);
 }
 
 .sideMenuOpen {
@@ -21,10 +21,10 @@
 .sideMenuCloseButton {
   background-color: transparent;
   border: 0;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   cursor: pointer;
   display: block;
-  padding: var(--spacing-small);
+  padding: var(--spacing-4);
   text-align: right;
   margin-left: auto;
 }
@@ -32,23 +32,23 @@
 .sideMenuList {
   height: 100%;
   padding: 0;
-  padding-top: var(--spacing-xxsmall);
+  padding-top: var(--spacing-2);
   list-style: none;
 }
 
 .sideMenuItem {
-  border-bottom: var(--size-line-thin) solid var(--color-border);
+  border-bottom: var(--border-width-1) solid var(--color-border-base);
   cursor: pointer;
-  height: var(--size-min-touch);
-  margin-left: var(--spacing-medium);
+  height: var(--size-44);
+  margin-left: var(--spacing-6);
 }
 
 .sideMenuLink {
   display: flex;
   align-items: center;
   height: 100%;
-  color: var(--color-text);
-  font-family: var(--font-family-body);;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);;
   text-decoration: none;
   text-transform: lowercase;
 }
@@ -65,11 +65,11 @@
   position: fixed;
   top: 0;
   transition:
-    opacity var(--transition-base) var(--easing-in-out),
-    visibility var(--transition-base) var(--easing-in-out);
+    opacity var(--duration-base) var(--easing-in-out),
+    visibility var(--duration-base) var(--easing-in-out);
   visibility: hidden;
   width: 100%;
-  z-index: var(--z-index-overlay);
+  z-index: var(--z-layer-overlay);
 }
 
 .overlayVisible {

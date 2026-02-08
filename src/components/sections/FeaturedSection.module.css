@@ -1,7 +1,7 @@
 .featuredSection {
   display: block;
   position: relative;
-  scroll-margin-top: var(--size-section-scroll-margin-top);
+  scroll-margin-top: var(--section-scroll-margin-top);
 }
 
 .featuredSectionInner {
@@ -13,21 +13,21 @@
 }
 
 .featuredSectionIntroDivider {
-  background-color: var(--color-divider-dark);
-  height: var(--size-line-thin);
-  margin: var(--spacing-xxsmall) var(--spacing-xxsmall) 0 0;
-  width: var(--size-section-intro-divider);
+  background-color: var(--color-divider-strong);
+  height: var(--border-width-1);
+  margin: var(--spacing-2) var(--spacing-2) 0 0;
+  width: var(--section-intro-divider);
 }
 
 .featuredSectionIntroText {
-  font-size: var(--text-detail);
-  font-weight: var(--font-weight-regular);
+  font-size: var(--text-scale-200);
+  font-weight: var(--font-weight-400);
   text-transform: lowercase;
-  line-height: var(--leading-tight);
+  line-height: var(--leading-110);
 }
 
 .featuredSectionTitle {
-  font-family: var(--font-family-display);
-  padding-top: var(--spacing-large);
-  padding-bottom: var(--spacing-medium);
+  font-family: var(--font-display);
+  padding-top: var(--spacing-11);
+  padding-bottom: var(--spacing-6);
 }

@@ -1,9 +1,9 @@
 .tag {
-  color: var(--tag-text-color);
-  font-size: var(--text-detail);
-  line-height: var(--leading-none);
-  border-radius: var(--tag-border-radius);
-  border: var(--size-line-thin) solid var(--color-border-dark);
-  padding: var(--spacing-xxxsmall) var(--spacing-xsmall);
+  color: var(--tag-text);
+  font-size: var(--text-scale-200);
+  line-height: var(--leading-100);
+  border-radius: var(--tag-radius);
+  border: var(--border-width-1) solid var(--color-border-strong);
+  padding: var(--spacing-1) var(--spacing-3);
   white-space: nowrap;
 }

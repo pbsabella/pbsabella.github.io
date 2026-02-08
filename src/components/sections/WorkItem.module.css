@@ -1,10 +1,10 @@
 .workItem {
-  padding-top: var(--spacing-xlarge);
-  padding-bottom: var(--spacing-xlarge);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
 }
 
 .workItemImage {
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-11);
   width: 100%;
   height: auto;
 }
@@ -14,31 +14,31 @@
 }
 
 .workItemTitle {
-  color: var(--color-text-dark);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: var(--spacing-xxsmall);
+  color: var(--color-text-strong);
+  font-weight: var(--font-weight-500);
+  margin-bottom: var(--spacing-2);
 }
 
 .workItemSubtitle {
   display: flex;
   align-items: center;
-  gap: var(--spacing-small);
-  margin-bottom: var(--spacing-small);
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
 }
 
 .workItemCompany {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-500);
 }
 
 .workItemPosition {
-  font-size: var(--text-detail);
+  font-size: var(--text-scale-200);
   font-style: italic;
-  margin-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--spacing-2);
 }
 
 .workItemTags {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: var(--spacing-xxsmall);
+  gap: var(--spacing-2);
 }
