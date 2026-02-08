@@ -1,0 +1,21 @@
+.labs {
+  padding-top: var(--spacing-xxlarge);
+}
+
+.labsDescription {
+  line-height: var(--leading-loose);
+  min-width: min(300px, 100%);
+  max-width: var(--size-content-max);
+}
+
+.labsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--spacing-medium);
+  width: 100%;
+  align-items: stretch;
+}
+
+.labsGrid a {
+  display: block;
+}

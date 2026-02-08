@@ -1,0 +1,203 @@
+.page {
+  padding-top: var(--spacing-xxlarge);
+}
+
+.pageDesc {
+  line-height: var(--leading-loose);
+  max-width: var(--size-content-max);
+}
+
+.sectionDesc {
+  max-width: var(--size-content-max);
+}
+
+.subsectionTitle {
+  margin-bottom: var(--spacing-small);
+  margin-top: var(--spacing-large);
+}
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: var(--text-footnote);
+  color: var(--color-text);
+  background: var(--color-bg-dark);
+  padding: var(--spacing-xxxsmall) var(--spacing-xxsmall);
+  border-radius: var(--border-radius-sm);
+  display: block;
+  width: fit-content;
+}
+
+.cardContent *:not(:last-child) {
+  margin-bottom: var(--spacing-xxsmall);
+  display: block;
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-medium);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: var(--spacing-large);
+}
+
+.gridWide {
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+.swatchGrid {
+  gap: var(--spacing-large);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.swatchBox {
+  background-color: var(--color-bg);
+  border-radius: var(--border-radius-lg);
+  height: var(--spacing-xlarge);
+}
+
+.swatchBoxBorder {
+  border: var(--size-line-thin) solid var(--color-border);
+}
+
+.swatch p {
+  margin: var(--spacing-xxsmall) 0 var(--spacing-xxxsmall);
+  font-size: var(--text-detail);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Typography */
+.typeExamples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+}
+
+/* Spacing */
+.spacingScale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
+  max-width: var(--size-min-card);
+}
+
+.spacingLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-detail);
+  margin-bottom: var(--spacing-xxsmall);
+}
+
+.spacingBar {
+  height: var(--size-bar-height);
+  background: var(--color-primary);
+  border-radius: var(--border-radius-md);
+  transition: width var(--transition-base) var(--easing-in-out);
+}
+
+/* Elevation */
+.elevationLow {
+  border: 0;
+  box-shadow: var(--elevation-low);
+}
+
+.elevationMedium {
+  border: 0;
+  box-shadow: var(--elevation-medium);
+}
+
+.elevationHigh {
+  border: 0;
+  box-shadow: var(--elevation-high);
+}
+
+/* Interactive States */
+.statesDemo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-large);
+  margin-bottom: var(--spacing-large);
+}
+
+/* Components */
+.tagsDemo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-large);
+}
+
+/* Color swatch utilities */
+.swatchPrimary {
+  background: var(--color-primary);
+}
+
+.swatchPrimaryLight {
+  background: var(--color-primary-light);
+}
+
+.swatchPrimaryXXLight {
+  background: var(--color-primary-xxlight);
+}
+
+.swatchNeutralXXLight {
+  background: var(--color-neutral-xxlight);
+}
+
+.swatchNeutralXLight {
+  background: var(--color-neutral-xlight);
+}
+
+.swatchNeutralLight {
+  background: var(--color-neutral-light);
+}
+
+.swatchNeutral {
+  background: var(--color-neutral);
+}
+
+.swatchNeutralDark {
+  background: var(--color-neutral-dark);
+}
+
+.swatchNeutralXDark {
+  background: var(--color-neutral-xdark);
+}
+
+.swatchNeutralXXDark {
+  background: var(--color-neutral-xxdark);
+}
+
+.swatchAccentYellow {
+  background: var(--color-accent-yellow);
+}
+
+.swatchAccentOrange {
+  background: var(--color-accent-orange);
+}
+
+.swatchAccentCyanLight {
+  background: var(--color-accent-cyan-light);
+}
+
+.swatchAccentIce {
+  background: var(--color-accent-ice);
+}
+
+/* Semantic swatch utilities */
+.swatchBg {
+  background: var(--color-bg);
+}
+
+.swatchCardBg {
+  background: var(--card-bg-color);
+}
+
+.swatchText {
+  background: var(--color-text);
+}
+
+.swatchBorder {
+  background: var(--color-border);
+}

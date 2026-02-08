@@ -12,9 +12,11 @@ interface HeaderProps {
 
 const Header = ({ toggleSideNav }: HeaderProps) => {
   const { isHidden, isTransparent } = useHeaderScroll();
-  const location = useLocation();
+  const { pathname } = useLocation();
   const scrollToSection = useScrollToSection();
-  const isStyleguide = location.pathname === ROUTES.STYLEGUIDE;
+
+  const isLabEnvironment = pathname.startsWith('/labs');
+  const isDeepDeepLink = pathname === ROUTES.SYSTEM_CORE;
 
   return (
     <header
@@ -22,9 +24,9 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
     >
       <Container className={`${styles.headerInner}`}>
         <nav className={styles.nav} aria-label="Main menu">
-          {isStyleguide ? (
-            <Link className={`${styles.navLogo} link`} to={ROUTES.HOME}>
-              ← Back to Portfolio
+          {isLabEnvironment ? (
+            <Link className={`${styles.navLogo} link`} to={isDeepDeepLink ? ROUTES.LABS : ROUTES.HOME}>
+              ← Back
             </Link>
           ) : (
             <Link className={styles.navLogo} to={ROUTES.HOME}>
@@ -33,12 +35,12 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
           )}
 
           <ul className={`${styles.navList} ${styles.hideOnMedium}`}>
-            <li className={`${styles.navItem} ${styles.navItemMobile}`}>
+            <li className={`${styles.navItem}`}>
               <ThemeToggle id="theme-toggle-mobile" />
             </li>
 
-            {!isStyleguide && (
-              <li className={`${styles.navItem} ${styles.navItemMobile}`}>
+            {!isLabEnvironment && (
+              <li className={`${styles.navItem}`}>
                 <button
                   className={styles.navMenu}
                   aria-controls="side-nav"
@@ -65,11 +67,11 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
             )}
           </ul>
 
-          {!isStyleguide && (
+          {!isLabEnvironment && (
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
               <li className={styles.navItem}>
-                <Link className={`${styles.navLink} link`} to={ROUTES.STYLEGUIDE}>
-                  Styleguide
+                <Link className={`${styles.navLink} link`} to={ROUTES.LABS}>
+                  Labs
                 </Link>
               </li>
               <li className={styles.navItem}>
@@ -105,7 +107,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
             </ul>
           )}
 
-          {isStyleguide && (
+          {isLabEnvironment && (
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
               <li className={styles.navItem}>
                 <ThemeToggle id="theme-toggle" />

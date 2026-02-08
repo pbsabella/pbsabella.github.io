@@ -13,12 +13,12 @@
   z-index: var(--z-index-side-nav);
 }
 
-.isActive {
+.sideMenuOpen {
   transform: translateX(0);
   visibility: visible;
 }
 
-.sideMenuClose {
+.sideMenuCloseButton {
   background-color: transparent;
   border: 0;
   color: var(--color-text);
@@ -48,8 +48,9 @@
   align-items: center;
   height: 100%;
   color: var(--color-text);
+  font-family: var(--font-family-body);;
   text-decoration: none;
-  font-family: var(--font-family-body);
+  text-transform: lowercase;
 }
 
 .linkActive {
@@ -71,7 +72,7 @@
   z-index: var(--z-index-overlay);
 }
 
-.overlayActive {
+.overlayVisible {
   opacity: 1;
   visibility: visible;
 }

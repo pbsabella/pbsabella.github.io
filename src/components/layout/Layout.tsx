@@ -26,20 +26,20 @@ const Layout = ({ children }: LayoutProps) => {
   useInert(mainRef, isSideNavOpen);
 
   return (
-    <>
+    <div className={styles.appWrapper}>
       <Header toggleSideNav={toggleSideNav} />
 
       <SideNav isOpen={isSideNavOpen} onClose={closeSideNav} />
 
       <main
         ref={mainRef}
-        className={isSideNavOpen ? styles.isDisabled : ''}
+        className={`${styles.mainContent} ${isSideNavOpen ? styles.mainContentDisabled : ''}`}
       >
         {children}
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 };
 

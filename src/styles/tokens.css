@@ -41,10 +41,10 @@
   --font-weight-medium: 500;
 
   /* Line Height Scale */
-  --leading-tight: 1.05;
-  --leading-normal: 1.25;
-  --leading-body: 1.25;
-  --leading-body-wide: 1.375;
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-normal: 1.5;
+  --leading-loose: 1.8;
 
   /* --- 1.2 Spacing --- */
 
@@ -115,11 +115,11 @@
   --size-bar-height: 8px;
   --size-min-touch: 44px;
   --size-min-card: 260px;
-  --size-min-component-grid: 200px;
 
   /* --- 1.8 Layout & Component Constants --- */
   --size-container-max: 1200px;
   --size-page-max: 1440px;
+  --size-content-max: 600px;
   --size-side-nav-max: 320px;
   --size-section-scroll-margin-top: 64px;
   --size-section-intro-divider: 44px;
@@ -162,7 +162,8 @@
   /* --- 2.4 Border & Divider Colors --- */
   --color-border: var(--color-neutral-light);
   --color-border-dark: var(--color-neutral-dark);
-  --color-divider: var(--color-neutral-xxdark);
+  --color-divider: var(--color-neutral);
+  --color-divider-dark: var(--color-neutral-xxdark);
 
   /* --- 2.5 Border Compounds --- */
   --border-accent: var(--border-width-thick) solid var(--color-primary);
@@ -170,6 +171,7 @@
 
   /* --- 2.6 Component Tokens --- */
   --card-bg-color: var(--color-neutral-xxlight);
+  --card-bg-ghost: var(--color-neutral-xlight);
   --card-text-color: var(--color-neutral-xdark);
   --card-shadow: var(--elevation-low);
   --card-shadow-hover: var(--elevation-medium);
@@ -207,9 +209,11 @@
   --color-border: var(--color-neutral-dark);
   --color-border-dark: var(--color-neutral-dark);
   --color-divider: #e8e8ea;
+  --color-divider-dark: #e8e8ea;
 
   /* --- Component Token Overrides --- */
   --card-bg-color: #1a1f1e;
+  --card-bg-ghost: #1e1e20;
   --card-text-color: var(--color-text);
   --card-shadow: var(--elevation-low);
   --card-border-radius: var(--border-radius-base);

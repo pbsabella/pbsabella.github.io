@@ -5,7 +5,8 @@
 
 export const ROUTES = {
   HOME: '/',
-  STYLEGUIDE: '/labs/styleguide',
+  LABS: '/labs',
+  SYSTEM_CORE: '/labs/core',
 } as const;
 
 export const SECTION_ANCHORS = {

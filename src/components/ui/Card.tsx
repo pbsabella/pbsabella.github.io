@@ -22,14 +22,33 @@ import styles from './Card.module.css';
  */
 
 interface CardProps {
+  /** The visual style of the card */
+  variant?: CardVariant;
   /** Card content - accepts any valid React elements */
   children: ReactNode;
   /** Optional additional CSS class for customization */
   className?: string;
+  /** If the card should have hover scale/shadow effects */
+  isInteractive?: boolean;
 }
 
-const Card = ({ children, className = '' }: CardProps) => {
-  return <div className={`${styles.card} ${className}`}>{children}</div>;
+type CardVariant = 'elevated' | 'flat' | 'ghost'
+
+const Card = ({
+  children,
+  className = '',
+  variant = 'elevated',
+  isInteractive = false,
+  ...props
+}: CardProps) => {
+  const classes = [
+    styles.card,
+    styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`],
+    isInteractive && styles.cardInteractive,
+    className
+  ].filter(Boolean).join(' ');
+
+   return <div className={classes} {...props}>{children}</div>;
 };
 
 export default Card;

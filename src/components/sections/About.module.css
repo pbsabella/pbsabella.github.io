@@ -1,7 +1,18 @@
-.aboutDescription {
-  line-height: 2em;
+.aboutBio {
+  line-height: var(--leading-loose);
   min-width: min(300px, 100%);
-  max-width: 560px;
+  max-width: var(--size-content-max);
+  margin-bottom: var(--spacing-medium);
+}
+
+.aboutGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+}
+
+.aboutCard {
+  flex: 1 1 300px;
 }
 
 .skillsTitle {
@@ -15,26 +26,11 @@
   margin: 0;
 }
 
-.skillsList li {
+.skillsItem {
   font-size: var(--text-detail);
-  padding-top: var(--spacing-xxxsmall);
-  padding-bottom: var(--spacing-xxxsmall);
+  padding-block: var(--spacing-xxxsmall);
 }
 
-.skillsList li:last-child {
+.skillsItem:last-child {
   padding-bottom: 0;
-}
-
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-medium);
-}
-
-.flexItem {
-  flex: 1;
-}
-
-.flexItem2 {
-  flex: 2;
 }

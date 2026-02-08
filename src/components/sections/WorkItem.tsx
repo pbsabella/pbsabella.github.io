@@ -43,7 +43,7 @@ const WorkItem = ({
         <div className={styles.workItemPosition}>{position}</div>
         <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
         {description.map((desc, index) => (
-          <p key={index} className={styles.workItemDescription}>
+          <p key={index}>
             {desc}
           </p>
         ))}
