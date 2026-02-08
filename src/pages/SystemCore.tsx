@@ -48,35 +48,35 @@ const SystemCore = () => {
               {
                 name: 'Neutral XXLight',
                 class: styles.swatchNeutralXXLight,
-                token: '--color-neutral-xxlight',
+                token: '--color-neutral-100',
                 border: true,
               },
               {
                 name: 'Neutral XLight',
                 class: styles.swatchNeutralXLight,
-                token: '--color-neutral-xlight',
+                token: '--color-neutral-200',
                 border: true,
               },
               {
                 name: 'Neutral Light',
                 class: styles.swatchNeutralLight,
-                token: '--color-neutral-light',
+                token: '--color-neutral-300',
               },
               { name: 'Neutral', class: styles.swatchNeutral, token: '--color-neutral' },
               {
                 name: 'Neutral Dark',
                 class: styles.swatchNeutralDark,
-                token: '--color-neutral-dark',
+                token: '--color-neutral-600',
               },
               {
                 name: 'Neutral XDark',
                 class: styles.swatchNeutralXDark,
-                token: '--color-neutral-xdark',
+                token: '--color-neutral-800',
               },
               {
                 name: 'Neutral XXDark',
                 class: styles.swatchNeutralXXDark,
-                token: '--color-neutral-xxdark',
+                token: '--color-neutral-900',
               },
             ].map((item, idx) => (
               <div className={styles.swatch} key={idx}>
@@ -94,8 +94,8 @@ const SystemCore = () => {
             {[
               { name: 'Yellow', class: styles.swatchAccentYellow, token: '--color-accent-yellow' },
               { name: 'Orange', class: styles.swatchAccentOrange, token: '--color-accent-orange' },
-              { name: 'Cyan Light', class: styles.swatchAccentCyanLight, token: '--color-accent-cyan-light' },
-              { name: 'Ice', class: styles.swatchAccentIce, token: '--color-accent-ice' },
+              { name: 'Cyan', class: styles.swatchAccentCyan, token: '--color-accent-cyan' },
+              { name: 'Slate', class: styles.swatchAccentSlate, token: '--color-accent-slate' },
             ].map((item, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
@@ -286,7 +286,7 @@ const SystemCore = () => {
             <a
               className="link"
               href="#focus"
-              style={{ outline: '2px solid var(--color-primary)', outlineOffset: '1px' }}
+              style={{ outline: '2px solid var(--color-primary-500)', outlineOffset: '1px' }}
             >
               Focus (outline)
             </a>

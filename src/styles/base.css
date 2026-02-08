@@ -60,7 +60,7 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: var(--size-focus-outline) solid var(--color-primary);
+  outline: var(--size-focus-outline) solid var(--color-primary-500);
   outline-offset: var(--size-focus-outline-offset);
   border-radius: var(--border-radius-focus);
 }
@@ -167,15 +167,15 @@ h4,
 }
 
 .bgAccentCyanLight {
-  background-color: var(--color-accent-cyan-light);
+  background-color: var(--color-accent-cyan);
 }
 
-.bgAccentIce {
-  background-color: var(--color-accent-ice);
+.bgAccentSlate {
+  background-color: var(--color-accent-slate);
 }
 
 .bgAccentPrimaryLight {
-  background-color: var(--color-primary-xxlight);
+  background-color: var(--color-accent-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {

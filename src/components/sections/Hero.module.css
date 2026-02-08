@@ -31,7 +31,7 @@
 }
 
 .heroInner::after {
-  background-color: var(--color-accent-ice);
+  background-color: var(--color-accent-slate);
   z-index: -2;
   transition: background-color var(--transition-base) var(--easing-in-out);
 }

@@ -5,7 +5,7 @@ import styles from './About.module.css';
 
 const About = () => {
   return (
-    <FeaturedSection id="about" introText="about" title="A little overview" bgClass="bgAccentIce">
+    <FeaturedSection id="about" introText="about" title="A little overview" bgClass="bgAccentSlate">
       <div>
         <p className={`${styles.aboutBio}`}>
           I am a Senior Frontend Engineer with over a decade of experience in <strong>Frontend Architecture</strong>, <strong>Design System governance</strong>, and <strong>product engineering</strong>. My focus is on building scalable, high-performance systems and component libraries that drive platform-wide consistency and maximize developer velocity. I thrive on bridging the gap between design vision and technical implementation.

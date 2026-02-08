@@ -91,7 +91,7 @@ code {
 
 .spacingBar {
   height: var(--size-bar-height);
-  background: var(--color-primary);
+  background: var(--color-primary-500);
   border-radius: var(--border-radius-md);
   transition: width var(--transition-base) var(--easing-in-out);
 }
@@ -130,43 +130,43 @@ code {
 
 /* Color swatch utilities */
 .swatchPrimary {
-  background: var(--color-primary);
+  background: var(--color-primary-500);
 }
 
 .swatchPrimaryLight {
-  background: var(--color-primary-light);
+  background: var(--color-primary-300);
 }
 
 .swatchPrimaryXXLight {
-  background: var(--color-primary-xxlight);
+  background: var(--color-primary-200);
 }
 
 .swatchNeutralXXLight {
-  background: var(--color-neutral-xxlight);
+  background: var(--color-neutral-100);
 }
 
 .swatchNeutralXLight {
-  background: var(--color-neutral-xlight);
+  background: var(--color-neutral-200);
 }
 
 .swatchNeutralLight {
-  background: var(--color-neutral-light);
+  background: var(--color-neutral-300);
 }
 
 .swatchNeutral {
-  background: var(--color-neutral);
+  background: var(--color-neutral-400);
 }
 
 .swatchNeutralDark {
-  background: var(--color-neutral-dark);
+  background: var(--color-neutral-600);
 }
 
 .swatchNeutralXDark {
-  background: var(--color-neutral-xdark);
+  background: var(--color-neutral-800);
 }
 
 .swatchNeutralXXDark {
-  background: var(--color-neutral-xxdark);
+  background: var(--color-neutral-900);
 }
 
 .swatchAccentYellow {
@@ -177,12 +177,12 @@ code {
   background: var(--color-accent-orange);
 }
 
-.swatchAccentCyanLight {
-  background: var(--color-accent-cyan-light);
+.swatchAccentCyan {
+  background: var(--color-accent-cyan);
 }
 
-.swatchAccentIce {
-  background: var(--color-accent-ice);
+.swatchAccentSlate {
+  background: var(--color-accent-slate);
 }
 
 /* Semantic swatch utilities */

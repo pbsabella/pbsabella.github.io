@@ -47,8 +47,6 @@
   --leading-loose: 1.8;
 
   /* --- 1.2 Spacing --- */
-
-  /* 8px base scale (with 4px for micro-adjustments) */
   --spacing-xxxsmall: 4px;
   --spacing-xxsmall: 8px;
   --spacing-xsmall: 12px;
@@ -81,42 +79,52 @@
   --easing-out: ease-out;
   --easing-in-out: ease-in-out;
 
-  /* --- 1.5 Primitives: Color Scale --- */
+  /* --- 1.6 Primitives: Color Scale --- */
 
-  /* Primary Palette */
-  --color-primary-xxlight: #cdf1e7;
-  --color-primary-light: #88d4b7;
-  --color-primary: #03b787;
-  --color-primary-dark: #017e5b;
+  /* Primary Palette (Forest/Mint) */
+  --color-primary-100: #e6f7f2;
+  --color-primary-200: #cdf1e7;
+  --color-primary-300: #88d4b7;
+  --color-primary-500: #03b787;
+  --color-primary-600: #017e5b;
 
-  /* Neutral Palette (Grays) */
-  --color-neutral-xxlight: #fff;
-  --color-neutral-xlight: #fcfcfc;
-  --color-neutral-light: #ebebed;
-  --color-neutral: #d0d0d6;
-  --color-neutral-dark: #7f7d80;
-  --color-neutral-xdark: #37373a;
-  --color-neutral-xxdark: #1d1d1e;
+  /* Slate Palette (Cool Grays/Bases) */
+  --color-slate-100: #ececf4;
+  --color-slate-500: #3f444e;
+  --color-slate-600: #2a2e37;
+  --color-slate-700: #1e2128;
+  --color-slate-800: #17191e;
+  --color-slate-900: #0f1115;
 
-  /* Accent Palette (for highlights, tags, etc.) */
+  /* Neutral Palette (Light Grays/Surface Accents) */
+  --color-neutral-100: #fff;
+  --color-neutral-200: #fcfcfc;
+  --color-neutral-300: #ebebed;
+  --color-neutral-400: #d0d0d6;
+  --color-neutral-600: #7f7d80;
+  --color-neutral-800: #37373a;
+  --color-neutral-900: #1d1d1e;
+
+  /* Accent Palette */
   --color-accent-orange: #ff5e32;
   --color-accent-yellow: #ffc541;
-  --color-accent-cyan-light: #d3f2f5;
-  --color-accent-ice: #ececf4;
+  --color-accent-cyan: #d3f2f5;
+  --color-accent-primary: var(--color-primary-200);
+  --color-accent-slate: var(--color-slate-100);
 
-  /* --- 1.6 Layout --- */
+  /* --- 1.7 Layout --- */
   --header-height: 52px;
   --z-index-header: 7;
   --z-index-overlay: 10;
   --z-index-side-nav: 11;
 
-  /* --- 1.7 Component Sizes --- */
+  /* --- 1.8 Component Sizes --- */
   --size-line-thin: 1px;
   --size-bar-height: 8px;
   --size-min-touch: 44px;
   --size-min-card: 260px;
 
-  /* --- 1.8 Layout & Component Constants --- */
+  /* --- 1.9 Layout & Component Constants --- */
   --size-container-max: 1200px;
   --size-page-max: 1440px;
   --size-content-max: 600px;
@@ -144,35 +152,35 @@
   */
 
   /* --- 2.1 Background Colors --- */
-  --color-bg: var(--color-neutral-xlight);
-  --color-bg-dark: var(--color-neutral-light);
+  --color-bg: var(--color-neutral-200);
+  --color-bg-dark: var(--color-neutral-300);
   --color-bg-overlay: rgb(0 0 0 / 80%);
 
   /* --- 2.2 Text Colors --- */
-  --color-text: var(--color-neutral-xdark);
-  --color-text-dark: var(--color-neutral-xxdark);
-  --color-text-secondary: var(--color-neutral-dark);
-  --color-text-muted: var(--color-neutral-dark);
+  --color-text: var(--color-neutral-800);
+  --color-text-dark: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-600);
 
   /* --- 2.3 Text Brand Colors --- */
-  --color-text-primary: var(--color-primary);
-  --color-text-primary-light: var(--color-primary-light);
-  --color-text-primary-dark: var(--color-primary-dark);
+  --color-text-primary: var(--color-primary-500);
+  --color-text-primary-light: var(--color-primary-300);
+  --color-text-primary-dark: var(--color-primary-600);
 
   /* --- 2.4 Border & Divider Colors --- */
-  --color-border: var(--color-neutral-light);
-  --color-border-dark: var(--color-neutral-dark);
-  --color-divider: var(--color-neutral);
-  --color-divider-dark: var(--color-neutral-xxdark);
+  --color-border: var(--color-neutral-300);
+  --color-border-dark: var(--color-neutral-600);
+  --color-divider: var(--color-neutral-400);
+  --color-divider-dark: var(--color-neutral-900);
 
   /* --- 2.5 Border Compounds --- */
-  --border-accent: var(--border-width-thick) solid var(--color-primary);
-  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-light);
+  --border-accent: var(--border-width-thick) solid var(--color-primary-500);
+  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-300);
 
   /* --- 2.6 Component Tokens --- */
-  --card-bg-color: var(--color-neutral-xxlight);
-  --card-bg-ghost: var(--color-neutral-xlight);
-  --card-text-color: var(--color-neutral-xdark);
+  --card-bg-color: var(--color-neutral-100);
+  --card-bg-ghost: var(--color-neutral-200);
+  --card-text-color: var(--color-neutral-800);
   --card-shadow: var(--elevation-low);
   --card-shadow-hover: var(--elevation-medium);
   --card-border-radius: var(--border-radius-base);
@@ -191,42 +199,44 @@
    ========================================================================== */
 
 [data-theme='dark'] {
-  /* --- Primitive Overrides (limited) --- */
-
-  /* Only override if the primitive value needs adjusting for dark mode */
-
   /* --- Semantic Color Overrides --- */
-  --color-bg: #121214;
-  --color-bg-dark: var(--color-neutral-xxdark);
-  --color-bg-overlay: rgb(0 0 0 / 80%);
-  --color-text: #e8e8ea;
-  --color-text-dark: #e8e8ea;
-  --color-text-secondary: #bfbfc1;
-  --color-text-muted: #9a9a9c;
-  --color-text-primary: var(--color-primary);
-  --color-text-primary-light: var(--color-primary-light);
-  --color-text-primary-dark: var(--color-primary);
-  --color-border: var(--color-neutral-dark);
-  --color-border-dark: var(--color-neutral-dark);
-  --color-divider: #e8e8ea;
-  --color-divider-dark: #e8e8ea;
 
-  /* --- Component Token Overrides --- */
-  --card-bg-color: #1a1f1e;
-  --card-bg-ghost: #1e1e20;
-  --card-text-color: var(--color-text);
-  --card-shadow: var(--elevation-low);
-  --card-border-radius: var(--border-radius-base);
-  --tag-text-color: var(--color-text-dark);
-  --tag-border-radius: var(--border-radius-pill);
-  --header-overlay: rgb(20 20 20 / 94%);
+  --color-bg: var(--color-slate-900);
+  --color-bg-dark: var(--color-slate-800);
+  --color-bg-overlay: rgb(15 17 21 / 85%);
+  --color-text: var(--color-slate-100);
+  --color-text-dark: #f1f3f6;
+  --color-text-secondary: #949ba8;
+  --color-text-muted: #626a7a;
+  --color-text-primary: #05e6aa;
+  --color-text-primary-light: #a7f3d0;
+  --color-text-primary-dark: var(--color-primary-500);
+  --color-border: var(--color-slate-600);
+  --color-border-dark: var(--color-slate-500);
+  --color-divider: #1c2027;
+  --color-divider-dark: var(--color-slate-100);
+
+  /* Elevation Overrides */
+  --elevation-low: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
+  --elevation-medium: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
+  --elevation-high: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
+
+  /* Component Token Overrides */
+  --card-bg-color: var(--color-slate-700);
+  --card-bg-ghost: rgb(23 25 30 / 40%);
+  --card-border-ghost: 1px dashed var(--color-slate-600);
+  --card-text-color: var(--color-slate-100);
+  --card-shadow: var(--elevation-medium);
+  --card-shadow-hover: var(--elevation-high);
+  --header-overlay: rgb(15 17 21 / 94%);
   --header-color: var(--header-overlay);
+  --tag-text-color: var(--color-text-secondary);
 
-  /* --- Primitive Scale Overrides (background colors in dark mode) --- */
-  --color-primary-xxlight: #1e1e20;
-  --color-neutral-xxlight: #1e1e20;
-  --color-accent-cyan-light: #1e1e20;
-  --color-accent-ice: #1e1e20;
+  /* --- Primitive Overrides --- */
+  --color-neutral-100: var(--color-slate-800);
+  --color-accent-cyan: var(--color-slate-800);
+  --color-accent-primary: var(--color-slate-800);
+  --color-accent-slate: var(--color-slate-800);
 
   /* --- Misc --- */
   --pattern-opacity: 0.85;
