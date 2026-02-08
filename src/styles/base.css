@@ -15,13 +15,13 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-family-body);
-  font-size: var(--text-body);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-scale-300);
   font-size-adjust: 0.5;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-normal);
+  font-weight: var(--font-weight-400);
+  line-height: var(--leading-150);
 
   /* modern replacement for overflow-y: scroll */
   scrollbar-gutter: stable;
@@ -49,7 +49,7 @@ ul {
 }
 
 a {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -60,9 +60,9 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: var(--size-focus-outline) solid var(--color-primary-500);
-  outline-offset: var(--size-focus-outline-offset);
-  border-radius: var(--border-radius-focus);
+  outline: var(--focus-outline-width) solid var(--color-green-500);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: var(--radius-focus);
 }
 
 /* CLS-safe images */
@@ -74,22 +74,22 @@ img {
 
 hr {
   border: 0;
-  border-top: var(--size-line-thin) solid var(--color-divider);
-  margin: var(--spacing-large) 0 var(--spacing-xlarge);
+  border-top: var(--border-width-1) solid var(--color-divider-base);
+  margin: var(--spacing-11) 0 var(--spacing-16);
 }
 
 section {
-  padding-bottom: var(--spacing-xlarge);
-  padding-top: var(--spacing-xlarge);
+  padding-bottom: var(--spacing-16);
+  padding-top: var(--spacing-16);
 }
 
 b,
 strong {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-500);
 }
 
 small {
-  font-size: var(--text-detail);
+  font-size: var(--text-scale-200);
 }
 
 /* ---------------------------------
@@ -98,47 +98,38 @@ small {
 
 :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-500);
   font-size-adjust: 0.5;
 }
 
 h1 {
-  font-size: var(--text-h1);
-  line-height: var(--leading-tight);
+  font-size: var(--text-scale-900);
+  line-height: var(--leading-110);
 }
 
 h2 {
-  font-size: var(--text-h2);
-  line-height: var(--leading-normal);
+  font-size: var(--text-scale-700);
+  line-height: var(--leading-150);
 }
 
 h3,
 .h3 {
-  font-size: var(--text-h3);
-  line-height: var(--leading-normal);
+  font-size: var(--text-scale-500);
+  line-height: var(--leading-150);
 }
 
 h4,
 .h4 {
-  font-size: var(--text-h4);
-  line-height: var(--leading-normal);
-}
-
-/* ---------------------------------
-   Body typography breakpoint
----------------------------------- */
-
-/* Dark mode accent */
-[data-theme='dark'] body {
-  border-top: var(--border-accent);
+  font-size: var(--text-scale-400);
+  line-height: var(--leading-150);
 }
 
 /* ---------------------------------
    Link utility
 ---------------------------------- */
 .link {
-  padding: var(--size-link-padding-y) 0;
+  padding: var(--link-padding-y) 0;
   position: relative;
 }
 
@@ -148,8 +139,8 @@ h4,
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--size-link-underline);
-  background-color: var(--color-text);
+  height: var(--link-underline-width);
+  background-color: var(--color-text-primary);
   transform: scale3d(0, 1, 1);
   transform-origin: left;
   transition: transform 0.3s ease-out;
@@ -175,7 +166,7 @@ h4,
 }
 
 .bgAccentPrimaryLight {
-  background-color: var(--color-accent-primary);
+  background-color: var(--color-accent-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,21 +1,21 @@
 .hero {
-  margin: 0 auto var(--spacing-medium);
-  max-width: var(--size-page-max);
+  margin: 0 auto var(--spacing-6);
+  max-width: var(--layout-page-max);
 }
 
 .heroDivider {
-  background-color: var(--color-text);
-  height: var(--size-line-thin);
+  background-color: var(--color-text-primary);
+  height: var(--border-width-1);
   margin-bottom: 0.65em;
-  margin-left: var(--spacing-small);
-  width: var(--size-hero-divider-sm);
+  margin-left: var(--spacing-4);
+  width: var(--hero-divider-sm);
 }
 
 .heroInner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: var(--size-hero-height);
+  height: var(--hero-height);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -33,7 +33,7 @@
 .heroInner::after {
   background-color: var(--color-accent-slate);
   z-index: -2;
-  transition: background-color var(--transition-base) var(--easing-in-out);
+  transition: background-color var(--duration-base) var(--easing-in-out);
 }
 
 .heroInner::before {
@@ -46,7 +46,7 @@
 .heroLink {
   display: flex;
   align-items: flex-end;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
@@ -55,12 +55,12 @@
 }
 
 .heroTitle {
-  font-family: var(--font-family-display);
-  color: var(--color-text);
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
   font-size: 3em;
   font-weight: normal;
   line-height: 0.9em;
-  margin-bottom: var(--spacing-xxlarge);
+  margin-bottom: var(--spacing-21);
   overflow-wrap: break-word;
 }
 
@@ -69,12 +69,12 @@
 }
 
 .heroIndentInner {
-  padding-left: var(--spacing-large);
+  padding-left: var(--spacing-11);
 }
 
 @media only screen and (width >=768px) {
   .hero {
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--spacing-11);
   }
 
   .heroAction {
@@ -83,7 +83,7 @@
   }
 
   .heroDivider {
-    width: var(--size-hero-divider-lg);
+    width: var(--hero-divider-lg);
   }
 
   .heroInner {

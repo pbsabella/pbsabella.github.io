@@ -33,12 +33,12 @@ const SystemCore = () => {
             <div className={styles.swatch}>
               <div className={`${styles.swatchBox} ${styles.swatchPrimaryLight}`}></div>
               <p>Primary Light</p>
-              <code>--color-primary-light</code>
+              <code>--color-green-light</code>
             </div>
             <div className={styles.swatch}>
               <div className={`${styles.swatchBox} ${styles.swatchPrimaryXXLight}`}></div>
               <p>Primary XXLight</p>
-              <code>--color-primary-xxlight</code>
+              <code>--color-green-xxlight</code>
             </div>
           </div>
 
@@ -92,9 +92,9 @@ const SystemCore = () => {
           <h3 className={styles.subsectionTitle}>Accent Colors</h3>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
             {[
-              { name: 'Yellow', class: styles.swatchAccentYellow, token: '--color-accent-yellow' },
-              { name: 'Orange', class: styles.swatchAccentOrange, token: '--color-accent-orange' },
-              { name: 'Cyan', class: styles.swatchAccentCyan, token: '--color-accent-cyan' },
+              { name: 'Yellow', class: styles.swatchAccentYellow, token: '--color-yellow' },
+              { name: 'Orange', class: styles.swatchAccentOrange, token: '--color-orange' },
+              { name: 'Cyan', class: styles.swatchAccentCyan, token: '--color-cyan' },
               { name: 'Slate', class: styles.swatchAccentSlate, token: '--color-accent-slate' },
             ].map((item, idx) => (
               <div className={styles.swatch} key={idx}>
@@ -114,8 +114,8 @@ const SystemCore = () => {
           </p>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
             {[
-              { name: 'Background', class: styles.swatchBg, token: '--color-bg', border: true },
-              { name: 'Card BG', class: styles.swatchCardBg, token: '--card-bg-color' },
+              { name: 'Background', class: styles.swatchBg, token: '--color-bg-base', border: true },
+              { name: 'Card BG', class: styles.swatchCardBg, token: '--card-bg' },
               { name: 'Text', class: styles.swatchText, token: '--color-text' },
               { name: 'Border', class: styles.swatchBorder, token: '--color-border' },
             ].map((item, idx) => (
@@ -161,23 +161,23 @@ const SystemCore = () => {
           <div className={styles.typeExamples}>
             <div>
               <h1>Heading Level 1</h1>
-              <code>--text-h1 | --leading-tight</code>
+              <code>--text-scale-900 | --leading-110</code>
             </div>
             <div>
               <h2>Heading Level 2</h2>
-              <code>--text-h2 | --leading-normal</code>
+              <code>--text-scale-700 | --leading-150</code>
             </div>
             <div>
               <h3>Heading Level 3</h3>
-              <code>--text-h3 | --leading-normal</code>
+              <code>--text-scale-500 | --leading-150</code>
             </div>
             <div>
               <h4>Heading Level 4</h4>
-              <code>--text-h4 | --leading-normal</code>
+              <code>--text-scale-400 | --leading-150</code>
             </div>
             <div>
               <p>This is body text. It defines the rhythm and readability of the page.</p>
-              <code>--text-body | --leading-normal</code>
+              <code>--text-scale-300 | --leading-150</code>
             </div>
           </div>
 
@@ -185,15 +185,15 @@ const SystemCore = () => {
           <div className={styles.grid}>
             <Card variant="flat" className={styles.cardContent}>
               <span style={{ fontWeight: 300 }}>Light (300)</span>
-              <code>--font-weight-light</code>
+              <code>--font-weight-300</code>
             </Card>
             <Card variant="flat" className={styles.cardContent}>
               <span style={{ fontWeight: 400 }}>Regular (400)</span>
-              <code>--font-weight-regular</code>
+              <code>--font-weight-400</code>
             </Card>
             <Card variant="flat" className={styles.cardContent}>
               <span style={{ fontWeight: 500 }}>Medium (500)</span>
-              <code>--font-weight-medium</code>
+              <code>--font-weight-500</code>
             </Card>
           </div>
 
@@ -237,17 +237,17 @@ const SystemCore = () => {
           <div className={styles.grid}>
             <Card variant="flat" className={styles.cardContent}>
               <b>Fast</b>
-              <code>--transition-fast: 0.2s</code>
+              <code>--duration-fast: 0.2s</code>
               <small>Quick feedback (hover, button states)</small>
             </Card>
             <Card variant="flat" className={styles.cardContent}>
               <b>Base</b>
-              <code>--transition-base: 0.3s</code>
+              <code>--duration-base: 0.3s</code>
               <small>Standard interactions (slides, fades)</small>
             </Card>
             <Card variant="flat" className={styles.cardContent}>
               <b>Slow</b>
-              <code>--transition-slow: 0.4s</code>
+              <code>--duration-slow: 0.4s</code>
               <small>Deliberate animations (theme toggle)</small>
             </Card>
           </div>
@@ -286,7 +286,7 @@ const SystemCore = () => {
             <a
               className="link"
               href="#focus"
-              style={{ outline: '2px solid var(--color-primary-500)', outlineOffset: '1px' }}
+              style={{ outline: '2px solid var(--color-green-500)', outlineOffset: '1px' }}
             >
               Focus (outline)
             </a>

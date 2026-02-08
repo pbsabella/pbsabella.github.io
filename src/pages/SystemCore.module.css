@@ -1,42 +1,42 @@
 .page {
-  padding-top: var(--spacing-xxlarge);
+  padding-top: var(--spacing-21);
 }
 
 .pageDesc {
-  line-height: var(--leading-loose);
-  max-width: var(--size-content-max);
+  line-height: var(--leading-180);
+  max-width: var(--layout-content-max);
 }
 
 .sectionDesc {
-  max-width: var(--size-content-max);
+  max-width: var(--layout-content-max);
 }
 
 .subsectionTitle {
-  margin-bottom: var(--spacing-small);
-  margin-top: var(--spacing-large);
+  margin-bottom: var(--spacing-4);
+  margin-top: var(--spacing-11);
 }
 
 code {
-  font-family: var(--font-family-mono);
-  font-size: var(--text-footnote);
-  color: var(--color-text);
-  background: var(--color-bg-dark);
-  padding: var(--spacing-xxxsmall) var(--spacing-xxsmall);
-  border-radius: var(--border-radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-scale-100);
+  color: var(--color-text-primary);
+  background: var(--color-bg-subtle);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
   display: block;
   width: fit-content;
 }
 
 .cardContent *:not(:last-child) {
-  margin-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--spacing-2);
   display: block;
 }
 
 .grid {
   display: grid;
-  gap: var(--spacing-medium);
+  gap: var(--spacing-6);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--spacing-11);
 }
 
 .gridWide {
@@ -44,56 +44,56 @@ code {
 }
 
 .swatchGrid {
-  gap: var(--spacing-large);
+  gap: var(--spacing-11);
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 
 .swatchBox {
-  background-color: var(--color-bg);
-  border-radius: var(--border-radius-lg);
-  height: var(--spacing-xlarge);
+  background-color: var(--color-bg-base);
+  border-radius: var(--radius-lg);
+  height: var(--spacing-16);
 }
 
 .swatchBoxBorder {
-  border: var(--size-line-thin) solid var(--color-border);
+  border: var(--border-width-1) solid var(--color-border-base);
 }
 
 .swatch p {
-  margin: var(--spacing-xxsmall) 0 var(--spacing-xxxsmall);
-  font-size: var(--text-detail);
-  font-weight: var(--font-weight-medium);
+  margin: var(--spacing-2) 0 var(--spacing-1);
+  font-size: var(--text-scale-200);
+  font-weight: var(--font-weight-500);
 }
 
 /* Typography */
 .typeExamples {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
+  gap: var(--spacing-11);
+  margin-bottom: var(--spacing-11);
 }
 
 /* Spacing */
 .spacingScale {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-medium);
-  margin-bottom: var(--spacing-large);
-  max-width: var(--size-min-card);
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-11);
+  max-width: var(--card-min-width);
 }
 
 .spacingLabel {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--text-detail);
-  margin-bottom: var(--spacing-xxsmall);
+  font-size: var(--text-scale-200);
+  margin-bottom: var(--spacing-2);
 }
 
 .spacingBar {
-  height: var(--size-bar-height);
-  background: var(--color-primary-500);
-  border-radius: var(--border-radius-md);
-  transition: width var(--transition-base) var(--easing-in-out);
+  height: var(--size-8);
+  background: var(--color-green-500);
+  border-radius: var(--radius-md);
+  transition: width var(--duration-base) var(--easing-in-out);
 }
 
 /* Elevation */
@@ -116,29 +116,29 @@ code {
 .statesDemo {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
+  gap: var(--spacing-11);
+  margin-bottom: var(--spacing-11);
 }
 
 /* Components */
 .tagsDemo {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-small);
-  margin-bottom: var(--spacing-large);
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-11);
 }
 
 /* Color swatch utilities */
 .swatchPrimary {
-  background: var(--color-primary-500);
+  background: var(--color-green-500);
 }
 
 .swatchPrimaryLight {
-  background: var(--color-primary-300);
+  background: var(--color-green-300);
 }
 
 .swatchPrimaryXXLight {
-  background: var(--color-primary-200);
+  background: var(--color-green-200);
 }
 
 .swatchNeutralXXLight {
@@ -170,15 +170,15 @@ code {
 }
 
 .swatchAccentYellow {
-  background: var(--color-accent-yellow);
+  background: var(--color-yellow);
 }
 
 .swatchAccentOrange {
-  background: var(--color-accent-orange);
+  background: var(--color-orange);
 }
 
 .swatchAccentCyan {
-  background: var(--color-accent-cyan);
+  background: var(--color-cyan);
 }
 
 .swatchAccentSlate {
@@ -187,17 +187,17 @@ code {
 
 /* Semantic swatch utilities */
 .swatchBg {
-  background: var(--color-bg);
+  background: var(--color-bg-base);
 }
 
 .swatchCardBg {
-  background: var(--card-bg-color);
+  background: var(--card-bg);
 }
 
 .swatchText {
-  background: var(--color-text);
+  background: var(--color-text-primary);
 }
 
 .swatchBorder {
-  background: var(--color-border);
+  background: var(--color-border-base);
 }

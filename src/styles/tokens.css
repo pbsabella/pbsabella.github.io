@@ -2,9 +2,9 @@
  * Design System Tokens
  *
  * Token Structure:
- * 1. PRIMITIVES (Brand scale - raw values)
- * 2. SEMANTIC (Usage-based tokens - reference primitives)
- * 3. COMPONENT (Component-specific overrides)
+ * 1. PRIMITIVES (Raw scale values - theme-agnostic)
+ * 2. SEMANTIC (Usage-based tokens - theme-aware)
+ * 3. COMPONENT (Component-specific tokens)
  *
  * Theme Variants: Light (default :root), Dark ([data-theme="dark"])
  * Maintenance: Update primitives → semantic tokens cascade automatically
@@ -17,86 +17,95 @@
 :root {
   /* ============================
      1. PRIMITIVES
-     Raw design values used as a scale
+     Raw design values - theme-agnostic scales
      ============================
   */
 
   /* --- 1.1 Typography --- */
-  --font-family-display: 'DM Serif Display', arial, serif;
-  --font-family-body: heebo, arial, sans-serif;
-  --font-family-mono: 'SF Mono', monaco, monospace;
+  --font-display: 'DM Serif Display', arial, serif;
+  --font-body: heebo, arial, sans-serif;
+  --font-mono: 'SF Mono', monaco, monospace;
 
-  /* Fluid Type Scale (clamp for responsive typography) */
-  --text-h1: clamp(2.25em, 4vw + 1em, 3em);
-  --text-h2: clamp(1.625em, 3vw + 1em, 2.25em);
-  --text-h3: clamp(1.375em, 2vw + 1em, 1.75em);
-  --text-h4: clamp(1.25em, 1.5vw + 1em, 1.375em);
-  --text-body: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
-  --text-detail: 0.875em;
-  --text-footnote: 0.75em;
+  /* Type Scale (fluid responsive) */
+  --text-scale-900: clamp(2.25em, 4vw + 1em, 3em);
+  --text-scale-700: clamp(1.625em, 3vw + 1em, 2.25em);
+  --text-scale-500: clamp(1.375em, 2vw + 1em, 1.75em);
+  --text-scale-400: clamp(1.25em, 1.5vw + 1em, 1.375em);
+  --text-scale-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
+  --text-scale-200: 0.875em;
+  --text-scale-100: 0.75em;
 
   /* Font Weights */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
 
   /* Line Height Scale */
-  --leading-none: 1;
-  --leading-tight: 1.1;
-  --leading-normal: 1.5;
-  --leading-loose: 1.8;
+  --leading-100: 1;
+  --leading-110: 1.1;
+  --leading-150: 1.5;
+  --leading-180: 1.8;
 
-  /* --- 1.2 Spacing --- */
-  --spacing-xxxsmall: 4px;
-  --spacing-xxsmall: 8px;
-  --spacing-xsmall: 12px;
-  --spacing-small: 16px;
-  --spacing-medium: 24px;
-  --spacing-large: 44px;
-  --spacing-xlarge: 64px;
-  --spacing-xxlarge: 84px;
+  /* --- 1.2 Spacing Scale (4px base unit) --- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-11: 44px;
+  --spacing-16: 64px;
+  --spacing-21: 84px;
 
-  /* --- 1.3 Borders --- */
-  --border-width-thin: 1px;
-  --border-width-thick: 3px;
+  /* --- 1.3 Border Scale --- */
+  --border-width-1: 1px;
+  --border-width-3: 3px;
 
-  /* Border Radius Scale */
-  --border-radius-sm: 3px;
-  --border-radius-md: 4px;
-  --border-radius-base: 5px;
-  --border-radius-lg: 8px;
-  --border-radius-pill: 32px;
+  /* Radius Scale */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-base: 5px;
+  --radius-lg: 8px;
+  --radius-pill: 9999px;
 
-  /* --- 1.4 Shadows (Elevation) --- */
-  --elevation-low: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
-  --elevation-medium: 0 4px 16px rgb(50 50 93 / 20%);
-  --elevation-high: 0 10px 40px rgb(0 0 0 / 20%);
+  /* --- 1.4 Shadow Scale --- */
+  --shadow-100: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
+  --shadow-200: 0 4px 16px rgb(50 50 93 / 20%);
+  --shadow-300: 0 10px 40px rgb(0 0 0 / 20%);
+
+  /* Dark theme shadows */
+  --shadow-100-dark: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
+  --shadow-200-dark: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
+  --shadow-300-dark: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
 
   /* --- 1.5 Transitions --- */
-  --transition-fast: 0.2s;
-  --transition-base: 0.3s;
-  --transition-slow: 0.4s;
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.4s;
   --easing-out: ease-out;
   --easing-in-out: ease-in-out;
 
-  /* --- 1.6 Primitives: Color Scale --- */
+  /* --- 1.6 Color Primitives --- */
 
-  /* Primary Palette (Forest/Mint) */
-  --color-primary-100: #e6f7f2;
-  --color-primary-200: #cdf1e7;
-  --color-primary-300: #88d4b7;
-  --color-primary-500: #03b787;
-  --color-primary-600: #017e5b;
+  /* Green Scale (Brand) */
+  --color-green-100: #e6f7f2;
+  --color-green-200: #cdf1e7;
+  --color-green-300: #88d4b7;
+  --color-green-500: #03b787;
+  --color-green-600: #017e5b;
 
-  /* Slate Palette (Cool Grays/Bases) */
-  --color-slate-100: #ececf4;
-  --color-slate-500: #3f444e;
-  --color-slate-600: #2a2e37;
-  --color-slate-700: #1e2128;
-  --color-slate-800: #17191e;
-  --color-slate-900: #0f1115;
+  /* Green Scale (Brand) - Dark Theme Variants */
+  --color-green-500-dark: #05e6aa;
+  --color-green-300-dark: #a7f3d0;
 
-  /* Neutral Palette (Light Grays/Surface Accents) */
+  /* Gray Scale (Cool) */
+  --color-gray-100: #ececf4;
+  --color-gray-500: #3f444e;
+  --color-gray-600: #2a2e37;
+  --color-gray-700: #1e2128;
+  --color-gray-800: #17191e;
+  --color-gray-900: #0f1115;
+
+  /* Gray Scale (Neutral/Warm) */
   --color-neutral-100: #fff;
   --color-neutral-200: #fcfcfc;
   --color-neutral-300: #ebebed;
@@ -105,93 +114,153 @@
   --color-neutral-800: #37373a;
   --color-neutral-900: #1d1d1e;
 
-  /* Accent Palette */
-  --color-accent-orange: #ff5e32;
-  --color-accent-yellow: #ffc541;
-  --color-accent-cyan: #d3f2f5;
-  --color-accent-primary: var(--color-primary-200);
-  --color-accent-slate: var(--color-slate-100);
+  /* Gray Scale (Dark theme text variants) */
+  --color-gray-100-light: #f1f3f6;
+  --color-gray-400-light: #949ba8;
+  --color-gray-500-light: #626a7a;
 
-  /* --- 1.7 Layout --- */
-  --header-height: 52px;
-  --z-index-header: 7;
-  --z-index-overlay: 10;
-  --z-index-side-nav: 11;
+  /* Accent Colors */
+  --color-orange: #ff5e32;
+  --color-yellow: #ffc541;
+  --color-cyan-100: #d3f2f5;
 
-  /* --- 1.8 Component Sizes --- */
-  --size-line-thin: 1px;
-  --size-bar-height: 8px;
-  --size-min-touch: 44px;
-  --size-min-card: 260px;
+  /* Divider variants */
+  --color-divider-light: #1c2027;
 
-  /* --- 1.9 Layout & Component Constants --- */
-  --size-container-max: 1200px;
-  --size-page-max: 1440px;
-  --size-content-max: 600px;
-  --size-side-nav-max: 320px;
-  --size-section-scroll-margin-top: 64px;
-  --size-section-intro-divider: 44px;
-  --size-hero-height: 600px;
-  --size-hero-divider-sm: 80px;
-  --size-hero-divider-lg: 240px;
-  --size-toggle-button: 40px;
-  --size-toggle-icon: 28px;
-  --offset-toggle-icon: 6px;
-  --offset-toggle-moon: 8px;
-  --size-focus-outline: 2px;
-  --size-focus-outline-offset: 1px;
-  --border-radius-focus: 2px;
-  --size-link-padding-y: 2px;
-  --size-link-underline: 1.6px;
+  /* --- 1.7 Z-Index Scale --- */
+  --z-layer-base: 0;
+  --z-layer-header: 7;
+  --z-layer-overlay: 10;
+  --z-layer-modal: 11;
+
+  /* --- 1.8 Size Scale --- */
+  --size-1: 1px;
+  --size-2: 2px;
+  --size-8: 8px;
+  --size-28: 28px;
+  --size-40: 40px;
+  --size-44: 44px;
+  --size-52: 52px;
+  --size-64: 64px;
+  --size-80: 80px;
+  --size-240: 240px;
+  --size-260: 260px;
+  --size-320: 320px;
+  --size-600: 600px;
+  --size-1200: 1200px;
+  --size-1440: 1440px;
 
   /* ============================
      2. SEMANTIC TOKENS
-     Usage-based tokens that reference primitives
-     These adapt to theme changes
+     Usage-based tokens - these change between themes
      ============================
   */
 
   /* --- 2.1 Background Colors --- */
-  --color-bg: var(--color-neutral-200);
-  --color-bg-dark: var(--color-neutral-300);
+  --color-bg-base: var(--color-neutral-200);
+  --color-bg-subtle: var(--color-neutral-300);
+  --color-bg-elevated: var(--color-neutral-100);
   --color-bg-overlay: rgb(0 0 0 / 80%);
 
   /* --- 2.2 Text Colors --- */
-  --color-text: var(--color-neutral-800);
-  --color-text-dark: var(--color-neutral-900);
+  --color-text-primary: var(--color-neutral-800);
+  --color-text-strong: var(--color-neutral-900);
   --color-text-secondary: var(--color-neutral-600);
   --color-text-muted: var(--color-neutral-600);
 
-  /* --- 2.3 Text Brand Colors --- */
-  --color-text-primary: var(--color-primary-500);
-  --color-text-primary-light: var(--color-primary-300);
-  --color-text-primary-dark: var(--color-primary-600);
+  /* --- 2.3 Brand Text Colors --- */
+  --color-text-brand: var(--color-green-500);
+  --color-text-brand-light: var(--color-green-300);
+  --color-text-brand-strong: var(--color-green-600);
 
   /* --- 2.4 Border & Divider Colors --- */
-  --color-border: var(--color-neutral-300);
-  --color-border-dark: var(--color-neutral-600);
-  --color-divider: var(--color-neutral-400);
-  --color-divider-dark: var(--color-neutral-900);
+  --color-border-base: var(--color-neutral-300);
+  --color-border-strong: var(--color-neutral-600);
+  --color-divider-base: var(--color-neutral-400);
+  --color-divider-strong: var(--color-neutral-900);
 
-  /* --- 2.5 Border Compounds --- */
-  --border-accent: var(--border-width-thick) solid var(--color-primary-500);
-  --border-accent-subtle: var(--border-width-thin) solid var(--color-primary-300);
+  /* --- 2.5 Accent Background Colors --- */
+  --color-accent-orange: var(--color-orange);
+  --color-accent-yellow: var(--color-yellow);
+  --color-accent-cyan: var(--color-cyan-100);
+  --color-accent-green: var(--color-green-200);
+  --color-accent-gray: var(--color-gray-100);
 
-  /* --- 2.6 Component Tokens --- */
-  --card-bg-color: var(--color-neutral-100);
-  --card-bg-ghost: var(--color-neutral-200);
-  --card-text-color: var(--color-neutral-800);
+  /* --- 2.6 Elevation (Shadows) --- */
+  --elevation-low: var(--shadow-100);
+  --elevation-medium: var(--shadow-200);
+  --elevation-high: var(--shadow-300);
+
+  /* --- 2.7 Spacing Semantic --- */
+  --spacing-section-top: var(--size-64);
+  --spacing-section-divider: var(--spacing-11);
+
+  /* --- 2.8 Layout Constraints --- */
+  --layout-container-max: var(--size-1200);
+  --layout-page-max: var(--size-1440);
+  --layout-content-max: 600px;
+  --layout-sidebar-max: var(--size-320);
+
+  /* --- 2.9 Interactive States --- */
+  --duration-interactive: var(--duration-base) var(--easing-out);
+  --focus-outline-width: var(--size-2);
+  --focus-outline-offset: var(--size-1);
+  --focus-outline-radius: var(--size-2);
+
+  /* --- 2.10 Misc Semantic --- */
+  --pattern-opacity: 1;
+
+  /* ============================
+     3. COMPONENT TOKENS
+     Component-specific values
+     ============================
+  */
+
+  /* --- 3.1 Header Component --- */
+  --header-height: var(--size-52);
+  --header-bg: rgb(252 252 252 / 90%);
+  --header-z-index: var(--z-layer-header);
+
+  /* --- 3.2 Card Component --- */
+  --card-bg: var(--color-bg-elevated);
+  --card-bg-ghost: var(--color-bg-base);
+  --card-text: var(--color-text-primary);
   --card-shadow: var(--elevation-low);
   --card-shadow-hover: var(--elevation-medium);
-  --card-border-radius: var(--border-radius-base);
+  --card-radius: var(--radius-base);
   --card-hover-offset: -2px;
-  --tag-text-color: var(--color-text);
-  --tag-border-radius: var(--border-radius-pill);
-  --header-overlay: rgb(252 252 252 / 90%);
-  --header-color: var(--header-overlay);
+  --card-min-width: var(--size-260);
 
-  /* --- 2.7 Misc --- */
-  --pattern-opacity: 1;
+  /* --- 3.3 Tag Component --- */
+  --tag-text: var(--color-text-primary);
+  --tag-radius: var(--radius-pill);
+
+  /* --- 3.4 Hero Component --- */
+  --hero-height: var(--size-600);
+  --hero-divider-sm: var(--size-80);
+  --hero-divider-lg: var(--size-240);
+
+  /* --- 3.5 Toggle Component --- */
+  --toggle-size: var(--size-40);
+  --toggle-icon-size: var(--size-28);
+  --toggle-icon-offset: 6px;
+  --toggle-moon-offset: 8px;
+
+  /* --- 3.6 Link Component --- */
+  --link-padding-y: var(--size-2);
+  --link-underline-width: 1.6px;
+
+  /* --- 3.7 Section Component --- */
+  --section-scroll-margin-top: var(--size-64);
+  --section-intro-divider: var(--spacing-11);
+
+  /* --- 3.8 Side Navigation --- */
+  --sidenav-max-width: var(--size-320);
+  --sidenav-z-index: var(--z-layer-modal);
+
+  /* --- 3.9 Border Compounds --- */
+  --border-accent: var(--border-width-3) solid var(--color-green-500);
+  --border-accent-subtle: var(--border-width-1) solid var(--color-green-300);
 }
 
 /* ============================================================================
@@ -199,45 +268,69 @@
    ========================================================================== */
 
 [data-theme='dark'] {
-  /* --- Semantic Color Overrides --- */
+  /* ============================
+     SEMANTIC TOKEN OVERRIDES ONLY
+     Primitives remain unchanged
+     ============================
+  */
 
-  --color-bg: var(--color-slate-900);
-  --color-bg-dark: var(--color-slate-800);
+  /* --- 2.1 Background Colors --- */
+  --color-bg-base: var(--color-gray-900);
+  --color-bg-subtle: var(--color-gray-800);
+  --color-bg-elevated: var(--color-gray-700);
   --color-bg-overlay: rgb(15 17 21 / 85%);
-  --color-text: var(--color-slate-100);
-  --color-text-dark: #f1f3f6;
-  --color-text-secondary: #949ba8;
-  --color-text-muted: #626a7a;
-  --color-text-primary: #05e6aa;
-  --color-text-primary-light: #a7f3d0;
-  --color-text-primary-dark: var(--color-primary-500);
-  --color-border: var(--color-slate-600);
-  --color-border-dark: var(--color-slate-500);
-  --color-divider: #1c2027;
-  --color-divider-dark: var(--color-slate-100);
 
-  /* Elevation Overrides */
-  --elevation-low: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
-  --elevation-medium: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
-  --elevation-high: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
+  /* --- 2.2 Text Colors --- */
+  --color-text-primary: var(--color-gray-100);
+  --color-text-strong: var(--color-gray-100-light);
+  --color-text-secondary: var(--color-gray-400-light);
+  --color-text-muted: var(--color-gray-500-light);
 
-  /* Component Token Overrides */
-  --card-bg-color: var(--color-slate-700);
+  /* --- 2.3 Brand Text Colors --- */
+  --color-text-brand: var(--color-green-500-dark);
+  --color-text-brand-light: var(--color-green-300-dark);
+  --color-text-brand-strong: var(--color-green-500);
+
+  /* --- 2.4 Border & Divider Colors --- */
+  --color-border-base: var(--color-gray-600);
+  --color-border-strong: var(--color-gray-500);
+  --color-divider-base: var(--color-divider-light);
+  --color-divider-strong: var(--color-gray-100);
+
+  /* --- 2.5 Accent Background Colors --- */
+  --color-accent-cyan: var(--color-gray-800);
+  --color-accent-green: var(--color-gray-800);
+  --color-accent-gray: var(--color-gray-800);
+  --color-accent-slate: var(--color-gray-800);
+
+  /* --- 2.6 Elevation (Shadows) --- */
+  --elevation-low: var(--shadow-100-dark);
+  --elevation-medium: var(--shadow-200-dark);
+  --elevation-high: var(--shadow-300-dark);
+
+  /* --- 2.10 Misc Semantic --- */
+  --pattern-opacity: 0.85;
+
+  /* ============================
+     COMPONENT TOKEN OVERRIDES
+     ============================
+  */
+
+  /* --- 3.1 Header Component --- */
+  --header-bg: rgb(15 17 21 / 94%);
+
+  /* --- 3.2 Card Component --- */
+  --card-bg: var(--color-gray-700);
   --card-bg-ghost: rgb(23 25 30 / 40%);
-  --card-border-ghost: 1px dashed var(--color-slate-600);
-  --card-text-color: var(--color-slate-100);
+  --card-border-ghost: 1px dashed var(--color-gray-600);
+  --card-text: var(--color-gray-100);
   --card-shadow: var(--elevation-medium);
   --card-shadow-hover: var(--elevation-high);
-  --header-overlay: rgb(15 17 21 / 94%);
-  --header-color: var(--header-overlay);
-  --tag-text-color: var(--color-text-secondary);
 
-  /* --- Primitive Overrides --- */
-  --color-neutral-100: var(--color-slate-800);
-  --color-accent-cyan: var(--color-slate-800);
-  --color-accent-primary: var(--color-slate-800);
-  --color-accent-slate: var(--color-slate-800);
+  /* --- 3.3 Tag Component --- */
+  --tag-text: var(--color-text-secondary);
 
-  /* --- Misc --- */
-  --pattern-opacity: 0.85;
+  /* --- 3.9 Border Compounds --- */
+  --border-accent: var(--border-width-3) solid var(--color-green-500-dark);
+  --border-accent-subtle: var(--border-width-1) solid var(--color-green-300-dark);
 }
