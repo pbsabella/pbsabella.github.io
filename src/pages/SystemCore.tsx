@@ -11,7 +11,7 @@ const SystemCore = () => {
     <section>
       <Container className={styles.page}>
         <div>
-          <h1>System Core</h1>
+          <h1 className={styles.pageTitle}>System Core</h1>
           <p className={styles.pageDesc}>
             A living reference of the design tokens, primitives, and components that <b>power this portfolio</b>. This system demonstrates a tiered token architecture (primitive → semantic → component) with a focus on maintainability, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.
           </p>
@@ -21,10 +21,13 @@ const SystemCore = () => {
           {/* COLORS */}
           <h2>Color System</h2>
           <p className={styles.sectionDesc}>
-            Colors follow a three-tier architecture: primitives (raw palette values), semantic tokens (usage-based), and component tokens (specific implementations). All semantic colors adapt automatically to the active theme.
+            This system utilizes a tiered architecture to decouple raw values from functional intent, ensuring that all UI elements adapt automatically to the active theme.
           </p>
 
           <h3 className={styles.subsectionTitle}>Primitives</h3>
+          <p className={styles.sectionDesc}>
+            The raw palette serves as the base source of truth, defining the full range of available hues and scales. These foundational values provide the depth necessary to populate the semantic layers without being used directly in component styles.
+          </p>
 
           <h4 className={styles.subsectionTitle}>Green Scale (brand)</h4>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
@@ -134,7 +137,7 @@ const SystemCore = () => {
           {/* TYPOGRAPHY */}
           <h2>Typography</h2>
           <p className={styles.sectionDesc}>
-            Type scale uses fluid sizing (clamp) for responsive typography without breakpoints. Numeric naming (100-900) reflects scale hierarchy rather than specific HTML elements.
+            Type scale uses fluid sizing (clamp) for responsive typography without breakpoints.
           </p>
 
           <h3 className={styles.subsectionTitle}>Type Scale</h3>
@@ -224,8 +227,9 @@ const SystemCore = () => {
               className="link"
               href="#focus"
               style={{
-                outline: '2px solid var(--color-text-brand)',
-                outlineOffset: '1px'
+                outline: '2px solid var(--sem-color-focus-ring)',
+                outlineOffset: 'var(--sem-focus-outline-offset)',
+                borderRadius: 'var(--sem-focus-outline-radius)'
               }}
             >
               Focus (outline)
@@ -241,6 +245,9 @@ const SystemCore = () => {
 
           {/* COMPONENTS */}
           <h2>Components</h2>
+          <p className={styles.sectionDesc}>
+            Encapsulated, reusable units that consume tokens to ensure consistent behavior and styling.
+          </p>
 
           <h3 className={styles.subsectionTitle}>Cards</h3>
           <p className={styles.sectionDesc}>

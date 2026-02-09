@@ -2,6 +2,10 @@
   padding-top: var(--pr-spacing-21);
 }
 
+.pageTitle {
+  font-family: var(--font-display);
+}
+
 .pageDesc {
   line-height: var(--pr-leading-180);
   max-width: var(--sem-layout-content-max);
@@ -82,7 +86,7 @@ code {
   flex-direction: column;
   gap: var(--pr-spacing-6);
   margin-bottom: var(--pr-spacing-11);
-  max-width: var(--card-min-width);
+  max-width: var(--pr-size-320);
 }
 
 .spacingLabel {

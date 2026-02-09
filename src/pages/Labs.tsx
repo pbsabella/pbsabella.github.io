@@ -8,8 +8,10 @@ const Labs = () => {
   return (
     <section>
       <Container className={styles.labs}>
-        <h1>Labs</h1>
-        <p className={styles.labsDescription}>A curated archive of my professional projects and technical experiments.</p>
+        <h1 className={styles.labsTitle}>Works & Research</h1>
+        <p className={styles.labsDescription}>
+          A curated archive of my journey through design and engineering. This space houses self-directed case studies, UX research projects, and technical experiments, focusing on the intersection of user experience and scalable architecture.
+        </p>
         <hr />
 
         <div className={styles.labsGrid}>

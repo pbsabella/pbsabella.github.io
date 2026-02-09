@@ -6,7 +6,7 @@ interface WorkItemProps {
   image: string;
   title: string;
   company: string;
-  period: string;
+  period?: string;
   position: string;
   description: string[];
   tags: string[];
@@ -17,7 +17,7 @@ const WorkItem = ({
   image,
   title,
   company,
-  period,
+  // period,
   position,
   description,
   tags,
@@ -36,9 +36,10 @@ const WorkItem = ({
           height="810"
           loading="lazy"
         />
+        <div>
         <div className={styles.workItemSubtitle}>
           <span className={styles.workItemCompany}>{company}</span>
-          <span>{period}</span>
+          {/* <span>{period}</span> */}
         </div>
         <div className={styles.workItemPosition}>{position}</div>
         <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
@@ -52,6 +53,7 @@ const WorkItem = ({
           {tags.map((tag, index) => (
             <Tag key={index}>{tag}</Tag>
           ))}
+        </div>
         </div>
       </Container>
     </div>

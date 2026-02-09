@@ -182,10 +182,10 @@
   --sem-text-caption: var(--pr-text-200);
 
   /* --- Border & Divider Colors --- */
-  --sem-color-border-base: var(--pr-color-neutral-300);
-  --sem-color-border-strong: var(--pr-color-neutral-600);
+  --sem-color-border-base: var(--pr-color-neutral-400);
+  --sem-color-border-strong: var(--pr-color-neutral-900);
   --sem-color-divider-base: var(--pr-color-neutral-400);
-  --sem-color-divider-strong: var(--pr-color-neutral-900);
+  --sem-color-divider-strong: var(--pr-color-neutral-600);
 
   /* --- Accent Background Colors --- */
   --sem-color-accent-orange: var(--pr-color-orange);

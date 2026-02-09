@@ -2,6 +2,10 @@
   padding-top: var(--pr-spacing-21);
 }
 
+.labsTitle {
+  font-family: var(--font-display);
+}
+
 .labsDescription {
   line-height: var(--pr-leading-180);
   min-width: min(300px, 100%);
