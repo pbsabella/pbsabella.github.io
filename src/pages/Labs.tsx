@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Container from '@/components/layout/Container';
-import Card from '@/components/ui/Card';
+import Card from '@/components/ui/Card/Card';
 import { ROUTES } from '@constants/routes';
 import styles from './Labs.module.css'
 
@@ -15,7 +15,7 @@ const Labs = () => {
         <div className={styles.labsGrid}>
           <Link to={ROUTES.SYSTEM_CORE}>
             <Card isInteractive={true}>
-              <h2 className="h4">Design System Core</h2>
+              <h2 className="h4">Design System Case Study</h2>
               <p>
                 <strong>Built with React</strong> to explore modern component architecture.
                 This project implements an <strong>Atomic Design</strong> system with a

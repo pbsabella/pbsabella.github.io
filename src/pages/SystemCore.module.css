@@ -1,42 +1,46 @@
 .page {
-  padding-top: var(--spacing-xxlarge);
+  padding-top: var(--pr-spacing-21);
 }
 
 .pageDesc {
-  line-height: var(--leading-loose);
-  max-width: var(--size-content-max);
+  line-height: var(--pr-leading-180);
+  max-width: var(--sem-layout-content-max);
 }
 
 .sectionDesc {
-  max-width: var(--size-content-max);
+  max-width: var(--sem-layout-content-max);
 }
 
 .subsectionTitle {
-  margin-bottom: var(--spacing-small);
-  margin-top: var(--spacing-large);
+  margin-bottom: var(--pr-spacing-4);
+  margin-top: var(--pr-spacing-11);
 }
 
 code {
-  font-family: var(--font-family-mono);
-  font-size: var(--text-footnote);
-  color: var(--color-text);
-  background: var(--color-bg-dark);
-  padding: var(--spacing-xxxsmall) var(--spacing-xxsmall);
-  border-radius: var(--border-radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--pr-text-100);
+  color: var(--sem-color-text-primary);
+  background: var(--sem-color-bg-subtle);
+  padding: var(--pr-spacing-1) var(--pr-spacing-2);
+  border-radius: var(--pr-radius-sm);
   display: block;
   width: fit-content;
 }
 
+.cardContent {
+  padding: var(--pr-spacing-6);
+}
+
 .cardContent *:not(:last-child) {
-  margin-bottom: var(--spacing-xxsmall);
+  margin-bottom: var(--pr-spacing-2);
   display: block;
 }
 
 .grid {
   display: grid;
-  gap: var(--spacing-medium);
+  gap: var(--pr-spacing-6);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-bottom: var(--spacing-large);
+  margin-bottom: var(--pr-spacing-11);
 }
 
 .gridWide {
@@ -44,160 +48,161 @@ code {
 }
 
 .swatchGrid {
-  gap: var(--spacing-large);
+  gap: var(--pr-spacing-11);
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 
 .swatchBox {
-  background-color: var(--color-bg);
-  border-radius: var(--border-radius-lg);
-  height: var(--spacing-xlarge);
+  background-color: var(--sem-color-bg-base);
+  border-radius: var(--pr-radius-lg);
+  height: var(--pr-spacing-16);
 }
 
 .swatchBoxBorder {
-  border: var(--size-line-thin) solid var(--color-border);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
 }
 
 .swatch p {
-  margin: var(--spacing-xxsmall) 0 var(--spacing-xxxsmall);
-  font-size: var(--text-detail);
-  font-weight: var(--font-weight-medium);
+  margin: var(--pr-spacing-2) 0 var(--pr-spacing-1);
+  font-size: var(--sem-text-caption);
+  font-weight: var(--pr-weight-500);
 }
 
 /* Typography */
 .typeExamples {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
+  gap: var(--pr-spacing-11);
+  margin-bottom: var(--pr-spacing-11);
 }
 
 /* Spacing */
 .spacingScale {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-medium);
-  margin-bottom: var(--spacing-large);
-  max-width: var(--size-min-card);
+  gap: var(--pr-spacing-6);
+  margin-bottom: var(--pr-spacing-11);
+  max-width: var(--card-min-width);
 }
 
 .spacingLabel {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: var(--text-detail);
-  margin-bottom: var(--spacing-xxsmall);
+  font-size: var(--sem-text-caption);
+  margin-bottom: var(--pr-spacing-2);
 }
 
 .spacingBar {
-  height: var(--size-bar-height);
-  background: var(--color-primary);
-  border-radius: var(--border-radius-md);
-  transition: width var(--transition-base) var(--easing-in-out);
+  height: var(--pr-size-8);
+  background: var(--pr-color-green-500);
+  border-radius: var(--pr-radius-md);
+  transition: width var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 /* Elevation */
 .elevationLow {
   border: 0;
-  box-shadow: var(--elevation-low);
+  box-shadow: var(--sem-elevation-low);
 }
 
 .elevationMedium {
   border: 0;
-  box-shadow: var(--elevation-medium);
+  box-shadow: var(--sem-elevation-medium);
 }
 
 .elevationHigh {
   border: 0;
-  box-shadow: var(--elevation-high);
+  box-shadow: var(--sem-elevation-high);
 }
 
 /* Interactive States */
 .statesDemo {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
+  gap: var(--pr-spacing-11);
+  margin-bottom: var(--pr-spacing-11);
 }
 
 /* Components */
 .tagsDemo {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: var(--spacing-small);
-  margin-bottom: var(--spacing-large);
+  gap: var(--pr-spacing-4);
+  margin-bottom: var(--pr-spacing-11);
 }
 
 /* Color swatch utilities */
 .swatchPrimary {
-  background: var(--color-primary);
+  background: var(--pr-color-green-500);
 }
 
 .swatchPrimaryLight {
-  background: var(--color-primary-light);
+  background: var(--pr-color-green-300);
 }
 
 .swatchPrimaryXXLight {
-  background: var(--color-primary-xxlight);
+  background: var(--pr-color-green-200);
 }
 
 .swatchNeutralXXLight {
-  background: var(--color-neutral-xxlight);
+  background: var(--pr-color-neutral-100);
 }
 
 .swatchNeutralXLight {
-  background: var(--color-neutral-xlight);
+  background: var(--pr-color-neutral-200);
 }
 
 .swatchNeutralLight {
-  background: var(--color-neutral-light);
+  background: var(--pr-color-neutral-300);
 }
 
 .swatchNeutral {
-  background: var(--color-neutral);
+  background: var(--pr-color-neutral-400);
 }
 
 .swatchNeutralDark {
-  background: var(--color-neutral-dark);
+  background: var(--pr-color-neutral-600);
 }
 
 .swatchNeutralXDark {
-  background: var(--color-neutral-xdark);
+  background: var(--pr-color-neutral-800);
 }
 
 .swatchNeutralXXDark {
-  background: var(--color-neutral-xxdark);
+  background: var(--pr-color-neutral-900);
 }
 
 .swatchAccentYellow {
-  background: var(--color-accent-yellow);
+  background: var(--pr-color-yellow);
 }
 
 .swatchAccentOrange {
-  background: var(--color-accent-orange);
+  background: var(--pr-color-orange);
 }
 
-.swatchAccentCyanLight {
-  background: var(--color-accent-cyan-light);
+.swatchAccentCyan {
+  background: var(--color-cyan);
 }
 
-.swatchAccentIce {
-  background: var(--color-accent-ice);
+.swatchAccentSlate {
+  background: var(--sem-color-accent-gray);
 }
 
 /* Semantic swatch utilities */
 .swatchBg {
-  background: var(--color-bg);
+  background: var(--sem-color-bg-base);
 }
 
 .swatchCardBg {
-  background: var(--card-bg-color);
+  background: var(--comp-card-bg);
 }
 
 .swatchText {
-  background: var(--color-text);
+  background: var(--sem-color-text-primary);
 }
 
 .swatchBorder {
-  background: var(--color-border);
+  background: var(--sem-color-border-base);
 }

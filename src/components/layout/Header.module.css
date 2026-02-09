@@ -1,13 +1,13 @@
 .header {
-  background-color: var(--header-color);
-  height: var(--header-height);
+  background-color: var(--comp-header-bg);
+  height: var(--comp-header-height);
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: var(--z-index-header);
+  z-index: var(--comp-header-z-index);
   transition:
-    background-color var(--transition-fast) var(--easing-out),
-    transform var(--transition-base) var(--easing-in-out);
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    transform var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 .headerInner {
@@ -34,20 +34,20 @@
 
 .navLogo {
   justify-self: start;
-  color: var(--color-text);
-  padding: var(--spacing-small) 0;
+  color: var(--sem-color-text-primary);
+  padding-block: var(--pr-spacing-3);
   text-decoration: none;
-  font-family: var(--font-family-display);
+  font-family: var(--font-display);
 }
 
 .navList {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxxsmall);
+  gap: var(--pr-spacing-1);
 }
 
 .navItem {
-  color: var(--color-text);
+  color: var(--sem-color-text-primary);
 }
 
 .navLink {
@@ -57,11 +57,11 @@
 .navMenu {
   background-color: transparent;
   border: 0;
-  color: var(--color-text);
+  color: var(--sem-color-text-primary);
   cursor: pointer;
   display: block;
-  margin-right: calc(-1 * var(--spacing-small));
-  padding: var(--spacing-small);
+  margin-right: calc(-1 * var(--pr-spacing-4));
+  padding: var(--pr-spacing-4);
 }
 
 @media only screen and (width <=767px) {
@@ -76,6 +76,6 @@
   }
 
   .navList {
-    gap: var(--spacing-xlarge);
+    gap: var(--pr-spacing-16);
   }
 }

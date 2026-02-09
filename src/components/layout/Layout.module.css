@@ -12,8 +12,10 @@
 .mainContentDisabled {
   pointer-events: none;
   overflow: hidden;
+  user-select: none;
 }
 
 .noScroll {
   overflow: hidden;
+  scrollbar-gutter: stable
 }

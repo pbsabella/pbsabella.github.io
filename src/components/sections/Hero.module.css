@@ -1,22 +1,23 @@
 .hero {
-  margin: 0 auto var(--spacing-medium);
-  max-width: var(--size-page-max);
+  margin: 0 auto var(--pr-spacing-6);
+  max-width: var(--sem-layout-page-max);
 }
 
 .heroDivider {
-  background-color: var(--color-text);
-  height: var(--size-line-thin);
-  margin-bottom: 0.65em;
-  margin-left: var(--spacing-small);
-  width: var(--size-hero-divider-sm);
+  background-color: var(--sem-color-text-primary);
+  height: var(--pr-border-width-1);
+  margin-bottom: var(--pr-spacing-3);
+  margin-left: var(--pr-spacing-4);
+  width: var(--pr-size-64);
 }
 
 .heroInner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: var(--size-hero-height);
-  min-height: 100vh;
+  height: var(--pr-size-600);
+  min-height: 100dvh;
+  max-height: var(--pr-size-1200);
   overflow: hidden;
   position: relative;
 }
@@ -31,22 +32,22 @@
 }
 
 .heroInner::after {
-  background-color: var(--color-accent-ice);
+  background-color: var(--sem-color-accent-gray);
   z-index: -2;
-  transition: background-color var(--transition-base) var(--easing-in-out);
+  transition: background-color var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 .heroInner::before {
   background-image: url('../../images/patterns.svg');
   background-repeat: no-repeat;
-  opacity: var(--pattern-opacity);
+  opacity: var(--sem-pattern-opacity);
   z-index: -1;
 }
 
 .heroLink {
   display: flex;
   align-items: flex-end;
-  color: var(--color-text);
+  color: var(--sem-color-text-primary);
   text-decoration: none;
 }
 
@@ -55,12 +56,12 @@
 }
 
 .heroTitle {
-  font-family: var(--font-family-display);
-  color: var(--color-text);
-  font-size: 3em;
+  font-family: var(--font-display);
+  color: var(--sem-color-text-primary);
+  font-size: calc(var(--pr-text-900) * 1.5);
   font-weight: normal;
   line-height: 0.9em;
-  margin-bottom: var(--spacing-xxlarge);
+  margin-bottom: var(--pr-spacing-21);
   overflow-wrap: break-word;
 }
 
@@ -69,12 +70,12 @@
 }
 
 .heroIndentInner {
-  padding-left: var(--spacing-large);
+  padding-left: var(--pr-spacing-11);
 }
 
 @media only screen and (width >=768px) {
   .hero {
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--pr-spacing-11);
   }
 
   .heroAction {
@@ -83,7 +84,7 @@
   }
 
   .heroDivider {
-    width: var(--size-hero-divider-lg);
+    width: var(--pr-size-240);
   }
 
   .heroInner {
@@ -102,6 +103,6 @@
   }
 
   .heroTitle {
-    font-size: 6em;
+    font-size: calc(var(--pr-text-900) * 2);
   }
 }

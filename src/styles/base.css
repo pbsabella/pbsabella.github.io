@@ -15,27 +15,28 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-family-body);
-  font-size: var(--text-body);
+  background-color: var(--sem-color-bg-base);
+  color: var(--sem-color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--sem-text-body);
   font-size-adjust: 0.5;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--leading-normal);
+  font-weight: var(--pr-weight-400);
+  line-height: var(--pr-leading-150);
 
-  /* modern replacement for overflow-y: scroll */
+  /* Prevents layout shift when scrollbars appear/disappear */
   scrollbar-gutter: stable;
+  -webkit-font-smoothing: auto;
 }
 
 header {
   background-color: transparent;
 }
 
-:where(body, header, footer) {
+:where(body, header, footer, main, section) {
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
+    background-color var(--pr-duration-base) var(--pr-easing-in-out),
+    color var(--pr-duration-base) var(--pr-easing-in-out),
+    border-color var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 /* ---------------------------------
@@ -49,7 +50,7 @@ ul {
 }
 
 a {
-  color: var(--color-text);
+  color: inherit;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -60,9 +61,9 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: var(--size-focus-outline) solid var(--color-primary);
-  outline-offset: var(--size-focus-outline-offset);
-  border-radius: var(--border-radius-focus);
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
+  outline-offset: var(--sem-focus-outline-offset);
+  border-radius: var(--sem-focus-outline-radius);
 }
 
 /* CLS-safe images */
@@ -74,71 +75,65 @@ img {
 
 hr {
   border: 0;
-  border-top: var(--size-line-thin) solid var(--color-divider);
-  margin: var(--spacing-large) 0 var(--spacing-xlarge);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-base);
+  margin: var(--pr-spacing-11) 0 var(--pr-spacing-16);
 }
 
 section {
-  padding-bottom: var(--spacing-xlarge);
-  padding-top: var(--spacing-xlarge);
+  padding-block: var(--pr-spacing-16);
 }
 
 b,
 strong {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--pr-weight-500);
 }
 
 small {
-  font-size: var(--text-detail);
+  font-size: var(--sem-text-caption);
 }
 
 /* ---------------------------------
    Typography
 ---------------------------------- */
+:where(h1, h2) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Keep it consistent for Firefox on Mac */
+}
 
 :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
+  color: var(--sem-color-text-primary);
+  font-weight: var(--pr-weight-500);
   font-size-adjust: 0.5;
 }
 
 h1 {
-  font-size: var(--text-h1);
-  line-height: var(--leading-tight);
+  font-size: var(--sem-text-heading-lg);
+  line-height: var(--pr-leading-110);
 }
 
 h2 {
-  font-size: var(--text-h2);
-  line-height: var(--leading-normal);
+  font-size: var(--sem-text-heading-md);
+  line-height: var(--pr-leading-120);
 }
 
 h3,
 .h3 {
-  font-size: var(--text-h3);
-  line-height: var(--leading-normal);
+  font-size: var(--sem-text-heading-sm);
+  line-height: var(--pr-leading-120);
 }
 
 h4,
 .h4 {
-  font-size: var(--text-h4);
-  line-height: var(--leading-normal);
-}
-
-/* ---------------------------------
-   Body typography breakpoint
----------------------------------- */
-
-/* Dark mode accent */
-[data-theme='dark'] body {
-  border-top: var(--border-accent);
+  font-size: var(--pr-text-400);
+  line-height: var(--pr-leading-150);
 }
 
 /* ---------------------------------
    Link utility
 ---------------------------------- */
 .link {
-  padding: var(--size-link-padding-y) 0;
+  padding: var(--pr-spacing-1) 0;
   position: relative;
 }
 
@@ -148,11 +143,11 @@ h4,
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--size-link-underline);
-  background-color: var(--color-text);
+  height: 1.6px; /* TODO: Scale this later */
+  background-color: currentcolor;
   transform: scale3d(0, 1, 1);
   transform-origin: left;
-  transition: transform 0.3s ease-out;
+  transition: transform var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .link:hover::after {
@@ -163,19 +158,19 @@ h4,
    Background utilities
 ---------------------------------- */
 .bgAccentYellow {
-  background-color: var(--color-accent-yellow);
+  background-color: var(--sem-color-accent-yellow);
 }
 
 .bgAccentCyanLight {
-  background-color: var(--color-accent-cyan-light);
+  background-color: var(--sem-color-accent-cyan);
 }
 
-.bgAccentIce {
-  background-color: var(--color-accent-ice);
+.bgAccentSlate {
+  background-color: var(--sem-color-accent-gray);
 }
 
 .bgAccentPrimaryLight {
-  background-color: var(--color-primary-xxlight);
+  background-color: var(--sem-color-accent-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

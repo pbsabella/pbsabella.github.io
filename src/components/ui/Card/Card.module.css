@@ -1,0 +1,31 @@
+.card {
+  border-radius: var(--comp-card-radius);
+  color: var(--comp-card-text);
+  padding: var(--pr-spacing-6);
+  border: var(--pr-border-width-1) solid transparent;
+  transition:
+    transform var(--pr-duration-fast) var(--pr-easing-out),
+    box-shadow var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.cardElevated {
+  background-color: var(--comp-card-bg);
+  box-shadow: var(--comp-card-shadow);
+}
+
+.cardFlat {
+  border-color: var(--sem-color-border-base);
+}
+
+.cardGhost {
+  pointer-events: none;
+  background-color: var(--comp-card-bg-ghost);
+  border: var(--pr-border-width-1) dashed var(--sem-color-border-base);
+}
+
+.cardInteractive:hover {
+  cursor: pointer;
+  box-shadow: var(--comp-card-shadow-hover);
+  transform: translateY(var(--comp-card-hover-offset));
+}

@@ -1,16 +1,16 @@
 .sideMenu {
-  background-color: var(--color-bg);
+  background-color: var(--sem-color-bg-base);
   height: 100%;
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
-  max-width: var(--size-side-nav-max);
+  max-width: var(--comp-sidenav-max-width);
   transform: translateX(100%);
-  transition: transform var(--transition-base) var(--easing-in-out);
+  transition: transform var(--pr-duration-base) var(--pr-easing-in-out);
   visibility: hidden;
-  overflow-y: scroll;
-  z-index: var(--z-index-side-nav);
+  overflow-y: auto;
+  z-index: var(--comp-sidenav-z-index);
 }
 
 .sideMenuOpen {
@@ -21,10 +21,10 @@
 .sideMenuCloseButton {
   background-color: transparent;
   border: 0;
-  color: var(--color-text);
+  color: var(--sem-color-text-primary);
   cursor: pointer;
   display: block;
-  padding: var(--spacing-small);
+  padding: var(--pr-spacing-4);
   text-align: right;
   margin-left: auto;
 }
@@ -32,44 +32,38 @@
 .sideMenuList {
   height: 100%;
   padding: 0;
-  padding-top: var(--spacing-xxsmall);
+  padding-top: var(--pr-spacing-2);
   list-style: none;
 }
 
 .sideMenuItem {
-  border-bottom: var(--size-line-thin) solid var(--color-border);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
   cursor: pointer;
-  height: var(--size-min-touch);
-  margin-left: var(--spacing-medium);
+  height: var(--pr-size-44);
+  margin-left: var(--pr-spacing-6);
 }
 
 .sideMenuLink {
   display: flex;
   align-items: center;
   height: 100%;
-  color: var(--color-text);
-  font-family: var(--font-family-body);;
+  color: var(--sem-color-text-primary);
+  font-family: var(--font-body);;
   text-decoration: none;
   text-transform: lowercase;
 }
 
-.linkActive {
-  font-weight: 500;
-}
-
 .overlay {
-  background-color: var(--color-bg-overlay);
-  height: 100%;
-  left: 0;
+  background-color: var(--sem-color-bg-overlay);
+  inset: 0;
   opacity: 0;
   position: fixed;
-  top: 0;
   transition:
-    opacity var(--transition-base) var(--easing-in-out),
-    visibility var(--transition-base) var(--easing-in-out);
+    opacity var(--pr-duration-base) var(--pr-easing-in-out),
+    visibility var(--pr-duration-base) var(--pr-easing-in-out);
   visibility: hidden;
   width: 100%;
-  z-index: var(--z-index-overlay);
+  z-index: var(--sem-z-overlay);
 }
 
 .overlayVisible {

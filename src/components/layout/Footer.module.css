@@ -1,13 +1,12 @@
 .footer {
-  background-color: var(--color-bg);
-  border-top: var(--size-line-thin) solid var(--color-border);
-  padding: var(--spacing-xsmall);
+  background-color: var(--sem-color-bg-base);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  padding: var(--pr-spacing-3);
   text-align: center;
 }
 
 .footerCopyright {
-  font-size: var(--text-detail);
-  padding: var(--spacing-xxsmall) 0;
+  font-size: var(--sem-text-caption);
+  padding: var(--pr-spacing-2) 0;
   text-align: center;
-  width: 100%;
 }

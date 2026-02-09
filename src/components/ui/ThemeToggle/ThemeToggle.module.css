@@ -1,0 +1,45 @@
+.toggleButton {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  color: var(--sem-color-text-primary);
+  cursor: pointer;
+  display: flex;
+  width: var(--pr-size-44);
+  height: var(--pr-size-44);
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  border-radius: var(--pr-radius-full);
+}
+
+.toggleIcon {
+  position: absolute;
+  width: var(--pr-size-28);
+  height: var(--pr-size-28);
+  fill: currentcolor;
+  stroke: currentcolor;
+  opacity: 0;
+  transform: scale(0.3) rotate(-90deg);
+}
+
+.moon {
+  top: 10px; /* Nudge moon down */
+}
+
+.toggleIconAnimate {
+  transition:
+    opacity var(--pr-duration-slow) var(--pr-easing-in-out),
+    transform var(--pr-duration-slow) var(--pr-easing-in-out);
+}
+
+/* Theme-specific visibility */
+:global([data-theme='light']) .sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+:global([data-theme='dark']) .moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}

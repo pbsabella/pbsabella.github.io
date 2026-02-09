@@ -13,7 +13,7 @@ vi.mock('@hooks/useScrollToSection', () => ({
   useScrollToSection: vi.fn(() => vi.fn()),
 }));
 
-vi.mock('@components/ui/ThemeToggle', () => ({
+vi.mock('@components/ui/ThemeToggle/ThemeToggle', () => ({
   default: ({ id }: { id: string }) => <div data-testid={`theme-toggle-${id}`} />,
 }));
 
