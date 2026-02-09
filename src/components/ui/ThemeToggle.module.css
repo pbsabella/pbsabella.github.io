@@ -2,39 +2,38 @@
   align-items: center;
   background-color: transparent;
   border: 0;
-  color: var(--color-text-primary);
+  color: var(--sem-color-text-primary);
   cursor: pointer;
   display: flex;
-  height: var(--toggle-size);
+  width: var(--pr-size-40);
+  height: var(--pr-size-40);
   justify-content: center;
-  padding: var(--spacing-2);
-  width: var(--toggle-size);
+  padding: var(--pr-spacing-2);
   position: relative;
 }
 
 .toggleIcon {
   position: absolute;
-  width: var(--toggle-icon-size);
-  height: var(--toggle-icon-size);
-  fill: var(--color-text-primary);
-  stroke: var(--color-text-primary);
+  width: var(--pr-size-28);
+  height: var(--pr-size-28);
+  fill: var(--sem-color-text-primary);
+  stroke: var(--sem-color-text-primary);
   opacity: 0;
   transform: scale(0.3) rotate(-90deg);
 
   /* Center icon in button */
-  top: var(--toggle-icon-offset);
-  left: var(--toggle-icon-offset);
+  top: 6px;
+  left: 6px;
 }
 
-/* Nudge moon down 2px */
 .moon {
-  top: var(--toggle-moon-offset);
+  top: 8px; /* Nudge moon down */
 }
 
 .toggleIconAnimate {
   transition:
-    opacity var(--duration-slow) var(--easing-in-out),
-    transform var(--duration-slow) var(--easing-in-out);
+    opacity var(--pr-duration-slow) var(--pr-easing-in-out),
+    transform var(--pr-duration-slow) var(--pr-easing-in-out);
 }
 
 /* Theme-specific visibility */

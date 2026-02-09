@@ -33,8 +33,8 @@ Design decisions are encoded as CSS variables, enabling:
 
 ```css
 /* Primitive (scale) → Semantic (usage) */
---color-neutral-800: #37373a;           /* primitive */
---color-text-primary: var(--color-neutral-800);  /* semantic */
+--pr-color-neutral-800: #37373a;           /* primitive */
+--sem-color-text-primary: var(--pr-color-neutral-800);  /* semantic */
 ```
 
 See: [src/styles/tokens.css](src/styles/tokens.css)

@@ -1,14 +1,14 @@
 .aboutBio {
-  line-height: var(--leading-180);
+  line-height: var(--pr-leading-180);
   min-width: min(300px, 100%);
-  max-width: var(--layout-content-max);
-  margin-bottom: var(--spacing-6);
+  max-width: var(--sem-layout-content-max);
+  margin-bottom: var(--pr-spacing-6);
 }
 
 .aboutGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-6);
+  gap: var(--pr-spacing-6);
 }
 
 .aboutCard {
@@ -16,8 +16,8 @@
 }
 
 .skillsTitle {
-  color: var(--card-text);
-  margin-bottom: var(--spacing-3);
+  color: var(--comp-card-text);
+  margin-bottom: var(--pr-spacing-3);
 }
 
 .skillsList {
@@ -27,8 +27,8 @@
 }
 
 .skillsItem {
-  font-size: var(--text-scale-200);
-  padding-block: var(--spacing-1);
+  font-size: var(--sem-text-caption);
+  padding-block: var(--pr-spacing-1);
 }
 
 .skillsItem:last-child {

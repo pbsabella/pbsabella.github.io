@@ -2,12 +2,11 @@
  * Design System Tokens
  *
  * Token Structure:
- * 1. PRIMITIVES (Raw scale values - theme-agnostic)
- * 2. SEMANTIC (Usage-based tokens - theme-aware)
- * 3. COMPONENT (Component-specific tokens)
+ * PR (Primitives) - Raw scale values
+ * SEM (Semantic) - Usage-based tokens
+ * COMP (Component) - Component-specific tokens
  *
- * Theme Variants: Light (default :root), Dark ([data-theme="dark"])
- * Maintenance: Update primitives → semantic tokens cascade automatically
+ * Maintenance: Update PR → SEM tokens cascade automatically
  */
 
 /* ============================================================================
@@ -16,251 +15,230 @@
 
 :root {
   /* ============================
-     1. PRIMITIVES
-     Raw design values - theme-agnostic scales
-     ============================
-  */
+     PR (PRIMITIVES)
+     When to add: Only when defining a new raw value (color, unit, or duration) that doesn't exist yet.
+     ============================ */
 
-  /* --- 1.1 Typography --- */
+  /* --- Typography --- */
   --font-display: 'DM Serif Display', arial, serif;
   --font-body: heebo, arial, sans-serif;
   --font-mono: 'SF Mono', monaco, monospace;
 
-  /* Type Scale (fluid responsive) */
-  --text-scale-900: clamp(2.25em, 4vw + 1em, 3em);
-  --text-scale-700: clamp(1.625em, 3vw + 1em, 2.25em);
-  --text-scale-500: clamp(1.375em, 2vw + 1em, 1.75em);
-  --text-scale-400: clamp(1.25em, 1.5vw + 1em, 1.375em);
-  --text-scale-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
-  --text-scale-200: 0.875em;
-  --text-scale-100: 0.75em;
+  /* Type Scale */
+  --pr-text-900: clamp(2.25rem, 4vw + 1rem, 3rem);
+  --pr-text-700: clamp(1.625rem, 3vw + 1rem, 2.25rem);
+  --pr-text-500: clamp(1.375rem, 2vw + 1rem, 1.75rem);
+  --pr-text-400: clamp(1.25rem, 1.5vw + 1rem, 1.375rem);
+  --pr-text-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
+  --pr-text-200: 0.875rem;
+  --pr-text-100: 0.75rem;
 
   /* Font Weights */
-  --font-weight-300: 300;
-  --font-weight-400: 400;
-  --font-weight-500: 500;
+  --pr-weight-300: 300;
+  --pr-weight-400: 400;
+  --pr-weight-500: 500;
 
   /* Line Height Scale */
-  --leading-100: 1;
-  --leading-110: 1.1;
-  --leading-150: 1.5;
-  --leading-180: 1.8;
+  --pr-leading-100: 1;
+  --pr-leading-110: 1.1;
+  --pr-leading-150: 1.5;
+  --pr-leading-180: 1.8;
 
-  /* --- 1.2 Spacing Scale (4px base unit) --- */
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-6: 24px;
-  --spacing-11: 44px;
-  --spacing-16: 64px;
-  --spacing-21: 84px;
+  /* --- Spacing Scale
+     For layout rhythm (margins, padding, gaps between elements) --- */
+  --pr-spacing-1: 4px;
+  --pr-spacing-2: 8px;
+  --pr-spacing-3: 12px;
+  --pr-spacing-4: 16px;
+  --pr-spacing-6: 24px;
+  --pr-spacing-8: 32px;
+  --pr-spacing-11: 44px;
+  --pr-spacing-16: 64px;
+  --pr-spacing-21: 84px;
 
-  /* --- 1.3 Border Scale --- */
-  --border-width-1: 1px;
-  --border-width-3: 3px;
+  /* --- Border Scale --- */
+  --pr-border-width-1: 1px;
+  --pr-border-width-2: 2px;
+  --pr-border-width-3: 3px;
 
   /* Radius Scale */
-  --radius-sm: 3px;
-  --radius-md: 4px;
-  --radius-base: 5px;
-  --radius-lg: 8px;
-  --radius-pill: 9999px;
+  --pr-radius-sm: 3px;
+  --pr-radius-md: 4px;
+  --pr-radius-base: 5px;
+  --pr-radius-lg: 8px;
+  --pr-radius-pill: 9999px;
 
-  /* --- 1.4 Shadow Scale --- */
-  --shadow-100: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
-  --shadow-200: 0 4px 16px rgb(50 50 93 / 20%);
-  --shadow-300: 0 10px 40px rgb(0 0 0 / 20%);
+  /* --- Shadow Scale --- */
+  --pr-shadow-100: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
+  --pr-shadow-200: 0 4px 16px rgb(50 50 93 / 20%);
+  --pr-shadow-300: 0 10px 40px rgb(0 0 0 / 20%);
 
   /* Dark theme shadows */
-  --shadow-100-dark: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
-  --shadow-200-dark: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
-  --shadow-300-dark: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
+  --pr-shadow-100-dark: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
+  --pr-shadow-200-dark: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
+  --pr-shadow-300-dark: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
 
-  /* --- 1.5 Transitions --- */
-  --duration-fast: 0.2s;
-  --duration-base: 0.3s;
-  --duration-slow: 0.4s;
-  --easing-out: ease-out;
-  --easing-in-out: ease-in-out;
+  /* --- Transitions --- */
+  --pr-duration-fast: 0.2s;
+  --pr-duration-base: 0.3s;
+  --pr-duration-slow: 0.4s;
+  --pr-easing-out: ease-out;
+  --pr-easing-in-out: ease-in-out;
 
-  /* --- 1.6 Color Primitives --- */
+  /* --- Color Primitives --- */
 
   /* Green Scale (Brand) */
-  --color-green-100: #e6f7f2;
-  --color-green-200: #cdf1e7;
-  --color-green-300: #88d4b7;
-  --color-green-500: #03b787;
-  --color-green-600: #017e5b;
+  --pr-color-green-100: #e6f7f2;
+  --pr-color-green-200: #cdf1e7;
+  --pr-color-green-300: #88d4b7;
+  --pr-color-green-500: #03b787;
+  --pr-color-green-600: #017e5b;
 
-  /* Green Scale (Brand) - Dark Theme Variants */
-  --color-green-500-dark: #05e6aa;
-  --color-green-300-dark: #a7f3d0;
+  /* Green Scale (Dark theme) */
+  --pr-color-green-500-dark: #05e6aa;
+  --pr-color-green-300-dark: #a7f3d0;
 
-  /* Gray Scale (Cool) */
-  --color-gray-100: #ececf4;
-  --color-gray-500: #3f444e;
-  --color-gray-600: #2a2e37;
-  --color-gray-700: #1e2128;
-  --color-gray-800: #17191e;
-  --color-gray-900: #0f1115;
+  /* Gray Scale (Cool) - UI chrome / surfaces */
+  --pr-color-gray-100: #ececf4;
+  --pr-color-gray-500: #3f444e;
+  --pr-color-gray-600: #2a2e37;
+  --pr-color-gray-700: #1e2128;
+  --pr-color-gray-800: #17191e;
+  --pr-color-gray-900: #0f1115;
 
-  /* Gray Scale (Neutral/Warm) */
-  --color-neutral-100: #fff;
-  --color-neutral-200: #fcfcfc;
-  --color-neutral-300: #ebebed;
-  --color-neutral-400: #d0d0d6;
-  --color-neutral-600: #7f7d80;
-  --color-neutral-800: #37373a;
-  --color-neutral-900: #1d1d1e;
+  /* Gray Scale (Neutral/Warm) - text + content */
+  --pr-color-neutral-100: #fff;
+  --pr-color-neutral-200: #fcfcfc;
+  --pr-color-neutral-300: #ebebed;
+  --pr-color-neutral-400: #d0d0d6;
+  --pr-color-neutral-600: #7f7d80;
+  --pr-color-neutral-800: #37373a;
+  --pr-color-neutral-900: #1d1d1e;
 
-  /* Gray Scale (Dark theme text variants) */
-  --color-gray-100-light: #f1f3f6;
-  --color-gray-400-light: #949ba8;
-  --color-gray-500-light: #626a7a;
+  /* Gray Scale (Dark theme light variants) */
+  --pr-color-gray-100-light: #f1f3f6;
+  --pr-color-gray-400-light: #949ba8;
+  --pr-color-gray-500-light: #626a7a;
 
   /* Accent Colors */
-  --color-orange: #ff5e32;
-  --color-yellow: #ffc541;
-  --color-cyan-100: #d3f2f5;
+  --pr-color-orange: #ff5e32;
+  --pr-color-yellow: #ffc541;
+  --pr-color-cyan-100: #d3f2f5;
 
-  /* Divider variants */
-  --color-divider-light: #1c2027;
+  /* Z-Index Primitives */
+  --pr-z-0: 0;
+  --pr-z-10: 10;
+  --pr-z-20: 20;
+  --pr-z-30: 30;
 
-  /* --- 1.7 Z-Index Scale --- */
-  --z-layer-base: 0;
-  --z-layer-header: 7;
-  --z-layer-overlay: 10;
-  --z-layer-modal: 11;
-
-  /* --- 1.8 Size Scale --- */
-  --size-1: 1px;
-  --size-2: 2px;
-  --size-8: 8px;
-  --size-28: 28px;
-  --size-40: 40px;
-  --size-44: 44px;
-  --size-52: 52px;
-  --size-64: 64px;
-  --size-80: 80px;
-  --size-240: 240px;
-  --size-260: 260px;
-  --size-320: 320px;
-  --size-600: 600px;
-  --size-1200: 1200px;
-  --size-1440: 1440px;
+  /* --- Size Scale
+    For physical dimensions (heights, widths, hit targets, containers) --- */
+  --pr-size-1: 1px;
+  --pr-size-2: 2px;
+  --pr-size-8: 8px;
+  --pr-size-28: 28px;
+  --pr-size-40: 40px;
+  --pr-size-44: 44px;
+  --pr-size-52: 52px;
+  --pr-size-64: 64px;
+  --pr-size-80: 80px;
+  --pr-size-240: 240px;
+  --pr-size-260: 260px;
+  --pr-size-320: 320px;
+  --pr-size-600: 600px;
+  --pr-size-1200: 1200px;
+  --pr-size-1440: 1440px;
 
   /* ============================
-     2. SEMANTIC TOKENS
-     Usage-based tokens - these change between themes
-     ============================
-  */
+     SEM (SEMANTIC TOKENS)
+     When to add: When creating a token that defines intent or logic (e.g., "Primary Text" or "Body Background").
+     ============================ */
 
-  /* --- 2.1 Background Colors --- */
-  --color-bg-base: var(--color-neutral-200);
-  --color-bg-subtle: var(--color-neutral-300);
-  --color-bg-elevated: var(--color-neutral-100);
-  --color-bg-overlay: rgb(0 0 0 / 80%);
+  /* --- Background Colors --- */
+  --sem-color-bg-base: var(--pr-color-neutral-200);
+  --sem-color-bg-subtle: var(--pr-color-neutral-300);
+  --sem-color-bg-elevated: var(--pr-color-neutral-100);
+  --sem-color-bg-overlay: rgb(0 0 0 / 80%);
 
-  /* --- 2.2 Text Colors --- */
-  --color-text-primary: var(--color-neutral-800);
-  --color-text-strong: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-600);
-  --color-text-muted: var(--color-neutral-600);
+  /* --- Text Colors --- */
+  --sem-color-text-primary: var(--pr-color-neutral-800);
+  --sem-color-text-strong: var(--pr-color-neutral-900);
+  --sem-color-text-secondary: var(--pr-color-neutral-600);
+  --sem-color-text-muted: var(--pr-color-neutral-600);
 
-  /* --- 2.3 Brand Text Colors --- */
-  --color-text-brand: var(--color-green-500);
-  --color-text-brand-light: var(--color-green-300);
-  --color-text-brand-strong: var(--color-green-600);
+  /* --- Brand Text Colors --- */
+  --sem-color-text-brand: var(--pr-color-green-500);
+  --sem-color-text-brand-light: var(--pr-color-green-300);
+  --sem-color-text-brand-strong: var(--pr-color-green-600);
 
-  /* --- 2.4 Border & Divider Colors --- */
-  --color-border-base: var(--color-neutral-300);
-  --color-border-strong: var(--color-neutral-600);
-  --color-divider-base: var(--color-neutral-400);
-  --color-divider-strong: var(--color-neutral-900);
+  /* --- Text Sizes --- */
+  --sem-text-heading-lg: var(--pr-text-900);
+  --sem-text-heading-md: var(--pr-text-700);
+  --sem-text-body: var(--pr-text-300);
+  --sem-text-caption: var(--pr-text-200);
 
-  /* --- 2.5 Accent Background Colors --- */
-  --color-accent-orange: var(--color-orange);
-  --color-accent-yellow: var(--color-yellow);
-  --color-accent-cyan: var(--color-cyan-100);
-  --color-accent-green: var(--color-green-200);
-  --color-accent-gray: var(--color-gray-100);
+  /* --- Border & Divider Colors --- */
+  --sem-color-border-base: var(--pr-color-neutral-300);
+  --sem-color-border-strong: var(--pr-color-neutral-600);
+  --sem-color-divider-base: var(--pr-color-neutral-400);
+  --sem-color-divider-strong: var(--pr-color-neutral-900);
 
-  /* --- 2.6 Elevation (Shadows) --- */
-  --elevation-low: var(--shadow-100);
-  --elevation-medium: var(--shadow-200);
-  --elevation-high: var(--shadow-300);
+  /* --- Accent Background Colors --- */
+  --sem-color-accent-orange: var(--pr-color-orange);
+  --sem-color-accent-yellow: var(--pr-color-yellow);
+  --sem-color-accent-cyan: var(--pr-color-cyan-100);
+  --sem-color-accent-green: var(--pr-color-green-200);
+  --sem-color-accent-gray: var(--pr-color-gray-100);
 
-  /* --- 2.7 Spacing Semantic --- */
-  --spacing-section-top: var(--size-64);
-  --spacing-section-divider: var(--spacing-11);
+  /* --- Elevation --- */
+  --sem-elevation-low: var(--pr-shadow-100);
+  --sem-elevation-medium: var(--pr-shadow-200);
+  --sem-elevation-high: var(--pr-shadow-300);
 
-  /* --- 2.8 Layout Constraints --- */
-  --layout-container-max: var(--size-1200);
-  --layout-page-max: var(--size-1440);
-  --layout-content-max: 600px;
-  --layout-sidebar-max: var(--size-320);
+  /* --- Layout Constraints --- */
+  --sem-layout-content-max: var(--pr-size-600);
+  --sem-layout-container-max: var(--pr-size-1200);
+  --sem-layout-page-max: var(--pr-size-1440);
+  --sem-layout-sidebar-max: var(--pr-size-320);
 
-  /* --- 2.9 Interactive States --- */
-  --duration-interactive: var(--duration-base) var(--easing-out);
-  --focus-outline-width: var(--size-2);
-  --focus-outline-offset: var(--size-1);
-  --focus-outline-radius: var(--size-2);
+  /* --- Interactive States --- */
+  --sem-focus-outline-width: var(--pr-border-width-2);
+  --sem-focus-outline-offset: var(--pr-size-1);
+  --sem-focus-outline-radius: var(--pr-radius-sm);
 
-  /* --- 2.10 Misc Semantic --- */
-  --pattern-opacity: 1;
+  /* --- Misc Semantic & Layering --- */
+  --sem-pattern-opacity: 1;
+  --sem-z-base: var(--pr-z-0);
+  --sem-z-header: var(--pr-z-10);
+  --sem-z-overlay: var(--pr-z-20);
+  --sem-z-modal: var(--pr-z-30);
 
   /* ============================
-     3. COMPONENT TOKENS
-     Component-specific values
-     ============================
-  */
+     COMP (COMPONENT TOKENS)
+     When to add: When a specific UI element needs a unique override that doesn't fit the global semantic scale.
+     ============================ */
 
-  /* --- 3.1 Header Component --- */
-  --header-height: var(--size-52);
-  --header-bg: rgb(252 252 252 / 90%);
-  --header-z-index: var(--z-layer-header);
+  /* --- Header Component --- */
+  --comp-header-height: var(--pr-size-52);
+  --comp-header-bg: rgb(252 252 252 / 90%);
+  --comp-header-z-index: var(--sem-z-header);
 
-  /* --- 3.2 Card Component --- */
-  --card-bg: var(--color-bg-elevated);
-  --card-bg-ghost: var(--color-bg-base);
-  --card-text: var(--color-text-primary);
-  --card-shadow: var(--elevation-low);
-  --card-shadow-hover: var(--elevation-medium);
-  --card-radius: var(--radius-base);
-  --card-hover-offset: -2px;
-  --card-min-width: var(--size-260);
+  /* --- Card Component --- */
+  --comp-card-bg: var(--sem-color-bg-elevated);
+  --comp-card-bg-ghost: var(--sem-color-bg-base);
+  --comp-card-text: var(--sem-color-text-primary);
+  --comp-card-shadow: var(--sem-elevation-low);
+  --comp-card-shadow-hover: var(--sem-elevation-medium);
+  --comp-card-radius: var(--pr-radius-base);
+  --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
 
-  /* --- 3.3 Tag Component --- */
-  --tag-text: var(--color-text-primary);
-  --tag-radius: var(--radius-pill);
+  /* --- Tag Component --- */
+  --comp-tag-text: var(--sem-color-text-primary);
+  --comp-tag-radius: var(--pr-radius-pill);
 
-  /* --- 3.4 Hero Component --- */
-  --hero-height: var(--size-600);
-  --hero-divider-sm: var(--size-80);
-  --hero-divider-lg: var(--size-240);
-
-  /* --- 3.5 Toggle Component --- */
-  --toggle-size: var(--size-40);
-  --toggle-icon-size: var(--size-28);
-  --toggle-icon-offset: 6px;
-  --toggle-moon-offset: 8px;
-
-  /* --- 3.6 Link Component --- */
-  --link-padding-y: var(--size-2);
-  --link-underline-width: 1.6px;
-
-  /* --- 3.7 Section Component --- */
-  --section-scroll-margin-top: var(--size-64);
-  --section-intro-divider: var(--spacing-11);
-
-  /* --- 3.8 Side Navigation --- */
-  --sidenav-max-width: var(--size-320);
-  --sidenav-z-index: var(--z-layer-modal);
-
-  /* --- 3.9 Border Compounds --- */
-  --border-accent: var(--border-width-3) solid var(--color-green-500);
-  --border-accent-subtle: var(--border-width-1) solid var(--color-green-300);
+  /* --- Side Navigation --- */
+  --comp-sidenav-max-width: var(--pr-size-320);
+  --comp-sidenav-z-index: var(--sem-z-modal);
 }
 
 /* ============================================================================
@@ -268,69 +246,52 @@
    ========================================================================== */
 
 [data-theme='dark'] {
-  /* ============================
-     SEMANTIC TOKEN OVERRIDES ONLY
-     Primitives remain unchanged
-     ============================
-  */
+  /* --- Background Colors --- */
+  --sem-color-bg-base: var(--pr-color-gray-900);
+  --sem-color-bg-subtle: var(--pr-color-gray-800);
+  --sem-color-bg-elevated: var(--pr-color-gray-700);
+  --sem-color-bg-overlay: rgb(15 17 21 / 85%);
 
-  /* --- 2.1 Background Colors --- */
-  --color-bg-base: var(--color-gray-900);
-  --color-bg-subtle: var(--color-gray-800);
-  --color-bg-elevated: var(--color-gray-700);
-  --color-bg-overlay: rgb(15 17 21 / 85%);
+  /* --- Text Colors --- */
+  --sem-color-text-primary: var(--pr-color-gray-100);
+  --sem-color-text-strong: var(--pr-color-gray-100-light);
+  --sem-color-text-secondary: var(--pr-color-gray-400-light);
+  --sem-color-text-muted: var(--pr-color-gray-500-light);
 
-  /* --- 2.2 Text Colors --- */
-  --color-text-primary: var(--color-gray-100);
-  --color-text-strong: var(--color-gray-100-light);
-  --color-text-secondary: var(--color-gray-400-light);
-  --color-text-muted: var(--color-gray-500-light);
+  /* --- Brand Text Colors --- */
+  --sem-color-text-brand: var(--pr-color-green-500-dark);
+  --sem-color-text-brand-light: var(--pr-color-green-300-dark);
+  --sem-color-text-brand-strong: var(--pr-color-green-500);
 
-  /* --- 2.3 Brand Text Colors --- */
-  --color-text-brand: var(--color-green-500-dark);
-  --color-text-brand-light: var(--color-green-300-dark);
-  --color-text-brand-strong: var(--color-green-500);
+  /* --- Border & Divider Colors --- */
+  --sem-color-border-base: var(--pr-color-gray-600);
+  --sem-color-border-strong: var(--pr-color-gray-500);
+  --sem-color-divider-base: var(--pr-color-divider-light);
+  --sem-color-divider-strong: var(--pr-color-gray-100);
 
-  /* --- 2.4 Border & Divider Colors --- */
-  --color-border-base: var(--color-gray-600);
-  --color-border-strong: var(--color-gray-500);
-  --color-divider-base: var(--color-divider-light);
-  --color-divider-strong: var(--color-gray-100);
+  /* --- Accent Background Colors --- */
+  --sem-color-accent-cyan: var(--pr-color-gray-800);
+  --sem-color-accent-green: var(--pr-color-gray-800);
+  --sem-color-accent-gray: var(--pr-color-gray-800);
 
-  /* --- 2.5 Accent Background Colors --- */
-  --color-accent-cyan: var(--color-gray-800);
-  --color-accent-green: var(--color-gray-800);
-  --color-accent-gray: var(--color-gray-800);
-  --color-accent-slate: var(--color-gray-800);
+  /* --- Elevation --- */
+  --sem-elevation-low: var(--pr-shadow-100-dark);
+  --sem-elevation-medium: var(--pr-shadow-200-dark);
+  --sem-elevation-high: var(--pr-shadow-300-dark);
 
-  /* --- 2.6 Elevation (Shadows) --- */
-  --elevation-low: var(--shadow-100-dark);
-  --elevation-medium: var(--shadow-200-dark);
-  --elevation-high: var(--shadow-300-dark);
+  /* --- Misc Semantic --- */
+  --sem-pattern-opacity: 0.85;
 
-  /* --- 2.10 Misc Semantic --- */
-  --pattern-opacity: 0.85;
+  /* --- Header Component --- */
+  --comp-header-bg: rgb(15 17 21 / 94%);
 
-  /* ============================
-     COMPONENT TOKEN OVERRIDES
-     ============================
-  */
+  /* --- Card Component --- */
+  --comp-card-bg: var(--pr-color-gray-700);
+  --comp-card-bg-ghost: rgb(23 25 30 / 40%);
+  --comp-card-text: var(--pr-color-gray-100);
+  --comp-card-shadow: var(--sem-elevation-medium);
+  --comp-card-shadow-hover: var(--sem-elevation-high);
 
-  /* --- 3.1 Header Component --- */
-  --header-bg: rgb(15 17 21 / 94%);
-
-  /* --- 3.2 Card Component --- */
-  --card-bg: var(--color-gray-700);
-  --card-bg-ghost: rgb(23 25 30 / 40%);
-  --card-border-ghost: 1px dashed var(--color-gray-600);
-  --card-text: var(--color-gray-100);
-  --card-shadow: var(--elevation-medium);
-  --card-shadow-hover: var(--elevation-high);
-
-  /* --- 3.3 Tag Component --- */
-  --tag-text: var(--color-text-secondary);
-
-  /* --- 3.9 Border Compounds --- */
-  --border-accent: var(--border-width-3) solid var(--color-green-500-dark);
-  --border-accent-subtle: var(--border-width-1) solid var(--color-green-300-dark);
+  /* --- Tag Component --- */
+  --comp-tag-text: var(--sem-color-text-secondary);
 }

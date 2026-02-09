@@ -1,30 +1,29 @@
 .card {
-  border-radius: var(--card-radius);
-  color: var(--card-text);
-  padding: var(--spacing-6);
-  min-width: min(var(--card-min-width), 100%);
-  border: var(--border-width-1) solid transparent;
+  border-radius: var(--comp-card-radius);
+  color: var(--comp-card-text);
+  padding: var(--pr-spacing-6);
+  border: var(--pr-border-width-1) solid transparent;
   transition:
-    transform var(--duration-fast) var(--easing-out),
-    box-shadow var(--duration-fast) var(--easing-out);
+    transform var(--pr-duration-fast) var(--pr-easing-out),
+    box-shadow var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .cardElevated {
-  background-color: var(--card-bg);
-  box-shadow: var(--card-shadow);
+  background-color: var(--comp-card-bg);
+  box-shadow: var(--comp-card-shadow);
 }
 
 .cardFlat {
-  border: var(--border-width-1) solid var(--color-border-base);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
 }
 
 .cardGhost {
   pointer-events: none;
-  background-color: var(--card-bg-ghost);
-  border: var(--border-width-1) dashed var(--color-border-base);
+  background-color: var(--comp-card-bg-ghost);
+  border: var(--pr-border-width-1) dashed var(--sem-color-border-base);
 }
 
 .cardInteractive:hover {
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(var(--card-hover-offset));
+  box-shadow: var(--comp-card-shadow-hover);
+  transform: translateY(var(--comp-card-hover-offset));
 }

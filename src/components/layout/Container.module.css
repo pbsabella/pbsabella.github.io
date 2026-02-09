@@ -1,8 +1,8 @@
 .container {
   margin: 0 auto;
-  max-width: var(--layout-container-max);
-  padding-left: var(--spacing-4);
-  padding-right: var(--spacing-4);
+  max-width: var(--sem-layout-container-max);
+  padding-left: var(--pr-spacing-4);
+  padding-right: var(--pr-spacing-4);
   width: 100%;
 }
 

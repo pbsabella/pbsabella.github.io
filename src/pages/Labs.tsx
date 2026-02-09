@@ -15,7 +15,7 @@ const Labs = () => {
         <div className={styles.labsGrid}>
           <Link to={ROUTES.SYSTEM_CORE}>
             <Card isInteractive={true}>
-              <h2 className="h4">Design System Core</h2>
+              <h2 className="h4">Design System Case Study</h2>
               <p>
                 <strong>Built with React</strong> to explore modern component architecture.
                 This project implements an <strong>Atomic Design</strong> system with a

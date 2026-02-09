@@ -1,17 +1,17 @@
 .labs {
-  padding-top: var(--spacing-21);
+  padding-top: var(--pr-spacing-21);
 }
 
 .labsDescription {
-  line-height: var(--leading-180);
+  line-height: var(--pr-leading-180);
   min-width: min(300px, 100%);
-  max-width: var(--layout-content-max);
+  max-width: var(--sem-layout-content-max);
 }
 
 .labsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
-  gap: var(--spacing-6);
+  gap: var(--pr-spacing-6);
   width: 100%;
   align-items: stretch;
 }

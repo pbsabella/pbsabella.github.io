@@ -15,13 +15,13 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--color-bg-base);
-  color: var(--color-text-primary);
+  background-color: var(--sem-color-bg-base);
+  color: var(--sem-color-text-primary);
   font-family: var(--font-body);
-  font-size: var(--text-scale-300);
+  font-size: var(--sem-text-body);
   font-size-adjust: 0.5;
-  font-weight: var(--font-weight-400);
-  line-height: var(--leading-150);
+  font-weight: var(--pr-weight-400);
+  line-height: var(--pr-leading-150);
 
   /* modern replacement for overflow-y: scroll */
   scrollbar-gutter: stable;
@@ -49,7 +49,7 @@ ul {
 }
 
 a {
-  color: var(--color-text-primary);
+  color: var(--sem-color-text-primary);
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -60,9 +60,9 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: var(--focus-outline-width) solid var(--color-green-500);
-  outline-offset: var(--focus-outline-offset);
-  border-radius: var(--radius-focus);
+  outline: var(--sem-focus-outline-width) solid var(--pr-color-green-500);
+  outline-offset: var(--sem-focus-outline-offset);
+  border-radius: var(--sem-focus-outline-radius);
 }
 
 /* CLS-safe images */
@@ -74,22 +74,22 @@ img {
 
 hr {
   border: 0;
-  border-top: var(--border-width-1) solid var(--color-divider-base);
-  margin: var(--spacing-11) 0 var(--spacing-16);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-base);
+  margin: var(--pr-spacing-11) 0 var(--pr-spacing-16);
 }
 
 section {
-  padding-bottom: var(--spacing-16);
-  padding-top: var(--spacing-16);
+  padding-bottom: var(--pr-spacing-16);
+  padding-top: var(--pr-spacing-16);
 }
 
 b,
 strong {
-  font-weight: var(--font-weight-500);
+  font-weight: var(--pr-weight-500);
 }
 
 small {
-  font-size: var(--text-scale-200);
+  font-size: var(--sem-text-caption);
 }
 
 /* ---------------------------------
@@ -98,38 +98,38 @@ small {
 
 :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
-  color: var(--color-text-primary);
-  font-weight: var(--font-weight-500);
+  color: var(--sem-color-text-primary);
+  font-weight: var(--pr-weight-500);
   font-size-adjust: 0.5;
 }
 
 h1 {
-  font-size: var(--text-scale-900);
-  line-height: var(--leading-110);
+  font-size: var(--sem-text-heading-lg);
+  line-height: var(--pr-leading-110);
 }
 
 h2 {
-  font-size: var(--text-scale-700);
-  line-height: var(--leading-150);
+  font-size: var(--sem-text-heading-md);
+  line-height: var(--pr-leading-150);
 }
 
 h3,
 .h3 {
-  font-size: var(--text-scale-500);
-  line-height: var(--leading-150);
+  font-size: var(--pr-text-500);
+  line-height: var(--pr-leading-150);
 }
 
 h4,
 .h4 {
-  font-size: var(--text-scale-400);
-  line-height: var(--leading-150);
+  font-size: var(--pr-text-400);
+  line-height: var(--pr-leading-150);
 }
 
 /* ---------------------------------
    Link utility
 ---------------------------------- */
 .link {
-  padding: var(--link-padding-y) 0;
+  padding: var(--pr-spacing-1) 0;
   position: relative;
 }
 
@@ -139,8 +139,8 @@ h4,
   left: 0;
   bottom: 0;
   width: 100%;
-  height: var(--link-underline-width);
-  background-color: var(--color-text-primary);
+  height: 1.6px; /* TODO: Scale this later */
+  background-color: var(--sem-color-text-primary);
   transform: scale3d(0, 1, 1);
   transform-origin: left;
   transition: transform 0.3s ease-out;
@@ -154,19 +154,19 @@ h4,
    Background utilities
 ---------------------------------- */
 .bgAccentYellow {
-  background-color: var(--color-accent-yellow);
+  background-color: var(--sem-color-accent-yellow);
 }
 
 .bgAccentCyanLight {
-  background-color: var(--color-accent-cyan);
+  background-color: var(--sem-color-accent-cyan);
 }
 
 .bgAccentSlate {
-  background-color: var(--color-accent-slate);
+  background-color: var(--sem-color-accent-gray);
 }
 
 .bgAccentPrimaryLight {
-  background-color: var(--color-accent-green);
+  background-color: var(--sem-color-accent-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

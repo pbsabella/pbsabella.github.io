@@ -25,13 +25,13 @@ const SystemCore = () => {
 
           <h3 className={styles.subsectionTitle}>Primitives</h3>
 
-          <h4 className={styles.subsectionTitle}>Green scale (brand)</h4>
+          <h4 className={styles.subsectionTitle}>Green Scale (brand)</h4>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
             {COLOR_GROUPS.primitives.green.map((color, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
                   className={styles.swatchBox}
-                  style={{ backgroundColor: `var(--${color.cssVar})` }}
+                  style={{ backgroundColor: `var(${color.token})` }}
                 ></div>
                 <p>{color.name}</p>
                 <code>{color.token}</code>
@@ -39,13 +39,13 @@ const SystemCore = () => {
             ))}
           </div>
 
-          <h4 className={styles.subsectionTitle}>Neutral Scale (Warm)</h4>
+          <h4 className={styles.subsectionTitle}>Neutral Scale (warm)</h4>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
             {COLOR_GROUPS.primitives.neutral.map((color, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
                   className={`${styles.swatchBox} ${color.border ? styles.swatchBoxBorder : ''}`}
-                  style={{ backgroundColor: `var(--${color.cssVar})` }}
+                  style={{ backgroundColor: `var(${color.token})` }}
                 ></div>
                 <p>{color.name}</p>
                 <code>{color.token}</code>
@@ -53,13 +53,13 @@ const SystemCore = () => {
             ))}
           </div>
 
-          <h4 className={styles.subsectionTitle}>Gray Scake (Cool)</h4>
+          <h4 className={styles.subsectionTitle}>Gray Scale (cool)</h4>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
             {COLOR_GROUPS.primitives.gray.map((color, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
                   className={styles.swatchBox}
-                  style={{ backgroundColor: `var(--${color.cssVar})` }}
+                  style={{ backgroundColor: `var(${color.token})` }}
                 ></div>
                 <p>{color.name}</p>
                 <code>{color.token}</code>
@@ -73,7 +73,7 @@ const SystemCore = () => {
               <div className={styles.swatch} key={idx}>
                 <div
                   className={styles.swatchBox}
-                  style={{ backgroundColor: `var(--${color.cssVar})` }}
+                  style={{ backgroundColor: `var(${color.token})` }}
                 ></div>
                 <p>{color.name}</p>
                 <code>{color.token}</code>
