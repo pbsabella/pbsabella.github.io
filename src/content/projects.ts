@@ -28,19 +28,18 @@ export const PROJECTS: Project[] = [
     period: 'May 2021 - Jan 2026',
     position: 'Senior Frontend Engineer',
     description: [
-      "Led the development and maintenance of SiteMinder's Design System and product patterns, enabling teams to build consistent, accessible, and scalable interfaces across the platform.",
-      'Defined and managed design tokens, UI components, and interaction patterns to streamline the development lifecycle.',
-      'Developed reusable solutions, such as the media management pattern, ensuring a clear connection between foundational elements and real product experiences.',
-      'Collaborated closely with design, product, and engineering teams to uphold best practices in usability, performance, and accessibility.',
+      'Governed the technical roadmap for reusable interaction patterns and themed components used across the entire engineering organization. Focused on scaling accessibility through WCAG 2.1 AA standards and creating cohesive UI layers that handle complex platform states.',
     ],
     tags: [
       'Vue.js',
       'TypeScript',
       'HTML',
       'CSS',
-      'Component Architecture',
-      'Accessibility',
-      'Frontend Tooling',
+      'Design Tokens',
+      'Component Lifecycle Management',
+      'Accessibility (WCAG)',
+      'Figma',
+      'Storybook',
     ],
   },
   {
@@ -51,11 +50,9 @@ export const PROJECTS: Project[] = [
     period: 'May 2021 - Jan 2026',
     position: 'Senior Frontend Engineer / Feature Lead',
     description: [
-      "Led the frontend development of SiteMinder's Notifications platform, leveraging the Design System to deliver a seamless and consistent user experience.",
-      'Served as feature lead, writing technical and product specifications, defining implementation strategies, and coordinating with design, backend, and product teams to ensure alignment with business goals.',
-      'Built responsive, accessible UI components with consistent interaction patterns and seamless GraphQL integration.',
+      'Led the frontend delivery of a centralized messaging system, acting as the technical bridge between product requirements and scalable UI implementation. Leveraged the design system to ensure seamless user interaction and visual consistency across the platform.',
     ],
-    tags: ['Vue.js', 'TypeScript', 'GraphQL', 'Accessibility', 'Performance Optimization'],
+    tags: ['Microfrontend Architecture', 'Vue.js', 'TypeScript', 'GraphQL', 'Accessibility (WCAG)', 'Performance Optimization'],
     bgClass: 'bgAccentPrimaryLight',
   },
   {
@@ -66,7 +63,7 @@ export const PROJECTS: Project[] = [
     period: 'July 2015 - May 2021',
     position: 'Software Engineer',
     description: [
-      "Maintained and evolved Freelancer's design system, supporting consistent, scalable UI development across the platform.",
+      "Developed core system components to ensure scalable UI implementation and consistency for all product feature teams. Maintained UI parity across desktop, iOS, and Android platforms by transforming high-fidelity wireframes into performance-oriented web components.",
     ],
     tags: [
       'Angular',
@@ -76,7 +73,6 @@ export const PROJECTS: Project[] = [
       'Node.js',
       'Component Architecture',
       'Accessibility',
-      'Frontend Tooling',
     ],
   },
   {
@@ -87,8 +83,7 @@ export const PROJECTS: Project[] = [
     period: 'July 2015 - May 2021',
     position: 'Software Engineer',
     description: [
-      'Developed a high-fidelity wireframing tool consuming the Design System directly. Allowed Product Managers to prototype using real code components, bridging the gap between design and dev.',
-      "The tool rendered real components from Freelancer's design system and allowed easy customization through form-based controls.",
+      'Developed a high-fidelity internal tool that allowed product managers to prototype using real code components. This project bridged the gap between design and engineering by rendering live system components with form-based controls.',
     ],
     tags: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Node.js'],
     bgClass: 'bgAccentCyanLight',
@@ -101,7 +96,7 @@ export const PROJECTS: Project[] = [
     period: 'July 2015 - May 2021',
     position: 'Software Engineer',
     description: [
-      'Built the animation infrastructure. Created a library of exportable animation tokens and keyframes, standardizing motion across the platform.',
+      "Architected the platform's animation infrastructure. Created a library of exportable animation tokens and keyframes to standardize motion and transitions across all web products.",
     ],
     tags: ['Angular', 'Angular Animations', 'TypeScript', 'HTML', 'CSS'],
   },
