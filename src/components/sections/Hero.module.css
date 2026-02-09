@@ -6,9 +6,9 @@
 .heroDivider {
   background-color: var(--sem-color-text-primary);
   height: var(--pr-border-width-1);
-  margin-bottom: 0.65em;
+  margin-bottom: var(--pr-spacing-3);
   margin-left: var(--pr-spacing-4);
-  width: var(--pr-size-80);
+  width: var(--pr-size-64);
 }
 
 .heroInner {
@@ -16,7 +16,8 @@
   flex-direction: column;
   justify-content: center;
   height: var(--pr-size-600);
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: var(--pr-size-1200);
   overflow: hidden;
   position: relative;
 }
@@ -57,7 +58,7 @@
 .heroTitle {
   font-family: var(--font-display);
   color: var(--sem-color-text-primary);
-  font-size: 3em;
+  font-size: calc(var(--pr-text-900) * 1.5);
   font-weight: normal;
   line-height: 0.9em;
   margin-bottom: var(--pr-spacing-21);
@@ -102,6 +103,6 @@
   }
 
   .heroTitle {
-    font-size: 6em;
+    font-size: calc(var(--pr-text-900) * 2);
   }
 }

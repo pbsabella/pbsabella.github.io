@@ -27,6 +27,10 @@ code {
   width: fit-content;
 }
 
+.cardContent {
+  padding: var(--pr-spacing-6);
+}
+
 .cardContent *:not(:last-child) {
   margin-bottom: var(--pr-spacing-2);
   display: block;
@@ -123,6 +127,7 @@ code {
 /* Components */
 .tagsDemo {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--pr-spacing-4);
   margin-bottom: var(--pr-spacing-11);

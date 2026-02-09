@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { useScrollToSection } from '@hooks/useScrollToSection';
-import ThemeToggle from '@components/ui/ThemeToggle';
+import ThemeToggle from '@components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
 import Container from './Container';

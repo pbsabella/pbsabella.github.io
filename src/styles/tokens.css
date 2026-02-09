@@ -41,6 +41,7 @@
   /* Line Height Scale */
   --pr-leading-100: 1;
   --pr-leading-110: 1.1;
+  --pr-leading-120: 1.2;
   --pr-leading-150: 1.5;
   --pr-leading-180: 1.8;
 
@@ -61,7 +62,7 @@
   --pr-border-width-2: 2px;
   --pr-border-width-3: 3px;
 
-  /* Radius Scale */
+  /* --- Radius Scale --- */
   --pr-radius-sm: 3px;
   --pr-radius-md: 4px;
   --pr-radius-base: 5px;
@@ -73,11 +74,6 @@
   --pr-shadow-200: 0 4px 16px rgb(50 50 93 / 20%);
   --pr-shadow-300: 0 10px 40px rgb(0 0 0 / 20%);
 
-  /* Dark theme shadows */
-  --pr-shadow-100-dark: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
-  --pr-shadow-200-dark: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
-  --pr-shadow-300-dark: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
-
   /* --- Transitions --- */
   --pr-duration-fast: 0.2s;
   --pr-duration-base: 0.3s;
@@ -87,16 +83,15 @@
 
   /* --- Color Primitives --- */
 
-  /* Green Scale (Brand) */
+  /* Brand / Accent */
   --pr-color-green-100: #e6f7f2;
   --pr-color-green-200: #cdf1e7;
   --pr-color-green-300: #88d4b7;
   --pr-color-green-500: #03b787;
   --pr-color-green-600: #017e5b;
-
-  /* Green Scale (Dark theme) */
-  --pr-color-green-500-dark: #05e6aa;
-  --pr-color-green-300-dark: #a7f3d0;
+  --pr-color-orange: #ff5e32;
+  --pr-color-yellow: #ffc541;
+  --pr-color-cyan-100: #d3f2f5;
 
   /* Gray Scale (Cool) - UI chrome / surfaces */
   --pr-color-gray-100: #ececf4;
@@ -115,17 +110,13 @@
   --pr-color-neutral-800: #37373a;
   --pr-color-neutral-900: #1d1d1e;
 
-  /* Gray Scale (Dark theme light variants) */
-  --pr-color-gray-100-light: #f1f3f6;
-  --pr-color-gray-400-light: #949ba8;
-  --pr-color-gray-500-light: #626a7a;
+  /* Utility/status */
+  --pr-color-success: #017e5b;
+  --pr-color-warning: #ffc541;
+  --pr-color-info: #2a6edb;
+  --pr-color-error: #dc3545;
 
-  /* Accent Colors */
-  --pr-color-orange: #ff5e32;
-  --pr-color-yellow: #ffc541;
-  --pr-color-cyan-100: #d3f2f5;
-
-  /* Z-Index Primitives */
+  /* --- Z-Index --- */
   --pr-z-0: 0;
   --pr-z-10: 10;
   --pr-z-20: 20;
@@ -136,6 +127,8 @@
   --pr-size-1: 1px;
   --pr-size-2: 2px;
   --pr-size-8: 8px;
+  --pr-size-10: 10px;
+  --pr-size-24: 24px;
   --pr-size-28: 28px;
   --pr-size-40: 40px;
   --pr-size-44: 44px;
@@ -163,17 +156,28 @@
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-neutral-800);
   --sem-color-text-strong: var(--pr-color-neutral-900);
-  --sem-color-text-secondary: var(--pr-color-neutral-600);
-  --sem-color-text-muted: var(--pr-color-neutral-600);
 
-  /* --- Brand Text Colors --- */
-  --sem-color-text-brand: var(--pr-color-green-500);
-  --sem-color-text-brand-light: var(--pr-color-green-300);
-  --sem-color-text-brand-strong: var(--pr-color-green-600);
+  /* Brand / Status tokens */
+  --sem-color-bg-success: var(--pr-color-success);
+  --sem-color-text-success: var(--pr-color-neutral-100);
+  --sem-color-border-success: var(--pr-color-success);
+  --sem-color-bg-warning: var(--pr-color-warning);
+  --sem-color-text-warning: var(--pr-color-neutral-800);
+  --sem-color-border-warning: var(--pr-color-warning);
+  --sem-color-bg-info: var(--pr-color-info);
+  --sem-color-text-info: var(--pr-color-neutral-100);
+  --sem-color-border-info: var(--pr-color-info);
+  --sem-color-bg-error: var(--pr-color-error);
+  --sem-color-text-error: var(--pr-color-neutral-100);
+  --sem-color-border-error: var(--pr-color-error);
+  --sem-color-bg-default: transparent;
+  --sem-color-text-default: var(--pr-color-neutral-800);
+  --sem-color-border-default: var(--pr-color-neutral-600);
 
   /* --- Text Sizes --- */
   --sem-text-heading-lg: var(--pr-text-900);
   --sem-text-heading-md: var(--pr-text-700);
+  --sem-text-heading-sm: var(--pr-text-500);
   --sem-text-body: var(--pr-text-300);
   --sem-text-caption: var(--pr-text-200);
 
@@ -199,14 +203,14 @@
   --sem-layout-content-max: var(--pr-size-600);
   --sem-layout-container-max: var(--pr-size-1200);
   --sem-layout-page-max: var(--pr-size-1440);
-  --sem-layout-sidebar-max: var(--pr-size-320);
 
-  /* --- Interactive States --- */
+  /* --- Focus --- */
+  --sem-color-focus-ring: var(--pr-color-green-500);
   --sem-focus-outline-width: var(--pr-border-width-2);
   --sem-focus-outline-offset: var(--pr-size-1);
   --sem-focus-outline-radius: var(--pr-radius-sm);
 
-  /* --- Misc Semantic & Layering --- */
+  /* --- Misc / z-index --- */
   --sem-pattern-opacity: 1;
   --sem-z-base: var(--pr-z-0);
   --sem-z-header: var(--pr-z-10);
@@ -232,8 +236,13 @@
   --comp-card-radius: var(--pr-radius-base);
   --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
 
+  /* --- Badge Component --- */
+  --comp-badge-radius: var(--pr-radius-pill);
+  --comp-badge-size-sm: var(--pr-size-10);
+  --comp-badge-size-md: var(--pr-size-24);
+  --comp-badge-size-lg: var(--pr-size-28);
+
   /* --- Tag Component --- */
-  --comp-tag-text: var(--sem-color-text-primary);
   --comp-tag-radius: var(--pr-radius-pill);
 
   /* --- Side Navigation --- */
@@ -244,8 +253,16 @@
 /* ============================================================================
    DARK THEME
    ========================================================================== */
-
 [data-theme='dark'] {
+  /** TODO: Update layers and rules on theming */
+
+  /* Utility/Status */
+  --sem-color-border-default: var(--pr-color-gray-500);
+  --sem-color-text-default: var(--pr-color-neutral-400);
+  --sem-color-bg-success: var(--pr-color-green-500);
+  --sem-color-text-success: var(--pr-color-neutral-800);
+  --sem-color-border-success: var(--pr-color-green-500);
+
   /* --- Background Colors --- */
   --sem-color-bg-base: var(--pr-color-gray-900);
   --sem-color-bg-subtle: var(--pr-color-gray-800);
@@ -254,19 +271,12 @@
 
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-gray-100);
-  --sem-color-text-strong: var(--pr-color-gray-100-light);
-  --sem-color-text-secondary: var(--pr-color-gray-400-light);
-  --sem-color-text-muted: var(--pr-color-gray-500-light);
-
-  /* --- Brand Text Colors --- */
-  --sem-color-text-brand: var(--pr-color-green-500-dark);
-  --sem-color-text-brand-light: var(--pr-color-green-300-dark);
-  --sem-color-text-brand-strong: var(--pr-color-green-500);
+  --sem-color-text-strong: var(--pr-color-gray-100);
 
   /* --- Border & Divider Colors --- */
   --sem-color-border-base: var(--pr-color-gray-600);
   --sem-color-border-strong: var(--pr-color-gray-500);
-  --sem-color-divider-base: var(--pr-color-divider-light);
+  --sem-color-divider-base: var(--pr-color-gray-500);
   --sem-color-divider-strong: var(--pr-color-gray-100);
 
   /* --- Accent Background Colors --- */
@@ -275,9 +285,9 @@
   --sem-color-accent-gray: var(--pr-color-gray-800);
 
   /* --- Elevation --- */
-  --sem-elevation-low: var(--pr-shadow-100-dark);
-  --sem-elevation-medium: var(--pr-shadow-200-dark);
-  --sem-elevation-high: var(--pr-shadow-300-dark);
+  --sem-elevation-low: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
+  --sem-elevation-medium: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
+  --sem-elevation-high: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
 
   /* --- Misc Semantic --- */
   --sem-pattern-opacity: 0.85;
@@ -291,7 +301,4 @@
   --comp-card-text: var(--pr-color-gray-100);
   --comp-card-shadow: var(--sem-elevation-medium);
   --comp-card-shadow-hover: var(--sem-elevation-high);
-
-  /* --- Tag Component --- */
-  --comp-tag-text: var(--sem-color-text-secondary);
 }

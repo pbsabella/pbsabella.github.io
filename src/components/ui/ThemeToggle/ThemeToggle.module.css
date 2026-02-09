@@ -5,29 +5,26 @@
   color: var(--sem-color-text-primary);
   cursor: pointer;
   display: flex;
-  width: var(--pr-size-40);
-  height: var(--pr-size-40);
+  width: var(--pr-size-44);
+  height: var(--pr-size-44);
   justify-content: center;
-  padding: var(--pr-spacing-2);
+  padding: 0;
   position: relative;
+  border-radius: var(--pr-radius-full);
 }
 
 .toggleIcon {
   position: absolute;
   width: var(--pr-size-28);
   height: var(--pr-size-28);
-  fill: var(--sem-color-text-primary);
-  stroke: var(--sem-color-text-primary);
+  fill: currentcolor;
+  stroke: currentcolor;
   opacity: 0;
   transform: scale(0.3) rotate(-90deg);
-
-  /* Center icon in button */
-  top: 6px;
-  left: 6px;
 }
 
 .moon {
-  top: 8px; /* Nudge moon down */
+  top: 10px; /* Nudge moon down */
 }
 
 .toggleIconAnimate {

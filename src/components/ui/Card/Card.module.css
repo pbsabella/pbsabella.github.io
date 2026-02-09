@@ -5,7 +5,8 @@
   border: var(--pr-border-width-1) solid transparent;
   transition:
     transform var(--pr-duration-fast) var(--pr-easing-out),
-    box-shadow var(--pr-duration-fast) var(--pr-easing-out);
+    box-shadow var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .cardElevated {
@@ -14,7 +15,7 @@
 }
 
 .cardFlat {
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-color: var(--sem-color-border-base);
 }
 
 .cardGhost {
@@ -24,6 +25,7 @@
 }
 
 .cardInteractive:hover {
+  cursor: pointer;
   box-shadow: var(--comp-card-shadow-hover);
   transform: translateY(var(--comp-card-hover-offset));
 }

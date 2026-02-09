@@ -1,9 +1,10 @@
 import { ElementType } from 'react';
-import Card from '@components/ui/Card';
+import Card from '@components/ui/Card/Card';
 import Container from '@components/layout/Container';
-import Tag from '@components/ui/Tag';
-import { COLOR_GROUPS, SPACING_SCALE, TYPE_SCALE, FONT_WEIGHTS, DURATIONS, EASINGS, ELEVATIONS, A11Y_FEATURES } from '@/content/core';
+import Tag from '@components/ui/Tag/Tag';
+import { COLOR_GROUPS, SPACING_SCALE, TYPE_SCALE, FONT_WEIGHTS, ANIMATION, ELEVATIONS, A11Y_FEATURES } from '@/content/core';
 import styles from './SystemCore.module.css';
+import Badge from '@/components/ui/Badge/Badge';
 
 const SystemCore = () => {
   return (
@@ -67,9 +68,9 @@ const SystemCore = () => {
             ))}
           </div>
 
-          <h4 className={styles.subsectionTitle}>Accent Colors</h4>
+          <h4 className={styles.subsectionTitle}>Status Colors</h4>
           <div className={`${styles.grid} ${styles.swatchGrid}`}>
-            {COLOR_GROUPS.primitives.accent.map((color, idx) => (
+            {COLOR_GROUPS.primitives.status.map((color, idx) => (
               <div className={styles.swatch} key={idx}>
                 <div
                   className={styles.swatchBox}
@@ -169,11 +170,11 @@ const SystemCore = () => {
 
           <div className={styles.grid}>
             {ELEVATIONS.map((elevation, idx) => (
-              <Card variant="flat" className={`${styles.cardContent} ${styles[elevation.className]}`} key={idx}>
+              <div className={`${styles.cardContent} ${styles[elevation.className]}`} key={idx}>
                 <b>{elevation.level}</b>
                 <code>{elevation.token}</code>
                 <small>{elevation.desc}</small>
-              </Card>
+              </div>
             ))}
           </div>
 
@@ -187,7 +188,7 @@ const SystemCore = () => {
 
           <h3 className={styles.subsectionTitle}>Duration Scale</h3>
           <div className={styles.grid}>
-            {DURATIONS.map((duration, idx) => (
+            {ANIMATION.durations.map((duration, idx) => (
               <Card variant="flat" className={styles.cardContent} key={idx}>
                 <b>{duration.name}</b>
                 <code>{duration.token}</code>
@@ -198,7 +199,7 @@ const SystemCore = () => {
 
           <h3 className={styles.subsectionTitle}>Easing Functions</h3>
           <div className={styles.grid}>
-            {EASINGS.map((easing, idx) => (
+            {ANIMATION.easings.map((easing, idx) => (
               <Card variant="flat" className={styles.cardContent} key={idx}>
                 <b>{easing.name}</b>
                 <code>{easing.token}</code>
@@ -240,9 +241,6 @@ const SystemCore = () => {
 
           {/* COMPONENTS */}
           <h2>Components</h2>
-          <p className={styles.sectionDesc}>
-            Reusable UI patterns showcased in this portfolio. Component tokens reference semantic tokens, which cascade from primitives.
-          </p>
 
           <h3 className={styles.subsectionTitle}>Cards</h3>
           <p className={styles.sectionDesc}>
@@ -274,10 +272,32 @@ const SystemCore = () => {
             Compact labels used to categorize content or display metadata. These are designed to provide quick visual recognition of attributes or topics.
           </p>
           <div className={styles.tagsDemo}>
-            <Tag>React</Tag>
-            <Tag>TypeScript</Tag>
-            <Tag>Design Tokens</Tag>
-            <Tag>CSS Variables</Tag>
+            <Tag>Default</Tag>
+            <Tag variant="info">Info</Tag>
+            <Tag variant="success">Sucess</Tag>
+            <Tag variant="warning">Warning</Tag>
+            <Tag variant="error">Error</Tag>
+          </div>
+          <div className={styles.tagsDemo}>
+            <Tag size="sm">Small</Tag>
+            <Tag size="md">Medium</Tag>
+            <Tag size="lg">Large</Tag>
+          </div>
+
+          <h3 className={styles.subsectionTitle}>Badges</h3>
+          <p className={styles.sectionDesc}>
+            Small indicators used to show counts, statuses, or highlight information. Badges are ideal for notifications, item counts, or visual cues that require minimal space.
+          </p>
+          <div className={styles.tagsDemo}>
+            <Badge variant="info" size="sm"/>
+            <Badge variant="success" size="sm"/>
+            <Badge variant="warning" size="sm"/>
+            <Badge variant="error" size="sm"/>
+
+            <Badge variant="info">1</Badge>
+            <Badge variant="success">3</Badge>
+            <Badge variant="warning" size="lg">9</Badge>
+            <Badge variant="error" size="lg">99+</Badge>
           </div>
 
           <h3 className={styles.subsectionTitle}>Links</h3>

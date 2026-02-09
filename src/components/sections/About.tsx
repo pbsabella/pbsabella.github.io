@@ -1,4 +1,4 @@
-import Card from '@components/ui/Card';
+import Card from '@components/ui/Card/Card';
 import FeaturedSection from '@components/sections/FeaturedSection';
 import { COMPETENCIES, TECH_STACK } from '@/content/about';
 import styles from './About.module.css';

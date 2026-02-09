@@ -9,7 +9,7 @@
   transform: translateX(100%);
   transition: transform var(--pr-duration-base) var(--pr-easing-in-out);
   visibility: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: var(--comp-sidenav-z-index);
 }
 
@@ -55,11 +55,9 @@
 
 .overlay {
   background-color: var(--sem-color-bg-overlay);
-  height: 100%;
-  left: 0;
+  inset: 0;
   opacity: 0;
   position: fixed;
-  top: 0;
   transition:
     opacity var(--pr-duration-base) var(--pr-easing-in-out),
     visibility var(--pr-duration-base) var(--pr-easing-in-out);

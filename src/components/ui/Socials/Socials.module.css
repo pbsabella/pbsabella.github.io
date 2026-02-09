@@ -4,14 +4,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.socialsItem {
-  padding: var(--pr-spacing-4);
-}
-
-.socialsItem:first-child {
-  padding-left: 0;
+  column-gap: var(--pr-spacing-4);
 }
 
 .socialsItemCopy {

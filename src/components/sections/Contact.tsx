@@ -1,5 +1,5 @@
 import FeaturedSection from '@components/sections/FeaturedSection';
-import Socials from '@components/ui/Socials';
+import Socials from '@components/ui/Socials/Socials';
 
 const Contact = () => {
   return (

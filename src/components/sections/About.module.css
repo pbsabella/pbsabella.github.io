@@ -1,6 +1,6 @@
 .aboutBio {
   line-height: var(--pr-leading-180);
-  min-width: min(300px, 100%);
+  min-width: min(var(--pr-size-320), 100%);
   max-width: var(--sem-layout-content-max);
   margin-bottom: var(--pr-spacing-6);
 }
@@ -12,11 +12,11 @@
 }
 
 .aboutCard {
-  flex: 1 1 300px;
+  flex: 1 1 var(--pr-size-260);
 }
 
 .skillsTitle {
-  color: var(--comp-card-text);
+  color: var(--sem-color-text-strong);
   margin-bottom: var(--pr-spacing-3);
 }
 

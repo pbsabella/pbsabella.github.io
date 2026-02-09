@@ -23,19 +23,20 @@ body {
   font-weight: var(--pr-weight-400);
   line-height: var(--pr-leading-150);
 
-  /* modern replacement for overflow-y: scroll */
+  /* Prevents layout shift when scrollbars appear/disappear */
   scrollbar-gutter: stable;
+  -webkit-font-smoothing: auto;
 }
 
 header {
   background-color: transparent;
 }
 
-:where(body, header, footer) {
+:where(body, header, footer, main, section) {
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
+    background-color var(--pr-duration-base) var(--pr-easing-in-out),
+    color var(--pr-duration-base) var(--pr-easing-in-out),
+    border-color var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 /* ---------------------------------
@@ -49,7 +50,7 @@ ul {
 }
 
 a {
-  color: var(--sem-color-text-primary);
+  color: inherit;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -60,7 +61,7 @@ a {
 }
 
 :where(a, button):focus-visible {
-  outline: var(--sem-focus-outline-width) solid var(--pr-color-green-500);
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
   outline-offset: var(--sem-focus-outline-offset);
   border-radius: var(--sem-focus-outline-radius);
 }
@@ -79,8 +80,7 @@ hr {
 }
 
 section {
-  padding-bottom: var(--pr-spacing-16);
-  padding-top: var(--pr-spacing-16);
+  padding-block: var(--pr-spacing-16);
 }
 
 b,
@@ -95,6 +95,10 @@ small {
 /* ---------------------------------
    Typography
 ---------------------------------- */
+:where(h1, h2) {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Keep it consistent for Firefox on Mac */
+}
 
 :where(h1, h2, h3, h4, h5, h6) {
   margin: 0;
@@ -110,13 +114,13 @@ h1 {
 
 h2 {
   font-size: var(--sem-text-heading-md);
-  line-height: var(--pr-leading-150);
+  line-height: var(--pr-leading-120);
 }
 
 h3,
 .h3 {
-  font-size: var(--pr-text-500);
-  line-height: var(--pr-leading-150);
+  font-size: var(--sem-text-heading-sm);
+  line-height: var(--pr-leading-120);
 }
 
 h4,
@@ -140,10 +144,10 @@ h4,
   bottom: 0;
   width: 100%;
   height: 1.6px; /* TODO: Scale this later */
-  background-color: var(--sem-color-text-primary);
+  background-color: currentcolor;
   transform: scale3d(0, 1, 1);
   transform-origin: left;
-  transition: transform 0.3s ease-out;
+  transition: transform var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .link:hover::after {

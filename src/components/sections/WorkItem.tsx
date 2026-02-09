@@ -1,5 +1,5 @@
 import Container from '@components/layout/Container';
-import Tag from '@components/ui/Tag';
+import Tag from '@components/ui/Tag/Tag';
 import styles from './WorkItem.module.css';
 
 interface WorkItemProps {

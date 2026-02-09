@@ -33,81 +33,70 @@ export const COLOR_GROUPS = {
       { name: 'Yellow', token: '--pr-color-yellow' },
       { name: 'Cyan 100', token: '--pr-color-cyan-100' },
     ],
+    status: [
+      { name: 'Success', token: '--pr-color-success' },
+      { name: 'Warning', token: '--pr-color-warning' },
+      { name: 'Info', token: '--pr-color-info' },
+      { name: 'Error', token: '--pr-color-error' },
+    ]
   },
   semantic: {
-    brand: [
-      {
-        name: 'Brand',
-        token: '--color-text-brand',
-        references: 'Light: --pr-color-green-500 | Dark: --pr-color-green-500-dark'
-      },
-      {
-        name: 'Brand Light',
-        token: '--color-text-brand-light',
-        references: 'Light: --pr-color-green-300 | Dark: --pr-color-green-300-dark'
-      },
-      {
-        name: 'Brand Strong',
-        token: '--color-text-brand-strong',
-        references: 'Light: --pr-color-green-600 | Dark: --pr-color-green-500'
-      },
-    ],
     core: [
       {
         name: 'BG Base',
         token: '--sem-color-bg-base',
         border: true,
-        references: 'Light: --pr-color-neutral-200 | Dark: --pr-color-gray-900'
+        references: 'Light: Neutral 200 | Dark: Gray 900'
       },
       {
         name: 'BG Subtle',
         token: '--sem-color-bg-subtle',
         border: true,
-        references: 'Light: --pr-color-neutral-300 | Dark: --pr-color-gray-800'
+        references: 'Light: Neutral 300 | Dark: Gray 800'
       },
       {
         name: 'BG Elevated',
         token: '--sem-color-bg-elevated',
         border: true,
-        references: 'Light: --pr-color-neutral-100 | Dark: --pr-color-gray-700'
+        references: 'Light: Neutral 100 | Dark: Gray 700'
       },
       {
         name: 'Text Primary',
         token: '--sem-color-text-primary',
-        references: 'Light: --pr-color-neutral-800 | Dark: --pr-color-gray-100'
+        references: 'Light: Neutral 800 | Dark: Gray 100'
       },
       {
         name: 'Text Strong',
         token: '--sem-color-text-strong',
-        references: 'Light: --pr-color-neutral-900 | Dark: --pr-color-gray-100-light'
-      },
-      {
-        name: 'Text Secondary',
-        token: '--sem-color-text-secondary',
-        references: 'Light: --pr-color-neutral-600 | Dark: --pr-color-gray-400-light'
+        references: 'Light: Neutral 900 | Dark: Gray 100'
       },
     ],
-    borders: [
+    ui: [
       {
         name: 'Border Base',
         token: '--sem-color-border-base',
         border: true,
-        references: 'Light: --pr-color-neutral-300 | Dark: --pr-color-gray-600'
+        references: 'Light: Neutral 300 | Dark: Gray 600'
       },
       {
         name: 'Border Strong',
         token: '--sem-color-border-strong',
-        references: 'Light: --pr-color-neutral-600 | Dark: --pr-color-gray-500'
+        references: 'Light: Neutral 600 | Dark: Gray 500'
       },
       {
         name: 'Accent Green',
         token: '--sem-color-accent-green',
-        references: 'Light: --pr-color-green-200 | Dark: --pr-color-gray-800'
+        references: 'Light: Green 200 | Dark: Gray 800'
       },
       {
         name: 'Accent Slate',
         token: '--sem-color-accent-gray',
-        references: 'Light: --pr-color-gray-100 | Dark: --pr-color-gray-800'
+        references: 'Light: Gray 100 | Dark: Gray 800'
+      },
+      {
+        name: 'Focus Ring',
+        token: '--sem-color-focus-ring',
+        references: 'Green 500'
       },
     ],
   },
@@ -115,7 +104,6 @@ export const COLOR_GROUPS = {
 
 /**
  * SPACING_SCALE
- * Primitive spacing tokens (4px base unit)
  */
 export const SPACING_SCALE = [
   { token: '--pr-spacing-1', value: '4px' },
@@ -123,6 +111,7 @@ export const SPACING_SCALE = [
   { token: '--pr-spacing-3', value: '12px' },
   { token: '--pr-spacing-4', value: '16px' },
   { token: '--pr-spacing-6', value: '24px' },
+  { token: '--pr-spacing-8', value: '32px' },
   { token: '--pr-spacing-11', value: '44px' },
   { token: '--pr-spacing-16', value: '64px' },
   { token: '--pr-spacing-21', value: '84px' },
@@ -130,24 +119,28 @@ export const SPACING_SCALE = [
 
 /**
  * TYPE_SCALE
- * Typography scale with element mappings
  */
 export const TYPE_SCALE = [
   { element: 'h1', token: '--sem-text-heading-lg', leading: '--pr-leading-110' },
-  { element: 'h2', token: '--sem-text-heading-md', leading: '--pr-leading-150' },
-  { element: 'h3', token: '--pr-text-500', leading: '--pr-leading-150' },
+  { element: 'h2', token: '--sem-text-heading-md', leading: '--pr-leading-120' },
+  { element: 'h3', token: '--sem-text-heading-sm', leading: '--pr-leading-120' },
   { element: 'h4', token: '--pr-text-400', leading: '--pr-leading-150' },
   {
     element: 'p',
     token: '--sem-text-body',
     leading: '--pr-leading-150',
-    text: 'This is body text. It defines the rhythm and readability of the page.'
+    text: 'Standard reading rhythm for long-form content.'
+  },
+  {
+    element: 'small',
+    token: '--sem-text-caption',
+    leading: '--pr-leading-100',
+    text: 'Used for labels, badges, and secondary meta-data.'
   },
 ];
 
 /**
  * FONT_WEIGHTS
- * Font weight scale
  */
 export const FONT_WEIGHTS = [
   { weight: 300, token: '--pr-weight-300', label: 'Light' },
@@ -157,71 +150,45 @@ export const FONT_WEIGHTS = [
 
 /**
  * ELEVATIONS
- * Shadow scale for depth/hierarchy
  */
 export const ELEVATIONS = [
   {
     level: 'Low',
     token: '--sem-elevation-low',
-    desc: 'Best for: Cards, small buttons',
+    desc: 'Default card depth. References --pr-shadow-100',
     className: 'elevationLow',
   },
   {
     level: 'Medium',
     token: '--sem-elevation-medium',
-    desc: 'Best for: Hover states, dropdowns',
+    desc: 'Interaction depth (Hover). References --pr-shadow-200',
     className: 'elevationMedium',
   },
   {
     level: 'High',
     token: '--sem-elevation-high',
-    desc: 'Best for: Modals, fixed tooltips',
+    desc: 'Overlay depth (Modals). References --pr-shadow-300',
     className: 'elevationHigh',
   },
 ];
 
 /**
- * DURATIONS
- * Animation duration scale
+ * ANIMATION
  */
-export const DURATIONS = [
-  {
-    name: 'Fast',
-    token: '--pr-duration-fast: 0.2s',
-    desc: 'Quick feedback (hover, button states)'
-  },
-  {
-    name: 'Base',
-    token: '--pr-duration-base: 0.3s',
-    desc: 'Standard interactions (slides, fades)'
-  },
-  {
-    name: 'Slow',
-    token: '--pr-duration-slow: 0.4s',
-    desc: 'Deliberate animations (theme toggle)'
-  },
-];
-
-/**
- * EASINGS
- * Easing function examples
- */
-export const EASINGS = [
-  {
-    name: 'Ease-out',
-    token: '--pr-easing-out: ease-out',
-    desc: 'UI reactions (instant start, smooth finish) — appears, responds, closes'
-  },
-  {
-    name: 'Ease in-out',
-    token: '--pr-easing-in-out: ease-in-out',
-    desc: 'User navigation (smooth acceleration/deceleration) — drawers, overlays, sliding'
-  },
-];
+export const ANIMATION = {
+  durations: [
+    { name: 'Fast', token: '--pr-duration-fast', value: '0.2s', desc: 'Quick feedback (hover, button states)' },
+    { name: 'Base', token: '--pr-duration-base', value: '0.3s', desc: 'Standard interactions (slides, fades)' },
+    { name: 'Slow', token: '--pr-duration-slow', value: '0.4s', desc: 'Deliberate animations (theme toggle)' },
+  ],
+  easings: [
+    { name: 'Ease-out', token: '--pr-easing-out', value: 'ease-out', desc: 'UI reactions (instant start, smooth finish) — appears, responds, closes' },
+    { name: 'Ease in-out', token: '--pr-easing-in-out', value: 'ease-in-out', desc: 'User navigation (smooth acceleration/deceleration) — drawers, overlays, sliding' },
+  ]
+};
 
 /**
  * A11Y_FEATURES
- * Accessibility feature descriptions
  */
 export const A11Y_FEATURES = [
   {
@@ -235,5 +202,9 @@ export const A11Y_FEATURES = [
   {
     title: 'Semantic HTML',
     desc: 'Proper heading hierarchy, landmarks, and ARIA labels where needed.'
+  },
+  {
+    title: 'Reduced Motion',
+    desc: 'Global animation reset via media query (prefers-reduced-motion).'
   },
 ];

@@ -35,7 +35,7 @@
 .navLogo {
   justify-self: start;
   color: var(--sem-color-text-primary);
-  padding: var(--pr-spacing-3) 0;
+  padding-block: var(--pr-spacing-3);
   text-decoration: none;
   font-family: var(--font-display);
 }

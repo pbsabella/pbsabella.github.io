@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Container from '@/components/layout/Container';
-import Card from '@/components/ui/Card';
+import Card from '@/components/ui/Card/Card';
 import { ROUTES } from '@constants/routes';
 import styles from './Labs.module.css'
 

@@ -1,6 +1,5 @@
 .workItem {
-  padding-top: var(--pr-spacing-16);
-  padding-bottom: var(--pr-spacing-16);
+  padding-block: var(--pr-spacing-16);
 }
 
 .workItemImage {
@@ -10,7 +9,7 @@
 }
 
 .workItemImageMid {
-  max-width: 720px;
+  max-width: 45rem;
 }
 
 .workItemTitle {
@@ -41,4 +40,5 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-6);
 }

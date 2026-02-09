@@ -1,7 +1,7 @@
 .featuredSection {
   display: block;
   position: relative;
-  scroll-margin-top: var(--comp-header-height) + var(--pr-spacing-3);
+  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
 }
 
 .featuredSectionInner {
@@ -10,13 +10,16 @@
 
 .featuredSectionIntro {
   display: flex;
+  align-items: flex-start;
 }
 
 .featuredSectionIntroDivider {
   background-color: var(--sem-color-divider-strong);
   height: var(--pr-border-width-1);
-  margin: var(--pr-spacing-2) var(--pr-spacing-2) 0 0;
+  margin-block-start: var(--pr-spacing-2);
+  margin-inline-end: var(--pr-spacing-2);
   width: var(--pr-size-52);
+  flex-shrink: 0;
 }
 
 .featuredSectionIntroText {
