@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { MouseEvent } from 'react';
 import styles from './TableOfContents.module.css';
 import { useScrollToSection } from '@hooks/useScrollToSection';
@@ -12,7 +12,6 @@ import type { ScrollBehavior } from '@/types/scroll';
  * @param {Object} props
  * @param {Array<{id: string, label: string}>} props.sections - Array of section objects with id and label
  * @param {number} [props.offsetTop=100] - Pixels from top before activating first section
- * @param {number} [props.scrollOffset=80] - Offset for scroll position calculation (accounts for fixed headers)
  */
 
 type TableOfContentsSection = {
@@ -36,7 +35,6 @@ const TableOfContents = ({
   isSticky = true,
 }: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const navRef = useRef<HTMLElement | null>(null);
   const scrollToSection = useScrollToSection();
 
   useEffect(() => {
@@ -94,7 +92,7 @@ const TableOfContents = ({
   return (
     <nav
       className={`${styles.tableOfContents} ${!isSticky ? styles.tableOfContentsStatic : ''}`}
-      ref={navRef}
+      role="navigation"
       aria-label="Table of contents"
     >
       <div className={styles.stickyWrapper}>

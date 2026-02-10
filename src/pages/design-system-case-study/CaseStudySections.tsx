@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from '../DesignSystemCaseStudy.module.css';
+import styles from './DesignSystemCaseStudy.module.css';
 import Alert from '@/components/ui/Alert/Alert';
 import Badge from '@/components/ui/Badge/Badge';
 import Button from '@/components/ui/Button/Button';
@@ -7,22 +7,19 @@ import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
-import { CheckCircle2, ArrowUpRight, Layers, Type, Component, Shuffle, Code2, Moon } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, Book } from 'lucide-react';
 
 export const MotivationSection = () => (
   <section id="motivation" className={styles.section}>
     <p className={styles.sectionKicker}>01. Motivation</p>
     <h2 className={styles.sectionTitle}>Learning through systems</h2>
     <p>
-      My portfolio has existed for years, evolving from static HTML and JavaScript with
-      plain CSS, to Sass, then back to CSS with BEM naming conventions, and now React
-      with CSS Modules. Each rebuild made the next redesign harder because there was no
-      single source of truth or documentation to anchor decisions.
+      My portfolio has mirrored the evolution of frontend web development: starting with static HTML/CSS, moving through
+      Sass and BEM, and finally landing on React with CSS Modules. However, each migration revealed a recurring friction
+      point: without a documented source of truth, every redesign became an expensive, manual refactor.
     </p>
     <p>
-      I also wanted hands-on React experience while starting a design system from
-      scratch. I&apos;ve worked on design systems for years, but never built one from
-      the ground up. So I asked: if I had full freedom, what would I build?
+      I leveraged this rebuild to bridge the gap between my Design Systems expertise and hands-on React development. I wanted to move beyond the &apos;what&apos; of design systems to the &apos;how&apos; of implementation—architecting a system from the ground up to see where the theory hits the reality of component state and props.
     </p>
     <p className={styles.noteText}>
       <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
@@ -40,8 +37,7 @@ export const ProblemSection = () => (
       project instead of a clean iteration.
     </p>
     <p className={styles.noteText}>
-      Dark mode and theming were the first test case—if I could solve that cleanly,
-      the rest of the system could scale with it.
+      Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
     </p>
     <ul className={`${styles.listIcon} ${styles.problemList}`}>
       <li>
@@ -180,15 +176,15 @@ export const ChallengesSection = () => (
     <h2 className={styles.sectionTitle}>Where it got hard</h2>
     <ul className={styles.listIcon}>
       <li>
-        <Shuffle size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
+        <Timer size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
         Token naming required weeks of iteration to feel right.
       </li>
       <li>
-        <Code2 size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
+        <Ship size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
         Balancing purity vs. shipping something usable.
       </li>
       <li>
-        <Moon size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
+        <Book size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
         Learning React and system architecture simultaneously.
       </li>
     </ul>
@@ -199,7 +195,9 @@ export const DemoSection = () => (
   <section id="demo" className={styles.section}>
     <p className={styles.sectionKicker}>07. Demo</p>
     <h2 className={styles.sectionTitle}>The portfolio is the proof</h2>
-    <p className={styles.noteText}>This portfolio is the demo.</p>
+    <p className={styles.noteText}>
+      The interface you are currently navigating is the primary consumer of this system. Use the toggle below to see the semantic mapping in real-time.
+    </p>
     <div className={styles.demoCard}>
       <div className={styles.demoHeader}>
         <div className={styles.demoDots}>
@@ -270,9 +268,7 @@ export const LearningsSection = () => (
     <p className={styles.sectionKicker}>08. Learnings</p>
     <h2 className={styles.sectionTitle}>System thinking in React</h2>
     <p>
-      Building a system in React sharpened how I think about component
-      architecture. The tokens gave structure; React forced it to be
-      composable, testable, and real.
+      Building in React forced a shift from static definitions to functional ones. The tokens provided the constraints; React provided the composability. The result is a system that isn&apos;t just documented, but enforced through component architecture.
     </p>
   </section>
 );

@@ -34,10 +34,10 @@ describe('TableOfContents Component', () => {
   it('renders navigation and links with accessible roles', () => {
     render(<TableOfContents sections={sections} />);
 
-    const nav = screen.getByRole('navigation', { name: /table of contents/i });
+    const nav = screen.getByLabelText(/table of contents/i);
     expect(nav).toBeInTheDocument();
 
-    const links = screen.getAllByRole('link');
+    const links = screen.getAllByRole('link', { hidden: true });
     expect(links).toHaveLength(sections.length);
   });
 
@@ -54,7 +54,7 @@ describe('TableOfContents Component', () => {
 
     render(<TableOfContents sections={sections} />);
 
-    const link = screen.getByRole('link', { name: /color system/i });
+    const link = screen.getByRole('link', { name: /color system/i, hidden: true });
     fireEvent.click(link);
 
     expect(target.scrollIntoView).toHaveBeenCalledWith({

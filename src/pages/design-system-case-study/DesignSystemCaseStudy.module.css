@@ -106,7 +106,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(var(--pr-size-160), var(--pr-size-200));
+  grid-template-columns: 1fr;
   gap: var(--pr-spacing-11);
   align-items: start;
 }
@@ -134,8 +134,9 @@
 .systemCoreLink {
   margin-top: var(--pr-spacing-6);
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: var(--pr-spacing-4);
 }
 
@@ -156,10 +157,11 @@
   color: var(--sem-color-text-muted);
 }
 
-@media (width <= 900px) {
+@media (width >= 901px) {
   .systemCoreLink {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
   }
 }
 
@@ -174,7 +176,7 @@
 
 .sectionTwoCol {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--pr-spacing-3) var(--pr-spacing-11);
   align-items: start;
 }
@@ -487,16 +489,14 @@
 }
 
 .sidebar {
-  position: sticky;
-  top: calc(var(--comp-header-height) + var(--pr-spacing-6));
-  display: grid;
+  display: none;
   gap: var(--pr-spacing-4);
   align-self: start;
 }
 
 .sidebarGroup {
-  border-left: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  padding-left: var(--pr-spacing-4);
+  border-left: none;
+  padding-left: 0;
 }
 
 .sidebarTitle {
@@ -508,25 +508,23 @@
   line-height: var(--pr-leading-180);
 }
 
-@media (width <= 1024px) {
+@media (width >= 1025px) {
   .layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(var(--pr-size-160), var(--pr-size-200));
   }
 
   .sidebar {
-    display: none;
-  }
-
-  .hero {
-    max-width: 100%;
+    position: sticky;
+    top: calc(var(--comp-header-height) + var(--pr-spacing-6));
+    display: grid;
   }
 
   .sidebarGroup {
-    border-left: none;
-    padding-left: 0;
+    border-left: var(--pr-border-width-1) solid var(--sem-color-border-base);
+    padding-left: var(--pr-spacing-4);
   }
 
   .sectionTwoCol {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }

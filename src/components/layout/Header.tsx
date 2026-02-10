@@ -16,7 +16,6 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   const scrollToSection = useScrollToSection();
 
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
-  const isEditorialWide = pathname.startsWith(ROUTES.LABS);
 
   return (
     <header
@@ -24,7 +23,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
     >
       <Container
         className={styles.headerInner}
-        variant={isEditorialWide ? 'wide' : 'default'}
+        variant={isLabEnvironment ? 'wide' : 'default'}
         flush={false}
       >
         <nav className={styles.nav} aria-label="Main menu">
@@ -37,41 +36,34 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
               <ThemeToggle id="theme-toggle-mobile" />
             </li>
 
-            {!isLabEnvironment && (
-              <li className={`${styles.navItem}`}>
-                <button
-                  className={styles.navMenu}
-                  aria-controls="side-nav"
-                  aria-label="Open mobile menu"
-                  onClick={toggleSideNav}
+            <li className={`${styles.navItem}`}>
+              <button
+                className={styles.navMenu}
+                aria-controls="side-nav"
+                aria-label="Open mobile menu"
+                onClick={toggleSideNav}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                  </svg>
-                </button>
-              </li>
-            )}
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </button>
+            </li>
           </ul>
 
           {!isLabEnvironment && (
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
-              <li className={styles.navItem}>
-                <Link className={`${styles.navLink} link`} to={ROUTES.LABS}>
-                  Labs
-                </Link>
-              </li>
               <li className={styles.navItem}>
                 <Link
                   className={`${styles.navLink} link`}
@@ -100,6 +92,11 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
                 </Link>
               </li>
               <li className={styles.navItem}>
+                <Link className={`${styles.navLink} link`} to={ROUTES.LABS}>
+                  Labs
+                </Link>
+              </li>
+              <li className={styles.navItem}>
                 <ThemeToggle id="theme-toggle" />
               </li>
             </ul>
@@ -107,6 +104,11 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
 
           {isLabEnvironment && (
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
+              <li className={styles.navItem}>
+                <Link className={`${styles.navLink} link`} to={ROUTES.LABS} aria-current="page">
+                  Labs
+                </Link>
+              </li>
               <li className={styles.navItem}>
                 <ThemeToggle id="theme-toggle" />
               </li>

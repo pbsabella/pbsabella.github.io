@@ -14,15 +14,15 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { SYSTEM_CORE_SECTIONS } from '@/content/systemCore';
 import { ROUTES } from '@/constants/routes';
 import styles from './SystemCore.module.css';
-import ColorSystemSection from './system-core/sections/ColorSystemSection';
-import SemanticTokensSection from './system-core/sections/SemanticTokensSection';
-import SpacingSection from './system-core/sections/SpacingSection';
-import TypographySection from './system-core/sections/TypographySection';
-import ElevationSection from './system-core/sections/ElevationSection';
-import MotionSection from './system-core/sections/MotionSection';
-import InteractiveStatesSection from './system-core/sections/InteractiveStatesSection';
-import ComponentsSection from './system-core/sections/ComponentsSection';
-import AccessibilitySection from './system-core/sections/AccessibilitySection';
+import ColorSystemSection from './sections/ColorSystemSection';
+import SemanticTokensSection from './sections/SemanticTokensSection';
+import SpacingSection from './sections/SpacingSection';
+import TypographySection from './sections/TypographySection';
+import ElevationSection from './sections/ElevationSection';
+import MotionSection from './sections/MotionSection';
+import InteractiveStatesSection from './sections/InteractiveStatesSection';
+import ComponentsSection from './sections/ComponentsSection';
+import AccessibilitySection from './sections/AccessibilitySection';
 
 const SystemCore = () => {
   return (

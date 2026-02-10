@@ -64,13 +64,15 @@
   padding: var(--pr-spacing-4);
 }
 
-@media only screen and (width <=767px) {
-  .hideOnSmall {
-    display: none;
-  }
+.hideOnSmall {
+  display: none;
 }
 
-@media only screen and (width >=768px) {
+@media (width >= 768px) {
+  .hideOnSmall {
+    display: flex;
+  }
+
   .hideOnMedium {
     display: none;
   }

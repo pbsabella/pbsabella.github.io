@@ -48,6 +48,45 @@
   overflow: hidden;
 }
 
+.stacked {
+  border: 0;
+}
+
+.stacked thead {
+  display: none;
+}
+
+.stacked tbody {
+  display: grid;
+  gap: var(--pr-spacing-3);
+}
+
+.stacked .row {
+  display: grid;
+  gap: var(--pr-spacing-2);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-radius: var(--pr-radius-md);
+  padding: var(--pr-spacing-3);
+}
+
+.stacked .cell {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 2fr;
+  gap: var(--pr-spacing-3);
+  border: 0;
+  padding: 0;
+}
+
+.stacked .cell::before {
+  content: attr(data-label);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-muted);
+}
+
+.stacked.striped .row:nth-child(odd) {
+  background: var(--sem-color-bg-striped);
+}
+
 .row:last-child .cell {
   border-bottom: 0;
 }
@@ -56,43 +95,44 @@
   background: var(--sem-color-bg-striped);
 }
 
-@media (width <= 768px) {
-  .stacked {
-    border: 0;
-  }
-
+@media (width >= 769px) {
   .stacked thead {
-    display: none;
+    display: table-header-group;
   }
 
   .stacked tbody {
-    display: grid;
-    gap: var(--pr-spacing-3);
+    display: table-row-group;
+    gap: 0;
   }
 
   .stacked .row {
-    display: grid;
-    gap: var(--pr-spacing-2);
-    border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-    border-radius: var(--pr-radius-md);
-    padding: var(--pr-spacing-3);
-  }
-
-  .stacked .cell {
-    display: grid;
-    grid-template-columns: minmax(120px, 1fr) 2fr;
-    gap: var(--pr-spacing-3);
+    display: table-row;
     border: 0;
+    border-radius: 0;
     padding: 0;
   }
 
+  .stacked .cell {
+    display: table-cell;
+    grid-template-columns: none;
+    gap: 0;
+    border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+    padding: var(--pr-spacing-3) var(--pr-spacing-4);
+  }
+
+  .stacked.grid .cell {
+    border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  }
+
+  .stacked.compact .cell {
+    padding: var(--pr-spacing-2) var(--pr-spacing-3);
+  }
+
   .stacked .cell::before {
-    content: attr(data-label);
-    font-weight: var(--pr-weight-600);
-    color: var(--sem-color-text-muted);
+    content: none;
   }
 
   .stacked.striped .row:nth-child(odd) {
-    background: var(--sem-color-bg-striped);
+    background: transparent;
   }
 }

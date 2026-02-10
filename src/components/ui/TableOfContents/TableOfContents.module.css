@@ -1,4 +1,5 @@
 .tableOfContents {
+  display: none;
   position: sticky;
   top: var(--pr-spacing-21);
   max-height: calc(100vh - var(--pr-size-80));
@@ -94,8 +95,8 @@
 
 /* Responsive adjustments */
 
-@media (width <= 1024px) {
+@media (width >= 1025px) {
   .tableOfContents {
-    display: none;
+    display: block;
   }
 }

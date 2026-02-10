@@ -8,20 +8,23 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  className?: string;
 }
 
 const Button = ({
   children,
   variant = 'primary',
   size = 'md',
+  type = 'button',
+  className,
   ...props
 }: ButtonProps) => {
-  const classNames = [styles.button, styles[variant], styles[size]]
+  const classNames = [styles.button, styles[variant], styles[size], className]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <button className={classNames} {...props}>
+    <button className={classNames} type={type} {...props}>
       {children}
     </button>
   );

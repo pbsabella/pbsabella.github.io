@@ -7,7 +7,11 @@ describe('Table Component', () => {
     render(
       <Table
         label="Token table"
-        columns={['Token', 'Value']}
+        stacked={false}
+        columns={[
+          { label: 'Token' },
+          { label: 'Value' },
+        ]}
         rows={[
           ['--sem-color-bg-base', '#ffffff'],
           ['--sem-color-text-primary', '#111827'],
@@ -24,7 +28,11 @@ describe('Table Component', () => {
     render(
       <Table
         caption="Semantic tokens"
-        columns={['Token', 'Value']}
+        stacked={false}
+        columns={[
+          { label: 'Token' },
+          { label: 'Value' },
+        ]}
         rows={[['--sem-color-bg-base', '#ffffff']]}
       />
     );
@@ -37,7 +45,11 @@ describe('Table Component', () => {
       <Table
         label="Striped table"
         variant="striped"
-        columns={['Token', 'Value']}
+        stacked={false}
+        columns={[
+          { label: 'Token' },
+          { label: 'Value' },
+        ]}
         rows={[['--sem-color-bg-base', '#ffffff']]}
       />
     );

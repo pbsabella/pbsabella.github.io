@@ -1,16 +1,19 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Badge.module.css';
 
 type BadgeVariant = 'success' | 'warning' | 'info' | 'error';
 type BadgeSize = 'sm' | 'md' | 'lg';
 
-interface BadgeProps {
+interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   /** Content to display inside the badge, usually a number or short label */
   children?: ReactNode; // optional for sm size dots
   /** Visual variant that determines background and text colors */
   variant?: BadgeVariant;
   /** Size of the badge; affects font-size, padding, and border-radius */
   size?: BadgeSize;
+  /** Accessible label for dot-only badges */
+  ariaLabel?: string;
+  className?: string;
 }
 
 /**
@@ -48,14 +51,21 @@ const Badge = ({
   children,
   variant = 'info',
   size = 'md',
+  ariaLabel,
+  className,
   ...props
 }: BadgeProps) => {
-  const classNames = [styles.badge, styles[variant], styles[size]].join(' ');
+  const classNames = [styles.badge, styles[variant], styles[size], className]
+    .filter(Boolean)
+    .join(' ');
+  const hasAriaLabelProp = 'aria-label' in props;
+  const ariaHidden = size === 'sm' && !ariaLabel && !hasAriaLabelProp ? true : undefined;
 
   return (
     <span
       className={classNames}
-      role={size !== 'sm' ? 'status' : undefined}
+      aria-label={ariaLabel}
+      aria-hidden={ariaHidden}
       {...props}
     >
       {size !== 'sm' ? children : null}

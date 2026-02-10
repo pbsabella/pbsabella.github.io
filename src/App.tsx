@@ -1,9 +1,9 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import Labs from './pages/Labs';
-import SystemCore from './pages/SystemCore';
-import DesignSystemCaseStudy from './pages/DesignSystemCaseStudy';
+import Home from './pages/home/Home';
+import Labs from './pages/labs/Labs';
+import SystemCore from './pages/system-core/SystemCore';
+import DesignSystemCaseStudy from './pages/design-system-case-study/DesignSystemCaseStudy';
 import { ROUTES } from '@constants/routes';
 
 const App = () => {

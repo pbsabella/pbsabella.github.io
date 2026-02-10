@@ -3,9 +3,14 @@ import styles from './Table.module.css';
 
 type TableVariant = 'default' | 'compact' | 'striped' | 'grid';
 
+type TableColumn = {
+  label: string;
+  header?: ReactNode;
+};
+
 interface TableProps {
   caption?: string;
-  columns: ReactNode[];
+  columns: TableColumn[];
   rows: ReactNode[][];
   label?: string;
   variant?: TableVariant;
@@ -32,7 +37,7 @@ const Table = ({
         <tr>
           {columns.map((column, idx) => (
             <th scope="col" className={styles.headCell} key={`col-${idx}`}>
-              {column}
+              {column.header ?? column.label}
             </th>
           ))}
         </tr>
@@ -43,7 +48,7 @@ const Table = ({
             {row.map((cell, cellIndex) => (
               <td
                 className={styles.cell}
-                data-label={columns[cellIndex]}
+                data-label={columns[cellIndex]?.label ?? ''}
                 key={`cell-${rowIndex}-${cellIndex}`}
               >
                 {cell}

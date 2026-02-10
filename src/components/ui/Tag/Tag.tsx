@@ -1,16 +1,17 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Tag.module.css';
 
-type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error' | 'outline';
+type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
 type TagSize = 'sm' | 'md' | 'lg';
 
-interface TagProps {
+interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   /** Content to display inside the tag */
   children: ReactNode;
   /** Visual variant that determines color scheme */
   variant?: TagVariant;
   /** Size of the tag, affects font-size and padding */
   size?: TagSize;
+  className?: string;
 }
 
 /**
@@ -52,10 +53,16 @@ const Tag = ({
   children,
   variant = 'default',
   size = 'md',
+  className,
+  ...props
 }: TagProps) => {
-  const classNames = [styles.tag, styles[variant], styles[size]].filter(Boolean).join(' ');
+  const classNames = [styles.tag, styles[variant], styles[size], className].filter(Boolean).join(' ');
 
-  return <span className={classNames}>{children}</span>;
+  return (
+    <span className={classNames} {...props}>
+      {children}
+    </span>
+  );
 };
 
 export default Tag;

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '@/context/ThemeContext';
-import DesignSystemCaseStudy from '../DesignSystemCaseStudy';
+import DesignSystemCaseStudy from './DesignSystemCaseStudy';
 
 describe('DesignSystemCaseStudy page', () => {
   it('renders the hero and next steps section', () => {

@@ -42,12 +42,6 @@
   border-color: var(--sem-color-border-error);
 }
 
-.outline {
-  background-color: transparent;
-  color: var(--sem-color-text-primary);
-  border-color: var(--sem-color-border-base);
-}
-
 /* --- Sizes --- */
 .sm {
   font-size: var(--pr-text-100);

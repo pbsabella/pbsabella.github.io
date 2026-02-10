@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import { useScrollToSection } from '@hooks/useScrollToSection';
 import styles from './SideNav.module.css';
@@ -13,6 +13,8 @@ interface SideNavProps {
 const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
   const scrollToSection = useScrollToSection();
+  const { pathname } = useLocation();
+  const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
 
   // Trap focus when side nav is open and restore focus when it closes
   useEffect(() => {
@@ -115,47 +117,60 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
 
         <nav>
           <ul className={styles.sideMenuList}>
-            <li className={styles.sideMenuItem}>
-              <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose}>
-                Labs
-              </Link>
-            </li>
-            <li className={styles.sideMenuItem}>
-              <Link
-                className={styles.sideMenuLink}
-                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
-                onClick={() => {
-                  scrollToSection(SECTION_ANCHORS.WORK);
-                  onClose();
-                }}
-              >
-                Work
-              </Link>
-            </li>
-            <li className={styles.sideMenuItem}>
-              <Link
-                className={styles.sideMenuLink}
-                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
-                onClick={() => {
-                  scrollToSection(SECTION_ANCHORS.ABOUT);
-                  onClose();
-                }}
-              >
-                About
-              </Link>
-            </li>
-            <li className={styles.sideMenuItem}>
-              <Link
-                className={styles.sideMenuLink}
-                to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
-                onClick={() => {
-                  scrollToSection(SECTION_ANCHORS.CONTACT);
-                  onClose();
-                }}
-              >
-                Contact
-              </Link>
-            </li>
+            {!isLabEnvironment && (
+              <>
+                <li className={styles.sideMenuItem}>
+                  <Link
+                    className={styles.sideMenuLink}
+                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
+                    onClick={() => {
+                      scrollToSection(SECTION_ANCHORS.WORK);
+                      onClose();
+                    }}
+                  >
+                    Work
+                  </Link>
+                </li>
+                <li className={styles.sideMenuItem}>
+                  <Link
+                    className={styles.sideMenuLink}
+                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
+                    onClick={() => {
+                      scrollToSection(SECTION_ANCHORS.ABOUT);
+                      onClose();
+                    }}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className={styles.sideMenuItem}>
+                  <Link
+                    className={styles.sideMenuLink}
+                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
+                    onClick={() => {
+                      scrollToSection(SECTION_ANCHORS.CONTACT);
+                      onClose();
+                    }}
+                  >
+                    Contact
+                  </Link>
+                </li>
+                <li className={styles.sideMenuItem}>
+                  <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose}>
+                    Labs
+                  </Link>
+                </li>
+              </>
+            )}
+            {isLabEnvironment && (
+              <>
+                <li className={styles.sideMenuItem}>
+                  <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose} aria-current="page">
+                    Labs
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </aside>

@@ -10,7 +10,6 @@
   line-height: var(--pr-leading-100);
   transition:
     transform var(--pr-duration-fast) var(--pr-easing-out),
-    box-shadow var(--pr-duration-fast) var(--pr-easing-out),
     background-color var(--pr-duration-fast) var(--pr-easing-out),
     color var(--pr-duration-fast) var(--pr-easing-out),
     border-color var(--pr-duration-fast) var(--pr-easing-out);
@@ -29,12 +28,10 @@
 .primary {
   background: var(--sem-color-border-brand);
   color: var(--sem-color-text-on-brand);
-  box-shadow: var(--sem-elevation-low);
 }
 
 .primary:hover {
   filter: brightness(0.95);
-  box-shadow: var(--sem-elevation-medium);
 }
 
 .secondary {

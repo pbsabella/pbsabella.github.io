@@ -11,7 +11,11 @@ const renderAnimationTable = (rows: Array<{ name: string; token: string; desc: s
   <div className={styles.tokenTable}>
     <Table
       variant="striped"
-      columns={['Name', 'Token', 'Notes']}
+      columns={[
+        { label: 'Name' },
+        { label: 'Token' },
+        { label: 'Notes' },
+      ]}
       rows={rows.map((row) => [
         <span key={`${row.token}-name`}>{row.name}</span>,
         <code key={`${row.token}-token`}>{row.token}</code>,

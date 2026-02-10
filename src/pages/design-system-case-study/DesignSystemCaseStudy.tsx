@@ -16,7 +16,7 @@ import {
   LearningsSection,
   NextStepsSection,
   SystemCoreSection,
-} from './design-system-case-study/CaseStudySections';
+} from './CaseStudySections';
 
 const DesignSystemCaseStudy = () => {
   return (

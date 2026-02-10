@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Card.module.css';
 
 /**
@@ -21,7 +21,7 @@ import styles from './Card.module.css';
  * @returns {React.ReactElement} The rendered card element
  */
 
-interface CardProps {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /** The visual style of the card */
   variant?: CardVariant;
   /** Card content - accepts any valid React elements */
@@ -48,7 +48,11 @@ const Card = ({
     className
   ].filter(Boolean).join(' ');
 
-   return <div className={classes} {...props}>{children}</div>;
+   return (
+     <div className={classes} {...props}>
+       {children}
+     </div>
+   );
 };
 
 export default Card;

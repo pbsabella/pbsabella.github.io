@@ -140,7 +140,10 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <div className={styles.tokenTable}>
       <Table
         variant="striped"
-        columns={['Component', 'Intent']}
+        columns={[
+          { label: 'Component' },
+          { label: 'Intent' },
+        ]}
         rows={[
           ['Alerts', 'Feedback + status'],
           ['Cards', 'Structure + layout'],
