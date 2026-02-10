@@ -23,13 +23,19 @@
   width: var(--pr-size-28);
   height: var(--pr-size-28);
   fill: currentcolor;
-  stroke: currentcolor;
+  stroke: none;
   opacity: 0;
   transform: scale(0.3) rotate(-90deg);
 }
 
-.themeToggleMoon {
-  top: 10px; /* Nudge moon down */
+.themeToggleSun {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+}
+
+.themeToggleSun circle {
+  fill: currentcolor;
 }
 
 .themeToggleIconAnimate {

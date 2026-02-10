@@ -19,3 +19,7 @@ if (!window.matchMedia) {
       dispatchEvent: () => false,
     } as MediaQueryList);
 }
+
+if (!HTMLElement.prototype.scrollIntoView) {
+  HTMLElement.prototype.scrollIntoView = () => {};
+}
