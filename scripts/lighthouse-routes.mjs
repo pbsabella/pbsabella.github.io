@@ -11,6 +11,8 @@ const routes = [
 ];
 
 const outputDir = join(process.cwd(), 'lighthouse-reports');
+const runCount = Number(process.env.LH_RUNS ?? 3);
+const quiet = process.env.LH_QUIET === '1';
 rmSync(outputDir, { recursive: true, force: true });
 mkdirSync(outputDir, { recursive: true });
 
@@ -35,6 +37,8 @@ routes.forEach(({ path, name }) => {
     '--only-categories=performance,accessibility,best-practices,seo',
     '--output=json',
     `--output-path="${outputPath}"`,
+    `--number-of-runs=${runCount}`,
+    quiet ? '--quiet' : '',
     '--chrome-flags="--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage"',
   ].join(' ');
 
@@ -52,7 +56,9 @@ routes.forEach(({ path, name }) => {
     return `${label} ${key}: ${formatScore(score)} (min ${Math.round(rule.min * 100)}%)`;
   });
 
-  process.stdout.write(`\n${name.toUpperCase()}\n${lines.join('\n')}\n`);
+  if (!quiet) {
+    process.stdout.write(`\n${name.toUpperCase()}\n${lines.join('\n')}\n`);
+  }
 
   summary.push({
     route: name,

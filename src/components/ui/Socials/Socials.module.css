@@ -13,7 +13,7 @@
   column-gap: var(--pr-spacing-1);
 }
 
-.socialLink {
+.socialsLink {
   color: var(--sem-color-text-primary);
   text-decoration: none;
 }

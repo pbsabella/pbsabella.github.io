@@ -1,4 +1,4 @@
-.toggleButton {
+.themeToggleButton {
   align-items: center;
   background-color: transparent;
   border: 0;
@@ -13,12 +13,12 @@
   border-radius: var(--pr-radius-full);
 }
 
-.toggleButtonIcon {
+.themeToggleButtonIcon {
   width: var(--pr-size-44);
   height: var(--pr-size-44);
 }
 
-.toggleIcon {
+.themeToggleIcon {
   position: absolute;
   width: var(--pr-size-28);
   height: var(--pr-size-28);
@@ -28,23 +28,23 @@
   transform: scale(0.3) rotate(-90deg);
 }
 
-.moon {
+.themeToggleMoon {
   top: 10px; /* Nudge moon down */
 }
 
-.toggleIconAnimate {
+.themeToggleIconAnimate {
   transition:
     opacity var(--pr-duration-slow) var(--pr-easing-in-out),
     transform var(--pr-duration-slow) var(--pr-easing-in-out);
 }
 
 /* Theme-specific visibility */
-:global([data-theme='light']) .sun {
+:global([data-theme='light']) .themeToggleSun {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
 
-:global([data-theme='dark']) .moon {
+:global([data-theme='dark']) .themeToggleMoon {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }

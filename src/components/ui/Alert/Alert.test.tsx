@@ -16,6 +16,6 @@ describe('Alert Component', () => {
   it('applies variant class', () => {
     render(<Alert variant="warning">Message</Alert>);
     const alert = screen.getByRole('alert');
-    expect(alert.className).toMatch(/warning/);
+    expect(alert.className).toMatch(/alertWarning/);
   });
 });

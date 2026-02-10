@@ -15,26 +15,26 @@
     border-color var(--pr-duration-fast) var(--pr-easing-out);
 }
 
-.md {
+.buttonMd {
   padding: var(--comp-button-padding-md);
   font-size: var(--sem-text-caption);
 }
 
-.sm {
+.buttonSm {
   padding: var(--comp-button-padding-sm);
   font-size: var(--pr-text-100);
 }
 
-.primary {
+.buttonPrimary {
   background: var(--sem-color-border-brand);
   color: var(--sem-color-text-on-brand);
 }
 
-.primary:hover {
+.buttonPrimary:hover {
   filter: brightness(0.95);
 }
 
-.secondary {
+.buttonSecondary {
   background: var(--sem-color-bg-base);
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-base);

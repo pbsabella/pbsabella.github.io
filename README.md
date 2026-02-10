@@ -126,13 +126,15 @@ npm run format       # Prettier format
 | `npm run percy:test`     | Visual regression tests        |
 | `npm run percy:baseline` | Update Percy baseline          |
 | `npm run lighthouse`  | Lighthouse CLI audit (all routes) |
+| `npm run lighthouse:quick`  | Lighthouse CLI audit (1 run per route) |
 
 **→ See [TESTING_STRATEGY.md](TESTING_STRATEGY.md) for detailed testing philosophy, what to test, and examples.**
 
 **Performance** - Lighthouse CLI audits:
 
 ```bash
-npm run lighthouse    # Multi-route CLI audit (runs against preview server)
+npm run lighthouse        # Multi-route CLI audit (runs against preview server)
+npm run lighthouse:quick  # 1 run per route (faster local check)
 ```
 
 ## Testing Strategy

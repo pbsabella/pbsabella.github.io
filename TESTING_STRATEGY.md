@@ -55,6 +55,7 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Tools:** Lighthouse CLI (multi-route runner)
 - **Thresholds:** Performance ≥0.86 (warn), Accessibility/Best Practices/SEO = 100% (fail)
 - **Command:** `npm run lighthouse` (uses `npm run preview` under the hood)
+- **Quick check:** `npm run lighthouse:quick` (1 run per route)
 
 ---
 

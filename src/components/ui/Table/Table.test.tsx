@@ -55,6 +55,6 @@ describe('Table Component', () => {
     );
 
     const table = screen.getByRole('table', { name: 'Striped table' });
-    expect(table.className).toMatch(/striped/);
+    expect(table.className).toMatch(/tableStriped/);
   });
 });

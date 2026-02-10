@@ -6,36 +6,36 @@
   color: var(--sem-color-text-primary);
 }
 
-.title {
+.alertTitle {
   margin: 0 0 var(--pr-spacing-2);
   font-weight: var(--pr-weight-600);
 }
 
-.body {
+.alertBody {
   line-height: var(--pr-leading-180);
 }
 
-.default {
+.alertDefault {
   border-color: var(--sem-color-border-base);
   background: var(--sem-color-bg-subtle);
 }
 
-.info {
+.alertInfo {
   border-color: var(--sem-color-border-info);
   background: var(--sem-color-bg-info-subtle);
 }
 
-.success {
+.alertSuccess {
   border-color: var(--sem-color-border-success);
   background: var(--sem-color-bg-success-subtle);
 }
 
-.warning {
+.alertWarning {
   border-color: var(--sem-color-border-warning);
   background: var(--sem-color-bg-warning-subtle);
 }
 
-.error {
+.alertError {
   border-color: var(--sem-color-border-error);
   background: var(--sem-color-bg-error-subtle);
 }

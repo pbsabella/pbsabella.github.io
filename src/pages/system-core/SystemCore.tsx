@@ -13,7 +13,6 @@ import Container from '@/components/layout/Container';
 import TableOfContents from '@/components/ui/TableOfContents/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { SYSTEM_CORE_SECTIONS } from '@/content/systemCore';
-import { ROUTES } from '@/constants/routes';
 import styles from './SystemCore.module.css';
 import ColorSystemSection from './sections/ColorSystemSection';
 import SemanticTokensSection from './sections/SemanticTokensSection';
@@ -24,6 +23,7 @@ import MotionSection from './sections/MotionSection';
 import InteractiveStatesSection from './sections/InteractiveStatesSection';
 import ComponentsSection from './sections/ComponentsSection';
 import AccessibilitySection from './sections/AccessibilitySection';
+import { SYSTEM_CORE_META } from '@/content/pageMeta';
 
 const SystemCore = () => {
   const sections = [
@@ -44,16 +44,10 @@ const SystemCore = () => {
         <div className={styles.pageLayout}>
           <div>
             <Breadcrumbs
-              items={[
-                { label: 'Home', to: ROUTES.HOME },
-                { label: 'Labs', to: ROUTES.LABS },
-                { label: 'System Core' },
-              ]}
+              items={SYSTEM_CORE_META.breadcrumbs}
             />
-            <h1 className={styles.pageTitle}>System Core</h1>
-            <p className={styles.pageDesc}>
-              A living reference of the design tokens, primitives, and components that <b>power this portfolio</b>. This system demonstrates a tiered token architecture (primitive → semantic → component) with a focus on maintainability, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.
-            </p>
+            <h1 className={styles.pageTitle}>{SYSTEM_CORE_META.title}</h1>
+            <p className={styles.pageDesc}>{SYSTEM_CORE_META.description}</p>
 
             <hr className={styles.sectionDivider} />
 

@@ -8,6 +8,13 @@ import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
 import { CheckCircle2, ArrowUpRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, Book } from 'lucide-react';
+import {
+  CASE_STUDY_CHALLENGES,
+  CASE_STUDY_DECISIONS,
+  CASE_STUDY_NEXT_STEPS,
+  CASE_STUDY_PROBLEM_ITEMS,
+  CASE_STUDY_WINS,
+} from '@/content/designSystemCaseStudy';
 
 export const MotivationSection = () => (
   <section id="motivation" className={styles.section}>
@@ -40,27 +47,23 @@ export const ProblemSection = () => (
       Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
     </p>
     <ul className={`${styles.listIcon} ${styles.problemList}`}>
-      <li>
-        <Shuffle size={20} className={styles.iconAccent} aria-hidden="true" />
-        <div>
-          <strong>UI Drift</strong>
-          <p>Disjointed styles across pages due to lack of constraints.</p>
-        </div>
-      </li>
-      <li>
-        <Code2 size={20} className={styles.iconAccent} aria-hidden="true" />
-        <div>
-          <strong>Hardcoded Values</strong>
-          <p>Magic numbers in CSS that are impossible to audit.</p>
-        </div>
-      </li>
-      <li>
-        <Moon size={20} className={styles.iconAccent} aria-hidden="true" />
-        <div>
-          <strong>Theming Friction</strong>
-          <p>Dark mode implementation requiring manual overrides.</p>
-        </div>
-      </li>
+      {CASE_STUDY_PROBLEM_ITEMS.map((item, index) => {
+        const icons = [
+          <Shuffle key="ui-drift" size={20} className={styles.iconAccent} aria-hidden="true" />,
+          <Code2 key="hardcoded" size={20} className={styles.iconAccent} aria-hidden="true" />,
+          <Moon key="theming" size={20} className={styles.iconAccent} aria-hidden="true" />,
+        ];
+
+        return (
+          <li key={item.title}>
+            {icons[index]}
+            <div>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   </section>
 );
@@ -125,26 +128,11 @@ export const KeyDecisionsSection = () => (
     <p className={styles.sectionKicker}>04. Key Decisions</p>
     <h2 className={styles.sectionTitle}>What I locked in early</h2>
     <ol className={styles.decisionList}>
-      <li>
-        <strong>Audit before build.</strong> Since the portfolio already existed, I audited
-        existing UI patterns first to lock in tokens before refactoring the UI.
-      </li>
-      <li>
-        <strong>Tokens before components.</strong> I defined primitives and semantics first
-        so components inherit intent instead of raw values.
-      </li>
-      <li>
-        <strong>Visual testing.</strong> The portfolio itself acts as a live visual test,
-        with Percy snapshots to catch drift as tokens evolve.
-      </li>
-      <li>
-        <strong>Automated a11y checks.</strong> Bake in basic accessibility verification
-        to prevent regressions as the system evolves.
-      </li>
-      <li>
-        <strong>Dogfood in production.</strong> The portfolio UI doubles as the testing ground
-        for token scaling and accessibility.
-      </li>
+      {CASE_STUDY_DECISIONS.map((item) => (
+        <li key={item.title}>
+          <strong>{item.title}</strong> {item.description}
+        </li>
+      ))}
     </ol>
   </section>
 );
@@ -154,18 +142,12 @@ export const WinsSection = () => (
     <p className={styles.sectionKicker}>05. Outcomes</p>
     <h2 className={styles.sectionTitle}>What worked in practice</h2>
     <ul className={styles.listIcon}>
-      <li>
-        <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
-        Dark mode became a token swap, not a component refactor.
-      </li>
-      <li>
-        <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
-        React components stayed thin and focused on structure.
-      </li>
-      <li>
-        <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
-        Typography and spacing stayed consistent across pages.
-      </li>
+      {CASE_STUDY_WINS.map((item) => (
+        <li key={item}>
+          <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
+          {item}
+        </li>
+      ))}
     </ul>
   </section>
 );
@@ -175,18 +157,20 @@ export const ChallengesSection = () => (
     <p className={styles.sectionKicker}>06. Friction</p>
     <h2 className={styles.sectionTitle}>Where it got hard</h2>
     <ul className={styles.listIcon}>
-      <li>
-        <Timer size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
-        Token naming required weeks of iteration to feel right.
-      </li>
-      <li>
-        <Ship size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
-        Balancing purity vs. shipping something usable.
-      </li>
-      <li>
-        <Book size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />
-        Learning React and system architecture simultaneously.
-      </li>
+      {CASE_STUDY_CHALLENGES.map((item, index) => {
+        const icons = [
+          <Timer key="timer" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Book key="book" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+        ];
+
+        return (
+          <li key={item}>
+            {icons[index]}
+            {item}
+          </li>
+        );
+      })}
     </ul>
   </section>
 );
@@ -282,21 +266,12 @@ export const NextStepsSection = () => (
       theming model and pressure-testing component coverage.
     </p>
     <ul className={styles.listIcon}>
-      <li>
-        <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
-        Refine the theming layer by making the override rule explicit
-        (primitives vs. semantics vs. both) and validating the cascade.
-      </li>
-      <li>
-        <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
-        Extend the UI/components to cover more complex patterns and
-        see where the system scales or breaks.
-      </li>
-      <li>
-        <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
-        Tighten design system documentation and clarify AI-assisted workflows
-        as the system matures.
-      </li>
+      {CASE_STUDY_NEXT_STEPS.map((item) => (
+        <li key={item}>
+          <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
+          {item}
+        </li>
+      ))}
     </ul>
   </section>
 );

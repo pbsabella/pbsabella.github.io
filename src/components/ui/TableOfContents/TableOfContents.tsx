@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import type { MouseEvent } from 'react';
+import type { HTMLAttributes, MouseEvent } from 'react';
 import styles from './TableOfContents.module.css';
 import { useScrollToSection } from '@hooks/useScrollToSection';
 import type { ScrollBehavior } from '@/types/scroll';
+import { useActiveSection } from '@hooks/useActiveSection';
 
 /**
  * TableOfContents Component
@@ -19,12 +19,13 @@ type TableOfContentsSection = {
   label: string;
 };
 
-interface TableOfContentsProps {
+interface TableOfContentsProps extends HTMLAttributes<HTMLElement> {
   sections: TableOfContentsSection[];
   offsetTop?: number;
   scrollBehavior?: ScrollBehavior;
   respectReducedMotion?: boolean;
   isSticky?: boolean;
+  className?: string;
 }
 
 const TableOfContents = ({
@@ -33,56 +34,14 @@ const TableOfContents = ({
   scrollBehavior = 'instant',
   respectReducedMotion = true,
   isSticky = true,
+  className,
+  ...props
 }: TableOfContentsProps) => {
-  const [activeId, setActiveId] = useState<string | null>(null);
   const scrollToSection = useScrollToSection();
-
-  useEffect(() => {
-    let ticking = false;
-
-    const computeActiveId = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollTop < offsetTop) {
-        return null;
-      }
-
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      const targetLine = scrollTop + Math.max(viewportHeight * 0.35, 1);
-      let currentId: string | null = null;
-
-      sections.forEach(({ id }) => {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        const elementTop = element.getBoundingClientRect().top + scrollTop;
-        if (elementTop <= targetLine) {
-          currentId = id;
-        }
-      });
-
-      const docHeight = document.documentElement.scrollHeight;
-      if (scrollTop + viewportHeight >= docHeight - 1 && sections.length > 0) {
-        currentId = sections[sections.length - 1]?.id ?? currentId;
-      }
-
-      return currentId;
-    };
-
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-
-      requestAnimationFrame(() => {
-        setActiveId(computeActiveId());
-        ticking = false;
-      });
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections, offsetTop]);
+  const activeId = useActiveSection(
+    sections.map((section) => section.id),
+    { offsetTop }
+  );
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -91,18 +50,19 @@ const TableOfContents = ({
 
   return (
     <nav
-      className={`${styles.tableOfContents} ${!isSticky ? styles.tableOfContentsStatic : ''}`}
+      className={`${styles.tableOfContents} ${!isSticky ? styles.tableOfContentsStatic : ''} ${className ?? ''}`}
       role="navigation"
-      aria-label="Table of contents"
+      aria-label={props['aria-label'] ?? 'Table of contents'}
+      {...props}
     >
-      <div className={styles.stickyWrapper}>
-        <span className={styles.heading}>On this page</span>
-        <ul className={styles.list}>
+      <div className={styles.tableOfContentsStickyWrapper}>
+        <span className={styles.tableOfContentsHeading}>On this page</span>
+        <ul className={styles.tableOfContentsList}>
           {sections.map(({ id, label }) => (
-            <li key={id} className={styles.listItem}>
+            <li key={id} className={styles.tableOfContentsItem}>
               <a
                 href={`#${id}`}
-                className={`${styles.link} ${activeId === id ? styles.active : ''}`}
+                className={`${styles.tableOfContentsLink} ${activeId === id ? styles.tableOfContentsActive : ''}`}
                 aria-current={activeId === id ? 'location' : undefined}
                 onClick={(e) => handleClick(e, id)}
                 title={label}

@@ -2,9 +2,9 @@ import Container from '@/components/layout/Container';
 import Tag from '@/components/ui/Tag/Tag';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import TableOfContents from '@components/ui/TableOfContents/TableOfContents';
-import { CASE_STUDY_META, CASE_STUDY_SECTIONS } from '@/content/designSystemCaseStudy';
+import { CASE_STUDY_META, CASE_STUDY_SECTIONS, CASE_STUDY_TAGS } from '@/content/designSystemCaseStudy';
+import { CASE_STUDY_META_PAGE } from '@/content/pageMeta';
 import styles from './DesignSystemCaseStudy.module.css';
-import { ROUTES } from '@/constants/routes';
 import {
   MotivationSection,
   ProblemSection,
@@ -23,28 +23,17 @@ const DesignSystemCaseStudy = () => {
     <section className={styles.pageWrap}>
       <Container className={styles.page}>
         <header className={styles.hero}>
-          <Breadcrumbs
-            items={[
-              { label: 'Home', to: ROUTES.HOME },
-              { label: 'Labs', to: ROUTES.LABS },
-              { label: 'Design System Case Study' },
-            ]}
-          />
+          <Breadcrumbs items={CASE_STUDY_META_PAGE.breadcrumbs} />
           <div className={styles.heroBadgeRow}>
-            <Tag size="lg" variant="success">
-              First React Project
-            </Tag>
+            <Tag size="lg" variant="success">{CASE_STUDY_META_PAGE.heroBadge}</Tag>
             <span className={styles.heroRule} />
-            <span className={styles.heroMeta}>Case Study 01</span>
+            <span className={styles.heroMeta}>{CASE_STUDY_META_PAGE.heroKicker}</span>
           </div>
           <h1 className={styles.title}>
-            The Architecture <br />
-            <span className={styles.titleAccent}>of Consistency</span>
+            {CASE_STUDY_META_PAGE.heroTitle} <br />
+            <span className={styles.titleAccent}>{CASE_STUDY_META_PAGE.heroTitleAccent}</span>
           </h1>
-          <p className={styles.subtitle}>
-            Building a multi-tiered token architecture from scratch, then
-            proving it in a real portfolio UI.
-          </p>
+          <p className={styles.subtitle}>{CASE_STUDY_META_PAGE.heroSubtitle}</p>
           <div className={styles.heroStats}>
             {CASE_STUDY_META.map((item) => (
               <div key={item.label}>
@@ -54,9 +43,9 @@ const DesignSystemCaseStudy = () => {
             ))}
           </div>
           <div className={styles.meta}>
-            <Tag size="sm" variant="info">React</Tag>
-            <Tag size="sm" variant="success">Tokens</Tag>
-            <Tag size="sm" variant="warning">Case Study</Tag>
+            {CASE_STUDY_TAGS.map((tag) => (
+              <Tag key={tag.label} size="sm" variant={tag.variant}>{tag.label}</Tag>
+            ))}
           </div>
         </header>
 

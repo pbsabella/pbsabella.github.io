@@ -1,8 +1,8 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Tag.module.css';
 
-type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
-type TagSize = 'sm' | 'md' | 'lg';
+export type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
+export type TagSize = 'sm' | 'md' | 'lg';
 
 interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   /** Content to display inside the tag */
@@ -56,7 +56,9 @@ const Tag = ({
   className,
   ...props
 }: TagProps) => {
-  const classNames = [styles.tag, styles[variant], styles[size], className].filter(Boolean).join(' ');
+  const variantClass = styles[`tag${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const sizeClass = styles[`tag${size.charAt(0).toUpperCase() + size.slice(1)}`];
+  const classNames = [styles.tag, variantClass, sizeClass, className].filter(Boolean).join(' ');
 
   return (
     <span className={classNames} {...props}>

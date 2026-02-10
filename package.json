@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "npm run build && vite preview",
     "check": "npm run type-check && npm run lint && npm run test && npm run test:local && npm run lighthouse",
-    "lint": "eslint . && stylelint '**/*.css'",
+    "lint": "eslint . && stylelint '**/*.css' && node scripts/check-css-prefix.mjs",
     "lint:eslint": "eslint .",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
@@ -17,7 +17,8 @@
     "prepare": "husky",
     "cypress:open": "cypress open",
     "cypress:e2e": "cypress run --browser chrome",
-    "lighthouse": "start-server-and-test \"npm run preview -- --host 127.0.0.1 --port 4173\" http://localhost:4173 \"node scripts/lighthouse-routes.mjs\"",
+    "lighthouse": "LH_QUIET=1 start-server-and-test \"npm run preview -- --host 127.0.0.1 --port 4173\" http://localhost:4173 \"node scripts/lighthouse-routes.mjs\"",
+    "lighthouse:quick": "LH_QUIET=1 LH_RUNS=1 start-server-and-test \"npm run preview -- --host 127.0.0.1 --port 4173\" http://localhost:4173 \"node scripts/lighthouse-routes.mjs\"",
     "test:local": "start-server-and-test dev http://localhost:5173 cypress:e2e",
     "percy:test": "vite build && start-server-and-test 'vite preview --port 5173' http://localhost:5173 'percy exec -- cypress run'",
     "percy:baseline": "PERCY_BRANCH=master percy exec -- cypress run --config baseUrl=https://pbsabella.github.io/"

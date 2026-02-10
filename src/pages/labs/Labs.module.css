@@ -52,11 +52,15 @@
   display: block;
 }
 
-.cardLink {
+.cardItem {
   height: 100%;
 }
 
-.cardLink > * {
+.cardItem > * {
+  height: 100%;
+}
+
+.cardLink {
   height: 100%;
 }
 

@@ -12,48 +12,48 @@
 }
 
 /* --- Variants --- */
-.default {
+.tagDefault {
   background-color: transparent;
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-base);
 }
 
-.success {
+.tagSuccess {
   background-color: transparent;
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-success);
 }
 
-.warning {
+.tagWarning {
   background-color: transparent;
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-warning);
 }
 
-.info {
+.tagInfo {
   background-color: transparent;
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-info);
 }
 
-.error {
+.tagError {
   background-color: transparent;
   color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-error);
 }
 
 /* --- Sizes --- */
-.sm {
+.tagSm {
   font-size: var(--pr-text-100);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
 }
 
-.md {
+.tagMd {
   font-size: var(--sem-text-caption);
   padding: var(--pr-spacing-1) var(--pr-spacing-3);
 }
 
-.lg {
+.tagLg {
   font-size: var(--pr-text-body);
   padding: var(--pr-spacing-2) var(--pr-spacing-4);
 }

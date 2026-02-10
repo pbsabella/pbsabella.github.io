@@ -19,7 +19,9 @@ const Button = ({
   className,
   ...props
 }: ButtonProps) => {
-  const classNames = [styles.button, styles[variant], styles[size], className]
+  const variantClass = styles[`button${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const sizeClass = styles[`button${size.charAt(0).toUpperCase() + size.slice(1)}`];
+  const classNames = [styles.button, variantClass, sizeClass, className]
     .filter(Boolean)
     .join(' ');
 

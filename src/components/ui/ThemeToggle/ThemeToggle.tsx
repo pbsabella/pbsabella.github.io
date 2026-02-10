@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ButtonHTMLAttributes, MouseEvent, useState } from 'react';
 import { useTheme } from '@context/ThemeContext';
 import styles from './ThemeToggle.module.css';
 import Button from '@/components/ui/Button/Button';
@@ -20,16 +20,17 @@ import Button from '@/components/ui/Button/Button';
  * @returns {React.ReactElement} The rendered toggle button
  */
 
-interface ThemeToggleProps {
+interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Unique HTML id for the button element */
   id: string;
   /** Visual style of the toggle */
   variant?: 'icon' | 'text';
   /** Optional text label override */
   label?: string;
+  className?: string;
 }
 
-const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
+const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -38,7 +39,12 @@ const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
     toggleTheme();
   };
 
-  const animationClass = hasInteracted ? styles.toggleIconAnimate : '';
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    onClick?.(event);
+    handleToggle();
+  };
+
+  const animationClass = hasInteracted ? styles.themeToggleIconAnimate : '';
   const nextTheme = theme === 'light' ? 'dark' : 'light';
   const buttonLabel = label ?? `Switch to ${nextTheme} mode`;
 
@@ -48,21 +54,24 @@ const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
         id={id}
         variant="secondary"
         size="sm"
-        onClick={handleToggle}
+        onClick={handleClick}
         aria-label={buttonLabel}
+        className={className}
+        {...props}
       >
         {buttonLabel}
       </Button>
     ) : (
       <button
-        className={`${styles.toggleButton} ${styles.toggleButtonIcon}`}
+        className={`${styles.themeToggleButton} ${styles.themeToggleButtonIcon} ${className ?? ''}`}
         id={id}
-        onClick={handleToggle}
+        onClick={handleClick}
         aria-label="Toggle theme"
+        {...props}
       >
         <>
           <svg
-            className={`${styles.toggleIcon} ${animationClass} ${styles.sun}`}
+            className={`${styles.themeToggleIcon} ${animationClass} ${styles.themeToggleSun}`}
             viewBox="0 0 24 24"
             width="24"
             height="24"
@@ -80,7 +89,7 @@ const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
             </g>
           </svg>
           <svg
-            className={`${styles.toggleIcon} ${animationClass} ${styles.moon}`}
+            className={`${styles.themeToggleIcon} ${animationClass} ${styles.themeToggleMoon}`}
             viewBox="0 0 24 24"
             width="24"
             height="24"

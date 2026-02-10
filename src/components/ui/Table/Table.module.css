@@ -6,7 +6,7 @@
   color: var(--sem-color-text-primary);
 }
 
-.caption {
+.tableCaption {
   caption-side: top;
   text-align: left;
   padding: var(--pr-spacing-2) 0;
@@ -14,7 +14,7 @@
   color: var(--sem-color-text-primary);
 }
 
-.headCell {
+.tableHeadCell {
   text-align: left;
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-muted);
@@ -23,45 +23,45 @@
   vertical-align: middle;
 }
 
-.cell {
+.tableCell {
   padding: var(--pr-spacing-3) var(--pr-spacing-4);
   border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
   vertical-align: middle;
 }
 
-.compact .headCell {
+.tableCompact .tableHeadCell {
   padding: var(--pr-spacing-2) var(--pr-spacing-3);
 }
 
-.compact .cell {
+.tableCompact .tableCell {
   padding: var(--pr-spacing-2) var(--pr-spacing-3);
 }
 
-.grid .headCell,
-.grid .cell {
+.tableGrid .tableHeadCell,
+.tableGrid .tableCell {
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
 }
 
-.grid {
+.tableGrid {
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   border-radius: var(--pr-radius-md);
   overflow: hidden;
 }
 
-.stacked {
+.tableStacked {
   border: 0;
 }
 
-.stacked thead {
+.tableStacked thead {
   display: none;
 }
 
-.stacked tbody {
+.tableStacked tbody {
   display: grid;
   gap: var(--pr-spacing-3);
 }
 
-.stacked .row {
+.tableStacked .tableRow {
   display: grid;
   gap: var(--pr-spacing-2);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
@@ -69,7 +69,7 @@
   padding: var(--pr-spacing-3);
 }
 
-.stacked .cell {
+.tableStacked .tableCell {
   display: grid;
   grid-template-columns: minmax(120px, 1fr) 2fr;
   gap: var(--pr-spacing-3);
@@ -77,42 +77,42 @@
   padding: 0;
 }
 
-.stacked .cell::before {
+.tableStacked .tableCell::before {
   content: attr(data-label);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-muted);
 }
 
-.stacked.striped .row:nth-child(odd) {
+.tableStacked.tableStriped .tableRow:nth-child(odd) {
   background: var(--sem-color-bg-striped);
 }
 
-.row:last-child .cell {
+.tableRow:last-child .tableCell {
   border-bottom: 0;
 }
 
-.striped .row:nth-child(odd) .cell {
+.tableStriped .tableRow:nth-child(odd) .tableCell {
   background: var(--sem-color-bg-striped);
 }
 
 @media (width >= 769px) {
-  .stacked thead {
+  .tableStacked thead {
     display: table-header-group;
   }
 
-  .stacked tbody {
+  .tableStacked tbody {
     display: table-row-group;
     gap: 0;
   }
 
-  .stacked .row {
+  .tableStacked .tableRow {
     display: table-row;
     border: 0;
     border-radius: 0;
     padding: 0;
   }
 
-  .stacked .cell {
+  .tableStacked .tableCell {
     display: table-cell;
     grid-template-columns: none;
     gap: 0;
@@ -120,19 +120,19 @@
     padding: var(--pr-spacing-3) var(--pr-spacing-4);
   }
 
-  .stacked.grid .cell {
+  .tableStacked.tableGrid .tableCell {
     border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   }
 
-  .stacked.compact .cell {
+  .tableStacked.tableCompact .tableCell {
     padding: var(--pr-spacing-2) var(--pr-spacing-3);
   }
 
-  .stacked .cell::before {
+  .tableStacked .tableCell::before {
     content: none;
   }
 
-  .stacked.striped .row:nth-child(odd) {
+  .tableStacked.tableStriped .tableRow:nth-child(odd) {
     background: transparent;
   }
 }

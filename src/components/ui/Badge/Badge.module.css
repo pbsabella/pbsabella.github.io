@@ -12,45 +12,45 @@
 }
 
 /* Variants */
-.success {
+.badgeSuccess {
   background-color: var(--sem-color-bg-success);
   border-color: var(--sem-color-border-success);
   color: var(--sem-color-text-success);
 }
 
-.warning {
+.badgeWarning {
   background-color: var(--sem-color-bg-warning);
   border-color: var(--sem-color-border-warning);
   color: var(--sem-color-text-warning);
 }
 
-.info {
+.badgeInfo {
   background-color: var(--sem-color-bg-info);
   border-color: var(--sem-color-border-info);
   color: var(--sem-color-text-info);
 }
 
-.error {
+.badgeError {
   background-color: var(--sem-color-bg-error);
   border-color: var(--sem-color-border-error);
   color: var(--sem-color-text-error);
 }
 
 /* Sizes */
-.sm {
+.badgeSm {
   width: var(--comp-badge-size-sm);
   height: var(--comp-badge-size-sm);
   padding: 0; /* just a dot, ignore padding */
 }
 
-.md {
+.badgeMd {
   font-size: var(--sem-text-caption);
   min-width: var(--comp-badge-size-md);
   height: var(--comp-badge-size-md);
   padding: var(--pr-spacing-1);
 }
 
-.lg {
+.badgeLg {
   font-size: var(--sem-text-caption);
   min-width: var(--comp-badge-size-lg);
   height: var(--comp-badge-size-lg);

@@ -17,14 +17,15 @@ const Alert = ({
   className,
   ...props
 }: AlertProps) => {
-  const classNames = [styles.alert, styles[variant], className]
+  const variantClass = styles[`alert${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const classNames = [styles.alert, variantClass, className]
     .filter(Boolean)
     .join(' ');
 
   return (
     <div className={classNames} role="alert" aria-live="polite" data-component="alert" {...props}>
-      {title && <p className={styles.title}>{title}</p>}
-      <div className={styles.body}>{children}</div>
+      {title && <p className={styles.alertTitle}>{title}</p>}
+      <div className={styles.alertBody}>{children}</div>
     </div>
   );
 };

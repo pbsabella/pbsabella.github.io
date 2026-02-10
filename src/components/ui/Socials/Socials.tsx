@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import styles from './Socials.module.css';
 
 /**
@@ -15,12 +16,12 @@ import styles from './Socials.module.css';
  * @returns {React.ReactElement} The rendered social links list
  */
 
-const Socials = () => {
+const Socials = ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => {
   return (
-    <ul className={styles.socials}>
+    <ul className={`${styles.socials} ${className ?? ''}`} {...props}>
       <li className={styles.socialsItem}>
         <a
-          className={`${styles.socialLink} link`}
+          className={`${styles.socialsLink} link`}
           href="https://www.linkedin.com/in/pbsabella/"
           rel="noopener noreferrer"
           target="_blank"

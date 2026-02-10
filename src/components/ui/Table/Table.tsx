@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, TableHTMLAttributes } from 'react';
 import styles from './Table.module.css';
 
 type TableVariant = 'default' | 'compact' | 'striped' | 'grid';
@@ -8,13 +8,14 @@ type TableColumn = {
   header?: ReactNode;
 };
 
-interface TableProps {
+interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   caption?: string;
   columns: TableColumn[];
   rows: ReactNode[][];
   label?: string;
   variant?: TableVariant;
   stacked?: boolean;
+  className?: string;
 }
 
 const Table = ({
@@ -24,19 +25,22 @@ const Table = ({
   label,
   variant = 'default',
   stacked = true,
+  className,
+  ...props
 }: TableProps) => {
-  const classNames = [styles.table, styles[variant], stacked ? styles.stacked : '']
+  const variantClass = styles[`table${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const classNames = [styles.table, variantClass, stacked ? styles.tableStacked : '', className]
     .filter(Boolean)
     .join(' ');
-  const ariaLabel = caption ? undefined : label;
+  const ariaLabel = caption ? undefined : label ?? props['aria-label'];
 
   return (
-    <table className={classNames} aria-label={ariaLabel} data-component="table">
-      {caption && <caption className={styles.caption}>{caption}</caption>}
-      <thead className={styles.head}>
+    <table {...props} className={classNames} aria-label={ariaLabel} data-component="table">
+      {caption && <caption className={styles.tableCaption}>{caption}</caption>}
+      <thead className={styles.tableHead}>
         <tr>
           {columns.map((column, idx) => (
-            <th scope="col" className={styles.headCell} key={`col-${idx}`}>
+            <th scope="col" className={styles.tableHeadCell} key={`col-${idx}`}>
               {column.header ?? column.label}
             </th>
           ))}
@@ -44,10 +48,10 @@ const Table = ({
       </thead>
       <tbody>
         {rows.map((row, rowIndex) => (
-          <tr className={styles.row} key={`row-${rowIndex}`}>
+          <tr className={styles.tableRow} key={`row-${rowIndex}`}>
             {row.map((cell, cellIndex) => (
               <td
-                className={styles.cell}
+                className={styles.tableCell}
                 data-label={columns[cellIndex]?.label ?? ''}
                 key={`cell-${rowIndex}-${cellIndex}`}
               >

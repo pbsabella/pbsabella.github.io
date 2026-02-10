@@ -4,7 +4,7 @@
   margin-bottom: var(--pr-spacing-4);
 }
 
-.list {
+.breadcrumbsList {
   display: inline-flex;
   align-items: center;
   gap: var(--pr-spacing-2);
@@ -13,7 +13,7 @@
   list-style: none;
 }
 
-.item {
+.breadcrumbsItem {
   display: inline-flex;
   align-items: center;
   gap: var(--pr-spacing-2);
@@ -23,17 +23,17 @@
   color: var(--sem-color-text-muted);
 }
 
-.link {
+.breadcrumbsLink {
   color: var(--sem-color-text-primary);
   text-decoration: none;
 }
 
-.current {
+.breadcrumbsCurrent {
   color: var(--sem-color-text-primary);
   font-weight: var(--pr-weight-600);
   letter-spacing: var(--pr-tracking-20);
 }
 
-.separator {
+.breadcrumbsSeparator {
   color: var(--sem-color-text-muted);
 }

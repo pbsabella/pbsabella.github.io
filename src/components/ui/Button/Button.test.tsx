@@ -11,6 +11,6 @@ describe('Button Component', () => {
   it('applies variant class', () => {
     render(<Button variant="secondary">Secondary</Button>);
     const button = screen.getByRole('button', { name: /secondary/i });
-    expect(button.className).toMatch(/secondary/);
+    expect(button.className).toMatch(/buttonSecondary/);
   });
 });

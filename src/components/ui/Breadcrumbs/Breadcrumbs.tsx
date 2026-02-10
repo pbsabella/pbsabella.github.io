@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Breadcrumbs.module.css';
 
@@ -6,28 +7,33 @@ type BreadcrumbItem = {
   to?: string;
 };
 
-interface BreadcrumbsProps {
+interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
   items: BreadcrumbItem[];
+  className?: string;
 }
 
-const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
   return (
-    <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-      <ol className={styles.list}>
+    <nav
+      className={`${styles.breadcrumbs} ${className ?? ''}`}
+      aria-label={props['aria-label'] ?? 'Breadcrumb'}
+      {...props}
+    >
+      <ol className={styles.breadcrumbsList}>
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li className={styles.item} key={`${item.label}-${index}`}>
+            <li className={styles.breadcrumbsItem} key={`${item.label}-${index}`}>
               {item.to && !isLast ? (
-                <Link className={`${styles.link} link`} to={item.to}>
+                <Link className={`${styles.breadcrumbsLink} link`} to={item.to}>
                   {item.label}
                 </Link>
               ) : (
-                <span className={styles.current} aria-current="page">
+                <span className={styles.breadcrumbsCurrent} aria-current="page">
                   {item.label}
                 </span>
               )}
-              {!isLast && <span className={styles.separator} aria-hidden="true">/</span>}
+              {!isLast && <span className={styles.breadcrumbsSeparator} aria-hidden="true">/</span>}
             </li>
           );
         })}

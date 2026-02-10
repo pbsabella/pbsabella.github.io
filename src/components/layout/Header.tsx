@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { useSectionNav } from '@hooks/useSectionNav';
+import { useActiveSection } from '@hooks/useActiveSection';
 import ThemeToggle from '@components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
@@ -16,6 +17,11 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   const { getSectionLinkProps } = useSectionNav();
 
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
+  const isHome = pathname === ROUTES.HOME;
+  const activeSection = useActiveSection(
+    [SECTION_ANCHORS.WORK, SECTION_ANCHORS.ABOUT, SECTION_ANCHORS.CONTACT],
+    { offsetTop: 80 }
+  );
 
   return (
     <header
@@ -66,24 +72,27 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
             <ul className={`${styles.navList} ${styles.hideOnSmall}`}>
               <li className={styles.navItem}>
                 <Link
-                  className={`${styles.navLink} link`}
+                  className={`${styles.navLink} link ${isHome && activeSection === SECTION_ANCHORS.WORK ? styles.navLinkActive : ''}`}
                   {...getSectionLinkProps(SECTION_ANCHORS.WORK)}
+                  aria-current={isHome && activeSection === SECTION_ANCHORS.WORK ? 'location' : undefined}
                 >
                   Work
                 </Link>
               </li>
               <li className={styles.navItem}>
                 <Link
-                  className={`${styles.navLink} link`}
+                  className={`${styles.navLink} link ${isHome && activeSection === SECTION_ANCHORS.ABOUT ? styles.navLinkActive : ''}`}
                   {...getSectionLinkProps(SECTION_ANCHORS.ABOUT)}
+                  aria-current={isHome && activeSection === SECTION_ANCHORS.ABOUT ? 'location' : undefined}
                 >
                   About
                 </Link>
               </li>
               <li className={styles.navItem}>
                 <Link
-                  className={`${styles.navLink} link`}
+                  className={`${styles.navLink} link ${isHome && activeSection === SECTION_ANCHORS.CONTACT ? styles.navLinkActive : ''}`}
                   {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
+                  aria-current={isHome && activeSection === SECTION_ANCHORS.CONTACT ? 'location' : undefined}
                 >
                   Contact
                 </Link>

@@ -9,8 +9,8 @@ describe('Badge Component', () => {
 
     expect(badge).toHaveTextContent('3');
     expect(badge.className).toMatch(/badge/);
-    expect(badge.className).toMatch(/success/);
-    expect(badge.className).toMatch(/md/);
+    expect(badge.className).toMatch(/badgeSuccess/);
+    expect(badge.className).toMatch(/badgeMd/);
   });
 
   it('renders children correctly for lg badge', () => {
@@ -19,8 +19,8 @@ describe('Badge Component', () => {
 
     expect(badge).toHaveTextContent('99+');
     expect(badge.className).toMatch(/badge/);
-    expect(badge.className).toMatch(/error/);
-    expect(badge.className).toMatch(/lg/);
+    expect(badge.className).toMatch(/badgeError/);
+    expect(badge.className).toMatch(/badgeLg/);
   });
 
   it('renders sm badge as decorative dot without text', () => {
@@ -30,8 +30,8 @@ describe('Badge Component', () => {
     expect(badge).toBeInTheDocument();
     expect(badge).toBeEmptyDOMElement();
     expect(badge.className).toMatch(/badge/);
-    expect(badge.className).toMatch(/info/);
-    expect(badge.className).toMatch(/sm/);
+    expect(badge.className).toMatch(/badgeInfo/);
+    expect(badge.className).toMatch(/badgeSm/);
   });
 
 });

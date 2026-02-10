@@ -55,7 +55,9 @@ const Badge = ({
   className,
   ...props
 }: BadgeProps) => {
-  const classNames = [styles.badge, styles[variant], styles[size], className]
+  const variantClass = styles[`badge${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const sizeClass = styles[`badge${size.charAt(0).toUpperCase() + size.slice(1)}`];
+  const classNames = [styles.badge, variantClass, sizeClass, className]
     .filter(Boolean)
     .join(' ');
   const hasAriaLabelProp = 'aria-label' in props;
