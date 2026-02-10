@@ -5,8 +5,7 @@
   border: var(--pr-border-width-1) solid transparent;
   transition:
     transform var(--pr-duration-fast) var(--pr-easing-out),
-    box-shadow var(--pr-duration-fast) var(--pr-easing-out),
-    background-color var(--pr-duration-fast) var(--pr-easing-out);
+    box-shadow var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .cardElevated {

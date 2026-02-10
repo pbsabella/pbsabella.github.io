@@ -9,9 +9,6 @@
   line-height: var(--pr-leading-100);
   padding: var(--pr-spacing-1) var(--pr-spacing-3);
   font-size: var(--sem-text-caption);
-  transition: background-color var(--pr-duration-base) var(--pr-easing-in-out),
-    color var(--pr-duration-base) var(--pr-easing-in-out),
-    border-color var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 /* Variants */

@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Labs from './pages/Labs';
 import SystemCore from './pages/SystemCore';
+import DesignSystemCaseStudy from './pages/DesignSystemCaseStudy';
 import { ROUTES } from '@constants/routes';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
         <Routes>
           <Route path={ROUTES.HOME} element={<Home />} />
           <Route path={ROUTES.LABS} element={<Labs />} />
+          <Route path={ROUTES.DESIGN_SYSTEM_CASE_STUDY} element={<DesignSystemCaseStudy />} />
           <Route path={ROUTES.SYSTEM_CORE} element={<SystemCore />} />
           <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
         </Routes>

@@ -15,8 +15,9 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   const { pathname } = useLocation();
   const scrollToSection = useScrollToSection();
 
-  const isLabEnvironment = pathname.startsWith('/labs');
-  const isDeepDeepLink = pathname === ROUTES.SYSTEM_CORE;
+  const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
+  const isLabsRoot = pathname === ROUTES.LABS;
+  const backTarget = isLabEnvironment && !isLabsRoot ? ROUTES.LABS : ROUTES.HOME;
 
   return (
     <header
@@ -25,7 +26,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
       <Container className={`${styles.headerInner}`}>
         <nav className={styles.nav} aria-label="Main menu">
           {isLabEnvironment ? (
-            <Link className={`${styles.navLogo} link`} to={isDeepDeepLink ? ROUTES.LABS : ROUTES.HOME}>
+            <Link className={`${styles.navLogo} link`} to={backTarget}>
               ← Back
             </Link>
           ) : (

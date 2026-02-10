@@ -1,5 +1,15 @@
+.pageLayout {
+  display: grid;
+  grid-template-columns: 1fr 200px; /* Content area + sidebar */
+  gap: 3rem;
+}
+
 .page {
   padding-top: var(--pr-spacing-21);
+}
+
+.page section {
+  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
 }
 
 .pageTitle {

@@ -6,6 +6,7 @@
 export const ROUTES = {
   HOME: '/',
   LABS: '/labs',
+  DESIGN_SYSTEM_CASE_STUDY: '/labs/design-system-case-study',
   SYSTEM_CORE: '/labs/core',
 } as const;
 

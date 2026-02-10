@@ -57,6 +57,20 @@ describe('Header', () => {
     expect(backLink.getAttribute('href')).toBe(ROUTES.LABS);
   });
 
+  it('navigates to Labs if on a deep labs page', () => {
+    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.DESIGN_SYSTEM_CASE_STUDY]);
+
+    const backLink = screen.getByRole('link', { name: /back/i });
+    expect(backLink.getAttribute('href')).toBe(ROUTES.LABS);
+  });
+
+  it('navigates home if on the labs root', () => {
+    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.LABS]);
+
+    const backLink = screen.getByRole('link', { name: /back/i });
+    expect(backLink.getAttribute('href')).toBe(ROUTES.HOME);
+  });
+
   it('calls toggleSideNav when the menu button is clicked', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav });
 

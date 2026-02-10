@@ -23,3 +23,15 @@
 .labsGrid a {
   display: block;
 }
+
+.cardLink {
+  height: 100%;
+}
+
+.cardLink > * {
+  height: 100%;
+}
+
+.systemCoreCard {
+  border-style: dashed;
+}

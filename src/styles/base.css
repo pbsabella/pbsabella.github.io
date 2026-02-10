@@ -32,13 +32,6 @@ header {
   background-color: transparent;
 }
 
-:where(body, header, footer, main, section) {
-  transition:
-    background-color var(--pr-duration-base) var(--pr-easing-in-out),
-    color var(--pr-duration-base) var(--pr-easing-in-out),
-    border-color var(--pr-duration-base) var(--pr-easing-in-out);
-}
-
 /* ---------------------------------
    Resets
 ---------------------------------- */

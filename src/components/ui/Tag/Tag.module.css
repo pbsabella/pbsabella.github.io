@@ -6,9 +6,6 @@
   line-height: var(--pr-leading-100);
   border-radius: var(--comp-tag-radius);
   font-size: var(--sem-text-caption);
-  transition: background-color var(--pr-duration-base) var(--pr-easing-in-out),
-    color var(--pr-duration-base) var(--pr-easing-in-out),
-    border-color var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
 /* --- Variants --- */

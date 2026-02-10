@@ -156,8 +156,10 @@
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-neutral-800);
   --sem-color-text-strong: var(--pr-color-neutral-900);
+  --sem-color-text-muted: var(--pr-color-neutral-600);
 
   /* Brand / Status tokens */
+  --sem-color-border-brand: var(--pr-color-green-500);
   --sem-color-bg-success: var(--pr-color-success);
   --sem-color-text-success: var(--pr-color-neutral-100);
   --sem-color-border-success: var(--pr-color-success);
@@ -272,6 +274,7 @@
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-gray-100);
   --sem-color-text-strong: var(--pr-color-gray-100);
+  --sem-color-text-muted: var(--pr-color-gray-100);
 
   /* --- Border & Divider Colors --- */
   --sem-color-border-base: var(--pr-color-gray-600);

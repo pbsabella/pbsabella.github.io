@@ -15,7 +15,7 @@ const Labs = () => {
         <hr />
 
         <div className={styles.labsGrid}>
-          <Link to={ROUTES.SYSTEM_CORE}>
+          <Link className={styles.cardLink} to={ROUTES.DESIGN_SYSTEM_CASE_STUDY}>
             <Card isInteractive={true}>
               <h2 className="h4">Design System Case Study</h2>
               <p>
@@ -23,6 +23,16 @@ const Labs = () => {
                 This project implements an <strong>Atomic Design</strong> system with a
                 tiered token structure, demonstrating how <strong>type-safe primitives</strong> scale
                 from a documentation lab into a production interface.
+              </p>
+            </Card>
+          </Link>
+
+          <Link className={styles.cardLink} to={ROUTES.SYSTEM_CORE}>
+            <Card isInteractive={true} className={styles.systemCoreCard}>
+              <h2 className="h4">System Core Documentation</h2>
+              <p>
+                Token reference, primitives, and component foundations. Browse the
+                living docs that power the case study and the rest of the portfolio.
               </p>
             </Card>
           </Link>
