@@ -103,6 +103,7 @@ const TableOfContents = ({
               <a
                 href={`#${id}`}
                 className={`${styles.link} ${activeId === id ? styles.active : ''}`}
+                aria-current={activeId === id ? 'location' : undefined}
                 onClick={(e) => handleClick(e, id)}
                 title={label}
               >

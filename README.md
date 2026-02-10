@@ -125,14 +125,14 @@ npm run format       # Prettier format
 | `npm run test:local`     | Dev server + Cypress tests     |
 | `npm run percy:test`     | Visual regression tests        |
 | `npm run percy:baseline` | Update Percy baseline          |
-| `npm run lighthouse`  | Lighthouse performance audit   |
+| `npm run lighthouse`  | Lighthouse CLI audit (all routes) |
 
 **→ See [TESTING_STRATEGY.md](TESTING_STRATEGY.md) for detailed testing philosophy, what to test, and examples.**
 
-**Performance** - Lighthouse audits:
+**Performance** - Lighthouse CLI audits:
 
 ```bash
-npm run lighthouse    # CI Lighthouse check (requires built dist/)
+npm run lighthouse    # Multi-route CLI audit (runs against preview server)
 ```
 
 ## Testing Strategy
@@ -160,10 +160,10 @@ npm run lighthouse    # CI Lighthouse check (requires built dist/)
 
 ### Performance Tests (`npm run lighthouse`)
 
-- **Tool:** Lighthouse CI
+- **Tool:** Lighthouse CLI (multi-route runner)
 - **Metrics:** Performance, Accessibility, Best Practices, SEO
-- **Thresholds:** Performance ≥0.85, others ≥0.90
-- **Run:** In CI only (requires built output)
+- **Thresholds:** Performance ≥0.86 (warn), others 100% (fail)
+- **Run:** In CI and locally (uses `npm run preview` under the hood)
 
 ## Local Development
 
@@ -194,7 +194,6 @@ npm run percy:test      # Visual regression check
 | `stylelint.config.mjs` | CSS linting                                   |
 | `cypress.config.js`    | Cypress E2E config                            |
 | `.percyrc.json`        | Percy visual testing config                   |
-| `lighthouserc.json`    | Lighthouse CI thresholds                      |
 | `.husky/`              | Git hooks (pre-commit linting)                |
 
 ## Design System
@@ -253,4 +252,4 @@ npm run percy:baseline  # Update Percy snapshots on production
 2. **Quick Feedback:** Use `npm run test:watch` while coding
 3. **Before Commit:** Husky auto-fixes ESLint/Prettier issues
 4. **Visual Changes:** Always run `npm run percy:test` before deploying styling changes
-5. **Performance:** Check thresholds in `lighthouserc.json` before tweaking config
+5. **Performance:** Check thresholds in `scripts/lighthouse-routes.mjs` before tweaking config

@@ -9,8 +9,10 @@ vi.mock('@hooks/useHeaderScroll', () => ({
   useHeaderScroll: vi.fn(() => ({ isHidden: false, isTransparent: false })),
 }));
 
-vi.mock('@hooks/useScrollToSection', () => ({
-  useScrollToSection: vi.fn(() => vi.fn()),
+vi.mock('@hooks/useSectionNav', () => ({
+  useSectionNav: vi.fn(() => ({
+    getSectionLinkProps: vi.fn(() => ({ to: '/', onClick: vi.fn() })),
+  })),
 }));
 
 vi.mock('@components/ui/ThemeToggle/ThemeToggle', () => ({

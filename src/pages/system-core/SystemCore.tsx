@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import {
   Palette,
   Layers,
@@ -25,6 +26,18 @@ import ComponentsSection from './sections/ComponentsSection';
 import AccessibilitySection from './sections/AccessibilitySection';
 
 const SystemCore = () => {
+  const sections = [
+    { key: 'color', element: <ColorSystemSection icon={<Palette size={24} />} />, dividerAfter: true },
+    { key: 'semantic', element: <SemanticTokensSection icon={<Layers size={24} />} />, dividerAfter: true },
+    { key: 'spacing', element: <SpacingSection icon={<Ruler size={24} />} />, dividerAfter: true },
+    { key: 'type', element: <TypographySection icon={<Type size={24} />} />, dividerAfter: false },
+    { key: 'elevation', element: <ElevationSection icon={<Layers size={24} />} />, dividerAfter: true },
+    { key: 'motion', element: <MotionSection icon={<Sparkles size={24} />} />, dividerAfter: false },
+    { key: 'interactive', element: <InteractiveStatesSection icon={<SquareMousePointer size={24} />} />, dividerAfter: true },
+    { key: 'components', element: <ComponentsSection icon={<Component size={24} />} />, dividerAfter: true },
+    { key: 'accessibility', element: <AccessibilitySection icon={<PersonStanding size={24} />} />, dividerAfter: false },
+  ];
+
   return (
     <section className={styles.pageWrap}>
       <Container className={styles.page}>
@@ -44,35 +57,12 @@ const SystemCore = () => {
 
             <hr className={styles.sectionDivider} />
 
-            <ColorSystemSection icon={<Palette size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <SemanticTokensSection icon={<Layers size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <SpacingSection icon={<Ruler size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <TypographySection icon={<Type size={24} />} />
-
-            <ElevationSection icon={<Layers size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <MotionSection icon={<Sparkles size={24} />} />
-
-            <InteractiveStatesSection icon={<SquareMousePointer size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <ComponentsSection icon={<Component size={24} />} />
-
-            <hr className={styles.sectionDivider} />
-
-            <AccessibilitySection icon={<PersonStanding size={24} />} />
+            {sections.map((section) => (
+              <Fragment key={section.key}>
+                {section.element}
+                {section.dividerAfter && <hr className={styles.sectionDivider} />}
+              </Fragment>
+            ))}
           </div>
 
           <aside className={styles.tocAside} aria-label="System core table of contents">

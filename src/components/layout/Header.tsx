@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
-import { useScrollToSection } from '@hooks/useScrollToSection';
+import { useSectionNav } from '@hooks/useSectionNav';
 import ThemeToggle from '@components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
@@ -13,7 +13,7 @@ interface HeaderProps {
 const Header = ({ toggleSideNav }: HeaderProps) => {
   const { isHidden, isTransparent } = useHeaderScroll();
   const { pathname } = useLocation();
-  const scrollToSection = useScrollToSection();
+  const { getSectionLinkProps } = useSectionNav();
 
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
 
@@ -67,8 +67,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
               <li className={styles.navItem}>
                 <Link
                   className={`${styles.navLink} link`}
-                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
-                  onClick={() => scrollToSection(SECTION_ANCHORS.WORK)}
+                  {...getSectionLinkProps(SECTION_ANCHORS.WORK)}
                 >
                   Work
                 </Link>
@@ -76,8 +75,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
               <li className={styles.navItem}>
                 <Link
                   className={`${styles.navLink} link`}
-                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
-                  onClick={() => scrollToSection(SECTION_ANCHORS.ABOUT)}
+                  {...getSectionLinkProps(SECTION_ANCHORS.ABOUT)}
                 >
                   About
                 </Link>
@@ -85,8 +83,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
               <li className={styles.navItem}>
                 <Link
                   className={`${styles.navLink} link`}
-                  to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
-                  onClick={() => scrollToSection(SECTION_ANCHORS.CONTACT)}
+                  {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
                 >
                   Contact
                 </Link>

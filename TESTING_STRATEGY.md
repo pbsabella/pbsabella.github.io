@@ -49,12 +49,12 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
   - `npm run percy:test` (build + test)
   - `npm run percy:baseline` (update baseline on production)
 
-### Layer 5: Performance (Lighthouse CI)
+### Layer 5: Performance (Lighthouse CLI)
 
 - **Goal:** Track and enforce performance, accessibility, SEO scores
-- **Tools:** Lighthouse CI (axe-core for a11y)
-- **Thresholds:** Performance ≥0.85, Accessibility/Best Practices/SEO ≥0.90
-- **Command:** `npm run lighthouse` (requires built dist/)
+- **Tools:** Lighthouse CLI (multi-route runner)
+- **Thresholds:** Performance ≥0.86 (warn), Accessibility/Best Practices/SEO = 100% (fail)
+- **Command:** `npm run lighthouse` (uses `npm run preview` under the hood)
 
 ---
 
@@ -69,7 +69,7 @@ To maintain velocity, apply this decision matrix:
 | **Static layouts**    | Visual (Percy)       | Catches unintended shifts          |
 | **User interactions** | E2E (Cypress)        | Only behavior needs manual testing |
 | **Third-party libs**  | Skip                 | Assume stable, trust maintainers   |
-| **Accessibility**     | Lighthouse CI        | Automated a11y checks via axe      |
+| **Accessibility**     | Lighthouse CLI       | Automated a11y checks via axe      |
 
 ---
 
@@ -198,5 +198,5 @@ A: Use `cypress:open` for interactive debugging. Use `test:local` for final veri
 **Q: Do I need to update Percy baseline after every styling change?**
 A: Only after intentional design changes. Use `npm run percy:baseline` and commit on master.
 
-**Q: What if Lighthouse CI fails?**
-A: Check `lighthouserc.json` thresholds. May indicate performance regression. Run `npm run lighthouse` locally to debug.
+**Q: What if Lighthouse fails?**
+A: Check the CLI output in `lighthouse/*.json`. Performance warnings won’t fail the build, but accessibility/best-practices/SEO errors will. Run `npm run lighthouse` locally to debug.

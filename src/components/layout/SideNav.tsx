@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
-import { useScrollToSection } from '@hooks/useScrollToSection';
+import { useSectionNav } from '@hooks/useSectionNav';
 import styles from './SideNav.module.css';
 
 interface SideNavProps {
@@ -12,9 +12,12 @@ interface SideNavProps {
 
 const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
-  const scrollToSection = useScrollToSection();
+  const { getSectionLinkProps } = useSectionNav();
   const { pathname } = useLocation();
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
+  const workLink = getSectionLinkProps(SECTION_ANCHORS.WORK);
+  const aboutLink = getSectionLinkProps(SECTION_ANCHORS.ABOUT);
+  const contactLink = getSectionLinkProps(SECTION_ANCHORS.CONTACT);
 
   // Trap focus when side nav is open and restore focus when it closes
   useEffect(() => {
@@ -122,9 +125,9 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                 <li className={styles.sideMenuItem}>
                   <Link
                     className={styles.sideMenuLink}
-                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.WORK}` }}
+                    {...workLink}
                     onClick={() => {
-                      scrollToSection(SECTION_ANCHORS.WORK);
+                      workLink.onClick();
                       onClose();
                     }}
                   >
@@ -134,9 +137,9 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                 <li className={styles.sideMenuItem}>
                   <Link
                     className={styles.sideMenuLink}
-                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
+                    {...aboutLink}
                     onClick={() => {
-                      scrollToSection(SECTION_ANCHORS.ABOUT);
+                      aboutLink.onClick();
                       onClose();
                     }}
                   >
@@ -146,9 +149,9 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
                 <li className={styles.sideMenuItem}>
                   <Link
                     className={styles.sideMenuLink}
-                    to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.CONTACT}` }}
+                    {...contactLink}
                     onClick={() => {
-                      scrollToSection(SECTION_ANCHORS.CONTACT);
+                      contactLink.onClick();
                       onClose();
                     }}
                   >

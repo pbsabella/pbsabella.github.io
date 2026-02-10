@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
-import { useScrollToSection } from '@hooks/useScrollToSection';
+import { SECTION_ANCHORS } from '@constants/routes';
+import { useSectionNav } from '@hooks/useSectionNav';
 import styles from './Hero.module.css';
 
 const Hero = () => {
-  const scrollToSection = useScrollToSection();
+  const { getSectionLinkProps } = useSectionNav();
 
   return (
     <div id="hero" className={styles.hero}>
@@ -17,8 +17,7 @@ const Hero = () => {
         <div className={`${styles.heroAction} ${styles.heroIndent}`}>
           <Link
             className={styles.heroLink}
-            to={{ pathname: ROUTES.HOME, search: `?section=${SECTION_ANCHORS.ABOUT}` }}
-            onClick={() => scrollToSection(SECTION_ANCHORS.ABOUT)}
+            {...getSectionLinkProps(SECTION_ANCHORS.ABOUT)}
           >
             <span>
               Senior Frontend Engineer & <br />
