@@ -35,7 +35,7 @@ routes.forEach(({ path, name }) => {
     '--only-categories=performance,accessibility,best-practices,seo',
     '--output=json',
     `--output-path="${outputPath}"`,
-    '--chrome-flags="--no-sandbox"',
+    '--chrome-flags="--headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage"',
   ].join(' ');
 
   execSync(command, { stdio: 'inherit' });
