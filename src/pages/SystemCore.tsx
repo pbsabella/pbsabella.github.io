@@ -12,14 +12,15 @@ const sections = [
   { id: 'spacing-scale', label: 'Spacing Scale' },
   { id: 'typography', label: 'Typography' },
   { id: 'elevation', label: 'Elevation' },
-  { id: 'animations', label: 'Transitions & Motions' },
+  { id: 'animations', label: 'Transitions & Motion' },
   { id: 'interactive-states', label: 'Interactive States' },
+  { id: 'components', label: 'Components' },
   { id: 'accessibility', label: 'Accessibility' },
 ];
 
 const SystemCore = () => {
   return (
-    <section>
+    <section className={styles.pageWrap}>
       <Container className={styles.page}>
         <div className={styles.pageLayout}>
           <div>
@@ -28,7 +29,7 @@ const SystemCore = () => {
               A living reference of the design tokens, primitives, and components that <b>power this portfolio</b>. This system demonstrates a tiered token architecture (primitive → semantic → component) with a focus on maintainability, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.
             </p>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* COLORS */}
             <section id="color-system">
@@ -127,7 +128,7 @@ const SystemCore = () => {
           </div> */}
             </section>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* SPACING */}
             <section id="spacing-scale">
@@ -148,10 +149,10 @@ const SystemCore = () => {
               </div>
             </section>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* TYPOGRAPHY */}
-            <div id="typography">
+            <section id="typography">
               <h2>Typography</h2>
               <p className={styles.sectionDesc}>
                 Type scale uses fluid sizing (clamp) for responsive typography without breakpoints.
@@ -160,7 +161,7 @@ const SystemCore = () => {
               <h3 className={styles.subsectionTitle}>Type Scale</h3>
               <div className={styles.typeExamples}>
                 {TYPE_SCALE.map((type, idx) => {
-                  const Element = type.element as ElementType;;
+                  const Element = type.element as ElementType;
                   return (
                     <div key={idx}>
                       <Element>{type.text || `Heading Level ${idx + 1}`}</Element>
@@ -179,9 +180,9 @@ const SystemCore = () => {
                   </Card>
                 ))}
               </div>
-            </div>
+            </section>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* ELEVATION (SHADOWS) */}
             <section id="elevation">
@@ -201,7 +202,7 @@ const SystemCore = () => {
               </div>
             </section>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* TRANSITIONS & EASING */}
             <section id="animations">
@@ -233,7 +234,7 @@ const SystemCore = () => {
               </div>
             </section>
 
-            <hr />
+            <hr className={styles.sectionDivider} />
 
             {/* INTERACTIVE STATES */}
             <section id="interactive-states">
@@ -361,8 +362,10 @@ const SystemCore = () => {
             </section>
           </div>
 
-          <aside>
-            <TableOfContents sections={sections} scrollBehavior="instant" />
+          <aside className={styles.tocAside} aria-label="System core table of contents">
+            <div className={styles.tocWrap}>
+              <TableOfContents sections={sections} scrollBehavior="instant" isSticky={false} />
+            </div>
           </aside>
         </div>
       </Container>

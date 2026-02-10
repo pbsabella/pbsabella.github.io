@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './Tag.module.css';
 
-type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
+type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error' | 'outline';
 type TagSize = 'sm' | 'md' | 'lg';
 
 interface TagProps {
@@ -11,6 +11,8 @@ interface TagProps {
   variant?: TagVariant;
   /** Size of the tag, affects font-size and padding */
   size?: TagSize;
+  /** Optional additional class for styling */
+  className?: string;
 }
 
 /**
@@ -52,8 +54,9 @@ const Tag = ({
   children,
   variant = 'default',
   size = 'md',
+  className = '',
 }: TagProps) => {
-  const classNames = [styles.tag, styles[variant], styles[size]].join(' ');
+  const classNames = [styles.tag, styles[variant], styles[size], className].filter(Boolean).join(' ');
 
   return <span className={classNames}>{children}</span>;
 };

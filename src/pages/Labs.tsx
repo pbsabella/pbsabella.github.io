@@ -6,7 +6,7 @@ import styles from './Labs.module.css'
 
 const Labs = () => {
   return (
-    <section>
+    <section className={styles.pageWrap}>
       <Container className={styles.labs}>
         <h1 className={styles.labsTitle}>Works & Research</h1>
         <p className={styles.labsDescription}>

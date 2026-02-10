@@ -24,6 +24,7 @@ interface TableOfContentsProps {
   offsetTop?: number;
   scrollBehavior?: ScrollBehavior;
   respectReducedMotion?: boolean;
+  isSticky?: boolean;
 }
 
 const TableOfContents = ({
@@ -31,6 +32,7 @@ const TableOfContents = ({
   offsetTop = 100,
   scrollBehavior = 'auto',
   respectReducedMotion = true,
+  isSticky = true,
 }: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const navRef = useRef<HTMLElement | null>(null);
@@ -46,7 +48,8 @@ const TableOfContents = ({
         return null;
       }
 
-      const targetLine = scrollTop + 1;
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const targetLine = scrollTop + Math.max(viewportHeight * 0.35, 1);
       let currentId: string | null = null;
 
       sections.forEach(({ id }) => {
@@ -58,6 +61,11 @@ const TableOfContents = ({
           currentId = id;
         }
       });
+
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollTop + viewportHeight >= docHeight - 1 && sections.length > 0) {
+        currentId = sections[sections.length - 1]?.id ?? currentId;
+      }
 
       return currentId;
     };
@@ -83,7 +91,11 @@ const TableOfContents = ({
   };
 
   return (
-    <nav className={styles.tableOfContents} ref={navRef} aria-label="Table of contents">
+    <nav
+      className={`${styles.tableOfContents} ${!isSticky ? styles.tableOfContentsStatic : ''}`}
+      ref={navRef}
+      aria-label="Table of contents"
+    >
       <div className={styles.stickyWrapper}>
         <span className={styles.heading}>On this page</span>
         <ul className={styles.list}>

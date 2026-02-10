@@ -6,6 +6,13 @@
   padding-right: var(--pr-spacing-2);
 }
 
+.tableOfContentsStatic {
+  position: static;
+  top: auto;
+  max-height: none;
+  overflow: visible;
+}
+
 /* Custom scrollbar for better aesthetics */
 .tableOfContents::-webkit-scrollbar {
   width: var(--pr-size-2);

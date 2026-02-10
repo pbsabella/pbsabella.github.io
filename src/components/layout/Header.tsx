@@ -23,7 +23,11 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
     <header
       className={`${styles.header} ${isTransparent ? styles.headerTransparent : ''} ${isHidden ? styles.headerHidden : ''}`}
     >
-      <Container className={`${styles.headerInner}`}>
+      <Container
+        className={`${styles.headerInner} ${isLabEnvironment ? styles.headerInnerWide : ''}`}
+        variant={isLabEnvironment ? 'wide' : 'default'}
+        flush={isLabEnvironment}
+      >
         <nav className={styles.nav} aria-label="Main menu">
           {isLabEnvironment ? (
             <Link className={`${styles.navLogo} link`} to={backTarget}>

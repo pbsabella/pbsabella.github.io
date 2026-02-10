@@ -2,14 +2,65 @@
   display: grid;
   grid-template-columns: 1fr 200px; /* Content area + sidebar */
   gap: 3rem;
+  align-items: start;
 }
 
 .page {
   padding-top: var(--pr-spacing-21);
+  position: relative;
+  z-index: 1;
+  max-width: var(--sem-layout-page-max);
+}
+
+.pageWrap {
+  position: relative;
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, transparent 100%),
+    radial-gradient(circle at 15% 0%, var(--sem-color-accent-cyan), transparent 46%),
+    radial-gradient(circle at 75% 20%, var(--sem-color-accent-green), transparent 44%),
+    radial-gradient(circle at 85% 85%, var(--sem-color-accent-gray), transparent 52%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 120% 100%;
 }
 
 .page section {
   scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
+}
+
+.tocAside {
+  position: sticky;
+  top: calc(var(--comp-header-height) + var(--pr-spacing-6));
+  align-self: start;
+}
+
+.tocWrap {
+  margin-top: var(--pr-spacing-11);
+  border-left: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  padding-left: var(--pr-spacing-4);
+}
+
+@media (width <= 900px) {
+  .tocWrap {
+    border-left: none;
+    padding-left: 0;
+    margin-top: var(--pr-spacing-6);
+  }
+
+  .tocAside {
+    position: static;
+  }
 }
 
 .pageTitle {
@@ -37,8 +88,8 @@ code {
   background: var(--sem-color-bg-subtle);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
   border-radius: var(--pr-radius-sm);
-  display: block;
-  width: fit-content;
+  display: inline-block;
+  line-height: var(--pr-leading-100);
 }
 
 .cardContent {
@@ -48,6 +99,12 @@ code {
 .cardContent *:not(:last-child) {
   margin-bottom: var(--pr-spacing-2);
   display: block;
+}
+
+.sectionDivider {
+  margin-block: 0;
+  border: 0;
+  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-base);
 }
 
 .grid {

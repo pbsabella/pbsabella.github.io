@@ -22,10 +22,14 @@ import styles from './ThemeToggle.module.css';
 interface ThemeToggleProps {
   /** Unique HTML id for the button element */
   id: string;
+  /** Visual style of the toggle */
+  variant?: 'icon' | 'text';
+  /** Optional text label override */
+  label?: string;
 }
 
-const ThemeToggle = ({ id }: ThemeToggleProps) => {
-  const { toggleTheme } = useTheme();
+const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
+  const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const handleToggle = () => {
@@ -34,40 +38,48 @@ const ThemeToggle = ({ id }: ThemeToggleProps) => {
   };
 
   const animationClass = hasInteracted ? styles.toggleIconAnimate : '';
+  const nextTheme = theme === 'light' ? 'dark' : 'light';
+  const buttonLabel = label ?? `Switch to ${nextTheme} mode`;
 
   return (
     <button
-      className={styles.toggleButton}
+      className={`${styles.toggleButton} ${variant === 'text' ? styles.toggleButtonText : styles.toggleButtonIcon}`}
       id={id}
       onClick={handleToggle}
-      aria-label="Toggle theme"
+      aria-label={variant === 'text' ? buttonLabel : 'Toggle theme'}
     >
-      <svg
-        className={`${styles.toggleIcon} ${animationClass} ${styles.sun}`}
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
-        <circle cx="12" cy="12" r="5" />
-        <g strokeLinecap="round">
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </g>
-      </svg>
-      <svg
-        className={`${styles.toggleIcon} ${animationClass} ${styles.moon}`}
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
-        <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
-      </svg>
+      {variant === 'text' ? (
+        <span className={styles.toggleLabel}>{buttonLabel}</span>
+      ) : (
+        <>
+          <svg
+            className={`${styles.toggleIcon} ${animationClass} ${styles.sun}`}
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <g strokeLinecap="round">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+          </svg>
+          <svg
+            className={`${styles.toggleIcon} ${animationClass} ${styles.moon}`}
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
+          </svg>
+        </>
+      )}
     </button>
   );
 };

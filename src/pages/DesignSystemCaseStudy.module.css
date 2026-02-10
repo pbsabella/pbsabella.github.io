@@ -1,38 +1,117 @@
+.pageWrap {
+  position: relative;
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0) 8%, rgba(0, 0, 0, 0) 92%, transparent 100%),
+    radial-gradient(circle at 5% 0%, var(--sem-color-accent-green), transparent 46%),
+    radial-gradient(circle at 85% 12%, var(--sem-color-accent-cyan), transparent 42%),
+    radial-gradient(circle at 70% 85%, var(--sem-color-accent-gray), transparent 48%);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 120% 100%;
+}
+
 .page {
   padding-top: var(--pr-spacing-21);
+  position: relative;
+  max-width: var(--sem-layout-page-max);
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
-  max-width: var(--sem-layout-content-max);
-  margin-bottom: var(--pr-spacing-11);
+  max-width: 100%;
+  margin-bottom: var(--pr-spacing-16);
 }
 
-.eyebrow {
-  font-size: var(--sem-text-caption);
+.heroBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-3);
+  margin-bottom: var(--pr-spacing-6);
+}
+
+.heroBadge {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
+  font-weight: var(--pr-weight-500);
+  border-color: var(--sem-color-border-brand);
+  color: var(--sem-color-text-primary);
+  background-color: transparent;
+}
+
+.heroRule {
+  height: var(--pr-border-width-1);
+  width: var(--pr-size-64);
+  background-color: var(--sem-color-divider-strong);
+}
+
+.heroMeta {
+  font-size: var(--sem-text-caption);
   color: var(--sem-color-text-muted);
-  margin-bottom: var(--pr-spacing-2);
+  font-weight: var(--pr-weight-500);
 }
 
 .title {
-  margin-bottom: var(--pr-spacing-3);
+  font-family: var(--font-display);
+  margin-bottom: var(--pr-spacing-4);
+  line-height: var(--pr-leading-110);
+  font-size: clamp(calc(var(--pr-text-900) * 1.35), 9vw, calc(var(--pr-text-900) * 2.6));
+}
+
+.titleAccent {
+  color: var(--sem-color-border-brand);
 }
 
 .subtitle {
   line-height: var(--pr-leading-180);
+  max-width: var(--pr-size-600);
 }
 
 .meta {
   display: flex;
   gap: var(--pr-spacing-2);
-  margin-top: var(--pr-spacing-4);
+  margin-top: var(--pr-spacing-6);
   flex-wrap: wrap;
+}
+
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--pr-spacing-6);
+  padding: var(--pr-spacing-6) 0;
+  margin-top: var(--pr-spacing-6);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-base);
+}
+
+.heroStatLabel {
+  font-size: var(--pr-text-100);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--sem-color-text-muted);
+  margin-bottom: var(--pr-spacing-1);
+}
+
+.heroStatValue {
+  font-weight: var(--pr-weight-500);
 }
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 260px);
   gap: var(--pr-spacing-11);
   align-items: start;
 }
@@ -43,16 +122,31 @@
   gap: var(--pr-spacing-11);
 }
 
-.section h2 {
+.section {
+  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
+}
+
+.sectionTitle {
   margin-bottom: var(--pr-spacing-2);
+  font-family: var(--font-display);
+  font-style: italic;
 }
 
 .section p {
   line-height: var(--pr-leading-180);
 }
 
-.section {
-  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
+.sectionKicker {
+  font-size: var(--pr-text-100);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--sem-color-accent-orange);
+  font-weight: var(--pr-weight-500);
+  margin-bottom: var(--pr-spacing-3);
+}
+
+.sectionKickerAccent {
+  color: var(--sem-color-border-brand);
 }
 
 .tokenGrid {
@@ -69,6 +163,33 @@
   background: var(--sem-color-bg-elevated);
   display: grid;
   gap: var(--pr-spacing-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.tokenCardPr {
+  border-color: var(--sem-color-border-brand);
+}
+
+.tokenCardSem {
+  border-color: var(--sem-color-accent-cyan);
+}
+
+.tokenCardComp {
+  border-color: var(--sem-color-accent-gray);
+}
+
+.tokenBadge {
+  width: fit-content;
+  padding: var(--pr-spacing-1) var(--pr-spacing-2);
+  border-radius: var(--pr-radius-md);
+  font-size: var(--pr-text-100);
+  font-weight: var(--pr-weight-500);
+  background: var(--sem-color-bg-subtle);
+}
+
+.tokenCard code {
+  font-size: var(--sem-text-caption);
 }
 
 .list {
@@ -81,11 +202,172 @@
   margin: 0;
 }
 
+.demoCard {
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-radius: var(--pr-radius-lg);
+  background: var(--sem-color-bg-base);
+  box-shadow: var(--sem-elevation-medium);
+  overflow: hidden;
+}
+
+.demoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--pr-spacing-3) var(--pr-spacing-4);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  background: var(--sem-color-bg-elevated);
+  gap: var(--pr-spacing-3);
+}
+
+.demoDots {
+  display: inline-flex;
+  gap: var(--pr-spacing-1);
+}
+
+.demoDot {
+  width: var(--pr-size-8);
+  height: var(--pr-size-8);
+  border-radius: var(--pr-radius-pill);
+}
+
+.dotError {
+  background: var(--sem-color-bg-error);
+}
+
+.dotWarning {
+  background: var(--sem-color-bg-warning);
+}
+
+.dotSuccess {
+  background: var(--sem-color-bg-success);
+}
+
+.demoLabel {
+  font-size: var(--pr-text-100);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--sem-color-text-primary);
+  margin-right: auto;
+}
+
+.demoBody {
+  padding: var(--pr-spacing-6);
+  display: grid;
+  gap: var(--pr-spacing-4);
+  color: var(--sem-color-text-primary);
+}
+
+.demoIntro {
+  display: grid;
+  gap: var(--pr-spacing-3);
+}
+
+.demoCode {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-primary);
+}
+
+.demoCode code {
+  font-size: var(--sem-text-caption);
+  background: var(--sem-color-bg-subtle);
+  color: var(--sem-color-text-primary);
+}
+
+.demoShowcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--pr-spacing-4);
+}
+
+.demoMiniCard {
+  background: var(--sem-color-bg-elevated);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  color: var(--sem-color-text-primary);
+  display: grid;
+  gap: var(--pr-spacing-3);
+}
+
+.demoMiniTitle {
+  font-weight: var(--pr-weight-500);
+}
+
+.demoMiniCopy {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  margin: 0;
+}
+
+.demoMiniMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+}
+
+.demoTokens {
+  display: grid;
+  gap: var(--pr-spacing-3);
+  padding: var(--pr-spacing-4);
+  border-radius: var(--pr-radius-base);
+  background: var(--sem-color-bg-subtle);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+}
+
+.demoControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+}
+
+.demoTokenRow {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+}
+
+.demoTokenLabel {
+  font-size: var(--pr-text-100);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sem-color-text-primary);
+}
+
+.demoTokenSwatch {
+  width: var(--pr-size-24);
+  height: var(--pr-size-24);
+  border-radius: var(--pr-radius-sm);
+  background: var(--sem-color-bg-elevated);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+}
+
+.demoTokenSwatchAccent {
+  background: var(--sem-color-border-brand);
+  border-color: var(--sem-color-border-brand);
+}
+
+.demoTokenValue {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-primary);
+}
+
 .sidebar {
   position: sticky;
   top: calc(var(--comp-header-height) + var(--pr-spacing-6));
   display: grid;
   gap: var(--pr-spacing-4);
+  align-self: start;
+}
+
+.sidebarGroup {
+  border-left: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  padding-left: var(--pr-spacing-4);
 }
 
 .sidebarTitle {
@@ -104,5 +386,14 @@
 
   .sidebar {
     position: static;
+  }
+
+  .hero {
+    max-width: 100%;
+  }
+
+  .sidebarGroup {
+    border-left: none;
+    padding-left: 0;
   }
 }

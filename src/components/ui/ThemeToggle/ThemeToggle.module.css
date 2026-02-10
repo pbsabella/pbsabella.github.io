@@ -13,6 +13,27 @@
   border-radius: var(--pr-radius-full);
 }
 
+.toggleButtonIcon {
+  width: var(--pr-size-44);
+  height: var(--pr-size-44);
+}
+
+.toggleButtonText {
+  width: auto;
+  height: auto;
+  padding: var(--pr-spacing-2) var(--pr-spacing-4);
+  border-radius: var(--pr-radius-pill);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  background: var(--sem-color-bg-elevated);
+  color: var(--sem-color-text-primary);
+  font-size: var(--sem-text-caption);
+  font-weight: var(--pr-weight-500);
+}
+
+.toggleLabel {
+  white-space: nowrap;
+}
+
 .toggleIcon {
   position: absolute;
   width: var(--pr-size-28);
