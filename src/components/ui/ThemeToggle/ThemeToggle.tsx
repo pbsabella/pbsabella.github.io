@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from '@context/ThemeContext';
 import styles from './ThemeToggle.module.css';
+import Button from '@/components/ui/Button/Button';
 
 /**
  * ThemeToggle Component
@@ -42,15 +43,23 @@ const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
   const buttonLabel = label ?? `Switch to ${nextTheme} mode`;
 
   return (
-    <button
-      className={`${styles.toggleButton} ${variant === 'text' ? styles.toggleButtonText : styles.toggleButtonIcon}`}
-      id={id}
-      onClick={handleToggle}
-      aria-label={variant === 'text' ? buttonLabel : 'Toggle theme'}
-    >
-      {variant === 'text' ? (
-        <span className={styles.toggleLabel}>{buttonLabel}</span>
-      ) : (
+    variant === 'text' ? (
+      <Button
+        id={id}
+        variant="secondary"
+        size="sm"
+        onClick={handleToggle}
+        aria-label={buttonLabel}
+      >
+        {buttonLabel}
+      </Button>
+    ) : (
+      <button
+        className={`${styles.toggleButton} ${styles.toggleButtonIcon}`}
+        id={id}
+        onClick={handleToggle}
+        aria-label="Toggle theme"
+      >
         <>
           <svg
             className={`${styles.toggleIcon} ${animationClass} ${styles.sun}`}
@@ -79,8 +88,8 @@ const ThemeToggle = ({ id, variant = 'icon', label }: ThemeToggleProps) => {
             <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
           </svg>
         </>
-      )}
-    </button>
+      </button>
+    )
   );
 };
 

@@ -29,6 +29,7 @@
   --pr-text-700: clamp(1.625rem, 3vw + 1rem, 2.25rem);
   --pr-text-500: clamp(1.375rem, 2vw + 1rem, 1.75rem);
   --pr-text-400: clamp(1.25rem, 1.5vw + 1rem, 1.375rem);
+  --pr-text-350: clamp(1.125rem, 0.9vw + 0.98rem, 1.3rem);
   --pr-text-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
   --pr-text-200: 0.875rem;
   --pr-text-100: 0.75rem;
@@ -37,6 +38,7 @@
   --pr-weight-300: 300;
   --pr-weight-400: 400;
   --pr-weight-500: 500;
+  --pr-weight-600: 600;
 
   /* Line Height Scale */
   --pr-leading-100: 1;
@@ -44,6 +46,15 @@
   --pr-leading-120: 1.2;
   --pr-leading-150: 1.5;
   --pr-leading-180: 1.8;
+
+  /* Letter Spacing Scale */
+  --pr-tracking-05: 0.05em;
+  --pr-tracking-08: 0.08em;
+  --pr-tracking-12: 0.12em;
+  --pr-tracking-14: 0.14em;
+  --pr-tracking-18: 0.18em;
+  --pr-tracking-20: 0.2em;
+  --pr-tracking-30: 0.3em;
 
   /* --- Spacing Scale
      For layout rhythm (margins, padding, gaps between elements) --- */
@@ -128,6 +139,13 @@
   --pr-size-2: 2px;
   --pr-size-8: 8px;
   --pr-size-10: 10px;
+  --pr-size-16: 16px;
+  --pr-size-20: 20px;
+  --pr-size-140: 140px;
+  --pr-size-160: 160px;
+  --pr-size-180: 180px;
+  --pr-size-200: 200px;
+  --pr-size-220: 220px;
   --pr-size-24: 24px;
   --pr-size-28: 28px;
   --pr-size-40: 40px;
@@ -138,6 +156,7 @@
   --pr-size-240: 240px;
   --pr-size-260: 260px;
   --pr-size-320: 320px;
+  --pr-size-720: 720px;
   --pr-size-600: 600px;
   --pr-size-1200: 1200px;
   --pr-size-1440: 1440px;
@@ -148,17 +167,19 @@
      ============================ */
 
   /* --- Background Colors --- */
-  --sem-color-bg-base: var(--pr-color-neutral-200);
-  --sem-color-bg-subtle: var(--pr-color-neutral-300);
-  --sem-color-bg-elevated: var(--pr-color-neutral-100);
+  --sem-color-bg-base: var(--pr-color-neutral-100);
+  --sem-color-bg-subtle: var(--pr-color-neutral-200);
+  --sem-color-bg-elevated: var(--pr-color-neutral-300);
   --sem-color-bg-overlay: rgb(0 0 0 / 80%);
+  --sem-color-bg-striped: rgb(0 0 0 / 4%);
 
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-neutral-800);
   --sem-color-text-strong: var(--pr-color-neutral-900);
   --sem-color-text-muted: var(--pr-color-neutral-600);
+  --sem-color-text-on-brand: var(--pr-color-neutral-100);
 
-  /* Brand / Status tokens */
+  /* --- State & Brand --- */
   --sem-color-border-brand: var(--pr-color-green-500);
   --sem-color-bg-success: var(--pr-color-success);
   --sem-color-text-success: var(--pr-color-neutral-100);
@@ -172,20 +193,28 @@
   --sem-color-bg-error: var(--pr-color-error);
   --sem-color-text-error: var(--pr-color-neutral-100);
   --sem-color-border-error: var(--pr-color-error);
+  --sem-color-bg-success-subtle: rgb(1 126 91 / 12%);
+  --sem-color-bg-warning-subtle: rgb(255 197 65 / 16%);
+  --sem-color-bg-info-subtle: rgb(42 110 219 / 12%);
+  --sem-color-bg-error-subtle: rgb(220 53 69 / 12%);
   --sem-color-bg-default: transparent;
-  --sem-color-text-default: var(--pr-color-neutral-800);
-  --sem-color-border-default: var(--pr-color-neutral-600);
 
   /* --- Text Sizes --- */
   --sem-text-heading-lg: var(--pr-text-900);
   --sem-text-heading-md: var(--pr-text-700);
   --sem-text-heading-sm: var(--pr-text-500);
   --sem-text-body: var(--pr-text-300);
+  --sem-text-lede: var(--pr-text-350);
   --sem-text-caption: var(--pr-text-200);
+  --sem-text-kicker: var(--pr-text-100);
+  --sem-tracking-kicker: var(--pr-tracking-20);
 
   /* --- Border & Divider Colors --- */
+  --sem-color-border-subtle: var(--pr-color-neutral-300);
   --sem-color-border-base: var(--pr-color-neutral-400);
-  --sem-color-border-strong: var(--pr-color-neutral-900);
+  --sem-color-border-strong: var(--pr-color-neutral-800);
+  --sem-color-border-window: var(--pr-color-neutral-400);
+  --sem-color-divider-subtle: var(--pr-color-neutral-300);
   --sem-color-divider-base: var(--pr-color-neutral-400);
   --sem-color-divider-strong: var(--pr-color-neutral-600);
 
@@ -205,6 +234,7 @@
   --sem-layout-content-max: var(--pr-size-600);
   --sem-layout-container-max: var(--pr-size-1200);
   --sem-layout-page-max: var(--pr-size-1440);
+  --sem-layout-prose: 68ch;
 
   /* --- Focus --- */
   --sem-color-focus-ring: var(--pr-color-green-500);
@@ -230,13 +260,22 @@
   --comp-header-z-index: var(--sem-z-header);
 
   /* --- Card Component --- */
-  --comp-card-bg: var(--sem-color-bg-elevated);
+  --comp-card-bg: var(--pr-color-neutral-100);
   --comp-card-bg-ghost: var(--sem-color-bg-base);
   --comp-card-text: var(--sem-color-text-primary);
   --comp-card-shadow: var(--sem-elevation-low);
   --comp-card-shadow-hover: var(--sem-elevation-medium);
   --comp-card-radius: var(--pr-radius-base);
   --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
+
+  /* --- Alert Component --- */
+  --comp-alert-radius: var(--pr-radius-base);
+  --comp-alert-padding: var(--pr-spacing-4);
+
+  /* --- Button Component --- */
+  --comp-button-radius: var(--pr-radius-base);
+  --comp-button-padding-sm: var(--pr-spacing-1) var(--pr-spacing-3);
+  --comp-button-padding-md: var(--pr-spacing-2) var(--pr-spacing-4);
 
   /* --- Badge Component --- */
   --comp-badge-radius: var(--pr-radius-pill);
@@ -258,34 +297,54 @@
 [data-theme='dark'] {
   /** TODO: Update layers and rules on theming */
 
-  /* Utility/Status */
-  --sem-color-border-default: var(--pr-color-gray-500);
-  --sem-color-text-default: var(--pr-color-neutral-400);
+  /* --- State & Brand --- */
   --sem-color-bg-success: var(--pr-color-green-500);
   --sem-color-text-success: var(--pr-color-neutral-800);
   --sem-color-border-success: var(--pr-color-green-500);
+  --sem-color-bg-warning: var(--pr-color-warning);
+  --sem-color-text-warning: var(--pr-color-neutral-800);
+  --sem-color-border-warning: var(--pr-color-warning);
+  --sem-color-bg-info: var(--pr-color-info);
+  --sem-color-text-info: var(--pr-color-neutral-100);
+  --sem-color-border-info: var(--pr-color-info);
+  --sem-color-bg-error: var(--pr-color-error);
+  --sem-color-text-error: var(--pr-color-neutral-100);
+  --sem-color-border-error: var(--pr-color-error);
 
   /* --- Background Colors --- */
   --sem-color-bg-base: var(--pr-color-gray-900);
   --sem-color-bg-subtle: var(--pr-color-gray-800);
   --sem-color-bg-elevated: var(--pr-color-gray-700);
   --sem-color-bg-overlay: rgb(15 17 21 / 85%);
+  --sem-color-bg-striped: rgb(255 255 255 / 5%);
 
   /* --- Text Colors --- */
   --sem-color-text-primary: var(--pr-color-gray-100);
   --sem-color-text-strong: var(--pr-color-gray-100);
-  --sem-color-text-muted: var(--pr-color-gray-100);
+  --sem-color-text-muted: var(--pr-color-gray-400);
+  --sem-color-text-on-brand: var(--pr-color-gray-100);
+  --sem-text-kicker: var(--pr-text-100);
+  --sem-tracking-kicker: var(--pr-tracking-20);
 
   /* --- Border & Divider Colors --- */
+  --sem-color-border-subtle: var(--pr-color-gray-700);
   --sem-color-border-base: var(--pr-color-gray-600);
   --sem-color-border-strong: var(--pr-color-gray-500);
-  --sem-color-divider-base: var(--pr-color-gray-500);
-  --sem-color-divider-strong: var(--pr-color-gray-100);
+  --sem-color-border-window: var(--pr-color-gray-700);
+  --sem-color-divider-subtle: var(--pr-color-gray-700);
+  --sem-color-divider-base: var(--pr-color-gray-600);
+  --sem-color-divider-strong: var(--pr-color-gray-500);
 
   /* --- Accent Background Colors --- */
+  --sem-color-accent-orange: var(--pr-color-orange);
+  --sem-color-accent-yellow: var(--pr-color-yellow);
   --sem-color-accent-cyan: var(--pr-color-gray-800);
   --sem-color-accent-green: var(--pr-color-gray-800);
   --sem-color-accent-gray: var(--pr-color-gray-800);
+  --sem-color-bg-success-subtle: rgb(1 126 91 / 22%);
+  --sem-color-bg-warning-subtle: rgb(255 197 65 / 24%);
+  --sem-color-bg-info-subtle: rgb(42 110 219 / 22%);
+  --sem-color-bg-error-subtle: rgb(220 53 69 / 22%);
 
   /* --- Elevation --- */
   --sem-elevation-low: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);

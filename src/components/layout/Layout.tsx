@@ -4,6 +4,7 @@ import Footer from '@components/layout/Footer';
 import SideNav from '@components/layout/SideNav';
 import { useBodyScrollLock } from '@hooks/useBodyScrollLock';
 import { useInert } from '@hooks/useInert';
+import { useRouteScroll } from '@hooks/useRouteScroll';
 import styles from './Layout.module.css';
 
 interface LayoutProps {
@@ -24,6 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   useBodyScrollLock(isSideNavOpen, { className: styles.noScroll });
   useInert(mainRef, isSideNavOpen);
+  useRouteScroll();
 
   return (
     <div className={styles.appWrapper}>
@@ -33,6 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       <main
         ref={mainRef}
+        id="page-top"
         className={`${styles.mainContent} ${isSideNavOpen ? styles.mainContentDisabled : ''}`}
       >
         {children}

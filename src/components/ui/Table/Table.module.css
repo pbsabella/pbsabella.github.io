@@ -1,0 +1,98 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-primary);
+}
+
+.caption {
+  caption-side: top;
+  text-align: left;
+  padding: var(--pr-spacing-2) 0;
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-primary);
+}
+
+.headCell {
+  text-align: left;
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-muted);
+  padding: var(--pr-spacing-2) var(--pr-spacing-4);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  vertical-align: middle;
+}
+
+.cell {
+  padding: var(--pr-spacing-3) var(--pr-spacing-4);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  vertical-align: middle;
+}
+
+.compact .headCell {
+  padding: var(--pr-spacing-2) var(--pr-spacing-3);
+}
+
+.compact .cell {
+  padding: var(--pr-spacing-2) var(--pr-spacing-3);
+}
+
+.grid .headCell,
+.grid .cell {
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+}
+
+.grid {
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-radius: var(--pr-radius-md);
+  overflow: hidden;
+}
+
+.row:last-child .cell {
+  border-bottom: 0;
+}
+
+.striped .row:nth-child(odd) .cell {
+  background: var(--sem-color-bg-striped);
+}
+
+@media (width <= 768px) {
+  .stacked {
+    border: 0;
+  }
+
+  .stacked thead {
+    display: none;
+  }
+
+  .stacked tbody {
+    display: grid;
+    gap: var(--pr-spacing-3);
+  }
+
+  .stacked .row {
+    display: grid;
+    gap: var(--pr-spacing-2);
+    border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+    border-radius: var(--pr-radius-md);
+    padding: var(--pr-spacing-3);
+  }
+
+  .stacked .cell {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) 2fr;
+    gap: var(--pr-spacing-3);
+    border: 0;
+    padding: 0;
+  }
+
+  .stacked .cell::before {
+    content: attr(data-label);
+    font-weight: var(--pr-weight-600);
+    color: var(--sem-color-text-muted);
+  }
+
+  .stacked.striped .row:nth-child(odd) {
+    background: var(--sem-color-bg-striped);
+  }
+}

@@ -2,40 +2,43 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  border: var(--pr-border-width-1) solid transparent;
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   line-height: var(--pr-leading-100);
   border-radius: var(--comp-tag-radius);
   font-size: var(--sem-text-caption);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
+  font-weight: var(--pr-weight-600);
 }
 
 /* --- Variants --- */
 .default {
-  background-color: var(--sem-color-bg-default);
-  color: var(--sem-color-text-default);
-  border-color: var(--sem-color-border-default);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
+  border-color: var(--sem-color-border-base);
 }
 
 .success {
-  background-color: var(--sem-color-bg-success);
-  color: var(--sem-color-text-success);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-success);
 }
 
 .warning {
-  background-color: var(--sem-color-bg-warning);
-  color: var(--sem-color-text-warning);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-warning);
 }
 
 .info {
-  background-color: var(--sem-color-bg-info);
-  color: var(--sem-color-text-info);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-info);
 }
 
 .error {
-  background-color: var(--sem-color-bg-error);
-  color: var(--sem-color-text-error);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-error);
 }
 

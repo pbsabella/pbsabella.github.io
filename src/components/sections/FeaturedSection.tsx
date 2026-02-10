@@ -6,6 +6,7 @@ interface FeaturedSectionProps {
   id?: string;
   title?: ReactNode;
   introText?: string;
+  description?: ReactNode;
   children: ReactNode;
   className?: string;
   bgClass?: string;
@@ -16,6 +17,7 @@ const FeaturedSection = ({
   id,
   title,
   introText,
+  description,
   children,
   className = '',
   bgClass = '',
@@ -23,7 +25,7 @@ const FeaturedSection = ({
 }: FeaturedSectionProps) => {
   // Common header logic
   const renderHeader = () =>
-    (introText || title) && (
+    (introText || title || description) && (
       <div className={styles.featuredSectionInner}>
         {introText && (
           <div className={styles.featuredSectionIntro}>
@@ -32,6 +34,7 @@ const FeaturedSection = ({
           </div>
         )}
         {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
+        {description && <p className={styles.featuredSectionDesc}>{description}</p>}
       </div>
     );
 

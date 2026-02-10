@@ -17,11 +17,6 @@
   width: 100%;
 }
 
-.headerInnerWide {
-  max-width: var(--sem-layout-page-max);
-}
-
-
 .headerHidden {
   transform: translateY(-100%);
 }

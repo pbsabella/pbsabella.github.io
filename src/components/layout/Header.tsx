@@ -16,28 +16,21 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
   const scrollToSection = useScrollToSection();
 
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
-  const isLabsRoot = pathname === ROUTES.LABS;
-  const backTarget = isLabEnvironment && !isLabsRoot ? ROUTES.LABS : ROUTES.HOME;
+  const isEditorialWide = pathname.startsWith(ROUTES.LABS);
 
   return (
     <header
       className={`${styles.header} ${isTransparent ? styles.headerTransparent : ''} ${isHidden ? styles.headerHidden : ''}`}
     >
       <Container
-        className={`${styles.headerInner} ${isLabEnvironment ? styles.headerInnerWide : ''}`}
-        variant={isLabEnvironment ? 'wide' : 'default'}
-        flush={isLabEnvironment}
+        className={styles.headerInner}
+        variant={isEditorialWide ? 'wide' : 'default'}
+        flush={false}
       >
         <nav className={styles.nav} aria-label="Main menu">
-          {isLabEnvironment ? (
-            <Link className={`${styles.navLogo} link`} to={backTarget}>
-              ← Back
-            </Link>
-          ) : (
-            <Link className={styles.navLogo} to={ROUTES.HOME}>
-              pbsabella
-            </Link>
-          )}
+          <Link className={styles.navLogo} to={ROUTES.HOME}>
+            pbsabella
+          </Link>
 
           <ul className={`${styles.navList} ${styles.hideOnMedium}`}>
             <li className={`${styles.navItem}`}>

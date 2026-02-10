@@ -25,7 +25,7 @@ describe('Badge Component', () => {
 
   it('renders sm badge as decorative dot without text', () => {
     render(<Badge variant="info" size="sm" data-testid="badge-dot" />);
-    const badge = screen.getByTestId('badge-dot'); // we’ll need to add this testId in component
+    const badge = screen.getByTestId('badge-dot'); // we'll need to add this testId in component
 
     expect(badge).toBeInTheDocument();
     expect(badge).toBeEmptyDOMElement();

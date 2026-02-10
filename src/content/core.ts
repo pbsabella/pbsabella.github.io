@@ -41,7 +41,7 @@ export const COLOR_GROUPS = {
     ]
   },
   semantic: {
-    core: [
+    surface: [
       {
         name: 'BG Base',
         token: '--sem-color-bg-base',
@@ -61,6 +61,13 @@ export const COLOR_GROUPS = {
         references: 'Light: Neutral 100 | Dark: Gray 700'
       },
       {
+        name: 'BG Overlay',
+        token: '--sem-color-bg-overlay',
+        references: 'Light: Black 80% | Dark: Gray 900'
+      },
+    ],
+    text: [
+      {
         name: 'Text Primary',
         token: '--sem-color-text-primary',
         references: 'Light: Neutral 800 | Dark: Gray 100'
@@ -70,23 +77,72 @@ export const COLOR_GROUPS = {
         token: '--sem-color-text-strong',
         references: 'Light: Neutral 900 | Dark: Gray 100'
       },
+      {
+        name: 'Text Muted',
+        token: '--sem-color-text-muted',
+        references: 'Light: Neutral 600 | Dark: Gray 100'
+      },
     ],
-    ui: [
+    border: [
+      {
+        name: 'Border Subtle',
+        token: '--sem-color-border-subtle',
+        border: true,
+        references: 'Light: Neutral 300 | Dark: Gray 700'
+      },
       {
         name: 'Border Base',
         token: '--sem-color-border-base',
         border: true,
-        references: 'Light: Neutral 300 | Dark: Gray 600'
+        references: 'Light: Neutral 400 | Dark: Gray 600'
       },
       {
         name: 'Border Strong',
         token: '--sem-color-border-strong',
+        references: 'Light: Neutral 800 | Dark: Gray 500'
+      },
+      {
+        name: 'Border Window',
+        token: '--sem-color-border-window',
+        border: true,
+        references: 'Light: Neutral 400 | Dark: Gray 700'
+      },
+      {
+        name: 'Divider Subtle',
+        token: '--sem-color-divider-subtle',
+        references: 'Light: Neutral 300 | Dark: Gray 700'
+      },
+      {
+        name: 'Divider Base',
+        token: '--sem-color-divider-base',
+        references: 'Light: Neutral 400 | Dark: Gray 600'
+      },
+      {
+        name: 'Divider Strong',
+        token: '--sem-color-divider-strong',
         references: 'Light: Neutral 600 | Dark: Gray 500'
       },
+    ],
+    state: [
       {
         name: 'Accent Green',
         token: '--sem-color-accent-green',
         references: 'Light: Green 200 | Dark: Gray 800'
+      },
+      {
+        name: 'Accent Yellow',
+        token: '--sem-color-accent-yellow',
+        references: 'Light: Yellow | Dark: Gray 800'
+      },
+      {
+        name: 'Accent Orange',
+        token: '--sem-color-accent-orange',
+        references: 'Light: Orange | Dark: Gray 800'
+      },
+      {
+        name: 'Accent Cyan',
+        token: '--sem-color-accent-cyan',
+        references: 'Light: Cyan 100 | Dark: Gray 800'
       },
       {
         name: 'Accent Slate',
@@ -97,6 +153,26 @@ export const COLOR_GROUPS = {
         name: 'Focus Ring',
         token: '--sem-color-focus-ring',
         references: 'Green 500'
+      },
+      {
+        name: 'Success',
+        token: '--sem-color-bg-success',
+        references: 'Light: Success | Dark: Green 500'
+      },
+      {
+        name: 'Warning',
+        token: '--sem-color-bg-warning',
+        references: 'Light: Warning | Dark: Warning'
+      },
+      {
+        name: 'Info',
+        token: '--sem-color-bg-info',
+        references: 'Light: Info | Dark: Info'
+      },
+      {
+        name: 'Error',
+        token: '--sem-color-bg-error',
+        references: 'Light: Error | Dark: Error'
       },
     ],
   },
@@ -136,6 +212,12 @@ export const TYPE_SCALE = [
     token: '--sem-text-caption',
     leading: '--pr-leading-100',
     text: 'Used for labels, badges, and secondary meta-data.'
+  },
+  {
+    element: 'span',
+    token: '--sem-text-kicker',
+    leading: '--pr-leading-100',
+    text: 'Editorial kicker text for overlines and section labels.'
   },
 ];
 

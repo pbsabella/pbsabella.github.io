@@ -11,7 +11,7 @@
   width: 100vw;
   height: 100%;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 10%, rgb(0 0 0 / 0%) 90%, transparent 100%),
     radial-gradient(circle at 10% 5%, var(--sem-color-accent-green), transparent 48%),
     radial-gradient(circle at 85% 15%, var(--sem-color-accent-cyan), transparent 44%),
     radial-gradient(circle at 80% 85%, var(--sem-color-accent-gray), transparent 50%);
@@ -34,8 +34,10 @@
 
 .labsDescription {
   line-height: var(--pr-leading-180);
-  min-width: min(300px, 100%);
-  max-width: var(--sem-layout-content-max);
+  min-width: min(var(--pr-size-320), 100%);
+  max-width: var(--sem-layout-prose);
+  font-size: var(--sem-text-lede);
+  color: var(--sem-color-text-muted);
 }
 
 .labsGrid {
@@ -60,4 +62,11 @@
 
 .systemCoreCard {
   border-style: dashed;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-4);
 }

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import type { MouseEvent } from 'react';
 import styles from './TableOfContents.module.css';
 import { useScrollToSection } from '@hooks/useScrollToSection';
+import type { ScrollBehavior } from '@/types/scroll';
 
 /**
  * TableOfContents Component
@@ -30,7 +31,7 @@ interface TableOfContentsProps {
 const TableOfContents = ({
   sections,
   offsetTop = 100,
-  scrollBehavior = 'auto',
+  scrollBehavior = 'instant',
   respectReducedMotion = true,
   isSticky = true,
 }: TableOfContentsProps) => {

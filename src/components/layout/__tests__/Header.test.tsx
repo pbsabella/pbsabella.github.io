@@ -44,31 +44,28 @@ describe('Header', () => {
     expect(screen.getByRole('link', { name: /contact/i })).toBeVisible();
   });
 
-  it('renders the "Back" link when in the lab environment', () => {
+  it('renders the brand logo in the lab environment', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.LABS]);
 
-    expect(screen.getByRole('link', { name: /back/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
   });
 
-  it('navigates to Labs if on a deep system core page', () => {
+  it('renders the brand logo on a deep system core page', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.SYSTEM_CORE]);
 
-    const backLink = screen.getByRole('link', { name: /back/i });
-    expect(backLink.getAttribute('href')).toBe(ROUTES.LABS);
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
   });
 
-  it('navigates to Labs if on a deep labs page', () => {
+  it('renders the brand logo on a deep labs page', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.DESIGN_SYSTEM_CASE_STUDY]);
 
-    const backLink = screen.getByRole('link', { name: /back/i });
-    expect(backLink.getAttribute('href')).toBe(ROUTES.LABS);
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
   });
 
-  it('navigates home if on the labs root', () => {
+  it('does not show a labs link on the labs root', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.LABS]);
 
-    const backLink = screen.getByRole('link', { name: /back/i });
-    expect(backLink.getAttribute('href')).toBe(ROUTES.HOME);
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
   });
 
   it('calls toggleSideNav when the menu button is clicked', () => {

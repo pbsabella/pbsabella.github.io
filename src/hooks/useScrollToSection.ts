@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import type { ScrollBehavior } from '@/types/scroll';
 
 type ScrollToSectionOptions = {
   behavior?: ScrollBehavior;

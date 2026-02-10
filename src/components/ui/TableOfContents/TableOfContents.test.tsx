@@ -58,7 +58,7 @@ describe('TableOfContents Component', () => {
     fireEvent.click(link);
 
     expect(target.scrollIntoView).toHaveBeenCalledWith({
-      behavior: 'auto',
+      behavior: 'instant',
       block: 'start',
     });
   });
