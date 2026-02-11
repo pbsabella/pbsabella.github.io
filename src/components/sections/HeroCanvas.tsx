@@ -9,7 +9,7 @@ interface PointerState {
 
 interface Palette {
   dot: string;
-  stroke: string;
+  line: string;
 }
 
 const MAX_DPR = 2;
@@ -17,8 +17,8 @@ const GRID_GAP = 24;
 const AMBIENT_SPEED = 0.00095;
 const BASE_RADIUS = 230;
 const MOBILE_BREAKPOINT = 768;
-const MIN_STROKES = 3;
-const MAX_STROKES = 5;
+const MIN_LINES = 2;
+const MAX_LINES = 4;
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
@@ -26,7 +26,7 @@ const getPalette = (): Palette => {
   const computed = getComputedStyle(document.body);
   return {
     dot: computed.getPropertyValue('--sem-color-divider-strong').trim() || 'rgba(0, 0, 0, 0.38)',
-    stroke: computed.getPropertyValue('--sem-color-border-accent').trim() || 'rgba(1, 126, 91, 0.82)',
+    line: computed.getPropertyValue('--sem-color-divider-base').trim() || 'rgba(106, 116, 130, 0.7)',
   };
 };
 
@@ -57,29 +57,7 @@ const HeroCanvas = () => {
     let animationFrame = 0;
     let isReduced = mediaQuery?.matches ?? false;
 
-    const getStrokeCount = () => clamp(Math.floor(width / 360), MIN_STROKES, MAX_STROKES);
-
-    const strokeCurve = (
-      startX: number,
-      startY: number,
-      cp1x: number,
-      cp1y: number,
-      cp2x: number,
-      cp2y: number,
-      endX: number,
-      endY: number,
-      strokeStyle: string,
-      lineWidth: number,
-      alpha: number
-    ) => {
-      context.strokeStyle = strokeStyle;
-      context.lineWidth = lineWidth;
-      context.globalAlpha = alpha;
-      context.beginPath();
-      context.moveTo(startX, startY);
-      context.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, endX, endY);
-      context.stroke();
-    };
+    const getLineCount = () => clamp(Math.floor(width / 420), MIN_LINES, MAX_LINES);
 
     const draw = (timestamp: number) => {
       context.clearRect(0, 0, width, height);
@@ -99,43 +77,29 @@ const HeroCanvas = () => {
       }
 
       const motionTime = timestamp * AMBIENT_SPEED;
-      const strokeCount = getStrokeCount();
-      const bandHeight = Math.max(150, height * 0.28);
-      const yGap = bandHeight / Math.max(1, strokeCount - 1);
+      const lineCount = getLineCount();
+      const bandHeight = Math.max(120, height * 0.24);
+      const yGap = bandHeight / Math.max(1, lineCount - 1);
       const startYBase = height * 0.5 - bandHeight * 0.5;
 
-      for (let index = 0; index < strokeCount; index += 1) {
-        const phase = index * 0.85;
+      for (let index = 0; index < lineCount; index += 1) {
+        const phase = index * 0.9;
         const baseY = startYBase + yGap * index;
-        const wave = Math.sin(motionTime + phase) * 9;
         const centerX = width * 0.5;
         const distance = Math.hypot(pointer.x - centerX, pointer.y - baseY);
         const influence = pointer.active ? clamp(1 - distance / radius, 0, 1) : 0;
-        const pullX = pointer.active ? (pointer.x - centerX) * 0.12 * influence : 0;
-        const pullY = pointer.active ? (pointer.y - baseY) * 0.09 * influence : 0;
+        const pullY = pointer.active ? (pointer.y - baseY) * 0.05 * influence : 0;
+        const driftX = Math.sin(motionTime * 0.9 + phase) * 14;
+        const settleY = Math.cos(motionTime * 0.6 + phase) * 1.2;
+        const isCenter = index === Math.floor(lineCount / 2);
 
-        const startX = -24;
-        const endX = width + 24;
-        const startY = baseY + wave * 0.6;
-        const endY = baseY - wave * 0.45;
-        const cp1x = width * 0.33 + Math.cos(motionTime * 1.45 + phase) * 22 + pullX * 0.75;
-        const cp2x = width * 0.66 + Math.sin(motionTime * 1.2 + phase) * 19 + pullX;
-        const cp1y = startY + wave + pullY;
-        const cp2y = endY - wave + pullY;
-
-        strokeCurve(
-          startX,
-          startY,
-          cp1x,
-          cp1y,
-          cp2x,
-          cp2y,
-          endX,
-          endY,
-          palette.stroke,
-          index === Math.floor(strokeCount / 2) ? 1.85 : 1.3,
-          index === Math.floor(strokeCount / 2) ? 0.82 : 0.42
-        );
+        context.strokeStyle = palette.line;
+        context.lineWidth = isCenter ? 1.2 : 0.9;
+        context.globalAlpha = isCenter ? 0.5 : 0.28;
+        context.beginPath();
+        context.moveTo(-32 + driftX, baseY + pullY + settleY);
+        context.lineTo(width + 32 + driftX, baseY + pullY + settleY);
+        context.stroke();
       }
 
       context.globalAlpha = 1;
@@ -163,20 +127,17 @@ const HeroCanvas = () => {
     };
 
     const handlePointerMove = (event: PointerEvent) => {
+      if (isReduced) {
+        return;
+      }
       const bounds = target.getBoundingClientRect();
       pointer.x = event.clientX - bounds.left;
       pointer.y = event.clientY - bounds.top;
       pointer.active = true;
-      if (isReduced) {
-        draw(performance.now());
-      }
     };
 
     const handlePointerLeave = () => {
       pointer.active = false;
-      if (isReduced) {
-        draw(performance.now());
-      }
     };
 
     const handleThemeChange = () => {
