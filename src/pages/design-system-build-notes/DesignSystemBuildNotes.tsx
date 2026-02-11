@@ -56,7 +56,6 @@ const DesignSystemBuildNotes = () => {
             <ApproachSection />
             <KeyDecisionsSection />
             <WinsSection />
-            <hr className={styles.sectionDivider} />
             <ChallengesSection />
             <DemoSection />
             <LearningsSection />

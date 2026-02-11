@@ -40,6 +40,12 @@ export const useActiveSection = (
       }
 
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollTop + viewportHeight >= docHeight - bottomThreshold) {
+        commitActiveId(sectionIds[sectionIds.length - 1] ?? null);
+        return;
+      }
+
       const targetLine = Math.max(viewportHeight * 0.35, 1);
       const intersectingIds = sectionIds.filter((id) => sectionStateRef.current[id]?.isIntersecting);
 
@@ -64,12 +70,6 @@ export const useActiveSection = (
           return top < closestTop ? id : closest;
         }, intersectingIds[0]);
         commitActiveId(best);
-        return;
-      }
-
-      const docHeight = document.documentElement.scrollHeight;
-      if (scrollTop + viewportHeight >= docHeight - bottomThreshold) {
-        commitActiveId(sectionIds[sectionIds.length - 1] ?? null);
         return;
       }
 

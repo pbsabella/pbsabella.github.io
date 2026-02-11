@@ -10,6 +10,7 @@ export const COLOR_GROUPS = {
       { name: 'Green 300', token: '--pr-color-green-300' },
       { name: 'Green 500', token: '--pr-color-green-500' },
       { name: 'Green 600', token: '--pr-color-green-600' },
+      { name: 'Green 700', token: '--pr-color-green-700' },
     ],
     gray: [
       { name: 'Gray 100', token: '--pr-color-gray-100' },
@@ -100,6 +101,11 @@ export const COLOR_GROUPS = {
         token: '--sem-color-text-on-accent',
         references: 'Light: Neutral 100 | Dark: Neutral 100'
       },
+      {
+        name: 'Text Success Emphasis',
+        token: '--sem-color-text-success-emphasis',
+        references: 'Light: Success 600 | Dark: Success 500'
+      },
     ],
     border: [
       {
@@ -122,7 +128,13 @@ export const COLOR_GROUPS = {
       {
         name: 'Border Accent',
         token: '--sem-color-border-accent',
-        references: 'Light: Green 500 | Dark: Green 500'
+        references: 'Light: Green 600 | Dark: Green 600'
+      },
+      {
+        name: 'Border Success',
+        token: '--sem-color-border-success',
+        border: true,
+        references: 'Light: Success 600 | Dark: Success 500'
       },
       {
         name: 'Divider Subtle',

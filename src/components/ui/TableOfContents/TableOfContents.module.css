@@ -45,7 +45,7 @@
   margin: 0;
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-05);
-  padding-left: var(--pr-spacing-3);
+  padding-left: var(--pr-spacing-2);
 }
 
 .tableOfContentsList {

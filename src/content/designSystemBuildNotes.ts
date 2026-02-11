@@ -3,12 +3,12 @@ export const BUILD_NOTES_SECTIONS = [
   { id: 'problem', label: 'Problem' },
   { id: 'approach', label: 'Approach' },
   { id: 'decisions', label: 'Key Decisions' },
-  { id: 'wins', label: 'What Worked' },
-  { id: 'challenges', label: 'What Was Hard' },
-  { id: 'demo', label: 'Demo Snapshot' },
-  { id: 'learnings', label: 'What I Learned' },
+  { id: 'wins', label: 'Outcomes' },
+  { id: 'challenges', label: 'Friction' },
+  { id: 'demo', label: 'Demo' },
+  { id: 'learnings', label: 'Learnings' },
   { id: 'next-steps', label: 'Next Step' },
-  { id: 'system-core', label: 'System Core Docs' },
+  { id: 'system-core', label: 'System Core' },
 ];
 
 export const BUILD_NOTES_META = [
@@ -59,7 +59,7 @@ export const BUILD_NOTES_DECISIONS = [
   {
     title: 'A11y checks as a release gate.',
     description:
-      'Accessibility checks run as part of regular validation to prevent contrast and structure regressions from shipping.',
+      'Accessibility checks run in regular validation and have worked well for shipping confidence. The main noisy edge case remains contrast automation on layered and pseudo-element backgrounds.',
   },
   {
     title: 'Dogfood in production.',
@@ -77,7 +77,7 @@ export const BUILD_NOTES_WINS = [
 export const BUILD_NOTES_CHALLENGES = [
   'Token naming was only one part of the challenge; the system needed multiple rounds of refactoring and reconfiguration to keep intent clear and implementation practical.',
   'Balancing semantic purity with shipping pressure required explicit tradeoff decisions.',
-  'Design-system rigor and React implementation depth had to mature in parallel.',
+  'Contrast checks for a11y got flaky once layered backgrounds and pseudo-elements were introduced. I ended up patching around false positives more than I wanted, so the checks are useful but still not as stable as I would like.',
 ];
 
 export const BUILD_NOTES_NEXT_STEPS = [

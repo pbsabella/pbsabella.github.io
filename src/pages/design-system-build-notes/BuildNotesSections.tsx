@@ -7,7 +7,7 @@ import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
-import { CheckCircle2, ArrowUpRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, Book } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search } from 'lucide-react';
 import {
   BUILD_NOTES_CHALLENGES,
   BUILD_NOTES_DECISIONS,
@@ -15,6 +15,13 @@ import {
   BUILD_NOTES_PROBLEM_ITEMS,
   BUILD_NOTES_WINS,
 } from '@/content/designSystemBuildNotes';
+
+const PipelineConnector = () => (
+  <span className={styles.demoPipelineConnector}>
+    <ArrowRight size={12} aria-hidden="true" />
+    <span>to</span>
+  </span>
+);
 
 export const MotivationSection = () => (
   <section id="motivation" className={styles.section}>
@@ -26,9 +33,8 @@ export const MotivationSection = () => (
       point: without a documented source of truth, every redesign became an expensive, manual refactor.
     </p>
     <p>
-      This rebuild became the bridge between design systems strategy and day-to-day React implementation. The goal was to
-      move past definitions and prove the operating model in code: where token naming, component APIs, theming behavior,
-      and accessibility constraints either reinforce each other or fall apart.
+      This rebuild bridged design systems strategy with day-to-day React execution and helped me level up implementation depth in parallel.
+      The goal was to pressure-test the model in code, where token naming, component APIs, theming behavior, and accessibility either reinforce each other or break.
     </p>
     <p className={styles.noteText}>
       <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
@@ -41,10 +47,9 @@ export const ProblemSection = () => (
     <p className={styles.sectionKicker}>02. Problem</p>
     <h2 className={styles.sectionTitle}>The friction of manual UI</h2>
     <p>
-      The portfolio is intentionally real-world: touched in bursts, not daily.
-      That cadence exposes weak architecture quickly. When updates require
-      tracing one-off values and styling side effects, momentum drops and
-      quality becomes inconsistent.
+      This portfolio is updated in bursts, not in a perfect daily flow.
+      That cadence exposes weak architecture fast. If updates require tracing
+      one-off values and styling side effects, momentum drops and quality starts to drift.
     </p>
     <p className={styles.noteText}>
       Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
@@ -73,7 +78,7 @@ export const ProblemSection = () => (
 
 export const ApproachSection = () => (
   <section id="approach" className={styles.section}>
-    <p className={styles.sectionKicker}>03. Strategy</p>
+    <p className={styles.sectionKicker}>03. Approach</p>
     <h2 className={styles.sectionTitle}>Three layers, one source of truth</h2>
     <p>
       I structured the system into three layers:
@@ -130,13 +135,26 @@ export const KeyDecisionsSection = () => (
   <section id="decisions" className={styles.section}>
     <p className={styles.sectionKicker}>04. Key Decisions</p>
     <h2 className={styles.sectionTitle}>What I locked in early</h2>
-    <ol className={styles.decisionList}>
-      {BUILD_NOTES_DECISIONS.map((item) => (
+    <ul className={`${styles.listIcon} ${styles.decisionListIcon} ${styles.decisionListGrid}`}>
+      {BUILD_NOTES_DECISIONS.map((item, index) => {
+        const icons = [
+          <Search key="search" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Layers key="layers" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <CheckCircle2 key="check" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <ShieldCheck key="shield-check" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+        ];
+
+        return (
         <li key={item.title}>
-          <strong>{item.title}</strong> {item.description}
+          {icons[index]}
+          <div>
+            <strong>{item.title}</strong>
+            <p>{item.description}</p>
+          </div>
         </li>
-      ))}
-    </ol>
+      )})}
+    </ul>
   </section>
 );
 
@@ -156,15 +174,15 @@ export const WinsSection = () => (
 );
 
 export const ChallengesSection = () => (
-  <section id="challenges" className={`${styles.section} ${styles.sectionTwoCol}`}>
+  <section id="challenges" className={styles.section}>
     <p className={styles.sectionKicker}>06. Friction</p>
-    <h2 className={styles.sectionTitle}>Where it got hard</h2>
-    <ul className={styles.listIcon}>
+    <h2 className={styles.sectionTitle}>What got messy</h2>
+    <ul className={`${styles.listIcon} ${styles.challengeListSingle}`}>
       {BUILD_NOTES_CHALLENGES.map((item, index) => {
         const icons = [
           <Timer key="timer" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
           <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Book key="book" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Contrast key="contrast" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
         ];
 
         return (
@@ -212,14 +230,20 @@ export const DemoSection = () => (
             <div className={styles.demoPipelines}>
               <div className={styles.demoPipelineRow}>
                 <code>--pr-color-neutral-800</code>
+                <PipelineConnector />
                 <code>--sem-color-text-primary</code>
+                <PipelineConnector />
                 <code>--comp-card-text</code>
+                <PipelineConnector />
                 <code>.card</code>
               </div>
               <div className={styles.demoPipelineRow}>
                 <code>--pr-shadow-100</code>
+                <PipelineConnector />
                 <code>--sem-elevation-low</code>
+                <PipelineConnector />
                 <code>--comp-card-shadow</code>
+                <PipelineConnector />
                 <code>.cardElevated</code>
               </div>
             </div>
@@ -236,7 +260,9 @@ export const DemoSection = () => (
                 </div>
                 <div className={styles.demoPipelineRow}>
                   <code>--pr-color-success-600</code>
+                  <PipelineConnector />
                   <code>--sem-color-bg-success</code>
+                  <PipelineConnector />
                   <code>.badgeSuccess</code>
                 </div>
               </div>
@@ -247,7 +273,9 @@ export const DemoSection = () => (
                 </div>
                 <div className={styles.demoPipelineRow}>
                   <code>--pr-color-info-600</code>
+                  <PipelineConnector />
                   <code>--sem-color-border-info</code>
+                  <PipelineConnector />
                   <code>.tagInfo</code>
                 </div>
               </div>
@@ -265,11 +293,11 @@ export const DemoSection = () => (
 export const LearningsSection = () => (
   <section id="learnings" className={styles.section}>
     <p className={styles.sectionKicker}>08. Learnings</p>
-    <h2 className={styles.sectionTitle}>System thinking in React</h2>
+    <h2 className={styles.sectionTitle}>What this exposed</h2>
     <p>
-      Building this in React shifted the work from static definitions to behavioral contracts. Tokens set boundaries;
-      components operationalized those boundaries. The most useful outcome was not visual polish alone, but a model where
-      changes can be introduced with confidence because the intent chain is explicit.
+      This was my first end-to-end React build, and I paired it with a from-scratch system setup at the same time.
+      Instead of only consuming handed-off tokens and design decisions, I had to define structure, naming, and ownership in code, then validate what actually looked right on real UI elements.
+      It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
     </p>
   </section>
 );

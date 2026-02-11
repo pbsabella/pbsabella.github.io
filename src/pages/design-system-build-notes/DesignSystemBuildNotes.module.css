@@ -264,6 +264,19 @@
   line-height: var(--pr-leading-180);
 }
 
+.decisionListIcon {
+  margin-top: var(--pr-spacing-1);
+}
+
+.decisionListGrid {
+  margin-top: var(--pr-spacing-3);
+}
+
+.challengeListSingle {
+  margin-top: var(--pr-spacing-3);
+  grid-template-columns: 1fr;
+}
+
 .list {
   display: grid;
   gap: var(--pr-spacing-2);
@@ -443,10 +456,13 @@
   color: var(--sem-color-text-primary);
 }
 
-.demoPipelineRow code + code::before {
-  content: '→';
+.demoPipelineConnector {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
   color: var(--sem-color-text-muted);
-  margin-right: var(--pr-spacing-1);
+  font-size: var(--pr-text-100);
+  line-height: var(--pr-leading-100);
 }
 
 .noteText {
@@ -496,6 +512,11 @@
 }
 
 @media (width >= 760px) {
+  .decisionListGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--pr-spacing-4) var(--pr-spacing-6);
+  }
+
   .demoShowcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -99,7 +99,8 @@
   --pr-color-green-200: #cdf1e7;
   --pr-color-green-300: #88d4b7;
   --pr-color-green-500: #03b787;
-  --pr-color-green-600: #017e5b;
+  --pr-color-green-600: #02855f;
+  --pr-color-green-700: #017e5b;
   --pr-color-orange: #ff5e32;
   --pr-color-yellow: #ffc541;
   --pr-color-cyan-100: #d3f2f5;
@@ -126,7 +127,8 @@
 
   /* Utility/status */
   --pr-color-success-500: #03b787;
-  --pr-color-success-600: #017e5b;
+  --pr-color-success-600: #02855f;
+  --pr-color-success-700: #017e5b;
   --pr-color-warning-500: #ffd56e;
   --pr-color-warning-600: #ffc541;
   --pr-color-info-400: #5c97f2;
@@ -191,7 +193,7 @@
 
   /* --- Accent (Non-status) --- */
   --sem-color-bg-accent: var(--pr-color-green-600);
-  --sem-color-border-accent: var(--pr-color-green-500);
+  --sem-color-border-accent: var(--pr-color-green-600);
   --sem-color-accent-orange: var(--pr-color-orange);
   --sem-color-accent-yellow: var(--pr-color-yellow);
   --sem-color-accent-cyan: var(--pr-color-cyan-100);
@@ -312,7 +314,7 @@
 
   /* --- Accent (Non-status) --- */
   --sem-color-bg-accent: var(--pr-color-green-600);
-  --sem-color-border-accent: var(--pr-color-green-500);
+  --sem-color-border-accent: var(--pr-color-green-600);
   --sem-color-text-accent: var(--pr-color-green-500);
   --sem-color-text-on-accent: var(--pr-color-neutral-100);
   --sem-color-accent-orange: var(--pr-color-orange);
