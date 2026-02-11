@@ -29,7 +29,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
     >
       <Container
         className={styles.headerInner}
-        variant={isLabEnvironment ? 'wide' : 'default'}
+        variant="wide"
         flush={false}
       >
         <nav className={styles.nav} aria-label="Main menu">

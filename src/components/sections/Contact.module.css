@@ -1,0 +1,25 @@
+.contactLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-4);
+  padding-bottom: var(--pr-spacing-16);
+}
+
+.contactLead {
+  margin: 0;
+  max-width: var(--sem-layout-prose);
+  line-height: var(--pr-leading-180);
+  color: var(--sem-color-text-primary);
+  font-size: var(--sem-text-lede);
+}
+
+.contactCopy {
+  margin: 0;
+  max-width: var(--sem-layout-prose);
+  line-height: var(--pr-leading-180);
+  color: var(--sem-color-text-muted);
+}
+
+.contactSocials {
+  margin-top: var(--pr-spacing-2);
+}

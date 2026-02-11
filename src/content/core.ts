@@ -13,6 +13,7 @@ export const COLOR_GROUPS = {
     ],
     gray: [
       { name: 'Gray 100', token: '--pr-color-gray-100' },
+      { name: 'Gray 300', token: '--pr-color-gray-300' },
       { name: 'Gray 500', token: '--pr-color-gray-500' },
       { name: 'Gray 600', token: '--pr-color-gray-600' },
       { name: 'Gray 700', token: '--pr-color-gray-700' },
@@ -25,6 +26,7 @@ export const COLOR_GROUPS = {
       { name: 'Neutral 300', token: '--pr-color-neutral-300' },
       { name: 'Neutral 400', token: '--pr-color-neutral-400' },
       { name: 'Neutral 600', token: '--pr-color-neutral-600' },
+      { name: 'Neutral 700', token: '--pr-color-neutral-700' },
       { name: 'Neutral 800', token: '--pr-color-neutral-800' },
       { name: 'Neutral 900', token: '--pr-color-neutral-900' },
     ],
@@ -34,10 +36,16 @@ export const COLOR_GROUPS = {
       { name: 'Cyan 100', token: '--pr-color-cyan-100' },
     ],
     status: [
-      { name: 'Success', token: '--pr-color-success' },
-      { name: 'Warning', token: '--pr-color-warning' },
-      { name: 'Info', token: '--pr-color-info' },
-      { name: 'Error', token: '--pr-color-error' },
+      { name: 'Info 400', token: '--pr-color-info-400' },
+      { name: 'Error 400', token: '--pr-color-error-400' },
+      { name: 'Success 500', token: '--pr-color-success-500' },
+      { name: 'Success 600', token: '--pr-color-success-600' },
+      { name: 'Warning 500', token: '--pr-color-warning-500' },
+      { name: 'Warning 600', token: '--pr-color-warning-600' },
+      { name: 'Info 500', token: '--pr-color-info-500' },
+      { name: 'Info 600', token: '--pr-color-info-600' },
+      { name: 'Error 500', token: '--pr-color-error-500' },
+      { name: 'Error 600', token: '--pr-color-error-600' },
     ]
   },
   semantic: {
@@ -46,19 +54,19 @@ export const COLOR_GROUPS = {
         name: 'BG Base',
         token: '--sem-color-bg-base',
         border: true,
-        references: 'Light: Neutral 200 | Dark: Gray 900'
+        references: 'Light: Neutral 100 | Dark: Gray 900'
       },
       {
         name: 'BG Subtle',
         token: '--sem-color-bg-subtle',
         border: true,
-        references: 'Light: Neutral 300 | Dark: Gray 800'
+        references: 'Light: Neutral 200 | Dark: Gray 800'
       },
       {
         name: 'BG Elevated',
         token: '--sem-color-bg-elevated',
         border: true,
-        references: 'Light: Neutral 100 | Dark: Gray 700'
+        references: 'Light: Neutral 300 | Dark: Gray 700'
       },
       {
         name: 'BG Overlay',
@@ -80,7 +88,17 @@ export const COLOR_GROUPS = {
       {
         name: 'Text Muted',
         token: '--sem-color-text-muted',
-        references: 'Light: Neutral 600 | Dark: Gray 100'
+        references: 'Light: Neutral 700 | Dark: Gray 300'
+      },
+      {
+        name: 'Text Accent',
+        token: '--sem-color-text-accent',
+        references: 'Light: Green 600 | Dark: Green 500'
+      },
+      {
+        name: 'Text On Accent',
+        token: '--sem-color-text-on-accent',
+        references: 'Light: Neutral 100 | Dark: Neutral 100'
       },
     ],
     border: [
@@ -102,10 +120,9 @@ export const COLOR_GROUPS = {
         references: 'Light: Neutral 800 | Dark: Gray 500'
       },
       {
-        name: 'Border Window',
-        token: '--sem-color-border-window',
-        border: true,
-        references: 'Light: Neutral 400 | Dark: Gray 700'
+        name: 'Border Accent',
+        token: '--sem-color-border-accent',
+        references: 'Light: Green 500 | Dark: Green 500'
       },
       {
         name: 'Divider Subtle',
@@ -155,24 +172,29 @@ export const COLOR_GROUPS = {
         references: 'Green 500'
       },
       {
+        name: 'Accent Fill',
+        token: '--sem-color-bg-accent',
+        references: 'Light: Green 600 | Dark: Green 600'
+      },
+      {
         name: 'Success',
         token: '--sem-color-bg-success',
-        references: 'Light: Success | Dark: Green 500'
+        references: 'Light: Success 600 | Dark: Success 600'
       },
       {
         name: 'Warning',
         token: '--sem-color-bg-warning',
-        references: 'Light: Warning | Dark: Warning'
+        references: 'Light: Warning 600 | Dark: Warning 600'
       },
       {
         name: 'Info',
         token: '--sem-color-bg-info',
-        references: 'Light: Info | Dark: Info'
+        references: 'Light: Info 600 | Dark: Info 600'
       },
       {
         name: 'Error',
         token: '--sem-color-bg-error',
-        references: 'Light: Error | Dark: Error'
+        references: 'Light: Error 500 | Dark: Error 600'
       },
     ],
   },
@@ -191,6 +213,37 @@ export const SPACING_SCALE = [
   { token: '--pr-spacing-11', value: '44px' },
   { token: '--pr-spacing-16', value: '64px' },
   { token: '--pr-spacing-21', value: '84px' },
+];
+
+/**
+ * LAYOUT_CONSTRAINTS
+ */
+export const LAYOUT_CONSTRAINTS = [
+  {
+    token: '--sem-layout-content-max',
+    value: 'var(--pr-size-600)',
+    use: 'Readable content regions and dense section bodies',
+  },
+  {
+    token: '--sem-layout-prose-sm',
+    value: '64ch',
+    use: 'Compact long-form blocks (hero notes/callouts)',
+  },
+  {
+    token: '--sem-layout-prose',
+    value: '68ch',
+    use: 'Default prose width for long reading content',
+  },
+  {
+    token: '--sem-layout-container-max',
+    value: 'var(--pr-size-1200)',
+    use: 'Primary page container for most layouts',
+  },
+  {
+    token: '--sem-layout-page-max',
+    value: 'var(--pr-size-1440)',
+    use: 'Full-width page shells and wide compositions',
+  },
 ];
 
 /**

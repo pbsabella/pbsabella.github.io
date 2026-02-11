@@ -13,7 +13,14 @@ export default [
   pluginJsConfigs.recommended,
 
   {
-    ignores: ['dist/**', '*.config.js'],
+    ignores: [
+      'dist/**',
+      'playwright-report/**',
+      'test-results/**',
+      'lighthouse/**',
+      'lighthouse-reports/**',
+      '*.config.js',
+    ],
   },
 
   ...tseslint.configs.recommended,

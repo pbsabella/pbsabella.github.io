@@ -8,11 +8,17 @@ const Work = () => {
       id="work"
       introText="work"
       title="Selected Projects"
-      description="A handful of systems and platform features I've led or co-built, focused on scalable UI, reliability, and the details that make products feel cohesive."
+      description="A set of platform and product initiatives where I led implementation, system quality, and interaction consistency from concept through production."
       noContainer
     >
-      {PROJECTS.map(({ id, ...project }) => (
-        <WorkItem key={id} {...project} />
+      {PROJECTS.map(({ id, ...project }, index) => (
+        <WorkItem
+          key={id}
+          tone={index % 2 === 0 ? 'default' : 'subtle'}
+          mediaSide={index % 2 === 0 ? 'left' : 'right'}
+          isFirst={index === 0}
+          {...project}
+        />
       ))}
     </FeaturedSection>
   );

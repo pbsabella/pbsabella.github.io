@@ -25,10 +25,10 @@ export const CASE_STUDY_META_PAGE = {
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },
     { label: 'Labs', to: ROUTES.LABS },
-    { label: 'Design System Case Study' },
+    { label: 'Design System Build Notes' },
   ],
   heroBadge: 'First React Project',
-  heroKicker: 'Case Study 01',
+  heroKicker: 'Build Notes 01',
   heroTitle: 'The Architecture',
   heroTitleAccent: 'of Consistency',
   heroSubtitle:

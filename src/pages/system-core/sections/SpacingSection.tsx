@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from '../SystemCoreSections.module.css';
-import { SpacingTable } from '../SystemCoreTables';
+import { LayoutConstraintsTable, SpacingTable } from '../SystemCoreTables';
 
 type SpacingSectionProps = {
   icon: ReactNode;
@@ -18,6 +18,12 @@ const SpacingSection = ({ icon }: SpacingSectionProps) => (
       Consistent spacing creates visual rhythm and hierarchy. All spacing uses a 4px base unit for precise control and flexibility.
     </p>
     <SpacingTable />
+
+    <h3 className={styles.subsectionTitle}>Layout Constraints</h3>
+    <p className={styles.sectionDesc}>
+      Layout tokens define readable measures and container boundaries. This prevents one-off width literals and keeps composition decisions consistent.
+    </p>
+    <LayoutConstraintsTable />
   </section>
 );
 

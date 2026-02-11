@@ -26,8 +26,9 @@
 }
 
 .buttonPrimary {
-  background: var(--sem-color-border-brand);
-  color: var(--sem-color-text-on-brand);
+  background: var(--sem-color-bg-accent);
+  border-color: var(--sem-color-bg-accent);
+  color: var(--sem-color-text-on-accent);
 }
 
 .buttonPrimary:hover {

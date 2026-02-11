@@ -90,7 +90,7 @@
 .tableOfContentsActive {
   color: var(--sem-color-text-strong);
   font-weight: var(--pr-weight-500);
-  border-left-color: var(--sem-color-border-brand);
+  border-left-color: var(--sem-color-border-accent);
 }
 
 /* Responsive adjustments */

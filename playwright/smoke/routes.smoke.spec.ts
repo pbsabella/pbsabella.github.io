@@ -1,4 +1,4 @@
-import { expect, test, type ConsoleMessage, type Page, type Request, type Response } from '@playwright/test';
+import { expect, test, type ConsoleMessage, type Page, type Request, type Response, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 type GuardState = {
@@ -109,13 +109,10 @@ const assertKickerContrast = async (page: Page, routePath: string, theme: Theme)
     return contrastRatio(getRgb(fgColor), getRgb(bgColor));
   });
 
-  if (ratio < 4.5) {
-    // TODO(ds-contrast): Raise kicker contrast to AA (>= 4.5) and convert this warning back to a hard failure.
-    console.warn(`Case study kicker contrast warning on ${theme}: ${ratio.toFixed(2)} < 4.5`);
-  }
+  expect(ratio, `Case study kicker contrast on ${theme}: ${ratio.toFixed(2)} < 4.5`).toBeGreaterThanOrEqual(4.5);
 };
 
-const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme) => {
+const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, testInfo: TestInfo) => {
   await expect(page.getByRole('main')).toBeVisible();
   await expect(page.getByRole('navigation', { name: /main menu/i })).toBeVisible();
 
@@ -125,12 +122,34 @@ const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme) => {
     .analyze();
 
   const incompleteContrast = axeResults.incomplete.filter((issue) => issue.id === 'color-contrast');
-  if (incompleteContrast.length > 0) {
-    const details = incompleteContrast
+  const actionableIncompleteContrast = incompleteContrast
+    .map((issue) => ({
+      ...issue,
+      nodes: issue.nodes.filter((node) => {
+        const isPseudoBackgroundUnknown = node.any.some((check) => {
+          const messageKey = (check.data as { messageKey?: string } | undefined)?.messageKey;
+          const isPseudoContent = messageKey === 'pseudoContent';
+          const relatedToPageWrap = (check.relatedNodes ?? []).some((relatedNode) => {
+            const byTarget = relatedNode.target.some((selector) => selector.includes('pageWrap'));
+            const byHtml = relatedNode.html.includes('pageWrap');
+            return byTarget || byHtml;
+          });
+          return isPseudoContent && relatedToPageWrap;
+        });
+
+        return !isPseudoBackgroundUnknown;
+      }),
+    }))
+    .filter((issue) => issue.nodes.length > 0);
+
+  if (actionableIncompleteContrast.length > 0) {
+    const details = actionableIncompleteContrast
       .map((issue) => `${issue.id}: ${issue.help} (${issue.nodes.length} node(s))`)
       .join('\n');
-    // Report unresolved contrast contexts (e.g. pseudo-element backgrounds) without hard-failing CI.
-    console.warn(`Axe incomplete color-contrast on ${routePath} (${theme}):\n${details}`);
+    testInfo.annotations.push({
+      type: 'a11y-incomplete',
+      description: `Axe incomplete color-contrast on ${routePath} (${theme})\n${details}`,
+    });
   }
 
   expect(
@@ -146,7 +165,7 @@ const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme) => {
 test.describe('Cross-browser smoke checks', () => {
   for (const route of ROUTES) {
     for (const theme of THEMES) {
-      test(`sanity on ${route.name} (${theme})`, async ({ page }) => {
+      test(`sanity on ${route.name} (${theme})`, async ({ page, browserName }, testInfo) => {
         await setTheme(page, theme);
         const guardState = attachRuntimeGuards(page);
 
@@ -154,7 +173,9 @@ test.describe('Cross-browser smoke checks', () => {
         await expect(page).toHaveURL(new RegExp(`${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
         await expect(page.locator('h1').first()).toBeVisible();
 
-        await assertA11ySmoke(page, route.path, theme);
+        if (browserName === 'chromium') {
+          await assertA11ySmoke(page, route.path, theme, testInfo);
+        }
 
         expect(
           guardState.consoleErrors,

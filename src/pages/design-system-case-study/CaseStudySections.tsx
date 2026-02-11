@@ -26,7 +26,9 @@ export const MotivationSection = () => (
       point: without a documented source of truth, every redesign became an expensive, manual refactor.
     </p>
     <p>
-      I leveraged this rebuild to bridge the gap between my Design Systems expertise and hands-on React development. I wanted to move beyond the &apos;what&apos; of design systems to the &apos;how&apos; of implementation—architecting a system from the ground up to see where the theory hits the reality of component state and props.
+      This rebuild became the bridge between design systems strategy and day-to-day React implementation. The goal was to
+      move past definitions and prove the operating model in code: where token naming, component APIs, theming behavior,
+      and accessibility constraints either reinforce each other or fall apart.
     </p>
     <p className={styles.noteText}>
       <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
@@ -39,9 +41,10 @@ export const ProblemSection = () => (
     <p className={styles.sectionKicker}>02. Problem</p>
     <h2 className={styles.sectionTitle}>The friction of manual UI</h2>
     <p>
-      The portfolio isn’t something I revisit daily, which makes long-term
-      maintainability a real challenge. Each update becomes a mini archaeology
-      project instead of a clean iteration.
+      The portfolio is intentionally real-world: touched in bursts, not daily.
+      That cadence exposes weak architecture quickly. When updates require
+      tracing one-off values and styling side effects, momentum drops and
+      quality becomes inconsistent.
     </p>
     <p className={styles.noteText}>
       Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
@@ -179,10 +182,7 @@ export const DemoSection = () => (
   <section id="demo" className={styles.section}>
     <p className={styles.sectionKicker}>07. Demo</p>
     <h2 className={styles.sectionTitle}>The portfolio is the proof</h2>
-    <p className={styles.noteText}>
-      The interface you are currently navigating is the primary consumer of this system. Use the toggle below to see the semantic mapping in real-time.
-    </p>
-    <div className={styles.demoCard}>
+    <Card variant="panel" className={styles.demoCard}>
       <div className={styles.demoHeader}>
         <div className={styles.demoDots}>
           <span className={`${styles.demoDot} ${styles.dotError}`} />
@@ -195,54 +195,69 @@ export const DemoSection = () => (
           <p className={styles.demo}>
             A tiny slice of the system in motion: primitive values
             flow into semantics, then into components that re-skin
-            instantly across light and dark.
+            instantly across light and dark. Toggle the theme to see
+            this demo adapt in real time.
           </p>
-          <div className={styles.demoCode}>
-            <code>--pr-color-green-500</code>
-            <span>→</span>
-            <code>--sem-color-border-brand</code>
-            <span>→</span>
-            <code>--comp-card-border</code>
+          <div className={styles.demoThemeRow}>
+            <p className={styles.demoHierarchy}>PR → SEM → COMP</p>
+            <ThemeToggle id="case-study-theme-toggle" variant="text" />
           </div>
         </div>
         <div className={styles.demoShowcase}>
           <Card className={styles.demoMiniCard} isInteractive={true}>
-            <div className={styles.demoMiniTitle}>Primary Card</div>
+            <div className={styles.demoMiniTitle}>Demo 1: Elevated Card</div>
             <p className={styles.demoMiniCopy}>
-              Surface, text, and border all come from semantic tokens.
+              Interactive elevated card using component tokens, fed by semantic intent.
             </p>
-            <div className={styles.demoMiniMeta}>
-              <Tag size="sm" variant="success">Live</Tag>
-              <Badge variant="info" size="md">3</Badge>
+            <div className={styles.demoPipelines}>
+              <div className={styles.demoPipelineRow}>
+                <code>--pr-color-neutral-800</code>
+                <code>--sem-color-text-primary</code>
+                <code>--comp-card-text</code>
+                <code>.card</code>
+              </div>
+              <div className={styles.demoPipelineRow}>
+                <code>--pr-shadow-100</code>
+                <code>--sem-elevation-low</code>
+                <code>--comp-card-shadow</code>
+                <code>.cardElevated</code>
+              </div>
             </div>
           </Card>
-          <div className={styles.demoTokens}>
-            <div className={styles.demoControls}>
-              <span>Theme</span>
-              <ThemeToggle id="case-study-theme-toggle" variant="text" />
+          <Card variant="flat" className={styles.demoMiniCard}>
+            <div className={styles.demoMiniTitle}>Demo 2: Status Chips</div>
+            <p className={styles.demoMiniCopy}>
+              Tags and badges consume status semantics while preserving consistent contrast across themes.
+            </p>
+            <div className={styles.demoPipelines}>
+              <div className={styles.demoMiniMeta}>
+                <div>
+                  <Badge variant="success" size="md">12</Badge>
+                </div>
+                <div className={styles.demoPipelineRow}>
+                  <code>--pr-color-success-600</code>
+                  <code>--sem-color-bg-success</code>
+                  <code>.badgeSuccess</code>
+                </div>
+              </div>
+
+              <div className={styles.demoMiniMeta}>
+                <div>
+                  <Tag size="sm" variant="info">Info</Tag>
+                </div>
+                <div className={styles.demoPipelineRow}>
+                  <code>--pr-color-info-600</code>
+                  <code>--sem-color-border-info</code>
+                  <code>.tagInfo</code>
+                </div>
+              </div>
             </div>
-            <div className={styles.demoTokenRow}>
-              <span className={styles.demoTokenLabel}>Surface</span>
-              <span className={styles.demoTokenSwatch} />
-              <code>--sem-color-bg-elevated</code>
-            </div>
-            <div className={styles.demoTokenRow}>
-              <span className={styles.demoTokenLabel}>Accent</span>
-              <span className={`${styles.demoTokenSwatch} ${styles.demoTokenSwatchAccent}`} />
-              <code>--sem-color-border-brand</code>
-            </div>
-            <div className={styles.demoTokenRow}>
-              <span className={styles.demoTokenLabel}>Radius</span>
-              <span className={styles.demoTokenValue}>var(--pr-radius-lg)</span>
-              <code>--comp-card-radius</code>
-            </div>
-          </div>
+          </Card>
         </div>
       </div>
-    </div>
+    </Card>
     <p className={styles.demoCaption}>
-      A single UI slice showing primitives flowing into semantic tokens and landing in
-      components that swap cleanly across themes.
+      Two compact examples showing how token intent stays consistent while visuals adapt by theme.
     </p>
   </section>
 );
@@ -252,7 +267,9 @@ export const LearningsSection = () => (
     <p className={styles.sectionKicker}>08. Learnings</p>
     <h2 className={styles.sectionTitle}>System thinking in React</h2>
     <p>
-      Building in React forced a shift from static definitions to functional ones. The tokens provided the constraints; React provided the composability. The result is a system that isn&apos;t just documented, but enforced through component architecture.
+      Building this in React shifted the work from static definitions to behavioral contracts. Tokens set boundaries;
+      components operationalized those boundaries. The most useful outcome was not visual polish alone, but a model where
+      changes can be introduced with confidence because the intent chain is explicit.
     </p>
   </section>
 );
@@ -262,8 +279,9 @@ export const NextStepsSection = () => (
     <p className={styles.sectionKicker}>09. Next Step</p>
     <h2 className={styles.sectionTitle}>The journey continues</h2>
     <p>
-      The system is not perfect yet. The next experiments focus on proving the
-      theming model and pressure-testing component coverage.
+      The system is stable enough to scale, but the next milestone is resilience:
+      validating that new variants, page types, and brand constraints can be
+      added without eroding the semantic contract.
     </p>
     <ul className={styles.listIcon}>
       {CASE_STUDY_NEXT_STEPS.map((item) => (
@@ -277,8 +295,8 @@ export const NextStepsSection = () => (
 );
 
 export const SystemCoreSection = () => (
-  <section className={styles.section}>
-    <p className={styles.sectionKicker}>System Core</p>
+  <section id="system-core" className={styles.section}>
+    <p className={styles.sectionKicker}>10. System Core</p>
     <h2 className={styles.sectionTitle}>Deep dive into System Core</h2>
     <p>
       Explore the live token tables, primitives, and component

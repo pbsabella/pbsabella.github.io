@@ -8,6 +8,7 @@ export const CASE_STUDY_SECTIONS = [
   { id: 'demo', label: 'Demo Snapshot' },
   { id: 'learnings', label: 'What I Learned' },
   { id: 'next-steps', label: 'Next Step' },
+  { id: 'system-core', label: 'System Core Docs' },
 ];
 
 export const CASE_STUDY_META = [
@@ -21,21 +22,21 @@ import type { TagVariant } from '@/components/ui/Tag/Tag';
 export const CASE_STUDY_TAGS: Array<{ label: string; variant: TagVariant }> = [
   { label: 'React', variant: 'info' },
   { label: 'Tokens', variant: 'success' },
-  { label: 'Case Study', variant: 'warning' },
+  { label: 'Build Notes', variant: 'warning' },
 ];
 
 export const CASE_STUDY_PROBLEM_ITEMS = [
   {
     title: 'UI Drift',
-    description: 'Disjointed styles across pages due to lack of constraints.',
+    description: 'Patterns diverged across pages because visual decisions lived inside local component styles.',
   },
   {
     title: 'Hardcoded Values',
-    description: 'Magic numbers in CSS that are impossible to audit.',
+    description: 'One-off spacing and color values made consistency difficult to audit and refactor safely.',
   },
   {
     title: 'Theming Friction',
-    description: 'Dark mode implementation requiring manual overrides.',
+    description: 'Theme work relied on manual overrides instead of intent-driven token remapping.',
   },
 ];
 
@@ -43,43 +44,43 @@ export const CASE_STUDY_DECISIONS = [
   {
     title: 'Audit before build.',
     description:
-      'Since the portfolio already existed, I audited existing UI patterns first to lock in tokens before refactoring the UI.',
+      'Before writing new components, I mapped recurring UI patterns to determine which tokens were foundational versus incidental.',
   },
   {
     title: 'Tokens before components.',
     description:
-      'I defined primitives and semantics first so components inherit intent instead of raw values.',
+      'I locked primitives and semantic roles first so components consume intent instead of reaching into raw values.',
   },
   {
-    title: 'Visual testing.',
+    title: 'Visual testing by default.',
     description:
-      'The portfolio itself acts as a live visual test, with Percy snapshots to catch drift as tokens evolve.',
+      'The portfolio itself acts as the regression surface, with snapshots catching drift as tokens and components evolve.',
   },
   {
-    title: 'Automated a11y checks.',
+    title: 'A11y checks as a release gate.',
     description:
-      'Bake in basic accessibility verification to prevent regressions as the system evolves.',
+      'Accessibility checks run as part of regular validation to prevent contrast and structure regressions from shipping.',
   },
   {
     title: 'Dogfood in production.',
     description:
-      'The portfolio UI doubles as the testing ground for token scaling and accessibility.',
+      'Every section of the portfolio consumes the same token stack, so architecture decisions are tested in real usage.',
   },
 ];
 
 export const CASE_STUDY_WINS = [
-  'Dark mode became a token swap, not a component refactor.',
-  'React components stayed thin and focused on structure.',
-  'Typography and spacing stayed consistent across pages.',
+  'Dark mode became a token remap, not a component rewrite.',
+  'Component APIs stayed focused on structure while tokens handled visual intent.',
+  'Cross-page typography, spacing, and states now share one enforceable baseline.',
 ];
 
 export const CASE_STUDY_CHALLENGES = [
-  'Token naming required weeks of iteration to feel right.',
-  'Balancing purity vs. shipping something usable.',
-  'Learning React and system architecture simultaneously.',
+  'Token naming took multiple iterations to keep intent obvious and avoid overlap.',
+  'Balancing semantic purity with shipping pressure required explicit tradeoff decisions.',
+  'Design-system rigor and React implementation depth had to mature in parallel.',
 ];
 
 export const CASE_STUDY_NEXT_STEPS = [
-  'Refine the theming layer by making the override rule explicit (primitives vs. semantics vs. both) and validating the cascade.',
-  'Extend the UI/components to cover more complex patterns and pressure-test the system.',
+  'Codify strict token usage rules (what can consume PR vs SEM vs COMP) and enforce them with linting.',
+  'Expand component coverage to complex composition patterns and verify behavior under additional themes.',
 ];

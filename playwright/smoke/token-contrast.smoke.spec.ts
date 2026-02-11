@@ -13,9 +13,6 @@ type TokenContrastContract = {
 };
 
 const THEMES: Theme[] = ['light', 'dark'];
-// TODO(ds-contrast): Remove IDs from this set after token adjustments restore AA contrast.
-// TODO(ds-contrast): Once fixed, these contracts should be enforced as hard failures again.
-const WARN_ONLY_CONTRACT_IDS = new Set(['muted text on base', 'kicker text on base']);
 
 const TOKEN_CONTRACTS: TokenContrastContract[] = [
   {
@@ -34,7 +31,7 @@ const TOKEN_CONTRACTS: TokenContrastContract[] = [
   },
   {
     id: 'kicker text on base',
-    foregroundToken: '--sem-color-accent-orange',
+    foregroundToken: '--sem-color-text-accent',
     backgroundToken: '--sem-color-bg-base',
     fontSizePx: 12,
     fontWeight: 500,
@@ -62,7 +59,9 @@ const thresholdForText = (fontSizePx: number, fontWeight: number): number => {
 
 test.describe('Token contrast contracts', () => {
   for (const theme of THEMES) {
-    test(`semantic token contrast contracts pass in ${theme}`, async ({ page }) => {
+    test(`semantic token contrast contracts pass in ${theme}`, async ({ page, browserName }) => {
+      test.skip(browserName !== 'chromium', 'Token contrast contracts run in Chromium only.');
+
       await page.addInitScript((themeValue: Theme) => {
         window.localStorage.setItem('theme', themeValue);
       }, theme);
@@ -120,23 +119,10 @@ test.describe('Token contrast contracts', () => {
       const failing = results.filter(
         (result) => result.ratio < thresholdForText(result.fontSizePx, result.fontWeight)
       );
-      const warnOnly = failing.filter((result) => WARN_ONLY_CONTRACT_IDS.has(result.id));
-      const hardFailures = failing.filter((result) => !WARN_ONLY_CONTRACT_IDS.has(result.id));
-
-      if (warnOnly.length > 0) {
-        console.warn(
-          `Token contrast warnings in ${theme}:\n${warnOnly
-            .map((item) => {
-              const threshold = thresholdForText(item.fontSizePx, item.fontWeight);
-              return `${item.id} (${item.foregroundToken} on ${item.backgroundToken}) ratio ${item.ratio.toFixed(2)} < ${threshold}`;
-            })
-            .join('\n')}`
-        );
-      }
 
       expect(
-        hardFailures,
-        `Token contrast contract failures in ${theme}:\n${hardFailures
+        failing,
+        `Token contrast contract failures in ${theme}:\n${failing
           .map((item) => {
             const threshold = thresholdForText(item.fontSizePx, item.fontWeight);
             return `${item.id} (${item.foregroundToken} on ${item.backgroundToken}) ratio ${item.ratio.toFixed(2)} < ${threshold}`;

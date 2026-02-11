@@ -14,25 +14,25 @@
 /* Variants */
 .badgeSuccess {
   background-color: var(--sem-color-bg-success);
-  border-color: var(--sem-color-border-success);
+  border-color: var(--sem-color-bg-success);
   color: var(--sem-color-text-success);
 }
 
 .badgeWarning {
   background-color: var(--sem-color-bg-warning);
-  border-color: var(--sem-color-border-warning);
+  border-color: var(--sem-color-bg-warning);
   color: var(--sem-color-text-warning);
 }
 
 .badgeInfo {
   background-color: var(--sem-color-bg-info);
-  border-color: var(--sem-color-border-info);
+  border-color: var(--sem-color-bg-info);
   color: var(--sem-color-text-info);
 }
 
 .badgeError {
   background-color: var(--sem-color-bg-error);
-  border-color: var(--sem-color-border-error);
+  border-color: var(--sem-color-bg-error);
   color: var(--sem-color-text-error);
 }
 

@@ -26,9 +26,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <div className={styles.inlineExample}>
       <span>Example:</span>
       <code>--comp-card-bg</code>
-      <span>→</span>
       <code>--sem-color-bg-elevated</code>
-      <span>→</span>
       <code>--pr-color-neutral-100</code>
     </div>
 
@@ -68,10 +66,10 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
           A bordered variant for structural grouping. Provides containment without depth, ideal for nested content or layout sections.
         </p>
       </Card>
-      <Card variant="ghost">
-        <h4>Ghost</h4>
+      <Card variant="flat" tone="dashed">
+        <h4>Flat Dashed</h4>
         <p>
-          A low-emphasis variant, typically used to represent a placeholder or a state with reduced importance.
+          A low-emphasis tone for placeholders or provisional containers while preserving the flat card surface model.
         </p>
       </Card>
     </div>

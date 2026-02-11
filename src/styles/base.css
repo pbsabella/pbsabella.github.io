@@ -122,6 +122,11 @@ h4,
   line-height: var(--pr-leading-150);
 }
 
+code {
+  width: fit-content;
+  max-width: 100%;
+}
+
 /* ---------------------------------
    Link utility
 ---------------------------------- */

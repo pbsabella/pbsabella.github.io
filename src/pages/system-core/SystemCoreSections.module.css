@@ -6,21 +6,26 @@
   margin-bottom: var(--pr-spacing-8);
 }
 
-.tokenTable :global([data-component='table']) code {
-  justify-self: start;
-  width: fit-content;
-  max-width: 100%;
-}
-
 .tableBar {
   height: var(--pr-size-8);
-  background: var(--sem-color-border-brand);
+  background: var(--sem-color-border-accent);
   border-radius: var(--pr-radius-pill);
   min-width: var(--pr-size-28);
 }
 
 .typeSample {
   margin: 0;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--pr-text-100);
+  color: var(--sem-color-text-primary);
+  background: var(--sem-color-bg-elevated);
+  padding: var(--pr-spacing-1) var(--pr-spacing-2);
+  border-radius: var(--pr-radius-sm);
+  display: inline-block;
+  line-height: var(--pr-leading-100);
 }
 
 .tableSwatch {
@@ -44,7 +49,7 @@
 .sectionIcon {
   width: var(--pr-size-24);
   height: var(--pr-size-24);
-  color: var(--sem-color-border-brand);
+  color: var(--sem-color-text-accent);
   display: inline-flex;
 }
 
@@ -56,6 +61,12 @@
   margin-top: var(--pr-spacing-3);
   font-size: var(--sem-text-caption);
   color: var(--sem-color-text-muted);
+}
+
+.inlineExample code + code::before {
+  content: '→';
+  color: var(--sem-color-text-muted);
+  margin-right: var(--pr-spacing-2);
 }
 
 .buttonDemo {
@@ -75,17 +86,6 @@
   margin-top: var(--pr-spacing-8);
 }
 
-code {
-  font-family: var(--font-mono);
-  font-size: var(--pr-text-100);
-  color: var(--sem-color-text-primary);
-  background: var(--sem-color-bg-elevated);
-  padding: var(--pr-spacing-1) var(--pr-spacing-2);
-  border-radius: var(--pr-radius-sm);
-  display: inline-block;
-  line-height: var(--pr-leading-100);
-}
-
 .cardContent {
   padding: var(--pr-spacing-6);
 }
@@ -93,12 +93,6 @@ code {
 .cardContent *:not(:last-child) {
   margin-bottom: var(--pr-spacing-2);
   display: block;
-}
-
-.cardContent code {
-  display: inline-block;
-  width: fit-content;
-  max-width: 100%;
 }
 
 .grid {

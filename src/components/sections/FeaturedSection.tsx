@@ -11,6 +11,7 @@ interface FeaturedSectionProps {
   className?: string;
   bgClass?: string;
   noContainer?: boolean;
+  containerVariant?: 'default' | 'wide';
 }
 
 const FeaturedSection = ({
@@ -22,6 +23,7 @@ const FeaturedSection = ({
   className = '',
   bgClass = '',
   noContainer = false,
+  containerVariant = 'wide',
 }: FeaturedSectionProps) => {
   // Common header logic
   const renderHeader = () =>
@@ -42,11 +44,11 @@ const FeaturedSection = ({
     <section id={id} className={`${styles.featuredSection} ${bgClass} ${className}`}>
       {noContainer ? (
         <>
-          <Container>{renderHeader()}</Container>
+          <Container variant={containerVariant}>{renderHeader()}</Container>
           <div>{children}</div>
         </>
       ) : (
-        <Container>
+        <Container variant={containerVariant}>
           {renderHeader()}
           <div>{children}</div>
         </Container>

@@ -1,5 +1,6 @@
 .header {
   background-color: var(--comp-header-bg);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
   height: var(--comp-header-height);
   position: fixed;
   top: 0;
@@ -7,6 +8,7 @@
   z-index: var(--comp-header-z-index);
   transition:
     background-color var(--pr-duration-fast) var(--pr-easing-out),
+    border-color var(--pr-duration-fast) var(--pr-easing-out),
     transform var(--pr-duration-base) var(--pr-easing-in-out);
 }
 
@@ -23,6 +25,7 @@
 
 .headerTransparent {
   background-color: transparent;
+  border-bottom-color: transparent;
 }
 
 .nav {

@@ -20,7 +20,7 @@
 
 .tagSuccess {
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-success-emphasis);
   border-color: var(--sem-color-border-success);
 }
 
@@ -32,14 +32,30 @@
 
 .tagInfo {
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-info-emphasis);
   border-color: var(--sem-color-border-info);
 }
 
 .tagError {
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-error-emphasis);
   border-color: var(--sem-color-border-error);
+}
+
+:global([data-theme='dark']) .tagSuccess {
+  color: var(--sem-color-text-success-emphasis);
+}
+
+:global([data-theme='dark']) .tagWarning {
+  color: var(--sem-color-text-primary);
+}
+
+:global([data-theme='dark']) .tagInfo {
+  color: var(--sem-color-text-info-emphasis);
+}
+
+:global([data-theme='dark']) .tagError {
+  color: var(--sem-color-text-error-emphasis);
 }
 
 /* --- Sizes --- */

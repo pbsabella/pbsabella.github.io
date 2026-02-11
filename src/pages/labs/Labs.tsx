@@ -20,7 +20,8 @@ const Labs = () => {
           {LABS_PROJECTS.map((project) => {
             const card = (
               <Card
-                variant={project.variant === 'ghost' ? 'ghost' : 'elevated'}
+                variant={project.variant ?? 'elevated'}
+                tone={project.tone ?? 'default'}
                 isInteractive={project.interactive}
                 className={project.title === 'System Core Documentation' ? styles.systemCoreCard : ''}
               >

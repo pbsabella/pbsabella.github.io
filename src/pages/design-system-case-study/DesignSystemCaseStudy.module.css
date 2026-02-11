@@ -66,7 +66,7 @@
 }
 
 .titleAccent {
-  color: var(--sem-color-border-brand);
+  color: var(--sem-color-text-accent);
 }
 
 .subtitle {
@@ -169,7 +169,7 @@
   font-size: var(--sem-text-kicker);
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-30);
-  color: var(--sem-color-accent-orange);
+  color: var(--sem-color-text-accent);
   font-weight: var(--pr-weight-500);
   margin-bottom: var(--pr-spacing-2);
 }
@@ -278,7 +278,7 @@
 }
 
 .list li::marker {
-  color: var(--sem-color-border-brand);
+  color: var(--sem-color-text-accent);
 }
 
 .listIcon {
@@ -317,11 +317,11 @@
 }
 
 .iconSuccess {
-  color: var(--sem-color-border-brand);
+  color: var(--sem-color-text-accent);
 }
 
 .iconAccent {
-  color: var(--sem-color-border-brand);
+  color: var(--sem-color-accent-orange);
 }
 
 .demo {
@@ -329,11 +329,7 @@
 }
 
 .demoCard {
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  border-radius: var(--pr-radius-lg);
-  background: var(--sem-color-bg-base);
   box-shadow: var(--sem-elevation-medium);
-  overflow: hidden;
 }
 
 .sectionTitle + .demoCard {
@@ -345,7 +341,6 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--pr-spacing-3) var(--pr-spacing-4);
-  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-window);
   background: rgb(23 32 48);
   gap: var(--pr-spacing-3);
 }
@@ -390,32 +385,32 @@
   gap: var(--pr-spacing-3);
 }
 
-.demoCode {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--pr-spacing-2);
-  font-size: var(--sem-text-caption);
-  color: var(--sem-color-text-primary);
+.demoHierarchy {
+  margin: 0;
+  font-size: var(--sem-text-kicker);
+  letter-spacing: var(--pr-tracking-14);
+  text-transform: uppercase;
+  color: var(--sem-color-text-muted);
 }
 
-.demoCode code {
+.demoThemeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pr-spacing-3);
   font-size: var(--sem-text-caption);
-  background: var(--sem-color-bg-subtle);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-muted);
 }
 
 .demoShowcase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--pr-size-260), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--pr-spacing-4);
 }
 
 .demoMiniCard {
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   color: var(--sem-color-text-primary);
-  display: grid;
-  gap: var(--pr-spacing-3);
 }
 
 .demoMiniTitle {
@@ -429,58 +424,29 @@
 }
 
 .demoMiniMeta {
-  display: flex;
-  align-items: center;
+  display: grid;
   gap: var(--pr-spacing-2);
 }
 
-.demoTokens {
+.demoPipelines {
   display: grid;
-  gap: var(--pr-spacing-3);
-  padding: var(--pr-spacing-4);
-  border-radius: var(--pr-radius-base);
-  background: var(--sem-color-bg-subtle);
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  gap: var(--pr-spacing-4);
+  margin-top: var(--pr-spacing-2);
 }
 
-.demoControls {
+.demoPipelineRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-1);
   font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-primary);
+}
+
+.demoPipelineRow code + code::before {
+  content: '→';
   color: var(--sem-color-text-muted);
-}
-
-.demoTokenRow {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  align-items: center;
-  gap: var(--pr-spacing-2);
-}
-
-.demoTokenLabel {
-  font-size: var(--sem-text-kicker);
-  text-transform: uppercase;
-  letter-spacing: var(--pr-tracking-14);
-  color: var(--sem-color-text-primary);
-}
-
-.demoTokenSwatch {
-  width: var(--pr-size-24);
-  height: var(--pr-size-24);
-  border-radius: var(--pr-radius-sm);
-  background: var(--sem-color-bg-elevated);
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-}
-
-.demoTokenSwatchAccent {
-  background: var(--sem-color-border-brand);
-  border-color: var(--sem-color-border-brand);
-}
-
-.demoTokenValue {
-  font-size: var(--sem-text-caption);
-  color: var(--sem-color-text-primary);
+  margin-right: var(--pr-spacing-1);
 }
 
 .noteText {
@@ -526,5 +492,11 @@
 
   .sectionTwoCol {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@media (width >= 760px) {
+  .demoShowcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

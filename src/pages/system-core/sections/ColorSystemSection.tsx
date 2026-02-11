@@ -25,19 +25,19 @@ const ColorSystemSection = ({ icon }: ColorSystemSectionProps) => (
     </p>
 
     <h4 className={styles.subsectionTitle}>Green Scale (brand)</h4>
-    <TokenTable tokens={COLOR_GROUPS.primitives.green} />
+    <TokenTable tokens={COLOR_GROUPS.primitives.green} showValue />
 
     <h4 className={styles.subsectionTitle}>Neutral Scale (warm)</h4>
-    <TokenTable tokens={COLOR_GROUPS.primitives.neutral} />
+    <TokenTable tokens={COLOR_GROUPS.primitives.neutral} showValue />
 
     <h4 className={styles.subsectionTitle}>Gray Scale (cool)</h4>
-    <TokenTable tokens={COLOR_GROUPS.primitives.gray} />
+    <TokenTable tokens={COLOR_GROUPS.primitives.gray} showValue />
 
     <h4 className={styles.subsectionTitle}>Accent</h4>
-    <TokenTable tokens={COLOR_GROUPS.primitives.accent} />
+    <TokenTable tokens={COLOR_GROUPS.primitives.accent} showValue />
 
     <h4 className={styles.subsectionTitle}>Status</h4>
-    <TokenTable tokens={COLOR_GROUPS.primitives.status} />
+    <TokenTable tokens={COLOR_GROUPS.primitives.status} showValue />
   </section>
 );
 

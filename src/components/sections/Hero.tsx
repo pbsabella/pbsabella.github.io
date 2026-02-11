@@ -1,33 +1,65 @@
 import { Link } from 'react-router-dom';
-import { SECTION_ANCHORS } from '@constants/routes';
+import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import { useSectionNav } from '@hooks/useSectionNav';
+import Tag from '@components/ui/Tag/Tag';
+import Container from '@components/layout/Container';
+import HeroCanvas from './HeroCanvas';
 import styles from './Hero.module.css';
+
+const HERO_TOOLSET = [
+  'Design Systems',
+  'Frontend Architecture',
+  'TypeScript',
+];
 
 const Hero = () => {
   const { getSectionLinkProps } = useSectionNav();
 
   return (
-    <div id="hero" className={styles.hero}>
-      <div className={styles.heroInner}>
-        <h1 className={`${styles.heroTitle} ${styles.heroIndent}`}>
-          A portfolio
-          <br />
-          <span className={styles.heroIndentInner}>of sorts.</span>
-        </h1>
-        <div className={`${styles.heroAction} ${styles.heroIndent}`}>
-          <Link
-            className={styles.heroLink}
-            {...getSectionLinkProps(SECTION_ANCHORS.ABOUT)}
-          >
-            <span>
-              Senior Frontend Engineer & <br />
-              Design Systems Engineer
-            </span>
-            <span className={styles.heroDivider}></span>
-          </Link>
-        </div>
+    <section id="hero" className={styles.hero} aria-labelledby="hero-title">
+      <div className={styles.heroSurface}>
+        <HeroCanvas />
+        <Container className={styles.heroInner} variant="wide">
+          <div className={styles.heroBadgeRow}>
+            <Tag size="md" variant="success">
+              Personal Portfolio
+            </Tag>
+            <span className={styles.heroRule} />
+            <span className={styles.heroMeta}>Senior Frontend Engineer | Design Systems Engineer</span>
+          </div>
+
+          <h1 id="hero-title" className={styles.heroTitle}>
+            Building product interfaces with system rigor and an eye for pixel-perfect detail.
+          </h1>
+
+          <p className={styles.heroLead}>
+            I build frontend systems for complex products, balancing thoughtful UI craft with
+            practical implementation details.
+          </p>
+
+          <ul className={styles.heroToolset} aria-label="Core toolset and expertise">
+            {HERO_TOOLSET.map((item) => (
+              <li key={item}>
+                <Tag size="sm">{item}</Tag>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.heroActions}>
+            <Link
+              className={styles.heroPrimaryLink}
+              {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
+            >
+              Contact me
+            </Link>
+
+            <Link className={`${styles.heroSecondaryLink} link`} to={ROUTES.LABS}>
+              Explore labs writing
+            </Link>
+          </div>
+        </Container>
       </div>
-    </div>
+    </section>
   );
 };
 
