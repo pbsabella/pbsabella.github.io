@@ -90,7 +90,7 @@
   font-size: clamp(calc(var(--pr-text-900) * 1.2), 7.8vw, calc(var(--pr-text-900) * 1.95));
   line-height: var(--pr-leading-110);
   color: var(--sem-color-text-strong);
-  max-width: clamp(13ch, 48vw, 19ch);
+  max-width: clamp(16ch, 72vw, 24ch);
   margin-bottom: var(--pr-spacing-3);
 }
 

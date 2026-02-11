@@ -113,7 +113,7 @@
 }
 
 .workItemBody {
-  padding: 0 var(--pr-spacing-4) var(--pr-spacing-6);
+  padding: var(--pr-spacing-4) var(--pr-spacing-4) var(--pr-spacing-6);
 }
 
 .workItemTitle {

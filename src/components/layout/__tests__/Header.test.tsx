@@ -71,7 +71,7 @@ describe('Header', () => {
   });
 
   it('renders the brand logo on a deep labs page', () => {
-    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.DESIGN_SYSTEM_CASE_STUDY]);
+    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.DESIGN_SYSTEM_BUILD_NOTES]);
 
     expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
     expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();

@@ -128,7 +128,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
         items={[
           { label: 'Home', to: '/' },
           { label: 'Labs', to: '/' },
-          { label: 'Design System Case Study' },
+          { label: 'Design System Build Notes' },
         ]}
       />
     </div>

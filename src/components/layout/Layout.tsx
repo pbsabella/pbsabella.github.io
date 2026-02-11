@@ -5,6 +5,7 @@ import SideNav from '@components/layout/SideNav';
 import { useBodyScrollLock } from '@hooks/useBodyScrollLock';
 import { useInert } from '@hooks/useInert';
 import { useRouteScroll } from '@hooks/useRouteScroll';
+import { useSeoMeta } from '@hooks/useSeoMeta';
 import styles from './Layout.module.css';
 
 interface LayoutProps {
@@ -26,6 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
   useBodyScrollLock(isSideNavOpen, { className: styles.noScroll });
   useInert(mainRef, isSideNavOpen);
   useRouteScroll();
+  useSeoMeta();
 
   return (
     <div className={styles.appWrapper}>

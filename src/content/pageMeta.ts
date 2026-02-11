@@ -21,7 +21,7 @@ export const SYSTEM_CORE_META = {
   ],
 };
 
-export const CASE_STUDY_META_PAGE = {
+export const BUILD_NOTES_META_PAGE = {
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },
     { label: 'Labs', to: ROUTES.LABS },

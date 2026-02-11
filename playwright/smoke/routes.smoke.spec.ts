@@ -15,7 +15,7 @@ const ROUTES = [
   { name: 'home', path: '/#/' },
   { name: 'labs', path: '/#/labs' },
   { name: 'system core', path: '/#/labs/core' },
-  { name: 'design system case study', path: '/#/labs/design-system-case-study' },
+  { name: 'design system build notes', path: '/#/labs/design-system-build-notes' },
 ];
 
 const isIgnorableRequestFailure = (failureText: string | null): boolean =>
@@ -64,7 +64,7 @@ const attachRuntimeGuards = (page: Page): GuardState => {
 };
 
 const assertKickerContrast = async (page: Page, routePath: string, theme: Theme) => {
-  if (routePath !== '/#/labs/design-system-case-study') return;
+  if (routePath !== '/#/labs/design-system-build-notes') return;
 
   const ratio = await page.evaluate(() => {
     const getRgb = (color: string): [number, number, number] => {
@@ -109,7 +109,7 @@ const assertKickerContrast = async (page: Page, routePath: string, theme: Theme)
     return contrastRatio(getRgb(fgColor), getRgb(bgColor));
   });
 
-  expect(ratio, `Case study kicker contrast on ${theme}: ${ratio.toFixed(2)} < 4.5`).toBeGreaterThanOrEqual(4.5);
+  expect(ratio, `Build notes kicker contrast on ${theme}: ${ratio.toFixed(2)} < 4.5`).toBeGreaterThanOrEqual(4.5);
 };
 
 const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, testInfo: TestInfo) => {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './DesignSystemCaseStudy.module.css';
+import styles from './DesignSystemBuildNotes.module.css';
 import Alert from '@/components/ui/Alert/Alert';
 import Badge from '@/components/ui/Badge/Badge';
 import Button from '@/components/ui/Button/Button';
@@ -9,12 +9,12 @@ import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
 import { CheckCircle2, ArrowUpRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, Book } from 'lucide-react';
 import {
-  CASE_STUDY_CHALLENGES,
-  CASE_STUDY_DECISIONS,
-  CASE_STUDY_NEXT_STEPS,
-  CASE_STUDY_PROBLEM_ITEMS,
-  CASE_STUDY_WINS,
-} from '@/content/designSystemCaseStudy';
+  BUILD_NOTES_CHALLENGES,
+  BUILD_NOTES_DECISIONS,
+  BUILD_NOTES_NEXT_STEPS,
+  BUILD_NOTES_PROBLEM_ITEMS,
+  BUILD_NOTES_WINS,
+} from '@/content/designSystemBuildNotes';
 
 export const MotivationSection = () => (
   <section id="motivation" className={styles.section}>
@@ -50,7 +50,7 @@ export const ProblemSection = () => (
       Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
     </p>
     <ul className={`${styles.listIcon} ${styles.problemList}`}>
-      {CASE_STUDY_PROBLEM_ITEMS.map((item, index) => {
+      {BUILD_NOTES_PROBLEM_ITEMS.map((item, index) => {
         const icons = [
           <Shuffle key="ui-drift" size={20} className={styles.iconAccent} aria-hidden="true" />,
           <Code2 key="hardcoded" size={20} className={styles.iconAccent} aria-hidden="true" />,
@@ -131,7 +131,7 @@ export const KeyDecisionsSection = () => (
     <p className={styles.sectionKicker}>04. Key Decisions</p>
     <h2 className={styles.sectionTitle}>What I locked in early</h2>
     <ol className={styles.decisionList}>
-      {CASE_STUDY_DECISIONS.map((item) => (
+      {BUILD_NOTES_DECISIONS.map((item) => (
         <li key={item.title}>
           <strong>{item.title}</strong> {item.description}
         </li>
@@ -145,7 +145,7 @@ export const WinsSection = () => (
     <p className={styles.sectionKicker}>05. Outcomes</p>
     <h2 className={styles.sectionTitle}>What worked in practice</h2>
     <ul className={styles.listIcon}>
-      {CASE_STUDY_WINS.map((item) => (
+      {BUILD_NOTES_WINS.map((item) => (
         <li key={item}>
           <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
           {item}
@@ -160,7 +160,7 @@ export const ChallengesSection = () => (
     <p className={styles.sectionKicker}>06. Friction</p>
     <h2 className={styles.sectionTitle}>Where it got hard</h2>
     <ul className={styles.listIcon}>
-      {CASE_STUDY_CHALLENGES.map((item, index) => {
+      {BUILD_NOTES_CHALLENGES.map((item, index) => {
         const icons = [
           <Timer key="timer" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
           <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
@@ -200,7 +200,7 @@ export const DemoSection = () => (
           </p>
           <div className={styles.demoThemeRow}>
             <p className={styles.demoHierarchy}>PR → SEM → COMP</p>
-            <ThemeToggle id="case-study-theme-toggle" variant="text" />
+            <ThemeToggle id="build-notes-theme-toggle" variant="text" />
           </div>
         </div>
         <div className={styles.demoShowcase}>
@@ -284,7 +284,7 @@ export const NextStepsSection = () => (
       added without eroding the semantic contract.
     </p>
     <ul className={styles.listIcon}>
-      {CASE_STUDY_NEXT_STEPS.map((item) => (
+      {BUILD_NOTES_NEXT_STEPS.map((item) => (
         <li key={item}>
           <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
           {item}
@@ -300,7 +300,7 @@ export const SystemCoreSection = () => (
     <h2 className={styles.sectionTitle}>Deep dive into System Core</h2>
     <p>
       Explore the live token tables, primitives, and component
-      foundations that back this case study.
+      foundations that back these build notes.
     </p>
     <Link to={ROUTES.SYSTEM_CORE}>
       <Button variant="secondary" size="md">View System Core</Button>

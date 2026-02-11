@@ -7,7 +7,7 @@ const routes = [
   { path: '#/', name: 'home' },
   { path: '#/labs', name: 'labs' },
   { path: '#/labs/system-core', name: 'system-core' },
-  { path: '#/labs/design-system-case-study', name: 'design-system-case-study' },
+  { path: '#/labs/design-system-build-notes', name: 'design-system-build-notes' },
 ];
 
 const outputDir = join(process.cwd(), 'lighthouse-reports');
