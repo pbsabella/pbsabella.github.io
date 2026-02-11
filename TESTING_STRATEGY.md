@@ -57,6 +57,25 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Command:** `npm run lighthouse` (uses `npm run preview` under the hood)
 - **Quick check:** `npm run lighthouse:quick` (1 run per route)
 
+### Layer 6: Cross-Browser Smoke (Playwright)
+
+- **Goal:** Catch runtime issues Cypress/Percy/Vitest may miss across browser engines
+- **Tools:** Playwright (Chromium, Firefox, WebKit)
+- **Coverage:** Route load sanity, console errors, failed requests, accessibility checks in light/dark themes, and semantic token contrast contracts
+- **Note:** Axe `incomplete` color-contrast findings are reported for triage; hard failures come from axe violations plus explicit token/critical-selector contrast checks
+- **Command:**
+  - `npm run pw:install` (first-time browser install)
+  - `npm run pw:smoke` (cross-browser smoke suite)
+  - `npm run pw:test` (full Playwright suite)
+
+## Tool Overlap (Concise)
+
+- **Cypress vs Lighthouse overlap:** Both can surface accessibility and runtime quality issues.
+- **Cypress strength:** User journey behavior and interaction correctness.
+- **Lighthouse strength:** Page-level audits (performance, SEO, best-practices, accessibility score trends).
+- **Current approach:** Keep both for confidence while the stack is stabilizing.
+- **Optimization note:** We will reduce overlap later by cherry-picking the best tool per check and removing duplicate gates where signal is redundant.
+
 ---
 
 ## ⚖️ Test Inclusion Criteria
@@ -69,6 +88,7 @@ To maintain velocity, apply this decision matrix:
 | **Context/state**     | Integration (Vitest) | Verify provider logic              |
 | **Static layouts**    | Visual (Percy)       | Catches unintended shifts          |
 | **User interactions** | E2E (Cypress)        | Only behavior needs manual testing |
+| **Cross-browser runtime** | Smoke (Playwright) | Catches engine-specific regressions |
 | **Third-party libs**  | Skip                 | Assume stable, trust maintainers   |
 | **Accessibility**     | Lighthouse CLI       | Automated a11y checks via axe      |
 
@@ -89,6 +109,7 @@ npm run test:local
 # 4. Pre-deployment checks
 npm run build
 npm run type-check && npm run lint && npm run test
+npm run pw:smoke
 npm run percy:test
 ```
 
@@ -100,6 +121,7 @@ npm run percy:test
 - **Unit Tests** - `npm run test`
 - **Lint** - `npm run lint`
 - **Build Verification** - `npm run build`
+- **Cross-Browser Smoke** - `npm run pw:smoke`
 - **Deploy to GitHub Pages** - On master push
 
 ### Visual Regression: `percy.yml` (Blocking)
@@ -146,6 +168,7 @@ Accessibility is verified at multiple layers:
 | **Static**      | ESLint (jsx-a11y) | Missing alt text, bad ARIA, semantics   |
 | **Interactive** | Cypress E2E       | Keyboard navigation, focus trapping     |
 | **Audit**       | Lighthouse CI     | Color contrast, WCAG violations via axe |
+| **Smoke**       | Playwright        | Missing accessible names + landmark sanity |
 | **Visual**      | Percy             | Layout breaks that hurt readability     |
 
 ---

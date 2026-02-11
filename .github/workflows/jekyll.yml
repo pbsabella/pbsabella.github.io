@@ -47,6 +47,12 @@ jobs:
       - name: Run Lighthouse CLI
         run: npm run lighthouse
 
+      - name: Install Playwright browsers
+        run: pw:install
+
+      - name: Run Playwright smoke tests
+        run: npm run pw:smoke
+
       - name: Upload artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3

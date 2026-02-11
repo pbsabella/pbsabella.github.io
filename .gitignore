@@ -15,5 +15,9 @@ lighthouse/
 cypress/screenshots/
 cypress/videos/
 
+# Playwright artifacts
+playwright-report/
+test-results/
+
 # Husky
 .husky/_

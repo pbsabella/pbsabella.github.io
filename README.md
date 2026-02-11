@@ -125,8 +125,12 @@ npm run format       # Prettier format
 | `npm run test:local`     | Dev server + Cypress tests     |
 | `npm run percy:test`     | Visual regression tests        |
 | `npm run percy:baseline` | Update Percy baseline          |
-| `npm run lighthouse`  | Lighthouse CLI audit (all routes) |
-| `npm run lighthouse:quick`  | Lighthouse CLI audit (1 run per route) |
+| `npm run lighthouse`      | Lighthouse CLI audit (all routes) |
+| `npm run lighthouse:quick`| Lighthouse CLI audit (1 run per route) |
+| `npm run pw:install`      | Install Playwright browsers    |
+| `npm run pw:test`         | Run all Playwright tests       |
+| `npm run pw:smoke`        | Cross-browser sanity smoke tests |
+| `npm run pw:headed`       | Run Playwright in headed mode  |
 
 **→ See [TESTING_STRATEGY.md](TESTING_STRATEGY.md) for detailed testing philosophy, what to test, and examples.**
 
@@ -166,6 +170,13 @@ npm run lighthouse:quick  # 1 run per route (faster local check)
 - **Metrics:** Performance, Accessibility, Best Practices, SEO
 - **Thresholds:** Performance ≥0.86 (warn), others 100% (fail)
 - **Run:** In CI and locally (uses `npm run preview` under the hood)
+
+### Browser Smoke Tests (`npm run pw:smoke`)
+
+- **Tool:** Playwright (Chromium, Firefox, WebKit)
+- **Coverage:** Hash routes load, console/runtime errors, failed network requests, dual-theme accessibility checks (axe), and semantic token contrast contracts
+- **Run:** In CI and locally
+- **First-time setup:** `npm run pw:install`
 
 ## Local Development
 
