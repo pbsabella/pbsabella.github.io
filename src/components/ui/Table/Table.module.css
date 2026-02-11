@@ -95,6 +95,10 @@
   background: var(--sem-color-bg-striped);
 }
 
+.tableStacked.tableStriped .tableRow:nth-child(odd) .tableCell {
+  background: transparent;
+}
+
 @media (width >= 769px) {
   .tableStacked thead {
     display: table-header-group;

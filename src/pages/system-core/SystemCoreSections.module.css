@@ -3,7 +3,13 @@
 }
 
 .tokenTable {
-  margin-bottom: var(--pr-spacing-9);
+  margin-bottom: var(--pr-spacing-8);
+}
+
+.tokenTable :global([data-component='table']) code {
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .tableBar {

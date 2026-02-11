@@ -10,7 +10,7 @@
   justify-content: center;
   padding: 0;
   position: relative;
-  border-radius: var(--pr-radius-full);
+  border-radius: var(--pr-radius-pill);
 }
 
 .themeToggleButtonIcon {

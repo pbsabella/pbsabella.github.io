@@ -73,6 +73,12 @@
   padding-left: var(--pr-spacing-11);
 }
 
+@media only screen and (width < 768px) {
+  .heroInner {
+    min-height: min(100dvh, 720px);
+  }
+}
+
 @media only screen and (width >=768px) {
   .hero {
     margin-bottom: var(--pr-spacing-11);

@@ -54,6 +54,6 @@
 }
 
 .tagLg {
-  font-size: var(--pr-text-body);
+  font-size: var(--sem-text-body);
   padding: var(--pr-spacing-2) var(--pr-spacing-4);
 }
