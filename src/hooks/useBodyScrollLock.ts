@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
 
+type BodyScrollLockOptions = {
+  /** Optional body class used to lock scrolling in CSS */
+  className?: string;
+};
+
 /**
  * Lock/unlock document scroll while a UI "modal" is open
  */
-export function useBodyScrollLock(isLocked: boolean, options?: { className?: string }) {
+export function useBodyScrollLock(isLocked: boolean, options?: BodyScrollLockOptions) {
   useEffect(() => {
     if (!isLocked) return;
 

@@ -1,9 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 
+// Minimum scroll distance before hide-on-scroll can activate
+const HEADER_HIDE_SCROLL_THRESHOLD = 100;
+
+type HeaderScrollOptions = {
+  /** Hide header while scrolling down after threshold */
+  enableHide?: boolean;
+};
+
 /**
- * Header scroll behavior
+ * Returns header UI state for transparency and hide-on-scroll
  */
-export const useHeaderScroll = (options = { enableHide: false }) => {
+export const useHeaderScroll = (options: HeaderScrollOptions = { enableHide: false }) => {
   const [state, setState] = useState({
     isTransparent: true,
     isHidden: false,
@@ -18,9 +26,8 @@ export const useHeaderScroll = (options = { enableHide: false }) => {
       setState({
         isTransparent: currentScrollY <= 0,
         isHidden: options.enableHide
-          // Only hide if we've scrolled a decent amount (100px)
-          // AND we are moving downward.
-          ? (currentScrollY > lastScrollY.current && currentScrollY > 100)
+          // Only hide if we've scrolled enough and are moving downward
+          ? (currentScrollY > lastScrollY.current && currentScrollY > HEADER_HIDE_SCROLL_THRESHOLD)
           : false,
       });
 

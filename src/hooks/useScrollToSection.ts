@@ -2,11 +2,20 @@ import { useCallback } from 'react';
 import type { ScrollBehavior } from '@/types/scroll';
 
 type ScrollToSectionOptions = {
+  /** Scroll behavior for target section */
   behavior?: ScrollBehavior;
+  /** Honor prefers-reduced-motion when behavior is smooth */
   respectReducedMotion?: boolean;
 };
 
+/**
+ * Returns a stable function that scrolls to a section by id
+ * Uses requestAnimationFrame to ensure layout is ready before scrolling
+ */
 export const useScrollToSection = () => {
+  /**
+   * Scroll to the section element matching `sectionId`
+   */
   const scrollToSection = useCallback((sectionId: string | null, options?: ScrollToSectionOptions) => {
     if (!sectionId) return;
 

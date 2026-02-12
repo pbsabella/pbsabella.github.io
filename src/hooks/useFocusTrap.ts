@@ -1,8 +1,11 @@
 import { RefObject, useEffect } from 'react';
 
 type UseFocusTrapOptions = {
+  /** Enables or disables focus trapping */
   isActive: boolean;
+  /** Optional handler for Escape key press */
   onEscape?: () => void;
+  /** Optional selector to focus first when trap activates */
   initialFocusSelector?: string;
 };
 
@@ -29,6 +32,7 @@ export const useFocusTrap = <T extends HTMLElement>(
 ) => {
   useEffect(() => {
     const container = containerRef.current;
+
     if (!isActive || !container) return;
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
@@ -37,6 +41,7 @@ export const useFocusTrap = <T extends HTMLElement>(
     const focusInitial = () => {
       if (initialFocusSelector) {
         const target = container.querySelector<HTMLElement>(initialFocusSelector);
+
         if (target) {
           target.focus();
           return;
@@ -50,6 +55,7 @@ export const useFocusTrap = <T extends HTMLElement>(
     const handleDocumentKeyDown = (event: KeyboardEvent): void => {
       if (event.key === 'Escape') {
         if (!onEscape) return;
+
         event.preventDefault();
         onEscape();
         return;
