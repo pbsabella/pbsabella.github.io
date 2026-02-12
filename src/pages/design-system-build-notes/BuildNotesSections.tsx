@@ -42,7 +42,7 @@ const BuildNotesBlock = ({ id, kicker, title, className, children }: BuildNotesB
 );
 
 export const MotivationSection = () => (
-  <BuildNotesBlock id="motivation" kicker="01. Motivation" title="Learning through systems">
+  <BuildNotesBlock id="motivation" kicker="01. Motivation" title="Learning through systems" className={styles.sectionRhythm16}>
     <p>
       My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
       version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
@@ -60,7 +60,7 @@ export const MotivationSection = () => (
 );
 
 export const ProblemSection = () => (
-  <BuildNotesBlock id="problem" kicker="02. Problem" title="The friction of manual UI">
+  <BuildNotesBlock id="problem" kicker="02. Problem" title="The friction of manual UI" className={styles.sectionRhythm21}>
     <p>
       This portfolio is updated in bursts. When I come back after a gap, I
       don&apos;t want to play detective with my own CSS. Without a system, I kept
@@ -94,7 +94,7 @@ export const ProblemSection = () => (
 );
 
 export const ApproachSection = () => (
-  <BuildNotesBlock id="approach" kicker="03. Approach" title="Three layers, one source of truth">
+  <BuildNotesBlock id="approach" kicker="03. Approach" title="Three layers, one source of truth" className={styles.sectionRhythm16}>
     <p>
       I use a strict three-layer stack: <strong>primitives</strong> for raw
       options, <strong>semantics</strong> for intent, and
@@ -154,7 +154,6 @@ export const ApproachSection = () => (
     </div>
     <Alert
       variant="info"
-      className={styles.rationaleAlert}
       role="note"
       aria-live="off"
       title={(
@@ -178,7 +177,12 @@ export const ApproachSection = () => (
 );
 
 export const KeyDecisionsSection = () => (
-  <BuildNotesBlock id="decisions" kicker="04. Key Decisions" title="What I locked in early">
+  <BuildNotesBlock
+    id="decisions"
+    kicker="04. Key Decisions"
+    title="What I locked in early"
+    className={styles.sectionRhythm21}
+  >
     <ul className={`${styles.listIcon} ${styles.decisionListIcon} ${styles.decisionListGrid}`}>
       {BUILD_NOTES_DECISIONS.map((item, index) => {
         const icons = [
@@ -208,7 +212,7 @@ export const WinsSection = () => (
     id="wins"
     kicker="05. Outcomes"
     title="What worked in practice"
-    className={styles.sectionTwoCol}
+    className={`${styles.sectionTwoCol} ${styles.sectionRhythm16}`}
   >
     <ul className={styles.listIcon}>
       {BUILD_NOTES_WINS.map((item) => (
@@ -222,7 +226,7 @@ export const WinsSection = () => (
 );
 
 export const ChallengesSection = () => (
-  <BuildNotesBlock id="challenges" kicker="06. Friction" title="What got messy">
+  <BuildNotesBlock id="challenges" kicker="06. Friction" title="What got messy" className={styles.sectionRhythm21}>
     <ul className={`${styles.listIcon} ${styles.challengeListSingle}`}>
       {BUILD_NOTES_CHALLENGES.map((item, index) => {
         const icons = [
@@ -251,98 +255,100 @@ export const DemoSection = () => {
   const tagInfoPrimitive = isDarkTheme ? '--pr-color-info-400' : '--pr-color-info-600';
 
   return (
-    <BuildNotesBlock id="demo" kicker="07. Demo" title="The portfolio is the proof">
-      <Card variant="panel" className={styles.demoCard}>
-        <div className={styles.demoHeader}>
-          <div className={styles.demoDots}>
-            <span className={`${styles.demoDot} ${styles.dotError}`} />
-            <span className={`${styles.demoDot} ${styles.dotWarning}`} />
-            <span className={`${styles.demoDot} ${styles.dotSuccess}`} />
-          </div>
-        </div>
-        <div className={styles.demoBody}>
-          <div className={styles.demoIntro}>
-            <p className={styles.demo}>
-              A tiny slice of the system in motion: component tokens map
-              to semantics, then resolve to theme-specific primitives.
-              Toggle the theme to see
-              this demo adapt in real time.
-            </p>
-            <div className={styles.demoThemeRow}>
-              <p className={styles.demoHierarchy}>Trace flow: COMP → SEM → PR</p>
-              <ThemeToggle id="build-notes-theme-toggle" variant="text" />
+    <BuildNotesBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" className={styles.sectionRhythm16}>
+      <figure>
+        <Card variant="panel" className={styles.demoCard}>
+          <div className={styles.demoHeader}>
+            <div className={styles.demoDots}>
+              <span className={`${styles.demoDot} ${styles.dotError}`} />
+              <span className={`${styles.demoDot} ${styles.dotWarning}`} />
+              <span className={`${styles.demoDot} ${styles.dotSuccess}`} />
             </div>
           </div>
-          <div className={styles.demoShowcase}>
-            <Card isInteractive={true}>
-              <div className={styles.demoMiniTitle}>Elevated Card</div>
-              <p className={styles.demoMiniCopy}>
-                Interactive elevated card using component tokens, fed by semantic intent.
+          <div className={styles.demoBody}>
+            <div className={styles.demoIntro}>
+              <p className={styles.demo}>
+                A tiny slice of the system in motion: component tokens map
+                to semantics, then resolve to theme-specific primitives.
+                Toggle the theme to see
+                this demo adapt in real time.
               </p>
-              <div className={styles.demoPipelines}>
-                <div className={styles.demoPipelineRow}>
-                  <code>--comp-card-bg</code>
-                  <PipelineConnector />
-                  <code>--sem-color-bg-base</code>
-                  <PipelineConnector />
-                  <code className={styles.demoPipelineValue}>{cardBgPrimitive}</code>
-                </div>
-                <div className={styles.demoPipelineRow}>
-                  <code>--comp-card-shadow</code>
-                  <PipelineConnector />
-                  <code>--sem-elevation-low</code>
-                  <PipelineConnector />
-                  <code className={styles.demoPipelineValue}>{cardShadowPrimitive}</code>
-                </div>
+              <div className={styles.demoThemeRow}>
+                <p className={styles.demoHierarchy}>Trace flow: COMP → SEM → PR</p>
+                <ThemeToggle id="build-notes-theme-toggle" variant="text" />
               </div>
-            </Card>
-            <Card variant="flat">
-              <div className={styles.demoMiniTitle}>Status Chips</div>
-              <p className={styles.demoMiniCopy}>
-                Tags and badges consume status semantics while preserving consistent contrast across themes.
-              </p>
-              <div className={styles.demoPipelines}>
-                <div className={styles.demoMiniMeta}>
-                  <div className={styles.demoChipRow}>
-                    <Badge variant="success" size="md">12</Badge>
-                    <Badge variant="warning" size="md">4</Badge>
-                    <Badge variant="error" size="md">2</Badge>
-                    <Badge variant="info" size="md">8</Badge>
+            </div>
+            <div className={styles.demoShowcase}>
+              <Card isInteractive={true}>
+                <div className={styles.demoMiniTitle}>Elevated Card</div>
+                <p className={styles.demoMiniCopy}>
+                  Interactive elevated card using component tokens, fed by semantic intent.
+                </p>
+                <div className={styles.demoPipelines}>
+                  <div className={styles.demoPipelineRow}>
+                    <code>--comp-card-bg</code>
+                    <PipelineConnector />
+                    <code>--sem-color-bg-base</code>
+                    <PipelineConnector />
+                    <code className={styles.demoPipelineValue}>{cardBgPrimitive}</code>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code>--sem-color-bg-success</code>
+                    <code>--comp-card-shadow</code>
                     <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{badgeSuccessPrimitive}</code>
+                    <code>--sem-elevation-low</code>
+                    <PipelineConnector />
+                    <code className={styles.demoPipelineValue}>{cardShadowPrimitive}</code>
                   </div>
                 </div>
+              </Card>
+              <Card variant="flat">
+                <div className={styles.demoMiniTitle}>Status Chips</div>
+                <p className={styles.demoMiniCopy}>
+                  Tags and badges consume status semantics while preserving consistent contrast across themes.
+                </p>
+                <div className={styles.demoPipelines}>
+                  <div className={styles.demoMiniMeta}>
+                    <div className={styles.demoChipRow}>
+                      <Badge variant="success" size="md">12</Badge>
+                      <Badge variant="warning" size="md">4</Badge>
+                      <Badge variant="error" size="md">2</Badge>
+                      <Badge variant="info" size="md">8</Badge>
+                    </div>
+                    <div className={styles.demoPipelineRow}>
+                      <code>--sem-color-bg-success</code>
+                      <PipelineConnector />
+                      <code className={styles.demoPipelineValue}>{badgeSuccessPrimitive}</code>
+                    </div>
+                  </div>
 
-                <div className={styles.demoMiniMeta}>
-                  <div className={styles.demoChipRow}>
-                    <Tag size="sm" variant="info">Info</Tag>
-                    <Tag size="sm" variant="success">Success</Tag>
-                    <Tag size="sm" variant="warning">Warning</Tag>
-                    <Tag size="sm" variant="error">Error</Tag>
-                  </div>
-                  <div className={styles.demoPipelineRow}>
-                    <code>--sem-color-border-info</code>
-                    <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{tagInfoPrimitive}</code>
+                  <div className={styles.demoMiniMeta}>
+                    <div className={styles.demoChipRow}>
+                      <Tag size="sm" variant="info">Info</Tag>
+                      <Tag size="sm" variant="success">Success</Tag>
+                      <Tag size="sm" variant="warning">Warning</Tag>
+                      <Tag size="sm" variant="error">Error</Tag>
+                    </div>
+                    <div className={styles.demoPipelineRow}>
+                      <code>--sem-color-border-info</code>
+                      <PipelineConnector />
+                      <code className={styles.demoPipelineValue}>{tagInfoPrimitive}</code>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           </div>
-        </div>
-      </Card>
-      <p className={styles.demoCaption}>
-        Two compact examples showing how token intent stays consistent while visuals adapt by theme.
-      </p>
+        </Card>
+        <figcaption className={styles.demoCaption}>
+          Two compact examples showing how token intent stays consistent while visuals adapt by theme.
+        </figcaption>
+      </figure>
     </BuildNotesBlock>
   );
 };
 
 export const LearningsSection = () => (
-  <BuildNotesBlock id="learnings" kicker="08. Learnings" title="What this exposed">
+  <BuildNotesBlock id="learnings" kicker="08. Learnings" title="What this exposed" className={styles.sectionRhythm21}>
     <p>
       This was an opportunity to apply enterprise design-system architecture in
       a fresh React environment and validate how CSS Modules, theming, and
@@ -351,14 +357,19 @@ export const LearningsSection = () => (
     <p>
       Designing and implementing in parallel was the hard part: defining naming, structure, and ownership while
       validating decisions in real UI.
-      It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
+      It took multiple refactors, and while the system is now clearer and easier to evolve, it is still evolving.
     </p>
     <p className={`${styles.noteText} ${styles.asideNote}`}>{BUILD_NOTES_CHALLENGE_NOTE}</p>
   </BuildNotesBlock>
 );
 
 export const NextStepsSection = () => (
-  <BuildNotesBlock id="next-steps" kicker="09. Next Steps" title="The journey continues">
+  <BuildNotesBlock
+    id="next-steps"
+    kicker="09. Next Steps"
+    title="The journey continues"
+    className={styles.sectionRhythm16}
+  >
     <p>
       The system is stable enough to scale, but the next milestone is resilience:
       validating that new variants and brand constraints can be
@@ -376,7 +387,7 @@ export const NextStepsSection = () => (
 );
 
 export const SystemCoreSection = () => (
-  <BuildNotesBlock id="system-core" kicker="10. System Core" title="Deep dive into System Core">
+  <BuildNotesBlock id="system-core" kicker="10. System Core" title="Deep dive into System Core" className={styles.sectionRhythm21}>
     <p>
       Explore the live token tables, primitives, and component
       foundations that back these build notes.

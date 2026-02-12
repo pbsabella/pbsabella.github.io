@@ -42,6 +42,10 @@ ul {
   list-style: none;
 }
 
+figure {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -118,7 +122,7 @@ h3,
 
 h4,
 .h4 {
-  font-size: var(--pr-text-400);
+  font-size: var(--pr-text-400); /* TODO: Re-calibrate tokens */
   line-height: var(--pr-leading-150);
 }
 
@@ -150,25 +154,6 @@ code {
 
 .link:hover::after {
   transform: scale3d(1, 1, 1);
-}
-
-/* ---------------------------------
-   Background utilities
----------------------------------- */
-.bgAccentYellow {
-  background-color: var(--sem-color-accent-yellow);
-}
-
-.bgAccentCyanLight {
-  background-color: var(--sem-color-accent-cyan);
-}
-
-.bgAccentSlate {
-  background-color: var(--sem-color-accent-gray);
-}
-
-.bgAccentPrimaryLight {
-  background-color: var(--sem-color-accent-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

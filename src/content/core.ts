@@ -267,22 +267,22 @@ export const TYPE_SCALE = [
   { element: 'h3', token: '--sem-text-heading-sm', leading: '--pr-leading-120' },
   { element: 'h4', token: '--pr-text-400', leading: '--pr-leading-150' },
   {
-    element: 'p',
+    element: 'span',
     token: '--sem-text-body',
     leading: '--pr-leading-150',
-    text: 'Standard reading rhythm for long-form content.'
+    text: 'Standard reading rhythm for long-form content.',
   },
   {
-    element: 'small',
+    element: 'span',
     token: '--sem-text-caption',
     leading: '--pr-leading-100',
-    text: 'Used for labels, badges, and secondary meta-data.'
+    text: 'Used for labels, badges, and secondary meta-data.',
   },
   {
     element: 'span',
     token: '--sem-text-kicker',
     leading: '--pr-leading-100',
-    text: 'Editorial kicker text for overlines and section labels.'
+    text: 'Editorial kicker text for overlines and section labels.',
   },
 ];
 

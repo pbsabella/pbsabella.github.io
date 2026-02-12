@@ -9,7 +9,6 @@ interface FeaturedSectionProps {
   description?: ReactNode;
   children: ReactNode;
   className?: string;
-  bgClass?: string;
   noContainer?: boolean;
   containerVariant?: 'default' | 'wide';
 }
@@ -21,14 +20,13 @@ const FeaturedSection = ({
   description,
   children,
   className = '',
-  bgClass = '',
   noContainer = false,
   containerVariant = 'wide',
 }: FeaturedSectionProps) => {
   const hasHeader = Boolean(introText || title || description);
 
   return (
-    <section id={id} className={`${styles.featuredSection} ${bgClass} ${className}`}>
+    <section id={id} className={`${styles.featuredSection} ${className}`}>
       {noContainer ? (
         <>
           <Container variant={containerVariant}>

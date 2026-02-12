@@ -13,13 +13,9 @@
   min-width: var(--pr-size-28);
 }
 
-.typeSample {
-  margin: 0;
-}
-
 code {
   font-family: var(--font-mono);
-  font-size: var(--pr-text-100);
+  font-size: var(--sem-text-kicker);
   color: var(--sem-color-text-primary);
   background: var(--sem-color-bg-elevated);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
@@ -51,22 +47,6 @@ code {
   height: var(--pr-size-24);
   color: var(--sem-color-text-accent);
   display: inline-flex;
-}
-
-.inlineExample {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--pr-spacing-2);
-  align-items: center;
-  margin-top: var(--pr-spacing-3);
-  font-size: var(--sem-text-caption);
-  color: var(--sem-color-text-muted);
-}
-
-.inlineExample code + code::before {
-  content: '→';
-  color: var(--sem-color-text-muted);
-  margin-right: var(--pr-spacing-2);
 }
 
 .buttonDemo {
