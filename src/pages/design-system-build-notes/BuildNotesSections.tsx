@@ -245,7 +245,7 @@ export const DemoSection = () => {
   const { theme } = useTheme();
   const isDarkTheme = theme === 'dark';
   const cardBgPrimitive = isDarkTheme ? '--pr-color-gray-900' : '--pr-color-neutral-100';
-  const cardShadowPrimitive = isDarkTheme ? '--pr-shadow-300' : '--pr-shadow-100';
+  const cardShadowPrimitive = isDarkTheme ? '--pr-shadow-400' : '--pr-shadow-100';
   const badgeSuccessPrimitive = '--pr-color-success-600';
   const tagInfoPrimitive = isDarkTheme ? '--pr-color-info-400' : '--pr-color-info-600';
 
@@ -356,10 +356,10 @@ export const LearningsSection = () => (
 );
 
 export const NextStepsSection = () => (
-  <BuildNotesBlock id="next-steps" kicker="09. Next Step" title="The journey continues">
+  <BuildNotesBlock id="next-steps" kicker="09. Next Steps" title="The journey continues">
     <p>
       The system is stable enough to scale, but the next milestone is resilience:
-      validating that new variants, page types, and brand constraints can be
+      validating that new variants and brand constraints can be
       added without eroding the semantic contract.
     </p>
     <ul className={styles.listIcon}>
