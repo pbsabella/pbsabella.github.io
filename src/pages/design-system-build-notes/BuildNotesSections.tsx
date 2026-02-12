@@ -12,6 +12,7 @@ import { useTheme } from '@context/ThemeContext';
 import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search, Lightbulb } from 'lucide-react';
 import {
   BUILD_NOTES_CHALLENGES,
+  BUILD_NOTES_CHALLENGE_NOTE,
   BUILD_NOTES_DECISIONS,
   BUILD_NOTES_NEXT_STEPS,
   BUILD_NOTES_PROBLEM_ITEMS,
@@ -245,7 +246,7 @@ export const DemoSection = () => {
   const { theme } = useTheme();
   const isDarkTheme = theme === 'dark';
   const cardBgPrimitive = isDarkTheme ? '--pr-color-gray-900' : '--pr-color-neutral-100';
-  const cardShadowPrimitive = isDarkTheme ? '--pr-shadow-300' : '--pr-shadow-100';
+  const cardShadowPrimitive = isDarkTheme ? '--pr-shadow-400' : '--pr-shadow-100';
   const badgeSuccessPrimitive = '--pr-color-success-600';
   const tagInfoPrimitive = isDarkTheme ? '--pr-color-info-400' : '--pr-color-info-600';
 
@@ -352,14 +353,15 @@ export const LearningsSection = () => (
       validating decisions in real UI.
       It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
     </p>
+    <p className={`${styles.noteText} ${styles.asideNote}`}>{BUILD_NOTES_CHALLENGE_NOTE}</p>
   </BuildNotesBlock>
 );
 
 export const NextStepsSection = () => (
-  <BuildNotesBlock id="next-steps" kicker="09. Next Step" title="The journey continues">
+  <BuildNotesBlock id="next-steps" kicker="09. Next Steps" title="The journey continues">
     <p>
       The system is stable enough to scale, but the next milestone is resilience:
-      validating that new variants, page types, and brand constraints can be
+      validating that new variants and brand constraints can be
       added without eroding the semantic contract.
     </p>
     <ul className={styles.listIcon}>

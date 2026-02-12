@@ -132,7 +132,7 @@
 }
 
 .sectionTitle {
-  margin-bottom: var(--pr-spacing-2);
+  margin-bottom: var(--pr-spacing-4);
   font-family: var(--font-display);
   font-style: italic;
 }
@@ -261,6 +261,10 @@
   grid-template-columns: 1fr;
 }
 
+.asideNote {
+  margin-top: var(--pr-spacing-4);
+}
+
 .list {
   display: grid;
   gap: var(--pr-spacing-2);
@@ -323,10 +327,6 @@
 
 .demo {
   margin: 0;
-}
-
-.demoCard {
-  margin-top: var(--pr-spacing-4);
 }
 
 .demoHeader {

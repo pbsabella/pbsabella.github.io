@@ -7,7 +7,7 @@ export const BUILD_NOTES_SECTIONS = [
   { id: 'challenges', label: 'Friction' },
   { id: 'demo', label: 'Demo' },
   { id: 'learnings', label: 'Learnings' },
-  { id: 'next-steps', label: 'Next Step' },
+  { id: 'next-steps', label: 'Next Steps' },
   { id: 'system-core', label: 'System Core' },
 ];
 
@@ -41,22 +41,22 @@ export const BUILD_NOTES_DECISIONS = [
   {
     title: 'Tokens before components.',
     description:
-      'I locked primitives and semantic roles first so components consume intent instead of reaching into raw values directly.',
+      'I started by defining primitives and semantic roles to move components toward intent-based consumption, then iterated where direct raw-value usage still surfaced.',
   },
   {
     title: 'Validation in the loop.',
     description:
-      'The portfolio itself acts as the regression surface, with automated smoke/contrast checks catching drift as tokens and components evolve.',
+      'The portfolio itself acts as the regression surface, with unit/integration, E2E, visual regression, and cross-browser smoke checks catching drift as tokens and components evolve.',
   },
   {
     title: 'A11y checks as a release gate.',
     description:
-      'Accessibility checks now run as a two-layer gate: automated smoke audits plus a manual contrast sweep script. That setup has been reliable for catching regressions while keeping shipping confidence high.',
+      'Accessibility validation runs as a dedicated release gate: automated smoke audits backed by a manual contrast sweep for layered and pseudo-element edge cases.',
   },
   {
     title: 'Dogfood in production.',
     description:
-      'Every section of the portfolio consumes the same token stack, so architecture decisions are tested in real usage.',
+      'Most core sections now consume the same token stack, so architecture decisions are increasingly validated in real usage as coverage expands.',
   },
 ];
 
@@ -69,8 +69,11 @@ export const BUILD_NOTES_WINS = [
 export const BUILD_NOTES_CHALLENGES = [
   'Token naming was only one part of the challenge; the system needed multiple rounds of refactoring and reconfiguration to keep intent clear and implementation practical.',
   'Balancing semantic purity with shipping pressure was the hardest tradeoff. A few "clean" semantic splits were too granular in real UI, so I consolidated usage rules to keep decisions fast.',
-  'Contrast checks for a11y got flaky once layered backgrounds and pseudo-elements were introduced. I ended up adding a manual contrast sweep script so results stay stable and actionable.',
+  'Layered backgrounds and pseudo-elements made contrast automation noisy; adding a manual contrast sweep gave me a stable fallback for validating edge cases.',
 ];
+
+export const BUILD_NOTES_CHALLENGE_NOTE =
+  'Cherish your designers. Choosing color scales that look good and pass a11y in light and dark modes had me one token away from losing it.';
 
 export const BUILD_NOTES_NEXT_STEPS = [
   'Define clear token consumption boundaries (what can consume PR vs SEM vs COMP) and enforce them with linting.',
