@@ -1,3 +1,19 @@
+/**
+ * Guardrail: enforce CSS Module class prefixing in `src/components/ui`
+ *
+ * What it checks:
+ * - Reads every `*.module.css` file in `src/components/ui`
+ * - Derives the expected prefix from the file name
+ *   - `Button.module.css` -> `button*`
+ * - Fails when class selectors in that file do not start with the prefix
+ *
+ * Usage:
+ * - node scripts/check-css-prefix.mjs
+ *
+ * Exit codes:
+ * - 0: all class names follow the convention
+ * - 1: one or more class names violate the convention
+ */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { basename, join } from 'node:path';
 

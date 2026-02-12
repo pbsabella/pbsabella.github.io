@@ -23,7 +23,6 @@ const Labs = () => {
                 variant={project.variant ?? 'elevated'}
                 tone={project.tone ?? 'default'}
                 isInteractive={project.interactive}
-                className={project.title === 'System Core Documentation' ? styles.systemCoreCard : ''}
               >
                 <h2 className="h4">{project.title}</h2>
                 <p>{project.description}</p>

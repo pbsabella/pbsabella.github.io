@@ -1,3 +1,18 @@
+/**
+ * Guardrail: allow only approved breakpoint values in CSS media queries
+ *
+ * What it checks:
+ * - Scans all `.css` files under `src/`
+ * - Finds `@media (width >=|<= ...px)` queries
+ * - Fails when a pixel value is not in the allowlist
+ *
+ * Usage:
+ * - node scripts/check-breakpoints.mjs
+ *
+ * Exit codes:
+ * - 0: all breakpoints are valid
+ * - 1: one or more invalid breakpoints were found
+ */
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 

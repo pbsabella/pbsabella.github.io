@@ -101,6 +101,8 @@
   --pr-color-green-500: #03b787;
   --pr-color-green-600: #02855f;
   --pr-color-green-700: #017e5b;
+
+  /* TODO: Expand based on utility/accent needs */
   --pr-color-orange: #ff5e32;
   --pr-color-yellow: #ffc541;
   --pr-color-cyan-100: #d3f2f5;
@@ -126,11 +128,11 @@
   --pr-color-neutral-900: #1d1d1e;
 
   /* Utility/status */
-  --pr-color-success-500: #03b787;
-  --pr-color-success-600: #02855f;
-  --pr-color-success-700: #017e5b;
+  --pr-color-success-500: var(--pr-color-green-500);
+  --pr-color-success-600: var(--pr-color-green-600);
+  --pr-color-success-700: var(--pr-color-green-700);
   --pr-color-warning-500: #ffd56e;
-  --pr-color-warning-600: #ffc541;
+  --pr-color-warning-600: var(--pr-color-yellow);
   --pr-color-info-400: #5c97f2;
   --pr-color-info-500: #2f78ea;
   --pr-color-info-600: #1f5fc6;
@@ -276,7 +278,7 @@
   --comp-header-z-index: var(--sem-z-header);
 
   /* --- Card Component --- */
-  --comp-card-bg: var(--pr-color-neutral-100);
+  --comp-card-bg: var(--sem-color-bg-base);
   --comp-card-text: var(--sem-color-text-primary);
   --comp-card-shadow: var(--sem-elevation-low);
   --comp-card-shadow-hover: var(--sem-elevation-medium);
@@ -380,8 +382,13 @@
   --comp-header-bg: rgb(15 17 21 / 94%);
 
   /* --- Card Component --- */
-  --comp-card-bg: var(--pr-color-gray-700);
-  --comp-card-text: var(--pr-color-gray-100);
-  --comp-card-shadow: var(--sem-elevation-medium);
-  --comp-card-shadow-hover: var(--sem-elevation-high);
+
+  /* TODO: Theming architecture code smell
+     Dark mode currently relies on explicit COMP token remaps for card styles
+     because SEM remaps are not consistently propagating through this path
+     Revisit token layering so COMP stays a stable consumer of SEM across themes */
+  --comp-card-bg: var(--sem-color-bg-base);
+  --comp-card-text: var(--sem-color-text-primary);
+  --comp-card-shadow: var(--sem-elevation-low);
+  --comp-card-shadow-hover: var(--sem-elevation-medium);
 }

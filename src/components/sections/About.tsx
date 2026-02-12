@@ -17,7 +17,7 @@ const About = () => {
       </div>
 
       <div className={styles.aboutGrid}>
-        <Card className={styles.aboutCard}>
+        <Card>
           <div role="region" aria-labelledby="about-competencies-title">
             <h4 id="about-competencies-title" className={styles.skillsTitle}>Core Competencies</h4>
             <ul className={styles.skillsList}>
@@ -28,7 +28,7 @@ const About = () => {
           </div>
         </Card>
 
-        <Card className={styles.aboutCard}>
+        <Card>
           <div role="region" aria-labelledby="about-tech-stack-title">
             <h4 id="about-tech-stack-title" className={styles.skillsTitle}>Tech Stack</h4>
             <ul className={styles.skillsList}>

@@ -1,3 +1,20 @@
+/**
+ * Lighthouse route sweep for key hash routes
+ *
+ * What it does:
+ * - Runs Lighthouse on configured routes using desktop preset
+ * - Evaluates performance/accessibility/best-practices/seo against thresholds
+ * - Writes JSON reports and a summary file to `lighthouse-reports/`
+ *
+ * Usage:
+ * - node scripts/lighthouse-routes.mjs
+ * - LH_RUNS=5 node scripts/lighthouse-routes.mjs
+ * - LH_QUIET=1 node scripts/lighthouse-routes.mjs
+ *
+ * Notes:
+ * - Requires a reachable app at `http://localhost:4173`
+ * - Start preview/dev server first, or run via an npm script that boots it
+ */
 import { execSync } from 'node:child_process';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';

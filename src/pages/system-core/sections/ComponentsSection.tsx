@@ -27,7 +27,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <div className={styles.inlineExample}>
       <span>Example:</span>
       <code>--comp-card-bg</code>
-      <code>--sem-color-bg-elevated</code>
+      <code>--sem-color-bg-base</code>
       <code>--pr-color-neutral-100</code>
     </div>
 
