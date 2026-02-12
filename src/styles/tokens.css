@@ -353,8 +353,6 @@
   --sem-color-text-primary: var(--pr-color-gray-100);
   --sem-color-text-strong: var(--pr-color-gray-100);
   --sem-color-text-muted: var(--pr-color-gray-300);
-  --sem-text-kicker: var(--pr-text-100);
-  --sem-tracking-kicker: var(--pr-tracking-20);
 
   /* --- Border & Divider Colors --- */
   --sem-color-border-subtle: var(--pr-color-gray-700);

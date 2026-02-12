@@ -24,12 +24,6 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <p className={styles.sectionDesc}>
       Encapsulated, reusable units that consume tokens to ensure consistent behavior and styling.
     </p>
-    <div className={styles.inlineExample}>
-      <span>Example:</span>
-      <code>--comp-card-bg</code>
-      <code>--sem-color-bg-base</code>
-      <code>--pr-color-neutral-100</code>
-    </div>
 
     <h3 className={styles.subsectionTitle}>Alerts</h3>
     <p className={styles.sectionDesc}>
@@ -90,7 +84,6 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <h3 className={styles.subsectionTitle}>Buttons</h3>
     <p className={styles.sectionDesc}>
       Action triggers with distinct treatments to signal hierarchy and emphasis.
-      Small size typography maps to <code>font-size: var(--sem-text-kicker)</code>.
     </p>
     <div className={styles.buttonDemo}>
       <Button>Primary Md</Button>

@@ -61,9 +61,9 @@ export const BUILD_NOTES_DECISIONS = [
 ];
 
 export const BUILD_NOTES_WINS = [
-  'Theme work shifted from component edits to semantic remapping.',
-  'Component APIs stayed structural while tokens handled visual intent.',
-  'The system now enforces constraints, so random one-off values are harder to ship.',
+  'Theme work is moving from component-level edits toward semantic remapping.',
+  'Component APIs are more structural, with visual intent increasingly handled through tokens.',
+  'The system now makes constraints clearer, so one-off values are easier to spot and reduce.',
 ];
 
 export const BUILD_NOTES_CHALLENGES = [

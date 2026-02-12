@@ -17,7 +17,6 @@ export interface Project {
   description: string[];
   tags: string[];
   mediaPreset?: ProjectMediaPreset;
-  bgClass?: string;
 }
 
 /**
@@ -61,7 +60,6 @@ export const PROJECTS: Project[] = [
     ],
     tags: ['Microfrontend Architecture', 'Vue.js', 'TypeScript', 'GraphQL', 'Accessibility (WCAG)', 'Performance Optimization'],
     mediaPreset: 'notifications',
-    bgClass: 'bgAccentPrimaryLight',
   },
   {
     id: 'freelancer-design-system',
@@ -98,7 +96,6 @@ export const PROJECTS: Project[] = [
     ],
     tags: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Node.js'],
     mediaPreset: 'zoom-out',
-    bgClass: 'bgAccentCyanLight',
   },
   {
     id: 'freelancer-motion-system',

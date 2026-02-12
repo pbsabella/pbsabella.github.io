@@ -1,4 +1,21 @@
 /** @type {import("stylelint").Config} */
+const PRIMITIVE_USAGE_WHITELIST = [
+  'spacing',
+  'size',
+  'border-width',
+  'radius',
+  'leading',
+  'tracking',
+  'duration',
+  'easing',
+  'weight',
+  'text',
+];
+
+const disallowDirectPrimitiveUsageRegex = new RegExp(
+  `var\\(--pr-(?!(?:${PRIMITIVE_USAGE_WHITELIST.join('|')})-)[^)]+\\)`
+);
+
 export default {
   extends: ['stylelint-config-standard'],
   rules: {
@@ -21,12 +38,18 @@ export default {
         ignoreProperties: ['composes'],
       },
     ],
+    // Prefer semantic/component tokens in regular CSS.
+    // This blocks direct primitive usage except approved primitive categories.
+    'declaration-property-value-disallowed-list': {
+      '/.+/': [disallowDirectPrimitiveUsageRegex],
+    },
   },
   overrides: [
     {
       files: ['src/styles/tokens.css'],
       rules: {
         'color-no-hex': null,
+        'declaration-property-value-disallowed-list': null,
       },
     },
   ],

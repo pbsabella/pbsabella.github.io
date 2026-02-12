@@ -101,7 +101,7 @@ export const TypeScaleTable = () => (
       rows={TYPE_SCALE.map((type, idx) => {
         const Element = type.element as ElementType;
         return [
-          <Element key={`${type.token}-sample`} className={styles.typeSample}>
+          <Element key={`${type.token}-sample`} style={{ fontSize: `var(${type.token})` }}>
             {type.text || `Heading Level ${idx + 1}`}
           </Element>,
           <code key={`${type.token}-token`}>{type.token}</code>,
