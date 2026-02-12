@@ -1,54 +1,65 @@
-import { ReactNode } from 'react';
+import { ElementType, HTMLAttributes, ReactNode } from 'react';
 import styles from './Card.module.css';
 
 /**
  * Card Component
  *
- * A reusable container component for content with consistent styling,
- * elevation, and theme-aware appearance. Includes subtle hover effects
- * and dark mode styling.
+ * Purpose:
+ * - Layout container for grouped content blocks.
  *
- * @component
- * @example
+ * Usage:
  * ```tsx
- * <Card>
- *   <h3>Card Title</h3>
- *   <p>Card content goes here</p>
- * </Card>
+ * <Card variant="panel" tone="default">...</Card>
+ * <Card variant="elevated" isInteractive={true}>...</Card>
  * ```
  *
- * @param {CardProps} props - Component props
- * @returns {React.ReactElement} The rendered card element
+ * Accessibility:
+ * - `isInteractive` is visual only
+ * - For actual interaction use semantic wrappers (`button`, `a`, or linked parent) with keyboard support
  */
 
-interface CardProps {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /** The visual style of the card */
   variant?: CardVariant;
-  /** Card content - accepts any valid React elements */
+  /** Optional tone treatment applied on top of the variant */
+  tone?: CardTone;
+  /** Card content */
   children: ReactNode;
-  /** Optional additional CSS class for customization */
+  /** Optional additional CSS class */
   className?: string;
-  /** If the card should have hover scale/shadow effects */
+  /** Enables hover affordance styles */
   isInteractive?: boolean;
+  /** Underlying element type for semantic wrappers */
+  as?: ElementType;
 }
 
-type CardVariant = 'elevated' | 'flat' | 'ghost'
+export type CardVariant = 'elevated' | 'flat' | 'panel';
+export type CardTone = 'default' | 'dashed';
 
 const Card = ({
   children,
-  className = '',
+  className,
   variant = 'elevated',
+  tone = 'default',
   isInteractive = false,
+  as: Component = 'div',
   ...props
 }: CardProps) => {
+  const variantClass = styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const toneClass = styles[`cardTone${tone.charAt(0).toUpperCase() + tone.slice(1)}`];
   const classes = [
     styles.card,
-    styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`],
+    variantClass,
+    toneClass,
     isInteractive && styles.cardInteractive,
     className
   ].filter(Boolean).join(' ');
 
-   return <div className={classes} {...props}>{children}</div>;
+  return (
+    <Component className={classes} {...props}>
+      {children}
+    </Component>
+  );
 };
 
 export default Card;

@@ -1,1 +1,5 @@
 dist/**/*.css
+playwright-report/**/*.css
+test-results/**/*.css
+lighthouse/**/*.css
+lighthouse-reports/**/*.css

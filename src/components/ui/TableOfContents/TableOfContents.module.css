@@ -1,0 +1,103 @@
+.tableOfContents {
+  /* TODO: Add a dedicated mobile TOC treatment for <1024 instead of only hiding it */
+  display: none;
+  position: sticky;
+  top: var(--pr-spacing-21);
+  max-height: calc(100vh - var(--pr-size-80));
+  overflow-y: auto;
+  padding-right: var(--pr-spacing-2);
+}
+
+.tableOfContentsStatic {
+  position: static;
+  top: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Custom scrollbar for better aesthetics */
+.tableOfContents::-webkit-scrollbar {
+  width: var(--pr-size-2);
+}
+
+.tableOfContents::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb {
+  background: var(--sem-color-border-base);
+  border-radius: var(--pr-radius-sm);
+}
+
+.tableOfContents::-webkit-scrollbar-thumb:hover {
+  background: var(--sem-color-border-strong);
+}
+
+.tableOfContentsStickyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-2);
+}
+
+.tableOfContentsHeading {
+  font-size: var(--sem-text-caption);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: var(--pr-tracking-05);
+  padding-left: var(--pr-spacing-2);
+}
+
+.tableOfContentsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-1);
+  border-left: var(--pr-border-width-3) solid transparent;
+}
+
+.tableOfContentsItem {
+  margin: 0;
+  padding: 0;
+}
+
+.tableOfContentsLink {
+  display: block;
+  padding-block: var(--pr-spacing-1);
+  padding-inline: var(--pr-spacing-2);
+  color: var(--sem-color-text-primary);
+  text-decoration: none;
+  font-size: var(--sem-text-caption);
+  line-height: var(--pr-leading-150);
+  border-left: var(--pr-border-width-3) solid transparent;
+  margin-left: -2px;
+  transition: color var(--pr-duration-fast) var(--pr-easing-out),
+    border-color var(--pr-duration-fast) var(--pr-easing-out);
+
+  /* Truncate long text */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.tableOfContentsLink:hover {
+  color: var(--sem-color-text-strong);
+}
+
+.tableOfContentsActive {
+  color: var(--sem-color-text-strong);
+  font-weight: var(--pr-weight-500);
+  border-left-color: var(--sem-color-border-accent);
+}
+
+/* Responsive adjustments */
+
+@media (width >= 1024px) {
+  .tableOfContents {
+    display: block;
+  }
+}

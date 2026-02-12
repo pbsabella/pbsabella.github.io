@@ -1,0 +1,52 @@
+.contactLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-4);
+  padding-bottom: var(--pr-spacing-16);
+}
+
+.contactLead {
+  margin: 0;
+  max-width: var(--sem-layout-prose);
+  line-height: var(--pr-leading-180);
+  color: var(--sem-color-text-primary);
+  font-size: var(--sem-text-lede);
+}
+
+.contactCopy {
+  margin: 0;
+  max-width: var(--sem-layout-prose);
+  line-height: var(--pr-leading-180);
+  color: var(--sem-color-text-muted);
+}
+
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pr-spacing-3);
+}
+
+.contactEmailLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--pr-size-44);
+  padding: var(--comp-button-padding-md);
+  border-radius: var(--comp-button-radius);
+  border: var(--pr-border-width-1) solid var(--sem-color-bg-accent);
+  background: var(--sem-color-bg-accent);
+  color: var(--sem-color-text-on-accent);
+  font-weight: var(--pr-weight-500);
+  font-size: var(--sem-text-caption);
+  line-height: var(--pr-leading-100);
+  text-decoration: none;
+}
+
+.contactEmailLink:hover {
+  filter: brightness(0.95);
+}
+
+.contactSocials {
+  margin-top: 0;
+}

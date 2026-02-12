@@ -5,8 +5,7 @@
   border: var(--pr-border-width-1) solid transparent;
   transition:
     transform var(--pr-duration-fast) var(--pr-easing-out),
-    box-shadow var(--pr-duration-fast) var(--pr-easing-out),
-    background-color var(--pr-duration-fast) var(--pr-easing-out);
+    box-shadow var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .cardElevated {
@@ -18,10 +17,15 @@
   border-color: var(--sem-color-border-base);
 }
 
-.cardGhost {
-  pointer-events: none;
-  background-color: var(--comp-card-bg-ghost);
-  border: var(--pr-border-width-1) dashed var(--sem-color-border-base);
+.cardPanel {
+  padding: 0;
+  background-color: var(--sem-color-bg-base);
+  border-color: var(--sem-color-border-subtle);
+  overflow: hidden;
+}
+
+.cardToneDashed {
+  border-style: dashed;
 }
 
 .cardInteractive:hover {

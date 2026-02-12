@@ -1,23 +1,26 @@
+.aboutLayout {
+  margin-bottom: var(--pr-spacing-8);
+}
+
 .aboutBio {
   line-height: var(--pr-leading-180);
   min-width: min(var(--pr-size-320), 100%);
-  max-width: var(--sem-layout-content-max);
-  margin-bottom: var(--pr-spacing-6);
+  max-width: var(--sem-layout-prose);
+  margin: 0;
+  color: var(--sem-color-text-primary);
 }
 
 .aboutGrid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: var(--pr-spacing-6);
-}
-
-.aboutCard {
-  flex: 1 1 var(--pr-size-260);
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--pr-size-260), 100%), 1fr));
 }
 
 .skillsTitle {
   color: var(--sem-color-text-strong);
   margin-bottom: var(--pr-spacing-3);
+  font-family: var(--font-display);
+  font-size: var(--sem-text-heading-sm);
 }
 
 .skillsList {
@@ -28,9 +31,11 @@
 
 .skillsItem {
   font-size: var(--sem-text-caption);
-  padding-block: var(--pr-spacing-1);
+  padding-block: var(--pr-spacing-2);
+  border-bottom: var(--pr-border-width-1) dashed var(--sem-color-divider-subtle);
 }
 
 .skillsItem:last-child {
-  padding-bottom: 0;
+  padding-bottom: var(--pr-spacing-1);
+  border-bottom: 0;
 }

@@ -2,6 +2,7 @@
 export default {
   extends: ['stylelint-config-standard'],
   rules: {
+    'color-no-hex': true,
     'selector-class-pattern': [
       '^[a-z][a-zA-Z0-9]*$',
       {
@@ -21,4 +22,12 @@ export default {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['src/styles/tokens.css'],
+      rules: {
+        'color-no-hex': null,
+      },
+    },
+  ],
 };

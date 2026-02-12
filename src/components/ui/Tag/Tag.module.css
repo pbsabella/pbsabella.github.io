@@ -2,58 +2,58 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  border: var(--pr-border-width-1) solid transparent;
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   line-height: var(--pr-leading-100);
   border-radius: var(--comp-tag-radius);
   font-size: var(--sem-text-caption);
-  transition: background-color var(--pr-duration-base) var(--pr-easing-in-out),
-    color var(--pr-duration-base) var(--pr-easing-in-out),
-    border-color var(--pr-duration-base) var(--pr-easing-in-out);
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
+  font-weight: var(--pr-weight-600);
 }
 
 /* --- Variants --- */
-.default {
-  background-color: var(--sem-color-bg-default);
-  color: var(--sem-color-text-default);
-  border-color: var(--sem-color-border-default);
+.tagDefault {
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
+  border-color: var(--sem-color-border-base);
 }
 
-.success {
-  background-color: var(--sem-color-bg-success);
-  color: var(--sem-color-text-success);
+.tagSuccess {
+  background-color: transparent;
+  color: var(--sem-color-text-success-emphasis);
   border-color: var(--sem-color-border-success);
 }
 
-.warning {
-  background-color: var(--sem-color-bg-warning);
-  color: var(--sem-color-text-warning);
+.tagWarning {
+  background-color: transparent;
+  color: var(--sem-color-text-primary);
   border-color: var(--sem-color-border-warning);
 }
 
-.info {
-  background-color: var(--sem-color-bg-info);
-  color: var(--sem-color-text-info);
+.tagInfo {
+  background-color: transparent;
+  color: var(--sem-color-text-info-emphasis);
   border-color: var(--sem-color-border-info);
 }
 
-.error {
-  background-color: var(--sem-color-bg-error);
-  color: var(--sem-color-text-error);
+.tagError {
+  background-color: transparent;
+  color: var(--sem-color-text-error-emphasis);
   border-color: var(--sem-color-border-error);
 }
 
 /* --- Sizes --- */
-.sm {
-  font-size: var(--pr-text-100);
+.tagSm {
+  font-size: var(--sem-text-kicker);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
 }
 
-.md {
+.tagMd {
   font-size: var(--sem-text-caption);
   padding: var(--pr-spacing-1) var(--pr-spacing-3);
 }
 
-.lg {
-  font-size: var(--pr-text-body);
+.tagLg {
+  font-size: var(--sem-text-body);
   padding: var(--pr-spacing-2) var(--pr-spacing-4);
 }

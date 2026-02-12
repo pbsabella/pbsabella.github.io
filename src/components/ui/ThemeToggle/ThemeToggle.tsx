@@ -1,74 +1,95 @@
-import { useState } from 'react';
+import { ButtonHTMLAttributes, MouseEvent, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@context/ThemeContext';
 import styles from './ThemeToggle.module.css';
+import Button from '@/components/ui/Button/Button';
+
+interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Unique id for the toggle button */
+  id: string;
+  /** Visual presentation */
+  variant?: 'icon' | 'text';
+  /** Optional accessible text override */
+  label?: string;
+  className?: string;
+}
 
 /**
  * ThemeToggle Component
  *
- * An accessible theme switcher that toggles between light and dark modes.
- * Includes smooth animated SVG icons and respects prefers-reduced-motion.
- * Persists theme preference to localStorage via ThemeContext.
+ * Purpose:
+ * - Switches between light and dark themes via ThemeContext.
  *
- * @component
- * @example
+ * Usage:
  * ```tsx
- * <ThemeToggle id="theme-toggle-button" />
+ * <ThemeToggle id="theme-toggle" />
+ * <ThemeToggle id="theme-toggle-inline" variant="text" />
  * ```
  *
- * @param {ThemeToggleProps} props - Component props
- * @returns {React.ReactElement} The rendered toggle button
+ * Accessibility:
+ * - Uses an action-oriented label (`Switch to {nextTheme} mode`) for both icon and text variants
+ * - Exposes `aria-pressed` to reflect current theme state
  */
-
-interface ThemeToggleProps {
-  /** Unique HTML id for the button element */
-  id: string;
-}
-
-const ThemeToggle = ({ id }: ThemeToggleProps) => {
-  const { toggleTheme } = useTheme();
+const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props }: ThemeToggleProps) => {
+  const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);
+  const isDarkTheme = theme === 'dark';
 
   const handleToggle = () => {
     if (!hasInteracted) setHasInteracted(true);
     toggleTheme();
   };
 
-  const animationClass = hasInteracted ? styles.toggleIconAnimate : '';
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    onClick?.(event);
+    if (event.defaultPrevented) return;
+    handleToggle();
+  };
+
+  const animationClass = hasInteracted ? styles.themeToggleIconAnimate : '';
+  const nextTheme = theme === 'light' ? 'dark' : 'light';
+  const buttonLabel = label ?? `Switch to ${nextTheme} mode`;
+  const iconClassNames = [
+    styles.themeToggleButton,
+    styles.themeToggleButtonIcon,
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
-    <button
-      className={styles.toggleButton}
-      id={id}
-      onClick={handleToggle}
-      aria-label="Toggle theme"
-    >
-      <svg
-        className={`${styles.toggleIcon} ${animationClass} ${styles.sun}`}
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
+    variant === 'text' ? (
+      <Button
+        id={id}
+        variant="secondary"
+        size="md"
+        onClick={handleClick}
+        aria-label={buttonLabel}
+        aria-pressed={isDarkTheme}
+        className={className}
+        {...props}
       >
-        <circle cx="12" cy="12" r="5" />
-        <g strokeLinecap="round">
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </g>
-      </svg>
-      <svg
-        className={`${styles.toggleIcon} ${animationClass} ${styles.moon}`}
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
+        {buttonLabel}
+      </Button>
+    ) : (
+      <button
+        className={iconClassNames}
+        id={id}
+        onClick={handleClick}
+        aria-label={buttonLabel}
+        aria-pressed={isDarkTheme}
+        {...props}
       >
-        <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1021 12.79z" />
-      </svg>
-    </button>
+        <>
+          <Sun
+            aria-hidden="true"
+            className={`${styles.themeToggleIcon} ${animationClass} ${styles.themeToggleSun}`}
+          />
+          <Moon
+            aria-hidden="true"
+            className={`${styles.themeToggleIcon} ${animationClass} ${styles.themeToggleMoon}`}
+          />
+        </>
+      </button>
+    )
   );
 };
 

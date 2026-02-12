@@ -31,7 +31,7 @@ describe('Portfolio E2E Tests', () => {
         cy.get('body').then(($body) => {
           const theme = $body.attr('data-theme');
           if (theme !== 'dark') {
-            cy.findByRole('button', { name: /toggle theme/i }).click();
+            cy.findByRole('button', { name: /switch to dark mode/i }).click();
           }
         });
         // Verify data-attribute is applied to ensure transition has started/finished
@@ -60,7 +60,7 @@ describe('Portfolio E2E Tests', () => {
       cy.get('body')
         .invoke('attr', 'data-theme')
         .then((initialTheme) => {
-          cy.findByRole('button', { name: /toggle theme/i }).click();
+          cy.findByRole('button', { name: /switch to (dark|light) mode/i }).click();
           const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
           cy.get('body').should('have.attr', 'data-theme', expectedTheme);
 

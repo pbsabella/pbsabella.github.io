@@ -7,8 +7,11 @@
   width: 100%;
   max-width: var(--comp-sidenav-max-width);
   transform: translateX(100%);
-  transition: transform var(--pr-duration-base) var(--pr-easing-in-out);
+  transition:
+    transform var(--pr-duration-base) var(--pr-easing-in-out),
+    visibility 0s linear var(--pr-duration-base);
   visibility: hidden;
+  pointer-events: none;
   overflow-y: auto;
   z-index: var(--comp-sidenav-z-index);
 }
@@ -16,6 +19,8 @@
 .sideMenuOpen {
   transform: translateX(0);
   visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s, 0s;
 }
 
 .sideMenuCloseButton {
@@ -48,7 +53,7 @@
   align-items: center;
   height: 100%;
   color: var(--sem-color-text-primary);
-  font-family: var(--font-body);;
+  font-family: var(--font-body);
   text-decoration: none;
   text-transform: lowercase;
 }
@@ -60,8 +65,9 @@
   position: fixed;
   transition:
     opacity var(--pr-duration-base) var(--pr-easing-in-out),
-    visibility var(--pr-duration-base) var(--pr-easing-in-out);
+    visibility 0s linear var(--pr-duration-base);
   visibility: hidden;
+  pointer-events: none;
   width: 100%;
   z-index: var(--sem-z-overlay);
 }
@@ -69,4 +75,13 @@
 .overlayVisible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s, 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sideMenu,
+  .overlay {
+    transition: none;
+  }
 }

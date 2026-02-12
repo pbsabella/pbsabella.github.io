@@ -1,0 +1,51 @@
+.button {
+  border-radius: var(--comp-button-radius);
+  font-weight: var(--pr-weight-500);
+  border: var(--pr-border-width-1) solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pr-spacing-2);
+  line-height: var(--pr-leading-100);
+  transition:
+    transform var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    color var(--pr-duration-fast) var(--pr-easing-out),
+    border-color var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.buttonMd {
+  padding: var(--comp-button-padding-md);
+  font-size: var(--sem-text-caption);
+}
+
+.buttonSm {
+  padding: var(--comp-button-padding-sm);
+  font-size: var(--sem-text-kicker);
+}
+
+.buttonPrimary {
+  background: var(--sem-color-bg-accent);
+  border-color: var(--sem-color-bg-accent);
+  color: var(--sem-color-text-on-accent);
+}
+
+.buttonPrimary:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.buttonSecondary {
+  background: var(--sem-color-bg-base);
+  color: var(--sem-color-text-primary);
+  border-color: var(--sem-color-border-base);
+}
+
+.buttonSecondary:hover:not(:disabled) {
+  background: var(--sem-color-bg-subtle);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

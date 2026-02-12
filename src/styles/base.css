@@ -32,13 +32,6 @@ header {
   background-color: transparent;
 }
 
-:where(body, header, footer, main, section) {
-  transition:
-    background-color var(--pr-duration-base) var(--pr-easing-in-out),
-    color var(--pr-duration-base) var(--pr-easing-in-out),
-    border-color var(--pr-duration-base) var(--pr-easing-in-out);
-}
-
 /* ---------------------------------
    Resets
 ---------------------------------- */
@@ -85,7 +78,7 @@ section {
 
 b,
 strong {
-  font-weight: var(--pr-weight-500);
+  font-weight: var(--pr-weight-600);
 }
 
 small {
@@ -127,6 +120,11 @@ h4,
 .h4 {
   font-size: var(--pr-text-400);
   line-height: var(--pr-leading-150);
+}
+
+code {
+  width: fit-content;
+  max-width: 100%;
 }
 
 /* ---------------------------------

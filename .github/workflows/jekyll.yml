@@ -44,11 +44,14 @@ jobs:
       - name: Build production
         run: npm run build
 
-      - name: Run Lighthouse
+      - name: Run Lighthouse CLI
         run: npm run lighthouse
-        continue-on-error: true
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Install Playwright browsers and OS deps
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run Playwright smoke tests
+        run: npm run pw:smoke
 
       - name: Upload artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

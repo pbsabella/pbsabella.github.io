@@ -1,0 +1,156 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-primary);
+}
+
+.tableCaption {
+  caption-side: top;
+  text-align: left;
+  padding: var(--pr-spacing-2) 0;
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-primary);
+}
+
+.tableHeadCell {
+  text-align: left;
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-muted);
+  padding: var(--pr-spacing-2) var(--pr-spacing-4);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  vertical-align: middle;
+}
+
+.tableCell {
+  padding: var(--pr-spacing-3) var(--pr-spacing-4);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  vertical-align: middle;
+}
+
+.tableCompact .tableHeadCell {
+  padding: var(--pr-spacing-2) var(--pr-spacing-3);
+}
+
+.tableCompact .tableCell {
+  padding: var(--pr-spacing-2) var(--pr-spacing-3);
+}
+
+.tableStacked {
+  border: 0;
+}
+
+.tableStacked thead {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.tableStacked tbody {
+  display: grid;
+  gap: var(--pr-spacing-3);
+}
+
+.tableStacked .tableRow {
+  display: grid;
+  gap: var(--pr-spacing-2);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-radius: var(--pr-radius-md);
+  padding: var(--pr-spacing-3);
+}
+
+.tableStacked .tableCell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--pr-spacing-1);
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.tableStacked .tableCell::before {
+  content: attr(data-label);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-muted);
+}
+
+.tableStacked .tableCell > * {
+  min-width: 0;
+}
+
+@media (width >= 421px) {
+  .tableStacked .tableCell {
+    grid-template-columns: minmax(120px, 1fr) 2fr;
+    gap: var(--pr-spacing-3);
+  }
+}
+
+.tableStacked.tableStriped .tableRow:nth-child(odd) {
+  background: var(--sem-color-bg-striped);
+}
+
+.tableRow:last-child .tableCell {
+  border-bottom: 0;
+}
+
+.tableStriped .tableRow:nth-child(odd) .tableCell {
+  background: var(--sem-color-bg-striped);
+}
+
+.tableStacked.tableStriped .tableRow:nth-child(odd) .tableCell {
+  background: transparent;
+}
+
+/* TODO: Move stacked/table layout breakpoints to container queries */
+@media (width >= 768px) {
+  .tableStacked thead {
+    clip-path: none;
+    display: table-header-group;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
+
+  .tableStacked tbody {
+    display: table-row-group;
+    gap: 0;
+  }
+
+  .tableStacked .tableRow {
+    display: table-row;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .tableStacked .tableCell {
+    display: table-cell;
+    grid-template-columns: none;
+    gap: 0;
+    border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+    padding: var(--pr-spacing-3) var(--pr-spacing-4);
+  }
+
+  .tableStacked.tableCompact .tableCell {
+    padding: var(--pr-spacing-2) var(--pr-spacing-3);
+  }
+
+  .tableStacked .tableCell::before {
+    content: none;
+  }
+
+  .tableStacked.tableStriped .tableRow:nth-child(odd) {
+    background: transparent;
+  }
+}

@@ -5,8 +5,13 @@
   width: 100%;
 }
 
-@media screen and (width >=768px) {
+.containerWide {
+  max-width: var(--sem-layout-page-max);
+}
+
+@media (width >= 768px) {
   .container {
+    /* Magic for now */
     padding-left: 8vw;
     padding-right: 8vw;
   }

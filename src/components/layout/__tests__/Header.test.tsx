@@ -3,14 +3,20 @@ import { MemoryRouter } from 'react-router-dom';
 import { vi, describe, it, expect, beforeEach, MockedFunction } from 'vitest';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { ROUTES } from '@constants/routes';
-import Header from '../Header';
+import Header from '@/components/layout/Header';
 
 vi.mock('@hooks/useHeaderScroll', () => ({
   useHeaderScroll: vi.fn(() => ({ isHidden: false, isTransparent: false })),
 }));
 
-vi.mock('@hooks/useScrollToSection', () => ({
-  useScrollToSection: vi.fn(() => vi.fn()),
+vi.mock('@hooks/useSectionNav', () => ({
+  useSectionNav: vi.fn(() => ({
+    getSectionLinkProps: vi.fn(() => ({ to: '/', onClick: vi.fn() })),
+  })),
+}));
+
+vi.mock('@hooks/useActiveSection', () => ({
+  useActiveSection: vi.fn(() => null),
 }));
 
 vi.mock('@components/ui/ThemeToggle/ThemeToggle', () => ({
@@ -38,23 +44,38 @@ describe('Header', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav });
 
     expect(screen.getByRole('link', { name: 'pbsabella' })).toBeVisible();
-    expect(screen.getByRole('link', { name: /labs/i })).toBeVisible();
-    expect(screen.getByRole('link', { name: /work/i })).toBeVisible();
-    expect(screen.getByRole('link', { name: /about/i })).toBeVisible();
-    expect(screen.getByRole('link', { name: /contact/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /work/i, hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /about/i, hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /contact/i, hidden: true })).toBeInTheDocument();
   });
 
-  it('renders the "Back" link when in the lab environment', () => {
+  it('renders the brand logo in the lab environment', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.LABS]);
 
-    expect(screen.getByRole('link', { name: /back/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /home/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /work/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /about/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /contact/i })).not.toBeInTheDocument();
   });
 
-  it('navigates to Labs if on a deep system core page', () => {
+  it('renders the brand logo on a deep system core page', () => {
     renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.SYSTEM_CORE]);
 
-    const backLink = screen.getByRole('link', { name: /back/i });
-    expect(backLink.getAttribute('href')).toBe(ROUTES.LABS);
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /home/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /work/i })).not.toBeInTheDocument();
+  });
+
+  it('renders the brand logo on a deep labs page', () => {
+    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.DESIGN_SYSTEM_BUILD_NOTES]);
+
+    expect(screen.getByRole('link', { name: /pbsabella/i })).toBeVisible();
+    expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /home/i })).not.toBeInTheDocument();
   });
 
   it('calls toggleSideNav when the menu button is clicked', () => {
@@ -63,15 +84,6 @@ describe('Header', () => {
     const menuButton = screen.getByLabelText(/open mobile menu/i);
     fireEvent.click(menuButton);
     expect(mockToggleSideNav).toHaveBeenCalledTimes(1);
-  });
-
-  it('hides navigation links when in lab environment', () => {
-    renderHeader({ toggleSideNav: mockToggleSideNav }, [ROUTES.LABS]);
-
-    expect(screen.queryByRole('link', { name: /labs/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /work/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /about/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /contact/i })).not.toBeInTheDocument();
   });
 
   it('applies transparent class when isTransparent is true', async () => {

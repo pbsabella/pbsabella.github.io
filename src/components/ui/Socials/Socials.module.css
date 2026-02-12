@@ -1,19 +1,17 @@
 .socials {
-  display: flex;
-  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  column-gap: var(--pr-spacing-4);
-}
-
-.socialsItemCopy {
   display: flex;
   align-items: center;
-  column-gap: var(--pr-spacing-1);
 }
 
-.socialLink {
+.socialsItem {
+  margin: 0;
+}
+
+.socialsLink {
   color: var(--sem-color-text-primary);
-  text-decoration: none;
+  font-size: var(--sem-text-body);
+  font-weight: var(--pr-weight-500);
 }

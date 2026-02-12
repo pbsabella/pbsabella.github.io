@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
-import { useHeaderScroll } from '../useHeaderScroll';
+import { useHeaderScroll } from '@/hooks/useHeaderScroll';
 
 describe('useHeaderScroll Hook', () => {
   beforeEach(() => {

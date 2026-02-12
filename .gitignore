@@ -8,12 +8,16 @@ dist/
 .netlify
 
 # Lighthouse reports
-.lighthouseci/
 lighthouse-reports/
+lighthouse/
 
 # Cypress artifacts
 cypress/screenshots/
 cypress/videos/
+
+# Playwright artifacts
+playwright-report/
+test-results/
 
 # Husky
 .husky/_

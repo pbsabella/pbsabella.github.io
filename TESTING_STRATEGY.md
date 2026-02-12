@@ -22,8 +22,8 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Goal:** Verify business logic, hooks, and state transitions
 - **Tools:** Vitest (runner), @testing-library/react (DOM utilities)
 - **Mandatory coverage:**
-  - Custom Hooks (`src/hooks/__tests__/`)
-  - Context Providers (`src/context/__tests__/`)
+  - Custom Hooks (`src/hooks/**/*.{test,spec}.{ts,tsx}`)
+  - Context Providers (`src/context/**/*.{test,spec}.{ts,tsx}`)
   - Complex UI components with state
 - **Command:** `npm run test` (single run) or `npm run test:watch` (development)
 - **Speed:** <5 seconds for full suite
@@ -49,12 +49,39 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
   - `npm run percy:test` (build + test)
   - `npm run percy:baseline` (update baseline on production)
 
-### Layer 5: Performance (Lighthouse CI)
+### Layer 5: Performance (Lighthouse CLI)
 
 - **Goal:** Track and enforce performance, accessibility, SEO scores
-- **Tools:** Lighthouse CI (axe-core for a11y)
-- **Thresholds:** Performance ≥0.85, Accessibility/Best Practices/SEO ≥0.90
-- **Command:** `npm run lighthouse` (requires built dist/)
+- **Tools:** Lighthouse CLI (multi-route runner)
+- **Thresholds:** Performance ≥0.86 (warn), Accessibility/Best Practices/SEO = 100% (fail)
+- **Command:** `npm run lighthouse` (uses `npm run preview` under the hood)
+- **Quick check:** `npm run lighthouse:quick` (1 run per route)
+
+### Layer 6: Cross-Browser Smoke (Playwright)
+
+- **Goal:** Catch runtime issues Cypress/Percy/Vitest may miss across browser engines
+- **Tools:** Playwright (Chromium, Firefox, WebKit)
+- **Coverage:** Route load sanity, console errors, failed requests, accessibility checks in light/dark themes, and semantic token contrast contracts
+- **Note:** A narrow filter excludes only `axe` `incomplete` color-contrast nodes tied to pseudo-content/page-wrap layering; hard failures still come from axe violations + explicit contrast assertions
+- **Command:**
+  - `npm run pw:install` (first-time browser install)
+  - `npm run pw:smoke` (cross-browser smoke suite)
+  - `npm run pw:test` (full Playwright suite)
+
+### Layer 7: Manual Contrast Audit (Diagnostic)
+
+- **Goal:** Independently verify text contrast using computed style + alpha compositing across route/theme combinations
+- **Tool:** Custom Node script (`scripts/manual-contrast-audit.mjs`)
+- **Command:** `npm run contrast:manual`
+- **Role:** Local diagnostic sweep for validation and triage, not a blocking CI gate
+
+## Tool Overlap (Concise)
+
+- **Cypress vs Lighthouse overlap:** Both can surface accessibility and runtime quality issues.
+- **Cypress strength:** User journey behavior and interaction correctness.
+- **Lighthouse strength:** Page-level audits (performance, SEO, best-practices, accessibility score trends).
+- **Current approach:** Keep both for confidence while the stack is stabilizing.
+- **Optimization note:** We will reduce overlap later by cherry-picking the best tool per check and removing duplicate gates where signal is redundant.
 
 ---
 
@@ -68,8 +95,10 @@ To maintain velocity, apply this decision matrix:
 | **Context/state**     | Integration (Vitest) | Verify provider logic              |
 | **Static layouts**    | Visual (Percy)       | Catches unintended shifts          |
 | **User interactions** | E2E (Cypress)        | Only behavior needs manual testing |
+| **Cross-browser runtime** | Smoke (Playwright) | Catches engine-specific regressions |
+| **Manual contrast triage** | Manual sweep script | Independent verification beyond gated checks |
 | **Third-party libs**  | Skip                 | Assume stable, trust maintainers   |
-| **Accessibility**     | Lighthouse CI        | Automated a11y checks via axe      |
+| **Accessibility**     | Lighthouse CLI       | Automated a11y checks via axe      |
 
 ---
 
@@ -88,6 +117,8 @@ npm run test:local
 # 4. Pre-deployment checks
 npm run build
 npm run type-check && npm run lint && npm run test
+npm run pw:smoke
+npm run contrast:manual
 npm run percy:test
 ```
 
@@ -99,6 +130,7 @@ npm run percy:test
 - **Unit Tests** - `npm run test`
 - **Lint** - `npm run lint`
 - **Build Verification** - `npm run build`
+- **Cross-Browser Smoke** - `npm run pw:smoke`
 - **Deploy to GitHub Pages** - On master push
 
 ### Visual Regression: `percy.yml` (Blocking)
@@ -145,6 +177,8 @@ Accessibility is verified at multiple layers:
 | **Static**      | ESLint (jsx-a11y) | Missing alt text, bad ARIA, semantics   |
 | **Interactive** | Cypress E2E       | Keyboard navigation, focus trapping     |
 | **Audit**       | Lighthouse CI     | Color contrast, WCAG violations via axe |
+| **Smoke**       | Playwright        | Missing accessible names + landmark sanity |
+| **Diagnostic**  | Manual contrast script | Independent route/theme contrast verification |
 | **Visual**      | Percy             | Layout breaks that hurt readability     |
 
 ---
@@ -167,8 +201,8 @@ it('should return header classes based on scroll position', () => {
 // cypress/e2e/portfolio.cy.ts
 it('should trap focus in mobile side nav', () => {
   cy.viewport(375, 667);
-  cy.findByRole('button', { name: /open main menu/i }).click();
-  cy.focused().should('have.id', 'side-menu-close');
+  cy.findByRole('button', { name: /open mobile menu/i }).click();
+  cy.focused().should('have.attr', 'aria-label').and('match', /close mobile menu/i);
 });
 ```
 
@@ -198,5 +232,5 @@ A: Use `cypress:open` for interactive debugging. Use `test:local` for final veri
 **Q: Do I need to update Percy baseline after every styling change?**
 A: Only after intentional design changes. Use `npm run percy:baseline` and commit on master.
 
-**Q: What if Lighthouse CI fails?**
-A: Check `lighthouserc.json` thresholds. May indicate performance regression. Run `npm run lighthouse` locally to debug.
+**Q: What if Lighthouse fails?**
+A: Check the CLI output in `lighthouse/*.json`. Performance warnings won’t fail the build, but accessibility/best-practices/SEO errors will. Run `npm run lighthouse` locally to debug.

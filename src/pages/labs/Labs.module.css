@@ -1,0 +1,77 @@
+.pageWrap {
+  position: relative;
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 10%, rgb(0 0 0 / 0%) 90%, transparent 100%),
+    radial-gradient(circle at 10% 5%, var(--sem-color-accent-green), transparent 48%),
+    radial-gradient(circle at 85% 15%, var(--sem-color-accent-cyan), transparent 44%),
+    radial-gradient(circle at 80% 85%, var(--sem-color-accent-gray), transparent 50%);
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 120% 100%;
+}
+
+.labs {
+  padding-top: var(--pr-spacing-21);
+  position: relative;
+  z-index: 1;
+  max-width: var(--sem-layout-page-max);
+}
+
+.labsTitle {
+  font-family: var(--font-display);
+}
+
+.labsDescription {
+  line-height: var(--pr-leading-180);
+  min-width: min(var(--pr-size-320), 100%);
+  max-width: var(--sem-layout-prose);
+  font-size: var(--sem-text-lede);
+  color: var(--sem-color-text-muted);
+}
+
+.labsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--pr-spacing-6);
+  width: 100%;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cardItem {
+  height: 100%;
+  margin: 0;
+}
+
+.cardItem > * {
+  height: 100%;
+}
+
+.cardLink {
+  display: block;
+  height: 100%;
+}
+
+.cardLink > * {
+  height: 100%;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-4);
+}
