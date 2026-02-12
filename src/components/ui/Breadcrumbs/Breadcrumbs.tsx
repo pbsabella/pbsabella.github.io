@@ -3,15 +3,33 @@ import { Link } from 'react-router-dom';
 import styles from './Breadcrumbs.module.css';
 
 type BreadcrumbItem = {
+  /** Visible breadcrumb text */
   label: string;
+  /** Route target for non-terminal crumb */
   to?: string;
 };
 
 interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
+  /** Ordered breadcrumb trail */
   items: BreadcrumbItem[];
   className?: string;
 }
 
+/**
+ * Breadcrumbs Component
+ *
+ * Purpose:
+ * - Hierarchical path navigation for page context.
+ *
+ * Usage:
+ * ```tsx
+ * <Breadcrumbs items={[{ label: 'Labs', to: '/labs' }, { label: 'Build Notes' }]} />
+ * ```
+ *
+ * Accessibility:
+ * - Uses `nav` landmark with default `aria-label="Breadcrumb"`.
+ * - Last item is marked with `aria-current="page"`.
+ */
 const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
   return (
     <nav

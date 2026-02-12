@@ -19,33 +19,27 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 /**
  * Badge Component
  *
- * A compact indicator for counts, notifications, or status flags.
+ * Purpose:
+ * - Compact status/count indicator.
  *
- * --- Features ---
- * - **SEM-first**: Colors, borders, and backgrounds come from semantic tokens.
- * - **Size control**: Adjusts font-size, padding, and shape via component tokens.
- * - **Tree-shakable**: Only included when imported, safe for multiple instances.
- *
- * --- Theming Example ---
- * ```css
- * [data-theme='brand'] {
- *   --sem-color-bg-success: #e6f7f2;
- *   --sem-color-text-success: #017e5b;
- *   --sem-color-border-success: #03b787;
- * }
- * ```
- *
- * --- Usage Example ---
+ * Usage:
  * ```tsx
  * <Badge variant="success" size="sm">3</Badge>
  * <Badge variant="warning" size="md">!</Badge>
  * <Badge variant="error" size="lg">99+</Badge>
  * ```
  *
- * --- Notes ---
- * - Use badges for numeric or short status indicators.
- * - Prefer badges for notifications; use tags for descriptive labels.
- * - All styling is controlled by semantic tokens for easy theming.
+ * Theming example:
+ * ```css
+ * [data-theme='brand'] {
+ *   --sem-color-bg-success: var(--pr-color-success-600);
+ *   --sem-color-text-success: var(--pr-color-neutral-100);
+ * }
+ * ```
+ *
+ * Accessibility:
+ * - `size="sm"` renders a dot (no text content).
+ * - Dot badges are hidden from assistive tech unless an explicit `aria-label` is provided.
  */
 const Badge = ({
   children,

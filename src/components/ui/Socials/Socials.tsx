@@ -4,16 +4,17 @@ import styles from './Socials.module.css';
 /**
  * Socials Component
  *
- * Displays a list of social media links. Links open in new tabs and include
- * proper accessibility labels. Styles adapt to theme.
+ * Purpose:
+ * - Renders external profile links for contact/discovery.
  *
- * @component
- * @example
+ * Usage:
  * ```tsx
  * <Socials />
  * ```
  *
- * @returns {React.ReactElement} The rendered social links list
+ * Accessibility:
+ * - External links include descriptive `title`.
+ * - Links open in a new tab with `rel="noopener noreferrer"`.
  */
 
 const Socials = ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => {

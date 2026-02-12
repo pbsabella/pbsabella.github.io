@@ -4,33 +4,31 @@ import { useTheme } from '@context/ThemeContext';
 import styles from './ThemeToggle.module.css';
 import Button from '@/components/ui/Button/Button';
 
-/**
- * ThemeToggle Component
- *
- * An accessible theme switcher that toggles between light and dark modes.
- * Includes smooth animated SVG icons and respects prefers-reduced-motion.
- * Persists theme preference to localStorage via ThemeContext.
- *
- * @component
- * @example
- * ```tsx
- * <ThemeToggle id="theme-toggle-button" />
- * ```
- *
- * @param {ThemeToggleProps} props - Component props
- * @returns {React.ReactElement} The rendered toggle button
- */
-
 interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Unique HTML id for the button element */
+  /** Unique id for the toggle button */
   id: string;
-  /** Visual style of the toggle */
+  /** Visual presentation */
   variant?: 'icon' | 'text';
-  /** Optional text label override */
+  /** Optional accessible text override */
   label?: string;
   className?: string;
 }
 
+/**
+ * ThemeToggle Component
+ *
+ * Purpose:
+ * - Switches between light and dark themes via ThemeContext.
+ *
+ * Usage:
+ * ```tsx
+ * <ThemeToggle id="theme-toggle" />
+ * <ThemeToggle id="theme-toggle-inline" variant="text" />
+ * ```
+ *
+ * Accessibility:
+ * - Uses an action-oriented label (`Switch to {nextTheme} mode`) for text variant.
+ */
 const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);

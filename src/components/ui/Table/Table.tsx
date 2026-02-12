@@ -9,15 +9,35 @@ type TableColumn = {
 };
 
 interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+  /** Optional visible caption (preferred for accessibility) */
   caption?: string;
+  /** Column definitions used for headers and stacked labels */
   columns: TableColumn[];
+  /** Table rows; each cell maps to the same-index column */
   rows: ReactNode[][];
+  /** Fallback accessible label when no caption is provided */
   label?: string;
+  /** Visual style variant */
   variant?: TableVariant;
+  /** Enables mobile stacked row layout */
   stacked?: boolean;
   className?: string;
 }
 
+/**
+ * Table Component
+ *
+ * Purpose:
+ * - Responsive data table with optional stacked mobile layout.
+ *
+ * Usage:
+ * ```tsx
+ * <Table caption="Semantic tokens" columns={columns} rows={rows} />
+ * ```
+ *
+ * Accessibility:
+ * - Prefer `caption`; use `label`/`aria-label` when caption is omitted.
+ */
 const Table = ({
   caption,
   columns,

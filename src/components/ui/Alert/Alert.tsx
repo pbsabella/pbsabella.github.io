@@ -4,12 +4,29 @@ import styles from './Alert.module.css';
 type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
 
 interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+  /** Main alert content */
   children: ReactNode;
+  /** Optional heading shown above body content */
   title?: string;
+  /** Semantic intent variant */
   variant?: AlertVariant;
   className?: string;
 }
 
+/**
+ * Alert Component
+ *
+ * Purpose:
+ * - Inline contextual messaging container.
+ *
+ * Usage:
+ * ```tsx
+ * <Alert variant="warning" title="Heads up">Token update in progress.</Alert>
+ * ```
+ *
+ * Accessibility:
+ * - Uses `role="alert"` and `aria-live="polite"` for assistive announcement.
+ */
 const Alert = ({
   children,
   title,

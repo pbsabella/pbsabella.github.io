@@ -4,30 +4,39 @@ import { useScrollToSection } from '@hooks/useScrollToSection';
 import type { ScrollBehavior } from '@/types/scroll';
 import { useActiveSection } from '@hooks/useActiveSection';
 
-/**
- * TableOfContents Component
- *
- * A reusable sidebar navigation with scroll spy functionality
- *
- * @param {Object} props
- * @param {Array<{id: string, label: string}>} props.sections - Array of section objects with id and label
- * @param {number} [props.offsetTop=100] - Pixels from top before activating first section
- */
-
 type TableOfContentsSection = {
   id: string;
   label: string;
 };
 
 interface TableOfContentsProps extends HTMLAttributes<HTMLElement> {
+  /** Ordered section anchors to render */
   sections: TableOfContentsSection[];
+  /** Activation offset for scroll spy calculations */
   offsetTop?: number;
+  /** Scroll behavior used by click navigation */
   scrollBehavior?: ScrollBehavior;
+  /** Honors reduced-motion when true */
   respectReducedMotion?: boolean;
+  /** Keeps TOC sticky when true */
   isSticky?: boolean;
   className?: string;
 }
 
+/**
+ * TableOfContents Component
+ *
+ * Purpose:
+ * - In-page navigation with active section tracking.
+ *
+ * Usage:
+ * ```tsx
+ * <TableOfContents sections={sections} scrollBehavior="instant" />
+ * ```
+ *
+ * Accessibility:
+ * - Uses `nav` landmark and `aria-current="location"` for active section link.
+ */
 const TableOfContents = ({
   sections,
   offsetTop = 100,

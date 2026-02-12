@@ -5,12 +5,30 @@ type ButtonVariant = 'primary' | 'secondary';
 type ButtonSize = 'sm' | 'md';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Button label/content */
   children: ReactNode;
+  /** Visual treatment variant */
   variant?: ButtonVariant;
+  /** Size token mapping */
   size?: ButtonSize;
   className?: string;
 }
 
+/**
+ * Button Component
+ *
+ * Purpose:
+ * - Core action control for primary and secondary actions.
+ *
+ * Usage:
+ * ```tsx
+ * <Button variant="primary" size="md">Save</Button>
+ * <Button variant="secondary" size="sm">Cancel</Button>
+ * ```
+ *
+ * Accessibility:
+ * - Defaults to `type="button"` to avoid accidental form submission.
+ */
 const Button = ({
   children,
   variant = 'primary',
