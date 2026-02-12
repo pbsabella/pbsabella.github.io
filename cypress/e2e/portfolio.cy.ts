@@ -25,15 +25,28 @@ describe('Portfolio E2E Tests', () => {
       });
     });
 
+    describe('BuildNotes', () => {
+      it('should capture build notes at multiple viewports', () => {
+        cy.visit('/#/labs/design-system-build-notes');
+
+        cy.findByRole('heading', { level: 1, name: /the architecture/i }).should('be.visible');
+        cy.percySnapshot('Design System Build Notes', { widths });
+      });
+    });
+
     describe('Dark Mode', () => {
       // Helper function to ensure dark mode is active
       const enableDarkMode = () => {
-        cy.get('body').then(($body) => {
-          const theme = $body.attr('data-theme');
-          if (theme !== 'dark') {
-            cy.findByRole('button', { name: /switch to dark mode/i }).click();
-          }
-        });
+        cy.get('body')
+          .invoke('attr', 'data-theme')
+          .then((theme) => {
+            if (theme !== 'dark') {
+              // Prefer stable header toggle ids to avoid detached-element races
+              cy.get('#theme-toggle:visible, #theme-toggle-mobile:visible')
+                .first()
+                .click();
+            }
+          });
         // Verify data-attribute is applied to ensure transition has started/finished
         cy.get('body').should('have.attr', 'data-theme', 'dark');
       };
@@ -51,6 +64,14 @@ describe('Portfolio E2E Tests', () => {
 
         cy.findByRole('heading', { level: 1, name: /system core/i }).should('be.visible');
         cy.percySnapshot('System Core - Dark Mode', { widths: [1280] });
+      });
+
+      it('should capture build notes in dark mode', () => {
+        cy.visit('/#/labs/design-system-build-notes');
+        enableDarkMode();
+
+        cy.findByRole('heading', { level: 1, name: /the architecture/i }).should('be.visible');
+        cy.percySnapshot('Design System Build Notes - Dark Mode', { widths: [1280] });
       });
     });
   });

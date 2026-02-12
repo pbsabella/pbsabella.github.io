@@ -12,6 +12,7 @@ import { useTheme } from '@context/ThemeContext';
 import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search, Lightbulb } from 'lucide-react';
 import {
   BUILD_NOTES_CHALLENGES,
+  BUILD_NOTES_CHALLENGE_NOTE,
   BUILD_NOTES_DECISIONS,
   BUILD_NOTES_NEXT_STEPS,
   BUILD_NOTES_PROBLEM_ITEMS,
@@ -352,6 +353,7 @@ export const LearningsSection = () => (
       validating decisions in real UI.
       It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
     </p>
+    <p className={`${styles.noteText} ${styles.asideNote}`}>{BUILD_NOTES_CHALLENGE_NOTE}</p>
   </BuildNotesBlock>
 );
 

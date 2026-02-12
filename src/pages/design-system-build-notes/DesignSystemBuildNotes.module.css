@@ -261,6 +261,10 @@
   grid-template-columns: 1fr;
 }
 
+.asideNote {
+  margin-top: var(--pr-spacing-4);
+}
+
 .list {
   display: grid;
   gap: var(--pr-spacing-2);
