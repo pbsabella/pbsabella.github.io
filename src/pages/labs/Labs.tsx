@@ -5,7 +5,7 @@ import Tag from '@/components/ui/Tag/Tag';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { LABS_META } from '@/content/pageMeta';
 import { LABS_PROJECTS } from '@/content/labs';
-import styles from './Labs.module.css'
+import styles from './Labs.module.css';
 
 const Labs = () => {
   return (
@@ -16,7 +16,7 @@ const Labs = () => {
         <p className={styles.labsDescription}>{LABS_META.description}</p>
         <hr />
 
-        <div className={styles.labsGrid}>
+        <ul className={styles.labsGrid} aria-label="Labs projects">
           {LABS_PROJECTS.map((project) => {
             const card = (
               <Card
@@ -38,23 +38,21 @@ const Labs = () => {
             );
 
             return project.href ? (
-              <Link
-                key={project.title}
-                className={`${styles.cardItem} ${styles.cardLink}`}
-                to={project.href}
-              >
-                {card}
-              </Link>
+              <li key={project.title} className={styles.cardItem}>
+                <Link className={styles.cardLink} to={project.href}>
+                  {card}
+                </Link>
+              </li>
             ) : (
-              <div key={project.title} className={styles.cardItem}>
+              <li key={project.title} className={styles.cardItem}>
                 {card}
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </Container>
     </section>
-  )
-}
+  );
+};
 
 export default Labs;

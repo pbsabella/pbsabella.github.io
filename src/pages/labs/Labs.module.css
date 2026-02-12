@@ -46,14 +46,14 @@
   gap: var(--pr-spacing-6);
   width: 100%;
   align-items: stretch;
-}
-
-.labsGrid a {
-  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .cardItem {
   height: 100%;
+  margin: 0;
 }
 
 .cardItem > * {
@@ -61,6 +61,11 @@
 }
 
 .cardLink {
+  display: block;
+  height: 100%;
+}
+
+.cardLink > * {
   height: 100%;
 }
 

@@ -23,5 +23,8 @@ describe('DesignSystemBuildNotes page', () => {
     expect(
       screen.getByRole('link', { name: /view system core/i })
     ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(/table of contents/i)
+    ).toBeInTheDocument();
   });
 });

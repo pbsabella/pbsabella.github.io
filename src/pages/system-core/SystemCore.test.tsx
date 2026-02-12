@@ -13,5 +13,7 @@ describe('SystemCore page', () => {
 
     expect(screen.getByRole('heading', { name: /system core/i })).toBeInTheDocument();
     expect(screen.getAllByRole('table').length).toBeGreaterThan(0);
+    expect(screen.getAllByRole('navigation', { name: /breadcrumb/i }).length).toBeGreaterThan(0);
+    expect(screen.getByRole('complementary', { name: /system core table of contents/i })).toBeInTheDocument();
   });
 });

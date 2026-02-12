@@ -1,6 +1,5 @@
 import FeaturedSection from '@components/sections/FeaturedSection';
 import Socials from '@components/ui/Socials/Socials';
-import Button from '@components/ui/Button/Button';
 import styles from './Contact.module.css';
 
 const Contact = () => {
@@ -15,9 +14,7 @@ const Contact = () => {
           experiences, let&apos;s talk.
         </p>
         <div className={styles.contactActions}>
-          <a href="mailto:pau.abella@gmail.com">
-            <Button variant="primary" size="md">Email me</Button>
-          </a>
+          <a className={styles.contactEmailLink} href="mailto:pau.abella@gmail.com">Email me</a>
           <Socials className={styles.contactSocials} />
         </div>
       </div>

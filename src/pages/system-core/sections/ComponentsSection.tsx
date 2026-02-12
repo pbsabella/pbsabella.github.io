@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button/Button';
 import Table from '@/components/ui/Table/Table';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 
+// TODO: Add a dedicated Link component under ui/ and document it in this section
 type ComponentsSectionProps = {
   icon: ReactNode;
 };
@@ -81,7 +82,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <div className={styles.tagsDemo}>
       <Tag>Default</Tag>
       <Tag variant="info">Info</Tag>
-      <Tag variant="success">Sucess</Tag>
+      <Tag variant="success">Success</Tag>
       <Tag variant="warning">Warning</Tag>
       <Tag variant="error">Error</Tag>
     </div>
@@ -114,14 +115,6 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
       <Badge variant="error" size="lg">99+</Badge>
     </div>
 
-    <h3 className={styles.subsectionTitle}>Links</h3>
-    <p className={styles.sectionDesc}>
-      The primary element for text-based navigation. These include persistent hover states and transition effects to ensure clear affordance.
-    </p>
-    <div>
-      <a className="link" href="#core">Standard Text Link</a>
-    </div>
-
     <h3 className={styles.subsectionTitle}>Breadcrumbs</h3>
     <p className={styles.sectionDesc}>
       A secondary navigation aid that helps users understand their location within a hierarchical structure.
@@ -151,7 +144,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
           ['Buttons', 'Primary actions'],
           ['Tags', 'Meta labels'],
           ['Badges', 'Counts + status'],
-          ['Links', 'Inline navigation'],
+          ['Breadcrumbs', 'Hierarchical navigation'],
         ]}
       />
     </div>

@@ -22,8 +22,8 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Goal:** Verify business logic, hooks, and state transitions
 - **Tools:** Vitest (runner), @testing-library/react (DOM utilities)
 - **Mandatory coverage:**
-  - Custom Hooks (`src/hooks/__tests__/`)
-  - Context Providers (`src/context/__tests__/`)
+  - Custom Hooks (`src/hooks/**/*.{test,spec}.{ts,tsx}`)
+  - Context Providers (`src/context/**/*.{test,spec}.{ts,tsx}`)
   - Complex UI components with state
 - **Command:** `npm run test` (single run) or `npm run test:watch` (development)
 - **Speed:** <5 seconds for full suite
@@ -201,8 +201,8 @@ it('should return header classes based on scroll position', () => {
 // cypress/e2e/portfolio.cy.ts
 it('should trap focus in mobile side nav', () => {
   cy.viewport(375, 667);
-  cy.findByRole('button', { name: /open main menu/i }).click();
-  cy.focused().should('have.id', 'side-menu-close');
+  cy.findByRole('button', { name: /open mobile menu/i }).click();
+  cy.focused().should('have.attr', 'aria-label').and('match', /close mobile menu/i);
 });
 ```
 

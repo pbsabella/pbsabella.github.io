@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './DesignSystemBuildNotes.module.css';
 import Alert from '@/components/ui/Alert/Alert';
@@ -22,10 +23,24 @@ const PipelineConnector = () => (
   </span>
 );
 
+type BuildNotesBlockProps = {
+  id: string;
+  kicker: string;
+  title: string;
+  className?: string;
+  children: ReactNode;
+};
+
+const BuildNotesBlock = ({ id, kicker, title, className, children }: BuildNotesBlockProps) => (
+  <section id={id} className={[styles.section, className].filter(Boolean).join(' ')}>
+    <p className={styles.sectionKicker}>{kicker}</p>
+    <h2 className={styles.sectionTitle}>{title}</h2>
+    {children}
+  </section>
+);
+
 export const MotivationSection = () => (
-  <section id="motivation" className={styles.section}>
-    <p className={styles.sectionKicker}>01. Motivation</p>
-    <h2 className={styles.sectionTitle}>Learning through systems</h2>
+  <BuildNotesBlock id="motivation" kicker="01. Motivation" title="Learning through systems">
     <p>
       My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
       version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
@@ -39,13 +54,11 @@ export const MotivationSection = () => (
     <p className={styles.noteText}>
       <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
     </p>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const ProblemSection = () => (
-  <section id="problem" className={styles.section}>
-    <p className={styles.sectionKicker}>02. Problem</p>
-    <h2 className={styles.sectionTitle}>The friction of manual UI</h2>
+  <BuildNotesBlock id="problem" kicker="02. Problem" title="The friction of manual UI">
     <p>
       This portfolio is updated in bursts. When I come back after a gap, I
       don&apos;t want to play detective with my own CSS. Without a system, I kept
@@ -75,13 +88,11 @@ export const ProblemSection = () => (
         );
       })}
     </ul>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const ApproachSection = () => (
-  <section id="approach" className={styles.section}>
-    <p className={styles.sectionKicker}>03. Approach</p>
-    <h2 className={styles.sectionTitle}>Three layers, one source of truth</h2>
+  <BuildNotesBlock id="approach" kicker="03. Approach" title="Three layers, one source of truth">
     <p>
       I use a strict three-layer stack: <strong>primitives</strong> for raw
       options, <strong>semantics</strong> for intent, and
@@ -161,13 +172,11 @@ export const ApproachSection = () => (
         required, these prefixes are also easy to lint against.
       </p>
     </Alert>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const KeyDecisionsSection = () => (
-  <section id="decisions" className={styles.section}>
-    <p className={styles.sectionKicker}>04. Key Decisions</p>
-    <h2 className={styles.sectionTitle}>What I locked in early</h2>
+  <BuildNotesBlock id="decisions" kicker="04. Key Decisions" title="What I locked in early">
     <ul className={`${styles.listIcon} ${styles.decisionListIcon} ${styles.decisionListGrid}`}>
       {BUILD_NOTES_DECISIONS.map((item, index) => {
         const icons = [
@@ -188,13 +197,16 @@ export const KeyDecisionsSection = () => (
         </li>
       )})}
     </ul>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const WinsSection = () => (
-  <section id="wins" className={`${styles.section} ${styles.sectionTwoCol}`}>
-    <p className={styles.sectionKicker}>05. Outcomes</p>
-    <h2 className={styles.sectionTitle}>What worked in practice</h2>
+  <BuildNotesBlock
+    id="wins"
+    kicker="05. Outcomes"
+    title="What worked in practice"
+    className={styles.sectionTwoCol}
+  >
     <ul className={styles.listIcon}>
       {BUILD_NOTES_WINS.map((item) => (
         <li key={item}>
@@ -203,13 +215,11 @@ export const WinsSection = () => (
         </li>
       ))}
     </ul>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const ChallengesSection = () => (
-  <section id="challenges" className={styles.section}>
-    <p className={styles.sectionKicker}>06. Friction</p>
-    <h2 className={styles.sectionTitle}>What got messy</h2>
+  <BuildNotesBlock id="challenges" kicker="06. Friction" title="What got messy">
     <ul className={`${styles.listIcon} ${styles.challengeListSingle}`}>
       {BUILD_NOTES_CHALLENGES.map((item, index) => {
         const icons = [
@@ -226,13 +236,11 @@ export const ChallengesSection = () => (
         );
       })}
     </ul>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const DemoSection = () => (
-  <section id="demo" className={styles.section}>
-    <p className={styles.sectionKicker}>07. Demo</p>
-    <h2 className={styles.sectionTitle}>The portfolio is the proof</h2>
+  <BuildNotesBlock id="demo" kicker="07. Demo" title="The portfolio is the proof">
     <Card variant="panel" className={styles.demoCard}>
       <div className={styles.demoHeader}>
         <div className={styles.demoDots}>
@@ -326,13 +334,11 @@ export const DemoSection = () => (
     <p className={styles.demoCaption}>
       Two compact examples showing how token intent stays consistent while visuals adapt by theme.
     </p>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const LearningsSection = () => (
-  <section id="learnings" className={styles.section}>
-    <p className={styles.sectionKicker}>08. Learnings</p>
-    <h2 className={styles.sectionTitle}>What this exposed</h2>
+  <BuildNotesBlock id="learnings" kicker="08. Learnings" title="What this exposed">
     <p>
       This was an opportunity to apply enterprise design-system architecture in
       a fresh React environment and validate how CSS Modules, theming, and
@@ -343,13 +349,11 @@ export const LearningsSection = () => (
       validating decisions in real UI.
       It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
     </p>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const NextStepsSection = () => (
-  <section id="next-steps" className={styles.section}>
-    <p className={styles.sectionKicker}>09. Next Step</p>
-    <h2 className={styles.sectionTitle}>The journey continues</h2>
+  <BuildNotesBlock id="next-steps" kicker="09. Next Step" title="The journey continues">
     <p>
       The system is stable enough to scale, but the next milestone is resilience:
       validating that new variants, page types, and brand constraints can be
@@ -363,13 +367,11 @@ export const NextStepsSection = () => (
         </li>
       ))}
     </ul>
-  </section>
+  </BuildNotesBlock>
 );
 
 export const SystemCoreSection = () => (
-  <section id="system-core" className={styles.section}>
-    <p className={styles.sectionKicker}>10. System Core</p>
-    <h2 className={styles.sectionTitle}>Deep dive into System Core</h2>
+  <BuildNotesBlock id="system-core" kicker="10. System Core" title="Deep dive into System Core">
     <p>
       Explore the live token tables, primitives, and component
       foundations that back these build notes.
@@ -377,5 +379,5 @@ export const SystemCoreSection = () => (
     <Link to={ROUTES.SYSTEM_CORE}>
       <Button variant="secondary" size="md">View System Core</Button>
     </Link>
-  </section>
+  </BuildNotesBlock>
 );

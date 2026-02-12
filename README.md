@@ -27,7 +27,7 @@ This portfolio is a **Design System in practice**:
 
 Design decisions are encoded as CSS variables, enabling:
 - **Theme switching** without recompiling CSS
-- **Consistent spacing** via 8px base scale
+- **Consistent spacing** via 4px base scale
 - **Responsive typography** using CSS clamp()
 - **Semantic color tokens** that adapt to light/dark themes
 
@@ -139,7 +139,7 @@ npm run lighthouse:quick  # 1 run per route (faster local check)
 ### Unit Tests (`npm run test`)
 
 - **Tool:** Vitest + @testing-library/react
-- **Location:** `src/**/__tests__/`
+- **Location:** `src/**/*.{test,spec}.{ts,tsx}` (including `__tests__` folders)
 - **Coverage:** Components, hooks, context logic
 - **Run:** Locally or CI on every push
 
