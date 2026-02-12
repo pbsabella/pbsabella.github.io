@@ -67,7 +67,7 @@
   padding-bottom: var(--pr-spacing-4);
   font-size: var(--sem-text-heading-md);
   line-height: var(--pr-leading-120);
-  max-width: 20ch;
+  max-width: 20ch; /* Custom */
 }
 
 .featuredSectionDesc {

@@ -7,7 +7,7 @@ import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
-import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search, Lightbulb } from 'lucide-react';
 import {
   BUILD_NOTES_CHALLENGES,
   BUILD_NOTES_DECISIONS,
@@ -18,8 +18,7 @@ import {
 
 const PipelineConnector = () => (
   <span className={styles.demoPipelineConnector}>
-    <ArrowRight size={12} aria-hidden="true" />
-    <span>to</span>
+    <ArrowRight size={12} role="img" aria-label="to" />
   </span>
 );
 
@@ -28,13 +27,14 @@ export const MotivationSection = () => (
     <p className={styles.sectionKicker}>01. Motivation</p>
     <h2 className={styles.sectionTitle}>Learning through systems</h2>
     <p>
-      My portfolio has mirrored the evolution of frontend web development: starting with static HTML/CSS, moving through
-      Sass and BEM, and finally landing on React with CSS Modules. However, each migration revealed a recurring friction
-      point: without a documented source of truth, every redesign became an expensive, manual refactor.
+      My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
+      version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
+      refactors.
     </p>
     <p>
-      This rebuild bridged design systems strategy with day-to-day React execution and helped me level up implementation depth in parallel.
-      The goal was to pressure-test the model in code, where token naming, component APIs, theming behavior, and accessibility either reinforce each other or break.
+      This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
+      just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
+      connected system.
     </p>
     <p className={styles.noteText}>
       <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
@@ -47,12 +47,14 @@ export const ProblemSection = () => (
     <p className={styles.sectionKicker}>02. Problem</p>
     <h2 className={styles.sectionTitle}>The friction of manual UI</h2>
     <p>
-      This portfolio is updated in bursts, not in a perfect daily flow.
-      That cadence exposes weak architecture fast. If updates require tracing
-      one-off values and styling side effects, momentum drops and quality starts to drift.
+      This portfolio is updated in bursts. When I come back after a gap, I
+      don&apos;t want to play detective with my own CSS. Without a system, I kept
+      re-making the same spacing and color decisions, and that cognitive load
+      killed momentum.
     </p>
     <p className={styles.noteText}>
-      Dark mode was the first test case; brand theming is the ultimate stress test for the architecture.
+      Dark mode was the immediate trigger, but the real goal was removing UI
+      guesswork and making the system easier to re-enter and scale.
     </p>
     <ul className={`${styles.listIcon} ${styles.problemList}`}>
       {BUILD_NOTES_PROBLEM_ITEMS.map((item, index) => {
@@ -81,14 +83,72 @@ export const ApproachSection = () => (
     <p className={styles.sectionKicker}>03. Approach</p>
     <h2 className={styles.sectionTitle}>Three layers, one source of truth</h2>
     <p>
-      I structured the system into three layers:
-      <strong> primitives</strong> (<code>--pr-*</code>) for raw values,
-      <strong> semantic</strong> (<code>--sem-*</code>) for intent, and
-      <strong> component</strong> (<code>--comp-*</code>) for usage.
-      This keeps the UI stable even when themes, brands, or
-      components evolve.
+      I use a strict three-layer stack: <strong>primitives</strong> for raw
+      options, <strong>semantics</strong> for intent, and
+      <strong> component tokens</strong> for UI consumption. It adds upfront
+      structure, but creates a buffer between raw values and product UI so
+      components stay stable as themes and brands evolve.
     </p>
-    <Alert variant="info" title="Thinking process">
+    <div className={styles.layerGrid}>
+      <Card variant="flat" className={styles.layerCard}>
+        <div className={styles.layerHeader}>
+          <span className={styles.layerIcon} aria-hidden="true">
+            <Layers size={24} className={styles.iconAccent} />
+          </span>
+        </div>
+        <h3 className={styles.layerTitle}>Primitive</h3>
+        <p>Raw values that define the palette, scale, and motion.</p>
+        <p className={styles.layerToken}>
+          <code>--pr-[category]-[scale]</code>
+          <span className={styles.layerTokenExample}>
+            <span>e.g.</span>
+            <code>--pr-color-neutral-800</code>
+          </span>
+        </p>
+      </Card>
+      <Card variant="flat" className={styles.layerCard}>
+        <div className={styles.layerHeader}>
+          <span className={styles.layerIcon} aria-hidden="true">
+            <Type size={24} className={styles.iconAccent} />
+          </span>
+        </div>
+        <h3 className={styles.layerTitle}>Semantic</h3>
+        <p>Intent-based aliases that describe how UI should behave.</p>
+        <p className={styles.layerToken}>
+          <code>--sem-[domain]-[property]-[role]</code>
+          <span className={styles.layerTokenExample}>
+            <span>e.g.</span>
+            <code>--sem-color-text-primary</code>
+          </span>
+        </p>
+      </Card>
+      <Card variant="flat" className={styles.layerCard}>
+        <div className={styles.layerHeader}>
+          <span className={styles.layerIcon} aria-hidden="true">
+            <Component size={24} className={styles.iconAccent} />
+          </span>
+        </div>
+        <h3 className={styles.layerTitle}>Component</h3>
+        <p>Component-level tokens that bind styles to real UI pieces.</p>
+        <p className={styles.layerToken}>
+          <code>--comp-[component]-[property]</code>
+          <span className={styles.layerTokenExample}>
+            <span>e.g.</span>
+            <code>--comp-card-border</code>
+          </span>
+        </p>
+      </Card>
+    </div>
+    <Alert
+      variant="info"
+      className={styles.rationaleAlert}
+      title={(
+        <span className={styles.alertRationaleTitle}>
+          <Lightbulb size={20} aria-hidden="true" />
+          <span>Design Rationale</span>
+        </span>
+      )}
+    >
       <p>
         The naming is intentional: <strong>prefixes</strong> make a token&apos;s
         role obvious at a glance, while grouping by
@@ -99,35 +159,6 @@ export const ApproachSection = () => (
         required, these prefixes are also easy to lint against.
       </p>
     </Alert>
-    <div className={styles.layerGrid}>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Layers size={24} className={styles.iconAccent} />
-          </span>
-        </div>
-        <h3 className={styles.layerTitle}>Primitive</h3>
-        <p>Raw values that define the palette, scale, and motion.</p>
-      </Card>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Type size={24} className={styles.iconAccent} />
-          </span>
-        </div>
-        <h3 className={styles.layerTitle}>Semantic</h3>
-        <p>Intent-based aliases that describe how UI should behave.</p>
-      </Card>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Component size={24} className={styles.iconAccent} />
-          </span>
-        </div>
-        <h3 className={styles.layerTitle}>Component</h3>
-        <p>Component-level tokens that bind styles to real UI pieces.</p>
-      </Card>
-    </div>
   </section>
 );
 
@@ -223,7 +254,7 @@ export const DemoSection = () => (
         </div>
         <div className={styles.demoShowcase}>
           <Card className={styles.demoMiniCard} isInteractive={true}>
-            <div className={styles.demoMiniTitle}>Demo 1: Elevated Card</div>
+            <div className={styles.demoMiniTitle}>Elevated Card</div>
             <p className={styles.demoMiniCopy}>
               Interactive elevated card using component tokens, fed by semantic intent.
             </p>
@@ -249,14 +280,17 @@ export const DemoSection = () => (
             </div>
           </Card>
           <Card variant="flat" className={styles.demoMiniCard}>
-            <div className={styles.demoMiniTitle}>Demo 2: Status Chips</div>
+            <div className={styles.demoMiniTitle}>Status Chips</div>
             <p className={styles.demoMiniCopy}>
               Tags and badges consume status semantics while preserving consistent contrast across themes.
             </p>
             <div className={styles.demoPipelines}>
               <div className={styles.demoMiniMeta}>
-                <div>
+                <div className={styles.demoChipRow}>
                   <Badge variant="success" size="md">12</Badge>
+                  <Badge variant="warning" size="md">4</Badge>
+                  <Badge variant="error" size="md">2</Badge>
+                  <Badge variant="info" size="md">8</Badge>
                 </div>
                 <div className={styles.demoPipelineRow}>
                   <code>--pr-color-success-600</code>
@@ -268,8 +302,11 @@ export const DemoSection = () => (
               </div>
 
               <div className={styles.demoMiniMeta}>
-                <div>
+                <div className={styles.demoChipRow}>
                   <Tag size="sm" variant="info">Info</Tag>
+                  <Tag size="sm" variant="success">Success</Tag>
+                  <Tag size="sm" variant="warning">Warning</Tag>
+                  <Tag size="sm" variant="error">Error</Tag>
                 </div>
                 <div className={styles.demoPipelineRow}>
                   <code>--pr-color-info-600</code>
@@ -295,8 +332,13 @@ export const LearningsSection = () => (
     <p className={styles.sectionKicker}>08. Learnings</p>
     <h2 className={styles.sectionTitle}>What this exposed</h2>
     <p>
-      This was my first end-to-end React build, and I paired it with a from-scratch system setup at the same time.
-      Instead of only consuming handed-off tokens and design decisions, I had to define structure, naming, and ownership in code, then validate what actually looked right on real UI elements.
+      This was an opportunity to apply enterprise design-system architecture in
+      a fresh React environment and validate how CSS Modules, theming, and
+      component APIs hold up under token-heavy UI.
+    </p>
+    <p>
+      Designing and implementing in parallel was the hard part: defining naming, structure, and ownership while
+      validating decisions in real UI.
       It took multiple refactors, but the result is a clearer system that is easier to evolve without losing quality.
     </p>
   </section>

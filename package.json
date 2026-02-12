@@ -11,7 +11,7 @@
     "check:tests": "npm run test && npm run test:local && npm run pw:smoke",
     "check:perf": "npm run lighthouse:quick",
     "check:full": "npm run check:quality && npm run test && npm run test:local && npm run lighthouse && npm run pw:test",
-    "lint": "eslint . && stylelint 'src/**/*.css' && node scripts/check-css-prefix.mjs",
+    "lint": "eslint . && stylelint 'src/**/*.css' && node scripts/check-css-prefix.mjs && node scripts/check-breakpoints.mjs",
     "lint:eslint": "eslint .",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
@@ -27,6 +27,7 @@
     "pw:test": "playwright test",
     "pw:smoke": "playwright test playwright/smoke",
     "pw:headed": "playwright test --headed",
+    "contrast:manual": "start-server-and-test \"npm run dev -- --port 5173 --strictPort\" http://localhost:5173 \"node scripts/manual-contrast-audit.mjs\"",
     "test:local": "start-server-and-test dev http://localhost:5173 cypress:e2e",
     "percy:test": "vite build && start-server-and-test 'vite preview --port 5173' http://localhost:5173 'percy exec -- cypress run'",
     "percy:baseline": "PERCY_BRANCH=master percy exec -- cypress run --config baseUrl=https://pbsabella.github.io/"

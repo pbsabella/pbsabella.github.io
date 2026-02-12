@@ -71,6 +71,7 @@
   align-items: center;
   gap: var(--pr-spacing-3);
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .heroRule {
@@ -83,13 +84,15 @@
   font-size: var(--sem-text-caption);
   letter-spacing: var(--pr-tracking-08);
   color: var(--sem-color-text-muted);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .heroTitle {
   font-family: var(--font-display);
   font-size: clamp(calc(var(--pr-text-900) * 1.2), 7.8vw, calc(var(--pr-text-900) * 1.95));
   line-height: var(--pr-leading-110);
-  color: var(--sem-color-text-strong);
+  color: var(--sem-color-text-primary);
   max-width: clamp(16ch, 72vw, 24ch);
   margin-bottom: var(--pr-spacing-3);
 }
@@ -126,7 +129,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--pr-spacing-2);
-  max-width: 72ch;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -182,6 +184,12 @@
 
   .heroRule {
     width: var(--pr-size-160);
+  }
+}
+
+@media (width >= 1024px) {
+  .heroTitle {
+    max-width: 18ch;
   }
 }
 

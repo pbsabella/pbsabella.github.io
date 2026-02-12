@@ -13,16 +13,8 @@ export const BUILD_NOTES_SECTIONS = [
 
 export const BUILD_NOTES_META = [
   { label: 'Project', value: 'Personal' },
-  { label: 'Stack', value: 'React + TypeScript' },
+  { label: 'Stack', value: 'React + CSS Modules + TypeScript' },
   { label: 'Focus', value: 'Token architecture' },
-];
-
-import type { TagVariant } from '@/components/ui/Tag/Tag';
-
-export const BUILD_NOTES_TAGS: Array<{ label: string; variant: TagVariant }> = [
-  { label: 'React', variant: 'info' },
-  { label: 'Tokens', variant: 'success' },
-  { label: 'Build Notes', variant: 'warning' },
 ];
 
 export const BUILD_NOTES_PROBLEM_ITEMS = [
@@ -69,14 +61,14 @@ export const BUILD_NOTES_DECISIONS = [
 ];
 
 export const BUILD_NOTES_WINS = [
-  'Dark mode became a token remap, not a component rewrite.',
-  'Component APIs stayed focused on structure while tokens handled visual intent.',
-  'Cross-page typography, spacing, and states now share one enforceable baseline.',
+  'Theme work shifted from component edits to semantic remapping.',
+  'Component APIs stayed structural while tokens handled visual intent.',
+  'The system now enforces constraints, so random one-off values are harder to ship.',
 ];
 
 export const BUILD_NOTES_CHALLENGES = [
   'Token naming was only one part of the challenge; the system needed multiple rounds of refactoring and reconfiguration to keep intent clear and implementation practical.',
-  'Balancing semantic purity with shipping pressure required explicit tradeoff decisions.',
+  'Balancing semantic purity with shipping pressure was the hardest tradeoff. A few "clean" semantic splits were too granular in real UI, so I consolidated usage rules to keep decisions fast.',
   'Contrast checks for a11y got flaky once layered backgrounds and pseudo-elements were introduced. I ended up patching around false positives more than I wanted, so the checks are useful but still not as stable as I would like.',
 ];
 

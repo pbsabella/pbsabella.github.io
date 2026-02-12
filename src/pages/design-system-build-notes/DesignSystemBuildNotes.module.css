@@ -43,6 +43,8 @@
   display: flex;
   align-items: center;
   gap: var(--pr-spacing-3);
+  flex-wrap: wrap;
+  min-width: 0;
   margin-bottom: var(--pr-spacing-6);
 }
 
@@ -56,6 +58,8 @@
   font-size: var(--sem-text-caption);
   color: var(--sem-color-text-muted);
   font-weight: var(--pr-weight-500);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .title {
@@ -63,6 +67,7 @@
   margin-bottom: var(--pr-spacing-4);
   line-height: var(--pr-leading-110);
   font-size: clamp(calc(var(--pr-text-900) * 1.35), 9vw, calc(var(--pr-text-900) * 2.6));
+  overflow-wrap: anywhere;
 }
 
 .titleAccent {
@@ -76,20 +81,17 @@
   color: var(--sem-color-text-muted);
 }
 
-.meta {
-  display: flex;
-  gap: var(--pr-spacing-2);
-  margin-top: var(--pr-spacing-6);
-  flex-wrap: wrap;
-}
-
 .heroStats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--pr-size-140), 1fr));
-  gap: var(--pr-spacing-6);
+  grid-template-columns: 1fr;
+  gap: var(--pr-spacing-4);
   padding: var(--pr-spacing-6) 0;
   margin-top: var(--pr-spacing-6);
   border-top: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+}
+
+.heroStatItem {
+  min-width: 0;
 }
 
 .heroStatLabel {
@@ -102,6 +104,14 @@
 
 .heroStatValue {
   font-weight: var(--pr-weight-500);
+}
+
+@media (width >= 768px) {
+  .heroStats {
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    gap: var(--pr-spacing-3) var(--pr-spacing-11);
+    justify-content: start;
+  }
 }
 
 .layout {
@@ -157,7 +167,7 @@
   color: var(--sem-color-text-muted);
 }
 
-@media (width >= 901px) {
+@media (width >= 900px) {
   .systemCoreLink {
     flex-direction: row;
     align-items: flex-start;
@@ -205,6 +215,11 @@
   grid-template-columns: repeat(auto-fit, minmax(var(--pr-size-200), 1fr));
   gap: var(--pr-spacing-4);
   margin-top: var(--pr-spacing-4);
+  margin-block-end: var(--pr-spacing-6);
+}
+
+.rationaleAlert {
+  margin-top: 0;
 }
 
 .layerCard {
@@ -243,6 +258,29 @@
   margin: 0;
   line-height: var(--pr-leading-180);
   color: var(--sem-color-text-muted);
+}
+
+.layerToken {
+  margin-top: auto;
+  padding-top: var(--pr-spacing-2);
+  display: grid;
+  gap: var(--pr-spacing-1);
+}
+
+.layerToken code {
+  font-size: 12px;
+}
+
+.layerToken span {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+}
+
+.layerTokenExample {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--pr-spacing-1);
+  flex-wrap: wrap;
 }
 
 .layerTags {
@@ -441,6 +479,13 @@
   gap: var(--pr-spacing-2);
 }
 
+.demoChipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-2);
+  align-items: center;
+}
+
 .demoPipelines {
   display: grid;
   gap: var(--pr-spacing-4);
@@ -470,6 +515,12 @@
   color: var(--sem-color-text-muted);
 }
 
+.alertRationaleTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+}
+
 .sidebar {
   display: none;
   gap: var(--pr-spacing-4);
@@ -490,7 +541,7 @@
   line-height: var(--pr-leading-180);
 }
 
-@media (width >= 1025px) {
+@media (width >= 1024px) {
   .layout {
     grid-template-columns: minmax(0, 1fr) minmax(var(--pr-size-160), var(--pr-size-200));
   }
@@ -511,7 +562,7 @@
   }
 }
 
-@media (width >= 760px) {
+@media (width >= 768px) {
   .decisionListGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--pr-spacing-4) var(--pr-spacing-6);

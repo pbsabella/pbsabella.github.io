@@ -1,12 +1,13 @@
 .breadcrumbs {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: var(--pr-spacing-4);
 }
 
 .breadcrumbsList {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: var(--pr-spacing-2);
   margin: 0;
   padding: 0;
@@ -15,8 +16,10 @@
 
 .breadcrumbsItem {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--pr-spacing-2);
+  min-width: 0;
+  max-width: 100%;
   font-size: var(--sem-text-kicker);
   letter-spacing: var(--pr-tracking-18);
   text-transform: uppercase;
@@ -26,14 +29,19 @@
 .breadcrumbsLink {
   color: var(--sem-color-text-primary);
   text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .breadcrumbsCurrent {
   color: var(--sem-color-text-primary);
   font-weight: var(--pr-weight-600);
   letter-spacing: var(--pr-tracking-20);
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .breadcrumbsSeparator {
   color: var(--sem-color-text-muted);
+  flex: 0 0 auto;
 }

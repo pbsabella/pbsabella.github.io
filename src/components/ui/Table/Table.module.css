@@ -71,16 +71,28 @@
 
 .tableStacked .tableCell {
   display: grid;
-  grid-template-columns: minmax(120px, 1fr) 2fr;
-  gap: var(--pr-spacing-3);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--pr-spacing-1);
   border: 0;
   padding: 0;
+  min-width: 0;
 }
 
 .tableStacked .tableCell::before {
   content: attr(data-label);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-muted);
+}
+
+.tableStacked .tableCell > * {
+  min-width: 0;
+}
+
+@media (width >= 421px) {
+  .tableStacked .tableCell {
+    grid-template-columns: minmax(120px, 1fr) 2fr;
+    gap: var(--pr-spacing-3);
+  }
 }
 
 .tableStacked.tableStriped .tableRow:nth-child(odd) {
@@ -99,7 +111,7 @@
   background: transparent;
 }
 
-@media (width >= 769px) {
+@media (width >= 768px) {
   .tableStacked thead {
     display: table-header-group;
   }

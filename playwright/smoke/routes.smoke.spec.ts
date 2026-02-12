@@ -121,11 +121,16 @@ const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, test
     .exclude('[data-axe-skip]')
     .analyze();
 
+  // NOTE: We keep a narrow suppression path for axe "incomplete" color-contrast items.
+  // These are not violations, but unresolved checks caused by layered pseudo-element backgrounds.
+  // Revisit this filter after background-layer simplification or when axe/browser handling improves.
   const incompleteContrast = axeResults.incomplete.filter((issue) => issue.id === 'color-contrast');
   const actionableIncompleteContrast = incompleteContrast
     .map((issue) => ({
       ...issue,
       nodes: issue.nodes.filter((node) => {
+        // NOTE: This excludes only "pseudoContent" cases tied to pageWrap background layers.
+        // It is intentionally scoped; do not broaden without a failing example and manual verification.
         const isPseudoBackgroundUnknown = node.any.some((check) => {
           const messageKey = (check.data as { messageKey?: string } | undefined)?.messageKey;
           const isPseudoContent = messageKey === 'pseudoContent';

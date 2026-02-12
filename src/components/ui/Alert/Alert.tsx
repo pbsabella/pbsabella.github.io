@@ -3,11 +3,11 @@ import styles from './Alert.module.css';
 
 type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
 
-interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   /** Main alert content */
   children: ReactNode;
   /** Optional heading shown above body content */
-  title?: string;
+  title?: ReactNode;
   /** Semantic intent variant */
   variant?: AlertVariant;
   className?: string;

@@ -95,7 +95,7 @@
 
 /* Responsive adjustments */
 
-@media (width >= 1025px) {
+@media (width >= 1024px) {
   .tableOfContents {
     display: block;
   }

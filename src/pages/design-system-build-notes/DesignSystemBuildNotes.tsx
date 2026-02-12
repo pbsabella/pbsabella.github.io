@@ -2,7 +2,7 @@ import Container from '@/components/layout/Container';
 import Tag from '@/components/ui/Tag/Tag';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import TableOfContents from '@components/ui/TableOfContents/TableOfContents';
-import { BUILD_NOTES_META, BUILD_NOTES_SECTIONS, BUILD_NOTES_TAGS } from '@/content/designSystemBuildNotes';
+import { BUILD_NOTES_META, BUILD_NOTES_SECTIONS } from '@/content/designSystemBuildNotes';
 import { BUILD_NOTES_META_PAGE } from '@/content/pageMeta';
 import styles from './DesignSystemBuildNotes.module.css';
 import {
@@ -36,15 +36,10 @@ const DesignSystemBuildNotes = () => {
           <p className={styles.subtitle}>{BUILD_NOTES_META_PAGE.heroSubtitle}</p>
           <div className={styles.heroStats}>
             {BUILD_NOTES_META.map((item) => (
-              <div key={item.label}>
+              <div key={item.label} className={styles.heroStatItem}>
                 <p className={styles.heroStatLabel}>{item.label}</p>
                 <p className={styles.heroStatValue}>{item.value}</p>
               </div>
-            ))}
-          </div>
-          <div className={styles.meta}>
-            {BUILD_NOTES_TAGS.map((tag) => (
-              <Tag key={tag.label} size="sm" variant={tag.variant}>{tag.label}</Tag>
             ))}
           </div>
         </header>

@@ -62,11 +62,18 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 - **Goal:** Catch runtime issues Cypress/Percy/Vitest may miss across browser engines
 - **Tools:** Playwright (Chromium, Firefox, WebKit)
 - **Coverage:** Route load sanity, console errors, failed requests, accessibility checks in light/dark themes, and semantic token contrast contracts
-- **Note:** Axe `incomplete` color-contrast findings are reported for triage; hard failures come from axe violations plus explicit token/critical-selector contrast checks
+- **Note:** A narrow filter excludes only `axe` `incomplete` color-contrast nodes tied to pseudo-content/page-wrap layering; hard failures still come from axe violations + explicit contrast assertions
 - **Command:**
   - `npm run pw:install` (first-time browser install)
   - `npm run pw:smoke` (cross-browser smoke suite)
   - `npm run pw:test` (full Playwright suite)
+
+### Layer 7: Manual Contrast Audit (Diagnostic)
+
+- **Goal:** Independently verify text contrast using computed style + alpha compositing across route/theme combinations
+- **Tool:** Custom Node script (`scripts/manual-contrast-audit.mjs`)
+- **Command:** `npm run contrast:manual`
+- **Role:** Local diagnostic sweep for validation and triage, not a blocking CI gate
 
 ## Tool Overlap (Concise)
 
@@ -89,6 +96,7 @@ To maintain velocity, apply this decision matrix:
 | **Static layouts**    | Visual (Percy)       | Catches unintended shifts          |
 | **User interactions** | E2E (Cypress)        | Only behavior needs manual testing |
 | **Cross-browser runtime** | Smoke (Playwright) | Catches engine-specific regressions |
+| **Manual contrast triage** | Manual sweep script | Independent verification beyond gated checks |
 | **Third-party libs**  | Skip                 | Assume stable, trust maintainers   |
 | **Accessibility**     | Lighthouse CLI       | Automated a11y checks via axe      |
 
@@ -110,6 +118,7 @@ npm run test:local
 npm run build
 npm run type-check && npm run lint && npm run test
 npm run pw:smoke
+npm run contrast:manual
 npm run percy:test
 ```
 
@@ -169,6 +178,7 @@ Accessibility is verified at multiple layers:
 | **Interactive** | Cypress E2E       | Keyboard navigation, focus trapping     |
 | **Audit**       | Lighthouse CI     | Color contrast, WCAG violations via axe |
 | **Smoke**       | Playwright        | Missing accessible names + landmark sanity |
+| **Diagnostic**  | Manual contrast script | Independent route/theme contrast verification |
 | **Visual**      | Percy             | Layout breaks that hurt readability     |
 
 ---

@@ -27,10 +27,10 @@ export const BUILD_NOTES_META_PAGE = {
     { label: 'Labs', to: ROUTES.LABS },
     { label: 'Design System Build Notes' },
   ],
-  heroBadge: 'First React Project',
+  heroBadge: 'React + Design Systems',
   heroKicker: 'Build Notes 01',
   heroTitle: 'The Architecture',
   heroTitleAccent: 'of Consistency',
   heroSubtitle:
-    'Building a multi-tiered token architecture from scratch, then proving it in a real portfolio UI.',
+    'Building a multi-tiered token architecture and proving it in a real portfolio UI.',
 };

@@ -120,7 +120,6 @@
   color: var(--sem-color-text-strong);
   font-weight: var(--pr-weight-500);
   margin-bottom: var(--pr-spacing-2);
-  max-width: 18ch;
 }
 
 .workItemSubtitle {

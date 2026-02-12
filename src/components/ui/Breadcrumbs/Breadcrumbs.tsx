@@ -43,7 +43,7 @@ const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
           return (
             <li className={styles.breadcrumbsItem} key={`${item.label}-${index}`}>
               {item.to && !isLast ? (
-                <Link className={`${styles.breadcrumbsLink} link`} to={item.to}>
+                <Link className={styles.breadcrumbsLink} to={item.to}>
                   {item.label}
                 </Link>
               ) : (

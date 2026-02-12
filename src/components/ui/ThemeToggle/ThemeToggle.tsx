@@ -52,7 +52,7 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
       <Button
         id={id}
         variant="secondary"
-        size="sm"
+        size="md"
         onClick={handleClick}
         aria-label={buttonLabel}
         className={className}

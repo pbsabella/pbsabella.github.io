@@ -57,8 +57,10 @@ Each component:
 
 ```
 src/pages/
-├── Home.tsx       # Portfolio landing
-└── SystemCore.tsx # Design system showcase
+├── home/Home.tsx                                # Portfolio landing
+├── labs/Labs.tsx                                # Labs index
+├── system-core/SystemCore.tsx                   # Design system docs
+└── design-system-build-notes/DesignSystemBuildNotes.tsx
 ```
 
 ---
@@ -68,7 +70,7 @@ src/pages/
 - **Frontend:** React 19, TypeScript, React Router v7
 - **Build:** Vite with esbuild
 - **Styling:** CSS Modules + design tokens (CSS variables)
-- **Testing:** Vitest (unit), Cypress (E2E), Percy (visual)
+- **Testing:** Vitest (unit), Cypress (E2E), Playwright (smoke), Percy (visual)
 - **Quality:** ESLint, Stylelint, TypeScript strict mode, Prettier
 - **CI/CD:** GitHub Actions, Lighthouse CI
 
@@ -101,16 +103,6 @@ npm run format       # Prettier format
 | `npm run build`   | Build for production to `dist/`       |
 | `npm run preview` | Preview production build locally      |
 
-## NPM Scripts
-
-### Development
-
-| Command           | Purpose                               |
-| ----------------- | ------------------------------------- |
-| `npm run dev`     | Start Vite dev server with hot reload |
-| `npm run build`   | Build for production to `dist/`       |
-| `npm run preview` | Preview production build locally      |
-
 ### Quality & Testing
 
 | Command                  | Purpose                        |
@@ -131,6 +123,7 @@ npm run format       # Prettier format
 | `npm run pw:test`         | Run all Playwright tests       |
 | `npm run pw:smoke`        | Cross-browser sanity smoke tests |
 | `npm run pw:headed`       | Run Playwright in headed mode  |
+| `npm run contrast:manual` | Manual contrast sweep across routes/themes |
 
 **→ See [TESTING_STRATEGY.md](TESTING_STRATEGY.md) for detailed testing philosophy, what to test, and examples.**
 
@@ -177,6 +170,13 @@ npm run lighthouse:quick  # 1 run per route (faster local check)
 - **Coverage:** Hash routes load, console/runtime errors, failed network requests, dual-theme accessibility checks (axe), and semantic token contrast contracts
 - **Run:** In CI and locally
 - **First-time setup:** `npm run pw:install`
+
+### Manual Contrast Sweep (`npm run contrast:manual`)
+
+- **Tool:** Custom Node script (`scripts/manual-contrast-audit.mjs`)
+- **Purpose:** Independent contrast math audit across all primary routes/themes
+- **Run:** Local diagnostic tool (not a CI gate)
+- **Output:** Per-route PASS/FAIL summary + `TOTAL_FAILS`
 
 ## Local Development
 
