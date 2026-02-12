@@ -59,6 +59,7 @@
 
 .navLinkActive {
   color: var(--sem-color-text-strong);
+  font-weight: var(--pr-weight-500);
 }
 
 .navMenu {

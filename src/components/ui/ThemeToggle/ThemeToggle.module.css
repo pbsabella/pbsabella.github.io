@@ -44,7 +44,10 @@
     transform var(--pr-duration-slow) var(--pr-easing-in-out);
 }
 
-/* Theme-specific visibility */
+/*
+  Component behavior state: selects which icon is visible per active theme
+  This is local UI logic, not a token remapping concern
+*/
 :global([data-theme='light']) .themeToggleSun {
   opacity: 1;
   transform: scale(1) rotate(0deg);

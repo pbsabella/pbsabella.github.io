@@ -46,11 +46,22 @@ const TableOfContents = ({
   className,
   ...props
 }: TableOfContentsProps) => {
+  const { 'aria-label': ariaLabel = 'Table of contents', ...restProps } = props;
+  const classNames = [
+    styles.tableOfContents,
+    !isSticky && styles.tableOfContentsStatic,
+    className,
+  ].filter(Boolean).join(' ');
+
   const scrollToSection = useScrollToSection();
   const activeId = useActiveSection(
     sections.map((section) => section.id),
     { offsetTop }
   );
+
+  if (sections.length === 0) {
+    return null;
+  }
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -59,10 +70,9 @@ const TableOfContents = ({
 
   return (
     <nav
-      className={`${styles.tableOfContents} ${!isSticky ? styles.tableOfContentsStatic : ''} ${className ?? ''}`}
-      role="navigation"
-      aria-label={props['aria-label'] ?? 'Table of contents'}
-      {...props}
+      className={classNames}
+      aria-label={ariaLabel}
+      {...restProps}
     >
       <div className={styles.tableOfContentsStickyWrapper}>
         <span className={styles.tableOfContentsHeading}>On this page</span>
@@ -74,7 +84,6 @@ const TableOfContents = ({
                 className={`${styles.tableOfContentsLink} ${activeId === id ? styles.tableOfContentsActive : ''}`}
                 aria-current={activeId === id ? 'location' : undefined}
                 onClick={(e) => handleClick(e, id)}
-                title={label}
               >
                 {label}
               </a>

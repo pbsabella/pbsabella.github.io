@@ -16,7 +16,7 @@ import {
   LearningsSection,
   NextStepsSection,
   SystemCoreSection,
-} from './BuildNotesSections';
+} from '@/pages/design-system-build-notes/BuildNotesSections';
 
 const DesignSystemBuildNotes = () => {
   return (

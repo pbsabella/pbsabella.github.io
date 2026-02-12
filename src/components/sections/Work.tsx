@@ -1,5 +1,5 @@
 import FeaturedSection from '@components/sections/FeaturedSection';
-import WorkItem from './WorkItem';
+import WorkItem from '@/components/sections/WorkItem';
 import { PROJECTS } from '@/content/projects';
 
 const Work = () => {

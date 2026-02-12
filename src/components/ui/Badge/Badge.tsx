@@ -11,8 +11,6 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;
   /** Size of the badge; affects font-size, padding, and border-radius */
   size?: BadgeSize;
-  /** Accessible label for dot-only badges */
-  ariaLabel?: string;
   className?: string;
 }
 
@@ -24,7 +22,8 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
  *
  * Usage:
  * ```tsx
- * <Badge variant="success" size="sm">3</Badge>
+ * <Badge variant="success" size="sm" aria-label="3 unread notifications" />
+ * <Badge variant="success" size="md">3</Badge>
  * <Badge variant="warning" size="md">!</Badge>
  * <Badge variant="error" size="lg">99+</Badge>
  * ```
@@ -40,12 +39,14 @@ interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
  * Accessibility:
  * - `size="sm"` renders a dot (no text content).
  * - Dot badges are hidden from assistive tech unless an explicit `aria-label` is provided.
+ * - Labeled dot badges get `role="img"` to satisfy ARIA role/attribute validity.
  */
 const Badge = ({
   children,
   variant = 'info',
   size = 'md',
-  ariaLabel,
+  'aria-label': ariaLabel,
+  role,
   className,
   ...props
 }: BadgeProps) => {
@@ -54,12 +55,13 @@ const Badge = ({
   const classNames = [styles.badge, variantClass, sizeClass, className]
     .filter(Boolean)
     .join(' ');
-  const hasAriaLabelProp = 'aria-label' in props;
-  const ariaHidden = size === 'sm' && !ariaLabel && !hasAriaLabelProp ? true : undefined;
+  const ariaHidden = size === 'sm' && !ariaLabel ? true : undefined;
+  const resolvedRole = role ?? (size === 'sm' && ariaLabel ? 'img' : undefined);
 
   return (
     <span
       className={classNames}
+      role={resolvedRole}
       aria-label={ariaLabel}
       aria-hidden={ariaHidden}
       {...props}

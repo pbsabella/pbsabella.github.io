@@ -18,15 +18,18 @@ import styles from './Socials.module.css';
  */
 
 const Socials = ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => {
+  const { 'aria-label': ariaLabel = 'Social links', ...restProps } = props;
+  const classNames = [styles.socials, className].filter(Boolean).join(' ');
+
   return (
-    <ul className={`${styles.socials} ${className ?? ''}`} {...props}>
+    <ul className={classNames} aria-label={ariaLabel} {...restProps}>
       <li className={styles.socialsItem}>
         <a
           className={`${styles.socialsLink} link`}
           href="https://www.linkedin.com/in/pbsabella/"
           rel="noopener noreferrer"
           target="_blank"
-          title="LinkedIn profile"
+          aria-label="LinkedIn (opens in a new tab)"
         >
           LinkedIn
         </a>

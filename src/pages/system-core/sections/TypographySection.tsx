@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from '../SystemCoreSections.module.css';
-import { TypeScaleTable, FontWeightTable } from '../SystemCoreTables';
+import { TypeScaleTable, FontWeightTable } from '@/pages/system-core/SystemCoreTables';
 
 type TypographySectionProps = {
   icon: ReactNode;

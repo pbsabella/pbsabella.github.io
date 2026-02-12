@@ -25,7 +25,7 @@
   color: var(--sem-color-text-strong);
   margin-bottom: var(--pr-spacing-3);
   font-family: var(--font-display);
-  font-size: var(--pr-text-500);
+  font-size: var(--sem-text-heading-sm);
 }
 
 .skillsList {

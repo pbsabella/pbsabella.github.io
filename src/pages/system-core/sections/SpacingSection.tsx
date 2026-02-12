@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from '../SystemCoreSections.module.css';
-import { LayoutConstraintsTable, SpacingTable } from '../SystemCoreTables';
+import { LayoutConstraintsTable, SpacingTable } from '@/pages/system-core/SystemCoreTables';
 
 type SpacingSectionProps = {
   icon: ReactNode;

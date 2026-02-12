@@ -31,11 +31,18 @@ interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
  * - Last item is marked with `aria-current="page"`.
  */
 const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
+  const { 'aria-label': ariaLabel = 'Breadcrumb', ...restProps } = props;
+  const classNames = [styles.breadcrumbs, className].filter(Boolean).join(' ');
+
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <nav
-      className={`${styles.breadcrumbs} ${className ?? ''}`}
-      aria-label={props['aria-label'] ?? 'Breadcrumb'}
-      {...props}
+      className={classNames}
+      aria-label={ariaLabel}
+      {...restProps}
     >
       <ol className={styles.breadcrumbsList}>
         {items.map((item, index) => {
@@ -46,8 +53,12 @@ const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
                 <Link className={styles.breadcrumbsLink} to={item.to}>
                   {item.label}
                 </Link>
-              ) : (
+              ) : isLast ? (
                 <span className={styles.breadcrumbsCurrent} aria-current="page">
+                  {item.label}
+                </span>
+              ) : (
+                <span className={styles.breadcrumbsText}>
                   {item.label}
                 </span>
               )}

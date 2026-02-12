@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { vi, describe, it, expect, beforeEach, MockedFunction } from 'vitest';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { ROUTES } from '@constants/routes';
-import Header from '../Header';
+import Header from '@/components/layout/Header';
 
 vi.mock('@hooks/useHeaderScroll', () => ({
   useHeaderScroll: vi.fn(() => ({ isHidden: false, isTransparent: false })),

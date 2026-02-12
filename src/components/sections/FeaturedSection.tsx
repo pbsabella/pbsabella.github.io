@@ -25,31 +25,42 @@ const FeaturedSection = ({
   noContainer = false,
   containerVariant = 'wide',
 }: FeaturedSectionProps) => {
-  // Common header logic
-  const renderHeader = () =>
-    (introText || title || description) && (
-      <div className={styles.featuredSectionInner}>
-        {introText && (
-          <div className={styles.featuredSectionIntro}>
-            <span className={styles.featuredSectionIntroDivider}></span>
-            <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
-          </div>
-        )}
-        {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
-        {description && <p className={styles.featuredSectionDesc}>{description}</p>}
-      </div>
-    );
+  const hasHeader = Boolean(introText || title || description);
 
   return (
     <section id={id} className={`${styles.featuredSection} ${bgClass} ${className}`}>
       {noContainer ? (
         <>
-          <Container variant={containerVariant}>{renderHeader()}</Container>
+          <Container variant={containerVariant}>
+            {hasHeader && (
+              <div className={styles.featuredSectionInner}>
+                {introText && (
+                  <div className={styles.featuredSectionIntro}>
+                    <span className={styles.featuredSectionIntroDivider} aria-hidden="true"></span>
+                    <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
+                  </div>
+                )}
+                {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
+                {description && <p className={styles.featuredSectionDesc}>{description}</p>}
+              </div>
+            )}
+          </Container>
           <div>{children}</div>
         </>
       ) : (
         <Container variant={containerVariant}>
-          {renderHeader()}
+          {hasHeader && (
+            <div className={styles.featuredSectionInner}>
+              {introText && (
+                <div className={styles.featuredSectionIntro}>
+                  <span className={styles.featuredSectionIntroDivider} aria-hidden="true"></span>
+                  <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
+                </div>
+              )}
+              {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
+              {description && <p className={styles.featuredSectionDesc}>{description}</p>}
+            </div>
+          )}
           <div>{children}</div>
         </Container>
       )}

@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode, useId } from 'react';
 import styles from './Alert.module.css';
 
 type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
@@ -25,7 +25,9 @@ interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
  * ```
  *
  * Accessibility:
- * - Uses `role="alert"` and `aria-live="polite"` for assistive announcement.
+ * - Defaults to `role="status"` with polite announcements for non-error variants
+ * - Uses `role="alert"` with assertive announcements for `variant="error"`
+ * - Supports explicit `role`/`aria-live` overrides when needed
  */
 const Alert = ({
   children,
@@ -34,14 +36,32 @@ const Alert = ({
   className,
   ...props
 }: AlertProps) => {
-  const variantClass = styles[`alert${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const titleId = useId();
+  const variantClass =
+    variant === 'default'
+      ? undefined
+      : styles[`alert${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const role = props.role ?? (variant === 'error' ? 'alert' : 'status');
+  const ariaLive = props['aria-live'] ?? (role === 'alert' ? 'assertive' : 'polite');
+  const ariaAtomic = props['aria-atomic'] ?? 'true';
   const classNames = [styles.alert, variantClass, className]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <div className={classNames} role="alert" aria-live="polite" data-component="alert" {...props}>
-      {title && <p className={styles.alertTitle}>{title}</p>}
+    <div
+      className={classNames}
+      role={role}
+      aria-live={ariaLive}
+      aria-atomic={ariaAtomic}
+      aria-labelledby={title ? titleId : undefined}
+      {...props}
+    >
+      {title && (
+        <p id={titleId} className={styles.alertTitle}>
+          {title}
+        </p>
+      )}
       <div className={styles.alertBody}>{children}</div>
     </div>
   );

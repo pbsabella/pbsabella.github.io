@@ -14,8 +14,9 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
-  const mainRef = useRef<HTMLElement>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
 
+  // TODO: If Header/SideNav prop memoization becomes important, wrap these handlers with useCallback.
   const toggleSideNav = () => {
     setIsSideNavOpen((prev) => !prev);
   };
@@ -25,25 +26,26 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   useBodyScrollLock(isSideNavOpen, { className: styles.noScroll });
-  useInert(mainRef, isSideNavOpen);
+  useInert(shellRef, isSideNavOpen);
   useRouteScroll();
   useSeoMeta();
 
   return (
     <div className={styles.appWrapper}>
-      <Header toggleSideNav={toggleSideNav} />
+      <div ref={shellRef}>
+        <Header toggleSideNav={toggleSideNav} />
+
+        <main
+          id="page-top"
+          className={`${styles.mainContent} ${isSideNavOpen ? styles.mainContentDisabled : ''}`}
+        >
+          {children}
+        </main>
+
+        <Footer />
+      </div>
 
       <SideNav isOpen={isSideNavOpen} onClose={closeSideNav} />
-
-      <main
-        ref={mainRef}
-        id="page-top"
-        className={`${styles.mainContent} ${isSideNavOpen ? styles.mainContentDisabled : ''}`}
-      >
-        {children}
-      </main>
-
-      <Footer />
     </div>
   );
 };

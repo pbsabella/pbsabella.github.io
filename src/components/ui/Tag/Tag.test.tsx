@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import Tag from './Tag';
+import Tag from '@/components/ui/Tag/Tag';
 
 describe('Tag Component', () => {
   it('renders children correctly', () => {
@@ -8,10 +8,26 @@ describe('Tag Component', () => {
     expect(screen.getByText('React')).toBeInTheDocument();
   });
 
-  it('applies the correct CSS class', () => {
-    const { container } = render(<Tag>CSS</Tag>);
-    const span = container.querySelector('span');
-    // We check if it has a class starting with 'tag' since CSS Modules hash them
-    expect(span?.className).toMatch(/tag/);
+  it('applies variant and size classes', () => {
+    render(
+      <Tag variant="success" size="sm">
+        Success
+      </Tag>,
+    );
+    const tag = screen.getByText('Success');
+    expect(tag.className).toMatch(/tag/);
+    expect(tag.className).toMatch(/tagSuccess/);
+    expect(tag.className).toMatch(/tagSm/);
+  });
+
+  it('merges custom className and forwards native attributes', () => {
+    render(
+      <Tag className="custom-tag" title="Tag title" data-testid="tag">
+        CSS
+      </Tag>,
+    );
+    const tag = screen.getByTestId('tag');
+    expect(tag).toHaveClass('custom-tag');
+    expect(tag).toHaveAttribute('title', 'Tag title');
   });
 });

@@ -37,23 +37,20 @@
   padding: var(--pr-spacing-2) var(--pr-spacing-3);
 }
 
-.tableGrid .tableHeadCell,
-.tableGrid .tableCell {
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-}
-
-.tableGrid {
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  border-radius: var(--pr-radius-md);
-  overflow: hidden;
-}
-
 .tableStacked {
   border: 0;
 }
 
 .tableStacked thead {
-  display: none;
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .tableStacked tbody {
@@ -111,9 +108,18 @@
   background: transparent;
 }
 
+/* TODO: Move stacked/table layout breakpoints to container queries */
 @media (width >= 768px) {
   .tableStacked thead {
+    clip-path: none;
     display: table-header-group;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    white-space: normal;
+    width: auto;
   }
 
   .tableStacked tbody {
@@ -134,10 +140,6 @@
     gap: 0;
     border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
     padding: var(--pr-spacing-3) var(--pr-spacing-4);
-  }
-
-  .tableStacked.tableGrid .tableCell {
-    border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   }
 
   .tableStacked.tableCompact .tableCell {

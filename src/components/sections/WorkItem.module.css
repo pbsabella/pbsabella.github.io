@@ -28,7 +28,7 @@
 
 .workItemToneSubtle {
   background:
-    radial-gradient(circle at 1px 1px, rgb(0 0 0 / 5%) 1px, transparent 0) 0 0 / 18px 18px,
+    radial-gradient(circle at 1px 1px, rgb(0 0 0 / 7%) 1px, transparent 0) 0 0 / 18px 18px,
     linear-gradient(
       to bottom,
       rgb(0 0 0 / 1.8%),
@@ -38,7 +38,7 @@
 
 :global([data-theme='dark']) .workItemToneSubtle {
   background:
-    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 8%) 1px, transparent 0) 0 0 / 18px 18px,
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 11%) 1px, transparent 0) 0 0 / 18px 18px,
     linear-gradient(
       to bottom,
       rgb(255 255 255 / 3%),
@@ -163,6 +163,13 @@
   flex-wrap: wrap;
   gap: var(--pr-spacing-2);
   margin-top: var(--pr-spacing-6);
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workItemTagItem {
+  margin: 0;
 }
 
 @media (width >= 900px) {

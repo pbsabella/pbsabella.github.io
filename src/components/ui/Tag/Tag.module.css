@@ -42,25 +42,9 @@
   border-color: var(--sem-color-border-error);
 }
 
-:global([data-theme='dark']) .tagSuccess {
-  color: var(--sem-color-text-success-emphasis);
-}
-
-:global([data-theme='dark']) .tagWarning {
-  color: var(--sem-color-text-primary);
-}
-
-:global([data-theme='dark']) .tagInfo {
-  color: var(--sem-color-text-info-emphasis);
-}
-
-:global([data-theme='dark']) .tagError {
-  color: var(--sem-color-text-error-emphasis);
-}
-
 /* --- Sizes --- */
 .tagSm {
-  font-size: var(--pr-text-100);
+  font-size: var(--sem-text-kicker);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
 }
 

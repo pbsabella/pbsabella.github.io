@@ -1,7 +1,7 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import SideNav from '../SideNav';
+import SideNav from '@/components/layout/SideNav';
 
 describe('SideNav', () => {
   it('focuses the close button when opened', async () => {
@@ -28,7 +28,7 @@ describe('SideNav', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('restores focus to the previously focused element when closed', () => {
+  it('restores focus to the previously focused element when closed', async () => {
     const onClose = vi.fn();
 
     const { rerender } = render(
@@ -64,7 +64,8 @@ describe('SideNav', () => {
     );
 
     const openerAgain = screen.getByRole('button', { name: /opener/i });
-    expect(document.activeElement).toBe(openerAgain);
+    await waitFor(() => {
+      expect(document.activeElement).toBe(openerAgain);
+    });
   });
 });
-

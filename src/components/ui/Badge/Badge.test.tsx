@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import Badge from './Badge';
+import Badge from '@/components/ui/Badge/Badge';
 
 describe('Badge Component', () => {
   it('renders children correctly for md badge', () => {
@@ -32,6 +32,20 @@ describe('Badge Component', () => {
     expect(badge.className).toMatch(/badge/);
     expect(badge.className).toMatch(/badgeInfo/);
     expect(badge.className).toMatch(/badgeSm/);
+    expect(badge).toHaveAttribute('aria-hidden', 'true');
   });
 
+  it('keeps sm badge exposed to assistive tech when aria-label is provided', () => {
+    render(<Badge variant="info" size="sm" data-testid="badge-dot-labeled" aria-label="3 unread notifications" />);
+    const badge = screen.getByTestId('badge-dot-labeled');
+
+    expect(badge).toHaveAttribute('role', 'img');
+    expect(badge).toHaveAttribute('aria-label', '3 unread notifications');
+    expect(badge).not.toHaveAttribute('aria-hidden');
+  });
+
+  it('merges custom className', () => {
+    render(<Badge className="custom-badge">5</Badge>);
+    expect(screen.getByText('5')).toHaveClass('custom-badge');
+  });
 });

@@ -12,6 +12,6 @@
 
 .socialsLink {
   color: var(--sem-color-text-primary);
-  font-size: var(--sem-text-caption);
+  font-size: var(--sem-text-body);
   font-weight: var(--pr-weight-500);
 }

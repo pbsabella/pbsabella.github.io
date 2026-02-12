@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from '../SystemCoreSections.module.css';
 import { COLOR_GROUPS } from '@/content/core';
-import { TokenTable } from '../SystemCoreTables';
+import { TokenTable } from '@/pages/system-core/SystemCoreTables';
 
 type ColorSystemSectionProps = {
   icon: ReactNode;

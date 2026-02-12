@@ -16,5 +16,6 @@ export const TECH_STACK = [
   'HTML, CSS, Tailwind',
   'Vite, Webpack',
   'Figma',
-  'Unit, Component, End-to-End, & Visual Testing (Jest, Vitest, Cypress, Percy)',
+  'Unit, Component, End-to-End, and Visual QA',
+  'Testing: Jest, Vitest, Cypress, Percy',
 ] as const;

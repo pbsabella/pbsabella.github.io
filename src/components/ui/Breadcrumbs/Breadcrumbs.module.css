@@ -41,6 +41,12 @@
   overflow-wrap: anywhere;
 }
 
+.breadcrumbsText {
+  color: var(--sem-color-text-primary);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .breadcrumbsSeparator {
   color: var(--sem-color-text-muted);
   flex: 0 0 auto;

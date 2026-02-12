@@ -1,16 +1,19 @@
 import Container from '@components/layout/Container';
 import Card from '@components/ui/Card/Card';
 import Tag from '@components/ui/Tag/Tag';
+import type { ProjectMediaPreset } from '@/content/projects';
 import styles from './WorkItem.module.css';
 
 interface WorkItemProps {
   image: string;
+  imageAlt?: string;
   title: string;
   company: string;
   period?: string;
   position: string;
   description: string[];
   tags: string[];
+  mediaPreset?: ProjectMediaPreset;
   tone?: 'default' | 'subtle';
   isFirst?: boolean;
   mediaSide?: 'left' | 'right';
@@ -18,20 +21,22 @@ interface WorkItemProps {
 
 const WorkItem = ({
   image,
+  imageAlt,
   title,
   company,
   period,
   position,
   description,
   tags,
+  mediaPreset = 'default',
   tone = 'default',
   isFirst = false,
   mediaSide = 'left',
 }: WorkItemProps) => {
-  const isInsetImage = title === 'Notifications Platform' || title === 'Motion System';
-  const isNotificationsImage = title === 'Notifications Platform';
-  const isLeftCropImage = title.includes('Design System');
-  const isZoomOutImage = title === 'Wireframing Application';
+  const isInsetImage = mediaPreset === 'inset' || mediaPreset === 'notifications';
+  const isNotificationsImage = mediaPreset === 'notifications';
+  const isLeftCropImage = mediaPreset === 'left-crop';
+  const isZoomOutImage = mediaPreset === 'zoom-out';
 
   const mediaClassNames = [
     styles.workItemMedia,
@@ -69,12 +74,19 @@ const WorkItem = ({
   return (
     <div className={shellClassNames}>
       <Container className={styles.workItem} variant="wide">
-        <Card as="article" variant="panel" className={panelClassNames}>
+        <Card
+          as="article"
+          variant="panel"
+          className={panelClassNames}
+          data-tone={tone}
+          data-media-side={mediaSide}
+          data-media-preset={mediaPreset}
+        >
           <div className={mediaClassNames}>
             <img
               className={imageClassNames}
               src={image}
-              alt={title}
+              alt={imageAlt ?? `${title} project preview`}
               width="1440"
               height="810"
               loading="lazy"
@@ -84,23 +96,25 @@ const WorkItem = ({
           <div className={styles.workItemBody}>
             <div className={styles.workItemSubtitle}>
               <span className={styles.workItemCompany}>{company}</span>
-              {period && <span className={styles.workItemPeriod}>{period}</span>}
+              {period && <time className={styles.workItemPeriod}>{period}</time>}
             </div>
 
             <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
             <p className={styles.workItemPosition}>{position}</p>
 
             <div className={styles.workItemDescription}>
-              {description.map((desc, index) => (
-                <p key={index}>{desc}</p>
+              {description.map((desc) => (
+                <p key={desc}>{desc}</p>
               ))}
             </div>
 
-            <div className={styles.workItemTags}>
-              {tags.map((tag, index) => (
-                <Tag key={index}>{tag}</Tag>
+            <ul className={styles.workItemTags} aria-label="Project technologies">
+              {tags.map((tag) => (
+                <li key={tag} className={styles.workItemTagItem}>
+                  <Tag>{tag}</Tag>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </Card>
       </Container>

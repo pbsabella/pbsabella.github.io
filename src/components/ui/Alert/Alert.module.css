@@ -12,12 +12,8 @@
 }
 
 .alertBody {
+  margin: 0;
   line-height: var(--pr-leading-180);
-}
-
-.alertDefault {
-  border-color: var(--sem-color-border-base);
-  background: var(--sem-color-bg-subtle);
 }
 
 .alertInfo {

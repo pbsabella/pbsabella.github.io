@@ -1,5 +1,3 @@
-import { ROUTES } from '@constants/routes';
-
 type SeoMeta = {
   title: string;
   description: string;
@@ -18,30 +16,7 @@ export const DEFAULT_SEO_META: SeoMeta = {
   image: OG_IMAGE,
   imageAlt: OG_IMAGE_ALT,
 };
-
-export const ROUTE_SEO_META: Record<string, SeoMeta> = {
-  [ROUTES.HOME]: DEFAULT_SEO_META,
-  [ROUTES.LABS]: {
-    title: 'Labs | Paula Abella',
-    description: 'Design systems engineer building accessible, scalable frontend platforms for complex products.',
-    image: OG_IMAGE,
-    imageAlt: OG_IMAGE_ALT,
-  },
-  [ROUTES.SYSTEM_CORE]: {
-    title: 'System Core | Paula Abella',
-    description: 'Design systems engineer building accessible, scalable frontend platforms for complex products.',
-    image: OG_IMAGE,
-    imageAlt: OG_IMAGE_ALT,
-  },
-  [ROUTES.DESIGN_SYSTEM_BUILD_NOTES]: {
-    title: 'Design System Build Notes | Paula Abella',
-    description: 'Design systems engineer building accessible, scalable frontend platforms for complex products.',
-    image: OG_IMAGE,
-    imageAlt: OG_IMAGE_ALT,
-  },
-};
-
-export const getRouteSeoMeta = (pathname: string): SeoMeta => ROUTE_SEO_META[pathname] ?? DEFAULT_SEO_META;
+export const HOME_CANONICAL_URL = `${SITE_URL}/#/`;
 
 export const toAbsoluteUrl = (pathOrUrl: string): string => {
   if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
@@ -50,11 +25,4 @@ export const toAbsoluteUrl = (pathOrUrl: string): string => {
 
   const normalized = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
   return `${SITE_URL}${normalized}`;
-};
-
-export const toCanonicalHashUrl = (pathname: string): string => {
-  if (pathname === ROUTES.HOME) {
-    return `${SITE_URL}/#/`;
-  }
-  return `${SITE_URL}/#${pathname}`;
 };

@@ -47,8 +47,8 @@ jobs:
       - name: Run Lighthouse CLI
         run: npm run lighthouse
 
-      - name: Install Playwright browsers
-        run: npm run pw:install
+      - name: Install Playwright browsers and OS deps
+        run: npx playwright install --with-deps chromium firefox webkit
 
       - name: Run Playwright smoke tests
         run: npm run pw:smoke

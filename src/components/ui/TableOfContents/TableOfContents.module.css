@@ -1,4 +1,5 @@
 .tableOfContents {
+  /* TODO: Add a dedicated mobile TOC treatment for <1024 instead of only hiding it */
   display: none;
   position: sticky;
   top: var(--pr-spacing-21);

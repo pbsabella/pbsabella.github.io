@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeAll, afterAll, afterEach } from 'vitest';
-import TableOfContents from './TableOfContents';
+import TableOfContents from '@/components/ui/TableOfContents/TableOfContents';
 
 const sections = [
   { id: 'color-system', label: 'Color System' },
@@ -41,6 +41,17 @@ describe('TableOfContents Component', () => {
     expect(links).toHaveLength(sections.length);
   });
 
+  it('applies static class when isSticky is false', () => {
+    render(<TableOfContents sections={sections} isSticky={false} />);
+    const nav = screen.getByLabelText(/table of contents/i);
+    expect(nav.className).toMatch(/tableOfContentsStatic/);
+  });
+
+  it('uses custom aria-label when provided', () => {
+    render(<TableOfContents sections={sections} aria-label="Section navigation" />);
+    expect(screen.getByLabelText('Section navigation')).toBeInTheDocument();
+  });
+
   it('scrolls to the section on link click', () => {
     const target = document.createElement('section');
     target.id = 'color-system';
@@ -61,5 +72,10 @@ describe('TableOfContents Component', () => {
       behavior: 'instant',
       block: 'start',
     });
+  });
+
+  it('renders nothing when sections are empty', () => {
+    const { container } = render(<TableOfContents sections={[]} />);
+    expect(container).toBeEmptyDOMElement();
   });
 });

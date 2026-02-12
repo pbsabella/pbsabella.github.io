@@ -9,12 +9,9 @@
   max-width: var(--sem-layout-page-max);
 }
 
-.containerFlush {
-  padding-inline: 0;
-}
-
 @media (width >= 768px) {
   .container {
+    /* Magic for now */
     padding-left: 8vw;
     padding-right: 8vw;
   }

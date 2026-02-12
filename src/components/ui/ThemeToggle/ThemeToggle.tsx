@@ -27,11 +27,13 @@ interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * ```
  *
  * Accessibility:
- * - Uses an action-oriented label (`Switch to {nextTheme} mode`) for text variant.
+ * - Uses an action-oriented label (`Switch to {nextTheme} mode`) for both icon and text variants
+ * - Exposes `aria-pressed` to reflect current theme state
  */
 const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);
+  const isDarkTheme = theme === 'dark';
 
   const handleToggle = () => {
     if (!hasInteracted) setHasInteracted(true);
@@ -40,12 +42,18 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     onClick?.(event);
+    if (event.defaultPrevented) return;
     handleToggle();
   };
 
   const animationClass = hasInteracted ? styles.themeToggleIconAnimate : '';
   const nextTheme = theme === 'light' ? 'dark' : 'light';
   const buttonLabel = label ?? `Switch to ${nextTheme} mode`;
+  const iconClassNames = [
+    styles.themeToggleButton,
+    styles.themeToggleButtonIcon,
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
     variant === 'text' ? (
@@ -55,6 +63,7 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
         size="md"
         onClick={handleClick}
         aria-label={buttonLabel}
+        aria-pressed={isDarkTheme}
         className={className}
         {...props}
       >
@@ -62,10 +71,11 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
       </Button>
     ) : (
       <button
-        className={`${styles.themeToggleButton} ${styles.themeToggleButtonIcon} ${className ?? ''}`}
+        className={iconClassNames}
         id={id}
         onClick={handleClick}
-        aria-label="Toggle theme"
+        aria-label={buttonLabel}
+        aria-pressed={isDarkTheme}
         {...props}
       >
         <>

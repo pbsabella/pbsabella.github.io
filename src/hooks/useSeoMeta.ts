@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import {
+  DEFAULT_SEO_META,
+  HOME_CANONICAL_URL,
   SITE_NAME,
-  getRouteSeoMeta,
   toAbsoluteUrl,
-  toCanonicalHashUrl,
 } from '@/content/seo';
 
 const upsertMeta = (
@@ -34,11 +33,9 @@ const upsertLink = (rel: string, href: string) => {
 };
 
 export const useSeoMeta = () => {
-  const { pathname } = useLocation();
-
   useEffect(() => {
-    const seo = getRouteSeoMeta(pathname);
-    const canonicalUrl = toCanonicalHashUrl(pathname);
+    const seo = DEFAULT_SEO_META;
+    const canonicalUrl = HOME_CANONICAL_URL;
     const imageUrl = toAbsoluteUrl(seo.image);
 
     document.title = seo.title;
@@ -55,7 +52,7 @@ export const useSeoMeta = () => {
     upsertMeta('property', 'og:image:alt', seo.imageAlt);
 
     upsertLink('canonical', canonicalUrl);
-  }, [pathname]);
+  }, []);
 };
 
 export default useSeoMeta;

@@ -1,7 +1,7 @@
 import { ReactNode, TableHTMLAttributes } from 'react';
 import styles from './Table.module.css';
 
-type TableVariant = 'default' | 'compact' | 'striped' | 'grid';
+type TableVariant = 'default' | 'compact' | 'striped';
 
 type TableColumn = {
   label: string;
@@ -55,9 +55,9 @@ const Table = ({
   const ariaLabel = caption ? undefined : label ?? props['aria-label'];
 
   return (
-    <table {...props} className={classNames} aria-label={ariaLabel} data-component="table">
+    <table {...props} className={classNames} aria-label={ariaLabel}>
       {caption && <caption className={styles.tableCaption}>{caption}</caption>}
-      <thead className={styles.tableHead}>
+      <thead>
         <tr>
           {columns.map((column, idx) => (
             <th scope="col" className={styles.tableHeadCell} key={`col-${idx}`}>

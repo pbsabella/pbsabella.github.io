@@ -3,7 +3,7 @@ import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import { useSectionNav } from '@hooks/useSectionNav';
 import Tag from '@components/ui/Tag/Tag';
 import Container from '@components/layout/Container';
-import HeroCanvas from './HeroCanvas';
+import HeroCanvas from '@/components/sections/HeroCanvas';
 import styles from './Hero.module.css';
 
 const HERO_TOOLSET = [
@@ -24,7 +24,7 @@ const Hero = () => {
             <Tag size="md" variant="success">
               Personal Portfolio
             </Tag>
-            <span className={styles.heroRule} />
+            <span className={styles.heroRule} aria-hidden="true" />
             <span className={styles.heroMeta}>Senior Frontend Engineer | Design Systems Engineer</span>
           </div>
 

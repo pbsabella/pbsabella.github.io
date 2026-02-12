@@ -89,10 +89,13 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     <h3 className={styles.subsectionTitle}>Buttons</h3>
     <p className={styles.sectionDesc}>
       Action triggers with distinct treatments to signal hierarchy and emphasis.
+      Small size typography maps to <code>font-size: var(--sem-text-kicker)</code>.
     </p>
     <div className={styles.buttonDemo}>
-      <Button>Primary</Button>
-      <Button variant="secondary">Secondary</Button>
+      <Button>Primary Md</Button>
+      <Button variant="secondary">Secondary Md</Button>
+      <Button size="sm">Primary Sm</Button>
+      <Button variant="secondary" size="sm">Secondary Sm</Button>
     </div>
 
     <h3 className={styles.subsectionTitle}>Badges</h3>
@@ -103,7 +106,7 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
       <Badge variant="info" size="sm" />
       <Badge variant="success" size="sm" />
       <Badge variant="warning" size="sm" />
-      <Badge variant="error" size="sm" />
+      <Badge variant="error" size="sm" aria-label="Error status dot" />
 
       <Badge variant="info">1</Badge>
       <Badge variant="success">3</Badge>

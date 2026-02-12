@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '@/context/ThemeContext';
-import DesignSystemBuildNotes from './DesignSystemBuildNotes';
+import DesignSystemBuildNotes from '@/pages/design-system-build-notes/DesignSystemBuildNotes';
 
 describe('DesignSystemBuildNotes page', () => {
   it('renders the hero and next steps section', () => {

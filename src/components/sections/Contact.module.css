@@ -20,6 +20,13 @@
   color: var(--sem-color-text-muted);
 }
 
+.contactActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pr-spacing-3);
+}
+
 .contactSocials {
-  margin-top: var(--pr-spacing-2);
+  margin-top: 0;
 }

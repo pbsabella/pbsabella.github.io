@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '@/context/ThemeContext';
-import Layout from '../Layout';
+import Layout from '@/components/layout/Layout';
 
 describe('Layout', () => {
   beforeEach(() => {
@@ -32,11 +32,14 @@ describe('Layout', () => {
     const main = container.querySelector('main');
     expect(main).toBeTruthy();
     expect(main).not.toHaveAttribute('inert');
+    expect(main?.parentElement).not.toHaveAttribute('inert');
+    expect(main?.parentElement).not.toHaveAttribute('aria-hidden');
 
     const openButton = screen.getByRole('button', { name: /open mobile menu/i });
     fireEvent.click(openButton);
 
-    expect(container.querySelector('main')).toHaveAttribute('inert');
+    expect(main?.parentElement).toHaveAttribute('inert');
+    expect(main?.parentElement).toHaveAttribute('aria-hidden', 'true');
     expect(document.body.className).not.toBe('');
   });
 });

@@ -1,3 +1,4 @@
+/* Hero styling is intentionally bespoke and may evolve frequently. */
 .hero {
   margin: 0 auto var(--pr-spacing-8);
   max-width: var(--sem-layout-page-max);
@@ -34,15 +35,15 @@
     linear-gradient(
       to right,
       var(--sem-color-bg-base) 0%,
-      rgb(255 255 255 / 0%) 10%,
-      rgb(255 255 255 / 0%) 90%,
+      rgb(255 255 255 / 0%) 6%,
+      rgb(255 255 255 / 0%) 94%,
       var(--sem-color-bg-base) 100%
     ),
     linear-gradient(
       to bottom,
       var(--sem-color-bg-base) 0%,
-      rgb(255 255 255 / 0%) 14%,
-      rgb(255 255 255 / 0%) 86%,
+      rgb(255 255 255 / 0%) 10%,
+      rgb(255 255 255 / 0%) 90%,
       var(--sem-color-bg-base) 100%
     );
 }
@@ -103,26 +104,6 @@
   color: var(--sem-color-text-primary);
   line-height: var(--pr-leading-180);
   font-size: var(--sem-text-lede);
-}
-
-.heroSnapshot {
-  width: min(100%, var(--sem-layout-prose-sm));
-  border-left: var(--pr-border-width-2) solid var(--sem-color-border-accent);
-  padding-left: var(--pr-spacing-4);
-}
-
-.heroSnapshotTitle {
-  margin: 0 0 var(--pr-spacing-2);
-  font-size: var(--sem-text-kicker);
-  text-transform: uppercase;
-  letter-spacing: var(--sem-tracking-kicker);
-  color: var(--sem-color-text-muted);
-}
-
-.heroSnapshotText {
-  margin: 0;
-  line-height: var(--pr-leading-180);
-  color: var(--sem-color-text-primary);
 }
 
 .heroToolset {
@@ -223,15 +204,15 @@
     linear-gradient(
       to right,
       var(--sem-color-bg-base) 0%,
-      rgb(15 17 21 / 0%) 10%,
-      rgb(15 17 21 / 0%) 90%,
+      rgb(15 17 21 / 0%) 6%,
+      rgb(15 17 21 / 0%) 94%,
       var(--sem-color-bg-base) 100%
     ),
     linear-gradient(
       to bottom,
       var(--sem-color-bg-base) 0%,
-      rgb(15 17 21 / 0%) 14%,
-      rgb(15 17 21 / 0%) 86%,
+      rgb(15 17 21 / 0%) 10%,
+      rgb(15 17 21 / 0%) 90%,
       var(--sem-color-bg-base) 100%
     );
 }

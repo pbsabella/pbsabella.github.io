@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import App from '../App';
-import { ThemeProvider } from '../context/ThemeContext';
+import App from '@/App';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 describe('App Smoke Test', () => {
   it('renders without crashing', () => {

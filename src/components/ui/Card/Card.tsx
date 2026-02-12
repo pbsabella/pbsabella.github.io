@@ -12,6 +12,10 @@ import styles from './Card.module.css';
  * <Card variant="panel" tone="default">...</Card>
  * <Card variant="elevated" isInteractive={true}>...</Card>
  * ```
+ *
+ * Accessibility:
+ * - `isInteractive` is visual only
+ * - For actual interaction use semantic wrappers (`button`, `a`, or linked parent) with keyboard support
  */
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -34,17 +38,19 @@ export type CardTone = 'default' | 'dashed';
 
 const Card = ({
   children,
-  className = '',
+  className,
   variant = 'elevated',
   tone = 'default',
   isInteractive = false,
   as: Component = 'div',
   ...props
 }: CardProps) => {
+  const variantClass = styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
+  const toneClass = styles[`cardTone${tone.charAt(0).toUpperCase() + tone.slice(1)}`];
   const classes = [
     styles.card,
-    styles[`card${variant.charAt(0).toUpperCase() + variant.slice(1)}`],
-    styles[`cardTone${tone.charAt(0).toUpperCase() + tone.slice(1)}`],
+    variantClass,
+    toneClass,
     isInteractive && styles.cardInteractive,
     className
   ].filter(Boolean).join(' ');

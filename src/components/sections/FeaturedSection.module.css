@@ -10,10 +10,8 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  background:
-    radial-gradient(circle at 1px 1px, rgb(0 0 0 / 7%) 1px, transparent 0) 0 0 / 24px 24px,
-    linear-gradient(to bottom, transparent, rgb(0 0 0 / 1%));
-  opacity: 0.36;
+  background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 1%));
+  opacity: 0.64;
   pointer-events: none;
 }
 
@@ -91,16 +89,7 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .featuredSection::before {
-    background:
-      radial-gradient(circle at 1px 1px, rgb(0 0 0 / 7%) 1px, transparent 0) 0 0 / 24px 24px;
-  }
-}
-
 :global([data-theme='dark']) .featuredSection::before {
-  background:
-    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 10%) 1px, transparent 0) 0 0 / 24px 24px,
-    linear-gradient(to bottom, transparent, rgb(255 255 255 / 2%));
-  opacity: 0.4;
+  background: linear-gradient(to bottom, transparent, rgb(255 255 255 / 2%));
+  opacity: 0.6;
 }

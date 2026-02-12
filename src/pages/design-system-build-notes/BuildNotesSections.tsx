@@ -142,6 +142,8 @@ export const ApproachSection = () => (
     <Alert
       variant="info"
       className={styles.rationaleAlert}
+      role="note"
+      aria-live="off"
       title={(
         <span className={styles.alertRationaleTitle}>
           <Lightbulb size={20} aria-hidden="true" />

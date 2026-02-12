@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
+import { X } from 'lucide-react';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import { useSectionNav } from '@hooks/useSectionNav';
+import { useFocusTrap } from '@hooks/useFocusTrap';
 import styles from './SideNav.module.css';
 
 interface SideNavProps {
@@ -19,66 +21,11 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const aboutLink = getSectionLinkProps(SECTION_ANCHORS.ABOUT);
   const contactLink = getSectionLinkProps(SECTION_ANCHORS.CONTACT);
 
-  // Trap focus when side nav is open and restore focus when it closes
-  useEffect(() => {
-    if (!isOpen || !navRef.current) return;
-
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-
-    const getFocusable = () =>
-      navRef.current?.querySelectorAll<HTMLElement>(
-        [
-          'a[href]',
-          'button:not([disabled])',
-          'input:not([disabled])',
-          'select:not([disabled])',
-          'textarea:not([disabled])',
-          '[tabindex]:not([tabindex="-1"])',
-        ].join(', ')
-      ) ?? [];
-
-    const focusCloseButton = () => {
-      const closeButton = navRef.current?.querySelector<HTMLElement>('#side-menu-close');
-      closeButton?.focus();
-    };
-
-    const handleDocumentKeyDown = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        onClose();
-        return;
-      }
-
-      if (e.key !== 'Tab') return;
-
-      const focusable = Array.from(getFocusable());
-      if (focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      const active = document.activeElement as HTMLElement | null;
-
-      if (e.shiftKey) {
-        if (active === first || active === navRef.current) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (active === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleDocumentKeyDown);
-    focusCloseButton();
-
-    return () => {
-      document.removeEventListener('keydown', handleDocumentKeyDown);
-      previouslyFocused?.focus?.();
-    };
-  }, [isOpen, onClose]);
+  useFocusTrap(navRef, {
+    isActive: isOpen,
+    onEscape: onClose,
+    initialFocusSelector: '#side-menu-close',
+  });
 
   const navContent = (
     <>
@@ -92,7 +39,8 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
         id="side-nav"
         aria-label="Mobile menu"
         role="dialog"
-        aria-modal="true"
+        aria-modal={isOpen ? 'true' : undefined}
+        aria-hidden={isOpen ? undefined : 'true'}
         className={`${styles.sideMenu} ${isOpen ? styles.sideMenuOpen : ''}`}
         ref={navRef}
       >
@@ -102,20 +50,7 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
           aria-label="Close mobile menu"
           onClick={onClose}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <X size={24} aria-hidden="true" />
         </button>
 
         <nav>

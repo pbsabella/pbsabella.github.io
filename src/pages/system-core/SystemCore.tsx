@@ -14,15 +14,15 @@ import TableOfContents from '@/components/ui/TableOfContents/TableOfContents';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { SYSTEM_CORE_SECTIONS } from '@/content/systemCore';
 import styles from './SystemCore.module.css';
-import ColorSystemSection from './sections/ColorSystemSection';
-import SemanticTokensSection from './sections/SemanticTokensSection';
-import SpacingSection from './sections/SpacingSection';
-import TypographySection from './sections/TypographySection';
-import ElevationSection from './sections/ElevationSection';
-import MotionSection from './sections/MotionSection';
-import InteractiveStatesSection from './sections/InteractiveStatesSection';
-import ComponentsSection from './sections/ComponentsSection';
-import AccessibilitySection from './sections/AccessibilitySection';
+import ColorSystemSection from '@/pages/system-core/sections/ColorSystemSection';
+import SemanticTokensSection from '@/pages/system-core/sections/SemanticTokensSection';
+import SpacingSection from '@/pages/system-core/sections/SpacingSection';
+import TypographySection from '@/pages/system-core/sections/TypographySection';
+import ElevationSection from '@/pages/system-core/sections/ElevationSection';
+import MotionSection from '@/pages/system-core/sections/MotionSection';
+import InteractiveStatesSection from '@/pages/system-core/sections/InteractiveStatesSection';
+import ComponentsSection from '@/pages/system-core/sections/ComponentsSection';
+import AccessibilitySection from '@/pages/system-core/sections/AccessibilitySection';
 import { SYSTEM_CORE_META } from '@/content/pageMeta';
 
 const SystemCore = () => {
