@@ -1,7 +1,6 @@
 .featuredSection {
   display: block;
   position: relative;
-  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
   isolation: isolate;
 }
 

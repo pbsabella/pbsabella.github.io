@@ -36,7 +36,7 @@
 }
 
 .page section {
-  scroll-margin-top: calc(var(--sem-layout-header-height) + var(--pr-spacing-3));
+  scroll-margin-top: var(--sem-layout-header-height);
 }
 
 .tocAside {
