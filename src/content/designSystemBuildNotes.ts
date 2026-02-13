@@ -28,7 +28,7 @@ export const BUILD_NOTES_PROBLEM_ITEMS = [
   },
   {
     title: 'Theming Friction',
-    description: 'Theme work relied on manual overrides instead of intent-driven token remapping.',
+    description: 'Theming required hunting through components to manually override values instead of swapping tokens at the system level.',
   },
 ];
 
@@ -46,12 +46,12 @@ export const BUILD_NOTES_DECISIONS = [
   {
     title: 'Validation in the loop.',
     description:
-      'The portfolio itself acts as the regression surface, with unit/integration, E2E, visual regression, and cross-browser smoke checks catching drift as tokens and components evolve.',
+      'The portfolio is the test bed. Unit tests, E2E, visual regression, and cross-browser checks catch issues as tokens and components change.',
   },
   {
     title: 'A11y checks as a release gate.',
     description:
-      'Accessibility validation runs as a dedicated release gate: automated smoke audits backed by a manual contrast sweep for layered and pseudo-element edge cases.',
+      'Accessibility validation runs as a dedicated release gate: automated audits backed by a manual contrast sweep for layered and pseudo-element edge cases.',
   },
   {
     title: 'Dogfood in production.',
@@ -61,13 +61,13 @@ export const BUILD_NOTES_DECISIONS = [
 ];
 
 export const BUILD_NOTES_WINS = [
-  'Theme work is moving from component-level edits toward semantic remapping.',
-  'Component APIs are more structural, with visual intent increasingly handled through tokens.',
-  'The system now makes constraints clearer, so one-off values are easier to spot and reduce.',
+  'Moved theme work from component-level edits to semantic remapping.',
+  'Shifted component APIs toward structural patterns, letting tokens handle visual intent.',
+  'Made constraints explicit, so one-off values are now easier to audit and eliminate.',
 ];
 
 export const BUILD_NOTES_CHALLENGES = [
-  'Token naming was only one part of the challenge; the system needed multiple rounds of refactoring and reconfiguration to keep intent clear and implementation practical.',
+  'Token naming was just the start. The system needed multiple rounds of refactoring to keep the intent clear without overcomplicating implementation.',
   'Balancing semantic purity with shipping pressure was the hardest tradeoff. A few "clean" semantic splits were too granular in real UI, so I consolidated usage rules to keep decisions fast.',
   'Layered backgrounds and pseudo-elements made contrast automation noisy; adding a manual contrast sweep gave me a stable fallback for validating edge cases.',
 ];

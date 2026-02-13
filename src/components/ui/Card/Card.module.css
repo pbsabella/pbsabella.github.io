@@ -1,4 +1,11 @@
 .card {
+  --comp-card-bg: var(--sem-color-bg-base);
+  --comp-card-text: var(--sem-color-text-primary);
+  --comp-card-shadow: var(--sem-elevation-low);
+  --comp-card-shadow-hover: var(--sem-elevation-medium);
+  --comp-card-radius: var(--pr-radius-base);
+  --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
+
   border-radius: var(--comp-card-radius);
   color: var(--comp-card-text);
   padding: var(--pr-spacing-6);

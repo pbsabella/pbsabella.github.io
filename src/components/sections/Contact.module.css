@@ -27,13 +27,13 @@
   gap: var(--pr-spacing-3);
 }
 
+/* TODO: Looks like a button, but isn't. Convert this later */
 .contactEmailLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--pr-size-44);
-  padding: var(--comp-button-padding-md);
-  border-radius: var(--comp-button-radius);
+  padding: var(--pr-spacing-2) var(--pr-spacing-4);
+  border-radius: var(--pr-radius-base);
   border: var(--pr-border-width-1) solid var(--sem-color-bg-accent);
   background: var(--sem-color-bg-accent);
   color: var(--sem-color-text-on-accent);

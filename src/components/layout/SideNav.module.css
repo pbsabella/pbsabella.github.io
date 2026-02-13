@@ -1,4 +1,7 @@
 .sideMenu {
+  --comp-sidenav-max-width: var(--pr-size-320);
+  --comp-sidenav-z-index: var(--sem-z-modal);
+
   background-color: var(--sem-color-bg-base);
   height: 100%;
   position: fixed;
