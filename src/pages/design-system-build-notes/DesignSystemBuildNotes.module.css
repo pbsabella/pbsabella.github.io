@@ -128,7 +128,7 @@
 }
 
 .section {
-  scroll-margin-top: calc(var(--comp-header-height) + var(--pr-spacing-3));
+  scroll-margin-top: calc(var(--sem-layout-header-height) + var(--pr-spacing-3));
 }
 
 .sectionRhythm16 {
@@ -447,6 +447,9 @@
   border: var(--pr-border-width-1) solid var(--sem-color-border-accent);
   background-color: color-mix(in srgb, var(--sem-color-bg-accent) 10%, transparent);
   color: var(--sem-color-text-primary);
+  transition: border-color var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    color var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .demoPipelineConnector {
@@ -487,7 +490,7 @@
 
   .sidebar {
     position: sticky;
-    top: calc(var(--comp-header-height) + var(--pr-spacing-6));
+    top: calc(var(--sem-layout-header-height) + var(--pr-spacing-6));
     display: grid;
   }
 

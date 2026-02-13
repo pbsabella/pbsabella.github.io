@@ -1,4 +1,9 @@
 .badge {
+  --comp-badge-radius: var(--pr-radius-pill);
+  --comp-badge-size-sm: var(--pr-size-10);
+  --comp-badge-size-md: var(--pr-size-24);
+  --comp-badge-size-lg: var(--pr-size-28);
+
   display: inline-flex;
   align-items: center;
   justify-content: center;

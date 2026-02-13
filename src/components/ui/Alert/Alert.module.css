@@ -1,4 +1,7 @@
 .alert {
+  --comp-alert-radius: var(--pr-radius-base);
+  --comp-alert-padding: var(--pr-spacing-4);
+
   border-radius: var(--comp-alert-radius);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   padding: var(--comp-alert-padding);

@@ -183,6 +183,7 @@
   --sem-color-bg-base: var(--pr-color-neutral-100);
   --sem-color-bg-subtle: var(--pr-color-neutral-200);
   --sem-color-bg-elevated: var(--pr-color-neutral-300);
+  --sem-color-bg-overlay-subtle: rgb(252 252 252 / 90%);
   --sem-color-bg-overlay: rgb(0 0 0 / 80%);
   --sem-color-bg-striped: rgb(0 0 0 / 4%);
 
@@ -195,7 +196,7 @@
 
   /* --- Accent (Non-status) --- */
   --sem-color-bg-accent: var(--pr-color-green-600);
-  --sem-color-border-accent: var(--pr-color-green-600);
+  --sem-color-border-accent: var(--pr-color-green-500);
   --sem-color-accent-orange: var(--pr-color-orange);
   --sem-color-accent-yellow: var(--pr-color-yellow);
   --sem-color-accent-cyan: var(--pr-color-cyan-100);
@@ -206,7 +207,7 @@
   --sem-color-bg-success: var(--pr-color-success-600);
   --sem-color-text-success: var(--pr-color-neutral-100);
   --sem-color-border-success: var(--pr-color-success-600);
-  --sem-color-text-success-emphasis: var(--pr-color-success-600);
+  --sem-color-text-success-emphasis: var(--pr-color-success-600); /* TODO: Refine some more */
   --sem-color-bg-warning: var(--pr-color-warning-600);
   --sem-color-text-warning: var(--pr-color-neutral-800);
   --sem-color-border-warning: var(--pr-color-warning-600);
@@ -253,6 +254,7 @@
   --sem-layout-page-max: var(--pr-size-1440);
   --sem-layout-prose: 68ch;
   --sem-layout-prose-sm: 64ch;
+  --sem-layout-header-height: var(--pr-size-52);
 
   /* --- Focus --- */
   --sem-color-focus-ring: var(--pr-color-green-500);
@@ -269,51 +271,17 @@
 
   /* ============================
      COMP (COMPONENT TOKENS)
-     When to add: When a specific UI element needs a unique override that doesn't fit the global semantic scale.
+     Where to add: Component files to scope it
      ============================ */
 
-  /* --- Header Component --- */
-  --comp-header-height: var(--pr-size-52);
-  --comp-header-bg: rgb(252 252 252 / 90%);
-  --comp-header-z-index: var(--sem-z-header);
-
-  /* --- Card Component --- */
-  --comp-card-bg: var(--sem-color-bg-base);
-  --comp-card-text: var(--sem-color-text-primary);
-  --comp-card-shadow: var(--sem-elevation-low);
-  --comp-card-shadow-hover: var(--sem-elevation-medium);
-  --comp-card-radius: var(--pr-radius-base);
-  --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
-
-  /* --- Alert Component --- */
-  --comp-alert-radius: var(--pr-radius-base);
-  --comp-alert-padding: var(--pr-spacing-4);
-
-  /* --- Button Component --- */
-  --comp-button-radius: var(--pr-radius-base);
-  --comp-button-padding-sm: var(--pr-spacing-1) var(--pr-spacing-3);
-  --comp-button-padding-md: var(--pr-spacing-2) var(--pr-spacing-4);
-
-  /* --- Badge Component --- */
-  --comp-badge-radius: var(--pr-radius-pill);
-  --comp-badge-size-sm: var(--pr-size-10);
-  --comp-badge-size-md: var(--pr-size-24);
-  --comp-badge-size-lg: var(--pr-size-28);
-
-  /* --- Tag Component --- */
-  --comp-tag-radius: var(--pr-radius-pill);
-
-  /* --- Side Navigation --- */
-  --comp-sidenav-max-width: var(--pr-size-320);
-  --comp-sidenav-z-index: var(--sem-z-modal);
 }
 
 /* ============================================================================
    DARK THEME
+   To start off, we'll strest test overriding the semantic layer only.
+   No primitives nor component tokens here.
    ========================================================================== */
 [data-theme='dark'] {
-  /** TODO: Update layers and rules on theming */
-
   /* --- Accent (Non-status) --- */
   --sem-color-bg-accent: var(--pr-color-green-600);
   --sem-color-border-accent: var(--pr-color-green-600);
@@ -346,6 +314,7 @@
   --sem-color-bg-base: var(--pr-color-gray-900);
   --sem-color-bg-subtle: var(--pr-color-gray-800);
   --sem-color-bg-elevated: var(--pr-color-gray-700);
+  --sem-color-bg-overlay-subtle: rgb(15 17 21 / 94%);
   --sem-color-bg-overlay: rgb(15 17 21 / 85%);
   --sem-color-bg-striped: rgb(255 255 255 / 5%);
 
@@ -375,18 +344,4 @@
 
   /* --- Misc Semantic --- */
   --sem-pattern-opacity: 0.85;
-
-  /* --- Header Component --- */
-  --comp-header-bg: rgb(15 17 21 / 94%);
-
-  /* --- Card Component --- */
-
-  /* TODO: Theming architecture code smell
-     Dark mode currently relies on explicit COMP token remaps for card styles
-     because SEM remaps are not consistently propagating through this path
-     Revisit token layering so COMP stays a stable consumer of SEM across themes */
-  --comp-card-bg: var(--sem-color-bg-base);
-  --comp-card-text: var(--sem-color-text-primary);
-  --comp-card-shadow: var(--sem-elevation-low);
-  --comp-card-shadow-hover: var(--sem-elevation-medium);
 }

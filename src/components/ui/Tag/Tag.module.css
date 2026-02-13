@@ -1,4 +1,6 @@
 .tag {
+  --comp-tag-radius: var(--pr-radius-pill);
+
   display: inline-flex;
   align-items: center;
   white-space: nowrap;

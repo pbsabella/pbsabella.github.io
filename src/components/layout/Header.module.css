@@ -1,4 +1,8 @@
 .header {
+  --comp-header-height: var(--sem-layout-header-height);
+  --comp-header-bg: var(--sem-color-bg-overlay-subtle);
+  --comp-header-z-index: var(--sem-z-header);
+
   background-color: var(--comp-header-bg);
   border-bottom: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
   height: var(--comp-header-height);

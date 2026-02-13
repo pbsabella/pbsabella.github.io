@@ -1,4 +1,8 @@
 .button {
+  --comp-button-radius: var(--pr-radius-base);
+  --comp-button-padding-sm: var(--pr-spacing-1) var(--pr-spacing-3);
+  --comp-button-padding-md: var(--pr-spacing-2) var(--pr-spacing-4);
+
   border-radius: var(--comp-button-radius);
   font-weight: var(--pr-weight-500);
   border: var(--pr-border-width-1) solid transparent;

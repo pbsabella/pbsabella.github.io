@@ -53,7 +53,7 @@ const Hero = () => {
               Contact me
             </Link>
 
-            <Link className={`${styles.heroSecondaryLink} link`} to={ROUTES.LABS}>
+            <Link className="link" to={ROUTES.LABS}>
               Explore labs writing
             </Link>
           </div>

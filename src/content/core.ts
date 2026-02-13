@@ -38,15 +38,15 @@ export const COLOR_GROUPS = {
     ],
     status: [
       { name: 'Info 400', token: '--pr-color-info-400' },
+      { name: 'Info 500', token: '--pr-color-info-500' },
+      { name: 'Info 600', token: '--pr-color-info-600' },
       { name: 'Error 400', token: '--pr-color-error-400' },
+      { name: 'Error 500', token: '--pr-color-error-500' },
+      { name: 'Error 600', token: '--pr-color-error-600' },
       { name: 'Success 500', token: '--pr-color-success-500' },
       { name: 'Success 600', token: '--pr-color-success-600' },
       { name: 'Warning 500', token: '--pr-color-warning-500' },
       { name: 'Warning 600', token: '--pr-color-warning-600' },
-      { name: 'Info 500', token: '--pr-color-info-500' },
-      { name: 'Info 600', token: '--pr-color-info-600' },
-      { name: 'Error 500', token: '--pr-color-error-500' },
-      { name: 'Error 600', token: '--pr-color-error-600' },
     ]
   },
   semantic: {
@@ -97,14 +97,14 @@ export const COLOR_GROUPS = {
         references: 'Light: Green 600 | Dark: Green 500'
       },
       {
-        name: 'Text On Accent',
-        token: '--sem-color-text-on-accent',
-        references: 'Light: Neutral 100 | Dark: Neutral 100'
-      },
-      {
         name: 'Text Success Emphasis',
         token: '--sem-color-text-success-emphasis',
         references: 'Light: Success 600 | Dark: Success 500'
+      },
+      {
+        name: 'Text On Accent',
+        token: '--sem-color-text-on-accent',
+        references: 'Light: Neutral 100 | Dark: Neutral 100'
       },
     ],
     border: [
@@ -126,17 +126,6 @@ export const COLOR_GROUPS = {
         references: 'Light: Neutral 800 | Dark: Gray 500'
       },
       {
-        name: 'Border Accent',
-        token: '--sem-color-border-accent',
-        references: 'Light: Green 600 | Dark: Green 600'
-      },
-      {
-        name: 'Border Success',
-        token: '--sem-color-border-success',
-        border: true,
-        references: 'Light: Success 600 | Dark: Success 500'
-      },
-      {
         name: 'Divider Subtle',
         token: '--sem-color-divider-subtle',
         references: 'Light: Neutral 300 | Dark: Gray 700'
@@ -150,6 +139,17 @@ export const COLOR_GROUPS = {
         name: 'Divider Strong',
         token: '--sem-color-divider-strong',
         references: 'Light: Neutral 600 | Dark: Gray 500'
+      },
+      {
+        name: 'Border Accent',
+        token: '--sem-color-border-accent',
+        references: 'Light: Green 500 | Dark: Green 600'
+      },
+      {
+        name: 'Border Success',
+        token: '--sem-color-border-success',
+        border: true,
+        references: 'Light: Success 600 | Dark: Success 500'
       },
     ],
     state: [

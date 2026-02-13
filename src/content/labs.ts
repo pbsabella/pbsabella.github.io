@@ -16,7 +16,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     title: 'Design System Build Notes',
     href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
     description:
-      'Built with React to explore modern component architecture. This project implements a tiered token structure, demonstrating how type-safe primitives scale from a documentation lab into a production interface.',
+      'Exploring component architecture and tiered token systems in React. Shows how design tokens scale from documentation to production.',
     tags: ['Build Notes', 'Design System', 'React'],
     interactive: true,
   },
@@ -31,7 +31,7 @@ export const LABS_PROJECTS: LabsProject[] = [
   {
     title: 'Theming Architectures',
     description:
-      'Currently exploring a scalable approach to multi-layered theming. This experiment explores the relationship between global primitives, semantic aliases, and component-level overrides to support high-contrast modes and multi-brand identities without code duplication.',
+      'Currently untangling multi-layered theming. How do primitives, semantic tokens, and component overrides hold up when you add light/dark modes and brand variants?',
     tags: [],
     variant: 'flat',
     tone: 'dashed',
