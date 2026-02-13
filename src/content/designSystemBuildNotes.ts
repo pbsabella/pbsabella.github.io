@@ -73,7 +73,7 @@ export const BUILD_NOTES_CHALLENGES = [
 ];
 
 export const BUILD_NOTES_CHALLENGE_NOTE =
-  'Cherish your designers. Choosing color scales that look good and pass a11y in light and dark modes had me one token away from losing it.';
+  "Cherish your designers. Choosing color scales that look good and pass a11y in light and dark modes had me one token away from losing it. That's just the accessibility layer. I wasn't even thinking about color theory, brand identity, or perceptual uniformity.";
 
 export const BUILD_NOTES_NEXT_STEPS = [
   'Define clear token consumption boundaries (what can consume PR vs SEM vs COMP) and enforce them with linting.',
