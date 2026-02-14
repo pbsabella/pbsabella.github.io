@@ -9,7 +9,24 @@ import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import { ROUTES } from '@/constants/routes';
 import { useTheme } from '@context/ThemeContext';
-import { CheckCircle2, ArrowUpRight, ArrowRight, Layers, Type, Component, Shuffle, Code2, Moon, Timer, Ship, ShieldCheck, Contrast, Search, Lightbulb } from 'lucide-react';
+import {
+  CheckCircle2,
+  ArrowUpRight,
+  ArrowRight,
+  Layers,
+  Palette,
+  Group,
+  Component,
+  Shuffle,
+  Code2,
+  Moon,
+  Timer,
+  Ship,
+  ShieldCheck,
+  Contrast,
+  Search,
+  Scale,
+} from 'lucide-react';
 import {
   BUILD_NOTES_CHALLENGES,
   BUILD_NOTES_CHALLENGE_NOTE,
@@ -106,7 +123,7 @@ export const ApproachSection = () => (
       <Card variant="flat" className={styles.layerCard}>
         <div className={styles.layerHeader}>
           <span className={styles.layerIcon} aria-hidden="true">
-            <Layers size={24} className={styles.iconAccent} />
+            <Palette size={24} className={styles.iconAccent} />
           </span>
         </div>
         <h3 className={styles.layerTitle}>Primitive</h3>
@@ -122,7 +139,7 @@ export const ApproachSection = () => (
       <Card variant="flat" className={styles.layerCard}>
         <div className={styles.layerHeader}>
           <span className={styles.layerIcon} aria-hidden="true">
-            <Type size={24} className={styles.iconAccent} />
+            <Group size={24} className={styles.iconAccent} />
           </span>
         </div>
         <h3 className={styles.layerTitle}>Semantic</h3>
@@ -156,12 +173,7 @@ export const ApproachSection = () => (
       variant="info"
       role="note"
       aria-live="off"
-      title={(
-        <span className={styles.alertRationaleTitle}>
-          <Lightbulb size={20} aria-hidden="true" />
-          <span>Design Rationale</span>
-        </span>
-      )}
+      title="Design Rationale"
     >
       <p>
         The naming is intentional: <strong>prefixes</strong> make a token&apos;s
@@ -231,7 +243,7 @@ export const ChallengesSection = () => (
       {BUILD_NOTES_CHALLENGES.map((item, index) => {
         const icons = [
           <Timer key="timer" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
+          <Scale key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
           <Contrast key="contrast" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
         ];
 

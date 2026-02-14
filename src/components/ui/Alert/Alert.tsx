@@ -1,5 +1,6 @@
 import { HTMLAttributes, ReactNode, useId } from 'react';
 import styles from './Alert.module.css';
+import { CircleAlert, CircleCheck, Info, LucideIcon, TriangleAlert } from 'lucide-react';
 
 type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
 
@@ -12,6 +13,13 @@ interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   variant?: AlertVariant;
   className?: string;
 }
+
+const VARIANT_ICONS: Partial<Record<AlertVariant, LucideIcon>> = {
+  info: Info,
+  success: CircleCheck,
+  warning: TriangleAlert,
+  error: CircleAlert,
+};
 
 /**
  * Alert Component
@@ -48,6 +56,8 @@ const Alert = ({
     .filter(Boolean)
     .join(' ');
 
+  const Icon = VARIANT_ICONS[variant];
+
   return (
     <div
       className={classNames}
@@ -58,9 +68,16 @@ const Alert = ({
       {...props}
     >
       {title && (
-        <p id={titleId} className={styles.alertTitle}>
-          {title}
-        </p>
+        <div className={styles.alertTitle}>
+          {Icon && (
+            <Icon
+              className={styles.alertIcon}
+              size={20}
+              aria-hidden="true"
+            />
+          )}
+          <span id={titleId}>{title}</span>
+        </div>
       )}
       <div className={styles.alertBody}>{children}</div>
     </div>
