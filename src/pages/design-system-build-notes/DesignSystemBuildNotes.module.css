@@ -466,12 +466,6 @@
   color: var(--sem-color-text-muted);
 }
 
-.alertRationaleTitle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--pr-spacing-2);
-}
-
 .sidebar {
   display: none;
   gap: var(--pr-spacing-4);
