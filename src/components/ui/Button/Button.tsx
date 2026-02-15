@@ -1,10 +1,21 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 import styles from './Button.module.css';
 
-type ButtonVariant = 'primary' | 'secondary';
-type ButtonSize = 'sm' | 'md';
+export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonSize = 'sm' | 'md';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+const variantMap: Record<ButtonVariant, string> = {
+  primary: styles.buttonPrimary,
+  secondary: styles.buttonSecondary,
+};
+
+const sizeMap: Record<ButtonSize, string> = {
+  md: styles.buttonMd,
+  sm: styles.buttonSm,
+};
+
+type ButtonOwnProps<T extends ElementType> = {
+  as?: T;
   /** Button label/content */
   children: ReactNode;
   /** Visual treatment variant */
@@ -12,7 +23,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Size token mapping */
   size?: ButtonSize;
   className?: string;
-}
+};
+
+type ButtonProps<T extends ElementType> = ButtonOwnProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, keyof ButtonOwnProps<T>>;
 
 /**
  * Button Component
@@ -29,24 +43,34 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Accessibility:
  * - Defaults to `type="button"` to avoid accidental form submission.
  */
-const Button = ({
+const Button = <T extends ElementType = 'button'>({
+  as,
   children,
   variant = 'primary',
   size = 'md',
-  type = 'button',
   className,
   ...props
-}: ButtonProps) => {
-  const variantClass = styles[`button${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
-  const sizeClass = styles[`button${size.charAt(0).toUpperCase() + size.slice(1)}`];
-  const classNames = [styles.button, variantClass, sizeClass, className]
-    .filter(Boolean)
-    .join(' ');
+}: ButtonProps<T>) => {
+  const Component = as || 'button';
+
+  const classNames = [
+    styles.button,
+    variantMap[variant],
+    sizeMap[size],
+    className
+  ].filter(Boolean).join(' ');
+
+  const isNativeButton = Component === 'button';
+  const hasType = 'type' in props;
 
   return (
-    <button className={classNames} type={type} {...props}>
+    <Component
+      className={classNames}
+      {...(isNativeButton && !hasType ? { type: 'button' } : {})}
+      {...props}
+    >
       {children}
-    </button>
+    </Component>
   );
 };
 

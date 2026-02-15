@@ -123,26 +123,6 @@
   padding-top: var(--pr-spacing-2);
 }
 
-/* TODO: Looks like a button, but isn't. Convert this later */
-.heroPrimaryLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--pr-spacing-2) var(--pr-spacing-4);
-  border-radius: var(--pr-radius-base);
-  border: var(--pr-border-width-1) solid var(--sem-color-bg-accent);
-  background: var(--sem-color-bg-accent);
-  color: var(--sem-color-text-on-accent);
-  font-weight: var(--pr-weight-500);
-  font-size: var(--sem-text-caption);
-  line-height: var(--pr-leading-100);
-  text-decoration: none;
-}
-
-.heroPrimaryLink:hover {
-  filter: brightness(0.95);
-}
-
 @media (width >= 768px) {
   .hero {
     margin-bottom: var(--pr-spacing-11);
@@ -161,16 +141,6 @@
 @media (width >= 1024px) {
   .heroTitle {
     max-width: 18ch;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .heroPrimaryLink {
-    transition: none;
-  }
-
-  .heroPrimaryLink:hover {
-    transform: none;
   }
 }
 

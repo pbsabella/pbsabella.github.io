@@ -4,6 +4,7 @@ import { useSectionNav } from '@hooks/useSectionNav';
 import Tag from '@components/ui/Tag/Tag';
 import Container from '@components/layout/Container';
 import HeroCanvas from '@/components/sections/HeroCanvas';
+import Button from '@components/ui/Button/Button';
 import styles from './Hero.module.css';
 
 const HERO_TOOLSET = [
@@ -46,16 +47,16 @@ const Hero = () => {
           </ul>
 
           <div className={styles.heroActions}>
-            <Link
-              className={styles.heroPrimaryLink}
+            <Button
+              as={Link}
               {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
             >
               Contact me
-            </Link>
+            </Button>
 
-            <Link className="link" to={ROUTES.LABS}>
-              Explore labs writing
-            </Link>
+            <Button as={Link} to={ROUTES.LABS} variant="secondary">
+              Explore labs
+            </Button>
           </div>
         </Container>
       </div>

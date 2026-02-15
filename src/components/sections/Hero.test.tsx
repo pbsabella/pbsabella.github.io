@@ -37,7 +37,7 @@ describe('Hero', () => {
     const contactHref = contactLink.getAttribute('href') ?? '';
     expect(contactHref).toContain(`section=${SECTION_ANCHORS.CONTACT}`);
 
-    const labsLink = screen.getByRole('link', { name: /explore labs writing/i });
+    const labsLink = screen.getByRole('link', { name: /explore labs/i });
     const labsHref = labsLink.getAttribute('href') ?? '';
     expect(labsHref).toContain(ROUTES.LABS);
   });

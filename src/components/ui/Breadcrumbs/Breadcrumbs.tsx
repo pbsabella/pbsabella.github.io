@@ -2,7 +2,7 @@ import { HTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Breadcrumbs.module.css';
 
-type BreadcrumbItem = {
+export type BreadcrumbItem = {
   /** Visible breadcrumb text */
   label: string;
   /** Route target for non-terminal crumb */

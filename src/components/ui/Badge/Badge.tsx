@@ -1,8 +1,21 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Badge.module.css';
 
-type BadgeVariant = 'success' | 'warning' | 'info' | 'error';
-type BadgeSize = 'sm' | 'md' | 'lg';
+export type BadgeVariant = 'success' | 'warning' | 'info' | 'error';
+export type BadgeSize = 'sm' | 'md' | 'lg';
+
+const variantMap: Record<BadgeVariant, string> = {
+  success: styles.badgeSuccess,
+  warning: styles.badgeWarning,
+  info: styles.badgeInfo,
+  error: styles.badgeError,
+};
+
+const sizeMap: Record<BadgeSize, string> = {
+  sm: styles.badgeSm,
+  md: styles.badgeMd,
+  lg: styles.badgeLg,
+};
 
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   /** Content to display inside the badge, usually a number or short label */
@@ -50,11 +63,13 @@ const Badge = ({
   className,
   ...props
 }: BadgeProps) => {
-  const variantClass = styles[`badge${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
-  const sizeClass = styles[`badge${size.charAt(0).toUpperCase() + size.slice(1)}`];
-  const classNames = [styles.badge, variantClass, sizeClass, className]
-    .filter(Boolean)
-    .join(' ');
+  const classNames = [
+    styles.badge,
+    variantMap[variant],
+    sizeMap[size],
+    className,
+  ].filter(Boolean).join(' ');
+
   const ariaHidden = size === 'sm' && !ariaLabel ? true : undefined;
   const resolvedRole = role ?? (size === 'sm' && ariaLabel ? 'img' : undefined);
 

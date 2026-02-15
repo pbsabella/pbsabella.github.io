@@ -1,11 +1,17 @@
 import { ReactNode, TableHTMLAttributes } from 'react';
 import styles from './Table.module.css';
 
-type TableVariant = 'default' | 'compact' | 'striped';
+export type TableVariant = 'default' | 'compact' | 'striped';
 
 type TableColumn = {
   label: string;
   header?: ReactNode;
+};
+
+const variantMap: Record<TableVariant, string> = {
+  default: '',
+  compact: styles.tableCompact,
+  striped: styles.tableStriped,
 };
 
 interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
@@ -48,10 +54,13 @@ const Table = ({
   className,
   ...props
 }: TableProps) => {
-  const variantClass = styles[`table${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
-  const classNames = [styles.table, variantClass, stacked ? styles.tableStacked : '', className]
-    .filter(Boolean)
-    .join(' ');
+  const classNames = [
+    styles.table,
+    variantMap[variant],
+    stacked ? styles.tableStacked : '',
+    className
+  ].filter(Boolean).join(' ');
+
   const ariaLabel = caption ? undefined : label ?? props['aria-label'];
 
   return (

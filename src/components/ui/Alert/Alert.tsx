@@ -2,7 +2,22 @@ import { HTMLAttributes, ReactNode, useId } from 'react';
 import styles from './Alert.module.css';
 import { CircleAlert, CircleCheck, Info, LucideIcon, TriangleAlert } from 'lucide-react';
 
-type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
+export type AlertVariant = 'default' | 'info' | 'success' | 'warning' | 'error';
+
+const variantMap: Record<AlertVariant, string> = {
+  default: '',
+  info: styles.alertInfo,
+  success: styles.alertSuccess,
+  warning: styles.alertWarning,
+  error: styles.alertError,
+}
+
+const variantIconMap: Partial<Record<AlertVariant, LucideIcon>> = {
+  info: Info,
+  success: CircleCheck,
+  warning: TriangleAlert,
+  error: CircleAlert,
+};
 
 interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   /** Main alert content */
@@ -13,13 +28,6 @@ interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   variant?: AlertVariant;
   className?: string;
 }
-
-const VARIANT_ICONS: Partial<Record<AlertVariant, LucideIcon>> = {
-  info: Info,
-  success: CircleCheck,
-  warning: TriangleAlert,
-  error: CircleAlert,
-};
 
 /**
  * Alert Component
@@ -45,18 +53,15 @@ const Alert = ({
   ...props
 }: AlertProps) => {
   const titleId = useId();
-  const variantClass =
-    variant === 'default'
-      ? undefined
-      : styles[`alert${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
   const role = props.role ?? (variant === 'error' ? 'alert' : 'status');
   const ariaLive = props['aria-live'] ?? (role === 'alert' ? 'assertive' : 'polite');
   const ariaAtomic = props['aria-atomic'] ?? 'true';
-  const classNames = [styles.alert, variantClass, className]
+
+  const classNames = [styles.alert, variantMap[variant], className]
     .filter(Boolean)
     .join(' ');
 
-  const Icon = VARIANT_ICONS[variant];
+  const Icon = variantIconMap[variant];
 
   return (
     <div

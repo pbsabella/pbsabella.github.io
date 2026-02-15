@@ -4,6 +4,20 @@ import styles from './Tag.module.css';
 export type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
 export type TagSize = 'sm' | 'md' | 'lg';
 
+const variantMap: Record<TagVariant, string> = {
+  default: styles.tagDefault,
+  success: styles.tagSuccess,
+  warning: styles.tagWarning,
+  info: styles.tagInfo,
+  error: styles.tagError,
+};
+
+const sizeMap: Record<TagSize, string> = {
+  sm: styles.tagSm,
+  md: styles.tagMd,
+  lg: styles.tagLg,
+};
+
 interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   /** Content to display inside the tag */
   children: ReactNode;
@@ -47,9 +61,12 @@ const Tag = ({
   className,
   ...props
 }: TagProps) => {
-  const variantClass = styles[`tag${variant.charAt(0).toUpperCase() + variant.slice(1)}`];
-  const sizeClass = styles[`tag${size.charAt(0).toUpperCase() + size.slice(1)}`];
-  const classNames = [styles.tag, variantClass, sizeClass, className].filter(Boolean).join(' ');
+  const classNames = [
+    styles.tag,
+    variantMap[variant],
+    sizeMap[size],
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
     <span className={classNames} {...props}>
