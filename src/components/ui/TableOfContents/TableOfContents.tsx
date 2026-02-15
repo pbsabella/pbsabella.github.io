@@ -4,7 +4,7 @@ import { useScrollToSection } from '@hooks/useScrollToSection';
 import type { ScrollBehavior } from '@/types/scroll';
 import { useActiveSection } from '@hooks/useActiveSection';
 
-type TableOfContentsSection = {
+export type TableOfContentsSection = {
   id: string;
   label: string;
 };

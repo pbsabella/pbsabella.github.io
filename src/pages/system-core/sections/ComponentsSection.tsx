@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../SystemCoreSections.module.css';
 import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
@@ -87,9 +88,9 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
     </p>
     <div className={styles.buttonDemo}>
       <Button>Primary Md</Button>
-      <Button variant="secondary">Secondary Md</Button>
+      <Button variant="secondary" as="a" href="#">Secondary Md</Button>
       <Button size="sm">Primary Sm</Button>
-      <Button variant="secondary" size="sm">Secondary Sm</Button>
+      <Button variant="secondary" size="sm" as={Link} to="/">Secondary Sm</Button>
     </div>
 
     <h3 className={styles.subsectionTitle}>Badges</h3>
