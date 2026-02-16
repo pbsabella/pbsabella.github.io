@@ -17,8 +17,7 @@ This portfolio is a **Design System in practice**:
 
 ## Status
 
-[![Deploy to GitHub Pages](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml)
-[![Percy Visual Tests](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/percy.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/percy.yml)
+[![Build, Test, and Deploy](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml)
 [![CodeQL](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml)
 
 ## Architecture
@@ -251,8 +250,7 @@ npm run percy:baseline  # Update Percy snapshots on production
 
 **Workflows:**
 
-- **`jekyll.yml`:** Build + Deploy to GitHub Pages (on push to master)
-- **`percy.yml`:** Visual regression tests (on code/style changes)
+- **`jekyll.yml`:** Build, Test and Deploy to GitHub Pages (on push to master)
 - **`codeql.yml`:** Security scanning (automatic)
 
 **Status Badges:**

@@ -124,25 +124,21 @@ npm run percy:test
 
 ## 🚦 CI/CD Pipeline
 
-### Primary Workflow: `jekyll.yml` (Blocking)
+### Main Workflow: `jekyll.yml`
 
-- **Type Check** - `npm run type-check`
-- **Unit Tests** - `npm run test`
-- **Lint** - `npm run lint`
-- **Build Verification** - `npm run build`
-- **Cross-Browser Smoke** - `npm run pw:smoke`
-- **Deploy to GitHub Pages** - On master push
+Runs on push to `master` or pull requests. Deploys only after all stages pass.
 
-### Visual Regression: `percy.yml` (Blocking)
+**Quality Checks** (parallel) → **Build** → **Performance Tests** (parallel) → **Visual Tests** → **Deploy**
 
-- **Percy + Cypress** - Multi-device visual snapshots
-- **Trigger:** HTML, JS, TS, or CSS changes
-- **Baseline:** Update with `percy:baseline` after approved design changes
+- Type checking, unit tests, linting
+- Lighthouse performance audits
+- Playwright smoke tests (Chromium, Firefox, WebKit)
+- Cypress E2E + Percy visual regression (only if `index.html`, `src/`, `public/`, or `package-lock.json` changed)
 
-### Security: `codeql.yml` (Informational)
+### Security: `codeql.yml`
 
-- **CodeQL Analysis** - Vulnerability scanning
-- **Frequency:** Weekly + pull requests
+- CodeQL static analysis (JavaScript/TypeScript, Actions)
+- Runs weekly + on push/PR (non-blocking)
 
 ---
 
