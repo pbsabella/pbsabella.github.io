@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build, Test, and Deploy
 
 permissions:
   contents: read
@@ -10,15 +10,28 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      skip_percy:
+        description: 'Skip Percy snapshot upload (dry run)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
+  group: 'pages-${{ github.ref }}'
+  cancel-in-progress: true
 
 jobs:
-  build-and-lint:
-    runs-on: ubuntu-latest
+  # ===================================================================
+  # STAGE 1: Fast Quality Checks (Safe to Parallelize - No Servers)
+  # ===================================================================
 
+  type-check:
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -35,17 +48,122 @@ jobs:
       - name: Run type check
         run: npm run type-check
 
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run unit tests
         run: npm test
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run linters
         run: npm run lint
 
+  # ===================================================================
+  # STAGE 2: Build (Must Wait for Quality Checks)
+  # ===================================================================
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [type-check, unit-tests, lint]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build production
         run: npm run build
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-dist
+          path: ./dist
+          retention-days: 1
+
+  # ===================================================================
+  # STAGE 3: Server-Based Tests
+  # ===================================================================
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: ./dist
+
       - name: Run Lighthouse CLI
         run: npm run lighthouse
+
+  playwright-smoke:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: ./dist
 
       - name: Install Playwright browsers and OS deps
         run: npx playwright install --with-deps chromium firefox webkit
@@ -53,19 +171,70 @@ jobs:
       - name: Run Playwright smoke tests
         run: npm run pw:smoke
 
-      - name: Upload artifact
+  # ===================================================================
+  # STAGE 4: Cypress Visual Tests (After Functional Tests Pass)
+  # ===================================================================
+
+  cypress-visual-tests:
+    runs-on: ubuntu-latest
+    needs: [lighthouse, playwright-smoke]
+    if: github.event_name == 'push' || github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            visual:
+              - 'index.html'
+              - 'src/**'
+              - 'public/**'
+              - 'package-lock.json'
+
+      # All subsequent steps run only if visual files changed (or manual trigger)
+      - name: Set up Node.js
+        if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
+        run: npm ci
+
+      - name: Download build artifact
+        if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: ./dist
+
+      - name: Run Percy visual tests
+        if: (steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch') && (github.event_name != 'workflow_dispatch' || inputs.skip_percy != 'true')
+        run: npm run percy:test
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+      # Upload Pages artifact ONLY after Percy passes
+      - name: Upload artifact for GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
+  # ===================================================================
+  # STAGE 5: Deploy (Only After Everything Passes)
+  # ===================================================================
+
   deploy:
+    runs-on: ubuntu-latest
+    needs: cypress-visual-tests
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-and-lint
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
