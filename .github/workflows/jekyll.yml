@@ -192,7 +192,6 @@ jobs:
               - 'public/**'
               - 'package-lock.json'
 
-      # All subsequent steps run only if visual files changed (or manual trigger)
       - name: Set up Node.js
         if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/setup-node@v4
@@ -204,7 +203,7 @@ jobs:
         if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
         run: npm ci
 
-      - name: Download build artifact
+      - name: Download build artifact for Percy
         if: steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/download-artifact@v4
         with:
@@ -217,7 +216,15 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
-      # Upload Pages artifact ONLY after Percy passes
+      # ALWAYS download artifact for Pages deployment (not just for Percy)
+      - name: Download build artifact for deployment
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: ./dist
+
+      # Upload Pages artifact ONLY after all checks complete
       - name: Upload artifact for GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-pages-artifact@v3
