@@ -19,14 +19,13 @@ const variantIconMap: Partial<Record<AlertVariant, LucideIcon>> = {
   error: CircleAlert,
 };
 
-interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
+interface AlertProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title' | 'className'> {
   /** Main alert content */
   children: ReactNode;
   /** Optional heading shown above body content */
   title?: ReactNode;
   /** Semantic intent variant */
   variant?: AlertVariant;
-  className?: string;
 }
 
 /**
@@ -49,7 +48,6 @@ const Alert = ({
   children,
   title,
   variant = 'default',
-  className,
   ...props
 }: AlertProps) => {
   const titleId = useId();
@@ -57,7 +55,7 @@ const Alert = ({
   const ariaLive = props['aria-live'] ?? (role === 'alert' ? 'assertive' : 'polite');
   const ariaAtomic = props['aria-atomic'] ?? 'true';
 
-  const classNames = [styles.alert, variantMap[variant], className]
+  const classNames = [styles.alert, variantMap[variant]]
     .filter(Boolean)
     .join(' ');
 

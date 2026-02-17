@@ -43,9 +43,4 @@ describe('Badge Component', () => {
     expect(badge).toHaveAttribute('aria-label', '3 unread notifications');
     expect(badge).not.toHaveAttribute('aria-hidden');
   });
-
-  it('merges custom className', () => {
-    render(<Badge className="custom-badge">5</Badge>);
-    expect(screen.getByText('5')).toHaveClass('custom-badge');
-  });
 });

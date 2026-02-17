@@ -9,10 +9,9 @@ export type BreadcrumbItem = {
   to?: string;
 };
 
-interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
+interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, 'className'> {
   /** Ordered breadcrumb trail */
   items: BreadcrumbItem[];
-  className?: string;
 }
 
 /**
@@ -30,9 +29,8 @@ interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
  * - Uses `nav` landmark with default `aria-label="Breadcrumb"`.
  * - Last item is marked with `aria-current="page"`.
  */
-const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ items, ...props }: BreadcrumbsProps) => {
   const { 'aria-label': ariaLabel = 'Breadcrumb', ...restProps } = props;
-  const classNames = [styles.breadcrumbs, className].filter(Boolean).join(' ');
 
   if (items.length === 0) {
     return null;
@@ -40,7 +38,7 @@ const Breadcrumbs = ({ items, className, ...props }: BreadcrumbsProps) => {
 
   return (
     <nav
-      className={classNames}
+      className={styles.breadcrumbs}
       aria-label={ariaLabel}
       {...restProps}
     >

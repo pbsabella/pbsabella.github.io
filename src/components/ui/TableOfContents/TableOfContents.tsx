@@ -9,7 +9,7 @@ export type TableOfContentsSection = {
   label: string;
 };
 
-interface TableOfContentsProps extends HTMLAttributes<HTMLElement> {
+interface TableOfContentsProps extends Omit<HTMLAttributes<HTMLElement>, 'className'> {
   /** Ordered section anchors to render */
   sections: TableOfContentsSection[];
   /** Activation offset for scroll spy calculations */
@@ -20,7 +20,6 @@ interface TableOfContentsProps extends HTMLAttributes<HTMLElement> {
   respectReducedMotion?: boolean;
   /** Keeps TOC sticky when true */
   isSticky?: boolean;
-  className?: string;
 }
 
 /**
@@ -43,14 +42,12 @@ const TableOfContents = ({
   scrollBehavior = 'instant',
   respectReducedMotion = true,
   isSticky = true,
-  className,
   ...props
 }: TableOfContentsProps) => {
   const { 'aria-label': ariaLabel = 'Table of contents', ...restProps } = props;
   const classNames = [
     styles.tableOfContents,
     !isSticky && styles.tableOfContentsStatic,
-    className,
   ].filter(Boolean).join(' ');
 
   const scrollToSection = useScrollToSection();

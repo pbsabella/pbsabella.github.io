@@ -120,53 +120,59 @@ export const ApproachSection = () => (
       components stay stable as themes and brands evolve.
     </p>
     <div className={styles.layerGrid}>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Palette size={24} className={styles.iconAccent} />
-          </span>
+      <Card variant="flat">
+        <div className={styles.layerCard}>
+          <div className={styles.layerHeader}>
+            <span className={styles.layerIcon} aria-hidden="true">
+              <Palette size={24} className={styles.iconAccent} />
+            </span>
+          </div>
+          <h3 className={styles.layerTitle}>Primitive</h3>
+          <p>Raw values that define the palette, scale, and motion.</p>
+          <p className={styles.layerToken}>
+            <code>--pr-[category]-[scale]</code>
+            <span className={styles.layerTokenExample}>
+              <span>e.g.</span>
+              <code>--pr-color-neutral-800</code>
+            </span>
+          </p>
         </div>
-        <h3 className={styles.layerTitle}>Primitive</h3>
-        <p>Raw values that define the palette, scale, and motion.</p>
-        <p className={styles.layerToken}>
-          <code>--pr-[category]-[scale]</code>
-          <span className={styles.layerTokenExample}>
-            <span>e.g.</span>
-            <code>--pr-color-neutral-800</code>
-          </span>
-        </p>
       </Card>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Group size={24} className={styles.iconAccent} />
-          </span>
+      <Card variant="flat">
+        <div className={styles.layerCard}>
+          <div className={styles.layerHeader}>
+            <span className={styles.layerIcon} aria-hidden="true">
+              <Group size={24} className={styles.iconAccent} />
+            </span>
+          </div>
+          <h3 className={styles.layerTitle}>Semantic</h3>
+          <p>Intent-based aliases that describe how UI should behave.</p>
+          <p className={styles.layerToken}>
+            <code>--sem-[domain]-[property]-[role]</code>
+            <span className={styles.layerTokenExample}>
+              <span>e.g.</span>
+              <code>--sem-color-text-primary</code>
+            </span>
+          </p>
         </div>
-        <h3 className={styles.layerTitle}>Semantic</h3>
-        <p>Intent-based aliases that describe how UI should behave.</p>
-        <p className={styles.layerToken}>
-          <code>--sem-[domain]-[property]-[role]</code>
-          <span className={styles.layerTokenExample}>
-            <span>e.g.</span>
-            <code>--sem-color-text-primary</code>
-          </span>
-        </p>
       </Card>
-      <Card variant="flat" className={styles.layerCard}>
-        <div className={styles.layerHeader}>
-          <span className={styles.layerIcon} aria-hidden="true">
-            <Component size={24} className={styles.iconAccent} />
-          </span>
+      <Card variant="flat">
+        <div className={styles.layerCard}>
+          <div className={styles.layerHeader}>
+            <span className={styles.layerIcon} aria-hidden="true">
+              <Component size={24} className={styles.iconAccent} />
+            </span>
+          </div>
+          <h3 className={styles.layerTitle}>Component</h3>
+          <p>Component-level tokens that bind styles to real UI pieces.</p>
+          <p className={styles.layerToken}>
+            <code>--comp-[component]-[property]</code>
+            <span className={styles.layerTokenExample}>
+              <span>e.g.</span>
+              <code>--comp-card-border</code>
+            </span>
+          </p>
         </div>
-        <h3 className={styles.layerTitle}>Component</h3>
-        <p>Component-level tokens that bind styles to real UI pieces.</p>
-        <p className={styles.layerToken}>
-          <code>--comp-[component]-[property]</code>
-          <span className={styles.layerTokenExample}>
-            <span>e.g.</span>
-            <code>--comp-card-border</code>
-          </span>
-        </p>
       </Card>
     </div>
     <Alert
@@ -269,7 +275,7 @@ export const DemoSection = () => {
   return (
     <BuildNotesBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" className={styles.sectionRhythm16}>
       <figure>
-        <Card variant="panel" className={styles.demoCard}>
+        <Card variant="panel">
           <div className={styles.demoHeader}>
             <div className={styles.demoDots}>
               <span className={`${styles.demoDot} ${styles.dotError}`} />

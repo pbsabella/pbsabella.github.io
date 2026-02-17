@@ -17,14 +17,13 @@ const sizeMap: Record<BadgeSize, string> = {
   lg: styles.badgeLg,
 };
 
-interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'className'> {
   /** Content to display inside the badge, usually a number or short label */
   children?: ReactNode; // optional for sm size dots
   /** Visual variant that determines background and text colors */
   variant?: BadgeVariant;
   /** Size of the badge; affects font-size, padding, and border-radius */
   size?: BadgeSize;
-  className?: string;
 }
 
 /**
@@ -60,14 +59,12 @@ const Badge = ({
   size = 'md',
   'aria-label': ariaLabel,
   role,
-  className,
   ...props
 }: BadgeProps) => {
   const classNames = [
     styles.badge,
     variantMap[variant],
     sizeMap[size],
-    className,
   ].filter(Boolean).join(' ');
 
   const ariaHidden = size === 'sm' && !ariaLabel ? true : undefined;
