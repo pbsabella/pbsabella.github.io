@@ -16,13 +16,11 @@ import styles from './Socials.module.css';
  * - External links include descriptive `title`.
  * - Links open in a new tab with `rel="noopener noreferrer"`.
  */
-
-const Socials = ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => {
+const Socials = ({ ...props }: Omit<HTMLAttributes<HTMLUListElement>, 'className'>) => {
   const { 'aria-label': ariaLabel = 'Social links', ...restProps } = props;
-  const classNames = [styles.socials, className].filter(Boolean).join(' ');
 
   return (
-    <ul className={classNames} aria-label={ariaLabel} {...restProps}>
+    <ul className={styles.socials} aria-label={ariaLabel} {...restProps}>
       <li className={styles.socialsItem}>
         <a
           className={`${styles.socialsLink} link`}

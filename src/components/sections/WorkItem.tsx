@@ -77,44 +77,45 @@ const WorkItem = ({
         <Card
           as="article"
           variant="panel"
-          className={panelClassNames}
           data-tone={tone}
           data-media-side={mediaSide}
           data-media-preset={mediaPreset}
         >
-          <div className={mediaClassNames}>
-            <img
-              className={imageClassNames}
-              src={image}
-              alt={imageAlt ?? `${title} project preview`}
-              width="1440"
-              height="810"
-              loading="lazy"
-            />
-          </div>
-
-          <div className={styles.workItemBody}>
-            <div className={styles.workItemSubtitle}>
-              <span className={styles.workItemCompany}>{company}</span>
-              {period && <time className={styles.workItemPeriod}>{period}</time>}
+          <div className={panelClassNames}>
+            <div className={mediaClassNames}>
+              <img
+                className={imageClassNames}
+                src={image}
+                alt={imageAlt ?? `${title} project preview`}
+                width="1440"
+                height="810"
+                loading="lazy"
+              />
             </div>
 
-            <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
-            <p className={styles.workItemPosition}>{position}</p>
+            <div className={styles.workItemBody}>
+              <div className={styles.workItemSubtitle}>
+                <span className={styles.workItemCompany}>{company}</span>
+                {period && <time className={styles.workItemPeriod}>{period}</time>}
+              </div>
 
-            <div className={styles.workItemDescription}>
-              {description.map((desc) => (
-                <p key={desc}>{desc}</p>
-              ))}
+              <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
+              <p className={styles.workItemPosition}>{position}</p>
+
+              <div className={styles.workItemDescription}>
+                {description.map((desc) => (
+                  <p key={desc}>{desc}</p>
+                ))}
+              </div>
+
+              <ul className={styles.workItemTags} aria-label="Project technologies">
+                {tags.map((tag) => (
+                  <li key={tag} className={styles.workItemTagItem}>
+                    <Tag>{tag}</Tag>
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <ul className={styles.workItemTags} aria-label="Project technologies">
-              {tags.map((tag) => (
-                <li key={tag} className={styles.workItemTagItem}>
-                  <Tag>{tag}</Tag>
-                </li>
-              ))}
-            </ul>
           </div>
         </Card>
       </Container>

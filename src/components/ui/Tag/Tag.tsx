@@ -18,14 +18,13 @@ const sizeMap: Record<TagSize, string> = {
   lg: styles.tagLg,
 };
 
-interface TagProps extends HTMLAttributes<HTMLSpanElement> {
+interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'className'> {
   /** Content to display inside the tag */
   children: ReactNode;
   /** Visual variant that determines color scheme */
   variant?: TagVariant;
   /** Size of the tag, affects font-size and padding */
   size?: TagSize;
-  className?: string;
 }
 
 /**
@@ -58,14 +57,12 @@ const Tag = ({
   children,
   variant = 'default',
   size = 'md',
-  className,
   ...props
 }: TagProps) => {
   const classNames = [
     styles.tag,
     variantMap[variant],
     sizeMap[size],
-    className,
   ].filter(Boolean).join(' ');
 
   return (

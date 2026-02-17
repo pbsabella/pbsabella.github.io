@@ -11,7 +11,6 @@ interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'icon' | 'text';
   /** Optional accessible text override */
   label?: string;
-  className?: string;
 }
 
 /**
@@ -30,7 +29,13 @@ interface ThemeToggleProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * - Uses an action-oriented label (`Switch to {nextTheme} mode`) for both icon and text variants
  * - Exposes `aria-pressed` to reflect current theme state
  */
-const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props }: ThemeToggleProps) => {
+const ThemeToggle = ({
+  id,
+  variant = 'icon',
+  label,
+  onClick,
+  ...props
+}: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
   const [hasInteracted, setHasInteracted] = useState(false);
   const isDarkTheme = theme === 'dark';
@@ -52,7 +57,6 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
   const iconClassNames = [
     styles.themeToggleButton,
     styles.themeToggleButtonIcon,
-    className,
   ].filter(Boolean).join(' ');
 
   return (
@@ -64,7 +68,6 @@ const ThemeToggle = ({ id, variant = 'icon', label, className, onClick, ...props
         onClick={handleClick}
         aria-label={buttonLabel}
         aria-pressed={isDarkTheme}
-        className={className}
         {...props}
       >
         {buttonLabel}

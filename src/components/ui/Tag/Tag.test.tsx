@@ -20,14 +20,13 @@ describe('Tag Component', () => {
     expect(tag.className).toMatch(/tagSm/);
   });
 
-  it('merges custom className and forwards native attributes', () => {
+  it('forwards native attributes', () => {
     render(
-      <Tag className="custom-tag" title="Tag title" data-testid="tag">
+      <Tag title="Tag title" data-testid="tag">
         CSS
       </Tag>,
     );
     const tag = screen.getByTestId('tag');
-    expect(tag).toHaveClass('custom-tag');
     expect(tag).toHaveAttribute('title', 'Tag title');
   });
 });

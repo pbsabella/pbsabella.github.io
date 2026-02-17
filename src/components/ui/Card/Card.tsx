@@ -15,15 +15,13 @@ const toneMap: Record<CardTone, string> = {
   dashed: styles.cardToneDashed,
 };
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'className'> {
   /** The visual style of the card */
   variant?: CardVariant;
   /** Optional tone treatment applied on top of the variant */
   tone?: CardTone;
   /** Card content */
   children: ReactNode;
-  /** Optional additional CSS class */
-  className?: string;
   /** Enables hover affordance styles */
   isInteractive?: boolean;
   /** Underlying element type for semantic wrappers */
@@ -48,7 +46,6 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
  */
 const Card = ({
   children,
-  className,
   variant = 'elevated',
   tone = 'default',
   isInteractive = false,
@@ -60,7 +57,6 @@ const Card = ({
     variantMap[variant],
     toneMap[tone],
     isInteractive && styles.cardInteractive,
-    className
   ].filter(Boolean).join(' ');
 
   return (

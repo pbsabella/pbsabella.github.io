@@ -22,11 +22,10 @@ type ButtonOwnProps<T extends ElementType> = {
   variant?: ButtonVariant;
   /** Size token mapping */
   size?: ButtonSize;
-  className?: string;
 };
 
 type ButtonProps<T extends ElementType> = ButtonOwnProps<T> &
-  Omit<ComponentPropsWithoutRef<T>, keyof ButtonOwnProps<T>>;
+  Omit<ComponentPropsWithoutRef<T>, keyof ButtonOwnProps<T> | 'className'>;
 
 /**
  * Button Component
@@ -48,7 +47,6 @@ const Button = <T extends ElementType = 'button'>({
   children,
   variant = 'primary',
   size = 'md',
-  className,
   ...props
 }: ButtonProps<T>) => {
   const Component = as || 'button';
@@ -57,7 +55,6 @@ const Button = <T extends ElementType = 'button'>({
     styles.button,
     variantMap[variant],
     sizeMap[size],
-    className
   ].filter(Boolean).join(' ');
 
   const isNativeButton = Component === 'button';

@@ -17,12 +17,11 @@ const Contact = () => {
         <div className={styles.contactActions}>
           <Button
             as="a"
-            className={styles.contactEmailLink}
             href="mailto:pau.abella@gmail.com"
           >
             Email
           </Button>
-          <Socials className={styles.contactSocials} />
+          <Socials />
         </div>
       </div>
     </FeaturedSection>

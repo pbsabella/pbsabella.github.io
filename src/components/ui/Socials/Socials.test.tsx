@@ -17,10 +17,9 @@ describe('Socials', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('merges custom className and supports aria-label override', () => {
-    render(<Socials className="custom-socials" aria-label="Contact links" />);
+  it('merges supports aria-label override', () => {
+    render(<Socials aria-label="Contact links" />);
 
-    const list = screen.getByRole('list', { name: 'Contact links' });
-    expect(list).toHaveClass('custom-socials');
+    expect(screen.getByRole('list', { name: 'Contact links' })).toBeVisible();
   });
 });

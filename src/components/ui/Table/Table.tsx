@@ -13,8 +13,7 @@ const variantMap: Record<TableVariant, string> = {
   compact: styles.tableCompact,
   striped: styles.tableStriped,
 };
-
-interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+interface TableProps extends Omit<TableHTMLAttributes<HTMLTableElement>, 'className'> {
   /** Optional visible caption (preferred for accessibility) */
   caption?: string;
   /** Column definitions used for headers and stacked labels */
@@ -27,7 +26,6 @@ interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   variant?: TableVariant;
   /** Enables mobile stacked row layout */
   stacked?: boolean;
-  className?: string;
 }
 
 /**
@@ -51,14 +49,12 @@ const Table = ({
   label,
   variant = 'default',
   stacked = true,
-  className,
   ...props
 }: TableProps) => {
   const classNames = [
     styles.table,
     variantMap[variant],
     stacked ? styles.tableStacked : '',
-    className
   ].filter(Boolean).join(' ');
 
   const ariaLabel = caption ? undefined : label ?? props['aria-label'];
