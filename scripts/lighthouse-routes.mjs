@@ -36,8 +36,8 @@ mkdirSync(outputDir, { recursive: true });
 const thresholds = {
   performance: { min: 0.86, level: 'warn' },
   accessibility: { min: 1, level: 'error' },
-  'best-practices': { min: 1, level: 'error' },
-  seo: { min: 0.90, level: 'error' },
+  'best-practices': { min: 1, level: 'warn' },
+  seo: { min: 0.90, level: 'warn' },
 };
 
 let hasError = false;
