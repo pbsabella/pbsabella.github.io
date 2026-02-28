@@ -1,0 +1,50 @@
+/* ============================================================================
+IconList
+Shared icon+text list component.
+========================================================================== */
+
+.list {
+  display: grid;
+  gap: var(--pr-spacing-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: var(--pr-size-24) 1fr;
+  gap: var(--pr-spacing-3);
+  align-items: start;
+  line-height: var(--pr-leading-180);
+}
+
+.item svg {
+  margin-top: var(--pr-spacing-1);
+}
+
+.icon {
+  display: flex;
+  align-items: flex-start;
+}
+
+.body {
+  display: grid;
+  gap: var(--pr-spacing-1);
+}
+
+.body p {
+  margin: 0;
+  color: var(--sem-color-text-muted);
+}
+
+/* Grid variant — 2-column layout for "decisions" style blocks */
+.listGrid {
+  gap: var(--pr-spacing-4) var(--pr-spacing-6);
+}
+
+@media (width >=768px) {
+  .listGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

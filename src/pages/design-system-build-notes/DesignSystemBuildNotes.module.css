@@ -106,7 +106,7 @@
   font-weight: var(--pr-weight-500);
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
   .heroStats {
     grid-template-columns: repeat(3, minmax(0, max-content));
     gap: var(--pr-spacing-3) var(--pr-spacing-11);
@@ -116,7 +116,7 @@
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--pr-spacing-11);
   align-items: start;
 }
@@ -127,51 +127,6 @@
   gap: 0;
 }
 
-.section {
-  scroll-margin-top: var(--sem-layout-header-height);
-}
-
-.sectionRhythm16 {
-  padding-top: var(--pr-spacing-16);
-}
-
-.sectionRhythm21 {
-  padding-top: var(--pr-spacing-21);
-}
-
-.sectionTitle {
-  margin-bottom: var(--pr-spacing-4);
-  font-family: var(--font-display);
-  font-style: italic;
-}
-
-.sectionKicker {
-  font-size: var(--sem-text-kicker);
-  text-transform: uppercase;
-  letter-spacing: var(--pr-tracking-30);
-  color: var(--sem-color-text-accent);
-  font-weight: var(--pr-weight-500);
-  margin-bottom: var(--pr-spacing-2);
-}
-
-.sectionTwoCol {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--pr-spacing-3) var(--pr-spacing-11);
-  align-items: start;
-}
-
-.sectionTwoCol .sectionKicker {
-  grid-column: 1 / -1;
-}
-
-.sectionTwoCol .sectionTitle {
-  margin-bottom: 0;
-}
-
-.section p {
-  line-height: var(--pr-leading-180);
-}
 
 .layerGrid {
   display: grid;
@@ -256,10 +211,6 @@
   margin-top: var(--pr-spacing-1);
 }
 
-.decisionListGrid {
-  margin-top: var(--pr-spacing-3);
-}
-
 .challengeListSingle {
   margin-top: var(--pr-spacing-3);
   grid-template-columns: 1fr;
@@ -300,10 +251,6 @@
   gap: var(--pr-spacing-3);
   align-items: start;
   line-height: var(--pr-leading-180);
-}
-
-.listIcon svg {
-  margin-top: var(--pr-spacing-1);
 }
 
 .problemIcon {
@@ -477,7 +424,7 @@
   padding-left: 0;
 }
 
-@media (width >= 1024px) {
+@media (width >=1024px) {
   .layout {
     grid-template-columns: minmax(0, 1fr) minmax(var(--pr-size-160), var(--pr-size-200));
   }
@@ -493,17 +440,9 @@
     padding-left: var(--pr-spacing-4);
   }
 
-  .sectionTwoCol {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
 }
 
 @media (width >= 768px) {
-  .decisionListGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--pr-spacing-4) var(--pr-spacing-6);
-  }
-
   .demoShowcase {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

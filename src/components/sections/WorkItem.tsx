@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Container from '@components/layout/Container';
 import Card from '@components/ui/Card/Card';
 import Tag from '@components/ui/Tag/Tag';
@@ -17,6 +18,7 @@ interface WorkItemProps {
   tone?: 'default' | 'subtle';
   isFirst?: boolean;
   mediaSide?: 'left' | 'right';
+  link?: string;
 }
 
 const WorkItem = ({
@@ -28,6 +30,7 @@ const WorkItem = ({
   position,
   description,
   tags,
+  link,
   mediaPreset = 'default',
   tone = 'default',
   isFirst = false,
@@ -71,53 +74,64 @@ const WorkItem = ({
     .filter(Boolean)
     .join(' ');
 
+  const cardContent = (
+    <Card
+      as="article"
+      variant="panel"
+      isInteractive={!!link}
+      data-tone={tone}
+      data-media-side={mediaSide}
+      data-media-preset={mediaPreset}
+    >
+      <div className={panelClassNames}>
+        <div className={mediaClassNames}>
+          <img
+            className={imageClassNames}
+            src={image}
+            alt={imageAlt ?? `${title} project preview`}
+            width="1440"
+            height="810"
+            loading="lazy"
+          />
+        </div>
+
+        <div className={styles.workItemBody}>
+          <div className={styles.workItemSubtitle}>
+            <span className={styles.workItemCompany}>{company}</span>
+            {period && <time className={styles.workItemPeriod}>{period}</time>}
+          </div>
+
+          <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
+          <p className={styles.workItemPosition}>{position}</p>
+
+          <div className={styles.workItemDescription}>
+            {description.map((desc) => (
+              <p key={desc}>{desc}</p>
+            ))}
+          </div>
+
+          <ul className={styles.workItemTags} aria-label="Project technologies">
+            {tags.map((tag) => (
+              <li key={tag} className={styles.workItemTagItem}>
+                <Tag>{tag}</Tag>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Card>
+  );
+
   return (
     <div className={shellClassNames}>
       <Container className={styles.workItem} variant="wide">
-        <Card
-          as="article"
-          variant="panel"
-          data-tone={tone}
-          data-media-side={mediaSide}
-          data-media-preset={mediaPreset}
-        >
-          <div className={panelClassNames}>
-            <div className={mediaClassNames}>
-              <img
-                className={imageClassNames}
-                src={image}
-                alt={imageAlt ?? `${title} project preview`}
-                width="1440"
-                height="810"
-                loading="lazy"
-              />
-            </div>
-
-            <div className={styles.workItemBody}>
-              <div className={styles.workItemSubtitle}>
-                <span className={styles.workItemCompany}>{company}</span>
-                {period && <time className={styles.workItemPeriod}>{period}</time>}
-              </div>
-
-              <h4 className={`h3 ${styles.workItemTitle}`}>{title}</h4>
-              <p className={styles.workItemPosition}>{position}</p>
-
-              <div className={styles.workItemDescription}>
-                {description.map((desc) => (
-                  <p key={desc}>{desc}</p>
-                ))}
-              </div>
-
-              <ul className={styles.workItemTags} aria-label="Project technologies">
-                {tags.map((tag) => (
-                  <li key={tag} className={styles.workItemTagItem}>
-                    <Tag>{tag}</Tag>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Card>
+        {link ? (
+          <Link to={link} className={styles.workItemLinkWrapper}>
+            {cardContent}
+          </Link>
+        ) : (
+          cardContent
+        )}
       </Container>
     </div>
   );

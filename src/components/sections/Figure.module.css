@@ -1,0 +1,54 @@
+/* ============================================================================
+   Figure
+   Reusable placeholder figure with label, description, and caption.
+   ========================================================================== */
+
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.figurePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pr-spacing-6);
+  text-align: center;
+  border-radius: var(--pr-radius-md);
+  aspect-ratio: var(--aspect-ratio, 16 / 9);
+}
+
+.figurePlaceholderWhite {
+  background-color: var(--sem-color-bg-base);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
+}
+
+.figurePlaceholderMuted {
+  background-color: var(--sem-color-bg-subtle);
+  border: var(--pr-border-width-2) dashed var(--sem-color-border-subtle);
+}
+
+.figureLabel {
+  font-size: var(--sem-text-kicker);
+  font-weight: var(--pr-weight-600);
+  font-family: var(--font-mono);
+  color: var(--sem-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--pr-tracking-12);
+  margin-bottom: var(--pr-spacing-2);
+}
+
+.figureDesc {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  margin: 0;
+}
+
+.figureCaption {
+  margin-top: var(--pr-spacing-4);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  text-align: center;
+}

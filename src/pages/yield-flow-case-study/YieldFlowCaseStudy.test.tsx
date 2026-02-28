@@ -1,0 +1,38 @@
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
+import { ThemeProvider } from '@/context/ThemeContext';
+import YieldFlowCaseStudy from '@/pages/yield-flow-case-study/YieldFlowCaseStudy';
+
+describe('YieldFlowCaseStudy page', () => {
+  it('renders the hero and core sections with original content', () => {
+    render(
+      <ThemeProvider>
+        <MemoryRouter>
+          <YieldFlowCaseStudy />
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+
+    // Hero
+    expect(
+      screen.getByRole('heading', { name: /outgrowing the spreadsheet/i })
+    ).toBeInTheDocument();
+
+    // Check for original section headings (as titles) - multiple instances (TOC + Heading)
+    expect(screen.getAllByText(/The Itch/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/The Problem, Defined/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/The Idea That Didn't Make It/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/How I Built It/i).length).toBeGreaterThanOrEqual(1);
+
+    // Check for specific long-form text markers
+    expect(screen.getByText(/one missed maturity window means your cash sits idle/i)).toBeInTheDocument();
+    expect(screen.getByText(/Studying user empathy while living the exact problem/i)).toBeInTheDocument();
+    expect(screen.getByText(/Maintaining a live database of every product from every bank/i)).toBeInTheDocument();
+    expect(screen.getByText(/iterating on a Figma file felt like an unnecessary middle step/i)).toBeInTheDocument();
+
+    // Check for specific quotes
+    expect(screen.getByText(/Wearing the hats of product designer, engineer, and user simultaneously/i)).toBeInTheDocument();
+    expect(screen.getByText(/YieldFlow is a living prototype/i)).toBeInTheDocument();
+  });
+});

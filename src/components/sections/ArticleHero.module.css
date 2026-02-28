@@ -1,0 +1,86 @@
+/* ============================================================================
+ArticleHero
+Shared hero header for long-form articles (build notes, case studies, etc.)
+========================================================================== */
+
+.hero {
+  max-width: 100%;
+  margin-bottom: var(--pr-spacing-16);
+  display: grid;
+  gap: var(--pr-spacing-4);
+}
+
+.heroBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-3);
+  flex-wrap: wrap;
+  min-width: 0;
+  margin-bottom: var(--pr-spacing-6);
+}
+
+.heroRule {
+  height: var(--pr-border-width-1);
+  width: var(--pr-size-64);
+  background-color: var(--sem-color-divider-base);
+}
+
+.heroMeta {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  font-weight: var(--pr-weight-500);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.title {
+  font-family: var(--font-display);
+  margin-bottom: var(--pr-spacing-4);
+  line-height: var(--pr-leading-110);
+  font-size: clamp(calc(var(--sem-text-heading-lg) * 1.35), 9vw, calc(var(--sem-text-heading-lg) * 2.6));
+  overflow-wrap: anywhere;
+}
+
+.titleAccent {
+  color: var(--sem-color-text-accent);
+}
+
+.subtitle {
+  line-height: var(--pr-leading-180);
+  max-width: var(--sem-layout-prose);
+  font-size: var(--sem-text-lede);
+  color: var(--sem-color-text-muted);
+}
+
+.heroStats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pr-spacing-4);
+  padding: var(--pr-spacing-6) 0;
+  margin-top: var(--pr-spacing-6);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+}
+
+.heroStatItem {
+  min-width: 0;
+}
+
+.heroStatLabel {
+  font-size: var(--sem-text-kicker);
+  text-transform: uppercase;
+  letter-spacing: var(--sem-tracking-kicker);
+  color: var(--sem-color-text-muted);
+  margin-bottom: var(--pr-spacing-1);
+}
+
+.heroStatValue {
+  font-weight: var(--pr-weight-500);
+}
+
+@media (width >=768px) {
+  .heroStats {
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    gap: var(--pr-spacing-3) var(--pr-spacing-11);
+    justify-content: start;
+  }
+}

@@ -13,6 +13,14 @@ type LabsProject = {
 
 export const LABS_PROJECTS: LabsProject[] = [
   {
+    title: 'YieldFlow Case Study',
+    href: ROUTES.YIELD_FLOW_CASE_STUDY,
+    description:
+      'A case study of how I turned my personal finance tracking from a messy spreadsheet into a full-fledged application.',
+    tags: ['Case Study', 'Design Engineering', 'Personal Finance', 'React'],
+    interactive: true,
+  },
+  {
     title: 'Design System Build Notes',
     href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
     description:

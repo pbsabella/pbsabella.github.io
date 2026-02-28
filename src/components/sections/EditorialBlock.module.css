@@ -1,0 +1,65 @@
+.section {
+  scroll-margin-top: var(--sem-layout-header-height);
+}
+
+.sectionTitle {
+  margin-bottom: var(--pr-spacing-4);
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--sem-color-text-primary);
+}
+
+.sectionKicker {
+  font-size: var(--sem-text-kicker);
+  text-transform: uppercase;
+  letter-spacing: var(--pr-tracking-30);
+  color: var(--sem-color-text-accent);
+  font-weight: var(--pr-weight-500);
+  margin-bottom: var(--pr-spacing-2);
+}
+
+.sectionContent > p {
+  line-height: var(--pr-leading-180);
+  margin-bottom: var(--pr-spacing-4);
+}
+
+.sectionContent > p:last-child {
+  margin-bottom: 0;
+}
+
+.sectionRhythm16 {
+  padding-top: var(--pr-spacing-16);
+}
+
+.sectionRhythm21 {
+  padding-top: var(--pr-spacing-21);
+}
+
+.sectionTwoCol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pr-spacing-3) var(--pr-spacing-11);
+  align-items: start;
+}
+
+@media (width >=1024px) {
+  .sectionTwoCol {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sectionTwoCol .sectionTitle {
+    grid-column: 1 / 2;
+  }
+
+  .sectionTwoCol .sectionContent {
+    grid-column: 2 / 3;
+  }
+}
+
+.sectionTwoCol .sectionKicker {
+  grid-column: 1 / -1;
+}
+
+.sectionTwoCol .sectionTitle {
+  margin-bottom: 0;
+}

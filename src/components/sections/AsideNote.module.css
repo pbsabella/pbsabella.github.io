@@ -1,0 +1,10 @@
+/* ============================================================================
+   AsideNote
+   Small, muted caption-sized note for contextual callouts inside sections.
+   ========================================================================== */
+
+.note {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  line-height: var(--pr-leading-180);
+}
