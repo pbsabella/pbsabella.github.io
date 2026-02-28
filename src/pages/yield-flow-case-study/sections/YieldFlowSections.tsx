@@ -1,7 +1,9 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import AsideNote from '@/components/sections/AsideNote';
+import Button from '@/components/ui/Button/Button';
 import {
   AlertCircle,
+  ExternalLink,
   Zap,
   Search,
   Layout,
@@ -9,10 +11,6 @@ import {
   MousePointerBan,
   Banknote
 } from 'lucide-react';
-import {
-  YIELD_FLOW_CONTENT,
-  YIELD_FLOW_DECISIONS,
-} from '@/content/yieldFlowCaseStudy';
 import {
   UnifiedModal,
   WizardStep1,
@@ -169,13 +167,13 @@ const SpreadsheetChaos = () => (
 export const ItchSection = () => (
   <EditorialBlock id="itch" kicker="01. Empathize" title="The Maintenance Tax">
     <div>
-      <p>{YIELD_FLOW_CONTENT.itch.paragraphs[0]}</p>
+      <p>Every few weeks I&apos;d sit down with a messy multi-tab spreadsheet and try to answer three questions:</p>
       <ul className={styles.list}>
-        {YIELD_FLOW_CONTENT.itch.list.map(item => (
-          <li key={item}>{item}</li>
-        ))}
+        <li>How much interest am I actually getting this month, after tax?</li>
+        <li>When does each deposit mature, and do I need to act on it?</li>
+        <li>Where should the money go next?</li>
       </ul>
-      <p>{YIELD_FLOW_CONTENT.itch.paragraphs[1]}</p>
+      <p>I had 5+ different banks, overlapping tenures, and rates that change without warning. The spreadsheet technically had all the data. But turning it into a decision took way too long; and one missed maturity window means your cash sits idle while the market moves.</p>
     </div>
 
     <div className={styles.assetContainer}>
@@ -186,7 +184,7 @@ export const ItchSection = () => (
     </div>
 
     <div>
-      <p>{YIELD_FLOW_CONTENT.itch.paragraphs[2]}</p>
+      <p>I&apos;d been fighting the ritual for months. Then I started the Google UX Design course and found myself studying user empathy while living the exact problem they were describing. That was enough. I stopped patching the spreadsheet and started building a replacement.</p>
     </div>
   </EditorialBlock>
 );
@@ -194,8 +192,8 @@ export const ItchSection = () => (
 export const ProblemSection = () => (
   <EditorialBlock id="problem" kicker="02. Define" title="Beyond the Balance">
     <div>
-      <p>{YIELD_FLOW_CONTENT.problem.paragraphs[0]}</p>
-      <p>{YIELD_FLOW_CONTENT.problem.paragraphs[1]}</p>
+      <p>The core issue wasn&apos;t missing data. It was scattered data with no single view of what I could actually spend or move.</p>
+      <p>Most banking dashboards show you balances: the total pile. But when you&apos;re rotating money across multiple time deposits, what you need to know is:</p>
     </div>
     <div className={[styles.grid2Col, styles.alignStart].join(' ')}>
       <div>
@@ -204,18 +202,18 @@ export const ProblemSection = () => (
           items={[
             {
               icon: <Zap size={24} className={styles.iconAccent} />,
-              title: YIELD_FLOW_CONTENT.problem.items[0].title,
-              description: YIELD_FLOW_CONTENT.problem.items[0].description,
+              title: "What's liquid now?",
+              description: "(or becoming liquid soon)",
             },
             {
               icon: <Search size={24} className={styles.iconAccent} />,
-              title: YIELD_FLOW_CONTENT.problem.items[1].title,
-              description: YIELD_FLOW_CONTENT.problem.items[1].description,
+              title: "What's the net interest hitting my account this month?",
+              description: "(not gross: what I actually keep)",
             },
             {
               icon: <AlertCircle size={24} className={styles.iconAccent} />,
-              title: YIELD_FLOW_CONTENT.problem.items[2].title,
-              description: YIELD_FLOW_CONTENT.problem.items[2].description,
+              title: "What's sitting idle and costing me yield?",
+              description: "",
             },
           ]}
         />
@@ -230,36 +228,46 @@ export const ProblemSection = () => (
     <div className={`${styles.featuredBlock}`}>
       <p className={styles.quoteTitle}>User Story</p>
       <blockquote className={styles.quote}>
-        &quot;{YIELD_FLOW_CONTENT.problem.story}&quot;
+        &quot;As someone actively rotating across banks, I need to see my real take-home interest per month, know exactly when my deposits mature, and have a clear signal for when to act: all in one place.&quot;
       </blockquote>
     </div>
   </EditorialBlock>
 );
 
 export const DecisionsSection = () => (
-  <EditorialBlock id="decisions" kicker="03. Ideate" title="Decisions Worth Calling Out" rhythm="21">
+  <EditorialBlock id="decisions" kicker="03. Ideate" title="Design for High-Stakes Decisions" rhythm="21">
+    <p>The core of YieldFlow isn’t just showing data; it’s ensuring the data is actionable. Every design choice was filtered through a single question: <em>&quot;Does this help me decide where my money goes?&quot;</em></p>
+
+    <p><b>Logic for Financial Reality</b></p>
     <IconList
       variant="grid"
       items={[
         {
           icon: <HandCoins size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[0].title,
-          description: YIELD_FLOW_DECISIONS[0].description,
+          title: "Net-of-tax by default.",
+          description: "Showing gross figures is technically accurate but practically misleading. You can't spend the gross number, so the app calculates interest after withholding tax by default.",
         },
         {
           icon: <Banknote size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[1].title,
-          description: YIELD_FLOW_DECISIONS[1].description,
+          title: "Intentional Friction",
+          description: 'Matured deposits stay visible and flagged until explicitly marked "settled." Since a matured deposit is an idle asset, I chose to keep this "noise" in the active view to provoke action.',
         },
+      ]}
+    />
+
+    <p><b>Accessibility & Foundation</b></p>
+    <IconList
+      variant="grid"
+      items={[
         {
           icon: <MousePointerBan size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[2].title,
-          description: YIELD_FLOW_DECISIONS[2].description,
+          title: "No tooltips.",
+          description: "Tooltips are invisible to screen readers and difficult on mobile. I replaced them with permanent, inline helper text. Visible is accessible.",
         },
         {
           icon: <Layout size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[3].title,
-          description: YIELD_FLOW_DECISIONS[3].description,
+          title: "shadcn/ui as foundation.",
+          description: "I chose shadcn/ui because it gives me full control over styling while the accessibility heavy-lifting (ARIA, keyboard navigation) is handled correctly by default.",
         },
       ]}
     />
@@ -272,32 +280,38 @@ export const PivotSection = () => (
   <EditorialBlock id="pivot" kicker="3.5. Iterate" title="The Idea That Didn't Make It" rhythm="16">
     <div className={styles.sectionTwoCol}>
       <div>
-        <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[0]}</p>
-        <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[1]}</p>
-        <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[2]}</p>
+        <p>My first instinct was to reduce entry friction to zero. The concept: a <b>smart setup wizard</b> that already knows each bank&apos;s products. You pick your bank, pick the product, and the form pre-fills the rate, tenure, and tax logic automatically.</p>
+        <p>It looked great. Then I thought it through.</p>
+        <p>Digital banks change their rates constantly; sometimes weekly. Maintaining a live database of every product from every bank would be a full-time job I wasn&apos;t signing up for.</p>
       </div>
       <div className={styles.wireframes}>
         <WizardStep1 />
         <WizardStep2 />
+        <p className={styles.figureCaption}>
+          Figure 3. Two-step wizard flow for quick setup. The user picks their bank and product, then confirms the pre-filled details before submission.
+        </p>
       </div>
     </div>
     <div>
-      <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[3]}</p>
-      <p className={styles.fontWeight600}>{YIELD_FLOW_CONTENT.pivot.highlight}</p>
-      <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[4] ?? ''}</p>
-      <p>{YIELD_FLOW_CONTENT.pivot.note}</p>
+      <p>If the wizard confidently pre-filled a rate that expired last Tuesday, I&apos;d be giving users false numbers on their financial planning. That&apos;s worse than no tool at all.</p>
+      <p className={styles.fontWeight600}>So I killed it.</p>
+      <p>I pivoted to a single, well-designed entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
+      <p>This is a decision-support tool, not an automation.</p>
       <div className={styles.wireframes}>
         <UnifiedModal />
+        <p className={styles.figureCaption}>
+          Figure 4. The unified entry form that replaced the wizard. It requires more manual input but is more reliable and future-proof.
+        </p>
       </div>
     </div>
   </EditorialBlock>
 );
 
 export const BuildSection = () => (
-  <EditorialBlock id="build" kicker="04. Prototype" title="Described Prototyping" rhythm="21">
-    <p>{YIELD_FLOW_CONTENT.build.paragraphs[0]}</p>
-    <p>{YIELD_FLOW_CONTENT.build.paragraphs[1]}</p>
-    <div className={[styles.codeBlockCard, styles.marginT8].join(' ')}>
+  <EditorialBlock id="build" kicker="04. Prototype" title="Browser as the Design Medium" rhythm="21">
+    <p>I skipped Figma and went straight to code. I know, I was breaking the process. But as someone playing both designer and engineer, I was eager to get into the browser. For a solo project, iterating on a Figma file felt like an unnecessary middle step; I wanted the immediate feedback that only the actual medium provides.</p>
+    <p>My process was closer to <strong>described prototyping</strong>: I&apos;d define the structure and logic in plain language, use AI to generate the implementation quickly, then review and refine.</p>
+    <div className={[styles.codeBlockCard].join(' ')}>
       <div className={styles.aiMessage}>
         <div className={styles.userPrompt}>
           <span className={styles.terminalPrompt}>&gt;</span>
@@ -316,14 +330,15 @@ Deposit C · Bank                  [Due now]  ₱4,400
 ----------------------------------------------------`}
         </pre>
       </div>
+      <p className={styles.figureCaption}>
+        Figure 5. Plain-language prompt describing the layout and content.
+      </p>
     </div>
-    <div className={styles.asideNote}>
-      <AsideNote>&quot;{YIELD_FLOW_CONTENT.build.quote}&quot;</AsideNote>
-    </div>
+
     <div className={styles.grid2Col}>
       <div>
-        <p className={[styles.fontWeight600, styles.marginB4].join(' ')}>{YIELD_FLOW_CONTENT.build.insight.title}</p>
-        <p className={styles.textSm}>{YIELD_FLOW_CONTENT.build.insight.content}</p>
+        <p className={[styles.fontWeight600, styles.marginB4].join(' ')}>The insight that came out of building fast:</p>
+        <p className={styles.textSm}>The cash flow projection needed to show two very different things in the same view: interest earned (what I budget) and principal returned (what I can move). These look like the same number in a spreadsheet. They&apos;re completely different decisions.</p>
       </div>
       <div className={styles.mockupImage}>
         <Card variant="panel">
@@ -332,34 +347,43 @@ Deposit C · Bank                  [Due now]  ₱4,400
           />
         </Card>
         <p className={styles.figureCaption}>
-          Figure 3. The cash flow card, showing the visual hierarchy and information architecture that supports quick decision-making.
+          Figure 6. The cash flow card, showing the visual hierarchy and information architecture that supports quick decision-making.
         </p>
       </div>
     </div>
-    <p>{YIELD_FLOW_CONTENT.build.paragraphs[2]}</p>
+    <p>The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary.</p>
+
+    <div className={styles.asideNote}>
+      <AsideNote>&quot;Wearing the hats of product designer, engineer, and user simultaneously; and how AI made that workable without making it brainless; is a story for another post.&quot;</AsideNote>
+    </div>
   </EditorialBlock>
 );
 
 export const CurrentStateSection = () => (
   <EditorialBlock id="status" kicker="06. Test" title="Where It Is Now" rhythm="16">
     <div>
-      <p>{YIELD_FLOW_CONTENT.status.paragraphs[0]}</p>
-      <p>{YIELD_FLOW_CONTENT.status.paragraphs[1]}</p>
+      <p>YieldFlow is a living prototype. I&apos;m using it for my own finances, which means it&apos;s getting tested every time a deposit matures or a rate changes. Real-use testing catches things that designed scenarios don&apos;t: edge cases in the math, labeling that&apos;s clear when you&apos;re focused but confusing on a Sunday night, flows that feel fine in isolation but break down under actual data.</p>
+      <p>It&apos;s not a product. It&apos;s a hypothesis I&apos;m testing one maturity date at a time.</p>
     </div>
+    <br />
+    <Button as="a" href="https://yield-flow-lab.vercel.app/" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
+      View prototype
+      <ExternalLink size={14} />
+    </Button>
   </EditorialBlock>
 );
 
 export const TakeawaySection = () => (
   <EditorialBlock id="takeaway" kicker="07. Learnings" title="What I Took Away" rhythm="21">
     <div className={[styles.featuredBlock, styles.text125rem].join(' ')}>
-      &quot;{YIELD_FLOW_CONTENT.takeaway.quote}&quot;
+      &quot;The Design Thinking Framework taught me to stop thinking about features and start thinking about tasks. YieldFlow isn&apos;t a calculator: it&apos;s a decision-support tool.&quot;
     </div>
     <div>
-      <p>{YIELD_FLOW_CONTENT.takeaway.paragraphs[0]}</p>
-      <p>{YIELD_FLOW_CONTENT.takeaway.paragraphs[1]}</p>
+      <p>That reframe changed every choice in this project. The wizard died because it optimized for setup speed instead of the actual task (trusting the math). The tooltip ban happened because the task is decision-making under mild stress, not a tutorial. The net-of-tax default exists because the task is budgeting real cash, not reading a statement.</p>
+      <p>I&apos;ve shipped a lot of products over the past decade. The best ones always had a designer nearby who could say &quot;but what is the user actually trying to do right now?&quot; This project was the first time I internalized that question well enough to ask it myself; and let it override my first instinct.</p>
     </div>
     <div>
-      <p className={styles.closingStatement}>{YIELD_FLOW_CONTENT.takeaway.closing}</p>
+      <p className={styles.closingStatement}>That&apos;s the intersection I was after.</p>
     </div>
   </EditorialBlock>
 );

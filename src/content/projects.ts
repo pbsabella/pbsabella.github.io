@@ -3,6 +3,7 @@ import smNotifications from '@assets/sm-notifications.png';
 import flDsWide from '@assets/fl-ds-wide.png';
 import wireframingTool from '@assets/wireframing-tool-frame.png';
 import animationKnobs from '@assets/animation-knobs.png';
+import yfDashboard from '@assets/yf-dashboard.png';
 import { ROUTES } from '@/constants/routes';
 
 export type ProjectMediaPreset = 'default' | 'inset' | 'notifications' | 'left-crop' | 'zoom-out';
@@ -27,7 +28,7 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: 'yield-flow',
-    image: smDsWide,
+    image: yfDashboard,
     imageAlt: 'YieldFlow — High-fidelity financial dashboard interface.',
     title: 'YieldFlow',
     company: 'Personal Project',
@@ -44,7 +45,7 @@ export const PROJECTS: Project[] = [
       'Tailwind CSS',
       'Financial Modeling',
     ],
-    mediaPreset: 'left-crop',
+    mediaPreset: 'zoom-out',
     link: ROUTES.YIELD_FLOW_CASE_STUDY,
   },
   {

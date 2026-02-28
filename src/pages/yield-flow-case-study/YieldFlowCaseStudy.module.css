@@ -341,7 +341,7 @@
 }
 
 .terminalPrompt {
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-orange);
   margin-right: var(--pr-spacing-2);
 }
 
@@ -830,6 +830,7 @@
   flex-direction: column;
   gap: var(--pr-spacing-8);
   margin-block: var(--pr-spacing-8);
+  align-items: center;
 }
 
 .rightAligned {
