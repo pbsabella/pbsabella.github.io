@@ -20,10 +20,10 @@ describe('YieldFlowCaseStudy page', () => {
     ).toBeInTheDocument();
 
     // Check for original section headings (as titles) - multiple instances (TOC + Heading)
-    expect(screen.getAllByText(/The Itch/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/The Problem, Defined/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/The Maintenance Tax/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Beyond the Balance/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/The Idea That Didn't Make It/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/How I Built It/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText(/Described Prototyping/i).length).toBeGreaterThanOrEqual(1);
 
     // Check for specific long-form text markers
     expect(screen.getByText(/one missed maturity window means your cash sits idle/i)).toBeInTheDocument();

@@ -18,12 +18,12 @@
   margin-bottom: var(--pr-spacing-2);
 }
 
-.sectionContent > p {
+.sectionContent {
   line-height: var(--pr-leading-180);
   margin-bottom: var(--pr-spacing-4);
 }
 
-.sectionContent > p:last-child {
+.sectionContent p:last-child {
   margin-bottom: 0;
 }
 

@@ -17,7 +17,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     href: ROUTES.YIELD_FLOW_CASE_STUDY,
     description:
       'A case study of how I turned my personal finance tracking from a messy spreadsheet into a full-fledged application.',
-    tags: ['Case Study', 'Design Engineering', 'Personal Finance', 'React'],
+    tags: ['Case Study', 'Design Engineering', 'Personal Finance', 'Next.js'],
     interactive: true,
   },
   {

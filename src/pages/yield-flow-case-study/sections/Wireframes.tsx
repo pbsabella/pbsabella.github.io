@@ -36,10 +36,10 @@ export const WizardStep1 = () => (
           </div>
         </div>
       </div>
-      <aside className={styles.sidebar}>
+      <div className={styles.sidebar}>
         <span className={styles.previewLabel}>Preview</span>
         <div className={`${styles.inputPlaceholder} ${styles.inputPlaceholderLg}`} />
-      </aside>
+      </div>
     </div>
 
     <div className={styles.footer}>
@@ -48,7 +48,7 @@ export const WizardStep1 = () => (
   </div>
 );
 
-export const WizardStep2 = ({ className }: { className: string }) => (
+export const WizardStep2 = ({ className }: { className?: string }) => (
   <div className={`${styles.modalContainer} ${className}`}>
     <header className={styles.header}>
       <div>
@@ -72,10 +72,10 @@ export const WizardStep2 = ({ className }: { className: string }) => (
         <div className={styles.inputPlaceholder} />
       </div>
 
-      <aside className={styles.sidebar}>
+      <div className={styles.sidebar}>
         <span className={styles.previewLabel}>Preview</span>
         <div className={`${styles.inputPlaceholder} ${styles.inputPlaceholderLg}`} />
-      </aside>
+      </div>
     </div>
     <footer className={styles.footer}>
       <button className={styles.button}>Add investment</button>
@@ -129,10 +129,10 @@ export const UnifiedModal = () => (
         <div className={`${styles.inputPlaceholder} ${styles.inputPlaceholderLg}`} />
         <div className={styles.inputPlaceholder} />
       </div>
-      <aside className={styles.sidebar}>
+      <div className={styles.sidebar}>
         <span className={styles.previewLabel}>Preview</span>
         <div className={`${styles.inputPlaceholder} ${styles.inputPlaceholderLg}`} />
-      </aside>
+      </div>
     </div>
 
     <footer className={styles.footer}>

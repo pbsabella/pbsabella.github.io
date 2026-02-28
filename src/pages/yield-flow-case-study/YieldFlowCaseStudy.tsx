@@ -32,9 +32,9 @@ const YieldFlowCaseStudy = () => {
     >
       <ItchSection />
       <ProblemSection />
+      <DecisionsSection />
       <PivotSection />
       <BuildSection />
-      <DecisionsSection />
       <CurrentStateSection />
       <TakeawaySection />
     </ArticleLayout>

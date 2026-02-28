@@ -1,0 +1,57 @@
+.cardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-4);
+  overflow: hidden;
+  border-radius: var(--pr-radius-lg);
+  padding: var(--pr-spacing-4) 0;
+  background-color: var(--sem-color-bg-base);
+  color: var(--sem-color-text-primary);
+  font-family: var(--font-body);
+}
+
+.header {
+  padding: 0 var(--pr-spacing-4);
+}
+
+.title {
+  font-size: var(--sem-text-caption);
+  margin: 0;
+}
+
+.content {
+  padding: 0 var(--pr-spacing-4);
+}
+
+.value {
+  font-size: var(--sem-text-heading-sm);
+  font-weight: var(--pr-weight-600);
+  line-height: var(--pr-leading-120);
+  color: var(--sem-color-text-strong);
+}
+
+.description {
+  font-size: var(--sem-text-caption);
+  margin: 0;
+  margin-top: 2px;
+}
+
+.subDescription {
+  font-size: var(--sem-text-caption);
+  margin: 0;
+}
+
+/* Badge System */
+.badgeStack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-2);
+}

@@ -1,9 +1,9 @@
 export const YIELD_FLOW_SECTIONS = [
   { id: 'itch', label: 'Empathize' },
   { id: 'problem', label: 'Define' },
-  { id: 'pivot', label: 'Ideate' },
+  { id: 'decisions', label: 'Ideate' },
+  { id: 'pivot', label: 'Iterate' },
   { id: 'build', label: 'Prototype' },
-  { id: 'decisions', label: 'Decisions' },
   { id: 'status', label: 'Test' },
   { id: 'takeaway', label: 'Learnings' },
 ];
@@ -38,8 +38,8 @@ export const YIELD_FLOW_CONTENT = {
   itch: {
     paragraphs: [
       "Every few weeks I'd sit down with a messy multi-tab spreadsheet and try to answer three questions:",
-      "I had five plus different banks, overlapping tenures, and rates that change without warning. The spreadsheet technically had all the data. But turning it into a decision took way too long; and one missed maturity window means your cash sits idle while the market moves.",
-      "I'd been fighting the ritual for months. Then I started the Google UX Design Certification and found myself studying user empathy while living the exact problem they were describing. That was enough. I stopped patching the spreadsheet and started building a replacement."
+      "I had 5+ different banks, overlapping tenures, and rates that change without warning. The spreadsheet technically had all the data. But turning it into a decision took way too long; and one missed maturity window means your cash sits idle while the market moves.",
+      "I'd been fighting the ritual for months. Then I started the Google UX Design course and found myself studying user empathy while living the exact problem they were describing. That was enough. I stopped patching the spreadsheet and started building a replacement."
     ],
     list: [
       "How much interest am I actually getting this month, after tax?",
@@ -72,15 +72,15 @@ export const YIELD_FLOW_CONTENT = {
   },
   build: {
     paragraphs: [
-      "I skipped Figma and went straight to high-fidelity code. I know, I was breaking the process. But as someone playing both designer and engineer, I was eager to get into the browser. For a solo project, iterating on a Figma file felt like an unnecessary middle step; I wanted the immediate feedback that only the actual medium provides.",
+      "I skipped Figma and went straight to code. I know, I was breaking the process. But as someone playing both designer and engineer, I was eager to get into the browser. For a solo project, iterating on a Figma file felt like an unnecessary middle step; I wanted the immediate feedback that only the actual medium provides.",
       "My process was closer to described prototyping: I'd define the structure and logic in plain language, use AI to generate the implementation quickly, then review and refine.",
       "The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary."
     ],
-    quote: "Wearing the hats of product designer, engineer, and user simultaneously; and how AI made that workable without making it brainless; is a story for another post.",
     insight: {
       title: "The insight that came out of building fast:",
       content: "The cash flow projection needed to show two very different things in the same view: interest earned (what I budget) and principal returned (what I can move). These look like the same number in a spreadsheet. They're completely different decisions."
-    }
+    },
+    quote: "Wearing the hats of product designer, engineer, and user simultaneously; and how AI made that workable without making it brainless; is a story for another post.",
   },
   status: {
     paragraphs: [
@@ -94,7 +94,6 @@ export const YIELD_FLOW_CONTENT = {
       "That reframe changed every choice in this project. The wizard died because it optimized for setup speed instead of the actual task (trusting the math). The tooltip ban happened because the task is decision-making under mild stress, not a tutorial. The net-of-tax default exists because the task is budgeting real cash, not reading a statement.",
       "I've shipped a lot of products over the past decade. The best ones always had a designer nearby who could say \"but what is the user actually trying to do right now?\" This project was the first time I internalized that question well enough to ask it myself; and let it override my first instinct."
     ],
-    footerNote: "A quiet thank you to every designer I've had the privilege of building alongside. My best instincts are simply the lessons I picked up while watching you work.",
     closing: "That's the intersection I was after."
   }
 };

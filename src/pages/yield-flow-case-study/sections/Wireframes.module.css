@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 300px;
-  max-width: 520px;
+  max-width: 600px;
 }
 
 .modalContainerLg {
@@ -136,7 +136,8 @@
   display: flex;
   gap: var(--pr-spacing-2);
   flex: 1;
-  align-items: baseline;
+  align-items: flex-start;
+  line-height: var(--pr-leading-100);
 }
 
 .productCard:hover {
@@ -148,7 +149,7 @@
   height: var(--pr-spacing-3);
   border-radius: var(--pr-radius-pill);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  margin-top: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-1);
   flex-shrink: 0;
 }
 

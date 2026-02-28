@@ -1,5 +1,4 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
-import Figure from '@/components/sections/Figure';
 import AsideNote from '@/components/sections/AsideNote';
 import {
   AlertCircle,
@@ -14,14 +13,21 @@ import {
   YIELD_FLOW_CONTENT,
   YIELD_FLOW_DECISIONS,
 } from '@/content/yieldFlowCaseStudy';
-import { UnifiedModal, WizardStep1, WizardStep2 } from './Wireframes';
+import {
+  UnifiedModal,
+  WizardStep1,
+  WizardStep2,
+} from './Wireframes';
 import styles from '../YieldFlowCaseStudy.module.css';
 import IconList from '@/components/sections/IconList';
+import cashFlowMockup from '@assets/cashflow.png';
+import DashboardCards from './DashboardMockup';
+import Card from '@/components/ui/Card/Card';
 
 const SpreadsheetChaos = () => (
   <div className={styles.spreadsheetContainer}>
     <div className={styles.spreadsheetHeader}>
-      <div className={styles.spreadsheetName}>Make believe finances</div>
+      <div className={styles.spreadsheetName}>Fictional Financials</div>
       <div className={styles.spreadsheetMenu}>
         <span>File</span> <span>Edit</span> <span>View</span> <span>Insert</span> <span>Format</span> <span>Data</span> <span>Tools</span> <span>Extensions</span> <span>Help</span>
       </div>
@@ -161,7 +167,7 @@ const SpreadsheetChaos = () => (
 );
 
 export const ItchSection = () => (
-  <EditorialBlock id="itch" kicker="01. Empathize" title="The Itch">
+  <EditorialBlock id="itch" kicker="01. Empathize" title="The Maintenance Tax">
     <div>
       <p>{YIELD_FLOW_CONTENT.itch.paragraphs[0]}</p>
       <ul className={styles.list}>
@@ -174,8 +180,8 @@ export const ItchSection = () => (
 
     <div className={styles.assetContainer}>
       <SpreadsheetChaos />
-      <p className={styles.spreadsheetCaption}>
-        Figure 1. The original &quot;engine&quot; for my financial planning: data-rich but decision-poor. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once.
+      <p className={styles.figureCaption}>
+        Figure 1. The original &quot;engine&quot; for my financial planning. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once.
       </p>
     </div>
 
@@ -186,36 +192,42 @@ export const ItchSection = () => (
 );
 
 export const ProblemSection = () => (
-  <EditorialBlock id="problem" kicker="02. Define" title="The Problem, Defined">
+  <EditorialBlock id="problem" kicker="02. Define" title="Beyond the Balance">
     <div>
       <p>{YIELD_FLOW_CONTENT.problem.paragraphs[0]}</p>
       <p>{YIELD_FLOW_CONTENT.problem.paragraphs[1]}</p>
     </div>
     <div className={[styles.grid2Col, styles.alignStart].join(' ')}>
-      <Figure
-        label="Screenshot: YieldFlow Dashboard"
-        desc="Dashboard UI showing the 'Net Take-Home' prominent header"
-        caption="Figure 2. High-level dashboard focusing on action items rather than just totals."
-        isWhite
-      />
-
-      <ul className={styles.listIcon}>
-        {YIELD_FLOW_CONTENT.problem.items.map((item, index) => {
-          const icons = [
-            <Zap key="liquid" size={24} className={styles.iconAccent} />,
-            <Search key="interest" size={24} className={styles.iconAccent} />,
-            <AlertCircle key="idle" size={24} className={styles.iconAccent} />,
-          ];
-          return (
-            <li key={item.title}>
-              {icons[index]}
-              <p><strong>{item.title}</strong> {item.description}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <div>
+        <IconList
+          variant="list"
+          items={[
+            {
+              icon: <Zap size={24} className={styles.iconAccent} />,
+              title: YIELD_FLOW_CONTENT.problem.items[0].title,
+              description: YIELD_FLOW_CONTENT.problem.items[0].description,
+            },
+            {
+              icon: <Search size={24} className={styles.iconAccent} />,
+              title: YIELD_FLOW_CONTENT.problem.items[1].title,
+              description: YIELD_FLOW_CONTENT.problem.items[1].description,
+            },
+            {
+              icon: <AlertCircle size={24} className={styles.iconAccent} />,
+              title: YIELD_FLOW_CONTENT.problem.items[2].title,
+              description: YIELD_FLOW_CONTENT.problem.items[2].description,
+            },
+          ]}
+        />
+      </div>
+      <div>
+        <DashboardCards />
+        <p className={styles.figureCaption}>
+          Figure 2. High-level dashboard focusing on action items rather than just totals.
+        </p>
+      </div>
     </div>
-    <div className={styles.featuredBlock}>
+    <div className={`${styles.featuredBlock}`}>
       <p className={styles.quoteTitle}>User Story</p>
       <blockquote className={styles.quote}>
         &quot;{YIELD_FLOW_CONTENT.problem.story}&quot;
@@ -224,22 +236,49 @@ export const ProblemSection = () => (
   </EditorialBlock>
 );
 
+export const DecisionsSection = () => (
+  <EditorialBlock id="decisions" kicker="03. Ideate" title="Decisions Worth Calling Out" rhythm="21">
+    <IconList
+      variant="grid"
+      items={[
+        {
+          icon: <HandCoins size={24} className={styles.iconAccent} />,
+          title: YIELD_FLOW_DECISIONS[0].title,
+          description: YIELD_FLOW_DECISIONS[0].description,
+        },
+        {
+          icon: <Banknote size={24} className={styles.iconAccent} />,
+          title: YIELD_FLOW_DECISIONS[1].title,
+          description: YIELD_FLOW_DECISIONS[1].description,
+        },
+        {
+          icon: <MousePointerBan size={24} className={styles.iconAccent} />,
+          title: YIELD_FLOW_DECISIONS[2].title,
+          description: YIELD_FLOW_DECISIONS[2].description,
+        },
+        {
+          icon: <Layout size={24} className={styles.iconAccent} />,
+          title: YIELD_FLOW_DECISIONS[3].title,
+          description: YIELD_FLOW_DECISIONS[3].description,
+        },
+      ]}
+    />
+
+    {/* TODO: Add image here */}
+  </EditorialBlock>
+);
+
 export const PivotSection = () => (
-  <EditorialBlock id="pivot" kicker="03. Ideate" title="The Idea That Didn't Make It" rhythm="16">
+  <EditorialBlock id="pivot" kicker="3.5. Iterate" title="The Idea That Didn't Make It" rhythm="16">
     <div className={styles.sectionTwoCol}>
       <div>
         <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[0]}</p>
         <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[1]}</p>
         <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[2]}</p>
       </div>
-      {/* <Figure
-        label="Comparison: Automated vs. Trustworthy"
-        desc="Killing the feature that promised speed at the expense of accuracy."
-        caption="Figure 3. Killing the feature that promised speed at the expense of accuracy."
-      /> */}
       <div className={styles.wireframes}>
         <WizardStep1 />
-        <WizardStep2 className={styles.rightAligned} />
+        <WizardStep2 />
       </div>
     </div>
     <div>
@@ -247,13 +286,15 @@ export const PivotSection = () => (
       <p className={styles.fontWeight600}>{YIELD_FLOW_CONTENT.pivot.highlight}</p>
       <p>{YIELD_FLOW_CONTENT.pivot.paragraphs[4] ?? ''}</p>
       <p>{YIELD_FLOW_CONTENT.pivot.note}</p>
-      <UnifiedModal />
+      <div className={styles.wireframes}>
+        <UnifiedModal />
+      </div>
     </div>
   </EditorialBlock>
 );
 
 export const BuildSection = () => (
-  <EditorialBlock id="build" kicker="04. Prototype" title="How I Built It" rhythm="21">
+  <EditorialBlock id="build" kicker="04. Prototype" title="Described Prototyping" rhythm="21">
     <p>{YIELD_FLOW_CONTENT.build.paragraphs[0]}</p>
     <p>{YIELD_FLOW_CONTENT.build.paragraphs[1]}</p>
     <div className={[styles.codeBlockCard, styles.marginT8].join(' ')}>
@@ -284,52 +325,18 @@ Deposit C · Bank                  [Due now]  ₱4,400
         <p className={[styles.fontWeight600, styles.marginB4].join(' ')}>{YIELD_FLOW_CONTENT.build.insight.title}</p>
         <p className={styles.textSm}>{YIELD_FLOW_CONTENT.build.insight.content}</p>
       </div>
-      <Figure
-        label="UI Detail: Principal nesting"
-        desc="Visual nesting of principal return below interest payouts: solving the budget vs. rotation dilemma."
-        caption="Figure 4. Visual nesting of principal return below interest payouts."
-      />
+      <div className={styles.mockupImage}>
+        <Card variant="panel">
+          <img
+            src={cashFlowMockup} alt="Cash flow card mockup"
+          />
+        </Card>
+        <p className={styles.figureCaption}>
+          Figure 3. The cash flow card, showing the visual hierarchy and information architecture that supports quick decision-making.
+        </p>
+      </div>
     </div>
     <p>{YIELD_FLOW_CONTENT.build.paragraphs[2]}</p>
-  </EditorialBlock>
-);
-
-export const DecisionsSection = () => (
-  <EditorialBlock id="decisions" kicker="05. Decisions" title="Decisions Worth Calling Out" rhythm="21">
-    <IconList
-      variant="grid"
-      items={[
-        {
-          icon: <HandCoins size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[0].title,
-          description: YIELD_FLOW_DECISIONS[0].description,
-        },
-        {
-          icon: <Banknote size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[1].title,
-          description: YIELD_FLOW_DECISIONS[1].description,
-        },
-        {
-          icon: <MousePointerBan size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[2].title,
-          description: YIELD_FLOW_DECISIONS[2].description,
-        },
-        {
-          icon: <Layout size={24} className={styles.iconAccent} />,
-          title: YIELD_FLOW_DECISIONS[3].title,
-          description: YIELD_FLOW_DECISIONS[3].description,
-        },
-      ]}
-    />
-
-    <div className={styles.marginT16}>
-      <Figure
-        label="UI Composition: Accessibility and Flow"
-        desc="Designing for accessibility through permanent labels and semantic HTML structures."
-        caption="Figure 5. Designing for accessibility through permanent labels and semantic HTML structures."
-        aspectRatio="21/9"
-      />
-    </div>
   </EditorialBlock>
 );
 
@@ -344,22 +351,14 @@ export const CurrentStateSection = () => (
 
 export const TakeawaySection = () => (
   <EditorialBlock id="takeaway" kicker="07. Learnings" title="What I Took Away" rhythm="21">
-    <div className={[styles.grid2Col, styles.gridTakeaway].join(' ')}>
-      <div className={[styles.featuredBlock, styles.text125rem].join(' ')}>
-        &quot;{YIELD_FLOW_CONTENT.takeaway.quote}&quot;
-      </div>
-      <Figure
-        label="Iconography: Task-based"
-        desc="🔍"
-        aspectRatio="1/1"
-      />
+    <div className={[styles.featuredBlock, styles.text125rem].join(' ')}>
+      &quot;{YIELD_FLOW_CONTENT.takeaway.quote}&quot;
     </div>
     <div>
       <p>{YIELD_FLOW_CONTENT.takeaway.paragraphs[0]}</p>
       <p>{YIELD_FLOW_CONTENT.takeaway.paragraphs[1]}</p>
     </div>
-    <div className={styles.footerWrapper}>
-      <p>{YIELD_FLOW_CONTENT.takeaway.footerNote}</p>
+    <div>
       <p className={styles.closingStatement}>{YIELD_FLOW_CONTENT.takeaway.closing}</p>
     </div>
   </EditorialBlock>
