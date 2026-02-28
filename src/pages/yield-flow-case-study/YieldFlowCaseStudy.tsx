@@ -3,6 +3,7 @@ import ArticleLayout from '@/components/sections/ArticleLayout';
 import { YIELD_FLOW_META, YIELD_FLOW_SECTIONS } from '@/content/yieldFlowCaseStudy';
 import { YIELD_FLOW_META_PAGE } from '@/content/pageMeta';
 import {
+  TldrSection,
   ItchSection,
   ProblemSection,
   PivotSection,
@@ -30,6 +31,7 @@ const YieldFlowCaseStudy = () => {
         />
       }
     >
+      <TldrSection />
       <ItchSection />
       <ProblemSection />
       <DecisionsSection />

@@ -164,6 +164,17 @@ const SpreadsheetChaos = () => (
   </div>
 );
 
+export const TldrSection = () => (
+  <div className={styles.featuredBlock}>
+    <p className={styles.quoteTitle}>TL;DR</p>
+    <p>Five plus banks, overlapping maturities, one spreadsheet I kept patching. I built an app to replace it. This is the design story.</p>
+    <Button as="a" href="https://yield-flow-lab.vercel.app/" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
+      YieldFlow prototype
+      <ExternalLink size={14} />
+    </Button>
+  </div>
+);
+
 export const ItchSection = () => (
   <EditorialBlock id="itch" kicker="01. Empathize" title="The Maintenance Tax">
     <div>
@@ -295,7 +306,7 @@ export const PivotSection = () => (
     <div>
       <p>If the wizard confidently pre-filled a rate that expired last Tuesday, I&apos;d be giving users false numbers on their financial planning. That&apos;s worse than no tool at all.</p>
       <p className={styles.fontWeight600}>So I killed it.</p>
-      <p>I pivoted to a single, well-designed entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
+      <p>I pivoted to a single, entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
       <p>This is a decision-support tool, not an automation.</p>
       <div className={styles.wireframes}>
         <UnifiedModal />
@@ -380,7 +391,7 @@ export const TakeawaySection = () => (
     </div>
     <div>
       <p>That reframe changed every choice in this project. The wizard died because it optimized for setup speed instead of the actual task (trusting the math). The tooltip ban happened because the task is decision-making under mild stress, not a tutorial. The net-of-tax default exists because the task is budgeting real cash, not reading a statement.</p>
-      <p>I&apos;ve shipped a lot of products over the past decade. The best ones always had a designer nearby who could say &quot;but what is the user actually trying to do right now?&quot; This project was the first time I internalized that question well enough to ask it myself; and let it override my first instinct.</p>
+      <p>I&apos;ve shipped a lot of products over the past decade. The best ones always had a designer nearby who could say &quot;but what is the user actually trying to do right now?&quot;. This project was the first time I internalized that question well enough to ask it myself; and let it override my first instinct.</p>
     </div>
     <div>
       <p className={styles.closingStatement}>That&apos;s the intersection I was after.</p>
