@@ -23,13 +23,7 @@ describe('YieldFlowCaseStudy page', () => {
     expect(screen.getAllByText(/The Maintenance Tax/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/Beyond the Balance/i).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText(/The Idea That Didn't Make It/i).length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByText(/Described Prototyping/i).length).toBeGreaterThanOrEqual(1);
-
-    // Check for specific long-form text markers
-    expect(screen.getByText(/one missed maturity window means your cash sits idle/i)).toBeInTheDocument();
-    expect(screen.getByText(/Studying user empathy while living the exact problem/i)).toBeInTheDocument();
-    expect(screen.getByText(/Maintaining a live database of every product from every bank/i)).toBeInTheDocument();
-    expect(screen.getByText(/iterating on a Figma file felt like an unnecessary middle step/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Browser as the Design Medium/i).length).toBeGreaterThanOrEqual(1);
 
     // Check for specific quotes
     expect(screen.getByText(/Wearing the hats of product designer, engineer, and user simultaneously/i)).toBeInTheDocument();

@@ -46,5 +46,5 @@ export const YIELD_FLOW_META_PAGE = {
   heroTitle: 'YieldFlow: Outgrowing the',
   heroTitleAccent: 'Spreadsheet',
   heroSubtitle:
-    'Solving the friction of financial rotations through intent-based UI.',
+    'Replacing a multi-tab spreadsheet with a tool built around urgency, not balances.',
 };

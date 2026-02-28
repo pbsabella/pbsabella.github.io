@@ -58,6 +58,7 @@
   border-top: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   display: flex;
   justify-content: flex-end;
+  gap: var(--pr-spacing-4);
 }
 
 /* Layout */
@@ -96,13 +97,13 @@
   font-size: var(--sem-text-kicker);
   color: var(--sem-color-text-muted);
   border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
-  transition: all var(--pr-duration-fast) var(--pr-easing-out);
   cursor: text;
   line-height: var(--pr-leading-120);
 }
 
 .inputPlaceholder:hover {
   border-color: var(--sem-color-border-base);
+  transition: border-color var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .inputPlaceholderLg {
@@ -187,4 +188,30 @@
   color: var(--sem-color-text-muted);
   margin: 0;
   line-height: var(--pr-leading-100);
+}
+
+.stepDots {
+  display: flex;
+  gap: var(--pr-spacing-1);
+  align-items: center;
+  margin-left: auto;
+  margin-top: var(--pr-spacing-1);
+}
+
+.dot {
+  flex: 1;
+  height: 2px;
+  border-radius: var(--pr-radius-pill);
+  background-color: var(--sem-color-border-base);
+  transition: background-color var(--pr-duration-fast) var(--pr-easing-out),
+    transform var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.dotActive {
+  background-color: var(--sem-color-text-accent);
+}
+
+.buttonSuccess {
+  background-color: var(--sem-color-bg-success-subtle);
+  color: var(--sem-color-text-success);
 }

@@ -128,7 +128,7 @@
 }
 
 
-
+/* TODO: Remove these later */
 .marginB4 {
   margin-bottom: var(--pr-spacing-4);
 }
@@ -828,11 +828,35 @@
 .wireframes {
   display: flex;
   flex-direction: column;
-  gap: var(--pr-spacing-8);
   margin-block: var(--pr-spacing-8);
   align-items: center;
 }
 
 .rightAligned {
   align-self: flex-end;
+}
+
+.sectionTwoCol {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pr-spacing-6);
+  align-items: start;
+}
+
+.sectionTwoCol .wireframes {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.textSm {
+  font-size: var(--sem-text-caption);
+  line-height: var(--pr-leading-180);
+  color: var(--sem-color-text-muted);
+}
+
+@media (width >= 768px) {
+  .sectionTwoCol {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--pr-spacing-11);
+  }
 }

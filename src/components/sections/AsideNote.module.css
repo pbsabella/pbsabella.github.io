@@ -8,3 +8,23 @@
   color: var(--sem-color-text-muted);
   line-height: var(--pr-leading-180);
 }
+
+.italic {
+  font-style: italic;
+}
+
+.xs {
+  font-size: var(--sem-text-caption);
+}
+
+.sm {
+  font-size: var(--sem-text-body);
+}
+
+.md {
+  font-size: var(--sem-text-lede);
+}
+
+.lg {
+  font-size: var(--sem-heading-sm);
+}

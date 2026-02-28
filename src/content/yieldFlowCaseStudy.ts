@@ -11,6 +11,6 @@ export const YIELD_FLOW_SECTIONS = [
 export const YIELD_FLOW_META = [
   { label: 'Project', value: 'Personal' },
   { label: 'Stack', value: 'Next.js, Radix UI, shadcn/ui, Tailwind CSS' },
-  { label: 'Focus', value: 'UX Design' },
+  { label: 'Status', value: 'Living Prototype' },
 ];
 
