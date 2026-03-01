@@ -19,6 +19,7 @@ export interface Project {
   description: string[];
   tags: string[];
   mediaPreset?: ProjectMediaPreset;
+  imageObjectPosition?: string;
   link?: string;
 }
 
@@ -45,7 +46,8 @@ export const PROJECTS: Project[] = [
       'Tailwind CSS',
       'Financial Modeling',
     ],
-    mediaPreset: 'zoom-out',
+    mediaPreset: 'default',
+    imageObjectPosition: 'left 11%',
     link: ROUTES.YIELD_FLOW_CASE_STUDY,
   },
   {

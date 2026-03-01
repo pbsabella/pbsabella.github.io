@@ -15,6 +15,7 @@ interface WorkItemProps {
   description: string[];
   tags: string[];
   mediaPreset?: ProjectMediaPreset;
+  imageObjectPosition?: string;
   tone?: 'default' | 'subtle';
   isFirst?: boolean;
   mediaSide?: 'left' | 'right';
@@ -32,6 +33,7 @@ const WorkItem = ({
   tags,
   link,
   mediaPreset = 'default',
+  imageObjectPosition,
   tone = 'default',
   isFirst = false,
   mediaSide = 'left',
@@ -92,6 +94,7 @@ const WorkItem = ({
             width="1440"
             height="810"
             loading="lazy"
+            style={imageObjectPosition ? { objectPosition: imageObjectPosition } : undefined}
           />
         </div>
 

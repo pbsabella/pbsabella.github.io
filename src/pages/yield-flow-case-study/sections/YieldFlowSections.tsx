@@ -21,7 +21,7 @@ import {
 } from './Wireframes';
 import styles from '../YieldFlowCaseStudy.module.css';
 import IconList from '@/components/sections/IconList';
-import cashFlowMockup from '@assets/cashflow.png';
+import yfCashflow from '@assets/yf-cashflow.png';
 import DashboardCards from './DashboardMockup';
 import Card from '@/components/ui/Card/Card';
 
@@ -277,7 +277,7 @@ export const DecisionsSection = () => (
         {
           icon: <Scale size={24} className={styles.iconAccent} />,
           title: "Bank exposure limits.",
-          description: "Users can set an optional cap per institution. The app warns when you're approaching or over it. Over-concentration is easy to miss when your money is spread across five banks. The UI makes it visible.",
+          description: "Users can set a global safety cap to manage concentration risk. The dashboard dynamically audits the total principal per bank, making it easy to spot over-concentration that usually gets lost when money is spread across multiple banks and investments. The UI makes it visible.",
         },
       ]}
     />
@@ -332,7 +332,7 @@ export const PivotSection = () => (
     <div className={styles.marginT8}>
       <p>If the wizard confidently pre-filled a rate that expired last Tuesday, I&apos;d be giving users false numbers on their financial planning. That&apos;s worse than no tool at all.</p>
       <p className={styles.fontWeight600}>So I killed it.</p>
-      <p>I pivoted to a single, entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
+      <p>I pivoted to a single entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
       <p>This is a decision-support tool, not an automation.</p>
       <div className={styles.wireframes}>
         <UnifiedModal />
@@ -380,7 +380,7 @@ Deposit C · Bank                  [Due now]  ₱4,400
       <div className={styles.mockupImage}>
         <Card variant="panel">
           <img
-            src={cashFlowMockup} alt="Cash flow card mockup"
+            src={yfCashflow} alt="Cash flow card mockup"
           />
         </Card>
         <p className={styles.figureCaption}>
