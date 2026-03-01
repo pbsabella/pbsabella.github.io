@@ -195,7 +195,7 @@ export const ItchSection = () => (
     <div className={styles.assetContainer}>
       <SpreadsheetChaos />
       <p className={styles.figureCaption}>
-        Figure 1. The original &quot;engine&quot; for my financial planning. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once.
+        Figure 1. The original &quot;engine&quot; for my financial planning. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once. <em>(Note: All figures and account balances shown are fictional.)</em>
       </p>
     </div>
 
@@ -237,7 +237,7 @@ export const ProblemSection = () => (
       <div>
         <DashboardCards />
         <p className={styles.figureCaption}>
-          Figure 2. High-level dashboard focusing on action items rather than just totals.
+          Figure 2. High-level dashboard focusing on action items rather than just totals. <em>(Note: All figures and account balances shown are fictional.)</em>
         </p>
       </div>
     </div>
@@ -368,7 +368,7 @@ Deposit C · Bank                  [Due now]  ₱4,400
         </pre>
       </div>
       <p className={styles.figureCaption}>
-        Figure 5. Plain-language prompt describing the layout and content.
+        Figure 5. Plain-language prompt describing the layout and content. <em>(Note: All figures and account balances shown are fictional.)</em>
       </p>
     </div>
 
@@ -384,7 +384,7 @@ Deposit C · Bank                  [Due now]  ₱4,400
           />
         </Card>
         <p className={styles.figureCaption}>
-          Figure 6. The cash flow card, showing the visual hierarchy and information architecture that supports quick decision-making.
+          Figure 6. Expanded cash flow card, showing the visual hierarchy and information architecture. <em>(Note: All figures and account balances shown are fictional.)</em>
         </p>
       </div>
     </div>
