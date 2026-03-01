@@ -3,6 +3,8 @@ import smNotifications from '@assets/sm-notifications.png';
 import flDsWide from '@assets/fl-ds-wide.png';
 import wireframingTool from '@assets/wireframing-tool-frame.png';
 import animationKnobs from '@assets/animation-knobs.png';
+import yfDashboard from '@assets/yf-dashboard.png';
+import { ROUTES } from '@/constants/routes';
 
 export type ProjectMediaPreset = 'default' | 'inset' | 'notifications' | 'left-crop' | 'zoom-out';
 
@@ -17,12 +19,37 @@ export interface Project {
   description: string[];
   tags: string[];
   mediaPreset?: ProjectMediaPreset;
+  imageObjectPosition?: string;
+  link?: string;
 }
 
 /**
  * Static portfolio content
  */
 export const PROJECTS: Project[] = [
+  {
+    id: 'yield-flow',
+    image: yfDashboard,
+    imageAlt: 'YieldFlow — High-fidelity financial dashboard interface.',
+    title: 'YieldFlow',
+    company: 'Personal Project',
+    period: 'Feb 2026',
+    position: 'UX Engineer',
+    description: [
+      'Engineered a high-precision investment tracking engine capable of simulating tiered interest rates and monthly cash flow projections for fixed-income assets.',
+    ],
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Radix UI',
+      'shadcn/ui',
+      'Tailwind CSS',
+      'Financial Modeling',
+    ],
+    mediaPreset: 'default',
+    imageObjectPosition: 'left 11%',
+    link: ROUTES.YIELD_FLOW_CASE_STUDY,
+  },
   {
     id: 'siteminder-design-system-patterns',
     image: smDsWide,

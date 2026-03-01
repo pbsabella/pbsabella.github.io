@@ -154,11 +154,6 @@
   --pr-size-10: 10px;
   --pr-size-16: 16px;
   --pr-size-20: 20px;
-  --pr-size-140: 140px;
-  --pr-size-160: 160px;
-  --pr-size-180: 180px;
-  --pr-size-200: 200px;
-  --pr-size-220: 220px;
   --pr-size-24: 24px;
   --pr-size-28: 28px;
   --pr-size-40: 40px;
@@ -166,11 +161,16 @@
   --pr-size-52: 52px;
   --pr-size-64: 64px;
   --pr-size-80: 80px;
+  --pr-size-140: 140px;
+  --pr-size-160: 160px;
+  --pr-size-180: 180px;
+  --pr-size-200: 200px;
+  --pr-size-220: 220px;
   --pr-size-240: 240px;
   --pr-size-260: 260px;
   --pr-size-320: 320px;
-  --pr-size-720: 720px;
   --pr-size-600: 600px;
+  --pr-size-720: 720px;
   --pr-size-1200: 1200px;
   --pr-size-1440: 1440px;
 

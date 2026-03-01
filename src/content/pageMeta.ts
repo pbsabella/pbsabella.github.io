@@ -34,3 +34,17 @@ export const BUILD_NOTES_META_PAGE = {
   heroSubtitle:
     'Building a multi-tiered token architecture and proving it in a real portfolio UI.',
 };
+
+export const YIELD_FLOW_META_PAGE = {
+  breadcrumbs: [
+    { label: 'Home', to: ROUTES.HOME },
+    { label: 'Labs', to: ROUTES.LABS },
+    { label: 'YieldFlow Case Study' },
+  ],
+  heroBadge: 'Design Engineering',
+  heroKicker: 'Case Study 01',
+  heroTitle: 'YieldFlow: Outgrowing the',
+  heroTitleAccent: 'Spreadsheet',
+  heroSubtitle:
+    'Replacing a multi-tab spreadsheet with a tool built around urgency, not balances.',
+};

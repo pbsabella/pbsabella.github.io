@@ -1,0 +1,80 @@
+/* ============================================================================
+ArticleLayout
+Shared layout wrapper for long-form articles (build notes, case studies, etc.)
+========================================================================== */
+
+.pageWrap {
+  padding-block: var(--pr-spacing-16);
+  position: relative;
+}
+
+.pageWrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background:
+    linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 8%, rgb(0 0 0 / 0%) 92%, transparent 100%),
+    radial-gradient(circle at 5% 0%, var(--sem-color-accent-green), transparent 46%),
+    radial-gradient(circle at 85% 12%, var(--sem-color-accent-cyan), transparent 42%),
+    radial-gradient(circle at 70% 85%, var(--sem-color-accent-gray), transparent 48%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 120% 100%;
+}
+
+.page {
+  padding-top: var(--pr-spacing-21);
+  position: relative;
+  max-width: var(--sem-layout-page-max);
+}
+
+.page>* {
+  position: relative;
+  z-index: 1;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--pr-spacing-11);
+  align-items: start;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar {
+  display: none;
+  gap: var(--pr-spacing-4);
+  align-self: start;
+}
+
+.sidebarGroup {
+  border-left: none;
+  padding-left: 0;
+}
+
+@media (width >=1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(var(--pr-size-160), var(--pr-size-200));
+  }
+
+  .sidebar {
+    position: sticky;
+    top: calc(var(--sem-layout-header-height) + var(--pr-spacing-6));
+    display: grid;
+  }
+
+  .sidebarGroup {
+    border-left: var(--pr-border-width-1) solid var(--sem-color-border-base);
+    padding-left: var(--pr-spacing-4);
+  }
+}

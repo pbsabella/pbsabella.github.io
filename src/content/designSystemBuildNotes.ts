@@ -13,7 +13,7 @@ export const BUILD_NOTES_SECTIONS = [
 
 export const BUILD_NOTES_META = [
   { label: 'Project', value: 'Personal' },
-  { label: 'Stack', value: 'React + CSS Modules + TypeScript' },
+  { label: 'Stack', value: 'React, CSS Modules, TypeScript' },
   { label: 'Focus', value: 'Token architecture' },
 ];
 

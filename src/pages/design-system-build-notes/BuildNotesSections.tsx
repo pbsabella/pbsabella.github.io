@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './DesignSystemBuildNotes.module.css';
 import Alert from '@/components/ui/Alert/Alert';
@@ -7,6 +6,9 @@ import Button from '@/components/ui/Button/Button';
 import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
+import EditorialBlock from '@/components/sections/EditorialBlock';
+import IconList from '@/components/sections/IconList';
+import AsideNote from '@/components/sections/AsideNote';
 import { ROUTES } from '@/constants/routes';
 import { useTheme } from '@context/ThemeContext';
 import {
@@ -33,7 +35,6 @@ import {
   BUILD_NOTES_DECISIONS,
   BUILD_NOTES_NEXT_STEPS,
   BUILD_NOTES_PROBLEM_ITEMS,
-  BUILD_NOTES_WINS,
 } from '@/content/designSystemBuildNotes';
 
 const PipelineConnector = () => (
@@ -42,24 +43,8 @@ const PipelineConnector = () => (
   </span>
 );
 
-type BuildNotesBlockProps = {
-  id: string;
-  kicker: string;
-  title: string;
-  className?: string;
-  children: ReactNode;
-};
-
-const BuildNotesBlock = ({ id, kicker, title, className, children }: BuildNotesBlockProps) => (
-  <section id={id} className={[styles.section, className].filter(Boolean).join(' ')}>
-    <p className={styles.sectionKicker}>{kicker}</p>
-    <h2 className={styles.sectionTitle}>{title}</h2>
-    {children}
-  </section>
-);
-
 export const MotivationSection = () => (
-  <BuildNotesBlock id="motivation" kicker="01. Motivation" title="Learning through systems" className={styles.sectionRhythm16}>
+  <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
     <p>
       My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
       version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
@@ -70,48 +55,46 @@ export const MotivationSection = () => (
       just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
       connected system.
     </p>
-    <p className={styles.noteText}>
-      <strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.
-    </p>
-  </BuildNotesBlock>
+    <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
+  </EditorialBlock>
 );
 
 export const ProblemSection = () => (
-  <BuildNotesBlock id="problem" kicker="02. Problem" title="The friction of manual UI" className={styles.sectionRhythm21}>
+  <EditorialBlock id="problem" kicker="02. Problem" title="The friction of manual UI" rhythm="21">
     <p>
       This portfolio is updated in bursts. When I come back after a gap, I
       don&apos;t want to play detective with my own CSS. Without a system, I kept
       re-making the same spacing and color decisions, and that cognitive load
       killed momentum.
     </p>
-    <p className={styles.noteText}>
+    <AsideNote>
       Dark mode was the immediate trigger, but the real goal was removing UI
       guesswork and making the system easier to re-enter and scale.
-    </p>
-    <ul className={`${styles.listIcon} ${styles.problemList}`}>
-      {BUILD_NOTES_PROBLEM_ITEMS.map((item, index) => {
-        const icons = [
-          <Shuffle key="ui-drift" size={20} className={styles.iconAccent} aria-hidden="true" />,
-          <Code2 key="hardcoded" size={20} className={styles.iconAccent} aria-hidden="true" />,
-          <Moon key="theming" size={20} className={styles.iconAccent} aria-hidden="true" />,
-        ];
-
-        return (
-          <li key={item.title}>
-            {icons[index]}
-            <div>
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
-  </BuildNotesBlock>
+    </AsideNote>
+    <IconList
+      items={[
+        {
+          icon: <Shuffle size={20} className={styles.iconAccent} />,
+          title: BUILD_NOTES_PROBLEM_ITEMS[0].title,
+          description: BUILD_NOTES_PROBLEM_ITEMS[0].description,
+        },
+        {
+          icon: <Code2 size={20} className={styles.iconAccent} />,
+          title: BUILD_NOTES_PROBLEM_ITEMS[1].title,
+          description: BUILD_NOTES_PROBLEM_ITEMS[1].description,
+        },
+        {
+          icon: <Moon size={20} className={styles.iconAccent} />,
+          title: BUILD_NOTES_PROBLEM_ITEMS[2].title,
+          description: BUILD_NOTES_PROBLEM_ITEMS[2].description,
+        },
+      ]}
+    />
+  </EditorialBlock>
 );
 
 export const ApproachSection = () => (
-  <BuildNotesBlock id="approach" kicker="03. Approach" title="Three layers, one source of truth" className={styles.sectionRhythm16}>
+  <EditorialBlock id="approach" kicker="03. Approach" title="Three layers, one source of truth" rhythm="16">
     <p>
       I use a strict three-layer stack: <strong>primitives</strong> for raw
       options, <strong>semantics</strong> for intent, and
@@ -191,77 +174,95 @@ export const ApproachSection = () => (
         required, these prefixes are also easy to lint against.
       </p>
     </Alert>
-  </BuildNotesBlock>
+  </EditorialBlock>
 );
 
 export const KeyDecisionsSection = () => (
-  <BuildNotesBlock
+  <EditorialBlock
     id="decisions"
     kicker="04. Key Decisions"
     title="What I locked in early"
-    className={styles.sectionRhythm21}
+    rhythm="21"
   >
-    <ul className={`${styles.listIcon} ${styles.decisionListIcon} ${styles.decisionListGrid}`}>
-      {BUILD_NOTES_DECISIONS.map((item, index) => {
-        const icons = [
-          <Search key="search" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Layers key="layers" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <CheckCircle2 key="check" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <ShieldCheck key="shield-check" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Ship key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-        ];
-
-        return (
-          <li key={item.title}>
-            {icons[index]}
-            <div>
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
-            </div>
-          </li>
-        )
-      })}
-    </ul>
-  </BuildNotesBlock>
+    <IconList
+      variant="grid"
+      items={[
+        {
+          icon: <Search size={24} className={styles.iconAccent} />,
+          title: BUILD_NOTES_DECISIONS[0].title,
+          description: BUILD_NOTES_DECISIONS[0].description,
+        },
+        {
+          icon: <Layers size={24} className={styles.iconAccent} />,
+          title: BUILD_NOTES_DECISIONS[1].title,
+          description: BUILD_NOTES_DECISIONS[1].description,
+        },
+        {
+          icon: <CheckCircle2 size={24} className={styles.iconAccent} />,
+          title: BUILD_NOTES_DECISIONS[2].title,
+          description: BUILD_NOTES_DECISIONS[2].description,
+        },
+        {
+          icon: <ShieldCheck size={24} className={styles.iconAccent} />,
+          title: BUILD_NOTES_DECISIONS[3].title,
+          description: BUILD_NOTES_DECISIONS[3].description,
+        },
+        {
+          icon: <Ship size={24} className={styles.iconAccent} />,
+          title: BUILD_NOTES_DECISIONS[4].title,
+          description: BUILD_NOTES_DECISIONS[4].description,
+        },
+      ]}
+    />
+  </EditorialBlock>
 );
 
 export const WinsSection = () => (
-  <BuildNotesBlock
+  <EditorialBlock
     id="wins"
     kicker="05. Outcomes"
     title="What worked in practice"
-    className={`${styles.sectionTwoCol} ${styles.sectionRhythm16}`}
+    variant="twoCol"
+    rhythm="16"
   >
-    <ul className={styles.listIcon}>
-      {BUILD_NOTES_WINS.map((item) => (
-        <li key={item}>
-          <CheckCircle2 size={24} className={styles.iconSuccess} aria-hidden="true" />
-          {item}
-        </li>
-      ))}
-    </ul>
-  </BuildNotesBlock>
+    <IconList
+      items={[
+        {
+          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          description: 'Moved theme work from component-level edits to semantic remapping.',
+        },
+        {
+          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          description: 'Shifted component APIs toward structural patterns, letting tokens handle visual intent.',
+        },
+        {
+          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          description: 'Made constraints explicit, so one-off values are now easier to audit and eliminate.',
+        },
+      ]}
+    />
+  </EditorialBlock>
 );
 
 export const ChallengesSection = () => (
-  <BuildNotesBlock id="challenges" kicker="06. Friction" title="What got messy" className={styles.sectionRhythm21}>
-    <ul className={`${styles.listIcon} ${styles.challengeListSingle}`}>
-      {BUILD_NOTES_CHALLENGES.map((item, index) => {
-        const icons = [
-          <Timer key="timer" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Scale key="ship" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-          <Contrast key="contrast" size={24} className={`${styles.iconAccent} ${styles.problemIcon}`} aria-hidden="true" />,
-        ];
-
-        return (
-          <li key={item}>
-            {icons[index]}
-            {item}
-          </li>
-        );
-      })}
-    </ul>
-  </BuildNotesBlock>
+  <EditorialBlock id="challenges" kicker="06. Friction" title="What got messy" rhythm="21">
+    <IconList
+      items={[
+        {
+          icon: <Timer size={24} className={styles.iconAccent} />,
+          description: BUILD_NOTES_CHALLENGES[0],
+        },
+        {
+          icon: <Scale size={24} className={styles.iconAccent} />,
+          description: BUILD_NOTES_CHALLENGES[1],
+        },
+        {
+          icon: <Contrast size={24} className={styles.iconAccent} />,
+          description: BUILD_NOTES_CHALLENGES[2],
+        },
+      ]}
+    />
+  </EditorialBlock>
 );
 
 export const DemoSection = () => {
@@ -273,7 +274,7 @@ export const DemoSection = () => {
   const tagInfoPrimitive = isDarkTheme ? '--pr-color-info-400' : '--pr-color-info-600';
 
   return (
-    <BuildNotesBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" className={styles.sectionRhythm16}>
+    <EditorialBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" rhythm="16">
       <figure>
         <Card variant="panel">
           <div className={styles.demoHeader}>
@@ -361,12 +362,12 @@ export const DemoSection = () => {
           Two compact examples showing how token intent stays consistent while visuals adapt by theme.
         </figcaption>
       </figure>
-    </BuildNotesBlock>
+    </EditorialBlock>
   );
 };
 
 export const LearningsSection = () => (
-  <BuildNotesBlock id="learnings" kicker="08. Learnings" title="What this exposed" className={styles.sectionRhythm21}>
+  <EditorialBlock id="learnings" kicker="08. Learnings" title="What this exposed" rhythm="21">
     <p>
       This was an opportunity to apply enterprise design-system architecture in
       a fresh React environment and validate how CSS Modules, theming, and
@@ -377,35 +378,33 @@ export const LearningsSection = () => (
       validating decisions in real UI.
       It took multiple refactors, and while the system is now clearer and easier to evolve, it is still evolving.
     </p>
-    <p className={`${styles.noteText} ${styles.asideNote}`}>{BUILD_NOTES_CHALLENGE_NOTE}</p>
-  </BuildNotesBlock>
+    <AsideNote className={styles.asideNote}>{BUILD_NOTES_CHALLENGE_NOTE}</AsideNote>
+  </EditorialBlock>
 );
 
 export const NextStepsSection = () => (
-  <BuildNotesBlock
+  <EditorialBlock
     id="next-steps"
     kicker="09. Next Steps"
     title="The journey continues"
-    className={styles.sectionRhythm16}
+    rhythm="16"
   >
     <p>
       The system is stable enough to scale, but the next milestone is resilience:
       validating that new variants and brand constraints can be
       added without eroding the semantic contract.
     </p>
-    <ul className={styles.listIcon}>
-      {BUILD_NOTES_NEXT_STEPS.map((item) => (
-        <li key={item}>
-          <ArrowUpRight size={24} className={styles.iconAccent} aria-hidden="true" />
-          {item}
-        </li>
-      ))}
-    </ul>
-  </BuildNotesBlock>
+    <IconList
+      items={BUILD_NOTES_NEXT_STEPS.map((item) => ({
+        icon: <ArrowUpRight size={24} className={styles.iconAccent} />,
+        description: item,
+      }))}
+    />
+  </EditorialBlock>
 );
 
 export const SystemCoreSection = () => (
-  <BuildNotesBlock id="system-core" kicker="10. System Core" title="Deep dive into System Core" className={styles.sectionRhythm21}>
+  <EditorialBlock id="system-core" kicker="10. System Core" title="Deep dive into System Core" rhythm="21">
     <p>
       Explore the live token tables, primitives, and component
       foundations that back these build notes.
@@ -413,5 +412,5 @@ export const SystemCoreSection = () => (
     <Link to={ROUTES.SYSTEM_CORE}>
       <Button variant="secondary" size="md">View System Core</Button>
     </Link>
-  </BuildNotesBlock>
+  </EditorialBlock>
 );
