@@ -168,6 +168,15 @@ const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, test
 };
 
 test.describe('Cross-browser smoke checks', () => {
+  // Vercel Analytics and Speed Insights inject <script> tags pointing to /_vercel/* paths.
+  // These are served by Vercel's infrastructure on real deployments but return 404 from the
+  // Vite preview server, generating console errors that would fail the guard assertions.
+  test.beforeEach(async ({ page }) => {
+    await page.route('**/_vercel/**', (route) =>
+      route.fulfill({ status: 200, contentType: 'application/javascript', body: '' }),
+    );
+  });
+
   for (const route of ROUTES) {
     for (const theme of THEMES) {
       test(`sanity on ${route.name} (${theme})`, async ({ page, browserName }, testInfo) => {

@@ -1,4 +1,5 @@
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import Layout from '@/components/layout/Layout';
 import Home from '@pages/home/Home';
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
         </Routes>
       </Layout>
+      <Analytics />
       <SpeedInsights />
     </Router>
   );
