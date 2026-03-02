@@ -420,7 +420,7 @@ export const TakeawaySection = () => (
       &quot;The Design Thinking Framework taught me to stop thinking about features and start thinking about tasks. YieldFlow isn&apos;t a calculator: it&apos;s a decision-support tool.&quot;
     </div>
     <div>
-      <p>That reframe changed every choice in this project. The wizard died because it optimized for setup speed instead of the actual task (trusting the math). The tooltip ban happened because the task is decision-making under mild stress, not a tutorial. The net-of-tax default exists because the task is budgeting real cash, not reading a statement.</p>
+      <p>That reframe changed every choice in this project. The wizard died because it optimized for setup speed instead of building trust in the math. The tooltip ban happened because the task is decision-making under mild stress, not a tutorial. The net-of-tax default exists because the task is budgeting real cash, not reading a statement.</p>
       <p>I&apos;ve shipped a lot of products over the past decade. The best ones always had a designer nearby who could say &quot;but what is the user actually trying to do right now?&quot;. This project was the first time I internalized that question well enough to ask it myself; and let it override my first instinct.</p>
     </div>
     <div>
