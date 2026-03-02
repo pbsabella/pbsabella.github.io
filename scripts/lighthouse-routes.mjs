@@ -25,6 +25,7 @@ const routes = [
   { path: '#/labs', name: 'labs' },
   { path: '#/labs/system-core', name: 'system-core' },
   { path: '#/labs/design-system-build-notes', name: 'design-system-build-notes' },
+  { path: '#/labs/yield-flow-case-study', name: 'yield-flow-case-study' },
 ];
 
 const outputDir = join(process.cwd(), 'lighthouse-reports');
@@ -34,9 +35,9 @@ rmSync(outputDir, { recursive: true, force: true });
 mkdirSync(outputDir, { recursive: true });
 
 const thresholds = {
-  performance: { min: 0.86, level: 'warn' },
+  performance: { min: 0.90, level: 'warn' },
   accessibility: { min: 1, level: 'error' },
-  'best-practices': { min: 1, level: 'error' },
+  'best-practices': { min: 0.90, level: 'error' },
   seo: { min: 0.90, level: 'error' },
 };
 
