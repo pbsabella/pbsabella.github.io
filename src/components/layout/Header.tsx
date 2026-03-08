@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu, MoveLeft } from 'lucide-react';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { useSectionNav } from '@hooks/useSectionNav';
 import { useActiveSection } from '@hooks/useActiveSection';
@@ -10,22 +10,25 @@ import Container from '@/components/layout/Container';
 
 interface HeaderProps {
   toggleSideNav: () => void;
+  isSideNavOpen: boolean;
 }
 
 type DesktopLink = {
   label: string;
   to: string | { pathname: string; search: string };
   isActive: boolean;
+  isParentRoute?: boolean;
   onClick?: () => void;
   ariaCurrent?: 'page';
 };
 
-const Header = ({ toggleSideNav }: HeaderProps) => {
+const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
   const { isHidden, isTransparent } = useHeaderScroll();
   const { pathname } = useLocation();
   const { getSectionLinkProps } = useSectionNav();
 
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
+  const isLabsRoot = pathname === ROUTES.LABS;
   const isHome = pathname === ROUTES.HOME;
 
   const activeSection = useActiveSection(
@@ -42,8 +45,9 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
       {
         label: 'Labs',
         to: ROUTES.LABS,
-        isActive: true,
-        ariaCurrent: 'page' as const
+        isActive: isLabsRoot,
+        isParentRoute: !isLabsRoot,
+        ariaCurrent: isLabsRoot ? 'page' as const : undefined,
       },
     ]
     : [
@@ -90,7 +94,7 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
             <li className={`${styles.navItem}`}>
               <button
                 className={styles.navMenu}
-                aria-controls="side-nav"
+                aria-expanded={isSideNavOpen}
                 aria-label="Open mobile menu"
                 onClick={toggleSideNav}
               >
@@ -103,11 +107,12 @@ const Header = ({ toggleSideNav }: HeaderProps) => {
             {desktopLinks.map((link) => (
               <li key={link.label} className={styles.navItem}>
                 <Link
-                  className={`${styles.navLink} link ${link.isActive ? styles.navLinkActive : ''}`}
+                  className={`${styles.navLink} link ${link.isActive ? styles.navLinkActive : link.isParentRoute ? styles.navLinkParent : ''}`}
                   to={link.to}
                   aria-current={link.ariaCurrent ?? (link.isActive ? 'location' : undefined)}
                   onClick={link.onClick}
                 >
+                  {link.isParentRoute && <MoveLeft size={16} aria-hidden="true" />}
                   {link.label}
                 </Link>
               </li>

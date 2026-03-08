@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
-import { X } from 'lucide-react';
+import { X, MoveLeft } from 'lucide-react';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import { useSectionNav } from '@hooks/useSectionNav';
 import { useFocusTrap } from '@hooks/useFocusTrap';
@@ -17,6 +17,8 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const { getSectionLinkProps } = useSectionNav();
   const { pathname } = useLocation();
   const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
+  const isLabsRoot = pathname === ROUTES.LABS;
+
   const workLink = getSectionLinkProps(SECTION_ANCHORS.WORK);
   const aboutLink = getSectionLinkProps(SECTION_ANCHORS.ABOUT);
   const contactLink = getSectionLinkProps(SECTION_ANCHORS.CONTACT);
@@ -35,12 +37,11 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
         aria-hidden="true"
       ></div>
 
-      <aside
+      <div
         id="side-nav"
         aria-label="Mobile menu"
         role="dialog"
-        aria-modal={isOpen ? 'true' : undefined}
-        aria-hidden={isOpen ? undefined : 'true'}
+        aria-modal="true"
         className={`${styles.sideMenu} ${isOpen ? styles.sideMenuOpen : ''}`}
         ref={navRef}
       >
@@ -101,17 +102,21 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
               </>
             )}
             {isLabEnvironment && (
-              <>
-                <li className={styles.sideMenuItem}>
-                  <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose} aria-current="page">
-                    Labs
-                  </Link>
-                </li>
-              </>
+              <li className={styles.sideMenuItem}>
+                <Link
+                  className={`${styles.sideMenuLink} ${!isLabsRoot ? styles.sideMenuLinkParent : ''}`}
+                  to={ROUTES.LABS}
+                  onClick={onClose}
+                  aria-current={isLabsRoot ? 'page' : undefined}
+                >
+                  {!isLabsRoot && <MoveLeft size={16} aria-hidden="true" />}
+                  Labs
+                </Link>
+              </li>
             )}
           </ul>
         </nav>
-      </aside>
+      </div>
     </>
   );
 

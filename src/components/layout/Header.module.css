@@ -66,6 +66,12 @@
   font-weight: var(--pr-weight-500);
 }
 
+.navLinkParent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
+}
+
 .navMenu {
   background-color: transparent;
   border: 0;
