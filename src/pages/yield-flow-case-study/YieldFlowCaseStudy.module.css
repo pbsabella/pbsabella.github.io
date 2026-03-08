@@ -122,12 +122,12 @@
 /* --- BuildSection --------------------------------------------------------- */
 
 .codeBlockCard {
-  margin: var(--pr-spacing-8) 0;
+  margin: var(--pr-spacing-8) auto var(--pr-spacing-11) auto;
+  max-width: var(--pr-size-600);
 }
 
 .userPrompt {
   color: var(--sem-color-text-on-accent);
-  margin-bottom: var(--pr-spacing-3);
   font-family: var(--font-mono);
   font-size: var(--sem-text-caption);
 }
@@ -150,10 +150,6 @@
 .buildSectionLead {
   font-weight: var(--pr-weight-600);
   margin-bottom: var(--pr-spacing-4);
-}
-
-.mockupImage {
-  max-width: var(--pr-size-320);
 }
 
 .textSm {

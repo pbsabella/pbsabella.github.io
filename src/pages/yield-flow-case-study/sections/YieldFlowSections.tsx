@@ -23,9 +23,8 @@ import {
 import SpreadsheetChaos from './SpreadsheetChaos';
 import styles from '../YieldFlowCaseStudy.module.css';
 import IconList from '@/components/sections/IconList';
-import yfCashflow from '@assets/yf-cashflow.png';
+import CashflowMockup from './CashflowMockup';
 import DashboardCards from './DashboardMockup';
-import Card from '@/components/ui/Card/Card';
 import MockupFrame from '@/components/sections/MockupFrame';
 
 export const TldrSection = () => (
@@ -218,15 +217,19 @@ export const BuildSection = () => (
           Build the cash flow collapsible card with this layout
         </div>
         <pre className={styles.asciiCode}>
-          {`March 2025.                   ₱15,600 expected
+          {`Feb 2026                                 $421 total
 ---------------------------------------------------
 MATURITY PAYOUTS
-Deposit A · Bank                  [Due now]  ₱8,000
-  +₱200,000 principal returned
-Deposit B · Bank (settled)                   ₱3,200
+360D TD Pro (settled)                           $95
+  +$2,500 principal returned
+Short term - Time Deposit           [Due now]  $185
+  +$5,000 principal returned
+Personal Goal (settled)                         $88
+  +$3,000 principal returned
 
 MONTHLY PAYOUTS
-Deposit C · Bank                  [Due now]  ₱4,400
+Savings Account (Boosted)                       $22
+Meridian Savings                                $31
 ----------------------------------------------------`}
         </pre>
       </MockupFrame>
@@ -238,14 +241,9 @@ Deposit C · Bank                  [Due now]  ₱4,400
         <p className={styles.textSm}>The cash flow projection needed to show two very different things in the same view: interest earned (what I budget) and principal returned (what I can move). These look like the same number in a spreadsheet. They&apos;re completely different decisions.</p>
       </div>
       <FigureBlock
-        className={styles.mockupImage}
         caption={<>Figure 6. Expanded cash flow card, showing the visual hierarchy and information architecture. <em>(Note: All figures and account balances shown are fictional.)</em></>}
       >
-        <Card variant="panel">
-          <img
-            src={yfCashflow} alt="Cash flow card mockup"
-          />
-        </Card>
+        <CashflowMockup />
       </FigureBlock>
     </div>
     <p>The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary.</p>

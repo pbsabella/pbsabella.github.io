@@ -47,19 +47,19 @@ const DashboardCards = () => {
     <div className={styles.cardGrid}>
       <StatCard
         title="Income This Month"
-        value="₱27,010"
+        value="$421"
         description="Net interest · Feb 2026"
         badges={[
-          { label: '₱2,300 pending', variant: 'warning' },
-          { label: '₱24,710 settled', variant: 'success' },
+          { label: '$185 pending', variant: 'warning' },
+          { label: '$236 settled', variant: 'success' },
         ]}
       />
 
       <StatCard
         title="Next Maturity"
         value="Mar 27, 2026"
-        description="Short term TD 1"
-        subDescription="Bank A · ₱204,761 net"
+        description="Short term - Time Deposit"
+        subDescription="Zenith · $5,185 net"
       />
     </div>
   );
