@@ -21,11 +21,11 @@ import { join } from 'node:path';
 
 const baseUrl = 'http://localhost:4173';
 const routes = [
-  { path: '#/', name: 'home' },
-  { path: '#/labs', name: 'labs' },
-  { path: '#/labs/system-core', name: 'system-core' },
-  { path: '#/labs/design-system-build-notes', name: 'design-system-build-notes' },
-  { path: '#/labs/yield-flow-case-study', name: 'yield-flow-case-study' },
+  { path: '/', name: 'home' },
+  { path: '/labs', name: 'labs' },
+  { path: '/labs/system-core', name: 'system-core' },
+  { path: '/labs/design-system-build-notes', name: 'design-system-build-notes' },
+  { path: '/labs/yield-flow-case-study', name: 'yield-flow-case-study' },
 ];
 
 const outputDir = join(process.cwd(), 'lighthouse-reports');
