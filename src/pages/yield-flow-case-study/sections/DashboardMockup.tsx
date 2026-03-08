@@ -58,8 +58,8 @@ const DashboardCards = () => {
       <StatCard
         title="Next Maturity"
         value="Mar 27, 2026"
-        description="Maya - TD1"
-        subDescription="Maya · ₱204,761 net"
+        description="Short term TD 1"
+        subDescription="Bank A · ₱204,761 net"
       />
     </div>
   );

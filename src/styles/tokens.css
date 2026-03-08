@@ -229,8 +229,9 @@
   --sem-text-heading-lg: var(--pr-text-900);
   --sem-text-heading-md: var(--pr-text-700);
   --sem-text-heading-sm: var(--pr-text-500);
-  --sem-text-body: var(--pr-text-300);
+  --sem-text-feature: var(--pr-text-400);
   --sem-text-lede: var(--pr-text-350);
+  --sem-text-body: var(--pr-text-300);
   --sem-text-caption: var(--pr-text-200);
   --sem-text-kicker: var(--pr-text-100);
   --sem-tracking-kicker: var(--pr-tracking-20);

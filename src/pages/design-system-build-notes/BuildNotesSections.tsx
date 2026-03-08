@@ -7,7 +7,9 @@ import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
 import EditorialBlock from '@/components/sections/EditorialBlock';
+import FigureBlock from '@/components/sections/FigureBlock';
 import IconList from '@/components/sections/IconList';
+import MockupFrame from '@/components/sections/MockupFrame';
 import AsideNote from '@/components/sections/AsideNote';
 import { ROUTES } from '@/constants/routes';
 import { useTheme } from '@context/ThemeContext';
@@ -275,93 +277,81 @@ export const DemoSection = () => {
 
   return (
     <EditorialBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" rhythm="16">
-      <figure>
-        <Card variant="panel">
-          <div className={styles.demoHeader}>
-            <div className={styles.demoDots}>
-              <span className={`${styles.demoDot} ${styles.dotError}`} />
-              <span className={`${styles.demoDot} ${styles.dotWarning}`} />
-              <span className={`${styles.demoDot} ${styles.dotSuccess}`} />
+      <FigureBlock caption="Two compact examples showing how token intent stays consistent while visuals adapt by theme.">
+        <MockupFrame variant="browser">
+          <div className={styles.demoIntro}>
+            <p className={styles.demo}>
+              A tiny slice of the system in motion: component tokens map
+              to semantics, then resolve to theme-specific primitives.
+              Toggle the theme to see
+              this demo adapt in real time.
+            </p>
+            <div className={styles.demoThemeRow}>
+              <p className={styles.demoHierarchy}>Trace flow: COMP → SEM → PR</p>
+              <ThemeToggle id="build-notes-theme-toggle" variant="text" />
             </div>
           </div>
-          <div className={styles.demoBody}>
-            <div className={styles.demoIntro}>
-              <p className={styles.demo}>
-                A tiny slice of the system in motion: component tokens map
-                to semantics, then resolve to theme-specific primitives.
-                Toggle the theme to see
-                this demo adapt in real time.
+          <div className={styles.demoShowcase}>
+            <Card isInteractive={true}>
+              <div className={styles.demoMiniTitle}>Elevated Card</div>
+              <p className={styles.demoMiniCopy}>
+                Interactive elevated card using component tokens, fed by semantic intent.
               </p>
-              <div className={styles.demoThemeRow}>
-                <p className={styles.demoHierarchy}>Trace flow: COMP → SEM → PR</p>
-                <ThemeToggle id="build-notes-theme-toggle" variant="text" />
+              <div className={styles.demoPipelines}>
+                <div className={styles.demoPipelineRow}>
+                  <code>--comp-card-bg</code>
+                  <PipelineConnector />
+                  <code>--sem-color-bg-base</code>
+                  <PipelineConnector />
+                  <code className={styles.demoPipelineValue}>{cardBgPrimitive}</code>
+                </div>
+                <div className={styles.demoPipelineRow}>
+                  <code>--comp-card-shadow</code>
+                  <PipelineConnector />
+                  <code>--sem-elevation-low</code>
+                  <PipelineConnector />
+                  <code className={styles.demoPipelineValue}>{cardShadowPrimitive}</code>
+                </div>
               </div>
-            </div>
-            <div className={styles.demoShowcase}>
-              <Card isInteractive={true}>
-                <div className={styles.demoMiniTitle}>Elevated Card</div>
-                <p className={styles.demoMiniCopy}>
-                  Interactive elevated card using component tokens, fed by semantic intent.
-                </p>
-                <div className={styles.demoPipelines}>
-                  <div className={styles.demoPipelineRow}>
-                    <code>--comp-card-bg</code>
-                    <PipelineConnector />
-                    <code>--sem-color-bg-base</code>
-                    <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{cardBgPrimitive}</code>
+            </Card>
+            <Card variant="flat">
+              <div className={styles.demoMiniTitle}>Status Chips</div>
+              <p className={styles.demoMiniCopy}>
+                Tags and badges consume status semantics while preserving consistent contrast across themes.
+              </p>
+              <div className={styles.demoPipelines}>
+                <div className={styles.demoMiniMeta}>
+                  <div className={styles.demoChipRow}>
+                    <Badge variant="success" size="md">12</Badge>
+                    <Badge variant="warning" size="md">4</Badge>
+                    <Badge variant="error" size="md">2</Badge>
+                    <Badge variant="info" size="md">8</Badge>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code>--comp-card-shadow</code>
+                    <code>--sem-color-bg-success</code>
                     <PipelineConnector />
-                    <code>--sem-elevation-low</code>
-                    <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{cardShadowPrimitive}</code>
+                    <code className={styles.demoPipelineValue}>{badgeSuccessPrimitive}</code>
                   </div>
                 </div>
-              </Card>
-              <Card variant="flat">
-                <div className={styles.demoMiniTitle}>Status Chips</div>
-                <p className={styles.demoMiniCopy}>
-                  Tags and badges consume status semantics while preserving consistent contrast across themes.
-                </p>
-                <div className={styles.demoPipelines}>
-                  <div className={styles.demoMiniMeta}>
-                    <div className={styles.demoChipRow}>
-                      <Badge variant="success" size="md">12</Badge>
-                      <Badge variant="warning" size="md">4</Badge>
-                      <Badge variant="error" size="md">2</Badge>
-                      <Badge variant="info" size="md">8</Badge>
-                    </div>
-                    <div className={styles.demoPipelineRow}>
-                      <code>--sem-color-bg-success</code>
-                      <PipelineConnector />
-                      <code className={styles.demoPipelineValue}>{badgeSuccessPrimitive}</code>
-                    </div>
-                  </div>
 
-                  <div className={styles.demoMiniMeta}>
-                    <div className={styles.demoChipRow}>
-                      <Tag size="sm" variant="info">Info</Tag>
-                      <Tag size="sm" variant="success">Success</Tag>
-                      <Tag size="sm" variant="warning">Warning</Tag>
-                      <Tag size="sm" variant="error">Error</Tag>
-                    </div>
-                    <div className={styles.demoPipelineRow}>
-                      <code>--sem-color-border-info</code>
-                      <PipelineConnector />
-                      <code className={styles.demoPipelineValue}>{tagInfoPrimitive}</code>
-                    </div>
+                <div className={styles.demoMiniMeta}>
+                  <div className={styles.demoChipRow}>
+                    <Tag size="sm" variant="info">Info</Tag>
+                    <Tag size="sm" variant="success">Success</Tag>
+                    <Tag size="sm" variant="warning">Warning</Tag>
+                    <Tag size="sm" variant="error">Error</Tag>
+                  </div>
+                  <div className={styles.demoPipelineRow}>
+                    <code>--sem-color-border-info</code>
+                    <PipelineConnector />
+                    <code className={styles.demoPipelineValue}>{tagInfoPrimitive}</code>
                   </div>
                 </div>
-              </Card>
-            </div>
+              </div>
+            </Card>
           </div>
-        </Card>
-        <figcaption className={styles.demoCaption}>
-          Two compact examples showing how token intent stays consistent while visuals adapt by theme.
-        </figcaption>
-      </figure>
+        </MockupFrame>
+      </FigureBlock>
     </EditorialBlock>
   );
 };

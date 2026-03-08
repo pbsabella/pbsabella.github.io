@@ -122,7 +122,7 @@ h3,
 
 h4,
 .h4 {
-  font-size: var(--pr-text-400); /* TODO: Re-calibrate tokens */
+  font-size: var(--sem-text-feature);
   line-height: var(--pr-leading-150);
 }
 

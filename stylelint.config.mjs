@@ -9,7 +9,6 @@ const PRIMITIVE_USAGE_WHITELIST = [
   'duration',
   'easing',
   'weight',
-  'text',
 ];
 
 const disallowDirectPrimitiveUsageRegex = new RegExp(

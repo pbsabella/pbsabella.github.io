@@ -1,5 +1,6 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import AsideNote from '@/components/sections/AsideNote';
+import FigureBlock from '@/components/sections/FigureBlock';
 import Button from '@/components/ui/Button/Button';
 import {
   AlertCircle,
@@ -19,159 +20,19 @@ import {
   UnifiedModal,
   WizardInteractive,
 } from './Wireframes';
+import SpreadsheetChaos from './SpreadsheetChaos';
 import styles from '../YieldFlowCaseStudy.module.css';
 import IconList from '@/components/sections/IconList';
 import yfCashflow from '@assets/yf-cashflow.png';
 import DashboardCards from './DashboardMockup';
 import Card from '@/components/ui/Card/Card';
-
-const SpreadsheetChaos = () => (
-  <div className={styles.spreadsheetContainer}>
-    <div className={styles.spreadsheetHeader}>
-      <div className={styles.spreadsheetName}>Fictional Financials</div>
-      <div className={styles.spreadsheetMenu}>
-        <span>File</span> <span>Edit</span> <span>View</span> <span>Insert</span> <span>Format</span> <span>Data</span> <span>Tools</span> <span>Extensions</span> <span>Help</span>
-      </div>
-    </div>
-    <div className={styles.spreadsheetContent}>
-      <table className={styles.spreadsheetTable}>
-        <thead>
-          <tr>
-            <th className={styles.rowHeader}></th>
-            <th className={styles.colHeader}>A</th>
-            <th className={styles.colHeader}>B</th>
-            <th className={styles.colHeader}>C</th>
-            <th className={styles.colHeader}>D</th>
-            <th className={styles.colHeader}>E</th>
-            <th className={styles.colHeader}>F</th>
-            <th className={styles.colHeader}>G</th>
-            <th className={styles.colHeader}>H</th>
-            <th className={styles.colHeader}>I</th>
-          </tr>
-          <tr className={styles.spreadsheetRowHeader}>
-            <td className={styles.rowHeader}>1</td>
-            <td>Name</td>
-            <td>Principal</td>
-            <td>Interest</td>
-            <td>Start</td>
-            <td>Term</td>
-            <td>Maturity Date</td>
-            <td>Gross Int.</td>
-            <td>Net Int.</td>
-            <td>Status</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className={styles.spreadsheetRowActive}>
-            <td className={styles.rowHeader}>2</td>
-            <td>Digital TD #402</td>
-            <td>₱250,000.00</td>
-            <td>6.50%</td>
-            <td>Jan 12, 2025</td>
-            <td>90 Days</td>
-            <td>Apr 12, 2025</td>
-            <td>₱4,062.50</td>
-            <td>₱3,250.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusActive}`}>Active</span></td>
-          </tr>
-          <tr className={styles.spreadsheetRowMatured}>
-            <td className={styles.rowHeader}>3</td>
-            <td>High-Yield #12</td>
-            <td>₱180,000.00</td>
-            <td>5.75%</td>
-            <td>Dec 05, 2024</td>
-            <td>30 Days</td>
-            <td>Jan 04, 2025</td>
-            <td>₱862.50</td>
-            <td>₱690.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusMatured}`}>Matured</span></td>
-          </tr>
-          <tr className={styles.spreadsheetRowPending}>
-            <td className={styles.rowHeader}>4</td>
-            <td>Special Promo A</td>
-            <td>₱500,000.00</td>
-            <td>7.00%</td>
-            <td>Feb 01, 2025</td>
-            <td>180 Days</td>
-            <td>Jul 31, 2025</td>
-            <td>₱17,500.00</td>
-            <td>₱14,000.00</td>
-            <td><span className={styles.statusBadge}>Pending</span></td>
-          </tr>
-          <tr>
-            <td className={styles.rowHeader}>5</td>
-            <td>Reserve #02</td>
-            <td>₱50,000.00</td>
-            <td>4.50%</td>
-            <td>Feb 15, 2025</td>
-            <td>30 Days</td>
-            <td>Mar 17, 2025</td>
-            <td>₱187.50</td>
-            <td>₱150.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusActive}`}>Active</span></td>
-          </tr>
-          {/* Empty Rows to simulate spreadsheet */}
-          {[6, 7, 8].map(i => (
-            <tr key={i}>
-              <td className={styles.rowHeader}>{i}</td>
-              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div className={styles.spreadsheetDivider}></div>
-
-      <table className={[styles.spreadsheetTable, styles.spreadsheetSmallTable].join(' ')}>
-        <thead>
-          <tr>
-            <th className={styles.rowHeader}></th>
-            <th className={styles.colHeader}>A</th>
-            <th className={styles.colHeader}>B</th>
-          </tr>
-          <tr className={styles.spreadsheetRowHeader}>
-            <td className={styles.rowHeader}>1</td>
-            <td>Month</td>
-            <td>Expected Net Inflow</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className={styles.rowHeader}>2</td>
-            <td>January</td>
-            <td className={styles.cellActive}>₱690.00</td>
-          </tr>
-          <tr>
-            <td className={styles.rowHeader}>3</td>
-            <td>February</td>
-            <td>₱0.00</td>
-          </tr>
-          <tr>
-            <td className={styles.rowHeader}>4</td>
-            <td>March</td>
-            <td>₱150.00</td>
-          </tr>
-          <tr>
-            <td className={styles.rowHeader}>5</td>
-            <td>April</td>
-            <td>₱3,250.00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div className={styles.spreadsheetTabs}>
-      <div className={styles.spreadsheetTab}>Sheet1</div>
-      <div className={`${styles.spreadsheetTab} ${styles.spreadsheetTabInactive}`}>Drafts</div>
-      <div className={`${styles.spreadsheetTab} ${styles.spreadsheetTabInactive}`}>Old_Rates</div>
-    </div>
-  </div>
-);
+import MockupFrame from '@/components/sections/MockupFrame';
 
 export const TldrSection = () => (
-  <div className={[styles.featuredBlock, styles.marginB8].join(' ')}>
+  <div className={[styles.featuredBlock, styles.tldrBlock].join(' ')}>
     <p className={styles.quoteTitle}>TL;DR</p>
     <p>Five banks, overlapping maturities, one spreadsheet I kept patching. I built an app to replace it. This is the design story.</p>
-    <div className={styles.marginT4}>
+    <div className={styles.tldrButtonRow}>
       <Button as="a" href="https://yield-flow-lab.vercel.app/" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
         YieldFlow prototype
         <ExternalLink size={14} />
@@ -192,12 +53,12 @@ export const ItchSection = () => (
       <p>I had 5+ different banks, overlapping tenures, and rates that change without warning. The spreadsheet technically had all the data. But turning it into a decision took way too long; and one missed maturity window means your cash sits idle while the market moves.</p>
     </div>
 
-    <div className={styles.assetContainer}>
+    <FigureBlock
+      className={styles.assetContainer}
+      caption={<>Figure 1. The original &quot;engine&quot; for my financial planning. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once. <em>(Note: All figures and account balances shown are fictional.)</em></>}
+    >
       <SpreadsheetChaos />
-      <p className={styles.figureCaption}>
-        Figure 1. The original &quot;engine&quot; for my financial planning. On mobile, the horizontal scrolling illustrates the friction of managing this much data at once. <em>(Note: All figures and account balances shown are fictional.)</em>
-      </p>
-    </div>
+    </FigureBlock>
 
     <div>
       <p>I&apos;d been managing this ritual for months before the Google UX Design course gave it a name. Turns out I wasn&apos;t just annoyed at a spreadsheet. I was a user with an unmet need. That was enough to stop patching and start building.</p>
@@ -234,14 +95,13 @@ export const ProblemSection = () => (
           ]}
         />
       </div>
-      <div>
+      <FigureBlock
+        caption={<>Figure 2. High-level dashboard focusing on action items rather than just totals. <em>(Note: All figures and account balances shown are fictional.)</em></>}
+      >
         <DashboardCards />
-        <p className={styles.figureCaption}>
-          Figure 2. High-level dashboard focusing on action items rather than just totals. <em>(Note: All figures and account balances shown are fictional.)</em>
-        </p>
-      </div>
+      </FigureBlock>
     </div>
-    <div className={`${styles.featuredBlock}`}>
+    <div className={`${styles.featuredBlock} ${styles.asideNote}`}>
       <p className={styles.quoteTitle}>User Story</p>
       <blockquote className={styles.quote}>
         &quot;As someone actively rotating across banks, I need to see my real take-home interest per month, know exactly when my deposits mature, and have a clear signal for when to act: all in one place.&quot;
@@ -255,34 +115,35 @@ export const DecisionsSection = () => (
     <p>YieldFlow isn&apos;t about showing more data. It&apos;s about making the data you already have easier to act on. Every choice came back to one question: does this help me decide where my money goes next?</p>
 
     <p className={styles.quoteTitle}>Logic for Financial Reality</p>
-    <IconList
-      className={styles.marginB8}
-      variant="grid"
-      items={[
-        {
-          icon: <HandCoins size={24} className={styles.iconAccent} />,
-          title: "Net-of-tax by default.",
-          description: "Showing gross figures is technically accurate but practically misleading. You can't spend the gross number, so the app calculates interest after withholding tax by default.",
-        },
-        {
-          icon: <Banknote size={24} className={styles.iconAccent} />,
-          title: "Intentional Friction",
-          description: 'Matured deposits stay visible and flagged until explicitly marked "settled." A matured deposit is an idle asset. I keep this "noise" in the active view until the user dismisses it. The friction is the point.',
-        },
-        {
-          icon: <ArrowDownUp size={24} className={styles.iconAccent} />,
-          title: "Sorted by urgency, not date.",
-          description: "The deposit list defaults to matured first, then by nearest maturity. Most tools sort alphabetically. Sorting by urgency means you see what needs action before you have to search for it.",
-        },
-        {
-          icon: <Scale size={24} className={styles.iconAccent} />,
-          title: "Bank exposure limits.",
-          description: "Users can set a global safety cap to manage concentration risk. The dashboard dynamically audits the total principal per bank, making it easy to spot over-concentration that usually gets lost when money is spread across multiple banks and investments. The UI makes it visible.",
-        },
-      ]}
-    />
+    <div className={styles.decisionIconGroup}>
+      <IconList
+        variant="grid"
+        items={[
+          {
+            icon: <HandCoins size={24} className={styles.iconAccent} />,
+            title: "Net-of-tax by default.",
+            description: "Showing gross figures is technically accurate but practically misleading. You can't spend the gross number, so the app calculates interest after withholding tax by default.",
+          },
+          {
+            icon: <Banknote size={24} className={styles.iconAccent} />,
+            title: "Intentional Friction",
+            description: 'Matured deposits stay visible and flagged until explicitly marked "settled." A matured deposit is an idle asset. I keep this "noise" in the active view until the user dismisses it. The friction is the point.',
+          },
+          {
+            icon: <ArrowDownUp size={24} className={styles.iconAccent} />,
+            title: "Sorted by urgency, not date.",
+            description: "The deposit list defaults to matured first, then by nearest maturity. Most tools sort alphabetically. Sorting by urgency means you see what needs action before you have to search for it.",
+          },
+          {
+            icon: <Scale size={24} className={styles.iconAccent} />,
+            title: "Bank exposure limits.",
+            description: "Users can set a global safety cap to manage concentration risk. The dashboard dynamically audits the total principal per bank, making it easy to spot over-concentration that usually gets lost when money is spread across multiple banks and investments. The UI makes it visible.",
+          },
+        ]}
+      />
+    </div>
 
-    <p className={[styles.quoteTitle, styles.marginT8].join(' ')}>Designed Without a Manual</p>
+    <p className={[styles.quoteTitle, styles.quoteTitleSpaced].join(' ')}>Designed Without a Manual</p>
     <IconList
       variant="grid"
       items={[
@@ -316,29 +177,27 @@ export const DecisionsSection = () => (
 export const PivotSection = () => (
   <EditorialBlock id="pivot" kicker="3.5. Iterate" title="The Idea That Didn't Make It" rhythm="16">
     <p>One idea almost made it through the Ideate phase. Almost.</p>
-    <div className={styles.sectionTwoCol}>
+    <div className={styles.pivotGrid}>
       <div>
         <p>My first instinct was to reduce entry friction to zero. The concept: a <b>smart setup wizard</b> that already knows each bank&apos;s products. You pick your bank, pick the product, and the form pre-fills the rate, tenure, and tax logic automatically.</p>
         <p>It looked great. Then I thought it through.</p>
         <p>Digital banks change their rates constantly; sometimes weekly. Maintaining a live database of every product from every bank would be a full-time job I wasn&apos;t signing up for.</p>
       </div>
       <div className={styles.wireframes}>
-        <WizardInteractive />
-        <p className={styles.figureCaption}>
-          Figure 3. Two-step wizard flow for quick setup. Click Next to step through the flow.
-        </p>
+        <FigureBlock caption="Figure 3. Two-step wizard flow for quick setup. Click Next to step through the flow.">
+          <WizardInteractive />
+        </FigureBlock>
       </div>
     </div>
-    <div className={styles.marginT8}>
+    <div className={styles.pivotContent}>
       <p>If the wizard confidently pre-filled a rate that expired last Tuesday, I&apos;d be giving users false numbers on their financial planning. That&apos;s worse than no tool at all.</p>
-      <p className={styles.fontWeight600}>So I killed it.</p>
+      <p><strong>So I killed it.</strong></p>
       <p>I pivoted to a single entry form where the user provides the data directly. It&apos;s a small amount of extra friction: worth it to make the app&apos;s output trustworthy.</p>
       <p>This is a decision-support tool, not an automation.</p>
       <div className={styles.wireframes}>
-        <UnifiedModal />
-        <p className={styles.figureCaption}>
-          Figure 4. The unified entry form that replaced the wizard. It requires more manual input but is more reliable and future-proof.
-        </p>
+        <FigureBlock caption="Figure 4. The unified entry form that replaced the wizard. It requires more manual input but is more reliable and future-proof.">
+          <UnifiedModal />
+        </FigureBlock>
       </div>
     </div>
   </EditorialBlock>
@@ -348,8 +207,12 @@ export const BuildSection = () => (
   <EditorialBlock id="build" kicker="04. Prototype" title="Browser as the Design Medium" rhythm="21">
     <p>I skipped Figma and went straight to code. I know, I was breaking the process. But as someone playing both designer and engineer, I was eager to get into the browser. For a solo project, iterating on a Figma file felt like an unnecessary middle step; I wanted the immediate feedback that only the actual medium provides.</p>
     <p>My process was: write down what I wanted in plain language, have AI generate the implementation fast, then shape it until it felt right. Less Figma, more conversation.</p>
-    <div className={[styles.codeBlockCard].join(' ')}>
-      <div className={styles.aiMessage}>
+
+    <FigureBlock
+      className={styles.codeBlockCard}
+      caption={<>Figure 5. Plain-language prompt describing the layout and content. <em>(Note: All figures and account balances shown are fictional.)</em></>}
+    >
+      <MockupFrame variant="terminal">
         <div className={styles.userPrompt}>
           <span className={styles.terminalPrompt}>&gt;</span>
           Build the cash flow collapsible card with this layout
@@ -366,27 +229,24 @@ MONTHLY PAYOUTS
 Deposit C · Bank                  [Due now]  ₱4,400
 ----------------------------------------------------`}
         </pre>
-      </div>
-      <p className={styles.figureCaption}>
-        Figure 5. Plain-language prompt describing the layout and content. <em>(Note: All figures and account balances shown are fictional.)</em>
-      </p>
-    </div>
+      </MockupFrame>
+    </FigureBlock>
 
     <div className={[styles.grid2Col, styles.alignStart].join(' ')}>
       <div>
-        <p className={[styles.fontWeight600, styles.marginB4].join(' ')}>The insight that came out of building fast:</p>
+        <p className={styles.buildSectionLead}>The insight that came out of building fast:</p>
         <p className={styles.textSm}>The cash flow projection needed to show two very different things in the same view: interest earned (what I budget) and principal returned (what I can move). These look like the same number in a spreadsheet. They&apos;re completely different decisions.</p>
       </div>
-      <div className={styles.mockupImage}>
+      <FigureBlock
+        className={styles.mockupImage}
+        caption={<>Figure 6. Expanded cash flow card, showing the visual hierarchy and information architecture. <em>(Note: All figures and account balances shown are fictional.)</em></>}
+      >
         <Card variant="panel">
           <img
             src={yfCashflow} alt="Cash flow card mockup"
           />
         </Card>
-        <p className={styles.figureCaption}>
-          Figure 6. Expanded cash flow card, showing the visual hierarchy and information architecture. <em>(Note: All figures and account balances shown are fictional.)</em>
-        </p>
-      </div>
+      </FigureBlock>
     </div>
     <p>The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary.</p>
 
@@ -405,7 +265,7 @@ export const CurrentStateSection = () => (
       <p>Real-use testing catches what designed scenarios miss: the edge case you only hit on a Sunday night when you&apos;re tired and the numbers still need to make sense.</p>
       <p>It&apos;s not a product. It&apos;s a hypothesis I&apos;m testing one maturity date at a time.</p>
     </div>
-    <div className={styles.marginT6}>
+    <div className={styles.statusButtonRow}>
       <Button as="a" href="https://yield-flow-lab.vercel.app/" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
         View prototype
         <ExternalLink size={14} />
@@ -416,7 +276,7 @@ export const CurrentStateSection = () => (
 
 export const TakeawaySection = () => (
   <EditorialBlock id="takeaway" kicker="06. Learnings" title="What I Took Away" rhythm="21">
-    <div className={[styles.featuredBlock, styles.text125rem].join(' ')}>
+    <div className={[styles.featuredBlock, styles.takeawayFeatured].join(' ')}>
       &quot;The Design Thinking Framework taught me to stop thinking about features and start thinking about tasks. YieldFlow isn&apos;t a calculator: it&apos;s a decision-support tool.&quot;
     </div>
     <div>
