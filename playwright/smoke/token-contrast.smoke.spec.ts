@@ -66,7 +66,7 @@ test.describe('Token contrast contracts', () => {
         window.localStorage.setItem('theme', themeValue);
       }, theme);
 
-      await page.goto('/#/', { waitUntil: 'networkidle' });
+      await page.goto('/', { waitUntil: 'networkidle' });
 
       const results = await page.evaluate((contracts: TokenContrastContract[]) => {
         const resolveCssColor = (declaration: string): string => {

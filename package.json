@@ -30,7 +30,7 @@
     "contrast:manual": "start-server-and-test \"npm run dev -- --port 5173 --strictPort\" http://localhost:5173 \"node scripts/manual-contrast-audit.mjs\"",
     "test:local": "start-server-and-test dev http://localhost:5173 cypress:e2e",
     "percy:test": "start-server-and-test 'npm run preview -- --port 5173' http://localhost:5173 'percy exec -- cypress run'",
-    "percy:baseline": "PERCY_BRANCH=master percy exec -- cypress run --config baseUrl=https://pbsabella.github.io/"
+    "percy:baseline": "PERCY_BRANCH=master percy exec -- cypress run --config baseUrl=https://pbsabella.vercel.app/"
   },
   "repository": {
     "type": "git",

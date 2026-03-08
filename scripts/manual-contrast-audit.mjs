@@ -24,7 +24,13 @@
  */
 import { chromium } from 'playwright';
 
-const ROUTES = ['/#/', '/#/labs', '/#/labs/core', '/#/labs/design-system-build-notes'];
+const ROUTES = [
+  '/',
+  '/labs',
+  '/labs/core',
+  '/labs/design-system-build-notes',
+  // '/labs/yield-flow-case-study', // TODO: Add
+];
 const THEMES = ['light', 'dark'];
 const BASE_URL = process.env.CONTRAST_BASE_URL ?? 'http://localhost:5173';
 const USE_COLOR = process.stdout.isTTY && !process.env.NO_COLOR;

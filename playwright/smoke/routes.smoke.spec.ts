@@ -12,10 +12,11 @@ type Theme = 'light' | 'dark';
 const THEMES: Theme[] = ['light', 'dark'];
 
 const ROUTES = [
-  { name: 'home', path: '/#/' },
-  { name: 'labs', path: '/#/labs' },
-  { name: 'system core', path: '/#/labs/core' },
-  { name: 'design system build notes', path: '/#/labs/design-system-build-notes' },
+  { name: 'home', path: '/' },
+  { name: 'labs', path: '/labs' },
+  { name: 'system core', path: '/labs/core' },
+  { name: 'design system build notes', path: '/labs/design-system-build-notes' },
+  // { name: 'yield-flow case study', path: '/labs/yield-flow-case-study' }, // TODO: Add
 ];
 
 const isIgnorableRequestFailure = (failureText: string | null): boolean =>
@@ -64,7 +65,9 @@ const attachRuntimeGuards = (page: Page): GuardState => {
 };
 
 const assertKickerContrast = async (page: Page, routePath: string, theme: Theme) => {
-  if (routePath !== '/#/labs/design-system-build-notes') return;
+  if (routePath !== '/labs/design-system-build-notes') return;
+
+  await page.locator('[class*="sectionKicker"]').first().waitFor({ state: 'visible' });
 
   const ratio = await page.evaluate(() => {
     const getRgb = (color: string): [number, number, number] => {

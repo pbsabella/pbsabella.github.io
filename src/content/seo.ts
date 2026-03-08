@@ -5,7 +5,7 @@ type SeoMeta = {
   imageAlt: string;
 };
 
-export const SITE_URL = 'https://pbsabella.github.io';
+export const SITE_URL = 'https://pbsabella.vercel.app';
 export const SITE_NAME = 'Paula Abella';
 const OG_IMAGE = '/og/home-hero.jpg';
 const OG_IMAGE_ALT = 'Hero view of Paula Abella portfolio with editorial dotted grid and structured interface layout.';
@@ -16,7 +16,7 @@ export const DEFAULT_SEO_META: SeoMeta = {
   image: OG_IMAGE,
   imageAlt: OG_IMAGE_ALT,
 };
-export const HOME_CANONICAL_URL = `${SITE_URL}/#/`;
+export const HOME_CANONICAL_URL = `${SITE_URL}/`;
 
 export const toAbsoluteUrl = (pathOrUrl: string): string => {
   if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {

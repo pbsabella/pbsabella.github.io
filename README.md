@@ -2,7 +2,7 @@
 
 A modern, fully-typed React portfolio showcasing **Design Systems expertise**—demonstrating component architecture, token-driven design, and scalable CSS practices.
 
-**Live:** https://pbsabella.github.io
+**Live:** https://pbsabella.vercel.app
 
 ## 🎨 Design Systems Focus
 
@@ -13,11 +13,12 @@ This portfolio is a **Design System in practice**:
 - **Theme Support:** Full dark mode via CSS variable overrides
 - **Accessibility First:** WCAG 2.1 AA compliance, keyboard navigation, semantic HTML
 
-**View the Design System:** [SystemCore](https://pbsabella.github.io/#/labs/core)
+**View the Design System:** [SystemCore](https://pbsabella.vercel.app/labs/core)
 
 ## Status
 
-[![Build, Test, and Deploy](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml)
+[![Build, Test, and Deploy GH](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml)
+[![Deploy Vercel](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/deploy-vercel.yml)
 [![CodeQL](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml/badge.svg)](https://github.com/pbsabella/pbsabella.github.io/actions/workflows/codeql.yml)
 
 ## Architecture

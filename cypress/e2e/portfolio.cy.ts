@@ -18,7 +18,7 @@ describe('Portfolio E2E Tests', () => {
 
     describe('SystemCore', () => {
       it('should capture system core at multiple viewports', () => {
-        cy.visit('/#/labs/core');
+        cy.visit('/labs/core');
 
         cy.findByRole('heading', { level: 1, name: /system core/i }).should('be.visible');
         cy.percySnapshot('System Core', { widths });
@@ -27,7 +27,7 @@ describe('Portfolio E2E Tests', () => {
 
     describe('BuildNotes', () => {
       it('should capture build notes at multiple viewports', () => {
-        cy.visit('/#/labs/design-system-build-notes');
+        cy.visit('/labs/design-system-build-notes');
 
         cy.findByRole('heading', { level: 1, name: /the architecture/i }).should('be.visible');
         cy.percySnapshot('Design System Build Notes', { widths });
@@ -59,7 +59,7 @@ describe('Portfolio E2E Tests', () => {
       });
 
       it('should capture system core in dark mode', () => {
-        cy.visit('#/labs/core');
+        cy.visit('/labs/core');
         enableDarkMode();
 
         cy.findByRole('heading', { level: 1, name: /system core/i }).should('be.visible');
@@ -67,7 +67,7 @@ describe('Portfolio E2E Tests', () => {
       });
 
       it('should capture build notes in dark mode', () => {
-        cy.visit('/#/labs/design-system-build-notes');
+        cy.visit('/labs/design-system-build-notes');
         enableDarkMode();
 
         cy.findByRole('heading', { level: 1, name: /the architecture/i }).should('be.visible');
@@ -120,7 +120,7 @@ describe('Portfolio E2E Tests', () => {
       cy.findByRole('navigation')
         .findByText(/labs/i)
         .click();
-      cy.url().should('include', '#/labs');
+      cy.url().should('include', '/labs');
     });
   });
 });

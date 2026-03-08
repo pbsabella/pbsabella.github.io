@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/((?!api/|_next/|_static/|[\\w-]+\\.\\w+).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "ignoreCommand": "[ \"$VERCEL_GIT_COMMIT_REF\" = \"master\" ]"
+}
