@@ -5,8 +5,8 @@ Personal portfolio and design system lab. The site dogfoods its own design syste
 ## Stack
 - React 19 + TypeScript (strict) + Vite
 - CSS Modules with CSS custom properties (no utility-first CSS)
-- React Router v7 via **HashRouter** (GitHub Pages has no server-side routing)
-- Hosted: GitHub Pages at `https://pbsabella.github.io/#/<route>`
+- React Router v7 for client-side routing
+- Hosted on Vercel at `https://pbsabella.vercel.app`
 
 ## Token System (`src/styles/tokens.css`)
 Three-tier CSS variable hierarchy:

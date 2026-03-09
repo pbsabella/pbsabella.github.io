@@ -84,23 +84,6 @@
   z-index: 1;
 }
 
-.statusBadge {
-  padding: 1px 4px;
-  border-radius: 2px;
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.statusActive {
-  color: var(--sem-color-text-success);
-  background-color: var(--sem-color-bg-success-subtle);
-}
-
-.statusMatured {
-  color: var(--sem-color-text-error);
-  background-color: var(--sem-color-bg-error-subtle);
-}
-
 .spreadsheetRowActive {
   background-color: var(--sem-color-bg-success-subtle);
 }

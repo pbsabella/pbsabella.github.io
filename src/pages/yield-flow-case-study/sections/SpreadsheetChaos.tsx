@@ -12,7 +12,7 @@ const SpreadsheetChaos = () => (
       <table className={styles.spreadsheetTable}>
         <thead>
           <tr>
-            <th className={styles.rowHeader}></th>
+            <th className={styles.rowHeader}><span className="srOnly">Row Index</span></th>
             <th className={styles.colHeader}>A</th>
             <th className={styles.colHeader}>B</th>
             <th className={styles.colHeader}>C</th>
@@ -25,7 +25,7 @@ const SpreadsheetChaos = () => (
           </tr>
           <tr className={styles.spreadsheetRowHeader}>
             <td className={styles.rowHeader}>1</td>
-            <td>Name</td>
+            <td tabIndex={0}>Name</td>
             <td>Principal</td>
             <td>Interest</td>
             <td>Start</td>
@@ -47,7 +47,7 @@ const SpreadsheetChaos = () => (
             <td>Apr 12, 2025</td>
             <td>₱4,062.50</td>
             <td>₱3,250.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusActive}`}>Active</span></td>
+            <td>Active</td>
           </tr>
           <tr className={styles.spreadsheetRowMatured}>
             <td className={styles.rowHeader}>3</td>
@@ -59,7 +59,7 @@ const SpreadsheetChaos = () => (
             <td>Jan 04, 2025</td>
             <td>₱862.50</td>
             <td>₱690.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusMatured}`}>Matured</span></td>
+            <td>Matured</td>
           </tr>
           <tr className={styles.spreadsheetRowPending}>
             <td className={styles.rowHeader}>4</td>
@@ -71,7 +71,7 @@ const SpreadsheetChaos = () => (
             <td>Jul 31, 2025</td>
             <td>₱17,500.00</td>
             <td>₱14,000.00</td>
-            <td><span className={styles.statusBadge}>Pending</span></td>
+            <td>Pending</td>
           </tr>
           <tr>
             <td className={styles.rowHeader}>5</td>
@@ -83,7 +83,7 @@ const SpreadsheetChaos = () => (
             <td>Mar 17, 2025</td>
             <td>₱187.50</td>
             <td>₱150.00</td>
-            <td><span className={`${styles.statusBadge} ${styles.statusActive}`}>Active</span></td>
+            <td>Active</td>
           </tr>
           {/* Empty rows to simulate spreadsheet */}
           {[6, 7, 8].map(i => (
@@ -100,7 +100,7 @@ const SpreadsheetChaos = () => (
       <table className={[styles.spreadsheetTable, styles.spreadsheetSmallTable].join(' ')}>
         <thead>
           <tr>
-            <th className={styles.rowHeader}></th>
+            <th className={styles.rowHeader}><span className="srOnly">Row Index</span></th>
             <th className={styles.colHeader}>A</th>
             <th className={styles.colHeader}>B</th>
           </tr>

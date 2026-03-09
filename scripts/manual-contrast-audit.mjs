@@ -29,7 +29,7 @@ const ROUTES = [
   '/labs',
   '/labs/core',
   '/labs/design-system-build-notes',
-  // '/labs/yield-flow-case-study', // TODO: Add
+  '/labs/yield-flow-case-study',
 ];
 const THEMES = ['light', 'dark'];
 const BASE_URL = process.env.CONTRAST_BASE_URL ?? 'http://localhost:5173';

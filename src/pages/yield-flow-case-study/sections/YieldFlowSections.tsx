@@ -239,6 +239,7 @@ Meridian Savings                                $31
       <div>
         <p className={styles.buildSectionLead}>The insight that came out of building fast:</p>
         <p className={styles.textSm}>The cash flow projection needed to show two very different things in the same view: interest earned (what I budget) and principal returned (what I can move). These look like the same number in a spreadsheet. They&apos;re completely different decisions.</p>
+        <p>The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary.</p>
       </div>
       <FigureBlock
         caption={<>Figure 6. Expanded cash flow card, showing the visual hierarchy and information architecture. <em>(Note: All figures and account balances shown are fictional.)</em></>}
@@ -246,7 +247,6 @@ Meridian Savings                                $31
         <CashflowMockup />
       </FigureBlock>
     </div>
-    <p>The hierarchy makes the budgeting question and the rotation question answerable at a glance. I solved it by nesting the principal return as subdued subtext under each maturity payout: visually present but clearly secondary.</p>
 
     <div className={styles.asideNote}>
       <AsideNote>
