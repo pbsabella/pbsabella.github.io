@@ -25,8 +25,8 @@ export const WizardInteractive = () => {
             <span className={`${styles.dot} ${step === 2 ? styles.dotActive : ''}`} />
           </div>
         </div>
-        <button type="button" className={styles.button}>
-          <X aria-label="Cancel" size={12} />
+        <button type="button" className={styles.button} aria-label="Cancel" >
+          <X aria-hidden="true" size={12} />
         </button>
       </header>
 
@@ -100,14 +100,21 @@ export const UnifiedModal = () => {
     <div className={`${styles.modalContainer} ${styles.modalContainerLg}`}>
       <header className={styles.header}>
         <h2 className={styles.headerTitle}>Add investment modal</h2>
-        <button type="button" className={styles.button}>
-          <X aria-label="Cancel" size={12} />
+        <button type="button" className={styles.button} aria-label="Cancel">
+          <X aria-hidden="true" size={12} />
         </button>
       </header>
 
       <div className={styles.mainContent}>
         <div className={styles.formArea}>
-          <div className={styles.inputPlaceholder}>Bank name</div>
+          <div className={styles.inputPlaceholder}
+            role="textbox"
+            aria-label="Bank name"
+            tabIndex={0}
+            aria-readonly="true"
+          >
+            Bank name
+          </div>
           <div>
             <p className={styles.label}>Standard products</p>
             <div className={styles.stack}>

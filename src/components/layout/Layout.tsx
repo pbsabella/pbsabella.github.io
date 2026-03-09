@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.appWrapper}>
       <div ref={shellRef}>
-        <Header toggleSideNav={toggleSideNav} />
+        <Header toggleSideNav={toggleSideNav} isSideNavOpen={isSideNavOpen} />
 
         <main
           id="page-top"

@@ -1,0 +1,59 @@
+.frame {
+  overflow: hidden;
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
+  border-radius: var(--pr-radius-md);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--pr-spacing-3) var(--pr-spacing-4);
+
+  /* intentional: fixed dark chrome aesthetic, not theme-responsive */
+  background-color: rgb(30 33 40);
+  gap: var(--pr-spacing-3);
+}
+
+.headerTerminal {
+  /* intentional: darker shade for terminal variant */
+  background-color: rgb(23 25 30);
+}
+
+.dots {
+  display: inline-flex;
+  gap: var(--pr-spacing-1);
+}
+
+.dot {
+  width: var(--pr-size-8);
+  height: var(--pr-size-8);
+  border-radius: var(--pr-radius-pill);
+}
+
+.dotError {
+  background-color: var(--sem-color-bg-error);
+}
+
+.dotWarning {
+  background-color: var(--sem-color-bg-warning);
+}
+
+.dotSuccess {
+  background-color: var(--sem-color-bg-success);
+}
+
+.body {
+  padding: var(--pr-spacing-6);
+  display: grid;
+  gap: var(--pr-spacing-4);
+  color: var(--sem-color-text-primary);
+  background-color: var(--sem-color-bg-base);
+}
+
+.bodyTerminal {
+  /* intentional: fixed dark terminal aesthetic, not theme-responsive */
+  background-color: rgb(23 25 30);
+  padding: var(--pr-spacing-4);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-strong);
+}

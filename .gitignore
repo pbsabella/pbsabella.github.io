@@ -21,3 +21,6 @@ test-results/
 
 # Husky
 .husky/_
+
+# Claude
+.claude/settings.local.json

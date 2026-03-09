@@ -6,6 +6,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-inline: auto;
   height: 300px;
   max-width: 600px;
 }
@@ -21,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-2);
+  gap: var(--pr-spacing-2);
   position: relative;
   border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
 }
@@ -34,7 +35,7 @@
 }
 
 .previewLabel {
-  font-size: var(--pr-text-100);
+  font-size: var(--sem-text-kicker);
   color: var(--sem-color-text-muted);
   margin: 0;
   font-weight: var(--pr-weight-600);

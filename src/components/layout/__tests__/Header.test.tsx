@@ -23,10 +23,16 @@ vi.mock('@components/ui/ThemeToggle/ThemeToggle', () => ({
   default: ({ id }: { id: string }) => <div data-testid={`theme-toggle-${id}`} />,
 }));
 
-const renderHeader = (props = { toggleSideNav: vi.fn() }, initialEntries = ['/']) => {
+const renderHeader = (
+  {
+    toggleSideNav = vi.fn(),
+    isSideNavOpen = false,
+  } = {},
+  initialEntries = ['/']
+) => {
   return render(
     <MemoryRouter initialEntries={initialEntries}>
-      <Header {...props} />
+      <Header toggleSideNav={toggleSideNav} isSideNavOpen={isSideNavOpen} />
     </MemoryRouter>
   );
 };

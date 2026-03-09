@@ -61,6 +61,12 @@
   text-transform: lowercase;
 }
 
+.sideMenuLinkParent {
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
+}
+
 .overlay {
   background-color: var(--sem-color-bg-overlay);
   inset: 0;

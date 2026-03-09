@@ -16,7 +16,7 @@ const ROUTES = [
   { name: 'labs', path: '/labs' },
   { name: 'system core', path: '/labs/core' },
   { name: 'design system build notes', path: '/labs/design-system-build-notes' },
-  // { name: 'yield-flow case study', path: '/labs/yield-flow-case-study' }, // TODO: Add
+  { name: 'yield-flow case study', path: '/labs/yield-flow-case-study' },
 ];
 
 const isIgnorableRequestFailure = (failureText: string | null): boolean =>

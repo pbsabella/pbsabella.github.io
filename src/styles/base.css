@@ -57,7 +57,7 @@ a {
   outline: none;
 }
 
-:where(a, button):focus-visible {
+:where(a, button, [tabindex="0"]):focus-visible {
   outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
   outline-offset: var(--sem-focus-outline-offset);
   border-radius: var(--sem-focus-outline-radius);
@@ -122,13 +122,28 @@ h3,
 
 h4,
 .h4 {
-  font-size: var(--pr-text-400); /* TODO: Re-calibrate tokens */
+  font-size: var(--sem-text-feature);
   line-height: var(--pr-leading-150);
 }
 
 code {
   width: fit-content;
   max-width: 100%;
+}
+
+/* ---------------------------------
+   Utilities
+---------------------------------- */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* ---------------------------------
