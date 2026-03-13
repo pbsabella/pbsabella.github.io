@@ -1,11 +1,12 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Tag.module.css';
 
-export type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
+export type TagVariant = 'default' | 'primary' | 'success' | 'warning' | 'info' | 'error';
 export type TagSize = 'sm' | 'md' | 'lg';
 
 const variantMap: Record<TagVariant, string> = {
   default: styles.tagDefault,
+  primary: styles.tagPrimary,
   success: styles.tagSuccess,
   warning: styles.tagWarning,
   info: styles.tagInfo,

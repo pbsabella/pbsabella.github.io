@@ -12,9 +12,8 @@
   height: 100%;
   background:
     linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 8%, rgb(0 0 0 / 0%) 92%, transparent 100%),
-    radial-gradient(circle at 5% 0%, var(--sem-color-accent-green), transparent 46%),
-    radial-gradient(circle at 85% 12%, var(--sem-color-accent-cyan), transparent 42%),
-    radial-gradient(circle at 70% 85%, var(--sem-color-accent-gray), transparent 48%);
+    radial-gradient(circle at 5% 0%, var(--sem-color-bg-tint-1), transparent 46%),
+    radial-gradient(circle at 70% 85%, var(--sem-color-bg-tint-2), transparent 48%);
   opacity: 0.3;
   pointer-events: none;
   z-index: 0;
@@ -154,7 +153,7 @@
   width: var(--pr-size-20);
   height: var(--pr-size-20);
   display: inline-flex;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .layerTitle {
@@ -198,12 +197,26 @@
   margin-top: var(--pr-spacing-4);
 }
 
-.iconSuccess {
+.inlineLink {
   color: var(--sem-color-text-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  display: inline;
 }
 
 .iconAccent {
-  color: var(--sem-color-accent-orange);
+  color: var(--sem-color-accent-bold);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-kicker);
+  color: var(--sem-color-text-base);
+  background: var(--sem-color-bg-elevated);
+  padding: var(--pr-spacing-1) var(--pr-spacing-2);
+  border-radius: var(--sem-radius-sm);
+  display: inline-block;
+  line-height: var(--pr-leading-100);
 }
 
 .demo {
@@ -272,13 +285,13 @@
   flex-wrap: wrap;
   gap: var(--pr-spacing-1);
   font-size: var(--sem-text-caption);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .demoPipelineValue {
   border: var(--pr-border-width-1) solid var(--sem-color-border-accent);
   background-color: color-mix(in srgb, var(--sem-color-bg-accent) 10%, transparent);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   transition: border-color var(--pr-duration-fast) var(--pr-easing-out),
     background-color var(--pr-duration-fast) var(--pr-easing-out),
     color var(--pr-duration-fast) var(--pr-easing-out);

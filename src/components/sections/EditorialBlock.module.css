@@ -6,7 +6,7 @@
   margin-bottom: var(--pr-spacing-4);
   font-family: var(--font-display);
   font-style: italic;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .sectionKicker {

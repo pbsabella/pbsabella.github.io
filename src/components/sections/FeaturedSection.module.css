@@ -54,7 +54,7 @@
   font-weight: var(--pr-weight-500);
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-12);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   line-height: var(--pr-leading-110);
 }
 

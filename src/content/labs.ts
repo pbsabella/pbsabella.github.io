@@ -21,11 +21,19 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'Design System Build Notes',
+    title: 'Theming Build Notes - Part 2',
+    href: ROUTES.BRAND_THEMING,
+    description:
+      'Continuation of the design system build notes. Adds brand anchors, white-label support, and instant re-skinning via CSS layers.',
+    tags: ['Build Notes', 'Token Architecture', 'White-label', 'Cascade Layers'],
+    interactive: true,
+  },
+  {
+    title: 'Design System Build Notes - Part 1',
     href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
     description:
-      'Exploring component architecture and tiered token systems in React. Shows how design tokens scale from documentation to production.',
-    tags: ['Build Notes', 'Design System', 'React'],
+      'The original system build notes: component architecture, semantic tokens, and light/dark theming.',
+    tags: ['Build Notes', 'Token Architecture', 'Light/Dark', 'React'],
     interactive: true,
   },
   {
@@ -35,13 +43,5 @@ export const LABS_PROJECTS: LabsProject[] = [
       'Token reference, primitives, and component foundations. Browse the living docs that power the build notes and the rest of the portfolio.',
     tags: ['Documentation', 'Tokens', 'Foundations'],
     interactive: true,
-  },
-  {
-    title: 'Theming Architectures',
-    description:
-      'Currently untangling multi-layered theming. How do primitives, semantic tokens, and component overrides hold up when you add light/dark modes and brand variants?',
-    tags: [],
-    variant: 'flat',
-    tone: 'dashed',
   },
 ];

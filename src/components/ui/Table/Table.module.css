@@ -3,7 +3,7 @@
   border-collapse: collapse;
   border-spacing: 0;
   font-size: var(--sem-text-caption);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .tableCaption {
@@ -11,7 +11,7 @@
   text-align: left;
   padding: var(--pr-spacing-2) 0;
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .tableHeadCell {
@@ -62,7 +62,7 @@
   display: grid;
   gap: var(--pr-spacing-2);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  border-radius: var(--pr-radius-md);
+  border-radius: var(--sem-radius-md);
   padding: var(--pr-spacing-3);
 }
 

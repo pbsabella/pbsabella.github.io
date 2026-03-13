@@ -1,5 +1,5 @@
 .tag {
-  --comp-tag-radius: var(--pr-radius-pill);
+  --comp-tag-radius: var(--sem-radius-pill);
 
   display: inline-flex;
   align-items: center;
@@ -9,14 +9,20 @@
   border-radius: var(--comp-tag-radius);
   font-size: var(--sem-text-caption);
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   font-weight: var(--pr-weight-600);
 }
 
 /* --- Variants --- */
+.tagPrimary {
+  background-color: transparent;
+  color: var(--sem-color-text-accent);
+  border-color: var(--sem-color-border-accent);
+}
+
 .tagDefault {
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   border-color: var(--sem-color-border-base);
 }
 
@@ -28,7 +34,7 @@
 
 .tagWarning {
   background-color: transparent;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   border-color: var(--sem-color-border-warning);
 }
 

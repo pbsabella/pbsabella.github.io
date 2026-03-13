@@ -27,14 +27,14 @@
 }
 
 .breadcrumbsLink {
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   text-decoration: none;
   white-space: normal;
   overflow-wrap: anywhere;
 }
 
 .breadcrumbsCurrent {
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   font-weight: var(--pr-weight-600);
   letter-spacing: var(--pr-tracking-20);
   white-space: normal;
@@ -42,7 +42,7 @@
 }
 
 .breadcrumbsText {
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   white-space: normal;
   overflow-wrap: anywhere;
 }

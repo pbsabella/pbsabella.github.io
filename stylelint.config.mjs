@@ -3,7 +3,6 @@ const PRIMITIVE_USAGE_WHITELIST = [
   'spacing',
   'size',
   'border-width',
-  'radius',
   'leading',
   'tracking',
   'duration',
@@ -45,7 +44,7 @@ export default {
   },
   overrides: [
     {
-      files: ['src/styles/tokens.css'],
+      files: ['src/styles/tokens.css', 'src/styles/brands/*.css'],
       rules: {
         'color-no-hex': null,
         'declaration-property-value-disallowed-list': null,

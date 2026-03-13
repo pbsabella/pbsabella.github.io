@@ -1,12 +1,12 @@
 .alert {
-  --comp-alert-radius: var(--pr-radius-base);
+  --comp-alert-radius: var(--sem-radius-base);
   --comp-alert-padding: var(--pr-spacing-4);
 
   border-radius: var(--comp-alert-radius);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   padding: var(--comp-alert-padding);
   background: var(--sem-color-bg-subtle);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .alertTitle {
@@ -49,7 +49,7 @@
   background: var(--sem-color-bg-warning-subtle);
 
   .alertIcon {
-    color: var(--sem-color-text-primary);
+    color: var(--sem-color-text-base);
   }
 }
 

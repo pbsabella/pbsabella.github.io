@@ -41,15 +41,16 @@ const SystemCore = () => {
   return (
     <section className={styles.pageWrap}>
       <Container className={styles.page}>
+        <Breadcrumbs
+          items={SYSTEM_CORE_META.breadcrumbs}
+        />
+        <h1 className={styles.pageTitle}>{SYSTEM_CORE_META.title}</h1>
+        <p className={styles.pageDesc}>{SYSTEM_CORE_META.description}</p>
+
+        <hr className={styles.sectionDivider} />
+
         <div className={styles.pageLayout}>
           <div>
-            <Breadcrumbs
-              items={SYSTEM_CORE_META.breadcrumbs}
-            />
-            <h1 className={styles.pageTitle}>{SYSTEM_CORE_META.title}</h1>
-            <p className={styles.pageDesc}>{SYSTEM_CORE_META.description}</p>
-
-            <hr className={styles.sectionDivider} />
 
             {sections.map((section) => (
               <Fragment key={section.key}>

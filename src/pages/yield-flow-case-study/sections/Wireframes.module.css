@@ -1,6 +1,6 @@
 .modalContainer {
   background-color: var(--sem-color-bg-base);
-  border-radius: var(--pr-radius-md);
+  border-radius: var(--sem-radius-md);
   box-shadow: var(--sem-elevation-medium);
   overflow: hidden;
   width: 100%;
@@ -90,7 +90,7 @@
 /* UI Elements */
 .inputPlaceholder {
   background-color: var(--sem-color-bg-subtle);
-  border-radius: var(--pr-radius-md);
+  border-radius: var(--sem-radius-md);
   align-items: center;
   display: flex;
   min-height: var(--pr-size-28);
@@ -131,7 +131,7 @@
   background-color: var(--sem-color-bg-base);
   border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   padding: var(--pr-spacing-2);
-  border-radius: var(--pr-radius-lg);
+  border-radius: var(--sem-radius-lg);
   cursor: pointer;
   transition: all var(--pr-duration-fast) var(--pr-easing-out);
   position: relative;
@@ -149,7 +149,7 @@
 .radioCircle {
   width: var(--pr-spacing-3);
   height: var(--pr-spacing-3);
-  border-radius: var(--pr-radius-pill);
+  border-radius: var(--sem-radius-pill);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
   margin-top: var(--pr-spacing-1);
   flex-shrink: 0;
@@ -159,10 +159,10 @@
   display: flex;
   font-size: var(--sem-text-kicker);
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   background-color: var(--sem-color-bg-elevated);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
-  border-radius: var(--pr-radius-md);
+  border-radius: var(--sem-radius-md);
   border: none;
   cursor: pointer;
   transition: all var(--pr-duration-fast) var(--pr-easing-out);
@@ -179,7 +179,7 @@
 .label {
   font-size: var(--sem-text-kicker);
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   margin-bottom: var(--pr-spacing-1);
   line-height: var(--pr-leading-100);
 }
@@ -202,14 +202,14 @@
 .dot {
   flex: 1;
   height: 2px;
-  border-radius: var(--pr-radius-pill);
+  border-radius: var(--sem-radius-pill);
   background-color: var(--sem-color-border-base);
   transition: background-color var(--pr-duration-fast) var(--pr-easing-out),
     transform var(--pr-duration-fast) var(--pr-easing-out);
 }
 
 .dotActive {
-  background-color: var(--sem-color-text-accent);
+  background-color: var(--sem-color-border-accent);
 }
 
 .buttonSuccess {

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
+import { BrandProvider } from '@/context/BrandContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Layout from '@/components/layout/Layout';
 
@@ -21,11 +22,13 @@ describe('Layout', () => {
   it('locks background content when SideNav is open', () => {
     const { container } = render(
       <ThemeProvider>
-        <MemoryRouter>
-          <Layout>
-            <div>Page content</div>
-          </Layout>
-        </MemoryRouter>
+        <BrandProvider>
+          <MemoryRouter>
+            <Layout>
+              <div>Page content</div>
+            </Layout>
+          </MemoryRouter>
+        </BrandProvider>
       </ThemeProvider>
     );
 

@@ -21,7 +21,7 @@
     linear-gradient(
       to bottom,
       var(--sem-color-bg-subtle),
-      var(--sem-color-accent-gray)
+      var(--sem-color-bg-tint-2)
     );
 }
 
@@ -78,7 +78,7 @@
 .heroRule {
   width: var(--pr-size-80);
   height: var(--pr-border-width-1);
-  background-color: var(--sem-color-divider-subtle);
+  background-color: var(--sem-color-divider-base);
 }
 
 .heroMeta {
@@ -93,7 +93,7 @@
   font-family: var(--font-display);
   font-size: clamp(calc(var(--sem-text-heading-lg) * 1.2), 7.8vw, calc(var(--sem-text-heading-lg) * 1.95));
   line-height: var(--pr-leading-110);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   max-width: clamp(16ch, 72vw, 24ch);
   margin-bottom: var(--pr-spacing-3);
 }
@@ -101,7 +101,7 @@
 .heroLead {
   margin: 0;
   max-width: clamp(34ch, 62vw, 52ch);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   line-height: var(--pr-leading-180);
   font-size: var(--sem-text-lede);
 }

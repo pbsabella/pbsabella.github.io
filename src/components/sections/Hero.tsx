@@ -22,7 +22,7 @@ const Hero = () => {
         <HeroCanvas />
         <Container className={styles.heroInner} variant="wide">
           <div className={styles.heroBadgeRow}>
-            <Tag size="md" variant="success">
+            <Tag size="md" variant="primary">
               Personal Portfolio
             </Tag>
             <span className={styles.heroRule} aria-hidden="true" />

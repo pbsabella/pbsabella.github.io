@@ -3,7 +3,7 @@ import { Menu, MoveLeft } from 'lucide-react';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { useSectionNav } from '@hooks/useSectionNav';
 import { useActiveSection } from '@hooks/useActiveSection';
-import ThemeToggle from '@components/ui/ThemeToggle/ThemeToggle';
+import BrandThemeToggle from '@components/ui/BrandThemeToggle/BrandThemeToggle';
 import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
 import styles from './Header.module.css';
 import Container from '@/components/layout/Container';
@@ -88,7 +88,7 @@ const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
 
           <ul className={`${styles.navList} ${styles.hideOnMedium}`}>
             <li className={`${styles.navItem}`}>
-              <ThemeToggle id="theme-toggle-mobile" />
+              <BrandThemeToggle id="theme-toggle-mobile" />
             </li>
 
             <li className={`${styles.navItem}`}>
@@ -118,7 +118,7 @@ const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
               </li>
             ))}
             <li className={styles.navItem}>
-              <ThemeToggle id="theme-toggle" />
+              <BrandThemeToggle id="theme-toggle" />
             </li>
           </ul>
         </nav>

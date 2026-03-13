@@ -35,6 +35,36 @@ export const BUILD_NOTES_META_PAGE = {
     'Building a multi-tiered token architecture and proving it in a real portfolio UI.',
 };
 
+export const BRAND_THEMING_META = {
+  title: 'Brand Theming Playground',
+  description:
+    'An interactive demonstration of multi-brand design token architecture. Switch between four brand presets and watch every component re-skin instantly with zero component code changes.',
+  breadcrumbs: [
+    { label: 'Home', to: ROUTES.HOME },
+    { label: 'Labs', to: ROUTES.LABS },
+    { label: 'Brand Theming' },
+  ],
+};
+
+export const BRAND_THEMING_META_PAGE = {
+  breadcrumbs: [
+    { label: 'Home', to: ROUTES.HOME },
+    { label: 'Labs', to: ROUTES.LABS },
+    { label: 'Brand Theming' },
+  ],
+  heroBadge: 'CSS Architecture',
+  heroKicker: 'Build Notes 02',
+  heroTitle: 'Brand Theming:',
+  heroTitleAccent: 'The Logic of Identity',
+  heroSubtitle:
+    'A four-tier brand system where identity is injected once and felt everywhere.',
+  heroStats: [
+    { label: 'Project', value: 'Personal' },
+    { label: 'Stack', value: 'React, CSS Modules, TypeScript' },
+    { label: 'Focus', value: 'Branding, @layers, oklch color system' },
+  ],
+};
+
 export const YIELD_FLOW_META_PAGE = {
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },

@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 0;
   font-family: var(--font-body);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .header {
@@ -12,7 +12,7 @@
   justify-content: space-between;
   padding: var(--pr-spacing-2) var(--pr-spacing-4);
   border-bottom: 1px solid var(--sem-color-border-subtle);
-  background-color: var(--sem-color-accent-gray);
+  background-color: var(--sem-color-bg-tint-2);
 }
 
 .headerLeft {
@@ -25,7 +25,7 @@
 .month {
   font-size: var(--sem-text-caption);
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .headerRight {
@@ -41,7 +41,7 @@
 }
 
 .chevron {
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   flex-shrink: 0;
   transform: rotate(180deg);
 }
@@ -90,7 +90,7 @@
 
 .name {
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .principal {
@@ -109,5 +109,5 @@
 .amount {
   font-size: var(--sem-text-caption);
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }

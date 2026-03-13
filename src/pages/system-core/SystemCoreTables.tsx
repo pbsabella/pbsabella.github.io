@@ -18,7 +18,7 @@ export const TokenTable = ({ tokens, showValue = false }: { tokens: TokenRow[]; 
         style={{ backgroundColor: `var(${token.token})` }}
       />,
       token.name,
-      <code key={`${token.token}-token`}>{token.token}</code>,
+      <code className={styles.code} key={`${token.token}-token`}>{token.token}</code>,
     ];
 
     if (!showValue) {
@@ -26,7 +26,7 @@ export const TokenTable = ({ tokens, showValue = false }: { tokens: TokenRow[]; 
     }
 
     const resolvedValue = computedStyles?.getPropertyValue(token.token).trim();
-    return [...baseCells, <code key={`${token.token}-value`}>{resolvedValue || '—'}</code>];
+    return [...baseCells, <code className={styles.code} key={`${token.token}-value`}>{resolvedValue || '—'}</code>];
   });
 
   return (
@@ -64,7 +64,7 @@ export const SpacingTable = () => (
       ]}
       rows={SPACING_SCALE.map((item) => [
         <div key={`${item.token}-preview`} className={styles.tableBar} style={{ width: item.value }} />,
-        <code key={`${item.token}-token`}>{item.token}</code>,
+        <code className={styles.code} key={`${item.token}-token`}>{item.token}</code>,
         item.value,
       ])}
     />
@@ -81,7 +81,7 @@ export const LayoutConstraintsTable = () => (
         { label: 'Usage' },
       ]}
       rows={LAYOUT_CONSTRAINTS.map((item) => [
-        <code key={`${item.token}-token`}>{item.token}</code>,
+        <code className={styles.code} key={`${item.token}-token`}>{item.token}</code>,
         item.value,
         item.use,
       ])}
@@ -104,8 +104,8 @@ export const TypeScaleTable = () => (
           <Element key={`${type.token}-sample`} style={{ fontSize: `var(${type.token})` }}>
             {type.text || `Heading Level ${idx + 1}`}
           </Element>,
-          <code key={`${type.token}-token`}>{type.token}</code>,
-          <code key={`${type.token}-leading`}>{type.leading}</code>,
+          <code className={styles.code} key={`${type.token}-token`}>{type.token}</code>,
+          <code className={styles.code} key={`${type.token}-leading`}>{type.leading}</code>,
         ];
       })}
     />
@@ -124,7 +124,7 @@ export const FontWeightTable = () => (
         <span key={`${weight.token}-label`} style={{ fontWeight: weight.weight }}>
           {weight.label} ({weight.weight})
         </span>,
-        <code key={`${weight.token}-token`}>{weight.token}</code>,
+        <code className={styles.code} key={`${weight.token}-token`}>{weight.token}</code>,
       ])}
     />
   </div>

@@ -9,17 +9,17 @@
 .tableBar {
   height: var(--pr-size-8);
   background: var(--sem-color-border-accent);
-  border-radius: var(--pr-radius-pill);
+  border-radius: var(--sem-radius-pill);
   min-width: var(--pr-size-28);
 }
 
-code {
+.code {
   font-family: var(--font-mono);
   font-size: var(--sem-text-kicker);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   background: var(--sem-color-bg-elevated);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
-  border-radius: var(--pr-radius-sm);
+  border-radius: var(--sem-radius-sm);
   display: inline-block;
   line-height: var(--pr-leading-100);
 }
@@ -27,7 +27,7 @@ code {
 .tableSwatch {
   width: var(--pr-size-28);
   height: var(--pr-size-28);
-  border-radius: var(--pr-radius-sm);
+  border-radius: var(--sem-radius-sm);
   border: var(--pr-border-width-1) solid var(--sem-color-border-base);
 }
 

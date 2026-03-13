@@ -47,10 +47,6 @@
   align-items: start;
 }
 
-.iconAccent {
-  color: var(--sem-color-accent-orange);
-}
-
 /* --- FeaturedBlock (TldrSection, ProblemSection, TakeawaySection) --------- */
 
 .featuredBlock {
@@ -68,7 +64,7 @@
   font-weight: var(--pr-weight-400);
   font-style: italic;
   line-height: var(--pr-leading-150);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   margin: 0;
   max-width: var(--sem-layout-prose);
 }
@@ -133,7 +129,7 @@
 }
 
 .terminalPrompt {
-  color: var(--sem-color-accent-orange);
+  color: var(--sem-color-accent-bold);
   margin-right: var(--pr-spacing-2);
 }
 
