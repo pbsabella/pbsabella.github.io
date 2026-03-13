@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     // period: 'May 2021 - Jan 2026',
     position: 'Senior Frontend Engineer',
     description: [
-      'Governed the technical roadmap for reusable interaction patterns and themed components used across the entire engineering organization. Focused on scaling accessibility through WCAG 2.1 AA standards and creating cohesive UI layers that handle complex platform states.',
+      'Owned the Design System roadmap and lifecycle, driving technical direction for reusable patterns, themed components, and token architecture used across the engineering organization. Scaled platform accessibility to WCAG 2.1 AA through systematic audits and component-level implementation,',
     ],
     tags: [
       'Vue.js',
@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     // period: 'May 2021 - Jan 2026',
     position: 'Senior Frontend Engineer / Feature Lead',
     description: [
-      'Led the frontend delivery of a centralized messaging system, acting as the technical bridge between product requirements and scalable UI implementation. Leveraged the design system to ensure seamless user interaction and visual consistency across the platform.',
+      'Architected and built the core frontend infrastructure for a centralized notification system, managing integration across the platform and establishing the foundation for scalable UI implementation.',
     ],
     tags: ['Microfrontend Architecture', 'Vue.js', 'TypeScript', 'GraphQL', 'Accessibility (WCAG)', 'Performance Optimization'],
     mediaPreset: 'notifications',
