@@ -15,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--sem-color-bg-base);
+  background-color: var(--sem-color-bg-canvas);
   color: var(--sem-color-text-base);
   font-family: var(--font-body);
   font-size: var(--sem-text-body);
@@ -72,7 +72,7 @@ img {
 
 hr {
   border: 0;
-  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-base);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-base);
   margin: var(--pr-spacing-11) 0 var(--pr-spacing-16);
 }
 

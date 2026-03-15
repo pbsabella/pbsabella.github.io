@@ -31,7 +31,7 @@ const TOKEN_CONTRACTS: TokenContrastContract[] = [
   },
   {
     id: 'kicker text on base',
-    foregroundToken: '--sem-color-text-accent',
+    foregroundToken: '--sem-color-accent-strong',
     backgroundToken: '--sem-color-bg-base',
     fontSizePx: 12,
     fontWeight: 500,
@@ -97,14 +97,14 @@ test.describe('Token contrast contracts', () => {
           const ll = l_ * l_ * l_;
           const mm = m_ * m_ * m_;
           const ss = s_ * s_ * s_;
-          const r  =  4.0767416621 * ll - 3.3077115913 * mm + 0.2309699292 * ss;
-          const g  = -1.2684380046 * ll + 2.6097574011 * mm - 0.3413193965 * ss;
+          const r = 4.0767416621 * ll - 3.3077115913 * mm + 0.2309699292 * ss;
+          const g = -1.2684380046 * ll + 2.6097574011 * mm - 0.3413193965 * ss;
           const bC = -0.0041960863 * ll - 0.7034186147 * mm + 1.7076147010 * ss;
           const gamma = (c: number) =>
             c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
           return [
-            Math.round(Math.min(1, Math.max(0, gamma(r)))  * 255),
-            Math.round(Math.min(1, Math.max(0, gamma(g)))  * 255),
+            Math.round(Math.min(1, Math.max(0, gamma(r))) * 255),
+            Math.round(Math.min(1, Math.max(0, gamma(g))) * 255),
             Math.round(Math.min(1, Math.max(0, gamma(bC))) * 255),
           ];
         };

@@ -5,7 +5,7 @@
 
   background-color: var(--comp-header-bg);
   backdrop-filter: blur(1px);
-  border-bottom: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   height: var(--comp-header-height);
   position: fixed;
   top: 0;
@@ -63,7 +63,7 @@
 }
 
 .navLinkActive {
-  color: var(--sem-color-text-strong);
+  color: var(--sem-color-accent-strong);
   font-weight: var(--pr-weight-500);
 }
 

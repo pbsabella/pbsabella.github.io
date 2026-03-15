@@ -12,8 +12,8 @@
   height: 100%;
   background:
     linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 8%, rgb(0 0 0 / 0%) 92%, transparent 100%),
-    radial-gradient(circle at 5% 0%, var(--sem-color-bg-tint-1), transparent 46%),
-    radial-gradient(circle at 70% 85%, var(--sem-color-bg-tint-2), transparent 48%);
+    radial-gradient(circle at 5% 0%, var(--sem-color-surface-tint-1), transparent 46%),
+    radial-gradient(circle at 70% 85%, var(--sem-color-surface-tint-2), transparent 48%);
   opacity: 0.3;
   pointer-events: none;
   z-index: 0;
@@ -50,7 +50,7 @@
 .heroRule {
   height: var(--pr-border-width-1);
   width: var(--pr-size-64);
-  background-color: var(--sem-color-divider-base);
+  background-color: var(--sem-color-border-base);
 }
 
 .heroMeta {
@@ -70,7 +70,7 @@
 }
 
 .titleAccent {
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
 }
 
 .subtitle {
@@ -86,7 +86,7 @@
   gap: var(--pr-spacing-4);
   padding: var(--pr-spacing-6) 0;
   margin-top: var(--pr-spacing-6);
-  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
 }
 
 .heroStatItem {
@@ -197,15 +197,8 @@
   margin-top: var(--pr-spacing-4);
 }
 
-.inlineLink {
-  color: var(--sem-color-text-accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  display: inline;
-}
-
 .iconAccent {
-  color: var(--sem-color-accent-bold);
+  color: var(--sem-color-accent-secondary);
 }
 
 .code {
@@ -289,8 +282,8 @@
 }
 
 .demoPipelineValue {
-  border: var(--pr-border-width-1) solid var(--sem-color-border-accent);
-  background-color: color-mix(in srgb, var(--sem-color-bg-accent) 10%, transparent);
+  border: var(--pr-border-width-1) solid var(--sem-color-accent-base);
+  background-color: color-mix(in srgb, var(--sem-color-accent-base) 10%, transparent);
   color: var(--sem-color-text-base);
   transition: border-color var(--pr-duration-fast) var(--pr-easing-out),
     background-color var(--pr-duration-fast) var(--pr-easing-out),

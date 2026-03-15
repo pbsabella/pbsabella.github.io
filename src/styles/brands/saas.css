@@ -1,29 +1,28 @@
 /**
  * Brand: SaaS
  *
- * System sans headings, pillowy radius, violet primary.
- * Violet = modern product trust.
- * Info status follows brand primary (violet is a credible info hue for SaaS).
+ * Modern product dashboard. Electric purple primary (high chroma, magenta-shifted
+ * to stay clearly distinct from fintech navy). Cool green secondary = growth/data.
+ * Pillowy radius = approachable product feel.
+ * Dark mode uses deep purple-black surfaces for a signature dashboard aesthetic.
  *
  * Usage: import this file after tokens.css and set data-brand="saas" on <html>.
  */
 
 @layer brand {
   [data-brand='saas'] {
-    --brand-primary:      oklch(49.4% 0.258 296deg);
-    --brand-primary-bg:   oklch(43.4% 0.234 294deg);
-    --brand-surface-tint: oklch(93.6% 0.042 296deg);
-    --brand-palette-1:         oklch(65% 0.17 150deg);
-    --brand-palette-2:         oklch(65% 0.17 150deg);
-    --brand-palette-4:         oklch(97% 0.04 296deg);
-    --brand-palette-5:         oklch(98% 0.03 296deg);
+    --brand-primary:      oklch(54% 0.29 308deg);
+    --brand-secondary:    oklch(65% 0.20 162deg);
+    --brand-surface-tint: oklch(58% 0.24 308deg);
     --brand-font-display:  system-ui, -apple-system, blinkmacsystemfont, sans-serif;
     --brand-radius-sm:     4px;
     --brand-radius-md:     6px;
-    --brand-radius-base:   8px;
     --brand-radius-lg:     14px;
-    --brand-info-bg:       oklch(43.4% 0.234 294deg);
-    --brand-info-border:   oklch(49.4% 0.258 296deg);
-    --brand-info-emphasis: oklch(49.4% 0.258 296deg);
+  }
+
+  [data-brand='saas'] [data-theme='dark'] {
+    --brand-bg-canvas: oklch(14% 0.07 300deg);
+    --brand-bg-base:   oklch(17% 0.08 300deg);
+    --brand-bg-subtle: oklch(21% 0.10 300deg);
   }
 }

@@ -63,5 +63,5 @@
 .sectionDivider {
   margin: var(--pr-spacing-11) 0 var(--pr-spacing-16);
   border: 0;
-  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
 }

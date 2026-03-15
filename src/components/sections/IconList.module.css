@@ -26,7 +26,7 @@ Shared icon+text list component.
 .icon {
   display: flex;
   align-items: flex-start;
-  color: var(--sem-color-accent-bold);
+  color: var(--sem-color-accent-secondary);
 }
 
 .body {

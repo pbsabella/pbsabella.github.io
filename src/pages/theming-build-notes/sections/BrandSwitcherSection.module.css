@@ -1,7 +1,3 @@
-/* ============================================================
-   Brand Switcher
-   ============================================================ */
-
 .presetGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -43,7 +39,7 @@
 }
 
 .presetCardSelected {
-  border-bottom-color: var(--sem-color-border-accent);
+  border-bottom-color: var(--sem-color-accent-base);
   background: var(--sem-color-bg-subtle);
 }
 
@@ -55,7 +51,7 @@
 }
 
 .presetCheck {
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
 }
 
 .presetLabel {
@@ -67,7 +63,7 @@
 
 .presetIndustry {
   font-size: var(--sem-text-kicker);
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
   display: block;
 }
 
@@ -76,34 +72,4 @@
   color: var(--sem-color-text-muted);
   line-height: var(--pr-leading-150);
   margin: 0;
-}
-
-/* ============================================================
-   Component Preview
-   ============================================================ */
-
-.previewHeader {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--pr-spacing-4);
-  margin-bottom: var(--pr-spacing-6);
-}
-
-.previewHeader p {
-  margin: 0;
-  flex: 1 1 280px;
-}
-
-.previewStack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--pr-spacing-4);
-}
-
-.previewNote {
-  margin: 0;
-  color: var(--sem-color-text-muted);
-  font-size: var(--sem-text-caption);
 }

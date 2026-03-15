@@ -58,9 +58,7 @@ Each component:
 ```
 src/pages/
 ├── home/Home.tsx                                # Portfolio landing
-├── labs/Labs.tsx                                # Labs index
-├── system-core/SystemCore.tsx                   # Design system docs
-└── design-system-build-notes/DesignSystemBuildNotes.tsx
+├── ...
 ```
 
 ---

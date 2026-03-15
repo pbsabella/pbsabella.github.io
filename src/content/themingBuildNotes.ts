@@ -2,15 +2,16 @@ import { Newspaper, Zap, ChartArea, ServerCog, Notebook } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { Brand } from '@/context/BrandContext';
 
-export const BRAND_THEMING_SECTIONS = [
-  { id: 'intro', label: 'Overview' },
-  { id: 'brand-switcher', label: 'Brand Switcher' },
-  { id: 'component-preview', label: 'Component Preview' },
-  { id: 'token-architecture', label: 'Token Architecture' },
-  { id: 'folder-structure', label: 'Folder Structure' },
-  { id: 'dark-mode', label: 'Universal Dark Mode' },
-  { id: 'brandable-slots', label: 'Supported Brandable Slots' },
-  { id: 'anchor-reference', label: 'Brand Anchor Reference' },
+export const THEMING_BUILD_NOTES_SECTIONS = [
+  { id: 'context', label: 'Context' },
+  { id: 'baseline', label: 'Baseline' },
+  { id: 'breaking-point', label: 'Breaking Point' },
+  { id: 'injection', label: 'Injection' },
+  { id: 'oklch', label: 'OKLCH' },
+  { id: 'presets', label: 'Presets' },
+  { id: 'playground', label: 'Playground' },
+  { id: 'the-contract', label: 'The Contract' },
+  { id: 'constraints', label: 'Constraints' },
 ];
 
 export type BrandPreset = {
@@ -35,7 +36,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'fintech',
     label: 'Fintech',
     description: 'Formal and precise. Georgia headings, sharp 2px radius, blue tints.',
-    accentHex: 'oklch(49.5% 0.223 261deg)',
+    accentHex: 'oklch(38% 0.18 258deg);',
     industry: 'Financial Services',
     icon: ChartArea,
   },
@@ -43,7 +44,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'saas',
     label: 'SaaS',
     description: 'Modern. System sans headings, pillowy 8-14px radius, violet tints.',
-    accentHex: 'oklch(49.4% 0.258 296deg)',
+    accentHex: 'oklch(54% 0.29 308deg)',
     industry: 'Software',
     icon: ServerCog,
   },
@@ -51,7 +52,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'editorial',
     label: 'Editorial',
     description: 'Print-heavy. Georgia body text, zero radius, orange tints.',
-    accentHex: 'oklch(65.7% 0.216 35deg)',
+    accentHex: 'oklch(46% 0.19 24deg)',
     industry: 'Media',
     icon: Newspaper,
   },
@@ -59,7 +60,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'neon',
     label: 'Neon City',
     description: 'Futuristic city glow. Pink primary with violet and blue haze.',
-    accentHex: 'oklch(62.2% 0.270 349deg)',
+    accentHex: 'oklch(54% 0.31 342deg)',
     industry: 'Nightlife',
     icon: Zap,
   },

@@ -40,19 +40,6 @@ interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'className'> {
  * <Tag variant="warning" size="md">Pending</Tag>
  * <Tag variant="error" size="lg">Failed</Tag>
  * ```
- *
- * Theming example:
- * ```css
- * [data-theme='brand'] {
- *   --sem-color-border-success: var(--pr-color-success-600);
- *   --sem-color-text-success-emphasis: var(--pr-color-success-600);
- * }
- *
- * [data-theme='dark'] {
- *   --sem-color-border-success: var(--pr-color-success-500);
- *   --sem-color-text-success-emphasis: var(--pr-color-success-500);
- * }
- * ```
  */
 const Tag = ({
   children,

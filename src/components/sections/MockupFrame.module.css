@@ -32,15 +32,15 @@
 }
 
 .dotError {
-  background-color: var(--sem-color-bg-error);
+  background-color: var(--sem-color-error-strong);
 }
 
 .dotWarning {
-  background-color: var(--sem-color-bg-warning);
+  background-color: var(--sem-color-warning-strong);
 }
 
 .dotSuccess {
-  background-color: var(--sem-color-bg-success);
+  background-color: var(--sem-color-success-strong);
 }
 
 .body {

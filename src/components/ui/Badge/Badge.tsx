@@ -40,14 +40,6 @@ interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'className'> 
  * <Badge variant="error" size="lg">99+</Badge>
  * ```
  *
- * Theming example:
- * ```css
- * [data-theme='brand'] {
- *   --sem-color-bg-success: var(--pr-color-success-600);
- *   --sem-color-text-success: var(--pr-color-neutral-100);
- * }
- * ```
- *
  * Accessibility:
  * - `size="sm"` renders a dot (no text content).
  * - Dot badges are hidden from assistive tech unless an explicit `aria-label` is provided.

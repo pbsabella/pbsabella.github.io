@@ -16,8 +16,8 @@
 /* --- Variants --- */
 .tagPrimary {
   background-color: transparent;
-  color: var(--sem-color-text-accent);
-  border-color: var(--sem-color-border-accent);
+  color: var(--sem-color-accent-strong);
+  border-color: var(--sem-color-accent-base);
 }
 
 .tagDefault {
@@ -27,27 +27,27 @@
 }
 
 .tagSuccess {
-  background-color: transparent;
-  color: var(--sem-color-text-success-emphasis);
-  border-color: var(--sem-color-border-success);
+  background-color: var(--sem-color-success-surface);
+  color: var(--sem-color-text-success-on-surface);
+  border-color: var(--sem-color-success-surface);
 }
 
 .tagWarning {
-  background-color: transparent;
-  color: var(--sem-color-text-base);
-  border-color: var(--sem-color-border-warning);
+  background-color: var(--sem-color-warning-surface);
+  color: var(--sem-color-text-warning-on-surface);
+  border-color: var(--sem-color-warning-surface);
 }
 
 .tagInfo {
-  background-color: transparent;
-  color: var(--sem-color-text-info-emphasis);
-  border-color: var(--sem-color-border-info);
+  background-color: var(--sem-color-info-surface);
+  color: var(--sem-color-text-info-on-surface);
+  border-color: var(--sem-color-info-surface);
 }
 
 .tagError {
-  background-color: transparent;
-  color: var(--sem-color-text-error-emphasis);
-  border-color: var(--sem-color-border-error);
+  background-color: var(--sem-color-error-surface);
+  color: var(--sem-color-text-error-on-surface);
+  border-color: var(--sem-color-error-surface);
 }
 
 /* --- Sizes --- */

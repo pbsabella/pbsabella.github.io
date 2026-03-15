@@ -1,18 +1,19 @@
 import { CircleCheck } from 'lucide-react';
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import { useBrand } from '@/context/BrandContext';
-import { BRAND_PRESETS } from '@/content/brandTheming';
-import styles from '../BrandTheming.module.css';
+import { BRAND_PRESETS } from '@/content/themingBuildNotes';
+import styles from './BrandSwitcherSection.module.css';
 
 const BrandSwitcherSection = () => {
   const { brand, setBrand } = useBrand();
 
   return (
-    <EditorialBlock id="brand-switcher" kicker="02. Brand Switcher" title="Select a Brand Identity">
+    <EditorialBlock id="presets" kicker="06. Presets" title="Stress-testing the vibe" rhythm="21">
       <p>
-        Select a brand preset below. Every component on this page re-skins instantly via{' '}
-        <code>data-brand</code> on <code>html</code>. No component code changes. Identity is
-        resolved through the <code>@layer brand</code> cascade layer.
+        These presets demonstrate the range of the injection model across different industries.
+        Each preset swaps the underlying brand anchors while the semantic logic stays fixed.
+        Select one below — every component on this page re-skins instantly via{' '}
+        <code>data-brand</code> on <code>html</code>, with no component code changes.
       </p>
 
       <div className={styles.presetGrid} role="group" aria-label="Brand presets">

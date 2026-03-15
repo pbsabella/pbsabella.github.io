@@ -1,29 +1,27 @@
 /**
  * Brand: Fintech
  *
- * Formal serif headings, sharp corners, blue primary.
- * Blue primary = trust and credibility.
- * Info status follows brand primary (blue is the canonical info hue).
+ * Institutional authority. Deep navy primary, warm gold secondary.
+ * Sharp corners = precision and trust.
+ * Dark mode uses navy-tinted near-black surfaces for a midnight banking feel.
  *
  * Usage: import this file after tokens.css and set data-brand="fintech" on <html>.
  */
 
 @layer brand {
   [data-brand='fintech'] {
-    --brand-primary:      oklch(49.5% 0.223 261deg);
-    --brand-primary-bg:   oklch(39.3% 0.192 261deg);
-    --brand-surface-tint: oklch(95.1% 0.029 261deg);
-    --brand-palette-1:    oklch(72% 0.15 60deg);
-    --brand-palette-2:    oklch(72% 0.15 60deg);
-    --brand-palette-4:    oklch(97% 0.04 261deg);
-    --brand-palette-5:    oklch(98% 0.03 261deg);
+    --brand-primary:      oklch(38% 0.18 258deg);
+    --brand-secondary:    oklch(70% 0.16 58deg);
+    --brand-surface-tint: oklch(46% 0.16 258deg);
     --brand-font-display:  georgia, 'Times New Roman', serif;
     --brand-radius-sm:     1px;
     --brand-radius-md:     2px;
-    --brand-radius-base:   2px;
     --brand-radius-lg:     3px;
-    --brand-info-bg:       oklch(39.3% 0.192 261deg);
-    --brand-info-border:   oklch(49.5% 0.223 261deg);
-    --brand-info-emphasis: oklch(49.5% 0.223 261deg);
+  }
+
+  [data-brand='fintech'] [data-theme='dark'] {
+    --brand-bg-canvas: oklch(14% 0.05 258deg);
+    --brand-bg-base:   oklch(17% 0.07 258deg);
+    --brand-bg-subtle: oklch(21% 0.09 258deg);
   }
 }

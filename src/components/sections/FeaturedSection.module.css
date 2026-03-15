@@ -22,8 +22,8 @@
   background: linear-gradient(
     to bottom,
     transparent 0,
-    var(--sem-color-divider-base) 10%,
-    var(--sem-color-divider-base) 90%,
+    var(--sem-color-border-base) 10%,
+    var(--sem-color-border-base) 90%,
     transparent 100%
   );
   pointer-events: none;
@@ -43,7 +43,7 @@
 }
 
 .featuredSectionIntroDivider {
-  background-color: var(--sem-color-border-accent);
+  background-color: var(--sem-color-accent-base);
   height: var(--pr-border-width-1);
   width: var(--pr-size-80);
   flex-shrink: 0;

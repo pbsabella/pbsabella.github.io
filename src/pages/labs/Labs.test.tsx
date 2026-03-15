@@ -14,10 +14,10 @@ describe('Labs page', () => {
 
     expect(screen.getByRole('heading', { name: LABS_META.title })).toBeInTheDocument();
     expect(screen.getByRole('list', { name: /labs projects/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /yieldflow case study/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /theming build notes/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /design system build notes/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /system core documentation/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /yieldflow/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /theming/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /design system/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /system core/i })).toBeInTheDocument();
   });
 
   it('renders links for navigable labs cards', () => {
@@ -27,9 +27,9 @@ describe('Labs page', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('link', { name: /yieldflow case study/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /theming build notes - part 2/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /design system build notes - part 1/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /system core documentation/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /yieldflow/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /theming - part 2/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /design system - part 1/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /system core/i })).toBeInTheDocument();
   });
 });

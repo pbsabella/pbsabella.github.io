@@ -46,19 +46,27 @@ const PipelineConnector = () => (
 );
 
 export const MotivationSection = () => (
-  <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
-    <p>
-      My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
-      version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
-      refactors.
-    </p>
-    <p>
-      This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
-      just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
-      connected system.
-    </p>
-    <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
-  </EditorialBlock>
+  <>
+    <Alert variant="info" title="Heads up">
+      <p>
+        The token naming and hierarchy has been updated since this was written,
+        but this section still captures the original motivation and constraints that shaped the system.
+      </p>
+    </Alert>
+    <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
+      <p>
+        My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
+        version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
+        refactors.
+      </p>
+      <p>
+        This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
+        just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
+        connected system.
+      </p>
+      <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
+    </EditorialBlock>
+  </>
 );
 
 export const ProblemSection = () => (

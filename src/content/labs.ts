@@ -13,7 +13,7 @@ type LabsProject = {
 
 export const LABS_PROJECTS: LabsProject[] = [
   {
-    title: 'YieldFlow Case Study',
+    title: 'YieldFlow',
     href: ROUTES.YIELD_FLOW_CASE_STUDY,
     description:
       'A case study of how I turned my personal finance tracking from a messy spreadsheet into a full-fledged application.',
@@ -21,15 +21,15 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'Theming Build Notes - Part 2',
-    href: ROUTES.BRAND_THEMING,
+    title: 'Theming - Part 2',
+    href: ROUTES.THEMING_BUILD_NOTES,
     description:
       'Continuation of the design system build notes. Adds brand anchors, white-label support, and instant re-skinning via CSS layers.',
     tags: ['Build Notes', 'Token Architecture', 'White-label', 'Cascade Layers'],
     interactive: true,
   },
   {
-    title: 'Design System Build Notes - Part 1',
+    title: 'Design System - Part 1',
     href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
     description:
       'The original system build notes: component architecture, semantic tokens, and light/dark theming.',
@@ -37,7 +37,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'System Core Documentation',
+    title: 'System Core',
     href: ROUTES.SYSTEM_CORE,
     description:
       'Token reference, primitives, and component foundations. Browse the living docs that power the build notes and the rest of the portfolio.',

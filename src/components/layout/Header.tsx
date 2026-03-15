@@ -33,6 +33,7 @@ const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
 
   const activeSection = useActiveSection(
     [
+      SECTION_ANCHORS.HERO,
       SECTION_ANCHORS.WORK,
       SECTION_ANCHORS.ABOUT,
       SECTION_ANCHORS.CONTACT,

@@ -30,7 +30,7 @@
 }
 
 .list li::marker {
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
 }
 
 /* --- Shared section primitives ------------------------------------------- */
@@ -52,7 +52,7 @@
 .featuredBlock {
   padding: var(--pr-spacing-8);
   background-color: var(--sem-color-bg-muted);
-  border-left: var(--pr-border-width-2) solid var(--sem-color-border-accent);
+  border-left: var(--pr-border-width-2) solid var(--sem-color-accent-base);
 }
 
 .takeawayFeatured {
@@ -123,13 +123,13 @@
 }
 
 .userPrompt {
-  color: var(--sem-color-text-on-accent);
+  color: var(--sem-color-text-on-bg);
   font-family: var(--font-mono);
   font-size: var(--sem-text-caption);
 }
 
 .terminalPrompt {
-  color: var(--sem-color-accent-bold);
+  color: var(--sem-color-accent-secondary);
   margin-right: var(--pr-spacing-2);
 }
 
@@ -138,7 +138,7 @@
   font-size: var(--sem-text-caption);
   line-height: var(--pr-leading-150);
   background: transparent;
-  color: var(--sem-color-text-on-accent);
+  color: var(--sem-color-text-on-bg);
   overflow-x: auto;
   margin: 0;
 }

@@ -91,7 +91,7 @@
 .tableOfContentsActive {
   color: var(--sem-color-text-strong);
   font-weight: var(--pr-weight-500);
-  border-left-color: var(--sem-color-border-accent);
+  border-left-color: var(--sem-color-accent-base);
 }
 
 /* Responsive adjustments */

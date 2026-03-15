@@ -13,7 +13,7 @@
   font-size: var(--sem-text-kicker);
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-30);
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
   font-weight: var(--pr-weight-500);
   margin-bottom: var(--pr-spacing-2);
 }

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { createPortal } from 'react-dom';
 import { useBrand } from '@/context/BrandContext';
 import { useTheme } from '@context/ThemeContext';
-import { BRAND_PRESETS } from '@/content/brandTheming';
+import { BRAND_PRESETS } from '@/content/themingBuildNotes';
 import styles from './BrandThemeToggle.module.css';
 
 interface BrandThemeToggleProps {
@@ -103,7 +103,7 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
           <BrandIcon
             size={16}
             aria-hidden="true"
-            style={{ color: currentPreset.accentHex, fill: 'none', stroke: 'currentColor' }}
+            style={{ fill: 'none', stroke: 'currentColor' }}
           />
         </span>
         <span className={styles.brandThemeTogglePillDivider} aria-hidden="true" />

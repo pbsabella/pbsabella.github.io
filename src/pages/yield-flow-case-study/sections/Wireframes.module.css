@@ -1,6 +1,7 @@
 .modalContainer {
   background-color: var(--sem-color-bg-base);
   border-radius: var(--sem-radius-md);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   box-shadow: var(--sem-elevation-medium);
   overflow: hidden;
   width: 100%;
@@ -209,10 +210,10 @@
 }
 
 .dotActive {
-  background-color: var(--sem-color-border-accent);
+  background-color: var(--sem-color-accent-base);
 }
 
 .buttonSuccess {
-  background-color: var(--sem-color-bg-success-subtle);
-  color: var(--sem-color-text-success);
+  background-color: var(--sem-color-success-surface);
+  color: var(--sem-color-success-strong);
 }

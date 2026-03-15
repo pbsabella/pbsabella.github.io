@@ -1,35 +1,29 @@
 /**
  * Brand: Editorial
  *
- * Serif body text, zero radius (print-style), orange accent.
- * Warning follows the brand primary (orange occupies the warm/warning range).
- * On-accent text is dark — white on orange fails WCAG AA.
+ * Ink-on-newsprint aesthetic. Deep crimson primary, dark navy ink secondary.
+ * Zero radius = print/broadsheet personality.
+ * On-accent text should be light — deep crimson supports white text (WCAG AA).
+ * Dark mode uses warm sepia-black surfaces for a newspaper-at-night feel.
  *
  * Usage: import this file after tokens.css and set data-brand="editorial" on <html>.
  */
 
 @layer brand {
   [data-brand='editorial'] {
-    --brand-primary:      oklch(65.7% 0.216 35deg);
-    --brand-primary-bg:   oklch(65.7% 0.216 35deg);
-    --brand-surface-tint: oklch(92.4% 0.038 36deg);
-    --brand-palette-1:    oklch(28%   0.05  265deg);
-    --brand-palette-2:    oklch(28%   0.05  265deg);
-    --brand-palette-4:    oklch(97%   0.04  36deg);
-    --brand-palette-5:    oklch(98%   0.03  36deg);
+    --brand-primary:      oklch(46% 0.19 24deg);
+    --brand-secondary:    oklch(32% 0.07 258deg);
+    --brand-surface-tint: oklch(52% 0.15 24deg);
     --brand-font-body:      georgia, 'Times New Roman', serif;
     --brand-radius-sm:      0px;
     --brand-radius-md:      0px;
-    --brand-radius-base:    0px;
     --brand-radius-lg:      0px;
     --brand-radius-pill:    2px;
-    --brand-on-accent:      var(--pr-color-neutral-900);
-    --brand-warning-bg:     oklch(65.7% 0.216 35deg);
-    --brand-warning-border: oklch(65.7% 0.216 35deg);
   }
 
   [data-brand='editorial'] [data-theme='dark'] {
-    --brand-palette-1:    oklch(72% 0.24 263deg);
-    --brand-palette-2:    oklch(72% 0.24 263deg);
+    --brand-bg-canvas: oklch(16% 0.03 55deg);
+    --brand-bg-base:   oklch(19% 0.04 50deg);
+    --brand-bg-subtle: oklch(24% 0.05 48deg);
   }
 }

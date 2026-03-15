@@ -8,7 +8,7 @@
 
 .tableBar {
   height: var(--pr-size-8);
-  background: var(--sem-color-border-accent);
+  background: var(--sem-color-accent-base);
   border-radius: var(--sem-radius-pill);
   min-width: var(--pr-size-28);
 }
@@ -45,7 +45,7 @@
 .sectionIcon {
   width: var(--pr-size-24);
   height: var(--pr-size-24);
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
   display: inline-flex;
 }
 

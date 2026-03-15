@@ -12,7 +12,7 @@
   justify-content: space-between;
   padding: var(--pr-spacing-2) var(--pr-spacing-4);
   border-bottom: 1px solid var(--sem-color-border-subtle);
-  background-color: var(--sem-color-bg-tint-2);
+  background-color: var(--sem-color-surface-tint-2);
 }
 
 .headerLeft {
@@ -37,7 +37,7 @@
 .total {
   font-size: var(--sem-text-body);
   font-weight: var(--pr-weight-600);
-  color: var(--sem-color-text-info-emphasis);
+  color: var(--sem-color-accent-strong);
 }
 
 .chevron {

@@ -1,5 +1,5 @@
 .alert {
-  --comp-alert-radius: var(--sem-radius-base);
+  --comp-alert-radius: var(--sem-radius-md);
   --comp-alert-padding: var(--pr-spacing-4);
 
   border-radius: var(--comp-alert-radius);
@@ -27,37 +27,37 @@
 }
 
 .alertInfo {
-  border-color: var(--sem-color-border-info);
-  background: var(--sem-color-bg-info-subtle);
+  border-color: var(--sem-color-info-border);
+  background: var(--sem-color-info-surface);
 
   .alertIcon {
-    color: var(--sem-color-text-info-emphasis);
+    color: var(--sem-color-text-info-base);
   }
 }
 
 .alertSuccess {
-  border-color: var(--sem-color-border-success);
-  background: var(--sem-color-bg-success-subtle);
+  border-color: var(--sem-color-success-border);
+  background: var(--sem-color-success-surface);
 
   .alertIcon {
-    color: var(--sem-color-text-success-emphasis);
+    color: var(--sem-color-text-success-base);
   }
 }
 
 .alertWarning {
-  border-color: var(--sem-color-border-warning);
-  background: var(--sem-color-bg-warning-subtle);
+  border-color: var(--sem-color-warning-border);
+  background: var(--sem-color-warning-surface);
 
   .alertIcon {
-    color: var(--sem-color-text-base);
+    color: var(--sem-color-text-warning-base);
   }
 }
 
 .alertError {
-  border-color: var(--sem-color-border-error);
-  background: var(--sem-color-bg-error-subtle);
+  border-color: var(--sem-color-error-border);
+  background: var(--sem-color-error-surface);
 
   .alertIcon {
-    color: var(--sem-color-text-error-emphasis);
+    color: var(--sem-color-text-error-base);
   }
 }

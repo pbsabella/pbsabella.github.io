@@ -1,28 +1,30 @@
 /**
  * Brand: Neon City
  *
- * Shibuya-inspired neon glow, soft radius, modern sans.
+ * Shibuya night / cyberpunk. Electric hot-pink primary + electric cyan secondary =
+ * classic neon city palette. Maximum chroma, futuristic radius.
+ * Dark mode uses near-black with strong violet hue tinting so neon colors pop hard.
+ * Light mode keeps primaries dark enough for WCAG AA button text.
  *
  * Usage: import this file after tokens.css and set data-brand="neon" on <html>.
  */
 
 @layer brand {
   [data-brand='neon'] {
-    --brand-primary:      oklch(62.2% 0.270 349deg);
-    --brand-primary-bg:   oklch(59.431% 0.2485 349deg);
-    --brand-surface-tint: oklch(90.7% 0.041 261deg);
-    --brand-palette-1:    oklch(49.4% 0.258 296deg);
-    --brand-palette-2:    oklch(75% 0.25 200deg);
-    --brand-palette-4:    oklch(98% 0.03 261deg);
-    --brand-palette-5:    oklch(98% 0.03 261deg);
+    --brand-primary:      oklch(54% 0.31 342deg);
+    --brand-secondary:    oklch(75% 0.27 195deg);
+    --brand-surface-tint: oklch(63% 0.28 255deg);
+    --brand-info:         oklch(63% 0.28 255deg);
     --brand-font-display:   system-ui, -apple-system, blinkmacsystemfont, sans-serif;
     --brand-font-body:      heebo, arial, sans-serif;
     --brand-radius-sm:      6px;
-    --brand-radius-md:      8px;
-    --brand-radius-base:    10px;
-    --brand-radius-lg:      14px;
-    --brand-info-bg:      oklch(49.4% 0.258 296deg);
-    --brand-info-border:  oklch(57.2% 0.224 295deg);
-    --brand-info-emphasis:oklch(57.2% 0.224 295deg);
+    --brand-radius-md:      10px;
+    --brand-radius-lg:      20px;
+  }
+
+  [data-brand='neon'] [data-theme='dark'] {
+    --brand-bg-canvas: oklch(11% 0.10 285deg);
+    --brand-bg-base:   oklch(15% 0.12 295deg);
+    --brand-bg-subtle: oklch(20% 0.14 300deg);
   }
 }

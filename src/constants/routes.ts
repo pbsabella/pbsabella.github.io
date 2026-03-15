@@ -9,7 +9,7 @@ export const ROUTES = {
   DESIGN_SYSTEM_BUILD_NOTES: '/labs/design-system-build-notes',
   SYSTEM_CORE: '/labs/core',
   YIELD_FLOW_CASE_STUDY: '/labs/yield-flow-case-study',
-  BRAND_THEMING: '/labs/brand-theming',
+  THEMING_BUILD_NOTES: '/labs/theming-build-notes',
 } as const;
 
 export const SECTION_ANCHORS = {

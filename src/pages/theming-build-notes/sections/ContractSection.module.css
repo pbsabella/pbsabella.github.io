@@ -1,0 +1,18 @@
+.tableWrapper {
+  overflow-x: auto;
+  margin-block: var(--pr-spacing-6);
+  border-radius: var(--sem-radius-md);
+}
+
+.tokenCell {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-accent-strong);
+  white-space: nowrap;
+}
+
+.categoryCell {
+  font-weight: var(--pr-weight-500);
+  color: var(--sem-color-text-strong);
+  white-space: nowrap;
+}
