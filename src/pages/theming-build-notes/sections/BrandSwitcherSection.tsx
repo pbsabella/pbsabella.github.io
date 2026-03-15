@@ -33,7 +33,7 @@ const BrandSwitcherSection = () => {
                 <PresetIcon
                   size={24}
                   aria-hidden="true"
-                  style={{ color: preset.accentHex, fill: 'none', stroke: 'currentColor' }}
+                  style={{ color: preset.accentColor, fill: 'none', stroke: 'currentColor' }}
                 />
                 {isSelected && (
                   <CircleCheck size={20} className={styles.presetCheck} aria-hidden="true" />

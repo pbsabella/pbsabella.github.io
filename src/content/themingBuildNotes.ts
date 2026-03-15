@@ -18,7 +18,7 @@ export type BrandPreset = {
   id: Brand;
   label: string;
   description: string;
-  accentHex: string;
+  accentColor: string;
   industry: string;
   icon: LucideIcon;
 };
@@ -28,7 +28,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'portfolio',
     label: 'Default',
     description: 'Minimalist. DM Serif headings, 5px radius. The default baseline.',
-    accentHex: 'oklch(67%   0.149 163deg)',
+    accentColor: 'var(--sem-color-accent-base)',
     industry: 'Portfolio',
     icon: Notebook,
   },
@@ -36,7 +36,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'fintech',
     label: 'Fintech',
     description: 'Formal and precise. Georgia headings, sharp 2px radius, blue tints.',
-    accentHex: 'oklch(38% 0.18 258deg)',
+    accentColor: 'var(--sem-color-accent-base)',
     industry: 'Financial Services',
     icon: ChartArea,
   },
@@ -44,7 +44,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'saas',
     label: 'SaaS',
     description: 'Modern. System sans headings, pillowy 8-14px radius, violet tints.',
-    accentHex: 'oklch(54% 0.29 308deg)',
+    accentColor: 'var(--sem-color-accent-base)',
     industry: 'Software',
     icon: ServerCog,
   },
@@ -52,7 +52,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'editorial',
     label: 'Editorial',
     description: 'Print-heavy. Georgia body text, zero radius, orange tints.',
-    accentHex: 'oklch(46% 0.19 24deg)',
+    accentColor: 'var(--sem-color-accent-base)',
     industry: 'Media',
     icon: Newspaper,
   },
@@ -60,7 +60,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'neon',
     label: 'Neon City',
     description: 'Futuristic city glow. Pink primary with violet and blue haze.',
-    accentHex: 'oklch(54% 0.31 342deg)',
+    accentColor: 'var(--sem-color-accent-base)',
     industry: 'Nightlife',
     icon: Zap,
   },

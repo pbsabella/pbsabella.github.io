@@ -168,7 +168,7 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
                       <PresetIcon
                         size={15}
                         aria-hidden="true"
-                        style={{ color: preset.accentHex, fill: 'none', stroke: 'currentColor' }}
+                        style={{ color: preset.accentColor, fill: 'none', stroke: 'currentColor' }}
                         className={styles.brandThemeToggleBrandOptionIcon}
                       />
                       <span className={styles.brandThemeToggleBrandOptionLabel}>{preset.label}</span>
