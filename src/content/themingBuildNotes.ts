@@ -36,7 +36,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
     id: 'fintech',
     label: 'Fintech',
     description: 'Formal and precise. Georgia headings, sharp 2px radius, blue tints.',
-    accentHex: 'oklch(38% 0.18 258deg);',
+    accentHex: 'oklch(38% 0.18 258deg)',
     industry: 'Financial Services',
     icon: ChartArea,
   },
