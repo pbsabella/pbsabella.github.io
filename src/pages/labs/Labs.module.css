@@ -2,25 +2,6 @@
   position: relative;
 }
 
-.pageWrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 100%;
-  background:
-    linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 0%) 10%, rgb(0 0 0 / 0%) 90%, transparent 100%),
-    radial-gradient(circle at 10% 5%, var(--sem-color-accent-green), transparent 48%),
-    radial-gradient(circle at 85% 15%, var(--sem-color-accent-cyan), transparent 44%),
-    radial-gradient(circle at 80% 85%, var(--sem-color-accent-gray), transparent 50%);
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 0;
-  background-size: 120% 100%;
-}
-
 .labs {
   padding-top: var(--pr-spacing-21);
   position: relative;
@@ -49,6 +30,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.cardTitle {
+  font-size: var(--sem-text-feature);
+  font-weight: var(--pr-weight-600);
 }
 
 .cardItem {

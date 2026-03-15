@@ -39,7 +39,7 @@ const ArticleHero = ({
       {(badge || kicker) && (
         <div className={styles.heroBadgeRow}>
           {badge && (
-            <Tag size="lg" variant="success">
+            <Tag size="lg" variant="primary">
               {badge}
             </Tag>
           )}

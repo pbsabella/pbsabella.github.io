@@ -13,7 +13,7 @@ type LabsProject = {
 
 export const LABS_PROJECTS: LabsProject[] = [
   {
-    title: 'YieldFlow Case Study',
+    title: 'YieldFlow',
     href: ROUTES.YIELD_FLOW_CASE_STUDY,
     description:
       'A case study of how I turned my personal finance tracking from a messy spreadsheet into a full-fledged application.',
@@ -21,27 +21,27 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'Design System Build Notes',
-    href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
+    title: 'Theming - Part 2',
+    href: ROUTES.THEMING_BUILD_NOTES,
     description:
-      'Exploring component architecture and tiered token systems in React. Shows how design tokens scale from documentation to production.',
-    tags: ['Build Notes', 'Design System', 'React'],
+      'Continuation of the design system build notes. Adds brand anchors, white-label support, and instant re-skinning via CSS layers.',
+    tags: ['Build Notes', 'Token Architecture', 'White-label', 'Cascade Layers'],
     interactive: true,
   },
   {
-    title: 'System Core Documentation',
+    title: 'Design System - Part 1',
+    href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
+    description:
+      'The original system build notes: component architecture, semantic tokens, and light/dark theming.',
+    tags: ['Build Notes', 'Token Architecture', 'Light/Dark', 'React'],
+    interactive: true,
+  },
+  {
+    title: 'System Core',
     href: ROUTES.SYSTEM_CORE,
     description:
       'Token reference, primitives, and component foundations. Browse the living docs that power the build notes and the rest of the portfolio.',
     tags: ['Documentation', 'Tokens', 'Foundations'],
     interactive: true,
-  },
-  {
-    title: 'Theming Architectures',
-    description:
-      'Currently untangling multi-layered theming. How do primitives, semantic tokens, and component overrides hold up when you add light/dark modes and brand variants?',
-    tags: [],
-    variant: 'flat',
-    tone: 'dashed',
   },
 ];

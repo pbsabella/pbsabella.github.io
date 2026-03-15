@@ -41,9 +41,13 @@ describe('Portfolio E2E Tests', () => {
           .invoke('attr', 'data-theme')
           .then((theme) => {
             if (theme !== 'dark') {
-              // Prefer stable header toggle ids to avoid detached-element races
+              // Open the BrandThemeToggle dropdown
               cy.get('#theme-toggle:visible, #theme-toggle-mobile:visible')
                 .first()
+                .click();
+              // Scope to the dialog to avoid matching the trigger's aria-label
+              cy.findByRole('dialog', { name: /brand and theme settings/i })
+                .findByRole('button', { name: /^dark$/i })
                 .click();
             }
           });
@@ -81,14 +85,45 @@ describe('Portfolio E2E Tests', () => {
       cy.get('body')
         .invoke('attr', 'data-theme')
         .then((initialTheme) => {
-          cy.findByRole('button', { name: /switch to (dark|light) mode/i }).click();
-          const expectedTheme = initialTheme === 'dark' ? 'light' : 'dark';
-          cy.get('body').should('have.attr', 'data-theme', expectedTheme);
+          const targetTheme = initialTheme === 'dark' ? 'light' : 'dark';
+
+          // Open the BrandThemeToggle dropdown
+          cy.get('#theme-toggle:visible, #theme-toggle-mobile:visible')
+            .first()
+            .click();
+
+          // Scope to the dialog and click the target theme button
+          cy.findByRole('dialog', { name: /brand and theme settings/i })
+            .findByRole('button', { name: new RegExp(`^${targetTheme}$`, 'i') })
+            .click();
+
+          cy.get('body').should('have.attr', 'data-theme', targetTheme);
 
           // Persist on reload
           cy.reload();
-          cy.get('body').should('have.attr', 'data-theme', expectedTheme);
+          cy.get('body').should('have.attr', 'data-theme', targetTheme);
         });
+    });
+
+    it('should select a brand and update the toggle label', () => {
+      // Open the dropdown
+      cy.get('#theme-toggle:visible, #theme-toggle-mobile:visible')
+        .first()
+        .click();
+
+      // Pick the Fintech brand from the listbox
+      cy.findByRole('dialog', { name: /brand and theme settings/i })
+        .findByRole('button', { name: /fintech/i })
+        .click();
+
+      // Dropdown closes after brand selection
+      cy.findByRole('dialog', { name: /brand and theme settings/i }).should('not.exist');
+
+      // Trigger button label reflects the new brand
+      cy.get('#theme-toggle:visible, #theme-toggle-mobile:visible')
+        .first()
+        .should('have.attr', 'aria-label')
+        .and('match', /fintech brand/i);
     });
   });
 

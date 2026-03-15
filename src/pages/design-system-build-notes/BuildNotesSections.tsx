@@ -46,19 +46,27 @@ const PipelineConnector = () => (
 );
 
 export const MotivationSection = () => (
-  <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
-    <p>
-      My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
-      version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
-      refactors.
-    </p>
-    <p>
-      This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
-      just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
-      connected system.
-    </p>
-    <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
-  </EditorialBlock>
+  <>
+    <Alert variant="info" title="Heads up">
+      <p>
+        The token naming and hierarchy has been updated since this was written,
+        but this section still captures the original motivation and constraints that shaped the system.
+      </p>
+    </Alert>
+    <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
+      <p>
+        My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
+        version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
+        refactors.
+      </p>
+      <p>
+        This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
+        just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
+        connected system.
+      </p>
+      <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
+    </EditorialBlock>
+  </>
 );
 
 export const ProblemSection = () => (
@@ -76,17 +84,17 @@ export const ProblemSection = () => (
     <IconList
       items={[
         {
-          icon: <Shuffle size={20} className={styles.iconAccent} />,
+          icon: <Shuffle size={20} />,
           title: BUILD_NOTES_PROBLEM_ITEMS[0].title,
           description: BUILD_NOTES_PROBLEM_ITEMS[0].description,
         },
         {
-          icon: <Code2 size={20} className={styles.iconAccent} />,
+          icon: <Code2 size={20} />,
           title: BUILD_NOTES_PROBLEM_ITEMS[1].title,
           description: BUILD_NOTES_PROBLEM_ITEMS[1].description,
         },
         {
-          icon: <Moon size={20} className={styles.iconAccent} />,
+          icon: <Moon size={20} />,
           title: BUILD_NOTES_PROBLEM_ITEMS[2].title,
           description: BUILD_NOTES_PROBLEM_ITEMS[2].description,
         },
@@ -115,10 +123,10 @@ export const ApproachSection = () => (
           <h3 className={styles.layerTitle}>Primitive</h3>
           <p>Raw values that define the palette, scale, and motion.</p>
           <p className={styles.layerToken}>
-            <code>--pr-[category]-[scale]</code>
+            <code className={styles.code}>--pr-[category]-[scale]</code>
             <span className={styles.layerTokenExample}>
               <span>e.g.</span>
-              <code>--pr-color-neutral-800</code>
+              <code className={styles.code}>--pr-color-neutral-800</code>
             </span>
           </p>
         </div>
@@ -133,14 +141,14 @@ export const ApproachSection = () => (
           <h3 className={styles.layerTitle}>Semantic</h3>
           <p>Intent-based aliases that describe how UI should behave.</p>
           <p className={styles.layerToken}>
-            <code>--sem-[domain]-[property]-[role]</code>
+            <code className={styles.code}>--sem-[domain]-[property]-[role]</code>
             <span className={styles.layerTokenExample}>
               <span>e.g.</span>
-              <code>--sem-color-text-primary</code>
+              <code className={styles.code}>--sem-color-text-base</code>
             </span>
           </p>
-        </div>
-      </Card>
+        </div >
+      </Card >
       <Card variant="flat">
         <div className={styles.layerCard}>
           <div className={styles.layerHeader}>
@@ -151,15 +159,15 @@ export const ApproachSection = () => (
           <h3 className={styles.layerTitle}>Component</h3>
           <p>Component-level tokens that bind styles to real UI pieces.</p>
           <p className={styles.layerToken}>
-            <code>--comp-[component]-[property]</code>
+            <code className={styles.code}>--comp-[component]-[property]</code>
             <span className={styles.layerTokenExample}>
               <span>e.g.</span>
-              <code>--comp-card-border</code>
+              <code className={styles.code}>--comp-card-border</code>
             </span>
           </p>
-        </div>
-      </Card>
-    </div>
+        </div >
+      </Card >
+    </div >
     <Alert
       variant="info"
       role="note"
@@ -176,7 +184,7 @@ export const ApproachSection = () => (
         required, these prefixes are also easy to lint against.
       </p>
     </Alert>
-  </EditorialBlock>
+  </EditorialBlock >
 );
 
 export const KeyDecisionsSection = () => (
@@ -190,27 +198,27 @@ export const KeyDecisionsSection = () => (
       variant="grid"
       items={[
         {
-          icon: <Search size={24} className={styles.iconAccent} />,
+          icon: <Search size={24} />,
           title: BUILD_NOTES_DECISIONS[0].title,
           description: BUILD_NOTES_DECISIONS[0].description,
         },
         {
-          icon: <Layers size={24} className={styles.iconAccent} />,
+          icon: <Layers size={24} />,
           title: BUILD_NOTES_DECISIONS[1].title,
           description: BUILD_NOTES_DECISIONS[1].description,
         },
         {
-          icon: <CheckCircle2 size={24} className={styles.iconAccent} />,
+          icon: <CheckCircle2 size={24} />,
           title: BUILD_NOTES_DECISIONS[2].title,
           description: BUILD_NOTES_DECISIONS[2].description,
         },
         {
-          icon: <ShieldCheck size={24} className={styles.iconAccent} />,
+          icon: <ShieldCheck size={24} />,
           title: BUILD_NOTES_DECISIONS[3].title,
           description: BUILD_NOTES_DECISIONS[3].description,
         },
         {
-          icon: <Ship size={24} className={styles.iconAccent} />,
+          icon: <Ship size={24} />,
           title: BUILD_NOTES_DECISIONS[4].title,
           description: BUILD_NOTES_DECISIONS[4].description,
         },
@@ -230,15 +238,15 @@ export const WinsSection = () => (
     <IconList
       items={[
         {
-          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          icon: <CheckCircle2 size={24} />,
           description: 'Moved theme work from component-level edits to semantic remapping.',
         },
         {
-          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          icon: <CheckCircle2 size={24} />,
           description: 'Shifted component APIs toward structural patterns, letting tokens handle visual intent.',
         },
         {
-          icon: <CheckCircle2 size={24} className={styles.iconSuccess} />,
+          icon: <CheckCircle2 size={24} />,
           description: 'Made constraints explicit, so one-off values are now easier to audit and eliminate.',
         },
       ]}
@@ -251,15 +259,15 @@ export const ChallengesSection = () => (
     <IconList
       items={[
         {
-          icon: <Timer size={24} className={styles.iconAccent} />,
+          icon: <Timer size={24} />,
           description: BUILD_NOTES_CHALLENGES[0],
         },
         {
-          icon: <Scale size={24} className={styles.iconAccent} />,
+          icon: <Scale size={24} />,
           description: BUILD_NOTES_CHALLENGES[1],
         },
         {
-          icon: <Contrast size={24} className={styles.iconAccent} />,
+          icon: <Contrast size={24} />,
           description: BUILD_NOTES_CHALLENGES[2],
         },
       ]}
@@ -299,21 +307,21 @@ export const DemoSection = () => {
               </p>
               <div className={styles.demoPipelines}>
                 <div className={styles.demoPipelineRow}>
-                  <code>--comp-card-bg</code>
+                  <code className={styles.code}>--comp-card-bg</code>
                   <PipelineConnector />
-                  <code>--sem-color-bg-base</code>
+                  <code className={styles.code}>--sem-color-bg-base</code>
                   <PipelineConnector />
-                  <code className={styles.demoPipelineValue}>{cardBgPrimitive}</code>
+                  <code className={`${styles.code} ${styles.demoPipelineValue}`}>{cardBgPrimitive}</code>
                 </div>
                 <div className={styles.demoPipelineRow}>
-                  <code>--comp-card-shadow</code>
+                  <code className={styles.code}>--comp-card-shadow</code>
                   <PipelineConnector />
-                  <code>--sem-elevation-low</code>
+                  <code className={styles.code}>--sem-elevation-low</code>
                   <PipelineConnector />
-                  <code className={styles.demoPipelineValue}>{cardShadowPrimitive}</code>
+                  <code className={`${styles.code} ${styles.demoPipelineValue}`}>{cardShadowPrimitive}</code>
                 </div>
               </div>
-            </Card>
+            </Card >
             <Card variant="flat">
               <div className={styles.demoMiniTitle}>Status Chips</div>
               <p className={styles.demoMiniCopy}>
@@ -328,9 +336,9 @@ export const DemoSection = () => {
                     <Badge variant="info" size="md">8</Badge>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code>--sem-color-bg-success</code>
+                    <code className={styles.code}>--sem-color-bg-success</code>
                     <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{badgeSuccessPrimitive}</code>
+                    <code className={`${styles.code} ${styles.demoPipelineValue}`}>{badgeSuccessPrimitive}</code>
                   </div>
                 </div>
 
@@ -342,17 +350,17 @@ export const DemoSection = () => {
                     <Tag size="sm" variant="error">Error</Tag>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code>--sem-color-border-info</code>
+                    <code className={styles.code}>--sem-color-border-info</code>
                     <PipelineConnector />
-                    <code className={styles.demoPipelineValue}>{tagInfoPrimitive}</code>
+                    <code className={`${styles.code} ${styles.demoPipelineValue}`}>{tagInfoPrimitive}</code>
                   </div>
                 </div>
-              </div>
-            </Card>
-          </div>
-        </MockupFrame>
-      </FigureBlock>
-    </EditorialBlock>
+              </div >
+            </Card >
+          </div >
+        </MockupFrame >
+      </FigureBlock >
+    </EditorialBlock >
   );
 };
 
@@ -386,7 +394,7 @@ export const NextStepsSection = () => (
     </p>
     <IconList
       items={BUILD_NOTES_NEXT_STEPS.map((item) => ({
-        icon: <ArrowUpRight size={24} className={styles.iconAccent} />,
+        icon: <ArrowUpRight size={24} />,
         description: item,
       }))}
     />

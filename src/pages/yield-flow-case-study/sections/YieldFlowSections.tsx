@@ -77,17 +77,17 @@ export const ProblemSection = () => (
           variant="list"
           items={[
             {
-              icon: <Zap size={24} className={styles.iconAccent} />,
+              icon: <Zap size={24} />,
               title: "What's liquid now?",
               description: "(or becoming liquid soon)",
             },
             {
-              icon: <Search size={24} className={styles.iconAccent} />,
+              icon: <Search size={24} />,
               title: "What's the net interest hitting my account this month?",
               description: "(not gross: what I actually keep)",
             },
             {
-              icon: <AlertCircle size={24} className={styles.iconAccent} />,
+              icon: <AlertCircle size={24} />,
               title: "What's sitting idle and costing me yield?",
               description: "",
             },
@@ -119,22 +119,22 @@ export const DecisionsSection = () => (
         variant="grid"
         items={[
           {
-            icon: <HandCoins size={24} className={styles.iconAccent} />,
+            icon: <HandCoins size={24} />,
             title: "Net-of-tax by default.",
             description: "Showing gross figures is technically accurate but practically misleading. You can't spend the gross number, so the app calculates interest after withholding tax by default.",
           },
           {
-            icon: <Banknote size={24} className={styles.iconAccent} />,
+            icon: <Banknote size={24} />,
             title: "Intentional Friction",
             description: 'Matured deposits stay visible and flagged until explicitly marked "settled." A matured deposit is an idle asset. I keep this "noise" in the active view until the user dismisses it. The friction is the point.',
           },
           {
-            icon: <ArrowDownUp size={24} className={styles.iconAccent} />,
+            icon: <ArrowDownUp size={24} />,
             title: "Sorted by urgency, not date.",
             description: "The deposit list defaults to matured first, then by nearest maturity. Most tools sort alphabetically. Sorting by urgency means you see what needs action before you have to search for it.",
           },
           {
-            icon: <Scale size={24} className={styles.iconAccent} />,
+            icon: <Scale size={24} />,
             title: "Bank exposure limits.",
             description: "Users can set a global safety cap to manage concentration risk. The dashboard dynamically audits the total principal per bank, making it easy to spot over-concentration that usually gets lost when money is spread across multiple banks and investments. The UI makes it visible.",
           },
@@ -147,22 +147,22 @@ export const DecisionsSection = () => (
       variant="grid"
       items={[
         {
-          icon: <MousePointerBan size={24} className={styles.iconAccent} />,
+          icon: <MousePointerBan size={24} />,
           title: "No tooltips.",
           description: "Tooltips are invisible to screen readers and difficult on mobile. I replaced them with permanent, inline helper text. Visible is accessible.",
         },
         {
-          icon: <Layout size={24} className={styles.iconAccent} />,
+          icon: <Layout size={24} />,
           title: "shadcn/ui as foundation.",
           description: "I chose shadcn/ui because it gives me full control over styling while the accessibility heavy-lifting (ARIA, keyboard navigation) is handled correctly by default.",
         },
         {
-          icon: <Compass size={24} className={styles.iconAccent} />,
+          icon: <Compass size={24} />,
           title: "No onboarding tour.",
           description: "If an app needs a tutorial to explain itself, the UI has already failed. YieldFlow is designed to be self-evident. No walkthroughs, no tooltips: the labels, hierarchy, and defaults do the teaching.",
         },
         {
-          icon: <Smartphone size={24} className={styles.iconAccent} />,
+          icon: <Smartphone size={24} />,
           title: "Built mobile-first.",
           description: "Dense financial data is painful on a small screen. Building mobile-first forced the information hierarchy: only decision-critical data is visible at a glance, with detail on demand.",
         },

@@ -1,11 +1,12 @@
 import { HTMLAttributes, ReactNode } from 'react';
 import styles from './Tag.module.css';
 
-export type TagVariant = 'default' | 'success' | 'warning' | 'info' | 'error';
+export type TagVariant = 'default' | 'primary' | 'success' | 'warning' | 'info' | 'error';
 export type TagSize = 'sm' | 'md' | 'lg';
 
 const variantMap: Record<TagVariant, string> = {
   default: styles.tagDefault,
+  primary: styles.tagPrimary,
   success: styles.tagSuccess,
   warning: styles.tagWarning,
   info: styles.tagInfo,
@@ -38,19 +39,6 @@ interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'className'> {
  * <Tag variant="success" size="sm">Active</Tag>
  * <Tag variant="warning" size="md">Pending</Tag>
  * <Tag variant="error" size="lg">Failed</Tag>
- * ```
- *
- * Theming example:
- * ```css
- * [data-theme='brand'] {
- *   --sem-color-border-success: var(--pr-color-success-600);
- *   --sem-color-text-success-emphasis: var(--pr-color-success-600);
- * }
- *
- * [data-theme='dark'] {
- *   --sem-color-border-success: var(--pr-color-success-500);
- *   --sem-color-text-success-emphasis: var(--pr-color-success-500);
- * }
  * ```
  */
 const Tag = ({

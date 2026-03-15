@@ -9,13 +9,13 @@
   right: 0;
   top: 0;
   height: var(--pr-border-width-1);
-  background-color: var(--sem-color-divider-subtle);
+  background-color: var(--sem-color-border-subtle);
   opacity: 0.85;
   pointer-events: none;
 }
 
 .workItemIsFirst::before {
-  background-color: var(--sem-color-divider-base);
+  background-color: var(--sem-color-border-base);
 }
 
 .workItem {
@@ -135,7 +135,7 @@
 
 .workItemCompany {
   font-weight: var(--pr-weight-500);
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
 }
 
 .workItemPeriod {
@@ -150,7 +150,7 @@
 
 .workItemDescription p {
   margin: 0;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   line-height: var(--pr-leading-180);
 }
 

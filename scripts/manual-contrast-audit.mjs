@@ -29,6 +29,7 @@ const ROUTES = [
   '/labs',
   '/labs/core',
   '/labs/design-system-build-notes',
+  '/labs/theming-build-notes',
   '/labs/yield-flow-case-study',
 ];
 const THEMES = ['light', 'dark'];
@@ -69,14 +70,54 @@ for (const theme of THEMES) {
         return rect.width > 0 && rect.height > 0;
       };
 
+      const oklchToRgb255 = (str) => {
+        const m = str.match(
+          /oklch\(\s*([\d.]+)(%?)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)/
+        );
+        if (!m) return null;
+        let L = Number(m[1]);
+        if (m[2] === '%') L = L / 100;
+        const C = Number(m[3]);
+        const H = (Number(m[4]) * Math.PI) / 180;
+        const a = C * Math.cos(H);
+        const b = C * Math.sin(H);
+        const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+        const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+        const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+        const ll = l_ * l_ * l_;
+        const mm = m_ * m_ * m_;
+        const ss = s_ * s_ * s_;
+        let r = 4.0767416621 * ll - 3.3077115913 * mm + 0.2309699292 * ss;
+        let g = -1.2684380046 * ll + 2.6097574011 * mm - 0.3413193965 * ss;
+        let bC = -0.0041960863 * ll - 0.7034186147 * mm + 1.7076147010 * ss;
+        const gamma = (c) =>
+          c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+        return [
+          Math.round(Math.min(1, Math.max(0, gamma(r))) * 255),
+          Math.round(Math.min(1, Math.max(0, gamma(g))) * 255),
+          Math.round(Math.min(1, Math.max(0, gamma(bC))) * 255),
+        ];
+      };
+
       const parseRgb = (color) => {
-        const parts = color?.match(/\d+(?:\.\d+)?/g);
+        if (!color) return null;
+        if (color.startsWith('oklch(')) return oklchToRgb255(color);
+        const parts = color.match(/\d+(?:\.\d+)?/g);
         if (!parts || parts.length < 3) return null;
         return [Number(parts[0]), Number(parts[1]), Number(parts[2])];
       };
 
       const parseRgba = (color) => {
-        const parts = color?.match(/\d+(?:\.\d+)?/g);
+        if (!color) return null;
+        if (color === 'transparent') return [0, 0, 0, 0];
+        if (color.startsWith('oklch(')) {
+          const rgb = oklchToRgb255(color);
+          if (!rgb) return null;
+          const alphaMatch = color.match(/\/\s*([\d.]+)\s*\)/);
+          const a = alphaMatch ? Number(alphaMatch[1]) : 1;
+          return [rgb[0], rgb[1], rgb[2], Number.isNaN(a) ? 1 : a];
+        }
+        const parts = color.match(/\d+(?:\.\d+)?/g);
         if (!parts || parts.length < 3) return null;
         const [r, g, b] = [Number(parts[0]), Number(parts[1]), Number(parts[2])];
         const a = parts.length >= 4 ? Number(parts[3]) : 1;

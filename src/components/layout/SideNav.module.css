@@ -29,7 +29,7 @@
 .sideMenuCloseButton {
   background-color: transparent;
   border: 0;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   cursor: pointer;
   display: block;
   padding: var(--pr-spacing-4);
@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   font-family: var(--font-body);
   text-decoration: none;
   text-transform: lowercase;

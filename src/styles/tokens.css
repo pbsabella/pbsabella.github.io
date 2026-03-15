@@ -2,347 +2,441 @@
  * Design System Tokens
  *
  * Token Structure:
- * PR (Primitives) - Raw scale values
- * SEM (Semantic) - Usage-based tokens
- * COMP (Component) - Component-specific tokens
+ * PR (Primitives)  - Raw scale values
+ * BRAND (Anchors)  - Injection interface: brands fill these slots
+ * SEM (Semantic)   - Usage-based tokens, reads brand anchors
+ * COMP (Component) - Component-specific tokens (live in CSS Modules)
  *
- * Maintenance: Update PR → SEM tokens cascade automatically
+ * Cascade Layers (later = higher priority):
+ * @layer primitives, brand, semantic
+ *
+ * Brand layer sits between primitives and semantic.
+ * Brands may ONLY set --brand-* anchors — no --sem-* or --pr-* overrides.
+ * Semantic layer is authoritative and owns dark mode via a single block.
+ *
+ * White-label: add [data-brand='client'] with --brand-primary.
+ * No primitives or component code changes needed.
  */
 
-/* ============================================================================
-   LIGHT THEME (DEFAULT)
-   ========================================================================== */
-
-:root {
-  /* ============================
-     PR (PRIMITIVES)
-     When to add: Only when defining a new raw value (color, unit, or duration) that doesn't exist yet.
-     ============================ */
-
-  /* --- Typography --- */
-  --font-display: 'DM Serif Display', arial, serif;
-  --font-body: heebo, arial, sans-serif;
-  --font-mono: 'SF Mono', monaco, monospace;
-
-  /* Type Scale */
-  --pr-text-900: clamp(2.25rem, 4vw + 1rem, 3rem);
-  --pr-text-700: clamp(1.625rem, 3vw + 1rem, 2.25rem);
-  --pr-text-500: clamp(1.375rem, 2vw + 1rem, 1.75rem);
-  --pr-text-400: clamp(1.25rem, 1.5vw + 1rem, 1.375rem);
-  --pr-text-350: clamp(1.125rem, 0.9vw + 0.98rem, 1.3rem);
-  --pr-text-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
-  --pr-text-200: 0.875rem;
-  --pr-text-100: 0.75rem;
-
-  /* Font Weights */
-  --pr-weight-300: 300;
-  --pr-weight-400: 400;
-  --pr-weight-500: 500;
-  --pr-weight-600: 600;
-
-  /* Line Height Scale */
-  --pr-leading-100: 1;
-  --pr-leading-110: 1.1;
-  --pr-leading-120: 1.2;
-  --pr-leading-150: 1.5;
-  --pr-leading-180: 1.8;
-
-  /* Letter Spacing Scale */
-  --pr-tracking-05: 0.05em;
-  --pr-tracking-08: 0.08em;
-  --pr-tracking-12: 0.12em;
-  --pr-tracking-14: 0.14em;
-  --pr-tracking-18: 0.18em;
-  --pr-tracking-20: 0.2em;
-  --pr-tracking-30: 0.3em;
-
-  /* --- Spacing Scale
-     For layout rhythm (margins, padding, gaps between elements) --- */
-  --pr-spacing-1: 4px;
-  --pr-spacing-2: 8px;
-  --pr-spacing-3: 12px;
-  --pr-spacing-4: 16px;
-  --pr-spacing-6: 24px;
-  --pr-spacing-8: 32px;
-  --pr-spacing-11: 44px;
-  --pr-spacing-16: 64px;
-  --pr-spacing-21: 84px;
-
-  /* --- Border Scale --- */
-  --pr-border-width-1: 1px;
-  --pr-border-width-2: 2px;
-  --pr-border-width-3: 3px;
-
-  /* --- Radius Scale --- */
-  --pr-radius-sm: 3px;
-  --pr-radius-md: 4px;
-  --pr-radius-base: 5px;
-  --pr-radius-lg: 8px;
-  --pr-radius-pill: 9999px;
-
-  /* --- Shadow Scale --- */
-  --pr-shadow-100: 0 2px 8px rgb(0 0 0 / 6%), 0 1px 3px rgb(0 0 0 / 4%);
-  --pr-shadow-200: 0 4px 16px rgb(50 50 93 / 20%);
-  --pr-shadow-300: 0 10px 40px rgb(0 0 0 / 20%);
-
-  /* --- Transitions --- */
-  --pr-duration-fast: 0.2s;
-  --pr-duration-base: 0.3s;
-  --pr-duration-slow: 0.4s;
-  --pr-easing-out: ease-out;
-  --pr-easing-in-out: ease-in-out;
-
-  /* --- Color Primitives --- */
-
-  /* Brand / Accent */
-  --pr-color-green-100: #e6f7f2;
-  --pr-color-green-200: #cdf1e7;
-  --pr-color-green-300: #88d4b7;
-  --pr-color-green-500: #03b787;
-  --pr-color-green-600: #02855f;
-  --pr-color-green-700: #017e5b;
-
-  /* TODO: Expand based on utility/accent needs */
-  --pr-color-orange: #ff5e32;
-  --pr-color-yellow: #ffc541;
-  --pr-color-cyan-100: #d3f2f5;
-
-  /* Gray Scale (Cool) - UI chrome / surfaces */
-  --pr-color-gray-100: #ececf4;
-  --pr-color-gray-300: #858b96;
-  --pr-color-gray-400: #7b808a;
-  --pr-color-gray-500: #3f444e;
-  --pr-color-gray-600: #2a2e37;
-  --pr-color-gray-700: #1e2128;
-  --pr-color-gray-800: #17191e;
-  --pr-color-gray-900: #0f1115;
-
-  /* Gray Scale (Neutral/Warm) - text + content */
-  --pr-color-neutral-100: #fff;
-  --pr-color-neutral-200: #fcfcfc;
-  --pr-color-neutral-300: #ebebed;
-  --pr-color-neutral-400: #d0d0d6;
-  --pr-color-neutral-600: #7f7d80;
-  --pr-color-neutral-700: #6f6d72;
-  --pr-color-neutral-800: #37373a;
-  --pr-color-neutral-900: #1d1d1e;
-
-  /* Utility/status */
-  --pr-color-success-500: var(--pr-color-green-500);
-  --pr-color-success-600: var(--pr-color-green-600);
-  --pr-color-success-700: var(--pr-color-green-700);
-  --pr-color-warning-500: #ffd56e;
-  --pr-color-warning-600: var(--pr-color-yellow);
-  --pr-color-info-400: #5c97f2;
-  --pr-color-info-500: #2f78ea;
-  --pr-color-info-600: #1f5fc6;
-  --pr-color-error-400: #e04a58;
-  --pr-color-error-500: #dc3545;
-  --pr-color-error-600: #b02a37;
-
-  /* --- Z-Index --- */
-  --pr-z-0: 0;
-  --pr-z-10: 10;
-  --pr-z-20: 20;
-  --pr-z-30: 30;
-
-  /* --- Size Scale
-    For physical dimensions (heights, widths, hit targets, containers) --- */
-  --pr-size-1: 1px;
-  --pr-size-2: 2px;
-  --pr-size-8: 8px;
-  --pr-size-10: 10px;
-  --pr-size-16: 16px;
-  --pr-size-20: 20px;
-  --pr-size-24: 24px;
-  --pr-size-28: 28px;
-  --pr-size-40: 40px;
-  --pr-size-44: 44px;
-  --pr-size-52: 52px;
-  --pr-size-64: 64px;
-  --pr-size-80: 80px;
-  --pr-size-140: 140px;
-  --pr-size-160: 160px;
-  --pr-size-180: 180px;
-  --pr-size-200: 200px;
-  --pr-size-220: 220px;
-  --pr-size-240: 240px;
-  --pr-size-260: 260px;
-  --pr-size-320: 320px;
-  --pr-size-600: 600px;
-  --pr-size-720: 720px;
-  --pr-size-1200: 1200px;
-  --pr-size-1440: 1440px;
-
-  /* ============================
-     SEM (SEMANTIC TOKENS)
-     When to add: When creating a token that defines intent or logic (e.g., "Primary Text" or "Body Background").
-     ============================ */
-
-  /* --- Background Colors --- */
-  --sem-color-bg-base: var(--pr-color-neutral-100);
-  --sem-color-bg-subtle: var(--pr-color-neutral-200);
-  --sem-color-bg-elevated: var(--pr-color-neutral-300);
-  --sem-color-bg-overlay-subtle: rgb(252 252 252 / 90%);
-  --sem-color-bg-overlay: rgb(0 0 0 / 80%);
-  --sem-color-bg-striped: rgb(0 0 0 / 4%);
-
-  /* --- Text Colors --- */
-  --sem-color-text-primary: var(--pr-color-neutral-800);
-  --sem-color-text-strong: var(--pr-color-neutral-900);
-  --sem-color-text-muted: var(--pr-color-neutral-700);
-  --sem-color-text-accent: var(--pr-color-green-600);
-  --sem-color-text-on-accent: var(--pr-color-neutral-100);
-
-  /* --- Accent (Non-status) --- */
-  --sem-color-bg-accent: var(--pr-color-green-600);
-  --sem-color-border-accent: var(--pr-color-green-500);
-  --sem-color-accent-orange: var(--pr-color-orange);
-  --sem-color-accent-yellow: var(--pr-color-yellow);
-  --sem-color-accent-cyan: var(--pr-color-cyan-100);
-  --sem-color-accent-green: var(--pr-color-green-200);
-  --sem-color-accent-gray: var(--pr-color-gray-100);
-
-  /* --- Status (Meaning) --- */
-  --sem-color-bg-success: var(--pr-color-success-600);
-  --sem-color-text-success: var(--pr-color-neutral-100);
-  --sem-color-border-success: var(--pr-color-success-600);
-  --sem-color-text-success-emphasis: var(--pr-color-success-600); /* TODO: Refine some more */
-  --sem-color-bg-warning: var(--pr-color-warning-600);
-  --sem-color-text-warning: var(--pr-color-neutral-800);
-  --sem-color-border-warning: var(--pr-color-warning-600);
-  --sem-color-bg-info: var(--pr-color-info-600);
-  --sem-color-text-info: var(--pr-color-neutral-100);
-  --sem-color-border-info: var(--pr-color-info-600);
-  --sem-color-text-info-emphasis: var(--pr-color-info-600);
-  --sem-color-bg-error: var(--pr-color-error-500);
-  --sem-color-text-error: var(--pr-color-neutral-100);
-  --sem-color-border-error: var(--pr-color-error-500);
-  --sem-color-text-error-emphasis: var(--pr-color-error-500);
-  --sem-color-bg-success-subtle: rgb(1 126 91 / 12%);
-  --sem-color-bg-warning-subtle: rgb(255 197 65 / 16%);
-  --sem-color-bg-info-subtle: rgb(31 95 198 / 12%);
-  --sem-color-bg-error-subtle: rgb(220 53 69 / 12%);
-  --sem-color-bg-default: transparent;
-
-  /* --- Text Sizes --- */
-  --sem-text-heading-lg: var(--pr-text-900);
-  --sem-text-heading-md: var(--pr-text-700);
-  --sem-text-heading-sm: var(--pr-text-500);
-  --sem-text-feature: var(--pr-text-400);
-  --sem-text-lede: var(--pr-text-350);
-  --sem-text-body: var(--pr-text-300);
-  --sem-text-caption: var(--pr-text-200);
-  --sem-text-kicker: var(--pr-text-100);
-  --sem-tracking-kicker: var(--pr-tracking-20);
-
-  /* --- Border & Divider Colors --- */
-  --sem-color-border-subtle: var(--pr-color-neutral-300);
-  --sem-color-border-base: var(--pr-color-neutral-400);
-  --sem-color-border-strong: var(--pr-color-neutral-800);
-  --sem-color-divider-subtle: var(--pr-color-neutral-300);
-  --sem-color-divider-base: var(--pr-color-neutral-400);
-  --sem-color-divider-strong: var(--pr-color-neutral-600);
-
-  /* --- Elevation --- */
-  --sem-elevation-low: var(--pr-shadow-100);
-  --sem-elevation-medium: var(--pr-shadow-200);
-  --sem-elevation-high: var(--pr-shadow-300);
-
-  /* --- Layout Constraints --- */
-  --sem-layout-content-max: var(--pr-size-600);
-  --sem-layout-container-max: var(--pr-size-1200);
-  --sem-layout-page-max: var(--pr-size-1440);
-  --sem-layout-prose: 68ch;
-  --sem-layout-prose-sm: 64ch;
-  --sem-layout-header-height: var(--pr-size-52);
-
-  /* --- Focus --- */
-  --sem-color-focus-ring: var(--pr-color-green-500);
-  --sem-focus-outline-width: var(--pr-border-width-2);
-  --sem-focus-outline-offset: var(--pr-size-1);
-  --sem-focus-outline-radius: var(--pr-radius-sm);
-
-  /* --- Misc / z-index --- */
-  --sem-pattern-opacity: 1;
-  --sem-z-base: var(--pr-z-0);
-  --sem-z-header: var(--pr-z-10);
-  --sem-z-overlay: var(--pr-z-20);
-  --sem-z-modal: var(--pr-z-30);
-
-  /* ============================
-     COMP (COMPONENT TOKENS)
-     Where to add: Component files to scope it
-     ============================ */
-
-}
+@layer primitives, brand, semantic;
 
 /* ============================================================================
-   DARK THEME
-   To start off, we'll strest test overriding the semantic layer only.
-   No primitives nor component tokens here.
+   PRIMITIVES
+   Raw scales only. No UI meaning.
    ========================================================================== */
-[data-theme='dark'] {
-  /* --- Accent (Non-status) --- */
-  --sem-color-bg-accent: var(--pr-color-green-600);
-  --sem-color-border-accent: var(--pr-color-green-600);
-  --sem-color-text-accent: var(--pr-color-green-500);
-  --sem-color-text-on-accent: var(--pr-color-neutral-100);
-  --sem-color-accent-orange: var(--pr-color-orange);
-  --sem-color-accent-yellow: var(--pr-color-yellow);
-  --sem-color-accent-cyan: var(--pr-color-gray-800);
-  --sem-color-accent-green: var(--pr-color-gray-800);
-  --sem-color-accent-gray: var(--pr-color-gray-800);
 
-  /* --- Status (Meaning) --- */
-  --sem-color-bg-success: var(--pr-color-success-600);
-  --sem-color-text-success: var(--pr-color-neutral-100);
-  --sem-color-border-success: var(--pr-color-success-500);
-  --sem-color-text-success-emphasis: var(--pr-color-success-500);
-  --sem-color-bg-warning: var(--pr-color-warning-600);
-  --sem-color-text-warning: var(--pr-color-neutral-800);
-  --sem-color-border-warning: var(--pr-color-warning-500);
-  --sem-color-bg-info: var(--pr-color-info-600);
-  --sem-color-text-info: var(--pr-color-neutral-100);
-  --sem-color-border-info: var(--pr-color-info-400);
-  --sem-color-text-info-emphasis: var(--pr-color-info-400);
-  --sem-color-bg-error: var(--pr-color-error-600);
-  --sem-color-text-error: var(--pr-color-neutral-100);
-  --sem-color-border-error: var(--pr-color-error-400);
-  --sem-color-text-error-emphasis: var(--pr-color-error-400);
+@layer primitives {
+  :root {
+    /* Typography */
+    --font-mono: 'SF Mono', monaco, monospace;
 
-  /* --- Background Colors --- */
-  --sem-color-bg-base: var(--pr-color-gray-900);
-  --sem-color-bg-subtle: var(--pr-color-gray-800);
-  --sem-color-bg-elevated: var(--pr-color-gray-700);
-  --sem-color-bg-overlay-subtle: rgb(15 17 21 / 94%);
-  --sem-color-bg-overlay: rgb(15 17 21 / 85%);
-  --sem-color-bg-striped: rgb(255 255 255 / 5%);
+    /* Type Scale */
+    --pr-text-900: clamp(2.25rem, 4vw + 1rem, 3rem);
+    --pr-text-700: clamp(1.625rem, 3vw + 1rem, 2.25rem);
+    --pr-text-500: clamp(1.375rem, 2vw + 1rem, 1.75rem);
+    --pr-text-400: clamp(1.25rem, 1.5vw + 1rem, 1.375rem);
+    --pr-text-350: clamp(1.125rem, 0.9vw + 0.98rem, 1.3rem);
+    --pr-text-300: clamp(1rem, 0.5vw + 0.95rem, 1.05rem);
+    --pr-text-200: 0.875rem;
+    --pr-text-100: 0.75rem;
 
-  /* --- Text Colors --- */
-  --sem-color-text-primary: var(--pr-color-gray-100);
-  --sem-color-text-strong: var(--pr-color-gray-100);
-  --sem-color-text-muted: var(--pr-color-gray-300);
+    /* Font Weights */
+    --pr-weight-300: 300;
+    --pr-weight-400: 400;
+    --pr-weight-500: 500;
+    --pr-weight-600: 600;
 
-  /* --- Border & Divider Colors --- */
-  --sem-color-border-subtle: var(--pr-color-gray-700);
-  --sem-color-border-base: var(--pr-color-gray-600);
-  --sem-color-border-strong: var(--pr-color-gray-500);
-  --sem-color-divider-subtle: var(--pr-color-gray-700);
-  --sem-color-divider-base: var(--pr-color-gray-600);
-  --sem-color-divider-strong: var(--pr-color-gray-500);
+    /* Line Height Scale */
+    --pr-leading-100: 1;
+    --pr-leading-110: 1.1;
+    --pr-leading-120: 1.2;
+    --pr-leading-150: 1.5;
+    --pr-leading-180: 1.8;
 
-  /* --- Status Subtle Backgrounds --- */
-  --sem-color-bg-success-subtle: rgb(1 126 91 / 22%);
-  --sem-color-bg-warning-subtle: rgb(255 197 65 / 24%);
-  --sem-color-bg-info-subtle: rgb(92 151 242 / 22%);
-  --sem-color-bg-error-subtle: rgb(224 74 88 / 22%);
+    /* Letter Spacing Scale */
+    --pr-tracking-05: 0.05em;
+    --pr-tracking-08: 0.08em;
+    --pr-tracking-12: 0.12em;
+    --pr-tracking-14: 0.14em;
+    --pr-tracking-18: 0.18em;
+    --pr-tracking-20: 0.2em;
+    --pr-tracking-30: 0.3em;
 
-  /* --- Elevation --- */
-  --sem-elevation-low: 0 2px 4px rgb(0 0 0 / 45%), 0 1px 2px rgb(0 0 0 / 50%);
-  --sem-elevation-medium: 0 8px 20px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 40%);
-  --sem-elevation-high: 0 20px 40px rgb(0 0 0 / 65%), 0 4px 10px rgb(0 0 0 / 50%);
+    /* Spacing Scale
+      For layout rhythm (margins, padding, gaps between elements) */
+    --pr-spacing-1: 4px;
+    --pr-spacing-2: 8px;
+    --pr-spacing-3: 12px;
+    --pr-spacing-4: 16px;
+    --pr-spacing-6: 24px;
+    --pr-spacing-8: 32px;
+    --pr-spacing-11: 44px;
+    --pr-spacing-16: 64px;
+    --pr-spacing-21: 84px;
 
-  /* --- Misc Semantic --- */
-  --sem-pattern-opacity: 0.85;
-}
+    /* Border Scale */
+    --pr-border-width-1: 1px;
+    --pr-border-width-2: 2px;
+    --pr-border-width-3: 3px;
+
+    /* Radius Scale */
+    --pr-radius-sm: 3px;
+    --pr-radius-md: 4px;
+    --pr-radius-lg: 8px;
+    --pr-radius-pill: 9999px;
+
+    /* Shadow Scale */
+    --pr-shadow-100: 0 2px 8px oklch(0% 0 0deg / 6%), 0 1px 3px oklch(0% 0 0deg / 4%);
+    --pr-shadow-200: 0 4px 16px oklch(24% 0.06 264deg / 20%);
+    --pr-shadow-300: 0 10px 40px oklch(0% 0 0deg / 20%);
+
+    /* Transitions */
+    --pr-duration-fast: 0.2s;
+    --pr-duration-base: 0.3s;
+    --pr-duration-slow: 0.4s;
+    --pr-easing-out: ease-out;
+    --pr-easing-in-out: ease-in-out;
+
+    /* Color Primitives */
+
+   /* Gray Scale (Cool) - UI chrome / surfaces */
+   --pr-color-gray-100: oklch(94.54% 0.0107 286.19deg);
+   --pr-color-gray-300: oklch(63.54% 0.0179 262.72deg);
+   --pr-color-gray-400: oklch(59.90% 0.0163 264.44deg);
+   --pr-color-gray-500: oklch(38.59% 0.0183 264.33deg);
+   --pr-color-gray-600: oklch(30.10% 0.0173 266.38deg);
+   --pr-color-gray-700: oklch(24.77% 0.0140 267.00deg);
+   --pr-color-gray-800: oklch(21.35% 0.0103 268.20deg);
+   --pr-color-gray-900: oklch(17.73% 0.0089 264.32deg);
+
+   /* Gray Scale (Neutral/Warm) - text + content */
+   --pr-color-neutral-100: oklch(100% 0 89.88deg);
+   --pr-color-neutral-200: oklch(99.11% 0 89.88deg);
+   --pr-color-neutral-300: oklch(94.06% 0.0027 286.35deg);
+   --pr-color-neutral-400: oklch(85.94% 0.0082 286.23deg);
+   --pr-color-neutral-600: oklch(59.24% 0.0051 314.79deg);
+   --pr-color-neutral-700: oklch(53.82% 0.0080 304.13deg);
+   --pr-color-neutral-800: oklch(33.79% 0.0052 286.12deg);
+   --pr-color-neutral-900: oklch(23.12% 0.0019 286.25deg);
+
+    /* Utility / status */
+    --pr-success: oklch(67% 0.149 163deg);
+    --pr-warning: oklch(88% 0.142 83deg);
+    --pr-error:   oklch(55% 0.192 19deg);
+    --pr-info:    oklch(56% 0.194 258deg);
+
+    /* Z-Index */
+    --pr-z-0: 0;
+    --pr-z-10: 10;
+    --pr-z-20: 20;
+    --pr-z-30: 30;
+
+    /* Size Scale
+    For physical dimensions (heights, widths, hit targets, containers) */
+    --pr-size-1: 1px;
+    --pr-size-2: 2px;
+    --pr-size-8: 8px;
+    --pr-size-10: 10px;
+    --pr-size-16: 16px;
+    --pr-size-20: 20px;
+    --pr-size-24: 24px;
+    --pr-size-28: 28px;
+    --pr-size-32: 32px;
+    --pr-size-40: 40px;
+    --pr-size-44: 44px;
+    --pr-size-52: 52px;
+    --pr-size-64: 64px;
+    --pr-size-80: 80px;
+    --pr-size-140: 140px;
+    --pr-size-160: 160px;
+    --pr-size-180: 180px;
+    --pr-size-200: 200px;
+    --pr-size-220: 220px;
+    --pr-size-240: 240px;
+    --pr-size-260: 260px;
+    --pr-size-320: 320px;
+    --pr-size-600: 600px;
+    --pr-size-720: 720px;
+    --pr-size-1200: 1200px;
+    --pr-size-1440: 1440px;
+  }
+} /* end @layer primitives */
+
+/* ============================================================================
+   BRAND
+   Only defines brand palette anchors. No semantic logic allowed.
+   ========================================================================== */
+
+@layer brand {
+  /* Default anchors: Portfolio (active when data-brand is absent) */
+  :root {
+    --brand-primary:   oklch(67%   0.149 163deg);
+    --brand-secondary: oklch(65% 0.216 35deg);
+
+    /* Accent is decorative color used for charts, highlights, marketing surfaces etc. */
+    --brand-accent: var(--brand-secondary);
+
+    /* Typography */
+    --brand-font-display:   'DM Serif Display', 'Georgia', 'Times New Roman', serif;
+    --brand-font-body:      heebo, arial, sans-serif;
+
+    /* Radius personality */
+    --brand-radius-sm:   var(--pr-radius-sm);
+    --brand-radius-md:   var(--pr-radius-md);
+    --brand-radius-lg:   var(--pr-radius-lg);
+    --brand-radius-pill: var(--pr-radius-pill);
+
+    /* Status anchors allow brand tinting but should not radically change hue meaning. */
+    --brand-success: var(--pr-success);
+    --brand-warning: var(--pr-warning);
+    --brand-error:   var(--pr-error);
+    --brand-info:    var(--pr-info);
+  }
+
+  /*
+   * Per-brand overrides live in src/styles/brands/*.css — one file per brand.
+   * Each file adds @layer brand { [data-brand='x'] { --brand-primary: ...; } }
+   * No other files change when a new brand is added.
+   *
+   * To add a white-label brand, create a new file:
+   * @layer brand { [data-brand='acme'] { --brand-primary: oklch(50% 0.2 30deg); --brand-primary-bg: oklch(40% 0.18 30deg); } }
+   * Only --brand-primary is required.
+   */
+} /* end @layer brand */
+
+/* ============================================================================
+   SEMANTIC TOKENS
+   Define UI meaning independent of brand palette.
+   Authoritative. Reads brand anchors.
+   ========================================================================== */
+
+@layer semantic {
+  :root {
+    /* Typography */
+    --font-display: var(--brand-font-display);
+    --font-body:    var(--brand-font-body);
+
+    /* Text Sizes */
+    --sem-text-heading-lg: var(--pr-text-900);
+    --sem-text-heading-md: var(--pr-text-700);
+    --sem-text-heading-sm: var(--pr-text-500);
+    --sem-text-feature: var(--pr-text-400);
+    --sem-text-lede: var(--pr-text-350);
+    --sem-text-body: var(--pr-text-300);
+    --sem-text-caption: var(--pr-text-200);
+    --sem-text-kicker: var(--pr-text-100);
+    --sem-tracking-kicker: var(--pr-tracking-20);
+
+    /* Surfaces */
+    --sem-color-bg-canvas:         var(--brand-bg-canvas, var(--pr-color-neutral-100));
+    --sem-color-bg-base:           var(--brand-bg-base, var(--pr-color-neutral-100));
+    --sem-color-bg-subtle:         var(--brand-bg-subtle, var(--pr-color-neutral-200));
+    --sem-color-bg-elevated:       var(--pr-color-neutral-300);
+    --sem-color-bg-overlay-subtle: oklch(99% 0 0deg / 90%);
+    --sem-color-bg-overlay:        oklch(0%  0 0deg / 80%);
+    --sem-color-bg-striped:        oklch(0%  0 0deg / 4%);
+
+    /* Text Colors */
+    --sem-color-text-base:    var(--pr-color-neutral-800);
+    --sem-color-text-strong:  var(--pr-color-neutral-900);
+    --sem-color-text-muted:   var(--pr-color-neutral-700);
+    --sem-color-text-on-bg:   var(--pr-color-neutral-100);
+
+    /* Interaction roles - describes UI roles shared by multiple components */
+    --sem-color-action:           oklch(from var(--brand-primary) calc(l * 0.80) c h);
+
+    /* TODO: Refactor or refine further. It's not a cookie cutter for all colors */
+    --sem-state-hover-lightness:  0.95;
+    --sem-state-active-lightness: 0.92;
+
+    /* Main accent scale */
+    --sem-color-accent-base:         var(--brand-primary); /* borders, nav indicators, active states */
+    --sem-color-accent-strong:       oklch(from var(--brand-primary, oklch(67% 0.149 163deg)) calc(l * 0.78) c h); /* text emphasis or strong highlights */
+    --sem-color-accent-strong-on-bg: var(--brand-on-accent, var(--pr-color-neutral-100));
+    --sem-color-accent-secondary:    var(--brand-secondary, oklch(65.7% 0.216 35deg)); /* icons and decorative highlights */
+
+    /* Page tints */
+
+    /* TODO: Fix - remove abrupt color change should fade in then out */
+    --sem-color-surface-tint-1: oklch(from var(--brand-surface-tint, oklch(93.577% 0.0537 168deg)) 97% 0.04 h);
+    --sem-color-surface-tint-2: oklch(from var(--brand-surface-tint, var(--pr-color-gray-100)) 98% 0.008 h);
+
+    /* Success */
+    --sem-color-success-base:        var(--brand-success); /* for light bg (alerts) */
+    --sem-color-success-strong:      oklch(from var(--brand-success) calc(l * 0.75) c h); /* badges / pills */
+    --sem-color-success-surface:     oklch(from var(--brand-success) 97% 0.06 h); /* subtle bg */
+    --sem-color-success-border:      oklch(from var(--brand-success) calc(l * 0.9) c h);
+
+    /* Text variants */
+    --sem-color-text-success-base:          oklch(from var(--brand-success) calc(l * 0.75) c h); /* badges / pills */
+    --sem-color-text-success-strong-on-bg:  var(--pr-color-neutral-100);  /* light text on strong bg */
+    --sem-color-text-success-on-surface:    oklch(from var(--brand-success) calc(l * 0.75) c h);
+
+    /* Warning */
+    --sem-color-warning-base:        var(--brand-warning);
+    --sem-color-warning-strong:      oklch(from var(--brand-warning) calc(l * 0.95) c h);
+    --sem-color-warning-surface:     oklch(from var(--brand-warning) 97% 0.05 h);
+    --sem-color-warning-border:      oklch(from var(--brand-warning) calc(l * 0.9) c h);
+
+    /* Text variants */
+    --sem-color-text-warning-base:          var(--pr-color-neutral-900);
+    --sem-color-text-warning-strong-on-bg:  var(--pr-color-neutral-900);
+    --sem-color-text-warning-on-surface:    var(--pr-color-neutral-900);
+
+    /* Error */
+    --sem-color-error-base:         var(--brand-error);
+    --sem-color-error-strong:       oklch(from var(--brand-error) calc(l * 0.95) c h);
+    --sem-color-error-surface:      oklch(from var(--brand-error) 94% 0.05 h);
+    --sem-color-error-border:       oklch(from var(--brand-error) calc(l * 0.9) c h);
+
+    /* Text variants */
+    --sem-color-text-error-base:          oklch(from var(--brand-error) calc(l * 0.85) c h);
+    --sem-color-text-error-strong-on-bg:  var(--pr-color-neutral-100); /* badge / pill */
+    --sem-color-text-error-on-surface:    oklch(from var(--brand-error) calc(l * 0.85) c h);
+
+    /* Info */
+    --sem-color-info-base:          var(--brand-info);
+    --sem-color-info-strong:        oklch(from var(--brand-info) calc(l * 0.88) c h);
+    --sem-color-info-surface:       oklch(from var(--brand-info) 94% 0.05 h);
+    --sem-color-info-border:        oklch(from var(--brand-info) calc(l * 0.9) c h);
+
+    /* Text variants */
+    --sem-color-text-info-base:          oklch(from var(--brand-info) calc(l * 0.80) c h);
+    --sem-color-text-info-strong-on-bg:  var(--pr-color-neutral-100);
+    --sem-color-text-info-on-surface:    oklch(from var(--brand-info) calc(l * 0.80) c h);
+
+    /* Borders & Dividers */
+    --sem-color-border-subtle:  var(--pr-color-neutral-300);
+    --sem-color-border-base:    var(--pr-color-neutral-400);
+    --sem-color-border-strong:  var(--pr-color-neutral-800);
+
+    /* Elevation */
+    --sem-elevation-low:    var(--pr-shadow-100);
+    --sem-elevation-medium: var(--pr-shadow-200);
+    --sem-elevation-high:   var(--pr-shadow-300);
+
+    /* Layout Constraints */
+    --sem-layout-content-max:    var(--pr-size-600);
+    --sem-layout-container-max:  var(--pr-size-1200);
+    --sem-layout-page-max:       var(--pr-size-1440);
+    --sem-layout-prose:          68ch;
+    --sem-layout-prose-sm:       64ch;
+    --sem-layout-header-height:  var(--pr-size-52);
+
+    /* Focus */
+    --sem-color-focus-ring: oklch(from var(--brand-primary) 75% c h);
+    --sem-focus-outline-width:  var(--pr-border-width-2);
+    --sem-focus-outline-offset: var(--pr-size-1);
+    --sem-focus-outline-radius: var(--pr-radius-sm);
+
+    /* Radius — reads brand anchors, enables brand radius switching */
+    --sem-radius-sm:   var(--brand-radius-sm,   var(--pr-radius-sm));
+    --sem-radius-md:   var(--brand-radius-md,   var(--pr-radius-md));
+    --sem-radius-lg:   var(--brand-radius-lg,   var(--pr-radius-lg));
+    --sem-radius-pill: var(--brand-radius-pill, var(--pr-radius-pill));
+
+    /* Misc / z-index */
+    --sem-z-base:    var(--pr-z-0);
+    --sem-z-header:  var(--pr-z-10);
+    --sem-z-overlay: var(--pr-z-20);
+    --sem-z-modal:   var(--pr-z-30);
+  }
+
+  /* ============================================================================
+    DARK MODE
+    Centralized opt-in block.
+    Uses oklch relative color to derive brand-aware dark accent variants.
+    Surface hierarchy preserved via Gray (Cool) scale.
+    ============================================================================ */
+
+  [data-theme='dark'] {
+    --sem-color-bg-canvas:         var(--brand-bg-canvas, var(--pr-color-gray-900));
+    --sem-color-bg-base:           var(--brand-bg-base, var(--pr-color-gray-900));
+    --sem-color-bg-subtle:         var(--brand-bg-subtle, var(--pr-color-gray-800));
+    --sem-color-bg-elevated:       var(--pr-color-gray-700);
+
+    /* Overlays need higher contrast/opacity on dark backgrounds */
+    --sem-color-bg-overlay-subtle: oklch(from var(--sem-color-bg-canvas) l c h / 94%);
+    --sem-color-bg-overlay:        oklch(from var(--pr-color-gray-900) l c h / 85%);
+    --sem-color-bg-striped:        oklch(100% 0 0deg / 5%);
+
+    /*  Text colors */
+    --sem-color-text-base:    var(--pr-color-gray-100);
+    --sem-color-text-strong:  var(--pr-color-gray-100);
+    --sem-color-text-muted:   var(--pr-color-gray-300);
+
+    /* Interaction & Accents */
+    --sem-color-action:           oklch(from var(--brand-primary) 53% c h);
+    --sem-color-accent-base:      oklch(from var(--brand-primary) 70% c h);
+    --sem-color-accent-strong:    oklch(from var(--brand-primary) 75% c h);
+    --sem-state-hover-lightness:  1.28;
+    --sem-state-active-lightness: 1.64;
+
+    /* Text on Accent remains white if the brand bg is dark enough */
+    --sem-color-accent-strong-on-bg: var(--brand-on-accent, var(--pr-color-neutral-100));
+
+    /* Repinning lightness for decorative tints to keep them subtle but visible */
+    --sem-color-surface-tint-1: oklch(from var(--brand-surface-tint) 22% 0.04 h);
+    --sem-color-surface-tint-2: oklch(from var(--brand-surface-tint) 18% 0.02 h);
+
+    /* ── Status (Success, Warning, Error, Info) */
+
+    /* Success */
+    --sem-color-success-base:        var(--brand-success);
+    --sem-color-success-strong:      oklch(from var(--brand-success) 53% c h);
+    --sem-color-success-surface:     oklch(from var(--brand-success) 20% 0.04 h);
+    --sem-color-success-border:      oklch(from var(--brand-success) 60% c h);
+
+    /* Text variants */
+    --sem-color-text-success-base:          oklch(from var(--brand-success) 53% c h);
+    --sem-color-text-success-strong-on-bg:  var(--pr-color-neutral-100);
+    --sem-color-text-success-on-surface:    oklch(from var(--brand-success) 60% c h);
+
+    /* Warning */
+    --sem-color-warning-base:        var(--brand-warning);
+    --sem-color-warning-strong:      oklch(from var(--brand-warning) 85% c h);
+    --sem-color-warning-surface:     oklch(from var(--brand-warning) 22% 0.04 h);
+    --sem-color-warning-border:      oklch(from var(--brand-warning) 65% c h);
+
+    /* Text variants */
+    --sem-color-text-warning-base:          oklch(from var(--brand-warning) 85% c h);
+    --sem-color-text-warning-strong-on-bg:  var(--pr-color-neutral-900);
+    --sem-color-text-warning-on-surface:    oklch(from var(--brand-warning) 85% c h);
+
+    /* Error */
+    --sem-color-error-base:         var(--brand-error);
+    --sem-color-error-strong:       oklch(from var(--brand-error) 50% c h);
+    --sem-color-error-surface:      oklch(from var(--brand-error) 20% 0.04 h);
+    --sem-color-error-border:       oklch(from var(--brand-error) 40% c h);
+
+    /* Text variants */
+    --sem-color-text-error-base:          oklch(from var(--brand-error) 50% c h);
+    --sem-color-text-error-strong-on-bg:  var(--pr-color-neutral-100);
+    --sem-color-text-error-on-surface:    oklch(from var(--brand-error) 70% c h);
+
+    /* Info */
+    --sem-color-info-base:          var(--brand-info);
+    --sem-color-info-strong:        oklch(from var(--brand-info) 55% c h);
+    --sem-color-info-surface:       oklch(from var(--brand-info) 20% 0.04 h);
+    --sem-color-info-border:        oklch(from var(--brand-info) 65% c h);
+
+    /* Text variants */
+    --sem-color-text-info-base:          oklch(from var(--brand-info) 58% c h);
+    --sem-color-text-info-strong-on-bg:  var(--pr-color-neutral-100);
+    --sem-color-text-info-on-surface:    oklch(from var(--brand-info) 65% c h);
+
+    /* ── Borders & Dividers ──────────────────────────────────────────────── */
+    --sem-color-border-subtle:  var(--pr-color-gray-700);
+    --sem-color-border-base:    var(--pr-color-gray-600);
+    --sem-color-border-strong:  var(--pr-color-gray-500);
+
+    /* Elevation */
+    --sem-elevation-low:    0 2px 8px oklch(0% 0 0deg / 40%), 0 1px 3px oklch(0% 0 0deg / 50%);
+    --sem-elevation-medium: 0 4px 16px oklch(0% 0 0deg / 50%);
+    --sem-elevation-high:   0 10px 40px oklch(0% 0 0deg / 60%);
+
+    /* Focus */
+    --sem-color-focus-ring: oklch(from var(--brand-primary) 80% c h);
+  }
+
+} /* end @layer semantic */

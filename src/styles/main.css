@@ -1,8 +1,14 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
 
-/* design tokens */
+/* Design system core — primitives + brand defaults + semantic */
 @import url('./tokens.css');
 
-/* base reset and typography */
+/* Brand overrides — one file per brand, swap or add to extend */
+@import url('./brands/fintech.css');
+@import url('./brands/saas.css');
+@import url('./brands/editorial.css');
+@import url('./brands/neon.css');
+
+/* Base reset and typography */
 @import url('./base.css');

@@ -15,7 +15,7 @@ on:
       skip_percy:
         description: 'Skip Percy snapshot upload (dry run)'
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options:
           - 'false'

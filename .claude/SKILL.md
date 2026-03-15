@@ -35,13 +35,6 @@ New components follow the same 3-file pattern and consume `--sem-` tokens.
 ## Routing (`src/constants/routes.ts`)
 Centralized `ROUTES` constants — no magic strings. Pages live in `src/pages/`, sections in `src/components/sections/`.
 
-Current routes:
-- `/` Home (Hero, Work, About, Contact)
-- `/labs` Labs index
-- `/labs/core` Design system docs
-- `/labs/design-system-build-notes`
-- `/labs/yield-flow-case-study`
-
 ## Key Hooks (`src/hooks/`)
 `useScrollToSection`, `useActiveSection`, `useRouteScroll`, `useScrollLock`, `useFocusTrap` — prefer these over rolling new scroll/focus logic.
 

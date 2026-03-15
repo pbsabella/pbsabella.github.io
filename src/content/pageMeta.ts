@@ -25,7 +25,7 @@ export const BUILD_NOTES_META_PAGE = {
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },
     { label: 'Labs', to: ROUTES.LABS },
-    { label: 'Design System Build Notes' },
+    { label: 'Design System' },
   ],
   heroBadge: 'React + Design Systems',
   heroKicker: 'Build Notes 01',
@@ -35,11 +35,30 @@ export const BUILD_NOTES_META_PAGE = {
     'Building a multi-tiered token architecture and proving it in a real portfolio UI.',
 };
 
+export const THEMING_BUILD_NOTES_META_PAGE = {
+  breadcrumbs: [
+    { label: 'Home', to: ROUTES.HOME },
+    { label: 'Labs', to: ROUTES.LABS },
+    { label: 'Theming' },
+  ],
+  heroBadge: 'CSS Architecture',
+  heroKicker: 'Build Notes 02',
+  heroTitle: 'Theming:',
+  heroTitleAccent: 'The Logic of Identity',
+  heroSubtitle:
+    'A four-tier brand system where identity is injected once and felt everywhere.',
+  heroStats: [
+    { label: 'Project', value: 'Personal' },
+    { label: 'Stack', value: 'React, CSS Modules, TypeScript' },
+    { label: 'Focus', value: 'Token architecture, @layers, oklch color system' },
+  ],
+};
+
 export const YIELD_FLOW_META_PAGE = {
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },
     { label: 'Labs', to: ROUTES.LABS },
-    { label: 'YieldFlow Case Study' },
+    { label: 'YieldFlow' },
   ],
   heroBadge: 'Design Engineering',
   heroKicker: 'Case Study 01',

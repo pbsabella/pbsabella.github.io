@@ -6,14 +6,14 @@
   margin-bottom: var(--pr-spacing-4);
   font-family: var(--font-display);
   font-style: italic;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .sectionKicker {
   font-size: var(--sem-text-kicker);
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-30);
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
   font-weight: var(--pr-weight-500);
   margin-bottom: var(--pr-spacing-2);
 }

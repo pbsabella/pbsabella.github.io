@@ -27,8 +27,8 @@ const getPalette = (): Palette => {
   const computed = getComputedStyle(document.body);
 
   return {
-    dot: computed.getPropertyValue('--sem-color-divider-strong').trim() || 'rgba(63, 68, 78, 0.55)',
-    line: computed.getPropertyValue('--sem-color-divider-base').trim() || 'rgba(106, 116, 130, 0.7)',
+    dot: computed.getPropertyValue('--sem-color-border-strong').trim() || 'rgba(63, 68, 78, 0.55)',
+    line: computed.getPropertyValue('--sem-color-border-base').trim() || 'rgba(106, 116, 130, 0.7)',
   };
 };
 

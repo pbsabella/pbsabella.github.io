@@ -9,7 +9,7 @@
   margin: 0;
   max-width: var(--sem-layout-prose);
   line-height: var(--pr-leading-180);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   font-size: var(--sem-text-lede);
 }
 

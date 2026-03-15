@@ -1,0 +1,75 @@
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--pr-spacing-4);
+  margin-block: var(--pr-spacing-8);
+}
+
+@media (width >= 768px) {
+  .presetGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.presetCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-2);
+  padding: var(--pr-spacing-4);
+  border-radius: var(--sem-radius-lg);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  border-bottom-width: var(--pr-border-width-3);
+  border-bottom-color: var(--sem-color-border-base);
+  background: var(--sem-color-bg-base);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.presetCard:hover {
+  background: var(--sem-color-bg-subtle);
+}
+
+.presetCard:focus-visible {
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
+  outline-offset: var(--sem-focus-outline-offset);
+  border-radius: var(--sem-focus-outline-radius);
+}
+
+.presetCardSelected {
+  border-bottom-color: var(--sem-color-accent-base);
+  background: var(--sem-color-bg-subtle);
+}
+
+.presetCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--pr-spacing-2);
+}
+
+.presetCheck {
+  color: var(--sem-color-accent-strong);
+}
+
+.presetLabel {
+  font-size: var(--sem-text-body);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-strong);
+  display: block;
+}
+
+.presetIndustry {
+  font-size: var(--sem-text-kicker);
+  color: var(--sem-color-accent-strong);
+  display: block;
+}
+
+.presetDesc {
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  line-height: var(--pr-leading-150);
+  margin: 0;
+}
