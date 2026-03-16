@@ -10,15 +10,9 @@ const BrandSwitcherSection = () => {
   return (
     <EditorialBlock id="presets" kicker="06. Presets" title="Stress-testing the vibe" rhythm="21">
       <p>
-        With the model and color math in place, these presets stress-test the
-        architecture across various industries. Each one swaps the underlying
-        brand anchors while the semantic logic remains fixed.
-      </p>
-      <p>
-        Select a preset below to reskin every component instantly.
-        These selections are persistent: the brand and theme controls remain
-        available in the header and apply your chosen theme throughout the entire
-        application as you navigate.
+        With the model and color math in place, these presets stress-test the architecture across diverse brand profiles.
+        Each one swaps the underlying brand anchors while the semantic logic remains fixed.
+        Select a preset below to reskin every component instantly, with your choices persisting as you navigate the application.
       </p>
 
       <div className={styles.presetGrid} role="group" aria-label="Brand presets">

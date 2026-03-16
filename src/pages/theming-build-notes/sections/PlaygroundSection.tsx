@@ -69,7 +69,7 @@ const PlaygroundSection = () => {
     >
       <p>
         The original three-tier system flows COMP → SEM → PR
-        (see {' '}<Link className={styles.link} to={`${ROUTES.DESIGN_SYSTEM_BUILD_NOTES}#demo`}>design system build notes</Link>).
+        (see {' '}<Link className={styles.link} to={`${ROUTES.DESIGN_SYSTEM_BUILD_NOTES}`}>design system build notes</Link>).
         Adding a brand layer intercepts that chain: semantic tokens now read from brand anchors, and
         brands resolve to primitives.
       </p>

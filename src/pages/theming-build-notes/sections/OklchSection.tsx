@@ -25,15 +25,15 @@ const OklchSection = () => (
   >
     <div>
       <p>
-        The bottleneck was manual labor. To scale the presets for this playground,
-        I originally had to hand-pick every shade and audit contrast for both light
-        and dark modes. It was a fragile process that did not allow for dynamic
-        expansion.
+        The bottleneck was manual labor. To scale these presets, I originally
+        had to hand-pick every shade and audit contrast for both light and dark modes.
+        It was a fragile process that collapsed under dynamic expansion.
       </p>
       <p>
-        I switched to <code className={styles.code}>oklch()</code> to automate this logic. Unlike hex, OKLCH is a
-        perceptually uniform color space. It maps to how the human eye actually sees, making the
-        relationship between brightness and saturation mathematically predictable.
+        I switched to <code className={styles.code}>oklch()</code> to automate this logic.
+        Unlike Hex or RGB, OKLCH is a perceptually uniform color space. It maps
+        directly to how the human eye perceives brightness and saturation, making
+        color relationships mathematically predictable.
       </p>
 
       <span className={styles.subtitle}>The Mental Model</span>
@@ -45,21 +45,28 @@ const OklchSection = () => (
 
       <span className={styles.subtitle}>The Engine: Relative Color Syntax</span>
       <p>
-        The breakthrough was using it to perform programmatic adjustments. By borrowing the brand hue while forcing a fixed lightness, the
-        system derives a full palette on the fly. This allows the playground to swap presets
-        instantly without manual color picking.
+        The breakthrough was using relative color syntax to perform programmatic adjustments.
+        By borrowing a brand hue while dynamically adjusting lightness, the system derives
+        an entire palette on the fly. This allows the playground to swap presets instantly
+        without manual color picking.
       </p>
       <CodeBlock code={RELATIVE_SNIPPET} label="Semantic scale" />
 
       <span className={styles.subtitle}>When the math is not mathing</span>
       <p>
-        Mathematical perfection does not always equal visual balance. This is most apparent when using the same multiplier
-        for bold colors and neutrals. A vivid green and a neutral gray might both land at 75%
-        lightness, but the green often feels heavier because of its high chroma.
+        Mathematical perfection, however, does not always equal visual balance.
+        Using a flat multiplier for both vivid primaries and soft neutrals can
+        lead to weight imbalances. A vivid green and a neutral gray might share
+        75% lightness but carry completely different visual weight due to chroma
+        differences.
       </p>
+
+      <span className={styles.subtitle}>The Architectural Advantage</span>
       <p>
-        The payoff is still massive: one block of code now handles dark mode for every brand. It
-        just requires a final human pass to fine-tune the intensity.
+        The payoff remains massive: the <strong>semantic logic </strong> acts as a theme-agnostic engine,
+        and your <strong>brand tokens </strong> serve as the fuel. Define the brand identity once, and
+        the system’s math <strong>auto-derives the full palette</strong>—light mode, dark mode, and interactive states—on the fly.
+        The math builds the foundation; a final human pass ensures the perfect vibe.
       </p>
       <CodeBlock code={SNIPPET} label="Dark mode derivation" />
     </div>

@@ -42,6 +42,10 @@ const InjectionSection = () => (
       simple as removing a single{' '}
       <code className={styles.codeInline}>[data-brand]</code> block.
     </p>
+
+    <p>
+      To preserve the integrity of the layers, the implementation follows three constraints:
+    </p>
     <ul className={styles.list}>
       <li>Brand files only set <code className={styles.codeInline}>--brand-*</code> anchors, never <code className={styles.codeInline}>--pr-*</code> or <code className={styles.codeInline}>--sem-*</code>.</li>
       <li>Each brand lives in <code className={styles.codeInline}>src/styles/brands/*.css</code> and is toggled via <code className={styles.codeInline}>data-brand</code> on <code className={styles.codeInline}>html</code>.</li>
