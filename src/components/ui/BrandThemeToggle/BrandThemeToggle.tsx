@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { useBrand } from '@/context/BrandContext';
 import { useTheme } from '@context/ThemeContext';
 import { BRAND_PRESETS } from '@/content/themingBuildNotes';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import styles from './BrandThemeToggle.module.css';
 
 interface BrandThemeToggleProps {
@@ -37,15 +38,11 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
     if (isOpen) updatePos();
   }, [isOpen, updatePos]);
 
+  const handleEscape = useCallback(() => setIsOpen(false), []);
+  useFocusTrap(dropdownRef, { isActive: isOpen, onEscape: handleEscape });
+
   useEffect(() => {
     if (!isOpen) return undefined;
-
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
-        triggerRef.current?.focus();
-      }
-    };
 
     const handleMouseDown = (e: MouseEvent) => {
       if (
@@ -58,12 +55,10 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
 
     const handleResize = () => updatePos();
 
-    document.addEventListener('keydown', handleKey);
     document.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('resize', handleResize);
 
     return () => {
-      document.removeEventListener('keydown', handleKey);
       document.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('resize', handleResize);
     };
@@ -81,7 +76,6 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
   const handleBrandSelect = (id: string) => {
     setBrand(id as typeof brand);
     setIsOpen(false);
-    triggerRef.current?.focus();
   };
 
   const animClass = hasInteracted ? styles.brandThemeToggleIconAnimate : '';
@@ -119,15 +113,20 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
         </span>
       </button>
 
-      {isOpen && dropdownPos &&
+      {isOpen &&
         createPortal(
           <div
             ref={dropdownRef}
             id={`${id}-dropdown`}
             role="dialog"
+            aria-modal="true"
             aria-label="Brand and theme settings"
             className={styles.brandThemeToggleDropdown}
-            style={{ top: dropdownPos.top, right: dropdownPos.right }}
+            style={{
+              top: dropdownPos?.top ?? 0,
+              right: dropdownPos?.right ?? 0,
+              visibility: dropdownPos ? undefined : 'hidden',
+            }}
           >
             <p className={styles.brandThemeToggleSectionLabel}>Color Mode</p>
             <div className={styles.brandThemeToggleThemeRow} role="group" aria-label="Color mode">

@@ -48,7 +48,7 @@
   display: grid;
   gap: var(--pr-spacing-4);
   color: var(--sem-color-text-base);
-  background-color: var(--sem-color-bg-base);
+  background-color: var(--sem-color-bg-subtle);
 }
 
 .bodyTerminal {

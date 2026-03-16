@@ -1,84 +1,99 @@
-.showcase {
+.link {
+  color: var(--sem-color-accent-strong);
+  text-decoration: underline;
+}
+
+.demo {
+  margin: 0;
+}
+
+/* Pipeline flow trace */
+.flowThemeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--pr-spacing-4);
+}
+
+.flowHierarchy {
+  margin: 0;
+  font-size: var(--sem-text-kicker);
+  letter-spacing: var(--pr-tracking-14);
+  text-transform: uppercase;
+  color: var(--sem-color-text-muted);
+}
+
+.demoShowcase {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--pr-spacing-8);
-  padding: var(--pr-spacing-8);
-  background: var(--sem-color-bg-subtle);
-  border: 1px solid var(--sem-color-border-subtle);
-  border-radius: var(--sem-radius-lg);
-  margin-block: var(--pr-spacing-6);
+  gap: var(--pr-spacing-4);
+  margin-bottom: var(--pr-spacing-6);
 }
 
 @media (width >= 768px) {
-  .showcase {
+  .demoShowcase {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.showcaseGroup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--pr-spacing-3);
-}
-
-.showcaseGroupWide {
-  grid-column: 1 / -1;
-}
-
-.groupLabel {
-  font-size: var(--sem-text-kicker);
-  font-weight: var(--pr-weight-500);
-  text-transform: uppercase;
-  letter-spacing: var(--pr-tracking-30);
-  color: var(--sem-color-text-muted);
-  padding-bottom: var(--pr-spacing-2);
-  border-bottom: 1px solid var(--sem-color-border-subtle);
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--pr-spacing-2);
-  align-items: center;
-}
-
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--pr-spacing-3);
-  align-items: stretch;
-}
-
-.cardBody {
-  display: flex;
-  flex-direction: column;
-  gap: var(--pr-spacing-2);
-}
-
-.cardTitle {
+.flowTitle {
   font-size: var(--sem-text-body);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-strong);
+  margin-bottom: var(--pr-spacing-2);
 }
 
-.cardMeta {
+.flowMeta {
   font-size: var(--sem-text-caption);
   color: var(--sem-color-text-muted);
 }
 
-.cardRow {
+.pipelines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-2);
+  margin-top: var(--pr-spacing-4);
+}
+
+.pipelineRow {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--pr-spacing-2);
   align-items: center;
+  gap: var(--pr-spacing-1);
 }
 
-.panelBody {
-  padding: var(--pr-spacing-4);
+.pipelineTagRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pr-spacing-2);
+  margin-bottom: var(--pr-spacing-3);
 }
 
-.tokenLabel {
-  font-family: var(--font-mono);
-  font-size: var(--sem-text-caption);
+.pipelineConnector {
+  display: inline-flex;
+  align-items: center;
   color: var(--sem-color-text-muted);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-kicker);
+  color: var(--sem-color-text-base);
+  background: var(--sem-color-bg-elevated);
+  padding: var(--pr-spacing-1) var(--pr-spacing-2);
+  border-radius: var(--sem-radius-sm);
+  display: inline-block;
+  line-height: var(--pr-leading-100);
+}
+
+
+.pipelineValue {
+  border: var(--pr-border-width-1) solid var(--sem-color-accent-base);
+  background-color: color-mix(in srgb, var(--sem-color-accent-base) 10%, transparent);
+  color: var(--sem-color-text-base);
+  transition:
+    border-color var(--pr-duration-fast) var(--pr-easing-out),
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    color var(--pr-duration-fast) var(--pr-easing-out);
 }
