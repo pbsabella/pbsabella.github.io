@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import styles from '../ThemingBuildNotes.module.css';
 import CodeBlock from '@/components/ui/CodeBlock/CodeBlock';
+import { ROUTES } from '@/constants/routes';
 
 const SNIPPET = `/* Linear flow: Primitive to Semantic to Component */
 :root {
@@ -14,7 +16,7 @@ const SNIPPET = `/* Linear flow: Primitive to Semantic to Component */
 const BaselineSection = () => (
   <EditorialBlock id="baseline" kicker="02. Baseline" title="The standard three-tier struggle">
     <p>
-      The baseline was a standard three-tier hierarchy.
+      The baseline was a standard three-tier hierarchy (see {' '}<Link className={styles.link} to={`${ROUTES.DESIGN_SYSTEM_BUILD_NOTES}`}>part 1</Link>).
       Values flowed linearly from raw data to the UI.
       A primary action color was just a semantic alias of a primitive.
     </p>
