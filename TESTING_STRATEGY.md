@@ -61,7 +61,7 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 
 - **Goal:** Catch runtime issues Cypress/Percy/Vitest may miss across browser engines
 - **Tools:** Playwright (Chromium, Firefox, WebKit)
-- **Coverage:** Route load sanity, console errors, failed requests, accessibility checks in light/dark themes, and semantic token contrast contracts
+- **Coverage:** Route load sanity, console errors, failed requests, accessibility checks across light/dark + brand variants, and semantic token contrast contracts
 - **Note:** A narrow filter excludes only `axe` `incomplete` color-contrast nodes tied to pseudo-content/page-wrap layering; hard failures still come from axe violations + explicit contrast assertions
 - **Command:**
   - `npm run pw:install` (first-time browser install)
@@ -70,7 +70,7 @@ The strategy is built on the **Testing Trophy** model, prioritizing integration 
 
 ### Layer 7: Manual Contrast Audit (Diagnostic)
 
-- **Goal:** Independently verify text contrast using computed style + alpha compositing across route/theme combinations
+- **Goal:** Independently verify text contrast using computed style + alpha compositing across route/theme/brand combinations
 - **Tool:** Custom Node script (`scripts/manual-contrast-audit.mjs`)
 - **Command:** `npm run contrast:manual`
 - **Role:** Local diagnostic sweep for validation and triage, not a blocking CI gate

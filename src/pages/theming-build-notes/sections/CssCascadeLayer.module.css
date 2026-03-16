@@ -1,0 +1,115 @@
+.diagram {
+  max-width: var(--sem-layout-content-max);
+  margin-block: var(--pr-spacing-11);
+  margin-inline: auto;
+}
+
+.stackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* No matching sem or pr token for 1.5rem/24px gap in provided system */
+  position: relative;
+}
+
+.layerGroup {
+  position: relative;
+  height: var(--pr-size-52); /* Closest to 50px */
+  cursor: pointer;
+}
+
+.liftContainer {
+  transition: transform var(--pr-duration-slow) cubic-bezier(0.2, 0, 0, 1);
+  pointer-events: none;
+  height: 100%;
+}
+
+.layerGroup:hover .liftContainer {
+  transform: translateY(-8px);
+}
+
+.plane {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  padding-left: var(--pr-spacing-8);
+  border-radius: var(--sem-radius-md);
+  transform: skewX(-40deg);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  position: relative;
+  pointer-events: auto;
+}
+
+.layerCompGroup { margin-left: var(--pr-size-64); }
+.layerSemGroup { margin-left: var(--pr-size-40); }
+.layerBrandGroup { margin-left: var(--pr-size-20); }
+.layerPrGroup { margin-left: 0; }
+
+.planePr { background: var(--sem-color-bg-subtle); }
+
+.planeBrand {
+  background: var(--sem-color-surface-tint-1);
+  border-color: var(--sem-color-accent-base);
+  border-style: dashed;
+}
+
+.planeSem {
+  background: var(--sem-color-surface-tint-1);
+  border-color: var(--sem-color-accent-base);
+  border-width: var(--pr-border-width-2);
+}
+
+/* Specific lightness overrides handled by semantic layer tint tokens */
+.planeComp { background: var(--sem-color-bg-subtle); }
+
+.labelMain {
+  transform: skewX(40deg);
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-caption);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-strong);
+}
+
+.priorityAxis {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--pr-size-80);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--pr-size-10) 0;
+}
+
+.axisLine {
+  position: absolute;
+  right: var(--pr-size-40);
+  top: 0;
+  bottom: 0;
+  width: var(--pr-border-width-2);
+  background: var(--sem-color-border-base);
+}
+
+.axisLabel {
+  font-family: var(--font-mono);
+  font-size: var(--pr-size-10);
+  font-weight: 700;
+  color: var(--sem-color-text-muted);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-self: flex-end;
+  margin-right: var(--pr-size-20);
+}
+
+.changeNote {
+  margin-top: var(--pr-spacing-8);
+  padding: var(--pr-spacing-4);
+  max-width: var(--pr-size-600);
+  font-size: var(--pr-size-10);
+  line-height: var(--pr-leading-150);
+  color: var(--sem-color-text-muted);
+  background: var(--sem-color-surface-tint-1);
+  border-radius: var(--sem-radius-lg);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
+}

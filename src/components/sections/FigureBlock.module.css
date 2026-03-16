@@ -28,7 +28,7 @@
   justify-content: center;
   padding: var(--pr-spacing-6);
   text-align: center;
-  border-radius: var(--pr-radius-md);
+  border-radius: var(--sem-radius-md);
   aspect-ratio: var(--aspect-ratio, 16 / 9);
 }
 

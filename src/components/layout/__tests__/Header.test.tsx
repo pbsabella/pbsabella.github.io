@@ -19,7 +19,7 @@ vi.mock('@hooks/useActiveSection', () => ({
   useActiveSection: vi.fn(() => null),
 }));
 
-vi.mock('@components/ui/ThemeToggle/ThemeToggle', () => ({
+vi.mock('@components/ui/BrandThemeToggle/BrandThemeToggle', () => ({
   default: ({ id }: { id: string }) => <div data-testid={`theme-toggle-${id}`} />,
 }));
 

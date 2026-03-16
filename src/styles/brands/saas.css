@@ -1,0 +1,28 @@
+/**
+ * Brand: SaaS
+ *
+ * Modern product dashboard. Electric purple primary (high chroma, magenta-shifted
+ * to stay clearly distinct from fintech navy). Cool green secondary = growth/data.
+ * Pillowy radius = approachable product feel.
+ * Dark mode uses deep purple-black surfaces for a signature dashboard aesthetic.
+ *
+ * Usage: import this file after tokens.css and set data-brand="saas" on <html>.
+ */
+
+@layer brand {
+  [data-brand='saas'] {
+    --brand-primary:      oklch(54% 0.29 308deg);
+    --brand-secondary:    oklch(65% 0.20 162deg);
+    --brand-surface-tint: oklch(58% 0.24 308deg);
+    --brand-font-display:  system-ui, -apple-system, blinkmacsystemfont, sans-serif;
+    --brand-radius-sm:     4px;
+    --brand-radius-md:     6px;
+    --brand-radius-lg:     14px;
+  }
+
+  [data-brand='saas'] [data-theme='dark'] {
+    --brand-bg-canvas: oklch(14% 0.07 300deg);
+    --brand-bg-base:   oklch(17% 0.08 300deg);
+    --brand-bg-subtle: oklch(21% 0.10 300deg);
+  }
+}

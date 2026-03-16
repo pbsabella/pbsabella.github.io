@@ -5,7 +5,7 @@
 
   background-color: var(--comp-header-bg);
   backdrop-filter: blur(1px);
-  border-bottom: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   height: var(--comp-header-height);
   position: fixed;
   top: 0;
@@ -42,7 +42,7 @@
 
 .navLogo {
   justify-self: start;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   padding-block: var(--pr-spacing-3);
   text-decoration: none;
   font-family: var(--font-display);
@@ -55,7 +55,7 @@
 }
 
 .navItem {
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .navLink {
@@ -63,7 +63,7 @@
 }
 
 .navLinkActive {
-  color: var(--sem-color-text-strong);
+  color: var(--sem-color-accent-strong);
   font-weight: var(--pr-weight-500);
 }
 
@@ -76,7 +76,7 @@
 .navMenu {
   background-color: transparent;
   border: 0;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   cursor: pointer;
   display: block;
   margin-right: calc(-1 * var(--pr-spacing-4));

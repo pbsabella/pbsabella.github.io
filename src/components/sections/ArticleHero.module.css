@@ -22,7 +22,7 @@ Shared hero header for long-form articles (build notes, case studies, etc.)
 .heroRule {
   height: var(--pr-border-width-1);
   width: var(--pr-size-64);
-  background-color: var(--sem-color-divider-base);
+  background-color: var(--sem-color-border-base);
 }
 
 .heroMeta {
@@ -42,7 +42,7 @@ Shared hero header for long-form articles (build notes, case studies, etc.)
 }
 
 .titleAccent {
-  color: var(--sem-color-text-accent);
+  color: var(--sem-color-accent-strong);
 }
 
 .subtitle {
@@ -58,7 +58,7 @@ Shared hero header for long-form articles (build notes, case studies, etc.)
   gap: var(--pr-spacing-4);
   padding: var(--pr-spacing-6) 0;
   margin-top: var(--pr-spacing-6);
-  border-top: var(--pr-border-width-1) solid var(--sem-color-divider-subtle);
+  border-top: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
 }
 
 .heroStatItem {

@@ -13,7 +13,7 @@ type LabsProject = {
 
 export const LABS_PROJECTS: LabsProject[] = [
   {
-    title: 'YieldFlow Case Study',
+    title: 'YieldFlow',
     href: ROUTES.YIELD_FLOW_CASE_STUDY,
     description:
       'A case study of how I turned my personal finance tracking from a messy spreadsheet into a full-fledged application.',
@@ -21,27 +21,27 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'Design System Build Notes',
-    href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
+    title: 'Design Systems 02: Scaling Identity',
+    href: ROUTES.THEMING_BUILD_NOTES,
     description:
-      'Exploring component architecture and tiered token systems in React. Shows how design tokens scale from documentation to production.',
-    tags: ['Build Notes', 'Design System', 'React'],
+      'Evolving the architecture into a 4-tier injection model using CSS Cascade Layers and OKLCH for multi-brand scale.',
+    tags: ['Build Notes', 'CSS Architecture', 'Multi-brand', 'OKLCH'],
     interactive: true,
   },
   {
-    title: 'System Core Documentation',
+    title: 'Design Systems 01: Token Architecture',
+    href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
+    description:
+      'A deep dive into a 3-tier token system designed to eliminate UI drift and manual refactors in React.',
+    tags: ['Build Notes', 'React', 'Design Systems', 'Scalability'],
+    interactive: true,
+  },
+  {
+    title: 'System Core',
     href: ROUTES.SYSTEM_CORE,
     description:
       'Token reference, primitives, and component foundations. Browse the living docs that power the build notes and the rest of the portfolio.',
-    tags: ['Documentation', 'Tokens', 'Foundations'],
+    tags: ['Documentation', 'Design System', 'Foundations'],
     interactive: true,
-  },
-  {
-    title: 'Theming Architectures',
-    description:
-      'Currently untangling multi-layered theming. How do primitives, semantic tokens, and component overrides hold up when you add light/dark modes and brand variants?',
-    tags: [],
-    variant: 'flat',
-    tone: 'dashed',
   },
 ];

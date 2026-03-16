@@ -16,6 +16,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://pbsabella.vercel.app/labs/theming-build-notes</loc>
+    <lastmod>2026-03-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://pbsabella.vercel.app/labs/core</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>

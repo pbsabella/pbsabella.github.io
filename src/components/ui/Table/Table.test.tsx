@@ -14,7 +14,7 @@ describe('Table Component', () => {
         ]}
         rows={[
           ['--sem-color-bg-base', '#ffffff'],
-          ['--sem-color-text-primary', '#111827'],
+          ['--sem-color-text-base', '#111827'],
         ]}
       />
     );

@@ -25,6 +25,7 @@ const routes = [
   { path: '/labs', name: 'labs' },
   { path: '/labs/system-core', name: 'system-core' },
   { path: '/labs/design-system-build-notes', name: 'design-system-build-notes' },
+  { path: '/labs/theming-build-notes', name: 'theming-build-notes' },
   { path: '/labs/yield-flow-case-study', name: 'yield-flow-case-study' },
 ];
 

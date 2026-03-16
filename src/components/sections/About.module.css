@@ -7,7 +7,7 @@
   min-width: min(var(--pr-size-320), 100%);
   max-width: var(--sem-layout-prose);
   margin: 0;
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
 }
 
 .aboutGrid {
@@ -32,7 +32,7 @@
 .skillsItem {
   font-size: var(--sem-text-caption);
   padding-block: var(--pr-spacing-2);
-  border-bottom: var(--pr-border-width-1) dashed var(--sem-color-divider-subtle);
+  border-bottom: var(--pr-border-width-1) dashed var(--sem-color-border-subtle);
 }
 
 .skillsItem:last-child {

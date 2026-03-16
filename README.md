@@ -34,7 +34,7 @@ Design decisions are encoded as CSS variables, enabling:
 ```css
 /* Primitive (scale) → Semantic (usage) */
 --pr-color-neutral-800: #37373a;           /* primitive */
---sem-color-text-primary: var(--pr-color-neutral-800);  /* semantic */
+--sem-color-text-base: var(--pr-color-neutral-800);  /* semantic */
 ```
 
 See: [src/styles/tokens.css](src/styles/tokens.css)
@@ -58,9 +58,7 @@ Each component:
 ```
 src/pages/
 ├── home/Home.tsx                                # Portfolio landing
-├── labs/Labs.tsx                                # Labs index
-├── system-core/SystemCore.tsx                   # Design system docs
-└── design-system-build-notes/DesignSystemBuildNotes.tsx
+├── ...
 ```
 
 ---
@@ -167,14 +165,14 @@ npm run lighthouse:quick  # 1 run per route (faster local check)
 ### Browser Smoke Tests (`npm run pw:smoke`)
 
 - **Tool:** Playwright (Chromium, Firefox, WebKit)
-- **Coverage:** Hash routes load, console/runtime errors, failed network requests, dual-theme accessibility checks (axe), and semantic token contrast contracts
+- **Coverage:** Hash routes load, console/runtime errors, failed network requests, accessibility checks across light/dark + brand variants (axe), and semantic token contrast contracts
 - **Run:** In CI and locally
 - **First-time setup:** `npm run pw:install`
 
 ### Manual Contrast Sweep (`npm run contrast:manual`)
 
 - **Tool:** Custom Node script (`scripts/manual-contrast-audit.mjs`)
-- **Purpose:** Independent contrast math audit across all primary routes/themes
+- **Purpose:** Independent contrast math audit across all primary routes/themes/brands
 - **Run:** Local diagnostic tool (not a CI gate)
 - **Output:** Per-route PASS/FAIL summary + `TOTAL_FAILS`
 

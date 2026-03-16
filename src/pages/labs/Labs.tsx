@@ -24,7 +24,7 @@ const Labs = () => {
                 tone={project.tone ?? 'default'}
                 isInteractive={project.interactive}
               >
-                <h2 className="h4">{project.title}</h2>
+                <h2 className={styles.cardTitle}>{project.title}</h2>
                 <p>{project.description}</p>
                 {project.tags.length > 0 && (
                   <div className={styles.cardTags}>

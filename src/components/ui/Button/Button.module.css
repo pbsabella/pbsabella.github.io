@@ -1,5 +1,5 @@
 .button {
-  --comp-button-radius: var(--pr-radius-base);
+  --comp-button-radius: var(--sem-radius-md);
   --comp-button-padding-sm: var(--pr-spacing-1) var(--pr-spacing-3);
   --comp-button-padding-md: var(--pr-spacing-2) var(--pr-spacing-4);
 
@@ -30,23 +30,43 @@
 }
 
 .buttonPrimary {
-  background: var(--sem-color-bg-accent);
-  border-color: var(--sem-color-bg-accent);
-  color: var(--sem-color-text-on-accent);
+  background: var(--sem-color-action);
+  border-color: transparent;
+  color: var(--sem-color-accent-strong-on-bg);
 }
 
-.buttonPrimary:hover:not(:disabled) {
-  filter: brightness(0.95);
+.buttonPrimary:hover {
+  background: oklch(
+    from var(--sem-color-action)
+    calc(l * var(--sem-state-hover-lightness)) c h
+  );
+}
+
+.buttonPrimary:active {
+  background: oklch(
+    from var(--sem-color-action)
+    calc(l * var(--sem-state-active-lightness)) c h
+  );
 }
 
 .buttonSecondary {
   background: var(--sem-color-bg-base);
-  color: var(--sem-color-text-primary);
+  color: var(--sem-color-text-base);
   border-color: var(--sem-color-border-base);
 }
 
-.buttonSecondary:hover:not(:disabled) {
-  background: var(--sem-color-bg-subtle);
+.buttonSecondary:hover {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-hover-lightness)) c h
+  );
+}
+
+.buttonSecondary:active {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-active-lightness)) c h
+  );
 }
 
 .button:disabled {

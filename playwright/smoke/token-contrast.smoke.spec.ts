@@ -17,7 +17,7 @@ const THEMES: Theme[] = ['light', 'dark'];
 const TOKEN_CONTRACTS: TokenContrastContract[] = [
   {
     id: 'body text on base',
-    foregroundToken: '--sem-color-text-primary',
+    foregroundToken: '--sem-color-text-base',
     backgroundToken: '--sem-color-bg-base',
     fontSizePx: 16,
     fontWeight: 400,
@@ -31,14 +31,14 @@ const TOKEN_CONTRACTS: TokenContrastContract[] = [
   },
   {
     id: 'kicker text on base',
-    foregroundToken: '--sem-color-text-accent',
+    foregroundToken: '--sem-color-accent-strong',
     backgroundToken: '--sem-color-bg-base',
     fontSizePx: 12,
     fontWeight: 500,
   },
   {
     id: 'text on elevated surface',
-    foregroundToken: '--sem-color-text-primary',
+    foregroundToken: '--sem-color-text-base',
     backgroundToken: '--sem-color-bg-elevated',
     fontSizePx: 14,
     fontWeight: 400,
@@ -80,7 +80,37 @@ test.describe('Token contrast contracts', () => {
           return color;
         };
 
+        const oklchToRgb255 = (str: string): [number, number, number] | null => {
+          const m = str.match(
+            /oklch\(\s*([\d.]+)(%?)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\s*\)/
+          );
+          if (!m) return null;
+          let L = Number(m[1]);
+          if (m[2] === '%') L = L / 100;
+          const C = Number(m[3]);
+          const H = (Number(m[4]) * Math.PI) / 180;
+          const a = C * Math.cos(H);
+          const b = C * Math.sin(H);
+          const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+          const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+          const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+          const ll = l_ * l_ * l_;
+          const mm = m_ * m_ * m_;
+          const ss = s_ * s_ * s_;
+          const r = 4.0767416621 * ll - 3.3077115913 * mm + 0.2309699292 * ss;
+          const g = -1.2684380046 * ll + 2.6097574011 * mm - 0.3413193965 * ss;
+          const bC = -0.0041960863 * ll - 0.7034186147 * mm + 1.7076147010 * ss;
+          const gamma = (c: number) =>
+            c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055;
+          return [
+            Math.round(Math.min(1, Math.max(0, gamma(r))) * 255),
+            Math.round(Math.min(1, Math.max(0, gamma(g))) * 255),
+            Math.round(Math.min(1, Math.max(0, gamma(bC))) * 255),
+          ];
+        };
+
         const parseRgb = (color: string): [number, number, number] => {
+          if (color.startsWith('oklch(')) return oklchToRgb255(color) ?? [0, 0, 0];
           const parts = color.match(/\d+/g);
           if (!parts || parts.length < 3) return [0, 0, 0];
           return [Number(parts[0]), Number(parts[1]), Number(parts[2])];

@@ -1,0 +1,266 @@
+/* ============================================================
+   BrandThemeToggle — pill trigger + floating dropdown
+   ============================================================ */
+
+.brandThemeTogglePill {
+  --comp-btt-height: var(--pr-size-32);
+  --comp-btt-width: var(--pr-size-32);
+  --comp-btt-radius: var(--sem-radius-pill);
+  --comp-btt-bg: var(--sem-color-bg-base);
+  --comp-btt-border: var(--sem-color-border-subtle);
+  --comp-btt-divider: var(--sem-color-border-subtle);
+
+  align-items: center;
+  background: var(--comp-btt-bg);
+  border: var(--pr-border-width-1) solid var(--comp-btt-border);
+  border-radius: var(--comp-btt-radius);
+  color: var(--sem-color-text-base);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0;
+  height: var(--comp-btt-height);
+  padding: 0;
+  transition:
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    border-color var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.brandThemeTogglePill:hover {
+  background: oklch(
+    from var(--comp-btt-bg)
+    calc(l * var(--sem-state-hover-lightness)) c h
+  );
+}
+
+.brandThemeTogglePill:focus-visible {
+  border-radius: var(--comp-btt-radius);
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
+  outline-offset: var(--sem-focus-outline-offset);
+}
+
+/* ---- Pill segments ---- */
+
+.brandThemeTogglePillBrand,
+.brandThemeTogglePillTheme {
+  align-items: center;
+  display: flex;
+  height: var(--comp-btt-height);
+  justify-content: center;
+  position: relative;
+  width: var(--comp-btt-width);
+}
+
+.brandThemeTogglePillBrand {
+  color: var(--sem-color-accent-base);
+}
+
+.brandThemeTogglePillDivider {
+  background: var(--comp-btt-divider);
+  flex-shrink: 0;
+  height: var(--pr-size-24);
+  width: var(--pr-border-width-1);
+}
+
+/* ---- Sun / Moon animation (mirrors ThemeToggle pattern) ---- */
+
+.brandThemeTogglePillThemeIcon {
+  height: var(--pr-size-20);
+  opacity: 0;
+  position: absolute;
+  transform: scale(0.3) rotate(-90deg);
+  width: var(--pr-size-20);
+}
+
+.brandThemeTogglePillThemeSun {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+}
+
+.brandThemeTogglePillThemeSun circle {
+  fill: currentcolor;
+}
+
+.brandThemeToggleIconAnimate {
+  transition:
+    opacity var(--pr-duration-slow) var(--pr-easing-in-out),
+    transform var(--pr-duration-slow) var(--pr-easing-in-out);
+}
+
+:global([data-theme='light']) .brandThemeTogglePillThemeSun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+:global([data-theme='dark']) .brandThemeTogglePillThemeMoon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* ============================================================
+   Dropdown
+   ============================================================ */
+
+.brandThemeToggleDropdown {
+  --comp-btt-dropdown-bg: var(--sem-color-bg-base);
+  --comp-btt-dropdown-border: var(--sem-color-border-subtle);
+  --comp-btt-dropdown-radius: var(--sem-radius-lg);
+  --comp-btt-dropdown-shadow: var(--sem-elevation-medium);
+
+  animation: dropdown-enter var(--pr-duration-fast) var(--pr-easing-out);
+  background: var(--comp-btt-dropdown-bg);
+  border: var(--pr-border-width-1) solid var(--comp-btt-dropdown-border);
+  border-radius: var(--comp-btt-dropdown-radius);
+  box-shadow: var(--comp-btt-dropdown-shadow);
+  min-width: 192px;
+  padding: var(--pr-spacing-4) var(--pr-spacing-2);
+  position: fixed;
+  z-index: var(--sem-z-overlay);
+}
+
+@keyframes dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Section labels ---- */
+
+.brandThemeToggleSectionLabel {
+  color: var(--sem-color-text-muted);
+  font-size: var(--sem-text-kicker);
+  letter-spacing: var(--sem-tracking-kicker);
+  margin: 0 0 var(--pr-spacing-1);
+  text-transform: uppercase;
+  padding-inline: var(--pr-spacing-2);
+}
+
+/* ---- Theme row ---- */
+
+.brandThemeToggleThemeRow {
+  display: flex;
+  gap: var(--pr-spacing-1);
+  padding-inline: var(--pr-spacing-2);
+}
+
+.brandThemeToggleThemeBtn {
+  align-items: center;
+  background: transparent;
+  border: var(--pr-border-width-1) solid transparent;
+  border-radius: var(--sem-radius-md);
+  color: var(--sem-color-text-muted);
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  font-size: var(--sem-text-caption);
+  gap: var(--pr-spacing-2);
+  justify-content: center;
+  padding: var(--pr-spacing-2) var(--pr-spacing-3);
+  transition:
+    background-color var(--pr-duration-fast) var(--pr-easing-out),
+    border-color var(--pr-duration-fast) var(--pr-easing-out),
+    color var(--pr-duration-fast) var(--pr-easing-out);
+}
+
+.brandThemeToggleThemeBtn:hover {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-hover-lightness)) c h
+  );
+  color: var(--sem-color-text-base);
+}
+
+.brandThemeToggleThemeBtn:active {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-active-lightness)) c h
+  );
+}
+
+.brandThemeToggleThemeBtn:focus-visible {
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
+  outline-offset: var(--sem-focus-outline-offset);
+}
+
+.brandThemeToggleThemeBtnActive {
+  background: var(--sem-color-bg-striped);
+  border-color: var(--sem-color-border-subtle);
+  color: var(--sem-color-text-base);
+}
+
+/* ---- Divider ---- */
+
+.brandThemeToggleDropdownDivider {
+  background: var(--sem-color-border-subtle);
+  height: var(--pr-border-width-1);
+  margin-block: var(--pr-spacing-4);
+}
+
+/* ---- Brand list ---- */
+
+.brandThemeToggleBrandList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.brandThemeToggleBrandOption {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--sem-radius-md);
+  color: var(--sem-color-text-base);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--sem-text-caption);
+  gap: var(--pr-spacing-3);
+  padding: var(--pr-spacing-2) var(--pr-spacing-2);
+  text-align: left;
+  transition: background-color var(--pr-duration-fast) var(--pr-easing-out);
+  width: 100%;
+}
+
+.brandThemeToggleBrandOption:hover {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-hover-lightness)) c h
+  );
+}
+
+.brandThemeToggleBrandOption:active {
+  background: oklch(
+    from var(--sem-color-bg-base)
+    calc(l * var(--sem-state-active-lightness)) c h
+  );
+}
+
+.brandThemeToggleBrandOption:focus-visible {
+  outline: var(--sem-focus-outline-width) solid var(--sem-color-focus-ring);
+  outline-offset: var(--sem-focus-outline-offset);
+}
+
+.brandThemeToggleBrandOptionActive {
+  background: var(--sem-color-bg-striped);
+}
+
+.brandThemeToggleBrandOptionIcon {
+  flex-shrink: 0;
+}
+
+.brandThemeToggleBrandOptionLabel {
+  flex: 1;
+}
+
+.brandThemeToggleBrandOptionCheck {
+  color: var(--sem-color-accent-base);
+  flex-shrink: 0;
+}

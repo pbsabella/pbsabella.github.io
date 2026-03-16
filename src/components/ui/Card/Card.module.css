@@ -1,9 +1,9 @@
 .card {
   --comp-card-bg: var(--sem-color-bg-base);
-  --comp-card-text: var(--sem-color-text-primary);
+  --comp-card-text: var(--sem-color-text-base);
   --comp-card-shadow: var(--sem-elevation-low);
   --comp-card-shadow-hover: var(--sem-elevation-medium);
-  --comp-card-radius: var(--pr-radius-base);
+  --comp-card-radius: var(--sem-radius-md);
   --comp-card-hover-offset: calc(-1 * var(--pr-spacing-1));
 
   border-radius: var(--comp-card-radius);

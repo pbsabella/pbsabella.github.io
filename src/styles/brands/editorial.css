@@ -1,0 +1,28 @@
+/**
+ * Brand: Editorial
+ *
+ * Ink-on-newsprint aesthetic. Deep crimson primary, dark navy ink secondary.
+ * Zero radius = print/broadsheet personality.
+ * On-accent text should be light — deep crimson supports white text (WCAG AA).
+ * Dark mode uses warm sepia-black surfaces for a newspaper-at-night feel.
+ *
+ * Usage: import this file after tokens.css and set data-brand="editorial" on <html>.
+ */
+
+@layer brand {
+  [data-brand='editorial'] {
+    --brand-primary:      oklch(46% 0.19 24deg);
+    --brand-surface-tint: oklch(52% 0.15 24deg);
+    --brand-font-body:      georgia, 'Times New Roman', serif;
+    --brand-radius-sm:      0px;
+    --brand-radius-md:      0px;
+    --brand-radius-lg:      0px;
+    --brand-radius-pill:    2px;
+  }
+
+  [data-brand='editorial'] [data-theme='dark'] {
+    --brand-bg-canvas: oklch(16% 0.03 55deg);
+    --brand-bg-base:   oklch(19% 0.04 50deg);
+    --brand-bg-subtle: oklch(24% 0.05 48deg);
+  }
+}

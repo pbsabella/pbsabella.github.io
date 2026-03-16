@@ -1,4 +1,8 @@
-/* intentional: mimics Google Sheets chrome aesthetic throughout */
+/*
+ * Spreadsheet Component: Frozen Theme
+ * Intentional: Mimics Google Sheets chrome aesthetic throughout.
+ * Hardcoded colors to ignore global dark mode overrides.
+ */
 
 .spreadsheetContainer {
   width: 100%;
@@ -22,7 +26,7 @@
 }
 
 .spreadsheetName {
-  color: var(--sem-color-text-strong);
+  color: rgb(29 29 30);
   font-weight: var(--pr-weight-600);
 }
 
@@ -49,6 +53,7 @@
 .spreadsheetTable {
   width: 100%;
   border-collapse: collapse;
+  background-color: rgb(255 255 255);
 }
 
 .colHeader {
@@ -85,20 +90,23 @@
 }
 
 .spreadsheetRowActive {
-  background-color: var(--sem-color-bg-success-subtle);
+  /* Derived from --sem-color-bg-success-subtle */
+  background-color: rgb(236 248 238);
 }
 
 .spreadsheetRowMatured {
-  background-color: var(--sem-color-bg-error-subtle);
+  /* Derived from --sem-color-bg-error-subtle */
+  background-color: rgb(253 236 236);
 }
 
 .spreadsheetRowPending {
-  background-color: var(--sem-color-bg-warning-subtle);
+  /* Derived from --sem-color-bg-warning-subtle */
+  background-color: rgb(255 251 230);
 }
 
 .spreadsheetDivider {
   padding-top: var(--pr-spacing-6);
-  border-top: 2px dashed var(--sem-color-border-subtle);
+  border-top: 2px dashed rgb(235 235 237);
   margin: var(--pr-spacing-6) 0;
 }
 

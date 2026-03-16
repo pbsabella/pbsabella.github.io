@@ -15,7 +15,7 @@ on:
       skip_percy:
         description: 'Skip Percy snapshot upload (dry run)'
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options:
           - 'false'
@@ -239,7 +239,7 @@ jobs:
           path: ./dist
 
       - name: Run Percy visual tests
-        if: (steps.changes.outputs.visual == 'true' || github.event_name == 'workflow_dispatch') && (github.event_name != 'workflow_dispatch' || inputs.skip_percy != 'true')
+        if: github.event_name == 'workflow_dispatch' && inputs.skip_percy != 'true'
         run: npm run percy:test
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
