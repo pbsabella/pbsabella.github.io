@@ -170,7 +170,7 @@
 @layer brand {
   /* Default anchors: Portfolio (active when data-brand is absent) */
   :root {
-    --brand-primary:   oklch(67%   0.149 163deg);
+    --brand-primary:   oklch(67% 0.149 163deg);
     --brand-secondary: oklch(65% 0.216 35deg);
 
     /* Accent is decorative color used for charts, highlights, marketing surfaces etc. */
@@ -251,7 +251,7 @@
 
     /* Main accent scale */
     --sem-color-accent-base:         var(--brand-primary); /* borders, nav indicators, active states */
-    --sem-color-accent-strong:       oklch(from var(--brand-primary, oklch(67% 0.149 163deg)) calc(l * 0.78) c h); /* text emphasis or strong highlights */
+    --sem-color-accent-strong:       oklch(from var(--brand-primary) calc(l * 0.78) c h); /* text emphasis or strong highlights */
     --sem-color-accent-strong-on-bg: var(--brand-on-accent, var(--pr-color-neutral-100));
     --sem-color-accent-secondary:    var(--brand-secondary, oklch(65.7% 0.216 35deg)); /* icons and decorative highlights */
 
@@ -264,7 +264,7 @@
     /* Success */
     --sem-color-success-base:        var(--brand-success); /* for light bg (alerts) */
     --sem-color-success-strong:      oklch(from var(--brand-success) calc(l * 0.75) c h); /* badges / pills */
-    --sem-color-success-surface:     oklch(from var(--brand-success) 97% 0.06 h); /* subtle bg */
+    --sem-color-success-surface:     oklch(from var(--brand-success) 95% 0.04 h); /* subtle bg */
     --sem-color-success-border:      oklch(from var(--brand-success) calc(l * 0.9) c h);
 
     /* Text variants */
@@ -275,7 +275,7 @@
     /* Warning */
     --sem-color-warning-base:        var(--brand-warning);
     --sem-color-warning-strong:      oklch(from var(--brand-warning) calc(l * 0.95) c h);
-    --sem-color-warning-surface:     oklch(from var(--brand-warning) 97% 0.05 h);
+    --sem-color-warning-surface:     oklch(from var(--brand-warning) 97% 0.035 h);
     --sem-color-warning-border:      oklch(from var(--brand-warning) calc(l * 0.9) c h);
 
     /* Text variants */
@@ -286,7 +286,7 @@
     /* Error */
     --sem-color-error-base:         var(--brand-error);
     --sem-color-error-strong:       oklch(from var(--brand-error) calc(l * 0.95) c h);
-    --sem-color-error-surface:      oklch(from var(--brand-error) 94% 0.05 h);
+    --sem-color-error-surface:      oklch(from var(--brand-error) 93% 0.04 h);
     --sem-color-error-border:       oklch(from var(--brand-error) calc(l * 0.9) c h);
 
     /* Text variants */
@@ -297,7 +297,7 @@
     /* Info */
     --sem-color-info-base:          var(--brand-info);
     --sem-color-info-strong:        oklch(from var(--brand-info) calc(l * 0.88) c h);
-    --sem-color-info-surface:       oklch(from var(--brand-info) 94% 0.05 h);
+    --sem-color-info-surface:       oklch(from var(--brand-info) 93% 0.04 h);
     --sem-color-info-border:        oklch(from var(--brand-info) calc(l * 0.9) c h);
 
     /* Text variants */
@@ -384,18 +384,18 @@
     /* Success */
     --sem-color-success-base:        var(--brand-success);
     --sem-color-success-strong:      oklch(from var(--brand-success) 53% c h);
-    --sem-color-success-surface:     oklch(from var(--brand-success) 20% 0.04 h);
+    --sem-color-success-surface:     oklch(from var(--brand-success) 26% 0.03 h);
     --sem-color-success-border:      oklch(from var(--brand-success) 60% c h);
 
     /* Text variants */
     --sem-color-text-success-base:          oklch(from var(--brand-success) 53% c h);
     --sem-color-text-success-strong-on-bg:  var(--pr-color-neutral-100);
-    --sem-color-text-success-on-surface:    oklch(from var(--brand-success) 60% c h);
+    --sem-color-text-success-on-surface:    oklch(from var(--brand-success) 75% c h);
 
     /* Warning */
     --sem-color-warning-base:        var(--brand-warning);
     --sem-color-warning-strong:      oklch(from var(--brand-warning) 85% c h);
-    --sem-color-warning-surface:     oklch(from var(--brand-warning) 22% 0.04 h);
+    --sem-color-warning-surface:     oklch(from var(--brand-warning) 32% 0.03 h);
     --sem-color-warning-border:      oklch(from var(--brand-warning) 65% c h);
 
     /* Text variants */
@@ -406,24 +406,24 @@
     /* Error */
     --sem-color-error-base:         var(--brand-error);
     --sem-color-error-strong:       oklch(from var(--brand-error) 50% c h);
-    --sem-color-error-surface:      oklch(from var(--brand-error) 20% 0.04 h);
+    --sem-color-error-surface:      oklch(from var(--brand-error) 26% 0.03 h);
     --sem-color-error-border:       oklch(from var(--brand-error) 40% c h);
 
     /* Text variants */
     --sem-color-text-error-base:          oklch(from var(--brand-error) 50% c h);
     --sem-color-text-error-strong-on-bg:  var(--pr-color-neutral-100);
-    --sem-color-text-error-on-surface:    oklch(from var(--brand-error) 70% c h);
+    --sem-color-text-error-on-surface:    oklch(from var(--brand-error) 75% c h);
 
     /* Info */
     --sem-color-info-base:          var(--brand-info);
     --sem-color-info-strong:        oklch(from var(--brand-info) 55% c h);
-    --sem-color-info-surface:       oklch(from var(--brand-info) 20% 0.04 h);
+    --sem-color-info-surface:       oklch(from var(--brand-info) 26% 0.03 h);
     --sem-color-info-border:        oklch(from var(--brand-info) 65% c h);
 
     /* Text variants */
     --sem-color-text-info-base:          oklch(from var(--brand-info) 58% c h);
     --sem-color-text-info-strong-on-bg:  var(--pr-color-neutral-100);
-    --sem-color-text-info-on-surface:    oklch(from var(--brand-info) 65% c h);
+    --sem-color-text-info-on-surface:    oklch(from var(--brand-info) 80% c h);
 
     /* ── Borders & Dividers ──────────────────────────────────────────────── */
     --sem-color-border-subtle:  var(--pr-color-gray-700);

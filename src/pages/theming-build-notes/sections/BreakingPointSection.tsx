@@ -1,12 +1,11 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import styles from '../ThemingBuildNotes.module.css';
-import CodeBlock from './CodeBlock';
+import CodeBlock from '@/components/ui/CodeBlock/CodeBlock';
 
 const SNIPPET = `/* BEFORE: Combinatorial complexity */
-[data-brand='fintech'][data-theme='dark'] {
-  --sem-color-bg-accent: var(--pr-color-blue-600);
-}
-`;
+[data-brand='fintech'] [data-theme='dark'] {
+  --sem-color-action: var(--pr-color-blue-600);
+}`;
 
 const BreakingPointSection = () => (
   <EditorialBlock
@@ -16,12 +15,11 @@ const BreakingPointSection = () => (
     rhythm="21"
   >
     <p>
-      Previously, semantic tokens mapped directly to primitives. Supporting a new brand meant the
-      semantic tier had to be manually redefined. This created a maintenance nightmare when combined
-      with dark mode.
+      Once brands and dark mode entered the picture, semantic tokens had to be manually redefined
+      per brand. That turned a tidy hierarchy into a maintenance nightmare.
     </p>
     <p>
-      To support a Fintech brand in dark mode, a specific compound selector was required to ensure
+      To support a brand in dark mode, a specific compound selector was required to ensure
       the accent color remained accessible on dark surfaces.
     </p>
 
@@ -46,6 +44,9 @@ const BreakingPointSection = () => (
       <li>Dark mode multiplies that work by the number of brands.</li>
       <li>Removing a brand means hunting for compound selectors scattered across the stylesheet.</li>
     </ul>
+    <p>
+      I needed a layer that could accept brand input without letting it override semantic logic.
+    </p>
   </EditorialBlock>
 );
 

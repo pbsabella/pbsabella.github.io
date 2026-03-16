@@ -1,4 +1,5 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
+import Alert from '@/components/ui/Alert/Alert';
 import Button from '@/components/ui/Button/Button';
 import Tag from '@/components/ui/Tag/Tag';
 import Badge from '@/components/ui/Badge/Badge';
@@ -9,16 +10,17 @@ const PlaygroundSection = () => (
   <EditorialBlock
     id="playground"
     kicker="07. Playground"
-    title="Seeing is believing"
+    title="Remap in real time"
     rhythm="21"
   >
     <p>
-      The playground renders curated components: Buttons, Tags, Cards, and Badges. When a brand
-      is switched above, the anchors update and the Semantic layer re-evaluates. The components
-      themselves never change — they simply reflect the new logic.
+      After picking a preset, flip the brand + mode controls and watch the semantic layer remap
+      in real time. These components are intentionally stable; only the tokens shift, so the same
+      UI expresses a new mood without a redesign pass.
     </p>
 
     <div className={styles.showcase}>
+
       <div className={styles.showcaseGroup}>
         <span className={styles.groupLabel}>Buttons</span>
         <div className={styles.row}>
@@ -29,7 +31,7 @@ const PlaygroundSection = () => (
       </div>
 
       <div className={styles.showcaseGroup}>
-        <span className={styles.groupLabel}>Tags</span>
+        <span className={styles.groupLabel}>Status Markers</span>
         <div className={styles.row}>
           <Tag variant="default">Default</Tag>
           <Tag variant="primary">Primary</Tag>
@@ -37,30 +39,62 @@ const PlaygroundSection = () => (
           <Tag variant="warning">Warning</Tag>
           <Tag variant="info">Info</Tag>
           <Tag variant="error">Error</Tag>
-        </div>
-      </div>
-
-      <div className={styles.showcaseGroup}>
-        <span className={styles.groupLabel}>Badges</span>
-        <div className={styles.row}>
-          <Badge variant="success">3</Badge>
-          <Badge variant="warning">!</Badge>
+          <Badge variant="success">Live</Badge>
+          <Badge variant="warning">Beta</Badge>
           <Badge variant="info">12</Badge>
           <Badge variant="error">99+</Badge>
         </div>
       </div>
 
       <div className={styles.showcaseGroup}>
+        <span className={styles.groupLabel}>Alerts</span>
+        <div className={styles.stack}>
+          <Alert variant="info" title="Semantic refresh">
+            Accent anchors recalculated for this brand.
+          </Alert>
+          <Alert variant="success" title="Contrast pass">
+            Primary text clears 4.6:1 against base surfaces.
+          </Alert>
+          <Alert variant="warning" title="Brand drift">
+            Secondary hue shifted +8 degrees after palette tuning.
+          </Alert>
+        </div>
+      </div>
+
+      <div className={styles.showcaseGroup}>
         <span className={styles.groupLabel}>Cards</span>
         <div className={styles.row}>
-          <Card variant="elevated">
-            <p className={styles.miniCard}>Elevated surface</p>
+          <Card variant="elevated" isInteractive={true}>
+            <div className={styles.cardBody}>
+              <span className={styles.cardTitle}>Elevated</span>
+              <span className={styles.cardMeta}>Floating emphasis</span>
+              <div className={styles.cardRow}>
+                <Tag variant="primary" size="sm">Primary</Tag>
+                <Tag variant="info" size="sm">Surface</Tag>
+              </div>
+            </div>
           </Card>
           <Card variant="flat">
-            <p className={styles.miniCard}>Flat surface</p>
+            <div className={styles.cardBody}>
+              <span className={styles.cardTitle}>Flat</span>
+              <span className={styles.cardMeta}>Quiet structure</span>
+              <div className={styles.cardRow}>
+                <Tag variant="default" size="sm">Neutral</Tag>
+                <Tag variant="success" size="sm">Stable</Tag>
+              </div>
+            </div>
           </Card>
-          <Card variant="panel">
-            <p className={styles.miniCard}>Panel surface</p>
+          <Card variant="panel" tone="dashed">
+            <div className={styles.panelBody}>
+              <div className={styles.cardBody}>
+                <span className={styles.cardTitle}>Panel</span>
+                <span className={styles.cardMeta}>Structured stack</span>
+                <div className={styles.cardRow}>
+                  <Tag variant="warning" size="sm">Contrast</Tag>
+                  <Tag variant="error" size="sm">Edge</Tag>
+                </div>
+              </div>
+            </div>
           </Card>
         </div>
       </div>

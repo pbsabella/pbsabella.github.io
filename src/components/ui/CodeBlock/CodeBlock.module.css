@@ -1,16 +1,16 @@
-.frame {
+.codeBlockFrame {
   margin-block: var(--pr-spacing-6);
   overflow: hidden;
 }
 
-.label {
+.codeBlockLabel {
   font-family: var(--font-mono);
   font-size: var(--sem-text-kicker);
   color: rgb(160 170 185);
   letter-spacing: var(--pr-tracking-05);
 }
 
-.pre {
+.codeBlockPre {
   margin: 0;
   font-family: var(--font-mono);
   font-size: var(--sem-text-caption);
@@ -23,16 +23,16 @@
 }
 
 /* Token colors -- tuned for dark terminal background */
-.comment {
-  color: rgb(1 202 108);
+.codeBlockComment {
+  color: rgb(49 208 134);
   font-style: italic;
 }
 
-.keyword    { color: rgb(188 134 255); }
-.string     { color: rgb(255 193 130); }
-.cls        { color: rgb(255 193 130); }
-.property   { color: rgb(130 200 255); }
-.entity     { color: rgb(134 228 182); }
-.markup     { color: rgb(255 140 120); }
-.sign       { color: rgb(100 115 130); }
-.identifier { color: rgb(200 210 220); }
+.codeBlockKeyword    { color: rgb(188 134 255); }
+.codeBlockString     { color: rgb(255 193 130); }
+.codeBlockCls        { color: rgb(255 193 130); }
+.codeBlockProperty   { color: rgb(130 200 255); }
+.codeBlockEntity     { color: rgb(134 228 182); }
+.codeBlockMarkup     { color: rgb(255 140 120); }
+.codeBlockSign       { color: rgb(140 155 170); }
+.codeBlockIdentifier { color: rgb(200 210 220); }

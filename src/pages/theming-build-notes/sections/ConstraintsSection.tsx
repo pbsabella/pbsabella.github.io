@@ -10,25 +10,25 @@ const ConstraintsSection = () => (
     rhythm="21"
   >
     <p>
-      No architecture is a silver bullet. A system built on automated injection must occasionally
+      No architecture is a silver bullet. Even with a clean contract, automated injection has to
       negotiate between mathematical accessibility and brand expression. These are the known
       trade-offs.
     </p>
 
     <div className={styles.constraintItem}>
       <Alert variant="warning" title="The Contrast Compromise">
-        The Editorial brand uses a vibrant orange that hits ~3.5:1 on light backgrounds — below
-        the 4.5:1 WCAG AA standard. The system accepts this for large headings where visual weight
-        compensates for lower contrast ratio. Inline body text is never set in the accent orange.
+        Some brands push high-chroma primaries that land below 4.5:1 on light backgrounds. The
+        system accepts that for large headings where visual weight compensates. Inline body text
+        stays on neutral tokens and never inherits the accent color directly.
       </Alert>
     </div>
 
     <div className={styles.constraintItem}>
-      <Alert variant="info" title="The Tag Guardrail">
-        To handle edge cases like this, the Tag component was refactored with a{' '}
-        <code className={styles.code}>primary</code> variant. It utilizes{' '}
-        <code className={styles.code}>--sem-color-text-on-accent</code>, which automatically flips the text to dark if the
-        brand primary is too light — such as Fintech Amber or Editorial Orange.
+      <Alert variant="info" title="The On-Accent Guardrail">
+        Accent surfaces (buttons, badges, hero CTAs) always use{' '}
+        <code className={styles.codeInline}>--sem-color-accent-strong-on-bg</code>, which is wired to{' '}
+        <code className={styles.codeInline}>--brand-on-accent</code>. If a brand primary is too light, we
+        override that one anchor and keep contrast sane without touching components.
       </Alert>
     </div>
 

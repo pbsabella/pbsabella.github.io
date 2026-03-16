@@ -27,7 +27,7 @@ export const BRAND_PRESETS: BrandPreset[] = [
   {
     id: 'portfolio',
     label: 'Default',
-    description: 'Minimalist. DM Serif headings, 5px radius. The default baseline.',
+    description: 'Minimalist. DM Serif headings, 4px radius. The default baseline.',
     accentColor: 'var(--sem-color-accent-base)',
     industry: 'Portfolio',
     icon: Notebook,

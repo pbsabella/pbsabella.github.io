@@ -7,9 +7,8 @@ const IntroSection = () => (
       Supporting one brand is trivial. Supporting an infinite scale, including
       white-label clients, without a graveyard of <code className={styles.code}>!important</code> flags
       requires actual architecture. This refactor shifts the system from
-      brute-force overrides toward a declarative injection model.
-      The goal is to eliminate hardcoded overrides that require manual maintenance
-      for every new brand and theme combination.
+      brute-force overrides toward a declarative injection model so new brands and
+      themes do not demand hand-tuned overrides.
     </p>
   </EditorialBlock>
 );

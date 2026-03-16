@@ -15,8 +15,8 @@ describe('Labs page', () => {
     expect(screen.getByRole('heading', { name: LABS_META.title })).toBeInTheDocument();
     expect(screen.getByRole('list', { name: /labs projects/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /yieldflow/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /theming/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /design system/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /design systems 02/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /design systems 01/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /system core/i })).toBeInTheDocument();
   });
 
@@ -28,8 +28,8 @@ describe('Labs page', () => {
     );
 
     expect(screen.getByRole('link', { name: /yieldflow/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /theming - part 2/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /design system - part 1/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /design systems 02/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /design systems 01/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /system core/i })).toBeInTheDocument();
   });
 });

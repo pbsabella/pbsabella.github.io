@@ -21,19 +21,19 @@ export const LABS_PROJECTS: LabsProject[] = [
     interactive: true,
   },
   {
-    title: 'Theming - Part 2',
+    title: 'Design Systems 02: Scaling Identity',
     href: ROUTES.THEMING_BUILD_NOTES,
     description:
-      'Continuation of the design system build notes. Adds brand anchors, white-label support, and instant re-skinning via CSS layers.',
-    tags: ['Build Notes', 'Token Architecture', 'White-label', 'Cascade Layers'],
+      'Evolving the architecture into a 4-tier injection model using CSS Cascade Layers and OKLCH for multi-brand scale.',
+    tags: ['Build Notes', 'CSS Architecture', 'Multi-brand', 'OKLCH'],
     interactive: true,
   },
   {
-    title: 'Design System - Part 1',
+    title: 'Design Systems 01: Token Architecture',
     href: ROUTES.DESIGN_SYSTEM_BUILD_NOTES,
     description:
-      'The original system build notes: component architecture, semantic tokens, and light/dark theming.',
-    tags: ['Build Notes', 'Token Architecture', 'Light/Dark', 'React'],
+      'A deep dive into a 3-tier token system designed to eliminate UI drift and manual refactors in React.',
+    tags: ['Build Notes', 'React', 'Design Systems', 'Scalability'],
     interactive: true,
   },
   {
@@ -41,7 +41,7 @@ export const LABS_PROJECTS: LabsProject[] = [
     href: ROUTES.SYSTEM_CORE,
     description:
       'Token reference, primitives, and component foundations. Browse the living docs that power the build notes and the rest of the portfolio.',
-    tags: ['Documentation', 'Tokens', 'Foundations'],
+    tags: ['Documentation', 'Design System', 'Foundations'],
     interactive: true,
   },
 ];

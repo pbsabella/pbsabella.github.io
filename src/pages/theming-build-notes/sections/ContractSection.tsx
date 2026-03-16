@@ -1,19 +1,18 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import Table from '@/components/ui/Table/Table';
-import CodeBlock from './CodeBlock';
+import CodeBlock from '@/components/ui/CodeBlock/CodeBlock';
 import styles from './ContractSection.module.css';
 
 const SNIPPET = `/* Onboarding a new client: 'Acme Corp' */
 @layer brand {
   [data-brand='acme'] {
-    --brand-primary: #c0392b;          /* Acme Red */
-    --brand-bg-base: #fcfcfc;          /* Custom surface */
+    --brand-primary: oklch(from #c0392b l c h);  /* Hex in, OKLCH out */
+    --brand-bg-base: #fcfcfc;                    /* Custom surface */
     --brand-font-display: 'Playfair Display', serif;
-    --brand-radius-md: 0px;            /* Sharp branding */
+    --brand-radius-md: 0px;                        /* Sharp branding */
     --brand-on-accent: var(--pr-color-neutral-100);
   }
-}
-`;
+}`;
 
 const CONTRACT_COLUMNS = [
   { label: 'Category' },
@@ -34,8 +33,13 @@ const CONTRACT_ROWS = [
   ],
   [
     '',
+    <code key="tok-brand-accent" className={styles.tokenCell}>--brand-accent</code>,
+    'Optional. Decorative accent for charts or marketing surfaces (defaults to secondary).',
+  ],
+  [
+    '',
     <code key="tok-brand-on-accent" className={styles.tokenCell}>--brand-on-accent</code>,
-    'Manual toggle: text color on top of accent surfaces.',
+    'Manual override: text color on top of accent surfaces.',
   ],
   [
     <span key="cat-surfaces" className={styles.categoryCell}>Surfaces</span>,
@@ -117,9 +121,9 @@ const ContractSection = () => (
     rhythm="21"
   >
     <p>
-      This is the public API of the design system. To onboard a new white-label client,
-      developers only interact with the Brand layer. This is the only surface area needed to
-      skin the entire UI — no component code, no semantic overrides.
+      The playground is the proof. This is the public API of the design system. To onboard a new
+      white-label client, developers only interact with the Brand layer. This is the only surface
+      area needed to skin the entire UI, no component code, no semantic overrides.
     </p>
 
     <div className={styles.tableWrapper}>

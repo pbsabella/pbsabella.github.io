@@ -50,7 +50,7 @@ export const THEMING_BUILD_NOTES_META_PAGE = {
   heroStats: [
     { label: 'Project', value: 'Personal' },
     { label: 'Stack', value: 'React, CSS Modules, TypeScript' },
-    { label: 'Focus', value: 'Token architecture, @layers, oklch color system' },
+    { label: 'Focus', value: 'Token architecture, @layer, oklch color space' },
   ],
 };
 

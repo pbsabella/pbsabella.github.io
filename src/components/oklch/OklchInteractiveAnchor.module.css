@@ -1,0 +1,228 @@
+.anchor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-11);
+  padding: var(--pr-spacing-6);
+  background: var(--sem-color-bg-subtle);
+  align-items: center;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-1);
+  align-items: center;
+  flex: 0 0 24ch;
+  min-width: 24ch;
+}
+
+/* 01. Preview Section: Default Stacked */
+.previewSwatch {
+  width: var(--pr-size-160);
+  height: var(--pr-size-160);
+  border-radius: var(--sem-radius-lg);
+  background: oklch(var(--oklch-l) var(--oklch-c) var(--oklch-h));
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
+}
+
+.previewMeta {
+  display: grid;
+  gap: var(--pr-spacing-2);
+  min-width: var(--pr-size-140);
+}
+
+.previewKicker {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-kicker);
+  letter-spacing: var(--sem-tracking-kicker);
+  text-transform: uppercase;
+  color: var(--sem-color-text-muted);
+}
+
+.previewValue {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-strong);
+  white-space: nowrap;
+}
+
+/* 02. Controls Section */
+.controls {
+  flex: 1;
+  display: grid;
+  gap: var(--pr-spacing-4);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: var(--pr-size-320);
+}
+
+.legend {
+  font-size: var(--sem-text-body);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-strong);
+  margin-bottom: var(--pr-spacing-1);
+}
+
+.control {
+  display: grid;
+  gap: var(--pr-spacing-2);
+}
+
+/* 03. Control Header: Default 2-column mobile */
+.controlHeader {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--pr-spacing-3);
+  align-items: center;
+}
+
+.controlBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--sem-radius-sm);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-kicker);
+  color: var(--sem-color-text-strong);
+  background: var(--sem-color-bg-base);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
+}
+
+.controlTitle {
+  font-size: var(--sem-text-body);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-strong);
+  line-height: var(--pr-leading-100);
+}
+
+.controlHint {
+  display: block;
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
+  line-height: var(--pr-leading-100);
+}
+
+.controlValue {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-strong);
+  justify-self: start;
+}
+
+/* 04. Slider Architecture */
+.controlTrack {
+  position: relative;
+  height: 28px;
+  display: grid;
+  align-items: center;
+}
+
+.controlBar {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  translate: 0 -50%;
+  height: 12px;
+  border-radius: var(--sem-radius-pill);
+  border: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
+}
+
+.controlBarLightness {
+  background: linear-gradient(
+    to right,
+    oklch(0% var(--oklch-c) var(--oklch-h)),
+    oklch(100% var(--oklch-c) var(--oklch-h))
+  );
+}
+
+.controlBarChroma {
+  background: linear-gradient(
+    to right,
+    oklch(var(--oklch-l) 0 var(--oklch-h)),
+    oklch(var(--oklch-l) 0.32 var(--oklch-h))
+  );
+}
+
+.controlBarHue {
+  background: linear-gradient(
+    to right,
+    oklch(var(--oklch-l) var(--oklch-c) 0deg),
+    oklch(var(--oklch-l) var(--oklch-c) 120deg),
+    oklch(var(--oklch-l) var(--oklch-c) 240deg),
+    oklch(var(--oklch-l) var(--oklch-c) 360deg)
+  );
+}
+
+.controlInput {
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Modern Range Styling: Standard pseudos */
+.controlInput::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sem-color-accent-base);
+  border: 2px solid var(--sem-color-bg-base);
+  box-shadow: var(--sem-elevation-low);
+}
+
+.controlInput::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sem-color-accent-base);
+  border: 2px solid var(--sem-color-bg-base);
+  box-shadow: var(--sem-elevation-low);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 05. Responsive Upgrades */
+
+/* Tablet: Value returns to right side */
+@media (width >= 768px) {
+  .controlHeader {
+    grid-template-columns: 28px 1fr auto;
+  }
+
+  .controlValue {
+    justify-self: end;
+  }
+}
+
+/* Desktop: Expand preview and badge size */
+@media (width >= 900px) {
+  .preview {
+    grid-template-columns: minmax(160px, 1fr) 1.4fr;
+  }
+
+  .controlHeader {
+    grid-template-columns: 32px 1fr auto;
+  }
+
+  .controlBadge {
+    width: 32px;
+    height: 32px;
+  }
+}

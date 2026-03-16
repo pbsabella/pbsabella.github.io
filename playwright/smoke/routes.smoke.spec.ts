@@ -8,8 +8,10 @@ type GuardState = {
 };
 
 type Theme = 'light' | 'dark';
+type Brand = 'portfolio' | 'fintech' | 'saas' | 'editorial' | 'neon';
 
 const THEMES: Theme[] = ['light', 'dark'];
+const BRANDS: Brand[] = ['portfolio', 'fintech', 'saas', 'editorial', 'neon'];
 
 const ROUTES = [
   { name: 'home', path: '/' },
@@ -34,6 +36,16 @@ const setTheme = async (page: Page, theme: Theme) => {
   await page.addInitScript((themeValue: Theme) => {
     window.localStorage.setItem('theme', themeValue);
   }, theme);
+};
+
+const setBrand = async (page: Page, brand: Brand) => {
+  await page.evaluate((brandValue: Brand) => {
+    if (brandValue === 'portfolio') {
+      document.documentElement.removeAttribute('data-brand');
+    } else {
+      document.documentElement.setAttribute('data-brand', brandValue);
+    }
+  }, brand);
 };
 
 const attachRuntimeGuards = (page: Page): GuardState => {
@@ -65,7 +77,7 @@ const attachRuntimeGuards = (page: Page): GuardState => {
   return guardState;
 };
 
-const assertKickerContrast = async (page: Page, routePath: string, theme: Theme) => {
+const assertKickerContrast = async (page: Page, routePath: string, theme: Theme, brand: Brand) => {
   if (routePath !== '/labs/design-system-build-notes') return;
 
   await page.locator('[class*="sectionKicker"]').first().waitFor({ state: 'visible' });
@@ -143,10 +155,19 @@ const assertKickerContrast = async (page: Page, routePath: string, theme: Theme)
     return contrastRatio(getRgb(fgColor), getRgb(bgColor));
   });
 
-  expect(ratio, `Build notes kicker contrast on ${theme}: ${ratio.toFixed(2)} < 4.5`).toBeGreaterThanOrEqual(4.5);
+  expect(
+    ratio,
+    `Build notes kicker contrast on ${theme} (${brand}): ${ratio.toFixed(2)} < 4.5`
+  ).toBeGreaterThanOrEqual(4.5);
 };
 
-const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, testInfo: TestInfo) => {
+const assertA11ySmoke = async (
+  page: Page,
+  routePath: string,
+  theme: Theme,
+  brand: Brand,
+  testInfo: TestInfo
+) => {
   await expect(page.getByRole('main')).toBeVisible();
   await expect(page.getByRole('navigation', { name: /main menu/i })).toBeVisible();
 
@@ -187,18 +208,18 @@ const assertA11ySmoke = async (page: Page, routePath: string, theme: Theme, test
       .join('\n');
     testInfo.annotations.push({
       type: 'a11y-incomplete',
-      description: `Axe incomplete color-contrast on ${routePath} (${theme})\n${details}`,
+      description: `Axe incomplete color-contrast on ${routePath} (${theme}, ${brand})\n${details}`,
     });
   }
 
   expect(
     axeResults.violations,
-    `Axe violations on ${routePath} (${theme}):\n${axeResults.violations
+    `Axe violations on ${routePath} (${theme}, ${brand}):\n${axeResults.violations
       .map((violation) => `${violation.id}: ${violation.help} (${violation.nodes.length} node(s))`)
       .join('\n')}`
   ).toEqual([]);
 
-  await assertKickerContrast(page, routePath, theme);
+  await assertKickerContrast(page, routePath, theme, brand);
 };
 
 test.describe('Cross-browser smoke checks', () => {
@@ -213,31 +234,35 @@ test.describe('Cross-browser smoke checks', () => {
 
   for (const route of ROUTES) {
     for (const theme of THEMES) {
-      test(`sanity on ${route.name} (${theme})`, async ({ page, browserName }, testInfo) => {
-        await setTheme(page, theme);
-        const guardState = attachRuntimeGuards(page);
+      for (const brand of BRANDS) {
+        test(`sanity on ${route.name} (${theme}, ${brand})`, async ({ page, browserName }, testInfo) => {
+          await setTheme(page, theme);
+          const guardState = attachRuntimeGuards(page);
 
-        await page.goto(route.path, { waitUntil: 'networkidle' });
-        await expect(page).toHaveURL(new RegExp(`${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
-        await expect(page.locator('h1').first()).toBeVisible();
+          await page.goto(route.path, { waitUntil: 'networkidle' });
+          await expect(page).toHaveURL(new RegExp(`${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
+          await expect(page.locator('h1').first()).toBeVisible();
 
-        if (browserName === 'chromium') {
-          await assertA11ySmoke(page, route.path, theme, testInfo);
-        }
+          await setBrand(page, brand);
 
-        expect(
-          guardState.consoleErrors,
-          `Console errors detected on ${route.path} (${theme}):\n${guardState.consoleErrors.join('\n')}`
-        ).toEqual([]);
-        expect(
-          guardState.requestFailures,
-          `Failed requests detected on ${route.path} (${theme}):\n${guardState.requestFailures.join('\n')}`
-        ).toEqual([]);
-        expect(
-          guardState.responseFailures,
-          `HTTP >= 400 responses detected on ${route.path} (${theme}):\n${guardState.responseFailures.join('\n')}`
-        ).toEqual([]);
-      });
+          if (browserName === 'chromium') {
+            await assertA11ySmoke(page, route.path, theme, brand, testInfo);
+          }
+
+          expect(
+            guardState.consoleErrors,
+            `Console errors detected on ${route.path} (${theme}, ${brand}):\n${guardState.consoleErrors.join('\n')}`
+          ).toEqual([]);
+          expect(
+            guardState.requestFailures,
+            `Failed requests detected on ${route.path} (${theme}, ${brand}):\n${guardState.requestFailures.join('\n')}`
+          ).toEqual([]);
+          expect(
+            guardState.responseFailures,
+            `HTTP >= 400 responses detected on ${route.path} (${theme}, ${brand}):\n${guardState.responseFailures.join('\n')}`
+          ).toEqual([]);
+        });
+      }
     }
   }
 });

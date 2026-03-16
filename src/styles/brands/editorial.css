@@ -12,7 +12,6 @@
 @layer brand {
   [data-brand='editorial'] {
     --brand-primary:      oklch(46% 0.19 24deg);
-    --brand-secondary:    oklch(32% 0.07 258deg);
     --brand-surface-tint: oklch(52% 0.15 24deg);
     --brand-font-body:      georgia, 'Times New Roman', serif;
     --brand-radius-sm:      0px;

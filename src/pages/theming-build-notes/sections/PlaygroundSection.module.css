@@ -21,6 +21,10 @@
   gap: var(--pr-spacing-3);
 }
 
+.showcaseGroupWide {
+  grid-column: 1 / -1;
+}
+
 .groupLabel {
   font-size: var(--sem-text-kicker);
   font-weight: var(--pr-weight-500);
@@ -38,9 +42,43 @@
   align-items: center;
 }
 
-.miniCard {
-  padding: var(--pr-spacing-3) var(--pr-spacing-4);
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-3);
+  align-items: stretch;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-2);
+}
+
+.cardTitle {
+  font-size: var(--sem-text-body);
+  font-weight: var(--pr-weight-600);
+  color: var(--sem-color-text-strong);
+}
+
+.cardMeta {
   font-size: var(--sem-text-caption);
   color: var(--sem-color-text-muted);
-  min-width: 80px;
+}
+
+.cardRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--pr-spacing-2);
+  align-items: center;
+}
+
+.panelBody {
+  padding: var(--pr-spacing-4);
+}
+
+.tokenLabel {
+  font-family: var(--font-mono);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-muted);
 }
