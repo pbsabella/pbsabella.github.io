@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useBrand } from '@context/BrandContext';
 import { useTheme } from '@context/ThemeContext';
 import type { Brand } from '@context/BrandContext';
@@ -11,7 +10,6 @@ import Card from '@/components/ui/Card/Card';
 import Tag from '@/components/ui/Tag/Tag';
 import BrandThemeToggle from '@/components/ui/BrandThemeToggle/BrandThemeToggle';
 import { ArrowRight } from 'lucide-react';
-import { ROUTES } from '@/constants/routes';
 import styles from './PlaygroundSection.module.css';
 
 const bgPrimitiveLight = '--pr-color-neutral-100';
@@ -36,12 +34,24 @@ const tagRadiusPrimitive: Record<Brand, string> = {
   editorial: '2px',
   neon: '9999px',
 };
+// --brand-primary is the single defined anchor per brand; it does not change with mode.
 const brandPrimary: Record<Brand, string> = {
   portfolio: 'oklch(67% 0.149 163deg)',
   fintech: 'oklch(38% 0.18 258deg)',
   saas: 'oklch(54% 0.29 308deg)',
   editorial: 'oklch(46% 0.19 24deg)',
   neon: 'oklch(54% 0.31 342deg)',
+};
+
+// --sem-color-action is computed from --brand-primary via OKLCH relative color.
+// Light: oklch(from var(--brand-primary) calc(l * 0.80) c h)
+// Dark:  oklch(from var(--brand-primary) 53% c h)
+const semColorAction: Record<Brand, { light: string; dark: string }> = {
+  portfolio: { light: 'oklch(53.6% 0.149 163deg)', dark: 'oklch(53% 0.149 163deg)' },
+  fintech: { light: 'oklch(30.4% 0.18 258deg)', dark: 'oklch(53% 0.18 258deg)' },
+  saas: { light: 'oklch(43.2% 0.29 308deg)', dark: 'oklch(53% 0.29 308deg)' },
+  editorial: { light: 'oklch(36.8% 0.19 24deg)', dark: 'oklch(53% 0.19 24deg)' },
+  neon: { light: 'oklch(43.2% 0.31 342deg)', dark: 'oklch(53% 0.31 342deg)' },
 };
 
 const PipelineConnector = () => (
@@ -59,6 +69,10 @@ const PlaygroundSection = () => {
   const radius = radiusPrimitive[brand];
   const tagRadius = tagRadiusPrimitive[brand];
   const primaryAnchor = brandPrimary[brand];
+  const semAction = isDark ? semColorAction[brand].dark : semColorAction[brand].light;
+  const semActionFormula = isDark
+    ? 'oklch(from … 53% c h)'
+    : 'oklch(from … calc(l × 0.80) c h)';
 
   return (
     <EditorialBlock
@@ -68,10 +82,9 @@ const PlaygroundSection = () => {
       rhythm="16"
     >
       <p>
-        The original three-tier system flows COMP → SEM → PR
-        (see {' '}<Link className={styles.link} to={`${ROUTES.DESIGN_SYSTEM_BUILD_NOTES}`}>design system build notes</Link>).
-        Adding a brand layer intercepts that chain: semantic tokens now read from brand anchors, and
-        brands resolve to primitives.
+        This portfolio serves as a reference implementation of the injection model.
+        It is configured to demonstrate the interaction between brand anchors and
+        semantic logic across various design profiles.
       </p>
 
       <FigureBlock caption="Token traces and live components showing how the brand anchor sits between semantic intent and primitive value.">
@@ -149,7 +162,7 @@ const PlaygroundSection = () => {
             <Card variant="flat">
               <div className={styles.flowTitle}>Button action</div>
               <p className={styles.flowMeta}>
-                Primary button color derives from <code className={styles.code}>--brand-primary</code> via OKLCH relative color — no hardcoded values in the component.
+                Only <code className={styles.code}>--brand-primary</code> is defined per brand. <code className={styles.code}>--sem-color-action</code> is computed from it — lightness adjusted per mode, chroma and hue preserved.
               </p>
               <div className={styles.pipelines}>
                 <div className={styles.pipelineTagRow}>
@@ -157,11 +170,17 @@ const PlaygroundSection = () => {
                   <Button variant="secondary" size="sm">Secondary</Button>
                 </div>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--sem-color-action</code>
-                  <PipelineConnector />
                   <code className={styles.code}>--brand-primary</code>
                   <PipelineConnector />
                   <code className={`${styles.code} ${styles.pipelineValue}`}>{primaryAnchor}</code>
+                  <span className={styles.pipelineLabel}>1 token defined</span>
+                </div>
+                <div className={styles.pipelineRow}>
+                  <code className={styles.code}>--sem-color-action</code>
+                  <PipelineConnector />
+                  <code className={styles.code}>{semActionFormula}</code>
+                  <PipelineConnector />
+                  <code className={`${styles.code} ${styles.pipelineValue}`}>{semAction}</code>
                 </div>
               </div>
             </Card>

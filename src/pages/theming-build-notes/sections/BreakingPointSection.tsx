@@ -2,9 +2,16 @@ import EditorialBlock from '@/components/sections/EditorialBlock';
 import styles from '../ThemingBuildNotes.module.css';
 import CodeBlock from '@/components/ui/CodeBlock/CodeBlock';
 
-const SNIPPET = `/* Combinatorial complexity */
-[data-brand='fintech'] [data-theme='dark'] {
+const SNIPPET = `/* Combinatorial complexity: Manually tracking scales per theme */
+[data-brand='fintech'] {
   --sem-color-action: var(--pr-color-blue-600);
+  --sem-color-accent-base: var(--pr-color-blue-500);
+  --sem-color-accent-strong: var(--pr-color-blue-700);
+}
+[data-brand='fintech'] [data-theme='dark'] {
+  --sem-color-action: var(--pr-color-blue-500);
+  --sem-color-accent-base: var(--pr-color-blue-600);
+  --sem-color-accent-strong: var(--pr-color-blue-400);
 }`;
 
 const BreakingPointSection = () => (
