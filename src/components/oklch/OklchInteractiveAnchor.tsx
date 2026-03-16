@@ -38,7 +38,9 @@ const OklchInteractiveAnchor = () => {
                 <label className={styles.controlTitle} htmlFor={lightnessId}>
                   Lightness
                 </label>
-                <span className={styles.controlHint}>Perceived brightness from 0% to 100% (C + H locked)</span>
+                <span className={styles.controlHint}>
+                  Perceived brightness from 0% to 100%. Changes how bright the color appears.
+                </span>
               </div>
               <output className={styles.controlValue} htmlFor={lightnessId}>
                 {lightness}%
@@ -70,7 +72,9 @@ const OklchInteractiveAnchor = () => {
                 <label className={styles.controlTitle} htmlFor={chromaId}>
                   Chroma
                 </label>
-                <span className={styles.controlHint}>Intensity from gray to vivid (L + H locked)</span>
+                <span className={styles.controlHint}>
+                  Intensity from gray to vivid. Changes how saturated the color feels.
+                </span>
               </div>
               <output className={styles.controlValue} htmlFor={chromaId}>
                 {chroma.toFixed(2)}
@@ -102,7 +106,9 @@ const OklchInteractiveAnchor = () => {
                 <label className={styles.controlTitle} htmlFor={hueId}>
                   Hue
                 </label>
-                <span className={styles.controlHint}>Color identity from 0° to 360° (L + C locked)</span>
+                <span className={styles.controlHint}>
+                  Color identity from 0° to 360°. Changes which color the hue appears to be.
+                </span>
               </div>
               <output className={styles.controlValue} htmlFor={hueId}>
                 {hue}°

@@ -2,7 +2,7 @@ import EditorialBlock from '@/components/sections/EditorialBlock';
 import styles from '../ThemingBuildNotes.module.css';
 import CodeBlock from '@/components/ui/CodeBlock/CodeBlock';
 
-const SNIPPET = `/* BEFORE: Combinatorial complexity */
+const SNIPPET = `/* Combinatorial complexity */
 [data-brand='fintech'] [data-theme='dark'] {
   --sem-color-action: var(--pr-color-blue-600);
 }`;
@@ -36,7 +36,7 @@ const BreakingPointSection = () => (
     </p>
     <p>
       This is not a scalable model. Adding a fifth brand or a third theme means the override
-      surface doubles again.
+      surface expands exponentially.
     </p>
 
     <ul className={styles.list}>

@@ -121,9 +121,9 @@ const ContractSection = () => (
     rhythm="21"
   >
     <p>
-      The playground is the proof. This is the public API of the design system. To onboard a new
-      white-label client, developers only interact with the Brand layer. This is the only surface
-      area needed to skin the entire UI, no component code, no semantic overrides.
+      These tokens define the contract between the design system and any specific brand profile.
+      To theme the application, you only need to provide values for these slots;
+      the semantic engine handles the rest.
     </p>
 
     <div className={styles.tableWrapper}>
