@@ -45,10 +45,16 @@ export const COLOR_GROUPS = {
         references: 'Light: Neutral 200 | Dark: Gray 800'
       },
       {
+        name: 'BG Inset',
+        token: '--sem-color-bg-inset',
+        border: true,
+        references: 'Light: Neutral 300 | Dark: Gray 600'
+      },
+      {
         name: 'BG Elevated',
         token: '--sem-color-bg-elevated',
         border: true,
-        references: 'Light: Neutral 300 | Dark: Gray 700'
+        references: 'Light: Neutral 100 | Dark: Gray 700'
       },
       {
         name: 'BG Overlay',
@@ -127,7 +133,7 @@ export const COLOR_GROUPS = {
       {
         name: 'BG Tint 2',
         token: '--sem-color-surface-tint-2',
-        references: 'Light: Gray 100 (L≈98%) | Dark: collapsed L≈20% — backgrounds only'
+        references: 'brand-surface-tint L≈98% | Dark: L≈18% — backgrounds only'
       },
       {
         name: 'Focus Ring',
@@ -211,7 +217,13 @@ export const TYPE_SCALE = [
   { element: 'h1', token: '--sem-text-heading-lg', leading: '--pr-leading-110' },
   { element: 'h2', token: '--sem-text-heading-md', leading: '--pr-leading-120' },
   { element: 'h3', token: '--sem-text-heading-sm', leading: '--pr-leading-120' },
-  { element: 'h4', token: '--pr-text-400', leading: '--pr-leading-150' },
+  { element: 'h4', token: '--sem-text-feature', leading: '--pr-leading-150' },
+  {
+    element: 'span',
+    token: '--sem-text-lede',
+    leading: '--pr-leading-150',
+    text: 'Intro or lead paragraph — larger than body, used for article openers.',
+  },
   {
     element: 'span',
     token: '--sem-text-body',

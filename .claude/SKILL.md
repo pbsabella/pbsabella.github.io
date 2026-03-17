@@ -6,30 +6,31 @@ Personal portfolio and design system lab. The site dogfoods its own design syste
 - React 19 + TypeScript (strict) + Vite
 - CSS Modules with CSS custom properties (no utility-first CSS)
 - React Router v7 for client-side routing
-- Hosted on Vercel at `https://pbsabella.vercel.app`
+- Hosted on Vercel at `https://pbsabella.vercel.app` & GitHub Pages at `https://pbsabella.github.io/`
 
-## Token System (`src/styles/tokens.css`)
-Three-tier CSS variable hierarchy:
+## Token Hierarchy
 
-| Tier | Prefix | Purpose |
-|------|--------|---------|
-| Primitives | `--pr-` | Raw scale values (colors, spacing, type, radius…) |
-| Semantic | `--sem-` | Intent-based tokens (text, bg, border, status, elevation…) |
-| Component | `--comp-` | Per-component overrides (live in CSS Modules, not tokens.css) |
+| Layer | Prefix | Responsibility | Data Source |
+| :--- | :--- | :--- | :--- |
+| **Primitives** | `--pr-` | **Raw Scales:** Core values for color, space, and time. | `tokens.css` |
+| **Brand** | `--brand-` | **Anchors:** Identity slots for primary colors and fonts. | `brand/*.css` |
+| **Semantic** | `--sem-` | **Intent:** Usage-based roles (Action, Surface, Text). | `tokens.css` |
+| **Component** | `--comp-` | **Scope:** Local overrides for specific patterns. | `*.module.css` |
 
-Theme switching: `data-theme="dark"` on `<body>` overrides the `--sem-` layer only. Managed by `ThemeContext` + `localStorage`.
+**Theme switching:** `[data-theme="dark"]` on `<body>`
+**Brand switching:** `[data-brand="brandName"]` on `<html>`
 
-### Rules
-- Don't use `--pr-` tokens directly in components — only in `--sem-` token definitions.
-- New components should consume `--sem-` tokens, not hardcoded values.
-- Component-level overrides (`--comp-`) are for one-off exceptions, not general use.
-- When adding new tokens, support both light and dark themes from the start and ensure accessibility (contrast) compliance.
+### Implementation Rules
+
+* **Primitives are private:** Never use `--pr-` tokens directly in components. They exist only to build the semantic layer.
+* **Semantic is the API:** Components should only consume `--sem-` tokens. This ensures automatic adaptation to brand and theme changes.
+* **Derive, don't define:** Before adding a new token, use `oklch()` relative syntax to derive values from existing anchors.
+* **Theme parity is mandatory:** Every semantic token must be defined for light and dark modes from the start.
+* **Component tokens as escape hatches:** Use `--comp-` tokens sparingly for one-off exceptions only.
+* **Layer integrity:** Brands may only populate `--brand-` slots. Overriding `--sem-` or `--pr-` values is prohibited to prevent breaking system logic.
 
 ## Design System (`src/components/ui/`)
-10 components, each in its own directory with `Component.tsx`, `Component.module.css`, `Component.test.tsx`.
-
-- Alert, Badge, Breadcrumbs, Button (polymorphic `as` prop), Card, Socials, Table, TableOfContents, Tag, ThemeToggle
-
+Each in its own directory with `Component.tsx`, `Component.module.css`, `Component.test.tsx`.
 New components follow the same 3-file pattern and consume `--sem-` tokens.
 
 ## Routing (`src/constants/routes.ts`)
@@ -50,4 +51,4 @@ Centralized `ROUTES` constants — no magic strings. Pages live in `src/pages/`,
 - Accessibility: axe-core/playwright
 - Lighthouse CI on PRs
 
-Run all: `npm test` · E2E: `npm run cy:run` · Lint: `npm run lint`
+Run all: `npm run check` · Lint: `npm run lint`
