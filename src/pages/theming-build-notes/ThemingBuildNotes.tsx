@@ -1,5 +1,6 @@
 import ArticleHero from '@/components/sections/ArticleHero';
 import ArticleLayout from '@/components/sections/ArticleLayout';
+import FigureBlock from '@/components/sections/FigureBlock';
 import { THEMING_BUILD_NOTES_SECTIONS } from '@/content/themingBuildNotes';
 import { THEMING_BUILD_NOTES_META_PAGE } from '@/content/pageMeta';
 import IntroSection from './sections/IntroSection';
@@ -11,6 +12,8 @@ import BrandSwitcherSection from './sections/BrandSwitcherSection';
 import PlaygroundSection from './sections/PlaygroundSection';
 import ContractSection from './sections/ContractSection';
 import ConstraintsSection from './sections/ConstraintsSection';
+import TokenCascadeAnimation from './sections/TokenCascadeAnimation';
+import styles from './ThemingBuildNotes.module.css';
 
 const ThemingBuildNotes = () => {
   return (
@@ -30,6 +33,14 @@ const ThemingBuildNotes = () => {
         />
       }
     >
+      <div className={styles.blockContainer}>
+        <p className={styles.tlDrTitle}>TL;DR</p>
+        <p className={styles.tlDrContent}>Four cascade layers. One injection point. Derived tokens.</p>
+      </div>
+
+      <FigureBlock className={styles.blockContainer} caption="Illustration of the four-layer token cascade architecture, with a single brand anchor feeding into the semantic layer's color math to generate a full palette.">
+        <TokenCascadeAnimation playback="static" />
+      </FigureBlock>
       <IntroSection />
       <BaselineSection />
       <BreakingPointSection />
