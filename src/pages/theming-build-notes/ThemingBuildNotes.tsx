@@ -11,6 +11,7 @@ import BrandSwitcherSection from './sections/BrandSwitcherSection';
 import PlaygroundSection from './sections/PlaygroundSection';
 import ContractSection from './sections/ContractSection';
 import ConstraintsSection from './sections/ConstraintsSection';
+import TldrSection from './sections/TldrSection';
 
 const ThemingBuildNotes = () => {
   return (
@@ -30,6 +31,7 @@ const ThemingBuildNotes = () => {
         />
       }
     >
+      <TldrSection />
       <IntroSection />
       <BaselineSection />
       <BreakingPointSection />

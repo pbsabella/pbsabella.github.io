@@ -40,31 +40,31 @@ const InjectionSection = () => (
       Brands only fill <em>anchor slots</em> in the middle layer. They cannot accidentally
       break system logic because the Semantic layer has the final word. Removing a brand is as
       simple as removing a single{' '}
-      <code className={styles.codeInline}>[data-brand]</code> block.
+      <code className={styles.code}>[data-brand]</code> block.
     </p>
 
     <p>
       To preserve the integrity of the layers, the implementation follows three constraints:
     </p>
     <ul className={styles.list}>
-      <li>Brand files only set <code className={styles.codeInline}>--brand-*</code> anchors, never <code className={styles.codeInline}>--pr-*</code> or <code className={styles.codeInline}>--sem-*</code>.</li>
-      <li>Each brand lives in <code className={styles.codeInline}>src/styles/brands/*.css</code> and is toggled via <code className={styles.codeInline}>data-brand</code> on <code className={styles.codeInline}>html</code>.</li>
-      <li>Semantic tokens and theme logic stay centralized in <code className={styles.codeInline}>tokens.css</code>.</li>
+      <li>Brand files only set <code className={styles.code}>--brand-*</code> anchors, never <code className={styles.code}>--pr-*</code> or <code className={styles.code}>--sem-*</code>.</li>
+      <li>Each brand lives in <code className={styles.code}>src/styles/brands/*.css</code> and is toggled via <code className={styles.code}>data-brand</code> on <code className={styles.code}>html</code>.</li>
+      <li>Semantic tokens and theme logic stay centralized in <code className={styles.code}>tokens.css</code>.</li>
     </ul>
 
     <CssCascadeLayer />
 
-    <div className={styles.alertContainer}>
+    <div className={styles.blockContainer}>
       <Alert variant="info" title="Why layer order matters">
         CSS Cascade Layers resolve conflicts by declaration order, not specificity. A rule in{' '}
-        <code className={styles.codeInline}>@layer semantic</code>{' '}beats an identical rule in{' '}
-        <code className={styles.codeInline}>@layer brand</code>{' '}— even if the brand rule has a higher-specificity selector.
+        <code className={styles.code}>@layer semantic</code>{' '}beats an identical rule in{' '}
+        <code className={styles.code}>@layer brand</code>{' '}— even if the brand rule has a higher-specificity selector.
       </Alert>
     </div>
 
     <p>
       This handles more than just color; it handles geometry. Components no longer touch
-      primitive radius values. They consume <code className={styles.codeInline}>--sem-radius-md</code>, which reads from a
+      primitive radius values. They consume <code className={styles.code}>--sem-radius-md</code>, which reads from a
       brand anchor. This allows the UI to shift from pillowy to sharp by changing one variable in
       the Brand layer.
     </p>
