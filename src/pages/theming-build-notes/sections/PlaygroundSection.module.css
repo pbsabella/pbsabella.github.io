@@ -75,7 +75,7 @@
   font-family: var(--font-mono);
   font-size: var(--sem-text-kicker);
   color: var(--sem-color-text-base);
-  background: var(--sem-color-bg-elevated);
+  background: var(--sem-color-bg-inset);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
   border-radius: var(--sem-radius-sm);
   display: inline-block;

@@ -28,7 +28,7 @@
 .brandThemeTogglePill:hover {
   background: oklch(
     from var(--comp-btt-bg)
-    calc(l * var(--sem-state-hover-lightness)) c h
+    calc(l * var(--sem-state-hover-lightness-subtle)) c h
   );
 }
 
@@ -171,7 +171,7 @@
 .brandThemeToggleThemeBtn:hover {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-hover-lightness)) c h
+    calc(l * var(--sem-state-hover-lightness-subtle)) c h
   );
   color: var(--sem-color-text-base);
 }
@@ -179,7 +179,7 @@
 .brandThemeToggleThemeBtn:active {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-active-lightness)) c h
+    calc(l * var(--sem-state-active-lightness-subtle)) c h
   );
 }
 
@@ -232,14 +232,14 @@
 .brandThemeToggleBrandOption:hover {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-hover-lightness)) c h
+    calc(l * var(--sem-state-hover-lightness-subtle)) c h
   );
 }
 
 .brandThemeToggleBrandOption:active {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-active-lightness)) c h
+    calc(l * var(--sem-state-active-lightness-subtle)) c h
   );
 }
 

@@ -26,9 +26,9 @@
 
 .cardPanel {
   padding: 0;
-  background-color: var(--sem-color-bg-base);
-  border-color: var(--sem-color-border-subtle);
+  background-color: var(--comp-card-bg);
   overflow: hidden;
+  border-color: var(--sem-color-border-subtle);
 }
 
 .cardToneDashed {

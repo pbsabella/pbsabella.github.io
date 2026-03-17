@@ -58,14 +58,14 @@
 .buttonSecondary:hover {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-hover-lightness)) c h
+    calc(l * var(--sem-state-hover-lightness-subtle)) c h
   );
 }
 
 .buttonSecondary:active {
   background: oklch(
     from var(--sem-color-bg-base)
-    calc(l * var(--sem-state-active-lightness)) c h
+    calc(l * var(--sem-state-active-lightness-subtle)) c h
   );
 }
 

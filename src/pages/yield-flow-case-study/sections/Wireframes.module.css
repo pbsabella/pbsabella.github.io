@@ -161,7 +161,7 @@
   font-size: var(--sem-text-kicker);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-base);
-  background-color: var(--sem-color-bg-elevated);
+  background-color: var(--sem-color-bg-inset);
   padding: var(--pr-spacing-1) var(--pr-spacing-2);
   border-radius: var(--sem-radius-md);
   border: none;
