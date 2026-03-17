@@ -1,0 +1,905 @@
+.wrapper {
+  width: 100%;
+  font-family: var(--font-mono, monospace);
+  margin-top: var(--pr-spacing-11);
+
+  /* Global timing variables so logic stays synchronized! */
+  --dur: 8000ms;
+  --mode: infinite;
+}
+
+/* Override variables when we play it once */
+.playbackOnce {
+  --dur: 3000ms;
+  --mode: 1 forwards;
+}
+
+.svgDesktop {
+  display: none;
+  width: 100%;
+}
+
+.svgMobile {
+  display: block;
+  width: 100%;
+}
+
+@media (width >= 768px) {
+  .svgDesktop {
+    display: block;
+  }
+
+  .svgMobile {
+    display: none;
+  }
+}
+
+/* ── Reactive Elements (Color Transitions) ───────────── */
+
+/* .reactiveShape,
+.swatch,
+.brandNode,
+.layerBar,
+.layerBarBrand,
+.layerLabel,
+.newBadge,
+.connectLine,
+.fanLine,
+.swatchLabel,
+.swatchMath,
+.textStrong,
+.textMuted {
+  transition: fill 0.4s ease, stroke 0.4s ease, color 0.4s ease;
+} */ /* Choking hazard */
+
+/* ── Light / Dark Mode Text Toggle Hooks ─────────────── */
+.mathLight {
+  display: block;
+}
+
+.mathDark {
+  display: none;
+}
+
+:global([data-theme='dark']) .mathLight {
+  display: none;
+}
+
+:global([data-theme='dark']) .mathDark {
+  display: block;
+}
+
+/* ── Base Styling ────────────────────────────────────── */
+.layerBar {
+  fill: var(--sem-color-bg-elevated);
+  stroke: var(--sem-color-border-subtle);
+  stroke-width: 1;
+  opacity: 0;
+}
+
+.layerBarBrand {
+  fill: color-mix(in oklch, var(--sem-color-accent-strong) 10%, transparent);
+  stroke: var(--sem-color-accent-strong);
+  stroke-width: 1.5;
+}
+
+.layerLabel {
+  font-size: 10px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--sem-color-text-muted);
+}
+
+.layerLabelBrand {
+  fill: var(--sem-color-text-strong);
+  font-weight: var(--pr-weight-600);
+}
+
+.newBadge {
+  fill: var(--sem-color-accent-strong);
+}
+
+.newBadgeText {
+  font-size: 7px;
+  font-weight: var(--pr-weight-600);
+  fill: var(--sem-color-text-on-bg);
+}
+
+.cascadeArrow {
+  fill: none;
+  stroke: var(--sem-color-border-subtle);
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+.connectLine {
+  fill: none;
+  stroke: var(--sem-color-accent-strong);
+  stroke-width: 1;
+  stroke-dasharray: var(--len, 80);
+  stroke-dashoffset: var(--len, 80);
+  opacity: 0;
+}
+
+.fanLine {
+  fill: none;
+  stroke: var(--sem-color-border-base);
+  stroke-width: 1;
+  stroke-dasharray: var(--len, 100);
+  stroke-dashoffset: var(--len, 100);
+  opacity: 0;
+}
+
+.brandNode {
+  stroke: var(--sem-color-bg-base);
+  stroke-width: 2;
+}
+
+.divider {
+  fill: none;
+  stroke: var(--sem-color-border-subtle);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.sectionHeader {
+  font-size: 9px;
+  font-weight: var(--pr-weight-600);
+  fill: var(--sem-color-text-strong);
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+.injectLabel {
+  font-size: 8px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--sem-color-accent-strong);
+  font-weight: var(--pr-weight-600);
+  opacity: 0;
+}
+
+.swatchLabel {
+  font-size: 9px;
+  font-weight: var(--pr-weight-600);
+  dominant-baseline: middle;
+  fill: var(--sem-color-text-strong);
+}
+
+.swatchMath {
+  font-size: 7.5px;
+  dominant-baseline: middle;
+  fill: var(--sem-color-text-muted);
+}
+
+.textStrong {
+  font-size: 10px;
+  font-weight: var(--pr-weight-600);
+  dominant-baseline: middle;
+}
+
+.textMuted {
+  font-size: 8px;
+  font-family: monospace;
+  dominant-baseline: middle;
+}
+
+/* ── Shared Dynamic Keyframes ────────────────────────── */
+@keyframes layer-pr-cycle {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes layer-brand-cycle {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  9% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes layer-sem-cycle {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  13% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes layer-comp-cycle {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  17% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes arrow-cycle1 {
+  0%,
+  15% {
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes arrow-cycle2 {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes arrow-cycle3 {
+  0%,
+  19% {
+    opacity: 0;
+  }
+
+  22% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes connect-line-cycle {
+  0%,
+  22% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  22.1% {
+    opacity: 1;
+  }
+
+  28% {
+    stroke-dashoffset: 0;
+  }
+
+  95% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+}
+
+@keyframes brand-node-cycle {
+  0%,
+  28% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  33% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  95% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fan-line-cycle {
+  0%,
+  35% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  35.1% {
+    opacity: 1;
+  }
+
+  45% {
+    stroke-dashoffset: 0;
+  }
+
+  95% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+}
+
+@keyframes swatch-cycle {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+
+  48% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes ui-card-line-cycle {
+  0%,
+  50% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  50.1% {
+    opacity: 1;
+  }
+
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  95% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  98%,
+  100% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+}
+
+@keyframes ui-card-cycle {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  55.1% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  95% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  98%,
+  100% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+}
+
+/* ── Animation Assignments ───────────────────────────── */
+.animLayerPr {
+  animation: layer-pr-cycle var(--dur) ease-out var(--mode);
+}
+
+.animLayerBrand {
+  animation: layer-brand-cycle var(--dur) ease-out var(--mode);
+}
+
+.animLayerSem {
+  animation: layer-sem-cycle var(--dur) ease-out var(--mode);
+}
+
+.animLayerComp {
+  animation: layer-comp-cycle var(--dur) ease-out var(--mode);
+}
+
+.animArrow1 {
+  animation: arrow-cycle1 var(--dur) linear var(--mode);
+}
+
+.animArrow2 {
+  animation: arrow-cycle2 var(--dur) linear var(--mode);
+}
+
+.animArrow3 {
+  animation: arrow-cycle3 var(--dur) linear var(--mode);
+}
+
+.animConnectLine {
+  animation: connect-line-cycle var(--dur) ease-in-out var(--mode);
+}
+
+.animBrandNode {
+  animation: brand-node-cycle var(--dur) ease-out var(--mode);
+}
+
+.animInjectLabel {
+  animation: connect-line-cycle var(--dur) ease-in-out var(--mode);
+}
+
+.animFanLine1 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+}
+
+.animFanLine2 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+  animation-delay: 100ms;
+}
+
+.animFanLine3 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+  animation-delay: 200ms;
+}
+
+.animFanLine4 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+  animation-delay: 300ms;
+}
+
+.animFanLine5 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+  animation-delay: 400ms;
+}
+
+.animFanLine6 {
+  animation: fan-line-cycle var(--dur) ease-in-out var(--mode);
+  animation-delay: 500ms;
+}
+
+.animSwatch1 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+}
+
+.animSwatch2 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+  animation-delay: 100ms;
+}
+
+.animSwatch3 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+  animation-delay: 200ms;
+}
+
+.animSwatch4 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+  animation-delay: 300ms;
+}
+
+.animSwatch5 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+  animation-delay: 400ms;
+}
+
+.animSwatch6 {
+  animation: swatch-cycle var(--dur) ease-out var(--mode);
+  animation-delay: 500ms;
+}
+
+.animUiCardLine {
+  animation: ui-card-line-cycle var(--dur) ease-in-out var(--mode);
+}
+
+.animUiCard {
+  animation: ui-card-cycle var(--dur) ease-out var(--mode);
+}
+
+/* ── "Once" Adjustments ──────────────────────────────── */
+.playbackOnce [class*="anim"] {
+  animation-fill-mode: both;
+}
+
+@keyframes layer-pr-once {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes layer-brand-once {
+  0%,
+  4% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes layer-sem-once {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes layer-comp-once {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow-once1 {
+  0%,
+  15% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-once2 {
+  0%,
+  17% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-once3 {
+  0%,
+  19% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes connect-line-once {
+  0%,
+  22% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  22.1% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes brand-node-once {
+  0%,
+  28% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fan-line-once {
+  0%,
+  35% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  35.1% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes swatch-once {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ui-card-line-once {
+  0%,
+  50% {
+    stroke-dashoffset: var(--len);
+    opacity: 0;
+  }
+
+  50.1% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes ui-card-once {
+  0%,
+  55% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  55.1% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.playbackOnce .animLayerPr {
+  animation-name: layer-pr-once;
+}
+
+.playbackOnce .animLayerBrand {
+  animation-name: layer-brand-once;
+}
+
+.playbackOnce .animLayerSem {
+  animation-name: layer-sem-once;
+}
+
+.playbackOnce .animLayerComp {
+  animation-name: layer-comp-once;
+}
+
+.playbackOnce .animArrow1 {
+  animation-name: arrow-once1;
+}
+
+.playbackOnce .animArrow2 {
+  animation-name: arrow-once2;
+}
+
+.playbackOnce .animArrow3 {
+  animation-name: arrow-once3;
+}
+
+.playbackOnce .animConnectLine {
+  animation-name: connect-line-once;
+}
+
+.playbackOnce .animBrandNode {
+  animation-name: brand-node-once;
+}
+
+.playbackOnce .animInjectLabel {
+  animation-name: connect-line-once;
+}
+
+.playbackOnce .animFanLine1,
+.playbackOnce .animFanLine2,
+.playbackOnce .animFanLine3,
+.playbackOnce .animFanLine4,
+.playbackOnce .animFanLine5,
+.playbackOnce .animFanLine6 {
+  animation-name: fan-line-once;
+}
+
+.playbackOnce .animSwatch1,
+.playbackOnce .animSwatch2,
+.playbackOnce .animSwatch3,
+.playbackOnce .animSwatch4,
+.playbackOnce .animSwatch5,
+.playbackOnce .animSwatch6 {
+  animation-name: swatch-once;
+}
+
+.playbackOnce .animUiCardLine {
+  animation-name: ui-card-line-once;
+}
+
+.playbackOnce .animUiCard {
+  animation-name: ui-card-once;
+}
+
+/* ── Playback Mode: Static ───────────────────────────── */
+.playbackStatic .animLayerPr,
+.playbackStatic .animLayerBrand,
+.playbackStatic .animLayerSem,
+.playbackStatic .animLayerComp,
+.playbackStatic .animBrandNode,
+.playbackStatic .animSwatch1,
+.playbackStatic .animSwatch2,
+.playbackStatic .animSwatch3,
+.playbackStatic .animSwatch4,
+.playbackStatic .animSwatch5,
+.playbackStatic .animSwatch6,
+.playbackStatic .animUiCard {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.playbackStatic .animArrow1,
+.playbackStatic .animArrow2,
+.playbackStatic .animArrow3,
+.playbackStatic .animInjectLabel {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.playbackStatic .animConnectLine,
+.playbackStatic .animUiCardLine,
+.playbackStatic .animFanLine1,
+.playbackStatic .animFanLine2,
+.playbackStatic .animFanLine3,
+.playbackStatic .animFanLine4,
+.playbackStatic .animFanLine5,
+.playbackStatic .animFanLine6 {
+  animation: none !important;
+  opacity: 1 !important;
+  stroke-dashoffset: 0 !important;
+}
+
+/* ── Accessibility ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  [class*="anim"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
