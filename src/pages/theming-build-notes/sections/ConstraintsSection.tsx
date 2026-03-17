@@ -26,8 +26,8 @@ const ConstraintsSection = () => (
     <div className={styles.constraintItem}>
       <Alert variant="info" title="The On-Accent Guardrail">
         Accent surfaces (buttons, badges, hero CTAs) always use{' '}
-        <code className={styles.codeInline}>--sem-color-accent-strong-on-bg</code>, which is wired to{' '}
-        <code className={styles.codeInline}>--brand-on-accent</code>. If a brand primary is too light, we
+        <code className={styles.code}>--sem-color-accent-strong-on-bg</code>, which is wired to{' '}
+        <code className={styles.code}>--brand-on-accent</code>. If a brand primary is too light, we
         override that one anchor and keep contrast sane without touching components.
       </Alert>
     </div>

@@ -90,7 +90,7 @@ const PlaygroundSection = () => {
       <FigureBlock caption="Token traces and live components showing how the brand anchor sits between semantic intent and primitive value.">
         <MockupFrame variant="browser">
           <p className={styles.demo}>
-            A tiny slice of the system in motion. Switch brands or themes to watch terminal values update in real time.
+            Switch brands or themes to watch terminal values update in real time.
           </p>
           <div className={styles.flowThemeRow}>
             <p className={styles.flowHierarchy}>Revised trace flow: COMP → SEM → BRAND → PR</p>
@@ -142,10 +142,17 @@ const PlaygroundSection = () => {
               <div className={styles.pipelines}>
                 <div className={styles.pipelineTagRow}>
                   <Tag variant="primary" size="sm">Primary</Tag>
-                  <Tag variant="success" size="sm">Success</Tag>
                   <Tag variant="info" size="sm">Info</Tag>
-                  <Badge variant="error" size="md">5</Badge>
+                  <Tag variant="success" size="sm">Success</Tag>
+                  <Tag variant="warning" size="sm">Warning</Tag>
+                  <Tag variant="error" size="sm">Error</Tag>
+                </div>
+
+                <div className={styles.pipelineTagRow}>
                   <Badge variant="info" size="md">NEW</Badge>
+                  <Badge variant="success" size="md">3</Badge>
+                  <Badge variant="warning" size="md">5</Badge>
+                  <Badge variant="error" size="md">99</Badge>
                 </div>
                 <div className={styles.pipelineRow}>
                   <code className={styles.code}>--comp-tag-radius</code>
