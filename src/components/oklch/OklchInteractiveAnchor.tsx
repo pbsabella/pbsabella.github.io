@@ -60,7 +60,7 @@ const OklchInteractiveAnchor = () => {
                 aria-describedby={`${lightnessId}-desc`}
               />
             </div>
-            <span id={`${lightnessId}-desc`} className={styles.srOnly}>
+            <span id={`${lightnessId}-desc`} className="srOnly">
               Changes how bright the color appears.
             </span>
           </div>
@@ -94,7 +94,7 @@ const OklchInteractiveAnchor = () => {
                 aria-describedby={`${chromaId}-desc`}
               />
             </div>
-            <span id={`${chromaId}-desc`} className={styles.srOnly}>
+            <span id={`${chromaId}-desc`} className="srOnly">
               Changes how saturated the color feels.
             </span>
           </div>
@@ -128,7 +128,7 @@ const OklchInteractiveAnchor = () => {
                 aria-describedby={`${hueId}-desc`}
               />
             </div>
-            <span id={`${hueId}-desc`} className={styles.srOnly}>
+            <span id={`${hueId}-desc`} className="srOnly">
               Changes which hue the color appears to be.
             </span>
           </div>
