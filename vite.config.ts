@@ -46,6 +46,19 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
       },
+      output: {
+        // Vendor chunks: stable filenames that browsers cache between deployments.
+        // A version bump to one library only busts that library's chunk, not all vendor code.
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-router': ['react-router-dom'],
+          'vendor-icons': ['lucide-react'],
+          // prism-react-renderer is only used in labs pages (ThemingBuildNotes,
+          // DesignSystemBuildNotes). After route splitting, it will only download
+          // when a user first navigates to one of those routes.
+          'vendor-prism': ['prism-react-renderer'],
+        },
+      },
     },
   },
   server: {
