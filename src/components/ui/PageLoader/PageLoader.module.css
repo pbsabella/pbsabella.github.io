@@ -1,23 +1,12 @@
 .pageLoader {
+  min-height: 100vh;
+  padding-top: var(--pr-spacing-16);
+}
+
+.pageLoaderContent {
+  padding-top: var(--pr-spacing-21);
+  max-width: var(--sem-layout-page-max);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - var(--sem-layout-header-height));
-  padding: var(--pr-spacing-11);
-}
-
-.pageLoaderSpinner {
-  display: block;
-  width: var(--pr-size-32);
-  height: var(--pr-size-32);
-  border: var(--pr-border-width-2) solid var(--sem-color-border-subtle);
-  border-top-color: var(--sem-color-accent-base);
-  border-radius: var(--sem-radius-pill);
-  animation: spin var(--pr-duration-slow) linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  flex-direction: column;
+  gap: var(--pr-spacing-4);
 }
