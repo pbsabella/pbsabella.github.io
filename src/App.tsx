@@ -48,8 +48,8 @@ const App = () => {
         {/* AppRoutes uses useLocation() to key the Suspense boundary per navigation. */}
         <AppRoutes />
       </Layout>
-      <Analytics />
-      <SpeedInsights />
+      {!isGitHubPages && <Analytics />}
+      {!isGitHubPages && <SpeedInsights />}
     </Router>
   );
 };
