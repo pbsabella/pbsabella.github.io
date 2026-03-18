@@ -33,11 +33,6 @@ const CONTRACT_ROWS = [
   ],
   [
     '',
-    <code key="tok-brand-accent" className={styles.tokenCell}>--brand-accent</code>,
-    'Optional. Decorative accent for charts or marketing surfaces (defaults to secondary).',
-  ],
-  [
-    '',
     <code key="tok-brand-on-accent" className={styles.tokenCell}>--brand-on-accent</code>,
     'Manual override: text color on top of accent surfaces.',
   ],
@@ -56,6 +51,17 @@ const CONTRACT_ROWS = [
     <code key="tok-brand-bg-subtle" className={styles.tokenCell}>--brand-bg-subtle</code>,
     'A light accent surface for hover states and highlights.',
   ],
+  [
+    '',
+    <code key="tok-brand-bg-inset" className={styles.tokenCell}>--brand-bg-inset</code>,
+    'A darker surface for smaller containers and insets.',
+  ],
+  // Not yet hooked up in the system, but reserved for future use if needed.
+  // [
+  //   '',
+  //   <code key="tok-brand-bg-elevated" className={styles.tokenCell}>--brand-bg-elevated</code>,
+  //   'An optional elevated surface for cards and modals.',
+  // ],
   [
     '',
     <code key="tok-brand-surface-tint" className={styles.tokenCell}>--brand-surface-tint</code>,
@@ -132,7 +138,7 @@ const ContractSection = () => (
         columns={CONTRACT_COLUMNS}
         rows={CONTRACT_ROWS}
         variant="striped"
-        stacked={false}
+        stacked={true}
       />
     </div>
 

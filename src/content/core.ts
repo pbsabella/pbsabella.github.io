@@ -50,12 +50,12 @@ export const COLOR_GROUPS = {
         border: true,
         references: 'Light: Neutral 300 | Dark: Gray 600'
       },
-      {
-        name: 'BG Elevated',
-        token: '--sem-color-bg-elevated',
-        border: true,
-        references: 'Light: Neutral 100 | Dark: Gray 700'
-      },
+      // {
+      //   name: 'BG Elevated',
+      //   token: '--sem-color-bg-elevated',
+      //   border: true,
+      //   references: 'Light: Neutral 100 | Dark: Gray 700'
+      // },
       {
         name: 'BG Overlay',
         token: '--sem-color-bg-overlay',

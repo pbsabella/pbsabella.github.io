@@ -173,9 +173,6 @@
     --brand-primary:   oklch(67% 0.149 163deg);
     --brand-secondary: oklch(65% 0.216 35deg);
 
-    /* Accent is decorative color used for charts, highlights, marketing surfaces etc. */
-    --brand-accent: var(--brand-secondary);
-
     /* Typography */
     --brand-font-display:   'DM Serif Display', 'Georgia', 'Times New Roman', serif;
     --brand-font-body:      heebo, arial, sans-serif;
@@ -196,9 +193,10 @@
     --brand-bg-canvas:    var(--pr-color-neutral-100);
     --brand-bg-base:      var(--pr-color-neutral-100);
     --brand-bg-subtle:    var(--pr-color-neutral-200);
-    --brand-bg-elevated:  var(--pr-color-neutral-100); /* white; shadow communicates elevation in light mode */
     --brand-bg-inset:     var(--pr-color-neutral-300); /* visually distinct chip / tag / code bg */
     --brand-surface-tint: var(--brand-primary);       /* tinted page sections derive from this */
+
+    /* --brand-bg-elevated:  var(--pr-color-neutral-100); */
 
     /* On-accent text — white by default; override for light-bg accent brands */
     --brand-on-accent: var(--pr-color-neutral-100);
@@ -210,8 +208,9 @@
     --brand-bg-canvas:   var(--pr-color-gray-900);
     --brand-bg-base:     var(--pr-color-gray-900);
     --brand-bg-subtle:   var(--pr-color-gray-800);
-    --brand-bg-elevated: var(--pr-color-gray-700);
     --brand-bg-inset:    var(--pr-color-gray-600); /* deeper than elevated → reads as inset, not floating */
+
+    /* --brand-bg-elevated: var(--pr-color-gray-700); */
   }
 
   /*
@@ -252,11 +251,12 @@
     --sem-color-bg-canvas:         var(--brand-bg-canvas);
     --sem-color-bg-base:           var(--brand-bg-base);
     --sem-color-bg-subtle:         var(--brand-bg-subtle);
-    --sem-color-bg-elevated:       var(--brand-bg-elevated);
     --sem-color-bg-inset:          var(--brand-bg-inset);
     --sem-color-bg-overlay-subtle: oklch(99% 0 0deg / 90%);
     --sem-color-bg-overlay:        oklch(0%  0 0deg / 80%);
     --sem-color-bg-striped:        oklch(0%  0 0deg / 4%);
+
+    /* --sem-color-bg-elevated:       var(--brand-bg-elevated); */
 
     /* Text Colors */
     --sem-color-text-base:    var(--pr-color-neutral-800);
@@ -387,8 +387,9 @@
     --sem-color-bg-canvas:         var(--brand-bg-canvas);
     --sem-color-bg-base:           var(--brand-bg-base);
     --sem-color-bg-subtle:         var(--brand-bg-subtle);
-    --sem-color-bg-elevated:       var(--brand-bg-elevated);
     --sem-color-bg-inset:          var(--brand-bg-inset);
+
+    /* --sem-color-bg-elevated:       var(--brand-bg-elevated); */
 
     /* Overlays need higher contrast/opacity on dark backgrounds */
     --sem-color-bg-overlay-subtle: oklch(from var(--sem-color-bg-canvas) l c h / 94%);

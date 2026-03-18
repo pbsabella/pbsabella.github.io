@@ -37,9 +37,9 @@ const TOKEN_CONTRACTS: TokenContrastContract[] = [
     fontWeight: 500,
   },
   {
-    id: 'text on elevated surface',
+    id: 'text on inset surface',
     foregroundToken: '--sem-color-text-base',
-    backgroundToken: '--sem-color-bg-elevated',
+    backgroundToken: '--sem-color-bg-inset',
     fontSizePx: 14,
     fontWeight: 400,
   },
