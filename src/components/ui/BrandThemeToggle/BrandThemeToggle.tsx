@@ -1,49 +1,34 @@
 import { CircleCheck, Moon, Sun } from 'lucide-react';
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useBrand } from '@/context/BrandContext';
 import { useTheme } from '@context/ThemeContext';
 import { BRAND_PRESETS } from '@/content/themingBuildNotes';
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useFloatingPosition } from '@/hooks/useFloatingPosition';
 import styles from './BrandThemeToggle.module.css';
 
 interface BrandThemeToggleProps {
   /** Unique id for the trigger button */
   id: string;
+  /** Lock page scroll while the dropdown is open. Use when the trigger is not in a fixed-position container. */
+  lockScroll?: boolean;
 }
 
-const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
+const BrandThemeToggle = ({ id, lockScroll = false }: BrandThemeToggleProps) => {
   const { brand, setBrand } = useBrand();
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
-  const [dropdownPos, setDropdownPos] = useState<{ top: number; right: number } | null>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentPreset = BRAND_PRESETS.find((p) => p.id === brand) ?? BRAND_PRESETS[0];
-  const BrandIcon = currentPreset.icon;
-  const isDark = theme === 'dark';
-
-  const updatePos = useCallback(() => {
-    if (!triggerRef.current) return;
-    const rect = triggerRef.current.getBoundingClientRect();
-    setDropdownPos({
-      top: rect.bottom + 8,
-      right: window.innerWidth - rect.right,
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    if (isOpen) updatePos();
-  }, [isOpen, updatePos]);
-
-  const handleEscape = useCallback(() => setIsOpen(false), []);
-  useFocusTrap(dropdownRef, { isActive: isOpen, onEscape: handleEscape });
+  const { triggerRef, dropdownPos } = useFloatingPosition<HTMLButtonElement>(isOpen);
+  useFocusTrap(dropdownRef, { isActive: isOpen, onEscape: useCallback(() => setIsOpen(false), []) });
+  useBodyScrollLock(isOpen && lockScroll);
 
   useEffect(() => {
-    if (!isOpen) return undefined;
-
+    if (!isOpen) return;
     const handleMouseDown = (e: MouseEvent) => {
       if (
         !dropdownRef.current?.contains(e.target as Node) &&
@@ -52,17 +37,13 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
         setIsOpen(false);
       }
     };
-
-    const handleResize = () => updatePos();
-
     document.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('resize', handleResize);
+    return () => document.removeEventListener('mousedown', handleMouseDown);
+  }, [isOpen, triggerRef]);
 
-    return () => {
-      document.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isOpen, updatePos]);
+  const currentPreset = BRAND_PRESETS.find((p) => p.id === brand) ?? BRAND_PRESETS[0];
+  const BrandIcon = currentPreset.icon;
+  const isDark = theme === 'dark';
 
   const handleTrigger = () => {
     if (!hasInteracted) setHasInteracted(true);
@@ -73,8 +54,8 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
     if (theme !== target) toggleTheme();
   };
 
-  const handleBrandSelect = (id: string) => {
-    setBrand(id as typeof brand);
+  const handleBrandSelect = (brandId: string) => {
+    setBrand(brandId as typeof brand);
     setIsOpen(false);
   };
 
@@ -123,8 +104,10 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
             aria-label="Brand and theme settings"
             className={styles.brandThemeToggleDropdown}
             style={{
-              top: dropdownPos?.top ?? 0,
+              top: dropdownPos?.top ?? 'auto',
+              bottom: dropdownPos?.bottom ?? 'auto',
               right: dropdownPos?.right ?? 0,
+              maxHeight: dropdownPos?.maxHeight,
               visibility: dropdownPos ? undefined : 'hidden',
             }}
           >

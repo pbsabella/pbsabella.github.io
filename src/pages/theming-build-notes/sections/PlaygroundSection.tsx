@@ -94,7 +94,7 @@ const PlaygroundSection = () => {
           </p>
           <div className={styles.flowThemeRow}>
             <p className={styles.flowHierarchy}>Revised trace flow: COMP → SEM → BRAND → PR</p>
-            <BrandThemeToggle id="playground-brand-theme-toggle" />
+            <BrandThemeToggle id="playground-brand-theme-toggle" lockScroll />
           </div>
 
           <div className={styles.demoShowcase}>
