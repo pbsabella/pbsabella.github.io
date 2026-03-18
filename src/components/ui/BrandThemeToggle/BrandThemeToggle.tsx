@@ -10,9 +10,11 @@ import styles from './BrandThemeToggle.module.css';
 interface BrandThemeToggleProps {
   /** Unique id for the trigger button */
   id: string;
+  /** Lock page scroll while the dropdown is open. Use when the trigger is not in a fixed-position container. */
+  lockScroll?: boolean;
 }
 
-const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
+const BrandThemeToggle = ({ id, lockScroll = false }: BrandThemeToggleProps) => {
   const { brand, setBrand } = useBrand();
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +42,18 @@ const BrandThemeToggle = ({ id }: BrandThemeToggleProps) => {
 
   const handleEscape = useCallback(() => setIsOpen(false), []);
   useFocusTrap(dropdownRef, { isActive: isOpen, onEscape: handleEscape });
+
+  useEffect(() => {
+    if (!lockScroll) return;
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, lockScroll]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
