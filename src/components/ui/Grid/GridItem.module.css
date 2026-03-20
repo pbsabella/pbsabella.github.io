@@ -1,0 +1,29 @@
+/* GridItem Component
+   Controls grid-column span for children of a <Grid> parent.
+   @container queries target the parent Grid's grid container context — not self.
+   Span values are driven by CSS custom properties; one rule per breakpoint
+   handles any valid integer via cascading variable fallbacks.
+   ------------------------------------------------------------------ */
+
+.gridItem { grid-column: span var(--span, 12); }
+
+/* 'full' overrides the span variable — stretches across all columns */
+.gridItem[data-span-full] { grid-column: 1 / -1; }
+
+/* --- spanSm — ≥ 480px -------------------------------------------- */
+@container (width >= 480px) {
+  .gridItem { grid-column: span var(--span-sm, var(--span, 12)); }
+  .gridItem[data-span-full-sm] { grid-column: 1 / -1; }
+}
+
+/* --- spanMd — ≥ 768px -------------------------------------------- */
+@container (width >= 768px) {
+  .gridItem { grid-column: span var(--span-md, var(--span-sm, var(--span, 12))); }
+  .gridItem[data-span-full-md] { grid-column: 1 / -1; }
+}
+
+/* --- spanLg — ≥ 1024px ------------------------------------------- */
+@container (width >= 1024px) {
+  .gridItem { grid-column: span var(--span-lg, var(--span-md, var(--span-sm, var(--span, 12)))); }
+  .gridItem[data-span-full-lg] { grid-column: 1 / -1; }
+}

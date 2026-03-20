@@ -1,0 +1,59 @@
+/* Grid Component
+   Container-query-based layout primitive.
+   Responds to container width, not viewport — portable anywhere.
+   Column counts are driven by CSS custom properties set as inline styles;
+   one rule per breakpoint handles any valid integer value.
+   ------------------------------------------------------------------ */
+
+/* Establishes the container context that the @container queries below respond to.
+   Must be a separate ancestor element — container queries cannot self-reference. */
+.gridContainer {
+  container-type: inline-size;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 1), 1fr);
+  gap: var(--sem-layout-gap-md);
+  align-items: stretch;
+}
+
+/* --- Alignment ---------------------------------------------------- */
+.grid[data-align='center'] { align-items: center; }
+.grid[data-align='start']  { align-items: start; }
+
+/* --- Gap variants ------------------------------------------------- */
+.grid[data-gap='sm'] { gap: var(--sem-layout-gap-sm); }
+.grid[data-gap='lg'] { gap: var(--sem-layout-gap-lg); }
+
+/* --- colsSm — ≥ 480px -------------------------------------------- */
+@container (width >= 480px) {
+  .grid { grid-template-columns: repeat(var(--cols-sm, var(--cols, 1)), 1fr); }
+
+  .grid[data-gap='lg'] { gap: var(--sem-layout-gap-lg); }
+
+  .grid[data-reverse] > :first-child { order: 2; }
+  .grid[data-reverse] > :last-child  { order: 1; }
+}
+
+/* 'auto' — intrinsic RAM pattern, overrides the repeat(N, 1fr) template */
+.grid[data-cols-sm='auto'] {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+/* --- colsMd — ≥ 768px -------------------------------------------- */
+@container (width >= 768px) {
+  .grid { grid-template-columns: repeat(var(--cols-md, var(--cols-sm, var(--cols, 1))), 1fr); }
+
+  .grid[data-gap='lg'] { gap: var(--sem-layout-gap-lg); }
+
+  .grid[data-reverse] > :first-child { order: 2; }
+  .grid[data-reverse] > :last-child  { order: 1; }
+}
+
+/* --- colsLg — ≥ 1024px ------------------------------------------- */
+@container (width >= 1024px) {
+  .grid { grid-template-columns: repeat(var(--cols-lg, var(--cols-md, var(--cols-sm, var(--cols, 1)))), 1fr); }
+
+  .grid[data-gap='lg'] { gap: var(--sem-layout-gap-lg); }
+}

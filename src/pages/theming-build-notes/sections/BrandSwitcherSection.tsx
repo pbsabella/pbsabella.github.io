@@ -3,6 +3,7 @@ import EditorialBlock from '@/components/sections/EditorialBlock';
 import { useBrand } from '@/context/BrandContext';
 import { BRAND_PRESETS } from '@/content/themingBuildNotes';
 import styles from './BrandSwitcherSection.module.css';
+import Grid from '@/components/ui/Grid/Grid';
 
 const BrandSwitcherSection = () => {
   const { brand, setBrand } = useBrand();
@@ -15,7 +16,7 @@ const BrandSwitcherSection = () => {
         Select a preset below to reskin every component instantly, with your choices persisting as you navigate the application.
       </p>
 
-      <div className={styles.presetGrid} role="group" aria-label="Brand presets">
+      <Grid colsSm={2} colsMd={3} role="group" aria-label="Brand presets">
         {BRAND_PRESETS.map((preset) => {
           const isSelected = brand === preset.id;
           const PresetIcon = preset.icon;
@@ -44,7 +45,7 @@ const BrandSwitcherSection = () => {
             </button>
           );
         })}
-      </div>
+      </Grid>
     </EditorialBlock>
   );
 };

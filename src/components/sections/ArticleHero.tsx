@@ -65,17 +65,19 @@ const ArticleHero = ({
 
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
 
-      {stats && stats.length > 0 && (
-        <div className={styles.heroStats}>
-          {stats.map((item) => (
-            <div key={item.label} className={styles.heroStatItem}>
-              <p className={styles.heroStatLabel}>{item.label}</p>
-              <p className={styles.heroStatValue}>{item.value}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </header>
+      {
+        stats && stats.length > 0 && (
+          <dl className={styles.heroStats}>
+            {stats.map((item) => (
+              <div key={item.label} className={styles.heroStatItem}>
+                <dt className={`kicker ${styles.heroStatLabel}`}>{item.label}</dt>
+                <dd className={styles.heroStatValue}>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </header >
   );
 };
 

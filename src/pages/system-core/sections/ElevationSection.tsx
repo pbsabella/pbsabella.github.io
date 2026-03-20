@@ -22,7 +22,7 @@ const ElevationSection = ({ icon }: ElevationSectionProps) => (
       {ELEVATIONS.map((elevation) => (
         <div className={`${styles.cardContent} ${styles[elevation.className]}`} key={elevation.token}>
           <b>{elevation.level}</b>
-          <code className={styles.code}>{elevation.token}</code>
+          <code className="code">{elevation.token}</code>
           <small>{elevation.desc}</small>
         </div>
       ))}

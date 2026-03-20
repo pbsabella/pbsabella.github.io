@@ -10,21 +10,11 @@
 }
 
 .sectionKicker {
-  font-size: var(--sem-text-kicker);
-  text-transform: uppercase;
-  letter-spacing: var(--pr-tracking-30);
   color: var(--sem-color-accent-strong);
-  font-weight: var(--pr-weight-500);
-  margin-bottom: var(--pr-spacing-2);
 }
 
 .sectionContent {
   line-height: var(--pr-leading-180);
-  margin-bottom: var(--pr-spacing-4);
-}
-
-.sectionContent p:last-child {
-  margin-bottom: 0;
 }
 
 .sectionRhythm16 {
@@ -44,7 +34,7 @@
 
 @media (width >=1024px) {
   .sectionTwoCol {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
   }
 
   .sectionTwoCol .sectionTitle {

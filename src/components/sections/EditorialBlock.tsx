@@ -22,9 +22,9 @@ const EditorialBlock = ({ id, kicker, title, className, children, rhythm, varian
 
   return (
     <section id={id} className={sectionClasses}>
-      <p className={styles.sectionKicker}>{kicker}</p>
+      <p className={`kicker ${styles.sectionKicker}`}>{kicker}</p>
       <h2 className={styles.sectionTitle}>{title}</h2>
-      <div className={styles.sectionContent}>
+      <div className={`flow ${styles.sectionContent}`}>
         {children}
       </div>
     </section>

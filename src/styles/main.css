@@ -12,3 +12,6 @@
 
 /* Base reset and typography */
 @import url('./base.css');
+
+/* Utility classes */
+@import url('./utilities.css');

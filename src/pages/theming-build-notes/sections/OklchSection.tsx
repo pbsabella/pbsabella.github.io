@@ -30,7 +30,7 @@ const OklchSection = () => (
         It was a fragile process that collapsed under dynamic expansion.
       </p>
       <p>
-        I switched to <code className={styles.code}>oklch()</code> to automate this logic.
+        I switched to <code className="code">oklch()</code> to automate this logic.
         Unlike Hex or RGB, OKLCH is a perceptually uniform color space. It maps
         directly to how the human eye perceives brightness and saturation, making
         color relationships mathematically predictable.

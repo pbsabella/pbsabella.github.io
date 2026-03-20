@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Container from '@components/layout/Container';
 import Card from '@components/ui/Card/Card';
-import Tag from '@components/ui/Tag/Tag';
+import TagList from '@components/ui/TagList/TagList';
 import type { ProjectMediaPreset } from '@/content/projects';
 import styles from './WorkItem.module.css';
 
@@ -99,7 +99,7 @@ const WorkItem = ({
         </div>
 
         <div className={styles.workItemBody}>
-          <div className={styles.workItemSubtitle}>
+          <div className={`kicker ${styles.workItemSubtitle}`}>
             <span className={styles.workItemCompany}>{company}</span>
             {period && <time className={styles.workItemPeriod}>{period}</time>}
           </div>
@@ -113,13 +113,11 @@ const WorkItem = ({
             ))}
           </div>
 
-          <ul className={styles.workItemTags} aria-label="Project technologies">
-            {tags.map((tag) => (
-              <li key={tag} className={styles.workItemTagItem}>
-                <Tag>{tag}</Tag>
-              </li>
-            ))}
-          </ul>
+          <TagList
+            tags={tags}
+            label="Project technologies"
+            className={styles.workItemTags}
+          />
         </div>
       </div>
     </Card>
@@ -129,7 +127,7 @@ const WorkItem = ({
     <div className={shellClassNames}>
       <Container className={styles.workItem} variant="wide">
         {link ? (
-          <Link to={link} className={styles.workItemLinkWrapper}>
+          <Link to={link}>
             {cardContent}
           </Link>
         ) : (

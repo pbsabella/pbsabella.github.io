@@ -349,6 +349,14 @@
     --sem-elevation-medium: var(--pr-shadow-200);
     --sem-elevation-high:   var(--pr-shadow-300);
 
+    /*
+     * Canonical breakpoints (use these in all media queries — no ad-hoc values):
+     *   sm:  480px
+     *   md:  768px   ← primary column-collapse point
+     *   lg:  1024px
+     *   xl:  1280px
+     */
+
     /* Layout Constraints */
     --sem-layout-content-max:    var(--pr-size-600);
     --sem-layout-container-max:  var(--pr-size-1200);
@@ -356,6 +364,12 @@
     --sem-layout-prose:          68ch;
     --sem-layout-prose-sm:       64ch;
     --sem-layout-header-height:  var(--pr-size-52);
+
+    /* Layout Gaps — use these in grid/flex gap properties, not --pr-spacing-* directly
+       TODO: Scan direct usage and update */
+    --sem-layout-gap-sm:  var(--pr-spacing-4);   /* 16px — dense grids (icon lists, stats) */
+    --sem-layout-gap-md:  var(--pr-spacing-6);   /* 24px — standard */
+    --sem-layout-gap-lg:  var(--pr-spacing-11);  /* 44px — spacious sections */
 
     /* Focus */
     --sem-color-focus-ring: oklch(from var(--brand-primary) 75% c h);

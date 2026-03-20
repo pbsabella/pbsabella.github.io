@@ -11,6 +11,7 @@ import Tag from '@/components/ui/Tag/Tag';
 import BrandThemeToggle from '@/components/ui/BrandThemeToggle/BrandThemeToggle';
 import { ArrowRight } from 'lucide-react';
 import styles from './PlaygroundSection.module.css';
+import Grid from '@/components/ui/Grid/Grid';
 
 const bgPrimitiveLight = '--pr-color-neutral-100';
 const bgPrimitiveDark: Record<Brand, string> = {
@@ -97,7 +98,7 @@ const PlaygroundSection = () => {
             <BrandThemeToggle id="playground-brand-theme-toggle" lockScroll />
           </div>
 
-          <div className={styles.demoShowcase}>
+          <Grid colsSm={2} gap="sm">
             <Card isInteractive={true}>
               <div className={styles.flowTitle}>Surface</div>
               <p className={styles.flowMeta}>
@@ -105,13 +106,13 @@ const PlaygroundSection = () => {
               </p>
               <div className={styles.pipelines}>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--comp-card-bg</code>
+                  <code className="code">--comp-card-bg</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--sem-color-bg-base</code>
+                  <code className="code">--sem-color-bg-base</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--brand-bg-base</code>
+                  <code className="code">--brand-bg-base</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.pipelineValue}`}>{bgPrimitive}</code>
+                  <code className={`code ${styles.pipelineValue}`}>{bgPrimitive}</code>
                 </div>
               </div>
             </Card>
@@ -123,13 +124,13 @@ const PlaygroundSection = () => {
               </p>
               <div className={styles.pipelines}>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--comp-card-radius</code>
+                  <code className="code">--comp-card-radius</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--sem-radius-md</code>
+                  <code className="code">--sem-radius-md</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--brand-radius-md</code>
+                  <code className="code">--brand-radius-md</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.pipelineValue}`}>{radius}</code>
+                  <code className={`code ${styles.pipelineValue}`}>{radius}</code>
                 </div>
               </div>
             </Card>
@@ -137,7 +138,7 @@ const PlaygroundSection = () => {
             <Card variant="flat">
               <div className={styles.flowTitle}>Status pill</div>
               <p className={styles.flowMeta}>
-                Tags and badges default to pill shape via <code className={styles.code}>--brand-radius-pill</code>. Brands can override to suppress the pill entirely.
+                Tags and badges default to pill shape via <code className="code">--brand-radius-pill</code>. Brands can override to suppress the pill entirely.
               </p>
               <div className={styles.pipelines}>
                 <div className={styles.pipelineTagRow}>
@@ -155,13 +156,13 @@ const PlaygroundSection = () => {
                   <Badge variant="error" size="md">99</Badge>
                 </div>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--comp-tag-radius</code>
+                  <code className="code">--comp-tag-radius</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--sem-radius-pill</code>
+                  <code className="code">--sem-radius-pill</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--brand-radius-pill</code>
+                  <code className="code">--brand-radius-pill</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.pipelineValue}`}>{tagRadius}</code>
+                  <code className={`code ${styles.pipelineValue}`}>{tagRadius}</code>
                 </div>
               </div>
             </Card>
@@ -169,7 +170,7 @@ const PlaygroundSection = () => {
             <Card variant="flat">
               <div className={styles.flowTitle}>Button action</div>
               <p className={styles.flowMeta}>
-                Only <code className={styles.code}>--brand-primary</code> is defined per brand. <code className={styles.code}>--sem-color-action</code> is computed from it — lightness adjusted per mode, chroma and hue preserved.
+                Only <code className="code">--brand-primary</code> is defined per brand. <code className="code">--sem-color-action</code> is computed from it — lightness adjusted per mode, chroma and hue preserved.
               </p>
               <div className={styles.pipelines}>
                 <div className={styles.pipelineTagRow}>
@@ -177,21 +178,21 @@ const PlaygroundSection = () => {
                   <Button variant="secondary" size="sm">Secondary</Button>
                 </div>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--brand-primary</code>
+                  <code className="code">--brand-primary</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.pipelineValue}`}>{primaryAnchor}</code>
+                  <code className={`code ${styles.pipelineValue}`}>{primaryAnchor}</code>
                   <span className={styles.pipelineLabel}>1 token defined</span>
                 </div>
                 <div className={styles.pipelineRow}>
-                  <code className={styles.code}>--sem-color-action</code>
+                  <code className="code">--sem-color-action</code>
                   <PipelineConnector />
-                  <code className={styles.code}>{semActionFormula}</code>
+                  <code className="code">{semActionFormula}</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.pipelineValue}`}>{semAction}</code>
+                  <code className={`code ${styles.pipelineValue}`}>{semAction}</code>
                 </div>
               </div>
             </Card>
-          </div>
+          </Grid>
         </MockupFrame>
       </FigureBlock>
     </EditorialBlock>

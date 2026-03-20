@@ -32,14 +32,6 @@
   min-width: var(--pr-size-140);
 }
 
-.previewKicker {
-  font-family: var(--font-mono);
-  font-size: var(--sem-text-kicker);
-  letter-spacing: var(--sem-tracking-kicker);
-  text-transform: uppercase;
-  color: var(--sem-color-text-muted);
-}
-
 .previewValue {
   font-family: var(--font-mono);
   font-size: var(--sem-text-caption);
