@@ -35,7 +35,7 @@ const FeaturedSection = ({
                 {introText && (
                   <div className={styles.featuredSectionIntro}>
                     <span className={styles.featuredSectionIntroDivider} aria-hidden="true"></span>
-                    <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
+                    <h2 className={`kicker ${styles.featuredSectionIntroText}`}>{introText}</h2>
                   </div>
                 )}
                 {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}
@@ -52,7 +52,7 @@ const FeaturedSection = ({
               {introText && (
                 <div className={styles.featuredSectionIntro}>
                   <span className={styles.featuredSectionIntroDivider} aria-hidden="true"></span>
-                  <h2 className={styles.featuredSectionIntroText}>{introText}</h2>
+                  <h2 className={`kicker ${styles.featuredSectionIntroText}`}>{introText}</h2>
                 </div>
               )}
               {title && <h3 className={styles.featuredSectionTitle}>{title}</h3>}

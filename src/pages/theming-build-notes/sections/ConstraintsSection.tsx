@@ -1,6 +1,5 @@
 import EditorialBlock from '@/components/sections/EditorialBlock';
 import Alert from '@/components/ui/Alert/Alert';
-import styles from '../ThemingBuildNotes.module.css';
 
 const ConstraintsSection = () => (
   <EditorialBlock
@@ -15,7 +14,7 @@ const ConstraintsSection = () => (
       trade-offs.
     </p>
 
-    <div className={styles.constraintItem}>
+    <div>
       <Alert variant="warning" title="The Contrast Compromise">
         Some brands push high-chroma primaries that land below 4.5:1 on light backgrounds. The
         system accepts that for large headings where visual weight compensates. Inline body text
@@ -23,16 +22,16 @@ const ConstraintsSection = () => (
       </Alert>
     </div>
 
-    <div className={styles.constraintItem}>
+    <div>
       <Alert variant="info" title="The On-Accent Guardrail">
         Accent surfaces (buttons, badges, hero CTAs) always use{' '}
-        <code className={styles.code}>--sem-color-accent-strong-on-bg</code>, which is wired to{' '}
-        <code className={styles.code}>--brand-on-accent</code>. If a brand primary is too light, we
+        <code className="code">--sem-color-accent-strong-on-bg</code>, which is wired to{' '}
+        <code className="code">--brand-on-accent</code>. If a brand primary is too light, we
         override that one anchor and keep contrast sane without touching components.
       </Alert>
     </div>
 
-    <div className={styles.constraintItem}>
+    <div>
       <Alert variant="default" title="Browser Requirements">
         This architecture relies on <strong>CSS Relative Color Syntax</strong> and{' '}
         <strong>Cascade Layers</strong>. It targets modern evergreen browsers (2024+), trading

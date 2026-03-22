@@ -1,4 +1,5 @@
 import Card from '@components/ui/Card/Card';
+import Grid from '@components/ui/Grid/Grid';
 import FeaturedSection from '@components/sections/FeaturedSection';
 import { COMPETENCIES, TECH_STACK } from '@/content/about';
 import styles from './About.module.css';
@@ -16,11 +17,11 @@ const About = () => {
         </p>
       </div>
 
-      <div className={styles.aboutGrid}>
+      <Grid colsSm={2}>
         <Card>
           <div role="region" aria-labelledby="about-competencies-title">
             <h4 id="about-competencies-title" className={styles.skillsTitle}>Core Competencies</h4>
-            <ul className={styles.skillsList}>
+            <ul>
               {COMPETENCIES.map((skill) => (
                 <li key={skill} className={styles.skillsItem}>{skill}</li>
               ))}
@@ -31,14 +32,14 @@ const About = () => {
         <Card>
           <div role="region" aria-labelledby="about-tech-stack-title">
             <h4 id="about-tech-stack-title" className={styles.skillsTitle}>Tech Stack</h4>
-            <ul className={styles.skillsList}>
+            <ul>
               {TECH_STACK.map((skill) => (
                 <li key={skill} className={styles.skillsItem}>{skill}</li>
               ))}
             </ul>
           </div>
         </Card>
-      </div>
+      </Grid>
     </FeaturedSection>
   );
 };

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Grid from '@/components/ui/Grid/Grid';
 import styles from './IconList.module.css';
 
 export interface IconListItem {
@@ -23,7 +24,12 @@ const IconList = ({ items, variant, className }: IconListProps) => {
     .join(' ');
 
   return (
-    <ul className={listClasses}>
+    <Grid
+      as="ul"
+      className={listClasses}
+      colsSm={variant === 'grid' ? 2 : 1}
+      gap={variant === 'grid' ? 'md' : 'sm'}
+    >
       {items.map((item, index) => (
         <li key={index} className={styles.item}>
           <span className={styles.icon} aria-hidden="true">
@@ -35,7 +41,7 @@ const IconList = ({ items, variant, className }: IconListProps) => {
           </div>
         </li>
       ))}
-    </ul>
+    </Grid>
   );
 };
 

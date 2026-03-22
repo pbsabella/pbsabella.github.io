@@ -101,15 +101,3 @@
   align-self: flex-end;
   margin-right: var(--pr-size-20);
 }
-
-.changeNote {
-  margin-top: var(--pr-spacing-8);
-  padding: var(--pr-spacing-4);
-  max-width: var(--pr-size-600);
-  font-size: var(--pr-size-10);
-  line-height: var(--pr-leading-150);
-  color: var(--sem-color-text-muted);
-  background: var(--sem-color-surface-tint-1);
-  border-radius: var(--sem-radius-lg);
-  border: var(--pr-border-width-1) solid var(--sem-color-border-base);
-}

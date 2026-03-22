@@ -13,7 +13,7 @@ export const LABS_META = {
 export const SYSTEM_CORE_META = {
   title: 'System Core',
   description:
-    'A living reference of the design tokens, primitives, and components that power this portfolio. This system demonstrates a tiered token architecture (primitive → semantic → component) with a focus on maintainability, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.',
+    'A living reference of the design tokens, primitives, and components that power this portfolio. This system demonstrates a tiered token architecture with a focus on maintainability, ensuring that the foundational elements used here translate directly into a cohesive and accessible user experience.',
   breadcrumbs: [
     { label: 'Home', to: ROUTES.HOME },
     { label: 'Labs', to: ROUTES.LABS },

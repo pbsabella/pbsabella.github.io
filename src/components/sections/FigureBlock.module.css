@@ -38,6 +38,6 @@
 }
 
 .placeholderMuted {
-  background-color: var(--sem-color-bg-muted);
+  background-color: var(--sem-color-bg-subtle);
   border: var(--pr-border-width-2) dashed var(--sem-color-border-subtle);
 }

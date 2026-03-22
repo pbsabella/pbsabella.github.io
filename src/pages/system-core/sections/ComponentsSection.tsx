@@ -8,6 +8,7 @@ import Alert from '@/components/ui/Alert/Alert';
 import Button from '@/components/ui/Button/Button';
 import Table from '@/components/ui/Table/Table';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
+import Callout from '@/components/ui/Callout/Callout';
 
 // TODO: Add a dedicated Link component under ui/ and document it in this section
 type ComponentsSectionProps = {
@@ -44,6 +45,14 @@ const ComponentsSection = ({ icon }: ComponentsSectionProps) => (
         Communicate failures or blocked states.
       </Alert>
     </div>
+
+    <h3 className={styles.subsectionTitle}>Callout</h3>
+    <p className={styles.sectionDesc}>
+      A flexible container for highlighting important information, tips, or notes.
+    </p>
+    <Callout label="Example Callout">
+      <p>This is an example of the Callout component. It can be used to draw attention to important information, tips, or notes within your application. The left accent border and subtle surface shading help it stand out from the main content while maintaining a cohesive look with the overall design system.</p>
+    </Callout>
 
     <h3 className={styles.subsectionTitle}>Cards</h3>
     <p className={styles.sectionDesc}>

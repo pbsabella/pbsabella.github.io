@@ -21,8 +21,8 @@ const BaselineSection = () => (
       A primary action color was just a semantic alias of a primitive.
     </p>
     <ul className={styles.list}>
-      <li><strong>PR (Primitives):</strong> Raw, intent-neutral values (e.g. <code className={styles.code}>--pr-color-green-500</code>).</li>
-      <li><strong>SEM (Semantic):</strong> Intent-driven tokens that read primitives and calculate themes (e.g. <code className={styles.code}>--sem-color-success</code>).</li>
+      <li><strong>PR (Primitives):</strong> Raw, intent-neutral values (e.g. <code className="code">--pr-color-green-500</code>).</li>
+      <li><strong>SEM (Semantic):</strong> Intent-driven tokens that read primitives and calculate themes (e.g. <code className="code">--sem-color-success</code>).</li>
       <li><strong>COMP (Component):</strong> Local implementation scoped within CSS Modules.</li>
     </ul>
 

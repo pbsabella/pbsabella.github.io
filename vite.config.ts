@@ -50,7 +50,6 @@ export default defineConfig({
         // Vendor chunks: stable filenames that browsers cache between deployments.
         // A version bump to one library only busts that library's chunk, not all vendor code.
         manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
           'vendor-router': ['react-router-dom'],
           'vendor-icons': ['lucide-react'],
           // prism-react-renderer is only used in labs pages (ThemingBuildNotes,

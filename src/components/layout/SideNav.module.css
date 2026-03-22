@@ -39,9 +39,7 @@
 
 .sideMenuList {
   height: 100%;
-  padding: 0;
   padding-top: var(--pr-spacing-2);
-  list-style: none;
 }
 
 .sideMenuItem {

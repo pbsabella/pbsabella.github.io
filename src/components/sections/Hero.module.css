@@ -21,7 +21,7 @@
     linear-gradient(
       to bottom,
       var(--sem-color-bg-subtle),
-      var(--sem-color-surface-tint-2)
+      oklch(94.54% 0.0107 286.19deg) /* FIXME: Adjust tints and or sem token */
     );
 }
 
@@ -110,9 +110,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--pr-spacing-2);
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .heroActions {

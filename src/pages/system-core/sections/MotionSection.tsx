@@ -18,7 +18,7 @@ const renderAnimationTable = (rows: Array<{ name: string; token: string; desc: s
       ]}
       rows={rows.map((row) => [
         <span key={`${row.token}-name`}>{row.name}</span>,
-        <code className={styles.code} key={`${row.token}-token`}>{row.token}</code>,
+        <code className="code" key={`${row.token}-token`}>{row.token}</code>,
         <span key={`${row.token}-desc`}>{row.desc}</span>,
       ])}
     />

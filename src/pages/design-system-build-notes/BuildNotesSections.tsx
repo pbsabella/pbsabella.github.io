@@ -38,6 +38,7 @@ import {
   BUILD_NOTES_NEXT_STEPS,
   BUILD_NOTES_PROBLEM_ITEMS,
 } from '@/content/designSystemBuildNotes';
+import Grid from '@/components/ui/Grid/Grid';
 
 const PipelineConnector = () => (
   <span className={styles.demoPipelineConnector}>
@@ -54,16 +55,18 @@ export const MotivationSection = () => (
       </p>
     </Alert>
     <EditorialBlock id="motivation" kicker="01. Motivation" title="Learning through systems" rhythm="16">
-      <p>
-        My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
-        version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
-        refactors.
-      </p>
-      <p>
-        This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
-        just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
-        connected system.
-      </p>
+      <div>
+        <p>
+          My portfolio has gone through multiple rewrites, each reflecting a different stage of my frontend journey. Every
+          version exposed the same friction point: without a documented source of truth, redesigns became expensive manual
+          refactors.
+        </p>
+        <p>
+          This rebuild brings design-systems strategy into production React, where decisions have to hold up in real UI, not
+          just in theory. I used it to validate token naming, component APIs, theming behavior, and accessibility as one
+          connected system.
+        </p>
+      </div>
       <AsideNote><strong>Constraints:</strong> Solo build, GitHub Pages deployment, no backend.</AsideNote>
     </EditorialBlock>
   </>
@@ -71,16 +74,19 @@ export const MotivationSection = () => (
 
 export const ProblemSection = () => (
   <EditorialBlock id="problem" kicker="02. Problem" title="The friction of manual UI" rhythm="21">
-    <p>
-      This portfolio is updated in bursts. When I come back after a gap, I
-      don&apos;t want to play detective with my own CSS. Without a system, I kept
-      re-making the same spacing and color decisions, and that cognitive load
-      killed momentum.
-    </p>
-    <AsideNote>
-      Dark mode was the immediate trigger, but the real goal was removing UI
-      guesswork and making the system easier to re-enter and scale.
-    </AsideNote>
+    <div>
+      <p>
+        This portfolio is updated in bursts. When I come back after a gap, I
+        don&apos;t want to play detective with my own CSS. Without a system, I kept
+        re-making the same spacing and color decisions, and that cognitive load
+        killed momentum.
+      </p>
+      <AsideNote>
+        Dark mode was the immediate trigger, but the real goal was removing UI
+        guesswork and making the system easier to re-enter and scale.
+      </AsideNote>
+    </div>
+
     <IconList
       items={[
         {
@@ -112,62 +118,50 @@ export const ApproachSection = () => (
       structure, but creates a buffer between raw values and product UI so
       components stay stable as themes and brands evolve.
     </p>
-    <div className={styles.layerGrid}>
+    <Grid colsSm={2} colsMd={3}>
       <Card variant="flat">
         <div className={styles.layerCard}>
-          <div className={styles.layerHeader}>
-            <span className={styles.layerIcon} aria-hidden="true">
-              <Palette size={24} className={styles.iconAccent} />
-            </span>
-          </div>
+          <Palette size={24} className={styles.iconAccent} aria-hidden="true" />
           <h3 className={styles.layerTitle}>Primitive</h3>
           <p>Raw values that define the palette, scale, and motion.</p>
-          <p className={styles.layerToken}>
-            <code className={styles.code}>--pr-[category]-[scale]</code>
-            <span className={styles.layerTokenExample}>
-              <span>e.g.</span>
-              <code className={styles.code}>--pr-color-neutral-800</code>
+          <div className={styles.layerToken}>
+            <code className="code">--pr-[category]-[scale]</code>
+            <span>
+              <span>e.g.</span>{' '}
+              <code className="code">--pr-color-neutral-800</code>
             </span>
-          </p>
+          </div>
         </div>
       </Card>
       <Card variant="flat">
         <div className={styles.layerCard}>
-          <div className={styles.layerHeader}>
-            <span className={styles.layerIcon} aria-hidden="true">
-              <Group size={24} className={styles.iconAccent} />
-            </span>
-          </div>
+          <Group size={24} className={styles.iconAccent} aria-hidden="true" />
           <h3 className={styles.layerTitle}>Semantic</h3>
           <p>Intent-based aliases that describe how UI should behave.</p>
-          <p className={styles.layerToken}>
-            <code className={styles.code}>--sem-[domain]-[property]-[role]</code>
-            <span className={styles.layerTokenExample}>
-              <span>e.g.</span>
-              <code className={styles.code}>--sem-color-text-base</code>
-            </span>
-          </p>
-        </div >
-      </Card >
-      <Card variant="flat">
-        <div className={styles.layerCard}>
-          <div className={styles.layerHeader}>
-            <span className={styles.layerIcon} aria-hidden="true">
-              <Component size={24} className={styles.iconAccent} />
+          <div className={styles.layerToken}>
+            <code className="code">--sem-[domain]-[property]-[role]</code>
+            <span>
+              <span>e.g.</span>{' '}
+              <code className="code">--sem-color-text-base</code>
             </span>
           </div>
+        </div>
+      </Card>
+      <Card variant="flat">
+        <div className={styles.layerCard}>
+          <Component size={24} className={styles.iconAccent} aria-hidden="true" />
           <h3 className={styles.layerTitle}>Component</h3>
           <p>Component-level tokens that bind styles to real UI pieces.</p>
-          <p className={styles.layerToken}>
-            <code className={styles.code}>--comp-[component]-[property]</code>
-            <span className={styles.layerTokenExample}>
-              <span>e.g.</span>
-              <code className={styles.code}>--comp-card-border</code>
+          <span className={styles.layerToken}>
+            <code className="code">--comp-[component]-[property]</code>
+            <span>
+              <span>e.g.</span>{' '}
+              <code className="code">--comp-card-border</code>
             </span>
-          </p>
-        </div >
-      </Card >
-    </div >
+          </span>
+        </div>
+      </Card>
+    </Grid>
     <Alert
       variant="info"
       role="note"
@@ -287,19 +281,17 @@ export const DemoSection = () => {
     <EditorialBlock id="demo" kicker="07. Demo" title="The portfolio is the proof" rhythm="16">
       <FigureBlock caption="Two compact examples showing how token intent stays consistent while visuals adapt by theme.">
         <MockupFrame variant="browser">
-          <div className={styles.demoIntro}>
-            <p className={styles.demo}>
-              A tiny slice of the system in motion: component tokens map
-              to semantics, then resolve to theme-specific primitives.
-              Toggle the theme to see
-              this demo adapt in real time.
-            </p>
-            <div className={styles.demoThemeRow}>
-              <p className={styles.demoHierarchy}>Trace flow: COMP → SEM → PR</p>
-              <ThemeToggle id="build-notes-theme-toggle" variant="text" />
-            </div>
+          <p className={styles.demo}>
+            A tiny slice of the system in motion: component tokens map
+            to semantics, then resolve to theme-specific primitives.
+            Toggle the theme to see
+            this demo adapt in real time.
+          </p>
+          <div className={styles.demoThemeRow}>
+            <p className={`kicker ${styles.demoHierarchy}`}>Trace flow: COMP → SEM → PR</p>
+            <ThemeToggle id="build-notes-theme-toggle" variant="text" />
           </div>
-          <div className={styles.demoShowcase}>
+          <Grid colsSm={2} gap="sm">
             <Card isInteractive={true}>
               <div className={styles.demoMiniTitle}>Elevated Card</div>
               <p className={styles.demoMiniCopy}>
@@ -307,21 +299,21 @@ export const DemoSection = () => {
               </p>
               <div className={styles.demoPipelines}>
                 <div className={styles.demoPipelineRow}>
-                  <code className={styles.code}>--comp-card-bg</code>
+                  <code className="code">--comp-card-bg</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--sem-color-bg-base</code>
+                  <code className="code">--sem-color-bg-base</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.demoPipelineValue}`}>{cardBgPrimitive}</code>
+                  <code className={`code ${styles.demoPipelineValue}`}>{cardBgPrimitive}</code>
                 </div>
                 <div className={styles.demoPipelineRow}>
-                  <code className={styles.code}>--comp-card-shadow</code>
+                  <code className="code">--comp-card-shadow</code>
                   <PipelineConnector />
-                  <code className={styles.code}>--sem-elevation-low</code>
+                  <code className="code">--sem-elevation-low</code>
                   <PipelineConnector />
-                  <code className={`${styles.code} ${styles.demoPipelineValue}`}>{cardShadowPrimitive}</code>
+                  <code className={`code ${styles.demoPipelineValue}`}>{cardShadowPrimitive}</code>
                 </div>
               </div>
-            </Card >
+            </Card>
             <Card variant="flat">
               <div className={styles.demoMiniTitle}>Status Chips</div>
               <p className={styles.demoMiniCopy}>
@@ -336,9 +328,9 @@ export const DemoSection = () => {
                     <Badge variant="info" size="md">8</Badge>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code className={styles.code}>--sem-color-bg-success</code>
+                    <code className="code">--sem-color-bg-success</code>
                     <PipelineConnector />
-                    <code className={`${styles.code} ${styles.demoPipelineValue}`}>{badgeSuccessPrimitive}</code>
+                    <code className={`code ${styles.demoPipelineValue}`}>{badgeSuccessPrimitive}</code>
                   </div>
                 </div>
 
@@ -350,32 +342,34 @@ export const DemoSection = () => {
                     <Tag size="sm" variant="error">Error</Tag>
                   </div>
                   <div className={styles.demoPipelineRow}>
-                    <code className={styles.code}>--sem-color-border-info</code>
+                    <code className="code">--sem-color-border-info</code>
                     <PipelineConnector />
-                    <code className={`${styles.code} ${styles.demoPipelineValue}`}>{tagInfoPrimitive}</code>
+                    <code className={`code ${styles.demoPipelineValue}`}>{tagInfoPrimitive}</code>
                   </div>
                 </div>
-              </div >
-            </Card >
-          </div >
-        </MockupFrame >
-      </FigureBlock >
-    </EditorialBlock >
+              </div>
+            </Card>
+          </Grid>
+        </MockupFrame>
+      </FigureBlock>
+    </EditorialBlock>
   );
 };
 
 export const LearningsSection = () => (
   <EditorialBlock id="learnings" kicker="08. Learnings" title="What this exposed" rhythm="21">
-    <p>
-      This was an opportunity to apply enterprise design-system architecture in
-      a fresh React environment and validate how CSS Modules, theming, and
-      component APIs hold up under token-heavy UI.
-    </p>
-    <p>
-      Designing and implementing in parallel was the hard part: defining naming, structure, and ownership while
-      validating decisions in real UI.
-      It took multiple refactors, and while the system is now clearer and easier to evolve, it is still evolving.
-    </p>
+    <div>
+      <p>
+        This was an opportunity to apply enterprise design-system architecture in
+        a fresh React environment and validate how CSS Modules, theming, and
+        component APIs hold up under token-heavy UI.
+      </p>
+      <p>
+        Designing and implementing in parallel was the hard part: defining naming, structure, and ownership while
+        validating decisions in real UI.
+        It took multiple refactors, and while the system is now clearer and easier to evolve, it is still evolving.
+      </p>
+    </div>
     <AsideNote className={styles.asideNote}>{BUILD_NOTES_CHALLENGE_NOTE}</AsideNote>
   </EditorialBlock>
 );

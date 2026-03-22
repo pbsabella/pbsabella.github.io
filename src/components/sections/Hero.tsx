@@ -1,10 +1,7 @@
-import { Link } from 'react-router-dom';
-import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
-import { useSectionNav } from '@hooks/useSectionNav';
+// import { useSectionNav } from '@hooks/useSectionNav';
 import Tag from '@components/ui/Tag/Tag';
 import Container from '@components/layout/Container';
 import HeroCanvas from '@/components/sections/HeroCanvas';
-import Button from '@components/ui/Button/Button';
 import styles from './Hero.module.css';
 
 const HERO_TOOLSET = [
@@ -14,7 +11,7 @@ const HERO_TOOLSET = [
 ];
 
 const Hero = () => {
-  const { getSectionLinkProps } = useSectionNav();
+  // const { getSectionLinkProps } = useSectionNav();
 
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-title">
@@ -22,11 +19,11 @@ const Hero = () => {
         <HeroCanvas />
         <Container className={styles.heroInner} variant="wide">
           <div className={styles.heroBadgeRow}>
-            <Tag size="md" variant="primary">
+            {/* <Tag size="md" variant="primary">
               Personal Portfolio
             </Tag>
-            <span className={styles.heroRule} aria-hidden="true" />
-            <span className={styles.heroMeta}>Senior Frontend Engineer | Design Systems Engineer</span>
+            <span className={styles.heroRule} aria-hidden="true" /> */}
+            <span className={styles.heroMeta}>Senior Frontend Engineer // Design Systems Engineer</span>
           </div>
 
           <h1 id="hero-title" className={styles.heroTitle}>
@@ -44,9 +41,14 @@ const Hero = () => {
                 <Tag size="sm">{item}</Tag>
               </li>
             ))}
+            <li>
+              <Tag size="sm" variant="success">
+                Available
+              </Tag>
+            </li>
           </ul>
 
-          <div className={styles.heroActions}>
+          {/* <div className={styles.heroActions}>
             <Button
               as={Link}
               {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
@@ -57,7 +59,7 @@ const Hero = () => {
             <Button as={Link} to={ROUTES.LABS} variant="secondary">
               Explore labs
             </Button>
-          </div>
+          </div> */}
         </Container>
       </div>
     </section>

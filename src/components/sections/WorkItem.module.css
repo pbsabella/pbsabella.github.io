@@ -128,9 +128,6 @@
   align-items: baseline;
   gap: var(--pr-spacing-2) var(--pr-spacing-4);
   margin-bottom: var(--pr-spacing-4);
-  text-transform: uppercase;
-  letter-spacing: var(--pr-tracking-12);
-  font-size: var(--sem-text-kicker);
 }
 
 .workItemCompany {
@@ -159,17 +156,7 @@
 }
 
 .workItemTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--pr-spacing-2);
   margin-top: var(--pr-spacing-6);
-  margin-bottom: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.workItemTagItem {
-  margin: 0;
 }
 
 @media (width >= 900px) {

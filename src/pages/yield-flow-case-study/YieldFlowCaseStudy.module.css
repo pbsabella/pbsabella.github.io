@@ -3,16 +3,6 @@
    Used exclusively by YieldFlowSections.tsx
    ============================================================================ */
 
-/* --- TldrSection ---------------------------------------------------------- */
-
-.tldrBlock {
-  margin-bottom: var(--pr-spacing-8);
-}
-
-.tldrButtonRow {
-  margin-top: var(--pr-spacing-4);
-}
-
 /* --- ItchSection ---------------------------------------------------------- */
 
 .assetContainer {
@@ -33,31 +23,7 @@
   color: var(--sem-color-accent-strong);
 }
 
-/* --- Shared section primitives ------------------------------------------- */
-
-.grid2Col {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--pr-spacing-6);
-  margin-top: var(--pr-spacing-6);
-  align-items: center;
-}
-
-.alignStart {
-  align-items: start;
-}
-
 /* --- FeaturedBlock (TldrSection, ProblemSection, TakeawaySection) --------- */
-
-.featuredBlock {
-  padding: var(--pr-spacing-8);
-  background-color: var(--sem-color-bg-muted);
-  border-left: var(--pr-border-width-2) solid var(--sem-color-accent-base);
-}
-
-.takeawayFeatured {
-  font-size: var(--sem-text-feature);
-}
 
 .quote {
   font-size: var(--sem-text-lede);
@@ -69,7 +35,7 @@
   max-width: var(--sem-layout-prose);
 }
 
-.quoteTitle {
+.groupTitle {
   font-size: var(--sem-text-kicker);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-muted);
@@ -85,34 +51,11 @@
   margin-bottom: var(--pr-spacing-8);
 }
 
-/* Modifier: overrides .quoteTitle margin-top: 0 (declared after, same specificity wins) */
-.quoteTitleSpaced {
-  margin-top: var(--pr-spacing-8);
-}
-
-/* --- PivotSection --------------------------------------------------------- */
-
-.pivotContent {
-  margin-top: var(--pr-spacing-8);
-}
-
-.pivotGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--pr-spacing-6);
-  align-items: start;
-}
-
 .wireframes {
   display: flex;
   flex-direction: column;
   margin-block: var(--pr-spacing-8);
   align-items: center;
-}
-
-.pivotGrid .wireframes {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 /* --- BuildSection --------------------------------------------------------- */
@@ -148,41 +91,9 @@
   margin-bottom: var(--pr-spacing-4);
 }
 
-.textSm {
-  font-size: var(--sem-text-caption);
-  line-height: var(--pr-leading-180);
-  color: var(--sem-color-text-muted);
-}
-
-/* --- BuildSection / aside ------------------------------------------------- */
-
-.asideNote {
-  margin-top: var(--pr-spacing-4);
-}
-
-/* --- CurrentStateSection -------------------------------------------------- */
-
-.statusButtonRow {
-  margin-top: var(--pr-spacing-6);
-}
-
 /* --- TakeawaySection ------------------------------------------------------ */
 
 .closingStatement {
-  margin-top: var(--pr-spacing-4);
   font-weight: var(--pr-weight-600);
   color: var(--sem-color-text-strong);
-}
-
-/* --- Responsive ----------------------------------------------------------- */
-
-@media (width >= 768px) {
-  .grid2Col {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pivotGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--pr-spacing-11);
-  }
 }

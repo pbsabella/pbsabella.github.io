@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Container from '@/components/layout/Container';
 import Card from '@/components/ui/Card/Card';
+import Grid from '@/components/ui/Grid/Grid';
 import Tag from '@/components/ui/Tag/Tag';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { LABS_META } from '@/content/pageMeta';
@@ -10,13 +11,13 @@ import styles from './Labs.module.css';
 const Labs = () => {
   return (
     <section className={styles.pageWrap}>
-      <Container className={styles.labs} variant="wide">
+      <Container className={styles.labs}>
         <Breadcrumbs items={LABS_META.breadcrumbs} />
         <h1 className={styles.labsTitle}>{LABS_META.title}</h1>
         <p className={styles.labsDescription}>{LABS_META.description}</p>
         <hr />
 
-        <ul className={styles.labsGrid} aria-label="Labs projects">
+        <Grid as="ul" cols={1} colsMd={2} colsLg={3} aria-label="Labs projects">
           {LABS_PROJECTS.map((project) => {
             const card = (
               <Card
@@ -24,6 +25,7 @@ const Labs = () => {
                 tone={project.tone ?? 'default'}
                 isInteractive={project.interactive}
               >
+                <span className={`kicker ${styles.labsSubtitle}`}>{project.kicker}</span>
                 <h2 className={styles.cardTitle}>{project.title}</h2>
                 <p>{project.description}</p>
                 {project.tags.length > 0 && (
@@ -48,7 +50,7 @@ const Labs = () => {
               </li>
             );
           })}
-        </ul>
+        </Grid>
       </Container>
     </section>
   );
