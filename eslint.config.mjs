@@ -4,12 +4,12 @@ import tseslint from 'typescript-eslint';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import cypressPlugin from 'eslint-plugin-cypress/flat';
+import cypressPlugin from 'eslint-plugin-cypress';
 
 const { configs: pluginJsConfigs } = eslintJsPkg;
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+export default tseslint.config(
   pluginJsConfigs.recommended,
 
   {
@@ -62,4 +62,4 @@ export default [
     files: ['cypress/**/*.{js,ts}'],
     ...cypressPlugin.configs.recommended,
   },
-];
+);

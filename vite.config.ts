@@ -40,7 +40,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     // Minify with esbuild (default) for speed
-    minify: 'esbuild',
+    minify: 'oxc',
     sourcemap: false,
     rollupOptions: {
       input: {
@@ -48,14 +48,19 @@ export default defineConfig({
       },
       output: {
         // Vendor chunks: stable filenames that browsers cache between deployments.
-        // A version bump to one library only busts that library's chunk, not all vendor code.
-        manualChunks: {
-          'vendor-router': ['react-router-dom'],
-          'vendor-icons': ['lucide-react'],
-          // prism-react-renderer is only used in labs pages (ThemingBuildNotes,
-          // DesignSystemBuildNotes). After route splitting, it will only download
-          // when a user first navigates to one of those routes.
-          'vendor-prism': ['prism-react-renderer'],
+        // Rolldown (Vite 8) requires a function for manualChunks.
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-router-dom')) {
+              return 'vendor-router';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('prism-react-renderer')) {
+              return 'vendor-prism';
+            }
+          }
         },
       },
     },
