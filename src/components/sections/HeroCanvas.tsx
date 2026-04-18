@@ -51,6 +51,7 @@ const HeroCanvas = () => {
         : null;
 
     const pointer: PointerState = { x: 0, y: 0, active: false };
+    let cachedBounds: DOMRect | null = null;
     let width = 0;
     let height = 0;
     let dpr = 1;
@@ -122,9 +123,9 @@ const HeroCanvas = () => {
     };
 
     const resize = () => {
-      const bounds = target.getBoundingClientRect();
-      width = Math.max(1, bounds.width);
-      height = Math.max(1, bounds.height);
+      cachedBounds = target.getBoundingClientRect();
+      width = Math.max(1, cachedBounds.width);
+      height = Math.max(1, cachedBounds.height);
       dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
 
       // Backing pixel buffer (scaled by DPR so the canvas stays crisp on high-density screens)
@@ -144,13 +145,12 @@ const HeroCanvas = () => {
 
     // Track pointer position inside the hero surface to drive local dot/line influence
     const handlePointerMove = (event: PointerEvent) => {
-      if (isReduced) {
+      if (isReduced || !cachedBounds) {
         return;
       }
 
-      const bounds = target.getBoundingClientRect();
-      pointer.x = event.clientX - bounds.left;
-      pointer.y = event.clientY - bounds.top;
+      pointer.x = event.clientX - cachedBounds.left;
+      pointer.y = event.clientY - cachedBounds.top;
       pointer.active = true;
     };
 
@@ -188,8 +188,8 @@ const HeroCanvas = () => {
       window.addEventListener('resize', resize);
     }
 
-    target.addEventListener('pointermove', handlePointerMove);
-    target.addEventListener('pointerleave', handlePointerLeave);
+    target.addEventListener('pointermove', handlePointerMove, { passive: true });
+    target.addEventListener('pointerleave', handlePointerLeave, { passive: true });
     mediaQuery?.addEventListener('change', handleMotionChange);
     themeObserver.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
 
@@ -197,7 +197,15 @@ const HeroCanvas = () => {
     resize();
 
     if (!isReduced) {
-      animationFrame = window.requestAnimationFrame(renderFrame);
+      // Defer animation start until browser is idle so LCP text paints first
+      const startAnimation = () => {
+        animationFrame = window.requestAnimationFrame(renderFrame);
+      };
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(startAnimation, { timeout: 500 });
+      } else {
+        setTimeout(startAnimation, 0);
+      }
     }
 
     return () => {

@@ -1,14 +1,9 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+/* Fonts loaded via <link> in index.html to avoid @import waterfall */
 
 /* Design system core — primitives + brand defaults + semantic */
 @import url('./tokens.css');
 
-/* Brand overrides — one file per brand, swap or add to extend */
-@import url('./brands/fintech.css');
-@import url('./brands/saas.css');
-@import url('./brands/editorial.css');
-@import url('./brands/neon.css');
+/* Brand CSS loaded on demand via BrandContext (lazy import per brand) */
 
 /* Base reset and typography */
 @import url('./base.css');
