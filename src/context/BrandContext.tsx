@@ -13,6 +13,13 @@ interface BrandProviderProps {
   children: ReactNode;
 }
 
+const brandLoaders: Partial<Record<Brand, () => Promise<unknown>>> = {
+  fintech: () => import('../styles/brands/fintech.css'),
+  saas: () => import('../styles/brands/saas.css'),
+  editorial: () => import('../styles/brands/editorial.css'),
+  neon: () => import('../styles/brands/neon.css'),
+};
+
 export const BrandProvider = ({ children }: BrandProviderProps) => {
   const [brand, setBrandState] = useState<Brand>('portfolio');
 
@@ -21,6 +28,7 @@ export const BrandProvider = ({ children }: BrandProviderProps) => {
       document.documentElement.removeAttribute('data-brand');
     } else {
       document.documentElement.setAttribute('data-brand', brand);
+      brandLoaders[brand]?.();
     }
   }, [brand]);
 
