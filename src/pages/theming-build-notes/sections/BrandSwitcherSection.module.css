@@ -8,6 +8,7 @@
   border-bottom-width: var(--pr-border-width-3);
   border-bottom-color: var(--sem-color-border-base);
   background: var(--sem-color-bg-base);
+  color: var(--sem-color-text-base);
   cursor: pointer;
   text-align: left;
   transition:
