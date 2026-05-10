@@ -13,8 +13,8 @@
   font-family: var(--font-display);
 }
 
-.aboutLayout {
-  margin-bottom: var(--pr-spacing-8);
+.aboutContent {
+  margin-bottom: var(--pr-spacing-26);
 }
 
 .aboutDescription {
@@ -25,20 +25,49 @@
   color: var(--sem-color-text-muted);
 }
 
-.skillsTitle {
-  color: var(--sem-color-text-strong);
-  margin-bottom: var(--pr-spacing-3);
-  font-size: var(--sem-text-feature);
+.aboutSubtitle {
+  padding-bottom: var(--pr-spacing-3);
+  margin-bottom: var(--pr-spacing-8);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
   font-weight: var(--pr-weight-600);
 }
 
-.skillsItem {
+.aboutList {
   font-size: var(--sem-text-caption);
-  padding-block: var(--pr-spacing-2);
-  border-bottom: var(--pr-border-width-1) dashed var(--sem-color-border-subtle);
+  color: var(--sem-color-text-muted);
 }
 
-.skillsItem:last-child {
-  padding-bottom: var(--pr-spacing-1);
-  border-bottom: 0;
+.aboutList li {
+  padding-block: var(--pr-spacing-1);
+  list-style-type: circle;
+  margin-left: var(--pr-spacing-4);
+}
+
+.aboutCert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pr-spacing-2);
+}
+
+.certificationSubtitle {
+  margin: 0;
+}
+
+.aboutCertIcon {
+  color: var(--sem-color-accent-secondary);
+}
+
+.aboutCertLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
+  font-size: var(--sem-text-caption);
+  color: var(--sem-color-text-strong);
+  border-bottom: var(--pr-border-width-1) solid var(--sem-color-border-base);
+  transition: all var(--pr-duration-fast) var(--pr-easing-out);
+
+  &:hover {
+    color: var(--sem-color-accent-strong);
+    border-color: var(--sem-color-accent-strong);
+  }
 }

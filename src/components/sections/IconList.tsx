@@ -11,33 +11,30 @@ export interface IconListItem {
 interface IconListProps {
   items: IconListItem[];
   variant?: 'list' | 'grid';
+  iconPlacement?: 'left' | 'top';
   className?: string;
+  align?: 'start' | 'center' | 'stretch';
+  size?: 'sm' | 'md';
+  iconColor?: 'default' | 'dark';
 }
 
-const IconList = ({ items, variant, className }: IconListProps) => {
-  const listClasses = [
-    styles.list,
-    variant === 'grid' && styles.listGrid,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
+const IconList = ({ items, variant, iconPlacement, align, size, className, iconColor }: IconListProps) => {
   return (
     <Grid
       as="ul"
-      className={listClasses}
+      className={className}
       colsSm={variant === 'grid' ? 2 : 1}
       gap={variant === 'grid' ? 'md' : 'sm'}
+      align={align}
     >
       {items.map((item, index) => (
-        <li key={index} className={styles.item}>
-          <span className={styles.icon} aria-hidden="true">
+        <li key={index} className={`${styles.item} ${iconPlacement === 'top' ? styles.iconTop : styles.iconLeft}`}>
+          <span className={`${styles.icon} ${iconColor === 'dark' ? styles.iconDark : ''}`} aria-hidden="true">
             {item.icon}
           </span>
           <div className={styles.body}>
             {item.title && <strong>{item.title}</strong>}
-            {item.description && <p>{item.description}</p>}
+            {item.description && <p className={size === 'sm' ? styles.sizeSm : ''}>{item.description}</p>}
           </div>
         </li>
       ))}
