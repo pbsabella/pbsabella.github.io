@@ -1,54 +1,57 @@
-# pbsabella.github.io — Session Context
+---
+name: pbsabella-portfolio
+description: Token rules, routing conventions, and engineering constraints for this portfolio site
+---
 
-Personal portfolio and design system lab. The site dogfoods its own design system — every new page should consume tokens and components from `src/components/ui/` and `src/styles/tokens.css`.
+# pbsabella.github.io
 
-## Stack
-- React 19 + TypeScript (strict) + Vite
-- CSS Modules with CSS custom properties (no utility-first CSS)
-- React Router v7 for client-side routing
-- Hosted on Vercel at `https://pbsabella.vercel.app` & GitHub Pages at `https://pbsabella.github.io/`
+Personal portfolio that dogfoods its own design system. Every page must consume tokens from `src/styles/tokens.css` and components from `src/components/ui/`.
 
-## Token Hierarchy
+## Token Rules
 
-| Layer | Prefix | Responsibility | Data Source |
-| :--- | :--- | :--- | :--- |
-| **Primitives** | `--pr-` | **Raw Scales:** Core values for color, space, and time. | `tokens.css` |
-| **Brand** | `--brand-` | **Anchors:** Identity slots for primary colors and fonts. | `brand/*.css` |
-| **Semantic** | `--sem-` | **Intent:** Usage-based roles (Action, Surface, Text). | `tokens.css` |
-| **Component** | `--comp-` | **Scope:** Local overrides for specific patterns. | `*.module.css` |
+**Never use raw values or primitives in component CSS:**
 
-**Theme switching:** `[data-theme="dark"]` on `<body>`
-**Brand switching:** `[data-brand="brandName"]` on `<html>`
+```css
+/* ❌ Wrong */
+color: #fff;
+color: var(--pr-neutral-100);
 
-### Implementation Rules
+/* ✅ Right */
+color: var(--sem-text-default);
+```
 
-* **Primitives are private:** Never use `--pr-` tokens directly in components. They exist only to build the semantic layer.
-* **Semantic is the API:** Components should only consume `--sem-` tokens. This ensures automatic adaptation to brand and theme changes.
-* **Derive, don't define:** Before adding a new token, use `oklch()` relative syntax to derive values from existing anchors.
-* **Theme parity is mandatory:** Every semantic token must be defined for light and dark modes from the start.
-* **Component tokens as escape hatches:** Use `--comp-` tokens sparingly for one-off exceptions only.
-* **Layer integrity:** Brands may only populate `--brand-` slots. Overriding `--sem-` or `--pr-` values is prohibited to prevent breaking system logic.
+- Components consume **only `--sem-`** tokens — never `--pr-`, never hardcoded values
+- Before adding a token, try `oklch()` relative syntax to derive from an existing anchor
+- Every new semantic token requires both light and dark definitions
+- Use `--comp-` tokens only as scoped last-resort exceptions
+- Brands populate only `--brand-` slots — overriding `--sem-` or `--pr-` is prohibited
 
-## Design System (`src/components/ui/`)
-Each in its own directory with `Component.tsx`, `Component.module.css`, `Component.test.tsx`.
-New components follow the same 3-file pattern and consume `--sem-` tokens.
+**Theme:** `[data-theme="dark"]` on `<body>` · **Brand:** `[data-brand="brandName"]` on `<html>`
 
-## Routing (`src/constants/routes.ts`)
-Centralized `ROUTES` constants — no magic strings. Pages live in `src/pages/`, sections in `src/components/sections/`.
+## Routing
 
-## Key Hooks (`src/hooks/`)
-`useScrollToSection`, `useActiveSection`, `useRouteScroll`, `useScrollLock`, `useFocusTrap` — prefer these over rolling new scroll/focus logic.
+Use `ROUTES` (and `SECTION_ANCHORS`) from `src/constants/routes.ts` — no magic strings.
 
-## Engineering Principles
-- DRY but not at the expense of clarity — shared logic should be abstracted, but not if it makes the code harder to understand.
-- Components should be flexible but not overly generic — find the right balance between reusability and simplicity.
-- Prioritize semantic HTML and accessibility in all components and pages.
-- Use CSS Modules for component styles, but keep the global token system in `tokens.css`.
+## Hooks
+
+Prefer existing hooks in `src/hooks/` before writing scroll, focus, or nav logic.
+
+## CSS Guardrails (enforced by lint)
+
+- **Breakpoints:** only `421px, 768px, 900px, 1024px` are allowed in media queries
+- **CSS Module class names** in `src/components/ui/` must start with the component name in lowerCamelCase (e.g. `Button.module.css` → all classes start with `button`)
+
+## Engineering Rules
+
+- Semantic HTML and accessibility are non-negotiable
+- CSS Modules for component styles; global tokens stay in `tokens.css`
+- DRY but not at the expense of clarity
 
 ## Testing
-- Unit: Vitest + React Testing Library
-- E2E: Cypress / Playwright / Percy
-- Accessibility: axe-core/playwright
-- Lighthouse CI on PRs
 
-Run all: `npm run check` · Lint: `npm run lint`
+See [TESTING_STRATEGY.md](../TESTING_STRATEGY.md) for the full strategy and tool matrix.
+
+## Commands
+
+- `npm run check` — full build + quality + tests + perf
+- `npm run lint` — ESLint + Stylelint + custom CSS prefix/breakpoint checks
