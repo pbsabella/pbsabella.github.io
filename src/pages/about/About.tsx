@@ -4,13 +4,11 @@ import Grid from '@/components/ui/Grid/Grid';
 import { COMPETENCIES, TECH_STACK } from '@/content/about';
 import styles from './About.module.css';
 import { ABOUT_META } from '@/content/pageMeta';
-import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 
 const About = () => {
   return (
     <section className={styles.pageWrap}>
       <Container className={styles.about}>
-        <Breadcrumbs items={ABOUT_META.breadcrumbs} />
         <h1 className={styles.aboutTitle}>{ABOUT_META.title}</h1>
 
         <div className={styles.aboutLayout}>

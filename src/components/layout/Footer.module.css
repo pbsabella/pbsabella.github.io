@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--sem-color-bg-subtle);
   border-top: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  padding: var(--pr-spacing-16) 0 var(--pr-spacing-4);
+  padding: var(--pr-spacing-16) 0 var(--pr-spacing-6);
 }
 
 .footerInner {

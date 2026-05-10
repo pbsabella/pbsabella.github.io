@@ -3,7 +3,6 @@ import Container from '@/components/layout/Container';
 import Card from '@/components/ui/Card/Card';
 import Grid from '@/components/ui/Grid/Grid';
 import Tag from '@/components/ui/Tag/Tag';
-import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import { LABS_META } from '@/content/pageMeta';
 import { LABS_PROJECTS } from '@/content/labs';
 import styles from './Labs.module.css';
@@ -12,7 +11,6 @@ const Labs = () => {
   return (
     <section className={styles.pageWrap}>
       <Container className={styles.labs}>
-        <Breadcrumbs items={LABS_META.breadcrumbs} />
         <h1 className={styles.labsTitle}>{LABS_META.title}</h1>
         <p className={styles.labsDescription}>{LABS_META.description}</p>
         <hr />
