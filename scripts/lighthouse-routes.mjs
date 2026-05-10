@@ -22,6 +22,7 @@ import { join } from 'node:path';
 const baseUrl = 'http://localhost:4173';
 const routes = [
   { path: '/', name: 'home' },
+  { path: '/about', name: 'about' },
   { path: '/labs', name: 'labs' },
   { path: '/labs/system-core', name: 'system-core' },
   { path: '/labs/design-system-build-notes', name: 'design-system-build-notes' },

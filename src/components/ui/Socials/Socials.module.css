@@ -3,7 +3,8 @@
   padding: 0;
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: var(--pr-spacing-4);
 }
 
 .socialsItem {
@@ -14,4 +15,11 @@
   color: var(--sem-color-text-base);
   font-size: var(--sem-text-body);
   font-weight: var(--pr-weight-500);
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
+}
+
+.socialsIcon {
+  color: var(--sem-color-text-muted);
 }

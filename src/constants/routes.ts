@@ -5,25 +5,10 @@
 
 export const ROUTES = {
   HOME: '/',
+  ABOUT: '/about',
   LABS: '/labs',
   DESIGN_SYSTEM_BUILD_NOTES: '/labs/design-system-build-notes',
   SYSTEM_CORE: '/labs/core',
   YIELD_FLOW_CASE_STUDY: '/labs/yield-flow-case-study',
   THEMING_BUILD_NOTES: '/labs/theming-build-notes',
 } as const;
-
-export const SECTION_ANCHORS = {
-  HERO: 'hero',
-  WORK: 'work',
-  ABOUT: 'about',
-  CONTACT: 'contact',
-} as const;
-
-/**
- * Navigation links for header/sidenav
- */
-export const NAV_LINKS = [
-  { label: 'Work', anchor: SECTION_ANCHORS.WORK },
-  { label: 'About', anchor: SECTION_ANCHORS.ABOUT },
-  { label: 'Contact', anchor: SECTION_ANCHORS.CONTACT },
-] as const;

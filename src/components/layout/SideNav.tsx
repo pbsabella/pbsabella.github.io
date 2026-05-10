@@ -1,9 +1,8 @@
 import { useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
-import { X, MoveLeft } from 'lucide-react';
-import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
-import { useSectionNav } from '@hooks/useSectionNav';
+import { X } from 'lucide-react';
+import { ROUTES } from '@constants/routes';
 import { useFocusTrap } from '@hooks/useFocusTrap';
 import styles from './SideNav.module.css';
 
@@ -14,14 +13,8 @@ interface SideNavProps {
 
 const SideNav = ({ isOpen, onClose }: SideNavProps) => {
   const navRef = useRef<HTMLDivElement>(null);
-  const { getSectionLinkProps } = useSectionNav();
   const { pathname } = useLocation();
-  const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
-  const isLabsRoot = pathname === ROUTES.LABS;
 
-  const workLink = getSectionLinkProps(SECTION_ANCHORS.WORK);
-  const aboutLink = getSectionLinkProps(SECTION_ANCHORS.ABOUT);
-  const contactLink = getSectionLinkProps(SECTION_ANCHORS.CONTACT);
 
   useFocusTrap(navRef, {
     isActive: isOpen,
@@ -56,64 +49,33 @@ const SideNav = ({ isOpen, onClose }: SideNavProps) => {
 
         <nav>
           <ul className={styles.sideMenuList}>
-            {!isLabEnvironment && (
-              <>
-                <li className={styles.sideMenuItem}>
-                  <Link
-                    className={styles.sideMenuLink}
-                    {...workLink}
-                    onClick={() => {
-                      workLink.onClick();
-                      onClose();
-                    }}
-                  >
-                    Work
-                  </Link>
-                </li>
-                <li className={styles.sideMenuItem}>
-                  <Link
-                    className={styles.sideMenuLink}
-                    {...aboutLink}
-                    onClick={() => {
-                      aboutLink.onClick();
-                      onClose();
-                    }}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li className={styles.sideMenuItem}>
-                  <Link
-                    className={styles.sideMenuLink}
-                    {...contactLink}
-                    onClick={() => {
-                      contactLink.onClick();
-                      onClose();
-                    }}
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li className={styles.sideMenuItem}>
-                  <Link className={styles.sideMenuLink} to={ROUTES.LABS} onClick={onClose}>
-                    Labs
-                  </Link>
-                </li>
-              </>
-            )}
-            {isLabEnvironment && (
-              <li className={styles.sideMenuItem}>
-                <Link
-                  className={`${styles.sideMenuLink} ${!isLabsRoot ? styles.sideMenuLinkParent : ''}`}
-                  to={ROUTES.LABS}
-                  onClick={onClose}
-                  aria-current={isLabsRoot ? 'page' : undefined}
-                >
-                  {!isLabsRoot && <MoveLeft size={16} aria-hidden="true" />}
-                  Labs
-                </Link>
-              </li>
-            )}
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={`${styles.sideMenuLink} ${pathname === ROUTES.HOME ? styles.activeLink : ''}`}
+                to={ROUTES.HOME}
+                onClick={onClose}
+              >
+                Work
+              </Link>
+            </li>
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={`${styles.sideMenuLink} ${pathname === ROUTES.ABOUT ? styles.activeLink : ''}`}
+                to={ROUTES.ABOUT}
+                onClick={onClose}
+              >
+                About
+              </Link>
+            </li>
+            <li className={styles.sideMenuItem}>
+              <Link
+                className={`${styles.sideMenuLink} ${pathname === ROUTES.LABS ? styles.activeLink : ''} ${pathname.startsWith(ROUTES.LABS) && !pathname.endsWith(ROUTES.LABS) ? styles.activeParentLink : ''}`}
+                to={ROUTES.LABS}
+                onClick={onClose}
+              >
+                Labs
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

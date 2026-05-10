@@ -22,22 +22,6 @@ describe('Hero', () => {
     ).toBeInTheDocument();
   });
 
-  // it('renders CTA links with expected destinations', () => {
-  //   render(
-  //     <MemoryRouter>
-  //       <Hero />
-  //     </MemoryRouter>
-  //   );
-
-  //   const contactLink = screen.getByRole('link', { name: /contact me/i });
-  //   const contactHref = contactLink.getAttribute('href') ?? '';
-  //   expect(contactHref).toContain(`section=${SECTION_ANCHORS.CONTACT}`);
-
-  //   const labsLink = screen.getByRole('link', { name: /explore labs/i });
-  //   const labsHref = labsLink.getAttribute('href') ?? '';
-  //   expect(labsHref).toContain(ROUTES.LABS);
-  // });
-
   it('renders toolset chips and decorative canvas', () => {
     render(
       <MemoryRouter>

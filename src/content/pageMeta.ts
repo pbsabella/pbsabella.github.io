@@ -1,5 +1,13 @@
 import { ROUTES } from '@constants/routes';
 
+export const ABOUT_META = {
+  title: 'Background & Expertise',
+  breadcrumbs: [
+    { label: 'Home', to: ROUTES.HOME },
+    { label: 'About' },
+  ],
+}
+
 export const LABS_META = {
   title: 'Works & Research',
   description:
