@@ -12,7 +12,7 @@ describe('Portfolio E2E Tests', () => {
 
         // Ensure the main navigation landmark & lazy-loaded home page is present before snapping
         cy.findByRole('navigation', { name: /main menu/i }).should('be.visible');
-        cy.findByRole('heading', { level: 1, name: /Building product interfaces/i }).should('be.visible');
+        cy.findByRole('heading', { level: 1, name: /I build scalable frontend systems that make complex products simple to use./i }).should('be.visible');
         cy.percySnapshot('Homepage', { widths });
       });
     });

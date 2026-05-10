@@ -7,8 +7,8 @@ const Work = () => {
     <FeaturedSection
       id="work"
       introText="work"
-      title="Selected Projects"
-      description="A set of platform and product initiatives where I led implementation, system quality, and interaction consistency from concept through production."
+      title="Selected projects"
+      description="A collection of product and platform initiatives focused on long-term quality. This work covers the full frontend lifecycle, moving from technical strategy to shipping component systems that actually work in production."
       noContainer
     >
       {PROJECTS.map(({ id, ...project }, index) => (

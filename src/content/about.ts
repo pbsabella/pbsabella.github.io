@@ -12,10 +12,10 @@ export const COMPETENCIES = [
 
 export const TECH_STACK = [
   'TypeScript, JavaScript',
-  'Vue.js, Angular',
+  'Vue.js, Angular, React',
   'HTML, CSS, Tailwind',
   'Vite, Webpack',
   'Figma',
   'Unit, Component, End-to-End, and Visual QA',
-  'Testing: Jest, Vitest, Cypress, Percy',
+  'Jest, Vitest, Cypress, Percy, Vue/React Testing Library',
 ] as const;

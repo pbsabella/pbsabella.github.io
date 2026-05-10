@@ -7,7 +7,9 @@ import styles from './Hero.module.css';
 const HERO_TOOLSET = [
   'Design Systems',
   'Frontend Architecture',
+  'Product Delivery',
   'TypeScript',
+  'UI Engineering',
 ];
 
 const Hero = () => {
@@ -23,16 +25,15 @@ const Hero = () => {
               Personal Portfolio
             </Tag>
             <span className={styles.heroRule} aria-hidden="true" /> */}
-            <span className={styles.heroMeta}>Senior Frontend Engineer // Design Systems Engineer</span>
+            <span className={styles.heroMeta}>Senior Frontend Engineer // Design Systems // Product Engineer</span>
           </div>
 
           <h1 id="hero-title" className={styles.heroTitle}>
-            Building product interfaces with system rigor and an eye for pixel-perfect detail.
+            I build scalable frontend systems that make complex products simple to use.
           </h1>
 
           <p className={styles.heroLead}>
-            I build frontend systems for complex products, balancing thoughtful UI craft with
-            practical implementation details.
+            I work on the logic and architecture that keep large-scale applications maintainable. My focus is on state management, internal tooling, and the systems needed to turn complex requirements into reliable product experiences.
           </p>
 
           <ul className={styles.heroToolset} aria-label="Core toolset and expertise">

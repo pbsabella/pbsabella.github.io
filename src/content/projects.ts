@@ -3,8 +3,6 @@ import smNotifications from '@assets/sm-notifications.png';
 import flDsWide from '@assets/fl-ds-wide.png';
 import wireframingTool from '@assets/wireframing-tool-frame.png';
 import animationKnobs from '@assets/animation-knobs.png';
-import yfDashboard from '@assets/yf-dashboard.png';
-import { ROUTES } from '@/constants/routes';
 
 export type ProjectMediaPreset = 'default' | 'inset' | 'notifications' | 'left-crop' | 'zoom-out';
 
@@ -27,29 +25,29 @@ export interface Project {
  * Static portfolio content
  */
 export const PROJECTS: Project[] = [
-  {
-    id: 'yield-flow',
-    image: yfDashboard,
-    imageAlt: 'YieldFlow — High-fidelity financial dashboard interface.',
-    title: 'YieldFlow',
-    company: 'Personal Project',
-    period: 'Feb 2026',
-    position: 'UX Engineer',
-    description: [
-      'Engineered a high-precision investment tracking engine capable of simulating tiered interest rates and monthly cash flow projections for fixed-income assets.',
-    ],
-    tags: [
-      'Next.js',
-      'TypeScript',
-      'Radix UI',
-      'shadcn/ui',
-      'Tailwind CSS',
-      'Financial Modeling',
-    ],
-    mediaPreset: 'default',
-    imageObjectPosition: 'left 11%',
-    link: ROUTES.YIELD_FLOW_CASE_STUDY,
-  },
+  // {
+  //   id: 'yield-flow',
+  //   image: yfDashboard,
+  //   imageAlt: 'YieldFlow — High-fidelity financial dashboard interface.',
+  //   title: 'YieldFlow',
+  //   company: 'Personal Project',
+  //   period: 'Feb 2026',
+  //   position: 'UX Engineer',
+  //   description: [
+  //     'Engineered a high-precision investment tracking engine capable of simulating tiered interest rates and monthly cash flow projections for fixed-income assets.',
+  //   ],
+  //   tags: [
+  //     'Next.js',
+  //     'TypeScript',
+  //     'Radix UI',
+  //     'shadcn/ui',
+  //     'Tailwind CSS',
+  //     'Financial Modeling',
+  //   ],
+  //   mediaPreset: 'default',
+  //   imageObjectPosition: 'left 11%',
+  //   link: ROUTES.YIELD_FLOW_CASE_STUDY,
+  // },
   {
     id: 'siteminder-design-system-patterns',
     image: smDsWide,
@@ -59,7 +57,7 @@ export const PROJECTS: Project[] = [
     // period: 'May 2021 - Jan 2026',
     position: 'Senior Frontend Engineer',
     description: [
-      'Owned the Design System roadmap and lifecycle, driving technical direction for reusable patterns, themed components, and token architecture used across the engineering organization. Scaled platform accessibility to WCAG 2.1 AA through systematic audits and component-level implementation,',
+      'Owned the Design System roadmap and lifecycle, driving technical direction for reusable patterns, themed components, and token architecture. Scaled platform accessibility to WCAG 2.1 AA through systematic audits and component-level implementation.',
     ],
     tags: [
       'Vue.js',
@@ -119,7 +117,7 @@ export const PROJECTS: Project[] = [
     // period: 'July 2015 - May 2021',
     position: 'Software Engineer',
     description: [
-      'Developed a high-fidelity internal tool that allowed product managers to prototype using real code components. This project bridged the gap between design and engineering by rendering live system components with form-based controls.',
+      'Developed a high-fidelity internal tool that allowed product managers to prototype using real code components. This project synchronized design and engineering by rendering live system components with form-based controls.',
     ],
     tags: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Node.js'],
     mediaPreset: 'zoom-out',

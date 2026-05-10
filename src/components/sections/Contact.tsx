@@ -8,11 +8,10 @@ const Contact = () => {
     <FeaturedSection id="contact" introText="contact" title="Get in touch">
       <div className={styles.contactLayout}>
         <p className={styles.contactLead}>
-          Open to Senior Frontend Engineer and Design Systems Engineer roles.
+          I&apos;m currently looking for my next challenge in <strong>Senior Frontend</strong> or <strong>Design Systems Engineering</strong>.
         </p>
         <p className={styles.contactCopy}>
-          If your team needs a hands-on engineer to scale frontend systems and ship reliable product
-          experiences, let&apos;s talk.
+          If your team needs a hands-on lead to scale your frontend architecture and ship reliable, polished product experiences, I&apos;d love to talk.
         </p>
         <div className={styles.contactActions}>
           <Button

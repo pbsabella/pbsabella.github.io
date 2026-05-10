@@ -63,8 +63,8 @@
   display: grid;
   align-content: center;
   gap: var(--pr-spacing-6);
-  padding-top: calc(var(--sem-layout-header-height) + var(--pr-spacing-11));
-  padding-bottom: var(--pr-spacing-11);
+  padding-top: var(--pr-spacing-8);
+  padding-bottom: var(--pr-spacing-16);
 }
 
 .heroBadgeRow {
@@ -91,16 +91,16 @@
 
 .heroTitle {
   font-family: var(--font-display);
-  font-size: clamp(calc(var(--sem-text-heading-lg) * 1.2), 7.8vw, calc(var(--sem-text-heading-lg) * 1.95));
+  font-size: clamp(calc(var(--sem-text-heading-lg) * 1.2), 5.8vw, calc(var(--sem-text-heading-lg) * 1.95));
   line-height: var(--pr-leading-110);
   color: var(--sem-color-text-base);
-  max-width: clamp(16ch, 72vw, 24ch);
+  max-width: clamp(16ch, 22ch, 24ch);
   margin-bottom: var(--pr-spacing-3);
 }
 
 .heroLead {
   margin: 0;
-  max-width: clamp(34ch, 62vw, 52ch);
+  max-width: var(--sem-layout-prose-sm);
   color: var(--sem-color-text-base);
   line-height: var(--pr-leading-180);
   font-size: var(--sem-text-lede);
@@ -126,18 +126,12 @@
   }
 
   .heroInner {
-    padding-top: calc(var(--sem-layout-header-height) + var(--pr-spacing-16));
-    padding-bottom: var(--pr-spacing-16);
+    padding-top: var(--pr-spacing-21);
+    padding-bottom: var(--pr-spacing-21);
   }
 
   .heroRule {
     width: var(--pr-size-160);
-  }
-}
-
-@media (width >= 1024px) {
-  .heroTitle {
-    max-width: 18ch;
   }
 }
 

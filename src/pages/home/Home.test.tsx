@@ -12,7 +12,7 @@ describe('Home', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: /building product interfaces with system rigor/i })
+      screen.getByRole('heading', { name: /I build scalable frontend systems that make complex products simple to use./i })
     ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: /selected projects/i })
