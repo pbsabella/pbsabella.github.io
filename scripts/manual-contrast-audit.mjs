@@ -26,6 +26,7 @@ import { chromium } from 'playwright';
 
 const ROUTES = [
   '/',
+  '/about',
   '/labs',
   '/labs/core',
   '/labs/design-system-build-notes',

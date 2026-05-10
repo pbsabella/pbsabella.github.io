@@ -1,10 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, MoveLeft } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
-import { useSectionNav } from '@hooks/useSectionNav';
-import { useActiveSection } from '@hooks/useActiveSection';
 import BrandThemeToggle from '@components/ui/BrandThemeToggle/BrandThemeToggle';
-import { ROUTES, SECTION_ANCHORS } from '@constants/routes';
+import { ROUTES } from '@constants/routes';
 import styles from './Header.module.css';
 import Container from '@/components/layout/Container';
 
@@ -25,50 +23,30 @@ type DesktopLink = {
 const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
   const { isHidden, isTransparent } = useHeaderScroll();
   const { pathname } = useLocation();
-  const { getSectionLinkProps } = useSectionNav();
 
-  const isLabEnvironment = pathname.startsWith(ROUTES.LABS);
   const isLabsRoot = pathname === ROUTES.LABS;
-  const isHome = pathname === ROUTES.HOME;
 
-  const activeSection = useActiveSection(
-    [
-      SECTION_ANCHORS.HERO,
-      SECTION_ANCHORS.WORK,
-      SECTION_ANCHORS.ABOUT,
-      SECTION_ANCHORS.CONTACT,
-    ],
-    { offsetTop: 80 }
-  );
-
-  const desktopLinks: DesktopLink[] = isLabEnvironment
-    ? [
-      {
-        label: 'Labs',
-        to: ROUTES.LABS,
-        isActive: isLabsRoot,
-        isParentRoute: !isLabsRoot,
-        ariaCurrent: isLabsRoot ? 'page' as const : undefined,
-      },
-    ]
-    : [
-      {
-        label: 'Work',
-        ...getSectionLinkProps(SECTION_ANCHORS.WORK),
-        isActive: isHome && activeSection === SECTION_ANCHORS.WORK,
-      },
-      {
-        label: 'About',
-        ...getSectionLinkProps(SECTION_ANCHORS.ABOUT),
-        isActive: isHome && activeSection === SECTION_ANCHORS.ABOUT,
-      },
-      {
-        label: 'Contact',
-        ...getSectionLinkProps(SECTION_ANCHORS.CONTACT),
-        isActive: isHome && activeSection === SECTION_ANCHORS.CONTACT,
-      },
-      { label: 'Labs', to: ROUTES.LABS, isActive: false },
-    ];
+  const desktopLinks: DesktopLink[] = [
+    {
+      label: 'Work',
+      to: ROUTES.HOME,
+      isActive: pathname === ROUTES.HOME,
+      ariaCurrent: pathname === ROUTES.HOME ? 'page' : undefined,
+    },
+    {
+      label: 'About',
+      to: ROUTES.ABOUT,
+      isActive: pathname === ROUTES.ABOUT,
+      ariaCurrent: pathname === ROUTES.ABOUT ? 'page' as const : undefined,
+    },
+    {
+      label: 'Labs',
+      to: ROUTES.LABS,
+      isActive: pathname === ROUTES.LABS,
+      ariaCurrent: pathname === ROUTES.LABS ? 'page' as const : undefined,
+      isParentRoute: pathname.startsWith(ROUTES.LABS) && !isLabsRoot,
+    },
+  ];
 
   const headerClassName = [
     styles.header,
@@ -113,7 +91,6 @@ const Header = ({ toggleSideNav, isSideNavOpen }: HeaderProps) => {
                   aria-current={link.ariaCurrent ?? (link.isActive ? 'location' : undefined)}
                   onClick={link.onClick}
                 >
-                  {link.isParentRoute && <MoveLeft size={16} aria-hidden="true" />}
                   {link.label}
                 </Link>
               </li>

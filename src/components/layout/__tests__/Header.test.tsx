@@ -9,16 +9,6 @@ vi.mock('@hooks/useHeaderScroll', () => ({
   useHeaderScroll: vi.fn(() => ({ isHidden: false, isTransparent: false })),
 }));
 
-vi.mock('@hooks/useSectionNav', () => ({
-  useSectionNav: vi.fn(() => ({
-    getSectionLinkProps: vi.fn(() => ({ to: '/', onClick: vi.fn() })),
-  })),
-}));
-
-vi.mock('@hooks/useActiveSection', () => ({
-  useActiveSection: vi.fn(() => null),
-}));
-
 vi.mock('@components/ui/BrandThemeToggle/BrandThemeToggle', () => ({
   default: ({ id }: { id: string }) => <div data-testid={`theme-toggle-${id}`} />,
 }));
@@ -53,7 +43,6 @@ describe('Header', () => {
     expect(screen.getByRole('link', { name: /labs/i, hidden: true })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /work/i, hidden: true })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /about/i, hidden: true })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /contact/i, hidden: true })).toBeInTheDocument();
   });
 
   it('renders the brand logo in the lab environment', () => {
@@ -64,7 +53,6 @@ describe('Header', () => {
     expect(screen.queryByRole('link', { name: /home/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /work/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /about/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole('link', { name: /contact/i })).not.toBeInTheDocument();
   });
 
   it('renders the brand logo on a deep system core page', () => {

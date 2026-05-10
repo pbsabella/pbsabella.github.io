@@ -17,11 +17,5 @@ describe('Home', () => {
     expect(
       screen.getByRole('heading', { name: /selected projects/i })
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /background and expertise/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /get in touch/i })
-    ).toBeInTheDocument();
   });
 });

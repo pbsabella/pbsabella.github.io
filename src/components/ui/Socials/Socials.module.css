@@ -4,6 +4,7 @@
   margin: 0;
   display: flex;
   align-items: center;
+  gap: var(--pr-spacing-4);
 }
 
 .socialsItem {
@@ -12,6 +13,13 @@
 
 .socialsLink {
   color: var(--sem-color-text-base);
-  font-size: var(--sem-text-body);
   font-weight: var(--pr-weight-500);
+  display: flex;
+  align-items: center;
+  gap: var(--pr-spacing-1);
+}
+
+.socialsIcon {
+  color: var(--sem-color-text-muted);
+  margin-bottom: 2px;
 }

@@ -1,12 +1,37 @@
 .footer {
-  background-color: var(--sem-color-bg-canvas);
+  background-color: var(--sem-color-bg-subtle);
   border-top: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  padding: var(--pr-spacing-3);
-  text-align: center;
+  padding: var(--pr-spacing-11) 0 var(--pr-spacing-6);
 }
 
-.footerCopyright {
+.footerInner {
+  display: grid;
+  gap: var(--pr-spacing-4);
+}
+
+.footerIntro {
+  gap: var(--pr-spacing-4);
+  max-width: var(--sem-layout-prose-sm);
+}
+
+.footerSocials {
+  display: flex;
+}
+
+.footerLead {
+  color: var(--sem-color-text-muted);
+}
+
+.footerAccent {
+  color: var(--sem-color-accent-strong);
+}
+
+.footerInfo {
   font-size: var(--sem-text-caption);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pr-spacing-2);
   padding: var(--pr-spacing-2) 0;
-  text-align: center;
+  flex-wrap: wrap;
 }

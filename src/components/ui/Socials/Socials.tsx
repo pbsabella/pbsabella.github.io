@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react';
 import styles from './Socials.module.css';
+import { FileUser, Globe, Mail } from 'lucide-react';
 
 /**
  * Socials Component
@@ -24,13 +25,29 @@ const Socials = ({ ...props }: Omit<HTMLAttributes<HTMLUListElement>, 'className
       <li className={styles.socialsItem}>
         <a
           className={`${styles.socialsLink} link`}
+          href="mailto:pau.abella@gmail.com"
+          aria-label="Email (opens in default email client)"
+        >
+          <Mail className={styles.socialsIcon} size={16} aria-hidden="true" /> Email
+        </a>
+      </li>
+
+      <li className={styles.socialsItem}>
+        <a
+          className={`${styles.socialsLink} link`}
           href="https://www.linkedin.com/in/pbsabella/"
           rel="noopener noreferrer"
           target="_blank"
           aria-label="LinkedIn (opens in a new tab)"
         >
-          LinkedIn
+          <FileUser className={styles.socialsIcon} size={16} aria-hidden="true" /> LinkedIn
         </a>
+      </li>
+
+      <li className={styles.socialsItem}>
+        <span className={`${styles.socialsLink}`}>
+          <Globe className={styles.socialsIcon} size={16} aria-hidden="true" /> Manila, PH
+        </span>
       </li>
     </ul>
   );

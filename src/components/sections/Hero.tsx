@@ -1,4 +1,3 @@
-// import { useSectionNav } from '@hooks/useSectionNav';
 import Tag from '@components/ui/Tag/Tag';
 import Container from '@components/layout/Container';
 import HeroCanvas from '@/components/sections/HeroCanvas';
@@ -13,8 +12,6 @@ const HERO_TOOLSET = [
 ];
 
 const Hero = () => {
-  // const { getSectionLinkProps } = useSectionNav();
-
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroSurface}>
@@ -48,19 +45,6 @@ const Hero = () => {
               </Tag>
             </li>
           </ul>
-
-          {/* <div className={styles.heroActions}>
-            <Button
-              as={Link}
-              {...getSectionLinkProps(SECTION_ANCHORS.CONTACT)}
-            >
-              Contact me
-            </Button>
-
-            <Button as={Link} to={ROUTES.LABS} variant="secondary">
-              Explore labs
-            </Button>
-          </div> */}
         </Container>
       </div>
     </section>

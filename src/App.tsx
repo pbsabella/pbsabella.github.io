@@ -10,6 +10,7 @@ import { ROUTES } from '@constants/routes';
 // Vite creates one output file per dynamic import; the browser fetches it only on first navigation.
 const Home = lazy(() => import('@pages/home/Home'));
 const Labs = lazy(() => import('@pages/labs/Labs'));
+const About = lazy(() => import('@pages/about/About'));
 const SystemCore = lazy(() => import('@pages/system-core/SystemCore'));
 const DesignSystemBuildNotes = lazy(() => import('@pages/design-system-build-notes/DesignSystemBuildNotes'));
 const YieldFlowCaseStudy = lazy(() => import('@pages/yield-flow-case-study/YieldFlowCaseStudy'));
@@ -25,6 +26,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.LABS} element={<Labs />} />
+        <Route path={ROUTES.ABOUT} element={<About />} />
         <Route path={ROUTES.DESIGN_SYSTEM_BUILD_NOTES} element={<DesignSystemBuildNotes />} />
         <Route path={ROUTES.SYSTEM_CORE} element={<SystemCore />} />
         <Route path={ROUTES.YIELD_FLOW_CASE_STUDY} element={<YieldFlowCaseStudy />} />

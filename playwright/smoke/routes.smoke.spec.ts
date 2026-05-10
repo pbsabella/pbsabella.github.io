@@ -15,6 +15,7 @@ const BRANDS: Brand[] = ['portfolio', 'fintech', 'saas', 'editorial', 'neon'];
 
 const ROUTES = [
   { name: 'home', path: '/' },
+  { name: 'about', path: '/about' },
   { name: 'labs', path: '/labs' },
   { name: 'system core', path: '/labs/core' },
   { name: 'design system build notes', path: '/labs/design-system-build-notes' },
