@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--sem-color-bg-subtle);
   border-top: var(--pr-border-width-1) solid var(--sem-color-border-base);
-  padding: var(--pr-spacing-16) 0 var(--pr-spacing-6);
+  padding: var(--pr-spacing-11) 0 var(--pr-spacing-6);
 }
 
 .footerInner {
@@ -14,7 +14,10 @@
   max-width: var(--sem-layout-prose-sm);
 }
 
-.footerLocation,
+.footerSocials {
+  display: flex;
+}
+
 .footerLead {
   color: var(--sem-color-text-muted);
 }
@@ -23,21 +26,12 @@
   color: var(--sem-color-accent-strong);
 }
 
-.footerLocation {
-  display: flex;
-  gap: var(--pr-spacing-1);
-  align-items: center;
-
-  svg {
-    margin-bottom: 2px;
-  }
-}
-
 .footerInfo {
   font-size: var(--sem-text-caption);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: var(--pr-spacing-2);
-  padding: var(--pr-spacing-4) 0;
-  text-align: center;
+  padding: var(--pr-spacing-2) 0;
+  flex-wrap: wrap;
 }

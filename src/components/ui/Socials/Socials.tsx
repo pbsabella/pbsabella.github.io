@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 import styles from './Socials.module.css';
-import { FileUser, Mail } from 'lucide-react';
+import { FileUser, Globe, Mail } from 'lucide-react';
 
 /**
  * Socials Component
@@ -42,6 +42,12 @@ const Socials = ({ ...props }: Omit<HTMLAttributes<HTMLUListElement>, 'className
         >
           <FileUser className={styles.socialsIcon} size={16} aria-hidden="true" /> LinkedIn
         </a>
+      </li>
+
+      <li className={styles.socialsItem}>
+        <span className={`${styles.socialsLink}`}>
+          <Globe className={styles.socialsIcon} size={16} aria-hidden="true" /> Manila, PH
+        </span>
       </li>
     </ul>
   );

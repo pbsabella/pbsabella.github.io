@@ -1,4 +1,3 @@
-import { Globe } from 'lucide-react';
 import Socials from '@/components/ui/Socials/Socials';
 import Tag from '@components/ui/Tag/Tag';
 import Container from '@/components/layout/Container';
@@ -23,17 +22,13 @@ const Footer = () => {
               Currently looking for Senior Frontend or Design Systems roles where I can scale architecture and ship polished products.
             </p>
           </div>
-          <Socials />
         </div>
 
         <div className={styles.footerInfo}>
+          <Socials />
           <span className={styles.footerCopyright}>
             &copy; {new Date().getFullYear()} <b>pbsabella</b>.
           </span>
-
-          <div className={styles.footerLocation}>
-            <Globe size={14} /> Manila, PH
-          </div>
         </div>
       </Container>
     </footer>
