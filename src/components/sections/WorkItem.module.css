@@ -113,7 +113,7 @@
 }
 
 .workItemBody {
-  padding: var(--pr-spacing-4) var(--pr-spacing-4) var(--pr-spacing-6);
+  padding: var(--pr-spacing-8) var(--pr-spacing-4);
 }
 
 .workItemTitle {
@@ -160,6 +160,10 @@
 }
 
 @media (width >= 900px) {
+  .workItem {
+    padding-block: var(--pr-spacing-16);
+  }
+
   .workItemPanel {
     grid-template-columns: minmax(0, 52%) minmax(0, 1fr);
     grid-template-areas: 'media body';
@@ -175,7 +179,7 @@
   .workItemBody {
     grid-area: body;
     border-left: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
-    padding: var(--pr-spacing-6);
+    padding: var(--pr-spacing-11) var(--pr-spacing-6);
   }
 
   .workItemPanelMediaRight {
@@ -186,7 +190,6 @@
   .workItemPanelMediaRight .workItemBody {
     border-left: 0;
     border-right: var(--pr-border-width-1) solid var(--sem-color-border-subtle);
-    padding: var(--pr-spacing-6);
   }
 
   .workItemMediaInset {

@@ -9,18 +9,17 @@ const About = () => {
     <FeaturedSection id="about" introText="about" title="Background and expertise">
       <div className={styles.aboutLayout}>
         <p className={styles.aboutBio}>
-          I am a Senior Frontend Engineer with over a decade of experience in
-          <strong> Frontend Architecture</strong>, <strong> Design System governance</strong>, and
-          <strong> product engineering</strong>. My focus is on building scalable, high-performance
-          systems and component libraries that drive platform-wide consistency and maximize developer
-          velocity.
+          I spend my time building the systems that help teams ship better products. My work focuses on creating component libraries and frontend architectures that remain maintainable as they grow.
+        </p>
+        <p className={styles.aboutBio}>
+          I thrive on the technical details of design systems and making complex products feel simple for the people using them.
         </p>
       </div>
 
       <Grid colsSm={2}>
         <Card>
           <div role="region" aria-labelledby="about-competencies-title">
-            <h4 id="about-competencies-title" className={styles.skillsTitle}>Core Competencies</h4>
+            <h4 id="about-competencies-title" className={styles.skillsTitle}>Core competencies</h4>
             <ul>
               {COMPETENCIES.map((skill) => (
                 <li key={skill} className={styles.skillsItem}>{skill}</li>
@@ -31,7 +30,7 @@ const About = () => {
 
         <Card>
           <div role="region" aria-labelledby="about-tech-stack-title">
-            <h4 id="about-tech-stack-title" className={styles.skillsTitle}>Tech Stack</h4>
+            <h4 id="about-tech-stack-title" className={styles.skillsTitle}>Tech stack</h4>
             <ul>
               {TECH_STACK.map((skill) => (
                 <li key={skill} className={styles.skillsItem}>{skill}</li>

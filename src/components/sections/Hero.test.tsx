@@ -17,11 +17,8 @@ describe('Hero', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: /building product interfaces with system rigor and an eye for pixel-perfect detail/i
+        name: /I build scalable frontend systems that make complex products simple to use./i
       })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/i build frontend systems for complex products/i)
     ).toBeInTheDocument();
   });
 
