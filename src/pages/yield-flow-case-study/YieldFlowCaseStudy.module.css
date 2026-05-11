@@ -41,7 +41,7 @@
   color: var(--sem-color-text-muted);
   text-transform: uppercase;
   letter-spacing: var(--pr-tracking-12);
-  margin-bottom: var(--pr-spacing-2);
+  margin-bottom: var(--pr-spacing-4);
   margin-top: 0;
 }
 

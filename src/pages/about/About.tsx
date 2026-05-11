@@ -31,7 +31,7 @@ const About = () => {
             iconPlacement="top"
             align="start"
             size="sm"
-            iconColor="dark"
+            iconColor="primary"
             items={COMPETENCIES}
           />
         </div>
@@ -45,7 +45,7 @@ const About = () => {
             iconPlacement="top"
             align="start"
             size="sm"
-            iconColor="dark"
+            iconColor="primary"
             items={TECH_STACK}
           />
         </div>

@@ -7,7 +7,7 @@ import {
   Sparkles,
   Component,
   SquareMousePointer,
-  PersonStanding,
+  Accessibility,
 } from 'lucide-react';
 import Container from '@/components/layout/Container';
 import TableOfContents from '@/components/ui/TableOfContents/TableOfContents';
@@ -35,7 +35,7 @@ const SystemCore = () => {
     { key: 'motion', element: <MotionSection icon={<Sparkles size={24} />} />, dividerAfter: false },
     { key: 'interactive', element: <InteractiveStatesSection icon={<SquareMousePointer size={24} />} />, dividerAfter: true },
     { key: 'components', element: <ComponentsSection icon={<Component size={24} />} />, dividerAfter: true },
-    { key: 'accessibility', element: <AccessibilitySection icon={<PersonStanding size={24} />} />, dividerAfter: false },
+    { key: 'accessibility', element: <AccessibilitySection icon={<Accessibility size={24} />} />, dividerAfter: false },
   ];
 
   return (
