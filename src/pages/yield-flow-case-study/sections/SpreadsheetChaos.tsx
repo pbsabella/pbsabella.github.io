@@ -39,53 +39,52 @@ const SpreadsheetChaos = () => (
         <tbody>
           <tr className={styles.spreadsheetRowActive}>
             <td className={styles.rowHeader}>2</td>
-            <td>Digital TD #402</td>
-            <td>₱250,000.00</td>
+            <td>NeoBank 90-Day CD</td>
+            <td>$5,000.00</td>
             <td>6.50%</td>
             <td>Jan 12, 2025</td>
             <td>90 Days</td>
             <td>Apr 12, 2025</td>
-            <td>₱4,062.50</td>
-            <td>₱3,250.00</td>
+            <td>$81.25</td>
+            <td>$65.00</td>
             <td>Active</td>
           </tr>
           <tr className={styles.spreadsheetRowMatured}>
             <td className={styles.rowHeader}>3</td>
-            <td>High-Yield #12</td>
-            <td>₱180,000.00</td>
+            <td>Horizon Bond B</td>
+            <td>$3,600.00</td>
             <td>5.75%</td>
             <td>Dec 05, 2024</td>
             <td>30 Days</td>
             <td>Jan 04, 2025</td>
-            <td>₱862.50</td>
-            <td>₱690.00</td>
+            <td>$17.25</td>
+            <td>$13.80</td>
             <td>Matured</td>
           </tr>
           <tr className={styles.spreadsheetRowPending}>
             <td className={styles.rowHeader}>4</td>
-            <td>Special Promo A</td>
-            <td>₱500,000.00</td>
+            <td>Alpha High-Yield</td>
+            <td>$10,000.00</td>
             <td>7.00%</td>
             <td>Feb 01, 2025</td>
             <td>180 Days</td>
             <td>Jul 31, 2025</td>
-            <td>₱17,500.00</td>
-            <td>₱14,000.00</td>
+            <td>$350.00</td>
+            <td>$280.00</td>
             <td>Pending</td>
           </tr>
           <tr>
             <td className={styles.rowHeader}>5</td>
-            <td>Reserve #02</td>
-            <td>₱50,000.00</td>
+            <td>Vault Reserve #02</td>
+            <td>$1,000.00</td>
             <td>4.50%</td>
             <td>Feb 15, 2025</td>
             <td>30 Days</td>
             <td>Mar 17, 2025</td>
-            <td>₱187.50</td>
-            <td>₱150.00</td>
+            <td>$3.75</td>
+            <td>$3.00</td>
             <td>Active</td>
           </tr>
-          {/* Empty rows to simulate spreadsheet */}
           {[6, 7, 8].map(i => (
             <tr key={i}>
               <td className={styles.rowHeader}>{i}</td>
@@ -114,22 +113,22 @@ const SpreadsheetChaos = () => (
           <tr>
             <td className={styles.rowHeader}>2</td>
             <td>January</td>
-            <td className={styles.cellActive}>₱690.00</td>
+            <td className={styles.cellActive}>$13.80</td>
           </tr>
           <tr>
             <td className={styles.rowHeader}>3</td>
             <td>February</td>
-            <td>₱0.00</td>
+            <td>$0.00</td>
           </tr>
           <tr>
             <td className={styles.rowHeader}>4</td>
             <td>March</td>
-            <td>₱150.00</td>
+            <td>$3.00</td>
           </tr>
           <tr>
             <td className={styles.rowHeader}>5</td>
             <td>April</td>
-            <td>₱3,250.00</td>
+            <td>$65.00</td>
           </tr>
         </tbody>
       </table>
@@ -137,7 +136,7 @@ const SpreadsheetChaos = () => (
     <div className={styles.spreadsheetTabs}>
       <div className={styles.spreadsheetTab}>Sheet1</div>
       <div className={`${styles.spreadsheetTab} ${styles.spreadsheetTabInactive}`}>Drafts</div>
-      <div className={`${styles.spreadsheetTab} ${styles.spreadsheetTabInactive}`}>Old_Rates</div>
+      <div className={`${styles.spreadsheetTab} ${styles.spreadsheetTabInactive}`}>Historical</div>
     </div>
   </div>
 );
