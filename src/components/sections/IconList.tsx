@@ -15,10 +15,25 @@ interface IconListProps {
   className?: string;
   align?: 'start' | 'center' | 'stretch';
   size?: 'sm' | 'md';
-  iconColor?: 'default' | 'dark';
+  iconColor?: 'primary' | 'secondary' | 'muted' | 'dark';
 }
 
-const IconList = ({ items, variant, iconPlacement, align, size, className, iconColor }: IconListProps) => {
+const IconList = ({
+  items,
+  variant = 'list',
+  iconPlacement = 'left',
+  align,
+  size,
+  className,
+  iconColor = 'secondary',
+}: IconListProps) => {
+  const colorClasses: Record<string, string> = {
+    primary: styles.colorPrimary,
+    secondary: styles.colorSecondary,
+    muted: styles.colorMuted,
+    dark: styles.colorDark,
+  };
+
   return (
     <Grid
       as="ul"
@@ -28,13 +43,24 @@ const IconList = ({ items, variant, iconPlacement, align, size, className, iconC
       align={align}
     >
       {items.map((item, index) => (
-        <li key={index} className={`${styles.item} ${iconPlacement === 'top' ? styles.iconTop : styles.iconLeft}`}>
-          <span className={`${styles.icon} ${iconColor === 'dark' ? styles.iconDark : ''}`} aria-hidden="true">
+        <li
+          key={index}
+          className={`${styles.item} ${iconPlacement === 'top' ? styles.isTop : ''}`}
+        >
+          <span
+            className={`${styles.iconWrapper} ${colorClasses[iconColor]}`}
+            aria-hidden="true"
+          >
             {item.icon}
           </span>
-          <div className={styles.body}>
+
+          <div className={styles.content}>
             {item.title && <strong>{item.title}</strong>}
-            {item.description && <p className={size === 'sm' ? styles.sizeSm : ''}>{item.description}</p>}
+            {item.description && (
+              <p className={`${styles.description} ${size === 'sm' ? styles.isSmall : ''}`}>
+                {item.description}
+              </p>
+            )}
           </div>
         </li>
       ))}
