@@ -152,8 +152,8 @@ export const DecisionsSection = () => (
         items={[
           {
             icon: <MousePointerBan size={24} />,
-            title: "No tooltips.",
-            description: "Tooltips are invisible to screen readers and difficult on mobile. I replaced them with permanent, inline helper text. Visible is accessible.",
+            title: "Minimal tooltips.",
+            description: "Tooltips are invisible to screen readers and difficult to use on mobile devices. I opted for permanent, inline helper text in form fields instead. Visible is accessible.",
           },
           {
             icon: <Layout size={24} />,

@@ -24,12 +24,21 @@ export const BrandProvider = ({ children }: BrandProviderProps) => {
   const [brand, setBrandState] = useState<Brand>('portfolio');
 
   useEffect(() => {
-    if (brand === 'portfolio') {
-      document.documentElement.removeAttribute('data-brand');
-    } else {
-      document.documentElement.setAttribute('data-brand', brand);
-      brandLoaders[brand]?.();
-    }
+    let cancelled = false;
+
+    const apply = async () => {
+      if (brand === 'portfolio') {
+        document.documentElement.removeAttribute('data-brand');
+      } else {
+        await brandLoaders[brand]?.();
+        if (!cancelled) {
+          document.documentElement.setAttribute('data-brand', brand);
+        }
+      }
+    };
+
+    apply();
+    return () => { cancelled = true; };
   }, [brand]);
 
   const setBrand = (next: Brand) => setBrandState(next);
